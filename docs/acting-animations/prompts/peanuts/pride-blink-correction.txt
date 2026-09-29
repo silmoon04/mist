@@ -1,0 +1,15 @@
+Use case: precise-object-edit. Correct the blink drawing in this 12-frame, 4-column by3-row MIST animation sheet. Keep same minimal cyan-dot identity, transparent background, tiny modest smile, all other poses, same cell layout and scale, and same central feature positions.
+Correction: the HALF-CLOSED eyes must actually be partially covered; an eyebrow-like curved line FLOATING ABOVE A FULL DOT is incorrect. Draw a small cyan semicircle, whose upper edge IS the curved eyelid, no disconnected eyebrow line. For each eye make one contiguous shape only until fully closed. Thus:
+Cell row1col1 remains ordinary small open round dot eyes.
+row1col2: lid covers top20percent of each cyan dot, one attached curved top edge, NO floating eyebrow.
+row1col3: lid covers top65percent, each eye a narrow crescent, distinct from full closure.
+row1col4: fully closed happy arch-shaped thin lid strokes, zero dot visible.
+row2col1: opening eye with each dot top45percent covered, single contiguous rounded eye shape.
+row2col2: open ordinary dot eyes.
+row2col3: upper lids just barely cover top10percent, no added separate eyebrow.
+row2col4: eyes soften with top15percent covered and slightly warmer small smile.
+row3col1: top10percent covered and gentle pleased smile.
+row3col2: top5percent covered, mouth relaxing.
+row3col3: plain dot eyes with small smile.
+row3col4: near exact row1col1 dot-eye and modest smile geometry to smoothly loop.
+CRUCIAL: only opaque flat cyan ink shapes on a genuinely transparent canvas. Transparent everywhere outside the actual eye/mouth strokes including holes. NO fog, NO glow, NO background, NO drop shadow, no gridlines, no text, no extra eyebrow lines. Do not change the original dot-eye identity into giant eyes. Minimal flat drawn facial marks.

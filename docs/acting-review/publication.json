@@ -13,8 +13,8 @@
       "sha256": "9d88a06f925b654027cce5ee6904587c64879b0648578b6d22ce5b04337dde70"
     },
     "index.html": {
-      "bytes": 3000,
-      "sha256": "743be826a50ba553f5309225705eb76b7489100ae1ff26d2f8256aac9f4aa7bf"
+      "bytes": 3052,
+      "sha256": "0d8acd9be390d0f51c31ffa96b611efaa2d19b44d4d1092786d4c55e25235965"
     },
     "manifest.json": {
       "bytes": 28800,
@@ -303,7 +303,7 @@
   },
   "archive": {
     "file": "MIST_acting_studies_v1.zip",
-    "sha256": "8591b9b47661c2d081277f7e13d5c0bba4862aa90f128006e958bf68b6928758",
-    "bytes": 17156110
+    "sha256": "826fc00244df5265c73014a2456643692eb3e30b5ffcde4c99e7c6c68b9d9d56",
+    "bytes": 17156136
   }
 }

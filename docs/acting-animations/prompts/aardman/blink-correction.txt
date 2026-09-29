@@ -1,0 +1,8 @@
+Precise edit target: the attached 1536×1024 transparent PNG animation sprite sheet. It is a 4-column, 3-row sheet of 12 chronological face frames numbered implicitly0..11; no labels are present and none should be added.
+FIX ONLY BLINK EYE CONTOURS in frame1(row1column2), frame2(row1column3), and frame4(row2column1). All other frames, all mouths, each face position, 4×3 grid registration, cyan color, eye identity, and genuine alpha transparency must remain unchanged. Disregard RGB ghost colors behind alpha: output must retain original transparent alpha background and transparent eye holes, no glow/no background.
+Natural upper-lid blink: as the upper eyelid descends, the ENTIRE TOP OUTSIDE CONTOUR of the cyan eye must descend toward the fixed lower curved rim. The top portion of the round cyan eye must literally become transparent empty space. Do not simply draw a cyan line inside an unchanged round cyan outer silhouette or shrink the black aperture. The physical visible eye itself becomes a cropped crescent.
+Frame1: upper outer edge about25% lower than the open eye top, slight still-curved upper lid; transparent space above it.
+Frame2: upper outer edge lowered about65%, making a short narrow open crescent with a small transparent aperture, bottom eye rim remains in original position; genuinely narrow outer silhouette.
+Frame3 already fully shut is correct; keep it.
+Frame4: halfway reopening, outer upper contour at45% down from open top with a natural curved lid; transparent space above it.
+Frame0,5..11 must remain unmodified. No rotation, no squashing, no lowering the whole eye, no shifting the mouth. Retain exactly12 cells and original canvas proportions.

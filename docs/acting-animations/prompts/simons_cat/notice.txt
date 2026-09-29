@@ -1,0 +1,15 @@
+Use case: illustration-story. Asset type: production 2D facial animation sprite sheet for MIST, cyan hand-drawn animated face. The three input images are visual references for the SAME character and expression; they are not a triptych to copy. Create 12 new carefully in-betweened drawings, not repeated key poses. Output a landscape 1536 by 1024 PNG with genuine transparent alpha background. EXACTLY 4 equally spaced columns by 3 equally spaced rows, read left to right then down. Exactly twelve faces, no other marks. No labels, text, numbers, cell borders, screen, phone, glow background, shadows, props, checkerboard, paper or black rectangles. Transparency also inside the ring-shaped eyes except pupils.
+
+REGISTRATION: virtual cells 384 by 341.333. Every face has the same baseline, scale and position. Left eye center at x31%, right eye center x69%, each at y42% within its cell. Eye outer diameter about 23% of cell width. Mouth center x50%, y70%, width 15%. Keep all drawing inside central 65% of cell width and height. Keep a large transparent vertical gap between left and right eye, and a clear horizontal gap between eye bottoms and mouth. Eyes are separate independent features. Match the reference's cyan mildly irregular hand-drawn ring eyes and tiny cyan dot pupils, smooth thick rounded strokes. No extra eyebrows, cheeks, nose, face outline. Mouth a closed rounded line in every frame, with subtle emotion-appropriate curvature. Neither body nor whole face moves or rotates. Eyelids are actually drawn arcs covering the eyes in a natural blink: the outline changes organically, the dot pupils vanish behind the closed lids. Do NOT rotate or merely scale a whole open eye. Frame 3 must have BOTH eyes fully shut, simple gently curved cyan eyelid arcs at the original eye centers, with absolutely no pupil or circular outline remaining.
+
+FRAME SEQUENCE, exactly 12 distinct drawings at 15 fps:
+0 reference character at rest
+1 gently lower upper lids beginning blink
+2 half closed lids and pupils partially occluded
+3 both eyes completely shut, natural relaxed arcs
+4 lids opening with pupil partially revealed
+5 both eyes fully open again
+6-8 three distinct gradual drawings of the specific acting beat below
+9-11 three distinct gradual drawings easing BACK toward the frame0 rest, so the 11-to-0 loop joins smoothly. Keep registration fixed and pupil travel smoothly spaced. A polished expressive animation, NOT a pose comparison board.
+
+ACTING BEAT: "Spots something interesting". Frame0 is alert but calm, two round rings and central pupils, horizontal closed mouth. After the blink, frames6-8 shift BOTH pupils TOGETHER toward screen right with the same directional offset, peaking in8. Right eye subtly opens a little wider in curiosity while still centered, left remains round; do not turn pupils inward toward one another. Frames9-11 eyes and gaze ease back to the original straight-ahead calm alertness. Keep the mouth quiet and closed, a level cyan dash with barely perceptible tension. No smile, no speech mouth.

@@ -1,0 +1,1724 @@
+{
+  "schema": "mist-layered-transitions",
+  "version": 2,
+  "fps": 15,
+  "frameCount": 12,
+  "manifestSha256": "63c172196ea3ccccf14d512a01682ec99b774f7ff323bce7338b42f95575436b",
+  "description": "Generated source closing frames and target opening frames; mouth blending is independent. Frame indices are zero-based.",
+  "templates": {
+    "blink-handoff": [
+      {
+        "index": 0,
+        "phase": "source",
+        "eyes": {
+          "side": "source",
+          "frame": 0
+        },
+        "sourceFrame": 0,
+        "targetFrame": null,
+        "mouth": {
+          "sourceFrame": 0,
+          "targetFrame": 0,
+          "targetWeight": 0
+        }
+      },
+      {
+        "index": 1,
+        "phase": "closing",
+        "eyes": {
+          "side": "source",
+          "frame": 1
+        },
+        "sourceFrame": 1,
+        "targetFrame": null,
+        "mouth": {
+          "sourceFrame": 0,
+          "targetFrame": 0,
+          "targetWeight": 0
+        }
+      },
+      {
+        "index": 2,
+        "phase": "closing",
+        "eyes": {
+          "side": "source",
+          "frame": 2
+        },
+        "sourceFrame": 2,
+        "targetFrame": null,
+        "mouth": {
+          "sourceFrame": 0,
+          "targetFrame": 0,
+          "targetWeight": 0
+        }
+      },
+      {
+        "index": 3,
+        "phase": "closed-source",
+        "eyes": {
+          "side": "source",
+          "frame": 3
+        },
+        "sourceFrame": 3,
+        "targetFrame": null,
+        "mouth": {
+          "sourceFrame": 0,
+          "targetFrame": 0,
+          "targetWeight": 0
+        }
+      },
+      {
+        "index": 4,
+        "phase": "closed-source",
+        "eyes": {
+          "side": "source",
+          "frame": 3
+        },
+        "sourceFrame": 3,
+        "targetFrame": null,
+        "mouth": {
+          "sourceFrame": 0,
+          "targetFrame": 0,
+          "targetWeight": 0.15625
+        }
+      },
+      {
+        "index": 5,
+        "phase": "closed-handoff",
+        "eyes": {
+          "side": "target",
+          "frame": 3
+        },
+        "sourceFrame": null,
+        "targetFrame": 3,
+        "mouth": {
+          "sourceFrame": 0,
+          "targetFrame": 0,
+          "targetWeight": 0.5
+        }
+      },
+      {
+        "index": 6,
+        "phase": "opening",
+        "eyes": {
+          "side": "target",
+          "frame": 4
+        },
+        "sourceFrame": null,
+        "targetFrame": 4,
+        "mouth": {
+          "sourceFrame": 0,
+          "targetFrame": 0,
+          "targetWeight": 0.84375
+        }
+      },
+      {
+        "index": 7,
+        "phase": "opening",
+        "eyes": {
+          "side": "target",
+          "frame": 4
+        },
+        "sourceFrame": null,
+        "targetFrame": 4,
+        "mouth": {
+          "sourceFrame": 0,
+          "targetFrame": 0,
+          "targetWeight": 1
+        }
+      },
+      {
+        "index": 8,
+        "phase": "opening",
+        "eyes": {
+          "side": "target",
+          "frame": 5
+        },
+        "sourceFrame": null,
+        "targetFrame": 5,
+        "mouth": {
+          "sourceFrame": 0,
+          "targetFrame": 0,
+          "targetWeight": 1
+        }
+      },
+      {
+        "index": 9,
+        "phase": "settling",
+        "eyes": {
+          "side": "target",
+          "frame": 11
+        },
+        "sourceFrame": null,
+        "targetFrame": 11,
+        "mouth": {
+          "sourceFrame": 0,
+          "targetFrame": 0,
+          "targetWeight": 1
+        }
+      },
+      {
+        "index": 10,
+        "phase": "target",
+        "eyes": {
+          "side": "target",
+          "frame": 0
+        },
+        "sourceFrame": null,
+        "targetFrame": 0,
+        "mouth": {
+          "sourceFrame": 0,
+          "targetFrame": 0,
+          "targetWeight": 1
+        }
+      },
+      {
+        "index": 11,
+        "phase": "target",
+        "eyes": {
+          "side": "target",
+          "frame": 0
+        },
+        "sourceFrame": null,
+        "targetFrame": 0,
+        "mouth": {
+          "sourceFrame": 0,
+          "targetFrame": 0,
+          "targetWeight": 1
+        }
+      }
+    ]
+  },
+  "pairs": [
+    {
+      "from": "aardman/listening",
+      "to": "aardman/disbelief",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "aardman/listening",
+      "to": "aardman/realisation",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "aardman/listening",
+      "to": "bluey/reassurance",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "aardman/listening",
+      "to": "bluey/delight",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "aardman/listening",
+      "to": "bluey/uncertainty",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "aardman/listening",
+      "to": "pixar/recall",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "aardman/listening",
+      "to": "pixar/checking",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "aardman/listening",
+      "to": "pixar/discovery",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "aardman/listening",
+      "to": "mickey/double_take",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "aardman/listening",
+      "to": "mickey/mock_outrage",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "aardman/listening",
+      "to": "mickey/triumph",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "aardman/listening",
+      "to": "simons_cat/notice",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "aardman/listening",
+      "to": "simons_cat/waiting",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "aardman/listening",
+      "to": "simons_cat/clarify",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "aardman/listening",
+      "to": "peanuts/company",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "aardman/listening",
+      "to": "peanuts/wry",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "aardman/listening",
+      "to": "peanuts/pride",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "aardman/disbelief",
+      "to": "aardman/listening",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "aardman/disbelief",
+      "to": "aardman/realisation",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "aardman/disbelief",
+      "to": "bluey/reassurance",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "aardman/disbelief",
+      "to": "bluey/delight",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "aardman/disbelief",
+      "to": "bluey/uncertainty",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "aardman/disbelief",
+      "to": "pixar/recall",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "aardman/disbelief",
+      "to": "pixar/checking",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "aardman/disbelief",
+      "to": "pixar/discovery",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "aardman/disbelief",
+      "to": "mickey/double_take",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "aardman/disbelief",
+      "to": "mickey/mock_outrage",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "aardman/disbelief",
+      "to": "mickey/triumph",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "aardman/disbelief",
+      "to": "simons_cat/notice",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "aardman/disbelief",
+      "to": "simons_cat/waiting",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "aardman/disbelief",
+      "to": "simons_cat/clarify",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "aardman/disbelief",
+      "to": "peanuts/company",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "aardman/disbelief",
+      "to": "peanuts/wry",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "aardman/disbelief",
+      "to": "peanuts/pride",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "aardman/realisation",
+      "to": "aardman/listening",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "aardman/realisation",
+      "to": "aardman/disbelief",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "aardman/realisation",
+      "to": "bluey/reassurance",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "aardman/realisation",
+      "to": "bluey/delight",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "aardman/realisation",
+      "to": "bluey/uncertainty",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "aardman/realisation",
+      "to": "pixar/recall",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "aardman/realisation",
+      "to": "pixar/checking",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "aardman/realisation",
+      "to": "pixar/discovery",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "aardman/realisation",
+      "to": "mickey/double_take",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "aardman/realisation",
+      "to": "mickey/mock_outrage",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "aardman/realisation",
+      "to": "mickey/triumph",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "aardman/realisation",
+      "to": "simons_cat/notice",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "aardman/realisation",
+      "to": "simons_cat/waiting",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "aardman/realisation",
+      "to": "simons_cat/clarify",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "aardman/realisation",
+      "to": "peanuts/company",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "aardman/realisation",
+      "to": "peanuts/wry",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "aardman/realisation",
+      "to": "peanuts/pride",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "bluey/reassurance",
+      "to": "aardman/listening",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "bluey/reassurance",
+      "to": "aardman/disbelief",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "bluey/reassurance",
+      "to": "aardman/realisation",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "bluey/reassurance",
+      "to": "bluey/delight",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "bluey/reassurance",
+      "to": "bluey/uncertainty",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "bluey/reassurance",
+      "to": "pixar/recall",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "bluey/reassurance",
+      "to": "pixar/checking",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "bluey/reassurance",
+      "to": "pixar/discovery",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "bluey/reassurance",
+      "to": "mickey/double_take",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "bluey/reassurance",
+      "to": "mickey/mock_outrage",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "bluey/reassurance",
+      "to": "mickey/triumph",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "bluey/reassurance",
+      "to": "simons_cat/notice",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "bluey/reassurance",
+      "to": "simons_cat/waiting",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "bluey/reassurance",
+      "to": "simons_cat/clarify",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "bluey/reassurance",
+      "to": "peanuts/company",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "bluey/reassurance",
+      "to": "peanuts/wry",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "bluey/reassurance",
+      "to": "peanuts/pride",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "bluey/delight",
+      "to": "aardman/listening",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "bluey/delight",
+      "to": "aardman/disbelief",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "bluey/delight",
+      "to": "aardman/realisation",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "bluey/delight",
+      "to": "bluey/reassurance",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "bluey/delight",
+      "to": "bluey/uncertainty",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "bluey/delight",
+      "to": "pixar/recall",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "bluey/delight",
+      "to": "pixar/checking",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "bluey/delight",
+      "to": "pixar/discovery",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "bluey/delight",
+      "to": "mickey/double_take",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "bluey/delight",
+      "to": "mickey/mock_outrage",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "bluey/delight",
+      "to": "mickey/triumph",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "bluey/delight",
+      "to": "simons_cat/notice",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "bluey/delight",
+      "to": "simons_cat/waiting",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "bluey/delight",
+      "to": "simons_cat/clarify",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "bluey/delight",
+      "to": "peanuts/company",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "bluey/delight",
+      "to": "peanuts/wry",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "bluey/delight",
+      "to": "peanuts/pride",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "bluey/uncertainty",
+      "to": "aardman/listening",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "bluey/uncertainty",
+      "to": "aardman/disbelief",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "bluey/uncertainty",
+      "to": "aardman/realisation",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "bluey/uncertainty",
+      "to": "bluey/reassurance",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "bluey/uncertainty",
+      "to": "bluey/delight",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "bluey/uncertainty",
+      "to": "pixar/recall",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "bluey/uncertainty",
+      "to": "pixar/checking",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "bluey/uncertainty",
+      "to": "pixar/discovery",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "bluey/uncertainty",
+      "to": "mickey/double_take",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "bluey/uncertainty",
+      "to": "mickey/mock_outrage",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "bluey/uncertainty",
+      "to": "mickey/triumph",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "bluey/uncertainty",
+      "to": "simons_cat/notice",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "bluey/uncertainty",
+      "to": "simons_cat/waiting",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "bluey/uncertainty",
+      "to": "simons_cat/clarify",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "bluey/uncertainty",
+      "to": "peanuts/company",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "bluey/uncertainty",
+      "to": "peanuts/wry",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "bluey/uncertainty",
+      "to": "peanuts/pride",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "pixar/recall",
+      "to": "aardman/listening",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "pixar/recall",
+      "to": "aardman/disbelief",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "pixar/recall",
+      "to": "aardman/realisation",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "pixar/recall",
+      "to": "bluey/reassurance",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "pixar/recall",
+      "to": "bluey/delight",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "pixar/recall",
+      "to": "bluey/uncertainty",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "pixar/recall",
+      "to": "pixar/checking",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "pixar/recall",
+      "to": "pixar/discovery",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "pixar/recall",
+      "to": "mickey/double_take",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "pixar/recall",
+      "to": "mickey/mock_outrage",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "pixar/recall",
+      "to": "mickey/triumph",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "pixar/recall",
+      "to": "simons_cat/notice",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "pixar/recall",
+      "to": "simons_cat/waiting",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "pixar/recall",
+      "to": "simons_cat/clarify",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "pixar/recall",
+      "to": "peanuts/company",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "pixar/recall",
+      "to": "peanuts/wry",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "pixar/recall",
+      "to": "peanuts/pride",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "pixar/checking",
+      "to": "aardman/listening",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "pixar/checking",
+      "to": "aardman/disbelief",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "pixar/checking",
+      "to": "aardman/realisation",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "pixar/checking",
+      "to": "bluey/reassurance",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "pixar/checking",
+      "to": "bluey/delight",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "pixar/checking",
+      "to": "bluey/uncertainty",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "pixar/checking",
+      "to": "pixar/recall",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "pixar/checking",
+      "to": "pixar/discovery",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "pixar/checking",
+      "to": "mickey/double_take",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "pixar/checking",
+      "to": "mickey/mock_outrage",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "pixar/checking",
+      "to": "mickey/triumph",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "pixar/checking",
+      "to": "simons_cat/notice",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "pixar/checking",
+      "to": "simons_cat/waiting",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "pixar/checking",
+      "to": "simons_cat/clarify",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "pixar/checking",
+      "to": "peanuts/company",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "pixar/checking",
+      "to": "peanuts/wry",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "pixar/checking",
+      "to": "peanuts/pride",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "pixar/discovery",
+      "to": "aardman/listening",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "pixar/discovery",
+      "to": "aardman/disbelief",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "pixar/discovery",
+      "to": "aardman/realisation",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "pixar/discovery",
+      "to": "bluey/reassurance",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "pixar/discovery",
+      "to": "bluey/delight",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "pixar/discovery",
+      "to": "bluey/uncertainty",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "pixar/discovery",
+      "to": "pixar/recall",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "pixar/discovery",
+      "to": "pixar/checking",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "pixar/discovery",
+      "to": "mickey/double_take",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "pixar/discovery",
+      "to": "mickey/mock_outrage",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "pixar/discovery",
+      "to": "mickey/triumph",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "pixar/discovery",
+      "to": "simons_cat/notice",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "pixar/discovery",
+      "to": "simons_cat/waiting",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "pixar/discovery",
+      "to": "simons_cat/clarify",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "pixar/discovery",
+      "to": "peanuts/company",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "pixar/discovery",
+      "to": "peanuts/wry",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "pixar/discovery",
+      "to": "peanuts/pride",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "mickey/double_take",
+      "to": "aardman/listening",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "mickey/double_take",
+      "to": "aardman/disbelief",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "mickey/double_take",
+      "to": "aardman/realisation",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "mickey/double_take",
+      "to": "bluey/reassurance",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "mickey/double_take",
+      "to": "bluey/delight",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "mickey/double_take",
+      "to": "bluey/uncertainty",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "mickey/double_take",
+      "to": "pixar/recall",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "mickey/double_take",
+      "to": "pixar/checking",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "mickey/double_take",
+      "to": "pixar/discovery",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "mickey/double_take",
+      "to": "mickey/mock_outrage",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "mickey/double_take",
+      "to": "mickey/triumph",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "mickey/double_take",
+      "to": "simons_cat/notice",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "mickey/double_take",
+      "to": "simons_cat/waiting",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "mickey/double_take",
+      "to": "simons_cat/clarify",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "mickey/double_take",
+      "to": "peanuts/company",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "mickey/double_take",
+      "to": "peanuts/wry",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "mickey/double_take",
+      "to": "peanuts/pride",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "mickey/mock_outrage",
+      "to": "aardman/listening",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "mickey/mock_outrage",
+      "to": "aardman/disbelief",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "mickey/mock_outrage",
+      "to": "aardman/realisation",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "mickey/mock_outrage",
+      "to": "bluey/reassurance",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "mickey/mock_outrage",
+      "to": "bluey/delight",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "mickey/mock_outrage",
+      "to": "bluey/uncertainty",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "mickey/mock_outrage",
+      "to": "pixar/recall",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "mickey/mock_outrage",
+      "to": "pixar/checking",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "mickey/mock_outrage",
+      "to": "pixar/discovery",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "mickey/mock_outrage",
+      "to": "mickey/double_take",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "mickey/mock_outrage",
+      "to": "mickey/triumph",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "mickey/mock_outrage",
+      "to": "simons_cat/notice",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "mickey/mock_outrage",
+      "to": "simons_cat/waiting",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "mickey/mock_outrage",
+      "to": "simons_cat/clarify",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "mickey/mock_outrage",
+      "to": "peanuts/company",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "mickey/mock_outrage",
+      "to": "peanuts/wry",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "mickey/mock_outrage",
+      "to": "peanuts/pride",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "mickey/triumph",
+      "to": "aardman/listening",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "mickey/triumph",
+      "to": "aardman/disbelief",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "mickey/triumph",
+      "to": "aardman/realisation",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "mickey/triumph",
+      "to": "bluey/reassurance",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "mickey/triumph",
+      "to": "bluey/delight",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "mickey/triumph",
+      "to": "bluey/uncertainty",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "mickey/triumph",
+      "to": "pixar/recall",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "mickey/triumph",
+      "to": "pixar/checking",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "mickey/triumph",
+      "to": "pixar/discovery",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "mickey/triumph",
+      "to": "mickey/double_take",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "mickey/triumph",
+      "to": "mickey/mock_outrage",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "mickey/triumph",
+      "to": "simons_cat/notice",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "mickey/triumph",
+      "to": "simons_cat/waiting",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "mickey/triumph",
+      "to": "simons_cat/clarify",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "mickey/triumph",
+      "to": "peanuts/company",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "mickey/triumph",
+      "to": "peanuts/wry",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "mickey/triumph",
+      "to": "peanuts/pride",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "simons_cat/notice",
+      "to": "aardman/listening",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "simons_cat/notice",
+      "to": "aardman/disbelief",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "simons_cat/notice",
+      "to": "aardman/realisation",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "simons_cat/notice",
+      "to": "bluey/reassurance",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "simons_cat/notice",
+      "to": "bluey/delight",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "simons_cat/notice",
+      "to": "bluey/uncertainty",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "simons_cat/notice",
+      "to": "pixar/recall",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "simons_cat/notice",
+      "to": "pixar/checking",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "simons_cat/notice",
+      "to": "pixar/discovery",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "simons_cat/notice",
+      "to": "mickey/double_take",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "simons_cat/notice",
+      "to": "mickey/mock_outrage",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "simons_cat/notice",
+      "to": "mickey/triumph",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "simons_cat/notice",
+      "to": "simons_cat/waiting",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "simons_cat/notice",
+      "to": "simons_cat/clarify",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "simons_cat/notice",
+      "to": "peanuts/company",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "simons_cat/notice",
+      "to": "peanuts/wry",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "simons_cat/notice",
+      "to": "peanuts/pride",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "simons_cat/waiting",
+      "to": "aardman/listening",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "simons_cat/waiting",
+      "to": "aardman/disbelief",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "simons_cat/waiting",
+      "to": "aardman/realisation",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "simons_cat/waiting",
+      "to": "bluey/reassurance",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "simons_cat/waiting",
+      "to": "bluey/delight",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "simons_cat/waiting",
+      "to": "bluey/uncertainty",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "simons_cat/waiting",
+      "to": "pixar/recall",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "simons_cat/waiting",
+      "to": "pixar/checking",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "simons_cat/waiting",
+      "to": "pixar/discovery",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "simons_cat/waiting",
+      "to": "mickey/double_take",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "simons_cat/waiting",
+      "to": "mickey/mock_outrage",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "simons_cat/waiting",
+      "to": "mickey/triumph",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "simons_cat/waiting",
+      "to": "simons_cat/notice",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "simons_cat/waiting",
+      "to": "simons_cat/clarify",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "simons_cat/waiting",
+      "to": "peanuts/company",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "simons_cat/waiting",
+      "to": "peanuts/wry",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "simons_cat/waiting",
+      "to": "peanuts/pride",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "simons_cat/clarify",
+      "to": "aardman/listening",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "simons_cat/clarify",
+      "to": "aardman/disbelief",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "simons_cat/clarify",
+      "to": "aardman/realisation",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "simons_cat/clarify",
+      "to": "bluey/reassurance",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "simons_cat/clarify",
+      "to": "bluey/delight",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "simons_cat/clarify",
+      "to": "bluey/uncertainty",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "simons_cat/clarify",
+      "to": "pixar/recall",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "simons_cat/clarify",
+      "to": "pixar/checking",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "simons_cat/clarify",
+      "to": "pixar/discovery",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "simons_cat/clarify",
+      "to": "mickey/double_take",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "simons_cat/clarify",
+      "to": "mickey/mock_outrage",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "simons_cat/clarify",
+      "to": "mickey/triumph",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "simons_cat/clarify",
+      "to": "simons_cat/notice",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "simons_cat/clarify",
+      "to": "simons_cat/waiting",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "simons_cat/clarify",
+      "to": "peanuts/company",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "simons_cat/clarify",
+      "to": "peanuts/wry",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "simons_cat/clarify",
+      "to": "peanuts/pride",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "peanuts/company",
+      "to": "aardman/listening",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "peanuts/company",
+      "to": "aardman/disbelief",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "peanuts/company",
+      "to": "aardman/realisation",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "peanuts/company",
+      "to": "bluey/reassurance",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "peanuts/company",
+      "to": "bluey/delight",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "peanuts/company",
+      "to": "bluey/uncertainty",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "peanuts/company",
+      "to": "pixar/recall",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "peanuts/company",
+      "to": "pixar/checking",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "peanuts/company",
+      "to": "pixar/discovery",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "peanuts/company",
+      "to": "mickey/double_take",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "peanuts/company",
+      "to": "mickey/mock_outrage",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "peanuts/company",
+      "to": "mickey/triumph",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "peanuts/company",
+      "to": "simons_cat/notice",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "peanuts/company",
+      "to": "simons_cat/waiting",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "peanuts/company",
+      "to": "simons_cat/clarify",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "peanuts/company",
+      "to": "peanuts/wry",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "peanuts/company",
+      "to": "peanuts/pride",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "peanuts/wry",
+      "to": "aardman/listening",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "peanuts/wry",
+      "to": "aardman/disbelief",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "peanuts/wry",
+      "to": "aardman/realisation",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "peanuts/wry",
+      "to": "bluey/reassurance",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "peanuts/wry",
+      "to": "bluey/delight",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "peanuts/wry",
+      "to": "bluey/uncertainty",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "peanuts/wry",
+      "to": "pixar/recall",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "peanuts/wry",
+      "to": "pixar/checking",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "peanuts/wry",
+      "to": "pixar/discovery",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "peanuts/wry",
+      "to": "mickey/double_take",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "peanuts/wry",
+      "to": "mickey/mock_outrage",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "peanuts/wry",
+      "to": "mickey/triumph",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "peanuts/wry",
+      "to": "simons_cat/notice",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "peanuts/wry",
+      "to": "simons_cat/waiting",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "peanuts/wry",
+      "to": "simons_cat/clarify",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "peanuts/wry",
+      "to": "peanuts/company",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "peanuts/wry",
+      "to": "peanuts/pride",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "peanuts/pride",
+      "to": "aardman/listening",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "peanuts/pride",
+      "to": "aardman/disbelief",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "peanuts/pride",
+      "to": "aardman/realisation",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "peanuts/pride",
+      "to": "bluey/reassurance",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "peanuts/pride",
+      "to": "bluey/delight",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "peanuts/pride",
+      "to": "bluey/uncertainty",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "peanuts/pride",
+      "to": "pixar/recall",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "peanuts/pride",
+      "to": "pixar/checking",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "peanuts/pride",
+      "to": "pixar/discovery",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "peanuts/pride",
+      "to": "mickey/double_take",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "peanuts/pride",
+      "to": "mickey/mock_outrage",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "peanuts/pride",
+      "to": "mickey/triumph",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "peanuts/pride",
+      "to": "simons_cat/notice",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "peanuts/pride",
+      "to": "simons_cat/waiting",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "peanuts/pride",
+      "to": "simons_cat/clarify",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "peanuts/pride",
+      "to": "peanuts/company",
+      "template": "blink-handoff"
+    },
+    {
+      "from": "peanuts/pride",
+      "to": "peanuts/wry",
+      "template": "blink-handoff"
+    }
+  ]
+}

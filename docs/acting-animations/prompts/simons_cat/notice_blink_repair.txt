@@ -1,0 +1,14 @@
+Edit only the blink drawings of the supplied 12-frame, 4-column 3-row sprite sheet. Preserve all remaining frame positions and acting poses, cyan color, transparent background, simple unfilled eye outlines and small closed line mouth. Output 1536x1024 RGBA.
+
+The current blink has a technical drawing error: some half-closed eyes have a complete circle plus a line inside it. FIX THE OUTER SILHOUETTE. The TOP half of the original eye outline disappears as the eyelid descends. A closed eyelid bounds the entire visible eye shape; there is NOTHING drawn above that lid.
+
+Use this exact progression by cell, reading left to right across rows:
+Frame0/top row col1: both normal round eyes with dot pupils centered INSIDE their own eyes (not turned inward toward each other).
+Frame1/top row col2: both upper lids descend 25%. The eye OUTER silhouette is a round-bottomed bowl with its top quarter missing and replaced by a gently curved upper lid. No circular outline above the lid. Pupil centers move down just slightly and are still mostly visible.
+Frame2/top row col3: both lids 70% closed, narrow crescent/slit eye silhouettes just below the eye center. Only a tiny lower crescent of the pupil remains visible. Absolutely NO round circles; upper and lower lid contours now close together, no additional arcs above.
+Frame3/top row col4: keep the existing two completely closed cyan curved lid strokes, no pupils, no circular eye outlines.
+Frame4/middle row col1: reopen to 45%, low shallow bowl silhouettes. Pupils partly revealed and clipped by upper lids. Again no outline above upper lid.
+Frame5/middle row col2: eyes fully round again, pupils centered.
+Frames6-11: preserve the distinctive original acting progression in the reference. Keep gaze directions coherent between the two eyes, never cross-eyed; the final frame11 returns to centered pupils like0.
+
+Keep the mouth in every frame unaltered. Every cell stays fixed size and feature centers consistent. Flat opaque turquoise ink with softly antialiased edges and transparent negative spaces. No glow/bloom/halo, no color fill inside eyes, no objects/text/labels/borders. Make each actual blink drawing anatomically legible rather than just squashing or rotating open eyes.
