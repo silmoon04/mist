@@ -37,6 +37,7 @@ RELEASE_FILES = [
         "user_transcript_state.mjs", "capture-worklet.js", "debug.html",
         "debug.js", "expressions.html", "expressions.js", "inspect.css",
         "trials.html", "trials.css", "trials.js", "sample.wav", "trial_memory.mjs", "microphone_signal.mjs",
+        "animation_picker.mjs", "animation_picker.test.mjs", "ANIMATION-PREVIEW.md",
     )],
     "brain/ui/static/face_runtime.js", "brain/ui/static/drawn_face_renderer.js",
     "brain/face_assets/app/app_data.js",
@@ -61,7 +62,7 @@ RELEASE_FILES = [
     "brain/deploy/fixtures/manifest.json",
     "brain/deploy/fixtures/audio/audio_phrase_seam-1.wav",
     f"brain/{DRAWN}/atlas.json", f"brain/{HANDDRAWN}/manifest.json",
-    f"brain/{HANDDRAWN}/runtime.js",
+    f"brain/{HANDDRAWN}/runtime.js", f"brain/{HANDDRAWN}/test_runtime.cjs",
     "design/hexapod_phone_quad_r5_20260912/cad/output/assembly_manifest.json",
 ]
 DEPLOY_FILES = (

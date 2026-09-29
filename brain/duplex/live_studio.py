@@ -452,6 +452,7 @@ def create_studio(args):
                      'duplex/background.py', 'duplex/affect_director.py', 'duplex/affect_controller.py',
                      'duplex/session_store.py', 'duplex/session_memory.py', 'duplex/database_traces.py', 'duplex/playback_receipts.py',
                      'duplex/turn_policy.py', 'duplex/static/microphone_signal.mjs', 'duplex/static/trial_memory.mjs',
+                     'duplex/static/animation_picker.mjs',
                      'duplex/expression_policy.py', 'duplex/expression_requests.py',
                      'duplex/persona.txt', 'duplex/conversation_policy.py', 'duplex/tts.py', 'duplex/static/app.js',
                      'duplex/static/playback.js', 'duplex/lipsync.py',

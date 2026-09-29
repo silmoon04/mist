@@ -61,10 +61,12 @@
     const reduced=options.reducedMotion??!!root.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
     let manifest=options.manifest||null,images=options.handdrawnImages||{},ready=false,dead=false,error=null,raf=null;
     let revision=0,lastTargets=null,eyeTransition=null,held={},expression=options.expression||data.faces[0].id;
-    const clock=createActivityClock(now),faces=new Map(data.faces.map(f=>[f.id,f]));
+    const clock=createActivityClock(now),previewClock=createActivityClock(now),faces=new Map(data.faces.map(f=>[f.id,f]));
+    let previewActivity=false;
+    const activeActivity=time=>previewActivity?previewClock.sample(time):clock.sample(time);
     const origin=now(),sampleTime=time=>origin+Math.floor((time-origin)/TICK+1e-7)*TICK;
     const activityConfig=id=>manifest?.activities.find(a=>a.id===id);
-    function targets(id=expression,activity=clock.sample()){
+    function targets(id=expression,activity=activeActivity()){
       const config=activity&&!activity.exiting?activityConfig(activity.id):null;
       const side=config?.placement==='side',above=config?.placement==='above';
       return {
@@ -86,7 +88,7 @@
       return {...b,transform:{x:mix(a.transform.x,b.transform.x,m),y:mix(a.transform.y,b.transform.y,m),scale:mix(a.transform.scale,b.transform.scale,m)}};
     }
     function shot(time=now()){
-      const at=sampleTime(time),activity=clock.sample(at),model=layout(at);
+      const at=sampleTime(time),activity=activeActivity(at),model=layout(at);
       const symbol=activity?{...activity,frame:Number.isInteger(held.activityFrame)?clamp(held.activityFrame,0,11):reduced?7:activity.frame}:null;
       if(symbol)symbol.file=manifest?.assets[symbol.id]?.frames[symbol.frame]?.file||null;
       const face=faces.get(expression)||data.faces[0];
@@ -163,6 +165,15 @@
       setGaze(x,y){base.setGaze(x,y);},clearGaze(){base.clearGaze();},
       blink(){revision++;base.blink();},
       setActivity,clearActivity,handleEvent,
+      previewActivity(id){
+        const result=previewClock.set(id,{owner:'preview'});
+        if(result.accepted){previewActivity=true;transitionToNext();revision++;}
+        return result;
+      },
+      clearPreviewActivity(){
+        if(!previewActivity)return;
+        previewActivity=false;previewClock.clear(undefined,{immediate:true});transitionToNext();revision++;
+      },
       inspect(settings={}){held={...settings};revision++;return shot();},
       resetActivities(){owners.clear();stateToken=null;stateActivity=null;clearActivity(undefined,{immediate:true});},
       update(time=now()){

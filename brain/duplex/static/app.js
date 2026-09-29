@@ -5,6 +5,7 @@ import {ActivityState} from './activity_state.js?v=20260924-sync1';
 import {UserTranscriptState} from './user_transcript_state.mjs?v=20260928-listener3';
 import {newListenerCue} from './listener_cue.js?v=20260928-listener3';
 import {MicrophoneSignal} from './microphone_signal.mjs?v=20260929-listening-signal1';
+import {animationCatalog,AnimationPreview} from './animation_picker.mjs?v=20260929-picker1';
 const $=id=>document.getElementById(id);let ws=null,context=null,player=null,stream=null,capture=null,ready=false,fixtureMode=false,seq=0,lastSensor=0,wake=null;
 const trialArchitecture=new URLSearchParams(location.search).get('architecture');
 const trialMemoryMode=new URLSearchParams(location.search).get('memory_mode')==='speech_feedback'?'speech_feedback':'discussion';
@@ -47,12 +48,13 @@ function renderUserTranscript(snapshot=userTranscript.snapshot()){
 const face=(window.MistHanddrawnRuntime||window.MistDrawnFaceRuntime||MistFaceRuntime).create($('face'),{data:window.MIST_DATA,atlasUrl:'/drawn/atlas.json',manifestUrl:'/studio/handdrawn_v6/manifest.json'});const map=await(await fetch('/face-map.json?v=20260922-expression-policy')).json();
 let connectionActivity=null;
 const activityState=new ActivityState();let lastActivityState=null;
+const preview=new AnimationPreview(face);
 window.MistActivity=Object.freeze({setActivity:(id,options)=>face.setActivity?.(id,options),clearActivity:(token,options)=>face.clearActivity?.(token,options),snapshot:()=>face.snapshot().handdrawn});
 const config=await(await fetch('/config')).json();let pairOK=config.paired;let currentFace='neutral';let expressionPinned=false;
 if(config.remote_mode)$('local-study-links').hidden=true;
 const reducedMotion=!!window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
-const expressionPolicy=new ExpressionPolicy(map,{transitionMs:reducedMotion?0:(window.MistDrawnFaceRuntime?.timing?.transitionMs??260)});let conversationState='available',lastFaceId=null,lastGaze=null,timedFaceReceipt=null;
-window.MistDebug=Object.freeze({snapshot:()=>({ready,conversationState,userTranscript:userTranscript.snapshot(),listenerCue:listenerCue?.sample()||null,expression:expressionPolicy.snapshot(),playback:player?.sample()||null,face:face.snapshot(),sessionStorage:storageState,sessionSummary:latestSummary})});
+const expressionPolicy=new ExpressionPolicy(map,{transitionMs:reducedMotion?0:(window.MistDrawnFaceRuntime?.timing?.transitionMs??260)});let conversationState='available',lastFaceId=null,displayedFaceId=null,lastGaze=null,timedFaceReceipt=null;
+window.MistDebug=Object.freeze({snapshot:()=>({ready,conversationState,preview:{faceId:preview.faceId,activityId:preview.activityId,active:preview.active},userTranscript:userTranscript.snapshot(),listenerCue:listenerCue?.sample()||null,expression:expressionPolicy.snapshot(),playback:player?.sample()||null,face:face.snapshot(),sessionStorage:storageState,sessionSummary:latestSummary})});
 if(config.speech_backend==='voice-changer'){$('backend-description').textContent='Codex native voice, converted to MIST. The microphone stays available while MIST speaks.';$('backend-note').textContent='Voice conversion adds a delay. Original Codex audio is never played.';}
 function renderExpression(){
  const shot=expressionPolicy.setState(player?.sample()?.active?'speaking':conversationState);
@@ -62,17 +64,46 @@ function renderExpression(){
  const activity=activityState.update(shot.state);
  if(activity!==lastActivityState){lastActivityState=activity;face.handleEvent?.({type:'state',state:activity});}
  currentFace=shot.expression;expressionPinned=shot.source!=='state'&&shot.source!=='automatic';
- if(lastFaceId!==shot.faceId){const previous=lastFaceId;lastFaceId=shot.faceId;face.setExpression(shot.faceId);trace({type:'expression',phase:'transition',from:previous,to:shot.faceId,expression:shot.expression,source:shot.source,queue_depth:shot.queueDepth,expires_at_ms:shot.expiresAt,...receiptFields});if(trialArchitecture)trace({type:'expression_transition',from:previous,to:shot.faceId,expression:shot.expression,source:shot.source});}
+ if(lastFaceId!==shot.faceId){const previous=lastFaceId;lastFaceId=shot.faceId;trace({type:'expression',phase:'transition',from:previous,to:shot.faceId,expression:shot.expression,source:shot.source,queue_depth:shot.queueDepth,expires_at_ms:shot.expiresAt,...receiptFields});if(trialArchitecture)trace({type:'expression_transition',from:previous,to:shot.faceId,expression:shot.expression,source:shot.source});}
  else if(timedReturn&&timedFaceReceipt.lastAckTarget!==shot.faceId)trace({type:'expression',phase:'transition',from:shot.faceId,to:shot.faceId,expression:shot.expression,source:shot.source,queue_depth:shot.queueDepth,expires_at_ms:shot.expiresAt,...receiptFields});
  if(timedReturn){timedFaceReceipt.lastAckTarget=shot.faceId;if(shot.faceId===(shot.baseFaceId??map.expressions.neutral.primary))timedFaceReceipt=null;}
- const gaze=JSON.stringify(shot.gaze);if(gaze!==lastGaze){lastGaze=gaze;if(shot.gaze)face.setGaze(...shot.gaze);else face.clearGaze();}
- const label=`MIST face: ${shot.expression}${shot.speechFallback?' (speaking variant)':''}`;
+ const shown=preview.displayedFace(shot.faceId);if(shown!==displayedFaceId){displayedFaceId=shown;face.setExpression(shown);}
+ const gaze=JSON.stringify(preview.faceId?null:shot.gaze);if(gaze!==lastGaze){lastGaze=gaze;if(!preview.faceId&&shot.gaze)face.setGaze(...shot.gaze);else face.clearGaze();}
+ const label=preview.active?`MIST animation preview: ${preview.faceId||shot.expression}${preview.activityId?`, ${preview.activityId}`:''}`:`MIST face: ${shot.expression}${shot.speechFallback?' (speaking variant)':''}`;
  if($('face').getAttribute('aria-label')!==label)$('face').setAttribute('aria-label',label);
  return shot;
 }
 function expression(command,options={}){const requested=typeof command==='string'?{expression:command}:command;if(options.source==='manual'&&(requested.persistent??!Object.hasOwn(requested,'duration_ms')))timedFaceReceipt=null;const result=expressionPolicy.request(requested,options);renderExpression();trace({type:'expression',phase:'request',expression:requested.expression,source:options.source||'model',status:result.status,reason:result.reason||null,queue_depth:result.queueDepth??expressionPolicy.snapshot().queueDepth,persistent:requested.persistent??!Object.hasOwn(requested,'duration_ms')});return result;}
 function state(value){conversationState=value;renderExpression();}
-renderExpression();setInterval(renderExpression,50);for(const value of config.expressions){const opt=new Option(value.replaceAll('_',' '),value);$('expression').add(opt);}
+renderExpression();setInterval(renderExpression,50);
+const catalog=animationCatalog(map);
+const faceSelect=$('preview-face'),activitySelect=$('preview-activity');
+let currentGroup=null,groupElement=null;
+for(const item of catalog.faces){
+ if(item.group!==currentGroup){currentGroup=item.group;groupElement=document.createElement('optgroup');groupElement.label=currentGroup.replaceAll('_',' ');faceSelect.append(groupElement);}
+ groupElement.append(new Option(item.label,item.id));
+}
+let activityAssetsReady=false;
+face.ready.then(ready=>{
+ if(!ready||!face.loaded||!face.manifest?.activities?.length)throw new Error('Activity assets unavailable');
+ const activities=animationCatalog(map,face.manifest).activities;
+ for(const item of activities)activitySelect.add(new Option(item.label,item.id));
+ activityAssetsReady=activities.length>0;activitySelect.disabled=!activityAssetsReady;
+ renderPreviewStatus();
+}).catch(()=>{activityAssetsReady=false;activitySelect.disabled=true;renderPreviewStatus();});
+function renderPreviewStatus(){
+ const parts=[];
+ if(preview.faceId)parts.push(`face ${catalog.faces.find(item=>item.id===preview.faceId)?.label||preview.faceId}`);
+ if(preview.activityId)parts.push(`activity ${activitySelect.selectedOptions[0]?.textContent||preview.activityId}`);
+ $('preview-status').textContent=(parts.length?`Previewing ${parts.join(' with ')}.`:'Following live MIST.')+(!activityAssetsReady?' Activity unavailable.':'');
+ $('preview-auto').disabled=!preview.active;
+ $('preview-indicator').hidden=!preview.active;
+ $('companion').classList.toggle('has-preview',preview.active);
+ renderExpression();
+}
+faceSelect.onchange=()=>{preview.selectFace(faceSelect.value);renderPreviewStatus();};
+activitySelect.onchange=()=>{if(!preview.selectActivity(activitySelect.value))activitySelect.value='';renderPreviewStatus();};
+$('preview-auto').onclick=()=>{preview.release();faceSelect.value='';activitySelect.value='';renderPreviewStatus();};
 $('pair-form').hidden=pairOK;$('pair-state').textContent=pairOK?'This screen is paired.':'Enter the code printed by the local MIST server.';$('fixture-box').hidden=!config.fixtures_enabled;
 function send(data){if(ws?.readyState===WebSocket.OPEN)ws.send(JSON.stringify(data));}
 function error(message){$('error').textContent=message;$('status').textContent=message;$('panel').hidden=false;}
@@ -173,9 +204,13 @@ $('talk').onclick=()=>start(false).catch(e=>error(e.message));$('test-connect').
 $('listener-acks').onchange=()=>{if(!$('listener-acks').checked)listenerCue?.reset('disabled');if(ready)send({type:'listener_ack_config',enabled:$('listener-acks').checked});};
 $('cancel-background').onclick=()=>send({type:'cancel_background',job_id:backgroundJob});
 $('background-form').onsubmit=event=>{event.preventDefault();if(!ready){error('Start a conversation first.');return;}send({type:'start_background',question:$('background-question').value});$('background-question').value='';};
-$('settings').onclick=()=>{$('panel').hidden=false;};$('close-panel').onclick=()=>{$('panel').hidden=true;};
+function closePicker(){const tray=$('animation-picker');tray.hidden=true;$('companion').classList.remove('preview-open');$('animations').setAttribute('aria-expanded','false');$('animations').focus();}
+$('settings').onclick=()=>{if(!$('animation-picker').hidden)closePicker();$('panel').hidden=false;};
+$('animations').onclick=()=>{const tray=$('animation-picker');if(!tray.hidden){closePicker();return;}$('panel').hidden=true;tray.hidden=false;$('companion').classList.add('preview-open');$('animations').setAttribute('aria-expanded','true');faceSelect.focus();};
+$('close-animations').onclick=closePicker;
+document.addEventListener('keydown',event=>{if(event.key==='Escape'&&!$('animation-picker').hidden)closePicker();});
+$('close-panel').onclick=()=>{$('panel').hidden=true;};
 $('pair-form').onsubmit=async event=>{event.preventDefault();const r=await fetch('/pair',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({code:$('pair-code').value})});if(!r.ok){error('Pairing code not accepted');return;}pairOK=true;$('pair-code').value='';$('pair-form').hidden=true;$('pair-state').textContent='This screen is paired.';};
-$('expression').onchange=()=>{expression($('expression').value,{source:'manual'});if(ready)send({type:'expression',expression:$('expression').value});};
 $('robot-stop').onclick=()=>{stopPlayback();send({type:'stop_robot'});};$('resume').onclick=()=>send({type:'resume_preview'});
 $('fullscreen').onclick=()=>document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen();
 $('fixture').onsubmit=event=>{event.preventDefault();if(!ready){error('Connect a test session first');return;}send({type:'fixture',text:$('fixture-text').value});};

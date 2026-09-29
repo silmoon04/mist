@@ -14,3 +14,26 @@
 @media(max-width:540px){#listening-signal{right:-3%;top:39%;width:64px;height:34px}}
 @media(orientation:landscape) and (max-height:520px){#storage-status{top:39px}#listening-signal{top:36%}}
 @media(prefers-reduced-motion:reduce){#signal-bars path{transition:none}}
+
+/* A compact picker reserves room for the face while previews are selected. */
+#preview-indicator{color:#d7fff1;background:#214a3e;border:1px solid #4b9a84;border-radius:999px;padding:4px 9px;font-size:11px;font-weight:700;white-space:nowrap}
+#preview-indicator[hidden]{display:none}
+#animation-picker{position:absolute;z-index:3;left:0;right:0;bottom:0;min-height:183px;padding:13px max(18px,env(safe-area-inset-right)) max(12px,env(safe-area-inset-bottom));background:#101a18;border-top:1px solid #365449;box-shadow:0 -15px 45px #0008}
+#animation-picker[hidden]{display:none}
+.picker-head{display:flex;align-items:center;justify-content:space-between;gap:12px;max-width:720px;margin:0 auto 5px}
+.picker-head h2{margin:0;font-size:16px}
+.picker-head button{padding:5px 11px;font-size:12px}
+.picker-fields{display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:720px;margin:auto}
+.picker-fields label{margin:0;color:#d8e6e4;font-size:12px;font-weight:600;min-width:0}
+.picker-fields select{margin:4px 0 0;min-height:40px;padding:7px 9px;font-size:13px}
+.preview-actions{display:flex;align-items:center;gap:12px;max-width:720px;margin:9px auto 0}
+.preview-actions button{padding:7px 13px;white-space:nowrap;font-size:12px}
+#preview-status{color:#a7c6bb;font-size:12px;line-height:1.3;flex:1}
+#companion.preview-open #face{bottom:184px}
+#companion.preview-open footer{display:none}
+#companion.preview-open #caption{bottom:200px}
+#companion.preview-open #user-transcript{bottom:200px}
+@media(orientation:landscape) and (max-height:520px){#companion.preview-open #status,#companion.preview-open #animations{display:none}}
+@media(max-width:540px){header{gap:7px}header strong{letter-spacing:2px}#status{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}header button{padding:7px 9px}#preview-indicator{padding:4px 6px}}
+@media(max-width:540px){#companion.preview-open #status,#companion.has-preview #status{display:none}}
+@media(orientation:landscape) and (max-height:520px){#animation-picker{left:auto;top:0;bottom:0;width:min(345px,48vw);padding:12px 16px;border-top:0;border-left:1px solid #365449;box-shadow:-15px 0 45px #0008;overflow:auto}.picker-fields{grid-template-columns:1fr;gap:5px}#companion.preview-open #face{inset:12% min(345px,48vw) 10% 3%}#companion.preview-open header{right:calc(min(345px,48vw) + 8px)}#companion.preview-open #caption{right:calc(min(345px,48vw) + 12px);bottom:54px;left:8%}#companion.preview-open #user-transcript{right:calc(min(345px,48vw) + 12px);bottom:54px;width:auto;left:12px;transform:none}}

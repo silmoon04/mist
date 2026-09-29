@@ -32,6 +32,12 @@ block a reply. Difficult tool work can run on a separate Codex Luna worker when
 the host has a signed-in Codex CLI. Earlier architectures remain available for
 comparison.
 
+The face view's **Animations** button opens a local preview of all 40 faces and
+nine activity motions. Choose either or both, then use **Return to live** to
+resume automatic choices. This works without starting voice after pairing on
+the hosted page. During a conversation, playback still drives the mouth.
+Preview choices send no tool command and do not change the conversation state.
+
 New sessions are saved on the service host, including sessions started from a
 remote phone. The private run directory contains `sessions.sqlite3` for turns,
 events, notes, preferences, and versioned summaries, plus `sessions/<id>/mic.wav`
