@@ -17,6 +17,9 @@ function section(start, end) {
 
 const receiveSource = section('async function receive(event)', "\n$('talk').onclick");
 const endSource = section('async function end()', '\nasync function start(');
+const releasePreviewSource = section('function releasePreview()', '\nfunction chooseAnimation(');
+const startSource = section('async function start(test=false)', '\nconst transcript=');
+const disconnectSource = section('socket.onclose=()=>{', '\n try{wake=');
 
 function receiver() {
   const calls = [];
@@ -82,16 +85,24 @@ test('end clears microphone, socket, playback, caption and face activity', async
     renderUserTranscript: () => calls.push('user transcript reset'),
     userTranscript: {reset: () => ({})},
     backgroundJob: {},
+    backgroundJobs: new Map(),
+    renderBackgroundJobs: () => {},
+    stopMicSignal: () => {},
+    finishStorageStatus: () => {},
+    preview: {release: () => calls.push('preview release')},
+    picker: {markSelected: () => calls.push('picker selection cleared')},
+    renderPreviewStatus: () => calls.push('preview status rendered'),
     face: {resetActivities: () => calls.push('face activity reset')},
     connectionActivity: 'old token',
     expressionPolicy: {reset: () => calls.push('expression reset')},
     state: value => calls.push(['state', value]),
   };
-  vm.runInNewContext(endSource, context);
+  vm.runInNewContext(releasePreviewSource + endSource, context);
   await context.end();
   assert.deepEqual(calls, [
     'cue reset', 'microphone stop', 'capture disconnect', 'playback reset',
-    'socket close', 'user transcript reset', 'face activity reset',
+    'socket close', 'user transcript reset', 'preview release', 'picker selection cleared',
+    'preview status rendered', 'face activity reset',
     'expression reset', ['state', 'available'], 'wake release',
   ]);
   assert.equal(context.ws, null);
@@ -101,4 +112,35 @@ test('end clears microphone, socket, playback, caption and face activity', async
   assert.equal($('caption').textContent, '');
   assert.equal($('talk').textContent, 'Start conversation');
   assert.equal($('stop').disabled, true);
+});
+
+test('starting a conversation releases manual animation before opening audio', () => {
+  const calls = [];
+  const context = {
+    ws: null, starting: false, pairOK: true, connectionGeneration: 0, context: null,
+    releasePreview: () => calls.push('preview release'),
+    renderUserTranscript: () => {}, userTranscript: {reset: () => ({})},
+    transcript: {user: ''}, $: () => ({}),
+    AudioContext: class {resume() {return new Promise(() => {});}},
+  };
+  vm.runInNewContext(startSource, context);
+  void context.start(true);
+  assert.deepEqual(calls, ['preview release']);
+});
+
+test('transport disconnect releases manual animation', () => {
+  const calls = [];
+  const socket = {};
+  const context = {
+    socket, ws: socket, listenerCue: null, ready: true,
+    stopMicSignal() {}, finishStorageStatus() {}, stream: null, capture: null,
+    player: null, renderUserTranscript() {}, userTranscript: {reset: () => ({})},
+    transcript: {user: ''}, releasePreview: () => calls.push('preview release'),
+    face: {resetActivities: () => calls.push('face activity reset')},
+    expressionPolicy: {reset() {}}, state: () => {}, wake: null,
+    $: () => ({}),
+  };
+  vm.runInNewContext(disconnectSource, context);
+  socket.onclose();
+  assert.deepEqual(calls, ['preview release', 'face activity reset']);
 });

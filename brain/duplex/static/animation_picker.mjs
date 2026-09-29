@@ -10,7 +10,7 @@ export class AnimationPreview{
  constructor(face){this.face=face;this.faceId=null;this.activityId=null;}
  get active(){return !!(this.faceId||this.activityId);}
  selectFace(id){this.faceId=id||null;}
- selectActivity(id){if(id){const result=this.face.previewActivity(id);if(!result?.accepted)return false;}else this.face.clearPreviewActivity();this.activityId=id||null;return true;}
+ selectActivity(id){if(id===this.activityId)id=null;if(id){const result=this.face.previewActivity(id);if(!result?.accepted)return false;}else this.face.clearPreviewActivity();this.activityId=id||null;return true;}
  release(){this.selectFace(null);this.selectActivity(null);}
  displayedFace(liveFaceId){return this.faceId||liveFaceId;}
 }

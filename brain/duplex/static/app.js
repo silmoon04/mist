@@ -5,7 +5,7 @@ import {ActivityState} from './activity_state.js?v=20260924-sync1';
 import {UserTranscriptState} from './user_transcript_state.mjs?v=20260928-listener3';
 import {newListenerCue} from './listener_cue.js?v=20260928-listener3';
 import {MicrophoneSignal} from './microphone_signal.mjs?v=20260929-listening-signal1';
-import {AnimationPreview,VisiblePreviewScheduler,installAnimationPicker} from './animation_picker.mjs?v=20260929-grid1';
+import {AnimationPreview,VisiblePreviewScheduler,installAnimationPicker} from './animation_picker.mjs?v=20260929-activity-lifecycle1';
 const $=id=>document.getElementById(id);let ws=null,context=null,player=null,stream=null,capture=null,ready=false,fixtureMode=false,seq=0,lastSensor=0,wake=null;
 const trialArchitecture=new URLSearchParams(location.search).get('architecture');
 const trialMemoryMode=new URLSearchParams(location.search).get('memory_mode')==='speech_feedback'?'speech_feedback':'discussion';
@@ -96,9 +96,10 @@ function renderPreviewStatus(){
  $('preview-status').textContent=parts.length?`Previewing ${parts.join(' with ')}.`:'Following live MIST.';
  $('preview-auto').disabled=!preview.active;$('preview-indicator').hidden=!preview.active;$('companion').classList.toggle('has-preview',preview.active);renderExpression();
 }
+function releasePreview(){preview.release();picker?.markSelected(null,null);renderPreviewStatus();}
 function chooseAnimation(item,mode){
  if(mode==='faces'){preview.selectFace(item.id);picker?.markSelected(item.id,'faces');}
- else if(preview.selectActivity(item.id)){picker?.markSelected(item.id,'activities');}
+ else if(preview.selectActivity(item.id)){picker?.markSelected(preview.activityId,preview.activityId?'activities':null);}
  renderPreviewStatus();
 }
 face.ready.then(ready=>{
@@ -110,14 +111,15 @@ face.ready.then(ready=>{
  picker.setOpen(!$('animation-picker').hidden&&!document.hidden);$('face-count').textContent=picker.catalog.faces.length;$('activity-count').textContent=picker.catalog.activities.length;
  renderPreviewStatus();
 }).catch(()=>{activityAssetsReady=false;$('activity-tab').disabled=true;$('activity-count').textContent='unavailable';$('preview-status').textContent='Activity previews are unavailable; live MIST is unchanged.';});
-$('preview-auto').onclick=()=>{preview.release();picker?.markSelected(null,null);renderPreviewStatus();};
+$('preview-auto').onclick=releasePreview;
 $('pair-form').hidden=pairOK;$('pair-state').textContent=pairOK?'This screen is paired.':'Enter the code printed by the local MIST server.';$('fixture-box').hidden=!config.fixtures_enabled;
 function send(data){if(ws?.readyState===WebSocket.OPEN)ws.send(JSON.stringify(data));}
 function error(message){$('error').textContent=message;$('status').textContent=message;$('panel').hidden=false;}
 function stopPlayback(){listenerCue?.reset('explicit_stop');player?.reset();expressionPolicy.interrupt();state('listening');send({type:'barge_in'});}
-async function end(){listenerCue?.reset('disconnected');connectionGeneration++;starting=false;ready=false;pendingPlaybackConfiguration=null;timedFaceReceipt=null;pendingCaption='';lastSpeechKey=null;stopMicSignal();finishStorageStatus();stream?.getTracks().forEach(t=>t.stop());stream=null;capture?.disconnect();capture=null;player?.reset();ws?.close();ws=null;const oldWake=wake;wake=null;$('talk').textContent='Start conversation';$('stop').disabled=true;$('status').textContent='Conversation ended';$('caption').textContent='';transcript.user='';transcript.assistant='';renderUserTranscript(userTranscript.reset());backgroundJob=null;backgroundJobs.clear();renderBackgroundJobs();face.resetActivities?.();connectionActivity=null;expressionPolicy.reset();state('available');await oldWake?.release().catch(()=>{});}
+async function end(){listenerCue?.reset('disconnected');connectionGeneration++;starting=false;ready=false;pendingPlaybackConfiguration=null;timedFaceReceipt=null;pendingCaption='';lastSpeechKey=null;stopMicSignal();finishStorageStatus();stream?.getTracks().forEach(t=>t.stop());stream=null;capture?.disconnect();capture=null;player?.reset();ws?.close();ws=null;const oldWake=wake;wake=null;$('talk').textContent='Start conversation';$('stop').disabled=true;$('status').textContent='Conversation ended';$('caption').textContent='';transcript.user='';transcript.assistant='';renderUserTranscript(userTranscript.reset());backgroundJob=null;backgroundJobs.clear();renderBackgroundJobs();releasePreview();face.resetActivities?.();connectionActivity=null;expressionPolicy.reset();state('available');await oldWake?.release().catch(()=>{});}
 async function start(test=false){
  if(ws||starting)return end();if(!pairOK){$('panel').hidden=false;return;}
+ releasePreview();
  starting=true;const generation=++connectionGeneration;
  fixtureMode=test;micSeq=0;lastSpeechKey=null;pendingPlaybackConfiguration='default';renderUserTranscript(userTranscript.reset());transcript.user='';$('error').textContent='';context??=new AudioContext();await context.resume();
  listenerCue?.reset('new_session');
@@ -153,7 +155,7 @@ async function start(test=false){
  ws=new WebSocket(`${location.protocol==='https:'?'wss':'ws'}://${location.host}${voicePath}`);starting=false;$('status').textContent='Connecting voice';$('talk').textContent='End conversation';
  connectionActivity=face.setActivity?.('connecting',{owner:'transport'}).token;
  const socket=ws;socket.onmessage=event=>{if(ws===socket)receive(JSON.parse(event.data));};socket.onerror=()=>{if(ws===socket){face.clearActivity?.(connectionActivity,{immediate:true});error('Voice connection failed. Check pairing and local server.');}};
- socket.onclose=()=>{if(ws!==socket)return;listenerCue?.reset('disconnected');ready=false;pendingPlaybackConfiguration=null;timedFaceReceipt=null;stopMicSignal();finishStorageStatus();stream?.getTracks().forEach(t=>t.stop());stream=null;capture?.disconnect();capture=null;player?.reset();renderUserTranscript(userTranscript.reset());transcript.user='';face.resetActivities?.();expressionPolicy.reset();state('available');wake?.release().catch(()=>{});wake=null;ws=null;$('talk').textContent='Start conversation';$('stop').disabled=true;$('status').textContent='Disconnected';};
+ socket.onclose=()=>{if(ws!==socket)return;listenerCue?.reset('disconnected');ready=false;pendingPlaybackConfiguration=null;timedFaceReceipt=null;stopMicSignal();finishStorageStatus();stream?.getTracks().forEach(t=>t.stop());stream=null;capture?.disconnect();capture=null;player?.reset();renderUserTranscript(userTranscript.reset());transcript.user='';releasePreview();face.resetActivities?.();expressionPolicy.reset();state('available');wake?.release().catch(()=>{});wake=null;ws=null;$('talk').textContent='Start conversation';$('stop').disabled=true;$('status').textContent='Disconnected';};
  try{wake=await navigator.wakeLock?.request('screen');}catch{}
 }
 const transcript={user:'',assistant:''};
