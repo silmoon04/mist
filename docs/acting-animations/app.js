@@ -21,6 +21,7 @@
   let inspectorPlaying = false;
   let inspectorElapsed = 0;
   let inspectorFrame = 0;
+  const blink = { active: false, playing: false, elapsed: 0, index: 0 };
   let inspectorLastDraw = '';
   let returnFocus = null;
   const transition = { from: 0, to: 1, step: 0, elapsed: 0, playing: false, lastDraw: '' };
@@ -32,6 +33,16 @@
   };
   const pageUrl = () => location.href.split('#')[0].split('?')[0];
   const imageUrl = file => `${file}${file.includes('?') ? '&' : '?'}v=${encodeURIComponent(manifest.version)}`;
+  const frameDuration = (example, index) => example.frames[index].durationMs;
+  const frameStart = (example, index) => runtime.frameStartMs(example, index, fps);
+  const remapTime = (elapsed, oldFps, newFps) => elapsed * oldFps / newFps;
+  function remapActionTime(elapsed, example, oldFps, newFps) {
+    const before = runtime.timeline(example, oldFps);
+    const after = runtime.timeline(example, newFps);
+    const phase = elapsed % before.totalMs;
+    return phase < before.activeMs ? remapTime(phase, oldFps, newFps) : after.activeMs + phase - before.activeMs;
+  }
+  const blinkDuration = example => runtime.blinkDurationMs(example, fps);
   const observer = new IntersectionObserver(changes => {
     for (const change of changes) {
       const view = articleViews.get(change.target.dataset.key);
@@ -187,9 +198,9 @@
         const choice = make('label', 'sequence-choice');
         const choose = make('input');
         choose.type = 'checkbox';
-        choose.setAttribute('aria-label', `Animate this: ${example.label}, ${group.label}`);
+        choose.setAttribute('aria-label', `Keep this: ${example.label}, ${group.label}`);
         choose.addEventListener('change', () => updateEntry(key, { selected: choose.checked }, true));
-        choice.append(choose, make('span', '', 'Animate this'));
+        choice.append(choose, make('span', '', 'Keep this'));
         const actions = make('div', 'example-actions');
         actions.append(choice, inspect);
         const poseChoices = make('div', 'pose-choices');
@@ -218,7 +229,7 @@
         note.placeholder = 'Eyes, mouth, timing, where you would use it…';
         note.setAttribute('aria-label', `What should we keep or change? ${example.label}, ${group.label}`);
         note.addEventListener('input', () => updateEntry(key, { note: note.value }));
-        const view = { article, choose, note, poseChecks, example, canvas, ctx: canvas.getContext('2d'), readout, inspect, visible: false, lastFrame: -1, timeOffset: 0 };
+        const view = { article, choose, note, poseChecks, example, canvas, ctx: canvas.getContext('2d'), readout, inspect, visible: false, lastFrame: '', timeOffset: 0, order: articleViews.size };
         articleViews.set(key, view);
         const groupLabel = make('p', 'card-group', group.label);
         article.append(groupLabel, title, when, stage, actions, poseChoices, noteLabel, note);
@@ -232,24 +243,41 @@
 
   function paintCard(view, force = false) {
     if (!assets || !view.visible || view.article.hidden || $('inspector').open) return;
-    const index = runtime.frameAt(galleryElapsed + view.timeOffset, view.example, fps);
-    if (!force && index === view.lastFrame) return;
-    runtime.drawFrame(view.ctx, view.example, index, assets);
-    view.readout.textContent = `${index + 1} / 12`;
-    view.lastFrame = index;
+    const elapsed = Math.max(0, galleryElapsed + view.timeOffset);
+    const clock = runtime.timeline(view.example, fps);
+    const phase = elapsed % clock.totalMs;
+    let blinkIndex = null;
+    if ($('grid-blinks').checked && view.example.blinkFrames?.length && Math.floor(elapsed / clock.totalMs) % 2 === view.order % 2 && phase >= clock.activeMs) {
+      const duration = runtime.blinkDurationMs(view.example, fps);
+      // A whole blink must fit inside neutral rest; it never cuts an acting pose.
+      if (duration <= clock.restMs) {
+        const stagger = .2 + .6 * ((view.order * 7) % 17) / 16;
+        const start = clock.activeMs + (clock.restMs - duration) * stagger;
+        if (phase >= start && phase < start + duration) blinkIndex = runtime.blinkAt(phase - start, view.example, fps);
+      }
+    }
+    const index = blinkIndex ?? runtime.frameAt(elapsed, view.example, fps);
+    const signature = `${blinkIndex === null ? 'action' : 'blink'}:${index}`;
+    if (!force && signature === view.lastFrame) return;
+    if (blinkIndex === null) runtime.drawFrame(view.ctx, view.example, index, assets);
+    else runtime.drawBlink(view.ctx, view.example, index, assets, { mouthFrame: 0 });
+    view.readout.textContent = blinkIndex === null ? `${index + 1} / 12` : `Blink ${index + 1} / 7`;
+    view.lastFrame = signature;
   }
   function updatePlaybackControls() {
     $('play-all').disabled = !assets || galleryPlaying;
     $('pause-all').disabled = !assets || !galleryPlaying;
     $('playback-status').textContent = galleryPlaying ? 'Playing' : reducedMotion.matches ? 'Paused · reduced motion' : 'Paused';
-    $('inspector-play').disabled = inspectorPlaying;
-    $('inspector-pause').disabled = !inspectorPlaying;
+    $('inspector-play').disabled = inspectorPlaying && !blink.active;
+    $('inspector-pause').disabled = !inspectorPlaying && !blink.playing;
+    $('inspector-blink').disabled = blink.playing;
+    $('blink-back').disabled = !blink.active;
     $('transition-pause').disabled = !assets || !transition.playing;
   }
   function schedule() {
     if (!assets || document.hidden || raf !== null) return;
     const anyVisible = [...articleViews.values()].some(view => view.visible && !view.article.hidden);
-    if (!(galleryPlaying && anyVisible && !$('inspector').open) && !inspectorPlaying && !(transition.playing && $('transitions').open)) return;
+    if (!(galleryPlaying && anyVisible && !$('inspector').open) && !inspectorPlaying && !blink.playing && !(transition.playing && $('transitions').open)) return;
     raf = requestAnimationFrame(tick);
   }
   function tick(now) {
@@ -264,6 +292,13 @@
     if (inspectorPlaying && inspector && $('inspector').open) {
       inspectorElapsed += delta;
       inspectorFrame = runtime.frameAt(inspectorElapsed, inspector.example, fps);
+      paintInspector();
+    }
+    if (blink.playing && inspector && $('inspector').open) {
+      blink.elapsed += delta;
+      const duration = blinkDuration(inspector.example);
+      blink.index = runtime.blinkAt(Math.min(blink.elapsed, duration - .001), inspector.example, fps);
+      if (blink.elapsed >= duration) { blink.playing = false; updatePlaybackControls(); }
       paintInspector();
     }
     if (transition.playing && $('transitions').open) {
@@ -303,24 +338,35 @@
   function paintInspector(force = false) {
     if (!inspector || !assets) return;
     const options = inspectorOptions();
-    const signature = `${inspectorFrame}:${JSON.stringify(options)}`;
+    const signature = `${inspectorFrame}:${blink.active ? blink.index : 'action'}:${blink.playing}:${fps}:${JSON.stringify(options)}`;
     if (!force && signature === inspectorLastDraw) return;
-    runtime.drawFrame($('inspector-canvas').getContext('2d'), inspector.example, inspectorFrame, assets, options);
+    const ctx = $('inspector-canvas').getContext('2d');
+    if (blink.active) runtime.drawBlink(ctx, inspector.example, blink.index, assets, { ...options, mouthFrame: options.mouthFrame ?? inspectorFrame });
+    else runtime.drawFrame(ctx, inspector.example, inspectorFrame, assets, options);
     $('inspector-frame').value = inspectorFrame;
     $('inspector-position').textContent = `${inspectorFrame + 1} / 12`;
+    const duration = frameDuration(inspector.example, inspectorFrame);
+    const ticks = Math.round(duration * 15 / 1000);
+    $('pose-duration').textContent = `${ticks} ${ticks === 1 ? 'tick' : 'ticks'} · ${Math.round(duration)} ms${fps !== 15 ? ` · ${Math.round(duration * 15 / fps)} ms at ½ speed` : ''}`;
+    $('blink-progress').value = blink.index;
+    $('blink-position').textContent = `${blink.index + 1} / ${inspector.example.blinkFrames?.length || 7}`;
+    $('blink-status').textContent = blink.active ? blink.playing ? 'Blinking' : blink.elapsed >= blinkDuration(inspector.example) ? 'Blink finished' : 'Blink paused' : '';
     const mouthFrame = options.mouthFrame ?? inspectorFrame;
     if (!$('mouth-independent').checked) $('mouth-frame').value = mouthFrame;
     $('mouth-position').textContent = `${mouthFrame + 1} / 12`;
     $('filmstrip').querySelectorAll('button').forEach((button, index) => button.setAttribute('aria-pressed', String(index === inspectorFrame)));
     const download = $('download-frame');
+    download.hidden = blink.active;
     download.href = imageUrl(inspector.example.frames[inspectorFrame].file);
     download.download = `MIST-${inspector.group.id}-${inspector.example.id}-${String(inspectorFrame + 1).padStart(2, '0')}.png`;
     inspectorLastDraw = signature;
   }
   function setInspectorFrame(frame) {
     inspectorPlaying = false;
+    blink.active = false;
+    blink.playing = false;
     inspectorFrame = frame;
-    inspectorElapsed = frame * 1000 / fps;
+    inspectorElapsed = frameStart(inspector.example, frame);
     paintInspector(true);
     updatePlaybackControls();
   }
@@ -329,6 +375,7 @@
     inspectorFrame = 0;
     inspectorElapsed = 0;
     inspectorLastDraw = '';
+    Object.assign(blink, { active: false, playing: false, elapsed: 0, index: 0 });
     returnFocus = trigger;
     $('inspector-title').textContent = `${group.label} / ${example.label}`;
     $('inspector-when').textContent = example.when || '';
@@ -339,16 +386,19 @@
     $('mouth-independent').checked = false;
     $('mouth-frame').disabled = true;
     $('mouth-frame').value = 0;
+    $('inspector-speed').value = String(fps);
+    $('blink-controls').hidden = !(runtime.drawBlink && runtime.blinkDurationMs && example.blinkFrames?.length);
+    $('blink-progress').max = String((example.blinkFrames?.length || 7) - 1);
     $('filmstrip').replaceChildren(...example.frames.map((frame, index) => {
       const button = make('button');
       button.type = 'button';
-      button.setAttribute('aria-label', `Show frame ${index + 1}`);
+      button.setAttribute('aria-label', `Show pose ${index + 1}, ${Math.round(frame.durationMs)} milliseconds`);
       button.setAttribute('aria-pressed', 'false');
       const image = make('img');
       image.alt = '';
       image.src = imageUrl(frame.file);
       image.decoding = 'async';
-      button.append(image, make('span', '', `${index + 1}`));
+      button.append(image, make('span', '', `${index + 1} · ${Math.round(frame.durationMs)} ms`));
       button.addEventListener('click', () => setInspectorFrame(index));
       return button;
     }));
@@ -361,6 +411,8 @@
   }
   function closeInspector() {
     inspectorPlaying = false;
+    blink.playing = false;
+    blink.active = false;
     inspector = null;
     lastTick = null;
     updatePlaybackControls();
@@ -415,23 +467,23 @@
   $('view-review').addEventListener('click', () => setView(false));
   $('play-all').addEventListener('click', () => playGallery(true));
   $('pause-all').addEventListener('click', () => playGallery(false));
-  $('fps').addEventListener('change', () => {
+  $('grid-blinks').addEventListener('change', () => { for (const view of articleViews.values()) paintCard(view, true); });
+  function changeSpeed(value) {
     const oldFps = fps;
-    fps = Number($('fps').value);
-    const oldDuration = 12000 / oldFps;
-    const newDuration = 12000 / fps;
-    const remapCycle = (elapsed, example) => {
-      const rest = Number.isFinite(example.restMs) && example.restMs >= 0 ? example.restMs : 1000;
-      const phase = elapsed % (oldDuration + rest);
-      return phase < oldDuration ? phase * oldFps / fps : newDuration + phase - oldDuration;
-    };
-    for (const view of articleViews.values()) view.timeOffset = remapCycle(galleryElapsed + view.timeOffset, view.example) - galleryElapsed;
-    if (inspector) inspectorElapsed = remapCycle(inspectorElapsed, inspector.example);
-    transition.elapsed = transition.elapsed < oldDuration ? transition.elapsed * oldFps / fps : newDuration + transition.elapsed - oldDuration;
+    fps = Number(value);
+    $('fps').value = String(fps);
+    $('inspector-speed').value = String(fps);
+    for (const view of articleViews.values()) view.timeOffset = remapActionTime(galleryElapsed + view.timeOffset, view.example, oldFps, fps) - galleryElapsed;
+    if (inspector) inspectorElapsed = remapActionTime(inspectorElapsed, inspector.example, oldFps, fps);
+    blink.elapsed = remapTime(blink.elapsed, oldFps, fps);
+    const oldDuration = 12000 / oldFps, newDuration = 12000 / fps;
+    transition.elapsed = transition.elapsed < oldDuration ? remapTime(transition.elapsed, oldFps, fps) : newDuration + transition.elapsed - oldDuration;
     for (const view of articleViews.values()) paintCard(view, true);
     paintInspector(true);
     schedule();
-  });
+  }
+  $('fps').addEventListener('change', () => changeSpeed($('fps').value));
+  $('inspector-speed').addEventListener('change', () => changeSpeed($('inspector-speed').value));
   $('export-json').addEventListener('click', () => {
     downloadText('MIST-animation-review.json', JSON.stringify(exportData(), null, 2), 'application/json');
     message('Review exported. Send this JSON file back with your choices.');
@@ -453,8 +505,26 @@
   });
   $('close-inspector').addEventListener('click', () => $('inspector').close());
   $('inspector').addEventListener('close', closeInspector);
-  $('inspector-play').addEventListener('click', () => { inspectorPlaying = true; lastTick = null; updatePlaybackControls(); schedule(); });
-  $('inspector-pause').addEventListener('click', () => { inspectorPlaying = false; updatePlaybackControls(); });
+  $('inspector-play').addEventListener('click', () => { blink.active = false; blink.playing = false; inspectorPlaying = true; lastTick = null; paintInspector(true); updatePlaybackControls(); schedule(); });
+  $('inspector-pause').addEventListener('click', () => { inspectorPlaying = false; blink.playing = false; paintInspector(true); updatePlaybackControls(); });
+  $('inspector-blink').addEventListener('click', () => {
+    inspectorPlaying = false;
+    Object.assign(blink, { active: true, playing: true, elapsed: 0, index: 0 });
+    lastTick = null;
+    paintInspector(true);
+    updatePlaybackControls();
+    schedule();
+  });
+  $('blink-back').addEventListener('click', () => { blink.active = false; blink.playing = false; paintInspector(true); updatePlaybackControls(); });
+  $('blink-progress').addEventListener('input', event => {
+    inspectorPlaying = false;
+    blink.active = true;
+    blink.playing = false;
+    blink.index = Number(event.target.value);
+    blink.elapsed = inspector.example.blinkFrames.slice(0, blink.index).reduce((sum, frame) => sum + frame.durationMs, 0) * 15 / fps;
+    paintInspector(true);
+    updatePlaybackControls();
+  });
   $('inspector-next').addEventListener('click', () => setInspectorFrame((inspectorFrame + 1) % 12));
   $('inspector-frame').addEventListener('input', event => setInspectorFrame(Number(event.target.value)));
   for (const layer of LAYERS) $(`layer-${layer}`).addEventListener('change', () => paintInspector(true));
@@ -485,6 +555,7 @@
     if (event.matches) {
       galleryPlaying = false;
       inspectorPlaying = false;
+      blink.playing = false;
       transition.playing = false;
       updatePlaybackControls();
     }
@@ -512,12 +583,12 @@
       for (const group of manifest.groups) {
         if (!Array.isArray(group.examples) || !group.examples.length) throw new Error(`No examples in ${group.id}`);
         for (const example of group.examples) {
-          if (!Number.isFinite(example.width) || !Number.isFinite(example.height) || !Array.isArray(example.frames) || example.frames.length !== 12 || !Array.isArray(example.poses) || example.poses.length !== 3) throw new Error(`Incomplete animation: ${group.id}/${example.id}`);
+          if (!Number.isFinite(example.width) || !Number.isFinite(example.height) || !Array.isArray(example.frames) || example.frames.length !== 12 || example.frames.some(frame => !Number.isFinite(frame.durationMs) || frame.durationMs <= 0) || !Array.isArray(example.poses) || example.poses.length !== 3) throw new Error(`Incomplete animation: ${group.id}/${example.id}`);
           entries.push({ group, example });
         }
         $('filter').add(new Option(group.label, group.id));
       }
-      $('study-count').textContent = `${entries.length} animations · 12 frames each`;
+      $('study-count').textContent = `${entries.length} animations · 12 poses · 15 fps timing · layered`;
       $('transition-auto').nextSibling.textContent = `Auto cycle all ${entries.length}`;
       let stored;
       try { stored = localStorage.getItem(STORAGE_KEY); }
@@ -547,13 +618,13 @@
       for (const id of ['filter', 'selected-only', 'export-json', 'export-markdown', 'copy-review', 'import-review']) $(id).disabled = false;
       assets = await runtime.preload(manifest);
       for (const view of articleViews.values()) { view.inspect.disabled = false; paintCard(view, true); }
-      for (const id of ['fps', 'transition-from', 'transition-to', 'transition-play', 'transition-auto', 'transition-frame']) $(id).disabled = false;
+      for (const id of ['fps', 'grid-blinks', 'transition-from', 'transition-to', 'transition-play', 'transition-auto', 'transition-frame']) $(id).disabled = false;
       $('status').hidden = true;
       updatePlaybackControls();
       paintTransition(true);
       schedule();
     } catch (error) {
-      console.error('Acting animations:', error);
+      console.error('MIST motion:', error);
       $('status').hidden = true;
       $('error').hidden = false;
       $('error').textContent = 'Animation files could not load. Refresh to retry, or download the pack to inspect the source frames.';

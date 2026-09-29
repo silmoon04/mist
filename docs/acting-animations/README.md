@@ -1,33 +1,15 @@
-# MIST acting animations
+# MIST motion v3
 
-Open https://silmoon04.github.io/mist/acting-animations/
+These studies bring the 18 acting ideas back to MIST's open-ring eyes, hooked lids, rounded mint strokes and small mouths. Each clip has 12 composed poses on a shared 512 × 320 canvas. Blinks have their own timeline; they do not consume half of every acting clip.
 
-The gallery contains 18 animations, each with 12 ImageGen drawings. Playback defaults to 15 fps, followed by a short rest. Grid shows all faces together; Review shows the selection and notes fields. Inspect opens frame stepping, layer visibility and separate mouth timing. If reduced motion is enabled, press Play all to start.
+The frames reuse original MIST components and selected ImageGen component drawings. They are assembled poses, not 216 separate ImageGen illustrations. Source records in the manifest identify the reused and generated art.
 
-## Assets
+The player runs on a 15 fps timebase. Authored exposures hold some poses longer so a glance or reaction has time to read. The left eye, right eye and mouth remain separate. Their common attachment positions prevent a mouth change from moving the whole face.
 
-- source/: 18 original transparent ImageGen sprite sheets.
-- frames/: 216 registered full-face frames.
-- layers/: 648 separate left-eye, right-eye and mouth PNGs.
-- contact/: full-size frame sheets and filmstrips.
-- previews/: looping GIFs for each example and the entire grid.
-- prompts/: generation and correction prompts.
-- manifest.json: source hashes, crop coordinates, layer placement, timing and intended use.
-- transition_plans.json: 12-step recipes for every directed change between the 18 faces.
-- runtime.js: layer rendering, playback timing and reusable face transitions.
+Use the grid to compare the clips. Open a clip to inspect individual frames, hide layers or try a separate mouth frame. The transition controls compare two expressions. Your selections and notes keep the existing review IDs and can be exported from the page.
 
-The compiler applies integer translations to keep the generated drawings registered. It does not stretch or rotate eyes. Layer extraction preserves visible source pixels; disconnected shapes with overlapping bounding rectangles use component masks. Original generated sheets remain unchanged.
+`previews/all-animations.gif` shows the full grid. Individual GIFs and blink previews sit in the same folder. The transparent PNGs preserve the full-colour layers; GIF is a compact review format. `AGENT_GUIDE.md` describes when to choose each expression.
 
-Transitions reuse the source face's closing frames and the destination face's opening frames. Mouths blend independently while the eyes are closed. These are 12 composite steps built from the generated layers, not hundreds of separately generated strips.
+This is an animation review gallery. Its mouth controls show layer independence; they do not establish speech synchronisation in the live voice app. A voice integration must drive visemes from the audio actually being played and stop them when that audio is interrupted.
 
-The three review pose choices still mean Setup, Change and Settle. They map to frames 0, 7 and 11. Existing selections and notes remain compatible with the original pose review.
-
-## Review and reuse
-
-Selections and notes save in the current browser. Use Export review or Copy review link to send them back or move to another device. There is no review database or automatic sync.
-
-Serve an extracted pack with a static HTTP server, then open index.html. The viewer fetches its local JSON and PNG assets.
-
-Use the full group/example key when choosing an animation, for example aardman/listening or pixar/checking. The manifest's when and notes fields describe suitable contexts and cautions. A thinking or checking expression should follow real task state; a success expression should follow a confirmed result.
-
-These are review animations. The separated mouths are expressive acting drawings, not a phoneme-complete speech library. Live voice assets have not been replaced, and this preview does not claim audio alignment.
+The previous gallery remains available in [v2 history](https://silmoon04.github.io/mist/acting-animations-v2/). The voice app and the earlier selection page are separate.

@@ -1,0 +1,443 @@
+{
+  "version": 3,
+  "manifestSha256": "12fe6c884de50dc303c1425d4f6e581104ce5e42d3d7e9639dd895ad41426533",
+  "provider": "OpenAI built-in image_gen.imagegen tool",
+  "description": "Original MIST components and selected generated component drawings assembled into reusable layered poses.",
+  "counts": {
+    "imageGenerationCalls": 10,
+    "selectedGeneratedSheets": 5,
+    "generatedUniqueComponentCels": 24,
+    "canonicalUniqueComponentCels": 3,
+    "componentCelFiles": 30,
+    "manifestSourceRecordsByKind": {
+      "original MIST glyph": 2,
+      "original MIST canonical raster seed": 3,
+      "ImageGen drawn component": 20
+    },
+    "composedActingPoses": 216,
+    "composedBlinkPoses": 126
+  },
+  "counting": "Unique component cels are counted by exact PNG hash across the supplied families. Shared neutral mouths and shared closed eyes count once. These counts describe reusable drawings, not separately generated full faces. Source records in the composition manifest describe which files the composer used.",
+  "normalization": "Original source sheets stay unchanged. Extracted cels use a common scale per family, fixed attachment registration and shared MIST RGB #5eeadd while retaining the generated alpha silhouettes. Canonical starting cells and one common closed-eye cell provide consistent handoffs.",
+  "selectedSources": [
+    {
+      "asset": "components/eyes/round/source_v4.png",
+      "sha256": "2e179ab9111f285daae4f994473091f8a353eaadeb9f3ece10d99069db5f4f3e"
+    },
+    {
+      "asset": "components/eyes/hook/source_v3.png",
+      "sha256": "a8aca542d38a964d888e2722cab385a296419daeb2d46af4853306054ecaecbe"
+    },
+    {
+      "asset": "components/mouths/smile/source.png",
+      "sha256": "cee39b50f83e701495fc72b811e69508fcf6efdb26d1cc373bd81070d89089c1"
+    },
+    {
+      "asset": "components/mouths/bowl/source.png",
+      "sha256": "4f2f395d11bd8e13148eee02918d60b270b5f6d2adeda696cf7e09e085f1246f"
+    },
+    {
+      "asset": "components/mouths/concern/source.png",
+      "sha256": "6b745e0d3ab391725f48a622ca54cf9c586bf1bd66065fb4226da21b87bd6fbf"
+    }
+  ],
+  "components": [
+    {
+      "family": "eyes/round",
+      "canonicalReference": {
+        "repositoryAsset": "brain/art_direction/artist_studio_20260916/reuse/parts/circle_gap_03.png",
+        "sha256": "8177cf8d558be91a6af8826d212779b2fb8e0d9c9cc9f27b6a30fcd34ddfcc80"
+      },
+      "normalization": "Fixed uniform scale per family; translation aligns bottom attachment. Generated alpha retained; RGB replaced with common MIST ink as explicitly requested by lead agent. Cell 0 is canonical source; cell 5 is shared closure.",
+      "cells": [
+        {
+          "asset": "components/eyes/round/cell_0.png",
+          "sha256": "b1e8308ff18a48b78504938fb8621bcac938edf4b7a78c28f4c7e8a7505da729",
+          "origin": "canonical",
+          "source": "components/eyes/round_reference.png"
+        },
+        {
+          "asset": "components/eyes/round/cell_1.png",
+          "sha256": "db114fbbbd02eb0cd2a749ad92cc01f1875c2aa1973d18cb3292b83c49d5502f",
+          "origin": "generated",
+          "source": "components/eyes/round/source_v4.png#cell1"
+        },
+        {
+          "asset": "components/eyes/round/cell_2.png",
+          "sha256": "a84a5b7bb077748bf1b52bf35bd391607f77e9ef11115e3f152dcabaa46c8af9",
+          "origin": "generated",
+          "source": "components/eyes/round/source_v4.png#cell2"
+        },
+        {
+          "asset": "components/eyes/round/cell_3.png",
+          "sha256": "447e92f7de5dbbac1bf53004b89b8cd93f1ed045656664416348a8248685dbc5",
+          "origin": "generated",
+          "source": "components/eyes/round/source_v4.png#cell3"
+        },
+        {
+          "asset": "components/eyes/round/cell_4.png",
+          "sha256": "38ef3bbfda2d6eaf0141dfd19f396317d8f87af059b4ab614d4f7eed71b5790f",
+          "origin": "generated",
+          "source": "components/eyes/round/source_v4.png#cell4"
+        },
+        {
+          "asset": "components/eyes/round/cell_5.png",
+          "sha256": "337433862e2ed6d9a3265b50cfc6a7918eb6208ce4a5ee991a0b29076dcbcb71",
+          "origin": "generated",
+          "source": "components/eyes/round/source_v4.png#cell5"
+        }
+      ]
+    },
+    {
+      "family": "eyes/hook",
+      "canonicalReference": {
+        "repositoryAsset": "brain/art_direction/artist_studio_20260916/reuse/parts/angry_hook_00.png",
+        "sha256": "02eb6f96bbf8192bd81f8c6080982140d9600ea549c2e7319faba5829b464a5f"
+      },
+      "normalization": "Fixed uniform scale per family; translation aligns bottom attachment. Generated alpha retained; RGB replaced with common MIST ink as explicitly requested by lead agent. Cell 0 is canonical source; cell 5 is shared closure.",
+      "cells": [
+        {
+          "asset": "components/eyes/hook/cell_0.png",
+          "sha256": "ac48f0492bf1b9386814634837c1723157c0772e5e1ab05d642a642fdf6aca9b",
+          "origin": "canonical",
+          "source": "components/eyes/hook_reference.png"
+        },
+        {
+          "asset": "components/eyes/hook/cell_1.png",
+          "sha256": "5acd9f86c9bae0d49241ab46c0567b90cb2cd42c3e5cf7545619d3d4bb773b3c",
+          "origin": "generated",
+          "source": "components/eyes/hook/source_v3.png#cell1"
+        },
+        {
+          "asset": "components/eyes/hook/cell_2.png",
+          "sha256": "635e8ea0a9c10853cfcc002dcbb0f70d18f609eea5819457663df0b2d1811b01",
+          "origin": "generated",
+          "source": "components/eyes/hook/source_v3.png#cell2"
+        },
+        {
+          "asset": "components/eyes/hook/cell_3.png",
+          "sha256": "22b7f455bb8cdeb01883e716e6d7197886244d4e974e30d4e23866ca6765c561",
+          "origin": "generated",
+          "source": "components/eyes/hook/source_v3.png#cell3"
+        },
+        {
+          "asset": "components/eyes/hook/cell_4.png",
+          "sha256": "d16730fce1d8f328b7fad702998f3c901e394337f0d8b69ee5ce127474612525",
+          "origin": "generated",
+          "source": "components/eyes/hook/source_v3.png#cell4"
+        },
+        {
+          "asset": "components/eyes/hook/cell_5.png",
+          "sha256": "337433862e2ed6d9a3265b50cfc6a7918eb6208ce4a5ee991a0b29076dcbcb71",
+          "origin": "generated",
+          "source": "components/eyes/round/source_v4.png#cell5"
+        }
+      ]
+    },
+    {
+      "family": "mouths/smile",
+      "normalization": "mouth corner centers at7.5%width; x centered; no vertical bbox centering; RGB#5eeadd; original alpha preserved after common-scale resampling",
+      "cells": [
+        {
+          "asset": "components/mouths/smile/cell_0.png",
+          "sha256": "390dbd16cfe89fa24f5f591222b8ed07a64c8dc256dc9f3f5154627ba2025c8a",
+          "origin": "canonical"
+        },
+        {
+          "asset": "components/mouths/smile/cell_1.png",
+          "sha256": "2ee47d4443746d1c056dbf833c70778d4a8034d6b4e74237dad2ce0f389f7255",
+          "origin": "generated"
+        },
+        {
+          "asset": "components/mouths/smile/cell_2.png",
+          "sha256": "0e70ef30fc24b0bb557b7ac9a58b61fdddbcca3c6f50e8995c2b712c59084caa",
+          "origin": "generated"
+        },
+        {
+          "asset": "components/mouths/smile/cell_3.png",
+          "sha256": "3b74691a0714e6b7d3378fce073d98971fc35548b66d181cd93aceb2564def4a",
+          "origin": "generated"
+        },
+        {
+          "asset": "components/mouths/smile/cell_4.png",
+          "sha256": "19eefba5fd48a9ee4d4521ab9c4581381ceadef7da580a38c261b3d6d89999fd",
+          "origin": "generated"
+        },
+        {
+          "asset": "components/mouths/smile/cell_5.png",
+          "sha256": "eda756d661233f41b86ca5d9fd4f4260371af4407722568dc7a08209a1f1b7b1",
+          "origin": "generated"
+        }
+      ]
+    },
+    {
+      "family": "mouths/bowl",
+      "normalization": "mouth corner centers at7.5%width; x centered; no vertical bbox centering; RGB#5eeadd; original alpha preserved after common-scale resampling",
+      "cells": [
+        {
+          "asset": "components/mouths/bowl/cell_0.png",
+          "sha256": "390dbd16cfe89fa24f5f591222b8ed07a64c8dc256dc9f3f5154627ba2025c8a",
+          "origin": "canonical"
+        },
+        {
+          "asset": "components/mouths/bowl/cell_1.png",
+          "sha256": "8b7e5a954cb720fb213e9e8a8872fce2cda8f291aa36060f8b18773d6551d931",
+          "origin": "generated"
+        },
+        {
+          "asset": "components/mouths/bowl/cell_2.png",
+          "sha256": "7caaf23e50b4e786af1f89c4a6cf9be00231fec9f869241e5cf8f91e2ad3f30c",
+          "origin": "generated"
+        },
+        {
+          "asset": "components/mouths/bowl/cell_3.png",
+          "sha256": "16f2ae3c3b18ed684e51a548a80a68fc18ed7ba2389759e094d83ea87f414cef",
+          "origin": "generated"
+        },
+        {
+          "asset": "components/mouths/bowl/cell_4.png",
+          "sha256": "95bcf8dcec17a9e7ddad3afc9a1fd0435d81ed4ddffa89aeac2901807dcd53e0",
+          "origin": "generated"
+        },
+        {
+          "asset": "components/mouths/bowl/cell_5.png",
+          "sha256": "79c6803ca58c6c77493bf83479f93354ba491a3265cbd35de97b826733ece4d4",
+          "origin": "generated"
+        }
+      ]
+    },
+    {
+      "family": "mouths/concern",
+      "normalization": "mouth corner centers at7.5%width; x centered; no vertical bbox centering; RGB#5eeadd; original alpha preserved after common-scale resampling",
+      "cells": [
+        {
+          "asset": "components/mouths/concern/cell_0.png",
+          "sha256": "390dbd16cfe89fa24f5f591222b8ed07a64c8dc256dc9f3f5154627ba2025c8a",
+          "origin": "canonical"
+        },
+        {
+          "asset": "components/mouths/concern/cell_1.png",
+          "sha256": "7ef5e30f63c26a70f371643f6eab41830a65bdfdc1ec6fb0507a030195849c31",
+          "origin": "generated"
+        },
+        {
+          "asset": "components/mouths/concern/cell_2.png",
+          "sha256": "6f869f12a84396233829a9b05011d72fbba64bc0cb615e34d1ad6e925b9715f1",
+          "origin": "generated"
+        },
+        {
+          "asset": "components/mouths/concern/cell_3.png",
+          "sha256": "1ac8781441a2115110aabb5833e12a83f618efbf8f6336c8dc713ec1a19bbbb4",
+          "origin": "generated"
+        },
+        {
+          "asset": "components/mouths/concern/cell_4.png",
+          "sha256": "de209f874144ca917f64ac086869e5325880c95944d2c35a9b81a2e94f3313e5",
+          "origin": "generated"
+        },
+        {
+          "asset": "components/mouths/concern/cell_5.png",
+          "sha256": "8f6ecdf05ea81213d539e32c8af3963aca709b053742b769b51c81311ed048fd",
+          "origin": "generated"
+        }
+      ]
+    }
+  ],
+  "generationRecords": [
+    {
+      "id": "eyes/round/v1",
+      "tool": "built-in image_gen.imagegen",
+      "transparentBackground": true,
+      "prompt": "Production animation component sheet, using the attached mint open-C eye as the exact character and stroke-design reference. Generate ONLY SIX single left-eye drawings, arranged precisely as 3 columns by 2 rows, row-major. Transparent background, 1536x1024 image, each of six cells 512x512, no labels or frames. Flat solid mint #5eeadd, rounded caps, consistent 28px stroke at sheet scale, no gradient, no glow, no shadow, no outlines. Each cell has eye horizontal center x=256 locally and bottom edge y=365 locally. Open eye approximately 230px wide and 238px tall. Fix width and bottom attachment across all six drawings. This is a slowly closing eyelid on the original abstract MIST C-eye, not an eyeball. Reference opening is on LEFT. Frame 1 exact open C; frame 2 upper rounded arc descends slightly while retaining the left gap and curved lower rim; frame 3 upper rim descends further until top is a gentle nearly horizontal lid connected to the curved right side and lower rim, still open on LEFT; frame 4 shallow lower bowl with upper lid close to bottom rim, one connected silhouette and same lower rim; frame 5 almost closed shallow lower crescent; frame 6 fully closed near-horizontal shallow lower curved mint stroke with round ends, never an upside-down arch. Every intermediate has coherent progression, no sudden new pieces. NO pupils, NO filled eye disk, NO floating eyebrows, NO extra marks, NO eyelashes, NO doubled lines or detached components. The upper lid closes down toward a FIXED bottom rim; do not merely squash or scale the C vertically. All six shapes belong to the SAME eye, at SAME scale, SAME thickness. None of the poses reopen. Show all SIX unique stages in sequence. Preserve true alpha.",
+      "references": [
+        {
+          "asset": "components/eyes/round_reference.png",
+          "sha256": "1fbac98510d77845ef4f24c47775413c69093afbb784af24bc709de43d7a05ea"
+        }
+      ],
+      "output": {
+        "asset": "components/eyes/round/source_v1.png",
+        "sha256": "6a5859e478d291239f2a41e28eb6d2a0f83ec340389fae601ed04a496e55bd04"
+      },
+      "selectedSheet": false
+    },
+    {
+      "id": "eyes/round/v2",
+      "tool": "built-in image_gen.imagegen",
+      "transparentBackground": true,
+      "prompt": "Edit this six-cell sprite sheet. Preserve the same six positions, mint color, opening to left, true transparency and clean design. Make the stroke thickness approximately 52px in ALL poses so it matches original MIST, with rounded ends, flat mint no illumination. The six cels must smoothly close all the way to a near-horizontal lower curved line. Same eye width 310px and bottom attachment per row. Cel 1 full open C 310px high; cel2 slightly descended top arc height270px; cel3 top becomes shallow hooked lid, height215px; cel4 top lid almost closed over bottom rim height155px; cel5 very narrow remaining gap height95px, no ring/bowl silhouette or filled wedge; cel6 fully CLOSED simple shallow lower-curved stroke height60px INCLUDING52px stroke thickness. Cel6 should be almost level with tiny downward curvature, NOT a smiley mouth bowl. Treat six cels as SAME eye progressively being occluded downward, not global scaling. Bottom attachment fixed across row at local y425, center localx256. 3 columns ×2rows, transparent, no text, no extra features. No pupils or eyebrows. Art stays flat, not luminous. Preserve the existing sheet layout and produce refined closure progression.",
+      "references": [
+        {
+          "asset": "components/eyes/round/source_v1.png",
+          "sha256": "6a5859e478d291239f2a41e28eb6d2a0f83ec340389fae601ed04a496e55bd04"
+        }
+      ],
+      "output": {
+        "asset": "components/eyes/round/source_v2.png",
+        "sha256": "2f407e11b41bad6191740677ffd51a088b7d92aad07a2fbbebebb05923065105"
+      },
+      "selectedSheet": false
+    },
+    {
+      "id": "eyes/round/v3",
+      "tool": "built-in image_gen.imagegen",
+      "transparentBackground": true,
+      "prompt": "Precise palette correction ONLY. The first attached image is the sprite sheet edit target. The second attached image is the original MIST eye palette reference. Keep all six eye silhouettes, exact positions, exact dimensions, blank spaces and transparent alpha. Change the sprite sheet's neon green-turquoise to the soft PALE MINT CYAN of the second reference: exact sRGB #5eeadd (red94 green234 blue221), flat evenly filled color. No lighting, no gradient, no bloom, no neon brightness, no outer glow. This is a matte flat 2D sprite, not a glowing screen. Remove all shading and color variation inside the strokes. Keep the eye shapes pixel-for-pixel geometrically, six drawings in3columns×2rows. Do not alter the opening or lid geometry. Transparent background. No text. Preserve the fully closed final eyelid.",
+      "references": [
+        {
+          "asset": "components/eyes/round/source_v2.png",
+          "sha256": "2f407e11b41bad6191740677ffd51a088b7d92aad07a2fbbebebb05923065105"
+        },
+        {
+          "asset": "components/eyes/round_reference.png",
+          "sha256": "1fbac98510d77845ef4f24c47775413c69093afbb784af24bc709de43d7a05ea"
+        }
+      ],
+      "output": {
+        "asset": "components/eyes/round/source_v3.png",
+        "sha256": "e43d9235be8ff3ae2c16371e4a3529865aa4447694283ac9c9f5fda3f2f0f7cc"
+      },
+      "selectedSheet": false
+    },
+    {
+      "id": "eyes/round/v4",
+      "tool": "built-in image_gen.imagegen",
+      "transparentBackground": true,
+      "prompt": "Precise stroke-weight repair on this six-cell MIST eye blink sheet. KEEP all six eye silhouettes and their outer dimensions, all locations, the same 3×2 layout, and transparent background. Increase ONLY stroke thickness by 30 percent inward, so the open C resembles original attached second eye reference. Current sheet line is too thin. Reference MIST C stroke is 16 percent of eye width, not13percent. Use a consistent54pixelstroke on340pixel-wide glyphs. Keep all stroke ends round. Intermediate cel4/cel5: their top and lower ends approach and join CLEANLY with no doubled nub or jagged overlapping circles atleft. Last closedcel stays a SINGLE shallow lower-curved stroke that is almost horizontal, not a smiling mouth bowl. Rest of geometry must stay unchanged. Flatsoftmint#5eeadd; no pupils,brows,shading,outerglow. Preserve actualalpha. Thisisnotanewdesign; onlyconsistentboldnesscorrection to match reference.",
+      "references": [
+        {
+          "asset": "components/eyes/round/source_v3.png",
+          "sha256": "e43d9235be8ff3ae2c16371e4a3529865aa4447694283ac9c9f5fda3f2f0f7cc"
+        },
+        {
+          "asset": "components/eyes/round_reference.png",
+          "sha256": "1fbac98510d77845ef4f24c47775413c69093afbb784af24bc709de43d7a05ea"
+        }
+      ],
+      "output": {
+        "asset": "components/eyes/round/source_v4.png",
+        "sha256": "2e179ab9111f285daae4f994473091f8a353eaadeb9f3ece10d99069db5f4f3e"
+      },
+      "selectedSheet": true
+    },
+    {
+      "id": "eyes/hook/v1",
+      "tool": "built-in image_gen.imagegen",
+      "transparentBackground": true,
+      "prompt": "Production animation component sheet using the attached original MIST angled hook eye as the exact family and stroke-design reference. Generate ONLY SIX single left-eye drawings in exactly 3 columns by 2 rows, row-major. Transparent background, 1536x1024 image, each of six cells 512x512, no labels or frames. Flat solid mint #5eeadd, rounded caps, consistent 30px stroke at sheet scale, NO glow/gradient/shadow. Each cell eye center x=256 locally and bottom edge y=365 locally. Eye approximately 230px wide. Fix scale, width, and bottom attachment across ALL drawings. Six successive coherent upper-lid closure poses: 1 exact slanted hook from reference, diagonal top stroke sloping DOWN from left to right, curved lower rim, opening LEFT; 2 diagonal lid lowered a little at its left end, connected round right corner and same lower U-rim; 3 diagonal lid lowered more and closer to horizontal, preserving open left gap and bottom rim; 4 shallower slit, top lid almost parallel with lower rim; 5 almost shut shallow lower crescent, no hole or separated piece; 6 closed low shallow smile-shaped eyelid stroke, near horizontal with round ends, same bottom. No pose is an upward arch and none reopens. All are the same eye. Do not add pupils, eyeballs, iris, detached eyebrows, floating marks, lashes, or filled eye disks. A single connected thick stroke per eye, not realistic eye anatomy. Draw actual successive lid shapes; no simple global scaling or rotating the entire glyph. The lid moves down, while the lower rim and the attachment stay fixed. Preserve the original clean MIST visual language, with slight hand-drawn softness only in the existing round stroke design. Preserve true alpha.",
+      "references": [
+        {
+          "asset": "components/eyes/hook_reference.png",
+          "sha256": "8ddaf26d0dac0f156bdbf60a63eb43faed70d8e58bb9c99af0ced1aefd7967e4"
+        }
+      ],
+      "output": {
+        "asset": "components/eyes/hook/source_v1.png",
+        "sha256": "4e2de2616ce3168810b2aa353f5008821b3394e91c39a59169afff8a6da36eba"
+      },
+      "selectedSheet": false
+    },
+    {
+      "id": "eyes/hook/v2",
+      "tool": "built-in image_gen.imagegen",
+      "transparentBackground": true,
+      "prompt": "Edit this six-cell sprite sheet so the eye ACTUALLY CLOSES progressively. Keep original hooked MIST style, mint, samewidth350px and same stroke60px, each local centerx256/bottomy425. Top row: cel1 original openhook totalheight325px; cel2 lid downward totalheight270px; cel3 lid lowersmore totalheight220px. Bottom row: cel4 closefurther with totalheight165px; cel5 almost closed, totalheight110px and no bowl shaped silhouette; cel6 FULLY CLOSED single very shallow lower-curved horizontal line totalheight65px INCLUDING60pxstrokethickness. IMPORTANT finalcel must have NO aperture and NO doubled outline, just rounded nearhorizontal line. Keep actual eye width fixed throughout and bottom attachment fixed; make upperlid descend while lower rim flattens only in last poses. ONE smooth coherent closure, six different sequential frames, not six variations of open hook. True transparent background. Flat solid mint color no light,glow,gradient or shadows. Do not introduce eyebrows or pupils or floating mark. Preserve3columns×2rows evenlyspaced. Finalclosedlinecurves down a tiny amount, NEVER inverted arch.",
+      "references": [
+        {
+          "asset": "components/eyes/hook/source_v1.png",
+          "sha256": "4e2de2616ce3168810b2aa353f5008821b3394e91c39a59169afff8a6da36eba"
+        }
+      ],
+      "output": {
+        "asset": "components/eyes/hook/source_v2.png",
+        "sha256": "6198d54e4c1bd78c840aafda7e83914ccbc0b218c881ed0b5b3d759f1e978732"
+      },
+      "selectedSheet": false
+    },
+    {
+      "id": "eyes/hook/v3",
+      "tool": "built-in image_gen.imagegen",
+      "transparentBackground": true,
+      "prompt": "Precise palette correction ONLY. The first attached image is the sprite sheet edit target. The second attached image is the original MIST eye palette reference. Keep all six eye silhouettes, exact positions, exact dimensions, blank spaces and transparent alpha. Change the sprite sheet's neon green-turquoise to the soft PALE MINT CYAN of the second reference: exact sRGB #5eeadd (red94 green234 blue221), flat evenly filled color. No lighting, no gradient, no bloom, no neon brightness, no outer glow. This is a matte flat 2D sprite, not a glowing screen. Remove all shading and color variation inside the strokes. Keep the eye shapes pixel-for-pixel geometrically, six drawings in3columns×2rows. Do not alter the opening or lid geometry. Transparent background. No text. Preserve the fully closed final eyelid.",
+      "references": [
+        {
+          "asset": "components/eyes/hook/source_v2.png",
+          "sha256": "6198d54e4c1bd78c840aafda7e83914ccbc0b218c881ed0b5b3d759f1e978732"
+        },
+        {
+          "asset": "components/eyes/hook_reference.png",
+          "sha256": "8ddaf26d0dac0f156bdbf60a63eb43faed70d8e58bb9c99af0ced1aefd7967e4"
+        }
+      ],
+      "output": {
+        "asset": "components/eyes/hook/source_v3.png",
+        "sha256": "a8aca542d38a964d888e2722cab385a296419daeb2d46af4853306054ecaecbe"
+      },
+      "selectedSheet": true
+    },
+    {
+      "id": "mouths/smile/v1",
+      "tool": "built-in image_gen.imagegen",
+      "transparentBackground": true,
+      "prompt": "Create a production 6-cel animation sprite sheet consisting ONLY of 6 individual MIST robot mouth drawings. The input images are shape/style references; do not reproduce their black background or empty large canvases. Transparent background. Exactly 3 columns by 2 rows, equal-size cells, row-major time order, large clear gutters, no labels no text no lines no grid no eyes no face. Flat solid mint cyan #5eeadd, softly rounded clean ends, no outline no glow no shading no anatomy no teeth no tongue. All six drawings are centered on the same fixed x and y attachment coordinates inside their cell, mouth width consistent across the sequence, identical thickness to the reference; never recenter based on the mouth changing shape. This is ONE mouth performing ONE gradual action, with very small equal changes between adjacent cels, not six different emotions. Put each mouth in the middle quarter of its cell width so nothing clips. REFERENCE1 is the canonical closed dash. REFERENCE2 is the canonical curved smile. Generate SIX successive morph drawings from the closed flat dash to a modest smile, no huge grin. Cel0 perfectly flat rounded horizontal dash. Cel1 corners only very slightly lifted. Cel2 corners gently higher with shallow center curve. Cel3 small gentle U shaped smile. Cel4 slightly deeper continuous curved smile. Cel5 modest rounded U smile, no more than one quarter of mouth width in depth. Keep the center of the stroke attached at same y; corners lift progressively. One continuous stroke, no disconnected segments or filled mouth.",
+      "references": [
+        {
+          "repositoryAsset": "brain/art_direction/artist_studio_20260916/reuse/parts/mouth_line_30.png",
+          "sha256": "45ee58cc153b764efc2243f6ad488533a8e3528795e6c903a5864f1436ff4ea0"
+        },
+        {
+          "repositoryAsset": "brain/art_direction/artist_studio_20260916/reuse/parts/mouth_smile_arc_37.png",
+          "sha256": "4659e41c0c43a67ca9e9641893abf3ce151a680ec47d46ee9f8a9f45162662d1"
+        }
+      ],
+      "output": {
+        "asset": "components/mouths/smile/source.png",
+        "sha256": "cee39b50f83e701495fc72b811e69508fcf6efdb26d1cc373bd81070d89089c1"
+      },
+      "selectedSheet": true
+    },
+    {
+      "id": "mouths/bowl/v1",
+      "tool": "built-in image_gen.imagegen",
+      "transparentBackground": true,
+      "prompt": "Create a production 6-cel animation sprite sheet consisting ONLY of 6 individual MIST robot mouth drawings. The input images are shape/style references; do not reproduce their black background or empty large canvases. Transparent background. Exactly 3 columns by 2 rows, equal-size cells, row-major time order, large clear gutters, no labels no text no lines no grid no eyes no face. Flat solid mint cyan #5eeadd, softly rounded clean ends, no outline no glow no shading no anatomy no teeth no tongue. All six drawings are centered on the same fixed x and y attachment coordinates inside their cell, mouth width consistent across the sequence, identical thickness to the reference; never recenter based on the mouth changing shape. This is ONE mouth performing ONE gradual action, with very small equal changes between adjacent cels, not six different emotions. Put each mouth in the middle quarter of its cell width so nothing clips. REFERENCE1 is the canonical closed dash. REFERENCE2 is the canonical open rounded bowl. Generate SIX successive drawings of opening one mouth smoothly from flat horizontal dash to small rounded filled bowl. Cel0 flat horizontal rounded dash. Cel1 identical width, bottom edge just 4% lower. Cel2 bottom expands 8% of width below upper lip. Cel3 bottom expands12%. Cel4 bottom expands16%. Cel5 bottom expands20%, modest and compact, not shouting. Upper lip is straight and remains at exactly the same y in all six frames, corners remain fixed at the same x, lower edge progressively bows downward. Flat filled cyan silhouette, no internal strokes, no teeth or tongue, no double shape, no smile crease; make every adjacent change equally small.",
+      "references": [
+        {
+          "repositoryAsset": "brain/art_direction/artist_studio_20260916/reuse/parts/mouth_line_30.png",
+          "sha256": "45ee58cc153b764efc2243f6ad488533a8e3528795e6c903a5864f1436ff4ea0"
+        },
+        {
+          "repositoryAsset": "brain/art_direction/artist_studio_20260916/reuse/parts/mouth_open_smile_filled_33.png",
+          "sha256": "b233fa9e43934c2f494c05a85e32da3094b6062fa0a94d2afa8b45588d29681a"
+        }
+      ],
+      "output": {
+        "asset": "components/mouths/bowl/source.png",
+        "sha256": "4f2f395d11bd8e13148eee02918d60b270b5f6d2adeda696cf7e09e085f1246f"
+      },
+      "selectedSheet": true
+    },
+    {
+      "id": "mouths/concern/v1",
+      "tool": "built-in image_gen.imagegen",
+      "transparentBackground": true,
+      "prompt": "Create a production 6-cel animation sprite sheet consisting ONLY of 6 individual MIST robot mouth drawings. The input images are shape/style references; do not reproduce their black background or empty large canvases. Transparent background. Exactly 3 columns by 2 rows, equal-size cells, row-major time order, large clear gutters, no labels no text no lines no grid no eyes no face. Flat solid mint cyan #5eeadd, softly rounded clean ends, no outline no glow no shading no anatomy no teeth no tongue. All six drawings are centered on the same fixed x and y attachment coordinates inside their cell, mouth width consistent across the sequence, identical thickness to the reference; never recenter based on the mouth changing shape. This is ONE mouth performing ONE gradual action, with very small equal changes between adjacent cels, not six different emotions. Put each mouth in the middle quarter of its cell width so nothing clips. REFERENCE1 is the canonical closed dash. REFERENCE2 suggests the original simple rounded concern arc style but do NOT copy its asymmetric rotation. Generate SIX successive drawings from closed flat dash into a subtle symmetrical concerned frown. Cel0 perfectly flat rounded horizontal dash. Cel1 corners lower by barely 2%. Cel2 corners lower4%. Cel3 corners lower6%. Cel4 corners lower8%. Cel5 corners lower10% of mouth width. The center stays fixed and corners gradually drop creating a shallow upside-down-U arc. Keep it restrained, not a rainbow and not an angry snarl. Same thickness and consistent width. One continuous stroke. No extra feature.",
+      "references": [
+        {
+          "repositoryAsset": "brain/art_direction/artist_studio_20260916/reuse/parts/mouth_line_30.png",
+          "sha256": "45ee58cc153b764efc2243f6ad488533a8e3528795e6c903a5864f1436ff4ea0"
+        },
+        {
+          "repositoryAsset": "brain/art_direction/artist_studio_20260916/reuse/parts/mouth_frown_arc_28.png",
+          "sha256": "d84bf77010c788453cc066babcdf5f6f5c431bfee67912fb514bd05f48923989"
+        }
+      ],
+      "output": {
+        "asset": "components/mouths/concern/source.png",
+        "sha256": "6b745e0d3ab391725f48a622ca54cf9c586bf1bd66065fb4226da21b87bd6fbf"
+      },
+      "selectedSheet": true
+    }
+  ],
+  "privateRecordsPreserved": true
+}

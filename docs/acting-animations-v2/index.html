@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>MIST / Acting animations</title>
+  <link rel="stylesheet" href="style.css?v=2">
+</head>
+<body class="compact">
+  <header>
+    <a class="brand" href="../">MIST</a><span class="page-name">Acting animations</span>
+    <nav aria-label="Other previews"><a href="../acting-review/">Original poses</a></nav>
+    <a class="pack" href="MIST_acting_animations_v2.zip" download>Download pack</a>
+  </header>
+  <main>
+    <div class="toolbar">
+      <div class="playback"><button id="play-all" disabled>Play all</button><button id="pause-all" disabled>Pause</button><label for="fps">Speed <select id="fps" disabled><option value="8">8 fps</option><option value="12">12 fps</option><option value="15" selected>15 fps</option></select></label><span id="playback-status" class="small" role="status"></span></div>
+      <div class="filters"><div class="view-switch" role="group" aria-label="Gallery view"><button id="view-grid" aria-pressed="true">Grid</button><button id="view-review" aria-pressed="false">Review</button></div><label><input id="selected-only" type="checkbox" disabled>Selected only</label><label for="filter">Show <select id="filter" disabled><option value="all">All</option></select></label></div>
+    </div>
+    <section class="review-toolbar" aria-label="Your animation review">
+      <div class="review-summary"><strong id="selected-count">0 selected</strong><span id="save-status" role="status">Saved only in this browser.</span><span id="study-count" class="small">18 animations · 12 frames each</span></div>
+      <div class="review-actions"><button id="export-json" disabled>Export review</button><button id="export-markdown" disabled>Download notes</button><button id="copy-review" disabled>Copy review link</button><button id="import-review" disabled>Import review</button><input id="import-file" type="file" accept=".json,application/json" hidden></div>
+      <p id="review-message" class="small" role="status" hidden></p>
+      <div id="share-fallback" hidden><label for="share-url">Copy this review link</label><input id="share-url" type="url" readonly></div>
+    </section>
+    <details id="transitions" class="transition-panel">
+      <summary>Transitions <span class="small">12 steps</span></summary>
+      <div class="transition-layout">
+        <div class="transition-stage"><canvas id="transition-canvas" width="384" height="342" aria-label="Face transition preview"></canvas></div>
+        <div class="transition-settings">
+          <label for="transition-from">From <select id="transition-from" disabled></select></label>
+          <label for="transition-to">To <select id="transition-to" disabled></select></label>
+          <div class="inline-controls"><button id="transition-play" disabled>Play transition</button><button id="transition-pause" disabled>Pause</button><label><input id="transition-auto" type="checkbox" disabled>Auto cycle all 18</label></div>
+          <label class="slider-label" for="transition-frame">Step <output id="transition-position" for="transition-frame">1 / 12</output></label><input id="transition-frame" type="range" min="0" max="11" value="0" step="1" disabled>
+          <p class="small">Blink to change faces. Eyes and mouth move separately.</p>
+        </div>
+      </div>
+    </details>
+    <p id="status" role="status">Loading animation layers…</p>
+    <p id="error" role="alert" hidden></p>
+    <div id="groups"></div>
+    <p id="empty-selection" class="small" hidden>No selected examples in this view.</p>
+    <p class="page-foot small">Review animations. Voice sync is not connected here.</p>
+  </main>
+  <dialog id="inspector" aria-labelledby="inspector-title">
+    <div class="dialog-head"><h2 id="inspector-title"></h2><button id="close-inspector" autofocus>Close</button></div>
+    <p id="inspector-when" class="small"></p>
+    <div class="inspector-stage"><canvas id="inspector-canvas" width="384" height="342" aria-label="Animation layer preview"></canvas></div>
+    <div class="inspector-toolbar"><div class="inline-controls"><button id="inspector-play">Play</button><button id="inspector-pause">Pause</button><button id="inspector-next">Next frame</button></div><a id="download-frame" download>Download frame</a></div>
+    <label class="slider-label" for="inspector-frame">Frame <output id="inspector-position" for="inspector-frame">1 / 12</output></label><input id="inspector-frame" type="range" min="0" max="11" value="0" step="1">
+    <fieldset class="layers"><legend>Layers</legend><label><input id="layer-leftEye" type="checkbox" checked>Left eye</label><label><input id="layer-rightEye" type="checkbox" checked>Right eye</label><label><input id="layer-mouth" type="checkbox" checked>Mouth</label></fieldset>
+    <div class="mouth-control"><label><input id="mouth-independent" type="checkbox">Separate mouth timing</label><label class="slider-label" for="mouth-frame">Mouth frame <output id="mouth-position" for="mouth-frame">1 / 12</output></label><input id="mouth-frame" type="range" min="0" max="11" value="0" step="1" disabled></div>
+    <div id="filmstrip" class="filmstrip" aria-label="Twelve source frames"></div>
+    <p id="inspector-notes" class="small"></p>
+  </dialog>
+  <script src="review-state.js?v=2"></script>
+  <script src="runtime.js?v=2"></script>
+  <script src="app.js?v=2"></script>
+</body>
+</html>
