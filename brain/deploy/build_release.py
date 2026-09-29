@@ -47,6 +47,9 @@ RELEASE_FILES = [
     "brain/harness/test_laptop_host.py", "brain/harness/test_live_studio.py",
     "brain/harness/test_live_studio_remote.py",
     "brain/harness/test_start_laptop_host.ps1",
+    "brain/harness/test_remote_voice_recovery.mjs",
+    "brain/harness/test_session_voice_options.py",
+    "brain/benchmarks/naturalness/test_cerebras_client.py",
     "brain/deploy/fixtures/manifest.json",
     "brain/deploy/fixtures/audio/audio_phrase_seam-1.wav",
     f"brain/{DRAWN}/atlas.json", f"brain/{HANDDRAWN}/manifest.json",
@@ -192,15 +195,14 @@ def build(output: Path, dry_run: bool) -> dict:
             source = BRAIN / "deploy" / "pages" / "endpoint.json"
             check_source(source, secrets)
             copy_release(source, endpoint)
-        (output / ".gitignore").write_text(
-            "/.env\n__pycache__/\n*.pyc\n/brain/results/\n/output/\n.venv/\n", encoding="utf-8")
-        (output / ".gitattributes").write_text(
+        (output / ".gitignore").write_bytes(
+            b"/.env\n__pycache__/\n*.pyc\n/brain/results/\n/output/\n.venv/\n")
+        (output / ".gitattributes").write_bytes((
             "*.py text eol=lf\n*.js text eol=lf\n*.mjs text eol=lf\n"
             "*.html text eol=lf\n*.css text eol=lf\n*.json text eol=lf\n"
             "*.txt text eol=lf\n*.md text eol=lf\n*.ps1 text eol=lf\n"
             ".env.example text eol=lf\n.gitignore text eol=lf\n"
-            ".gitattributes text eol=lf\n*.png binary\n*.wav binary\n",
-            encoding="utf-8")
+            ".gitattributes text eol=lf\n*.png binary\n*.wav binary\n").encode("utf-8"))
         known = {item["path"] for item in files}
         extras = [
             "brain/deploy/build_release.py", "requirements.txt", ".env.example",

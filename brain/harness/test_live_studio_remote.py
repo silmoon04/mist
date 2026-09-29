@@ -83,7 +83,10 @@ class RemoteTests(unittest.IsolatedAsyncioTestCase):
         self.assertEqual((await self.request('GET','/trial/session')).status,200)
         self.assertTrue((await (await self.request('GET','/trial/session')).json())['authenticated'])
         self.assertEqual((await self.request('POST','/trial/bootstrap',json={})).status,200)
-        self.assertEqual((await (await self.request('GET','/trial/catalog')).json())['default'],'qwen-affect')
+        catalog = await (await self.request('GET','/trial/catalog')).json()
+        self.assertEqual(catalog['default'],'qwen-affect')
+        self.assertEqual(next(item for item in catalog['architectures'] if item['id']=='qwen-affect')
+                         ['connect_retries_configured'],1)
         self.assertEqual((await self.request('GET','/trial/sessions')).status,200)
         self.assertEqual((await self.request('GET','/config')).status,200)
         self.assertTrue((await (await self.request('GET','/config')).json())['remote_mode'])
@@ -112,6 +115,9 @@ class RemoteTests(unittest.IsolatedAsyncioTestCase):
         with patch('duplex.live_studio.StreamingTTS', Mask):
             ws = await self.client.ws_connect('/trial/voice?architecture=cerebras-balanced', headers=self.headers)
             self.assertEqual((await ws.receive_json(timeout=3))['type'],'studio_session')
+            while (await ws.receive_json(timeout=3))['type'] != 'ready':
+                pass
+            self.assertEqual(Voice.instances[-1].kwargs['connect_retries'],1)
             logout = await self.request('POST','/trial/logout',json={})
             self.assertEqual(logout.status,200)
             saw_close = False

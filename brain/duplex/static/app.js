@@ -49,7 +49,7 @@ $('pair-form').hidden=pairOK;$('pair-state').textContent=pairOK?'This screen is 
 function send(data){if(ws?.readyState===WebSocket.OPEN)ws.send(JSON.stringify(data));}
 function error(message){$('error').textContent=message;$('status').textContent=message;$('panel').hidden=false;}
 function stopPlayback(){listenerCue?.reset('explicit_stop');player?.reset();expressionPolicy.interrupt();state('listening');send({type:'barge_in'});}
-async function end(){listenerCue?.reset('disconnected');connectionGeneration++;starting=false;ready=false;pendingPlaybackConfiguration=null;timedFaceReceipt=null;stream?.getTracks().forEach(t=>t.stop());stream=null;capture?.disconnect();capture=null;player?.reset();ws?.close();ws=null;await wake?.release().catch(()=>{});wake=null;$('talk').textContent='Start conversation';$('stop').disabled=true;$('status').textContent='Conversation ended';$('caption').textContent='';transcript.user='';transcript.assistant='';renderUserTranscript(userTranscript.reset());backgroundJob=null;$('brain-status').textContent='Background analysis is idle.';$('cancel-background').hidden=true;face.resetActivities?.();expressionPolicy.reset();state('available');}
+async function end(){listenerCue?.reset('disconnected');connectionGeneration++;starting=false;ready=false;pendingPlaybackConfiguration=null;timedFaceReceipt=null;pendingCaption='';lastSpeechKey=null;stream?.getTracks().forEach(t=>t.stop());stream=null;capture?.disconnect();capture=null;player?.reset();ws?.close();ws=null;const oldWake=wake;wake=null;$('talk').textContent='Start conversation';$('stop').disabled=true;$('status').textContent='Conversation ended';$('caption').textContent='';transcript.user='';transcript.assistant='';renderUserTranscript(userTranscript.reset());backgroundJob=null;$('brain-status').textContent='Background analysis is idle.';$('cancel-background').hidden=true;face.resetActivities?.();connectionActivity=null;expressionPolicy.reset();state('available');await oldWake?.release().catch(()=>{});}
 async function start(test=false){
  if(ws||starting)return end();if(!pairOK){$('panel').hidden=false;return;}
  starting=true;const generation=++connectionGeneration;
@@ -135,7 +135,7 @@ async function receive(event){
  else if(event.type==='brain_job'){backgroundJob=event.job_id;$('brain-status').textContent=event.status==='running'?'Working in the background.':`Background analysis ${event.status}${event.elapsed_s?` in ${event.elapsed_s.toFixed(1)} s`:''}.`;$('cancel-background').hidden=event.status!=='running';}
  else if(event.type==='latency'){const m=event.tts||event.conversion;$('latency').textContent=`${event.tts?'Streaming TTS':'Voice conversion'} ${(m.first_byte_s||0).toFixed(2)} s`;}
  else if(event.type==='voice_warning'){$('error').textContent=event.message;$('status').textContent='Listening; voice interrupted';}
- else if(event.type==='error'){if(event.fatal)await end();error(event.message);}
+ else if(event.type==='error'){if(event.reconnect_required===true){await end();error(event.message);$('status').textContent='Reconnect to continue';$('talk').textContent='Reconnect';}else{if(event.fatal)await end();error(event.message);}}
 }
 $('talk').onclick=()=>start(false).catch(e=>error(e.message));$('test-connect').onclick=()=>start(true).catch(e=>error(e.message));$('stop').onclick=stopPlayback;
 $('listener-acks').onchange=()=>{if(!$('listener-acks').checked)listenerCue?.reset('disabled');if(ready)send({type:'listener_ack_config',enabled:$('listener-acks').checked});};

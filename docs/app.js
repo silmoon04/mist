@@ -23,7 +23,7 @@ async function refreshAddress() {
     if (origin.protocol !== 'https:' || origin.username || origin.password || origin.port || origin.pathname !== '/' || origin.search || origin.hash || !/^[a-z0-9-]+\.trycloudflare\.com$/.test(origin.hostname)) throw new Error('invalid_address');
     openLink.href = `${origin.origin}/try`;
     openLink.hidden = false;
-    statusNode.textContent = 'Open the voice interface on your laptop.';
+    statusNode.textContent = 'Open the voice interface.';
   } catch (_) {
     statusNode.textContent = 'The address is not available yet.';
     updatedNode.textContent = '';

@@ -196,7 +196,7 @@ class CascadeVoice:
                  speech_backend='streaming-tts', background=None, expression_revision=None,
                  request_text=None, *, provider=None, model=None, floor=None, endpoint_ms=None,
                  incomplete_hold_ms=None, reasoning_effort=None, max_output_tokens=None,
-                 conversation_policy='standard', parallel_tool_calls=False):
+                 conversation_policy='standard', parallel_tool_calls=False, connect_retries=0):
         self.runtime, self.run_dir = runtime, Path(run_dir)
         self.emit, self.audio, self.dc_event = emit, audio, dc_event
         self.background = background
@@ -206,6 +206,9 @@ class CascadeVoice:
         self.conversation_policy=conversation_policy
         if type(parallel_tool_calls) is not bool:raise ValueError('parallel_tool_calls must be boolean')
         self.parallel_tool_calls=parallel_tool_calls
+        if type(connect_retries) is not int or connect_retries not in (0, 1):
+            raise ValueError('connect_retries must be 0 or 1')
+        self.connect_retries=connect_retries
         self.expression_revision = expression_revision or (lambda: 0)
         self.request_text = request_text or (lambda: '')
         self.owner = getattr(dc_event, '__self__', None)
@@ -226,6 +229,8 @@ class CascadeVoice:
             raise ValueError('MIST_LAB_ENDPOINT_MS must be an integer from 100 to 2000')
         if self.provider not in ('cerebras', 'codex') or self.floor not in ('cancel_all', 'selective'):
             raise ValueError('Unknown lab provider or floor policy')
+        if self.provider != 'cerebras' and self.connect_retries:
+            raise ValueError('connect_retries applies only to Cerebras sessions')
         self.reasoning_effort = self.env.get('MIST_LAB_REASONING', 'low') if reasoning_effort is None else reasoning_effort
         if self.provider == 'cerebras':
             self.reasoning_controls = request_controls(self.model, self.reasoning_effort)
@@ -287,6 +292,7 @@ class CascadeVoice:
                          'provider': self.provider, 'model': self.model, 'floor': self.floor,
                          'reasoning_effort': self.reasoning_effort, 'conversation_policy':self.conversation_policy,
                          'parallel_tool_calls':self.parallel_tool_calls,
+                         'connect_retries_configured':self.connect_retries,
                          'reasoning_controls': dict(self.reasoning_controls),
                          'max_output_tokens': self.max_output_tokens, 'output_limit_kind': self.output_limit_kind,
                          'endpoint_ms': self.endpoint_ms,
@@ -367,9 +373,11 @@ class CascadeVoice:
                 raise RuntimeError('CEREBRAS_API_KEY is unavailable')
             client = CerebrasClient(model=self.model, thinking=self.reasoning_effort, system_prompt=prompt,
                 parallel_tool_calls=self.parallel_tool_calls,
+                connect_retries=self.connect_retries,
                 max_output_tokens=self.max_output_tokens, run_dir=self.run_dir / 'model',
                 http_client=httpx.Client(base_url='https://api.cerebras.ai/v1',
-                    headers={'Authorization': 'Bearer ' + key}, timeout=10, follow_redirects=False))
+                    headers={'Authorization': 'Bearer ' + key}, timeout=10, follow_redirects=False,
+                    transport=httpx.HTTPTransport(retries=1) if self.connect_retries else None))
         else:
             from codex_client import CodexClient
             from duplex.native import choose_binary
@@ -599,12 +607,14 @@ class CascadeVoice:
                 if result.errors:
                     self.needs_reset = True
                     await self.debug('model_failed', turn_id=turn_id, errors=result.errors,
+                                     timings=getattr(result, 'timings', {}),
                                      generated_text=result.text, playback_verified=False)
                     # A blocked done event closes the turn without flushing provisional TTS.
                     if self.owner is not None:
                         await self.owner.barge_in('lab_model_failure')
                     await self.dc_event({'type': 'turn.done', 'turn': {'id': turn_id, 'role': 'assistant', 'transcript': ''}})
-                    await self.emit({'type': 'error', 'message': 'Lab text model failed; provisional response discarded.'})
+                    await self.emit({'type': 'error', 'reconnect_required': True,
+                                     'message': 'Lab text model failed; reconnect to continue.'})
                     continue
                 if self.output_turn != turn_id:
                     await self.dc_event({'type': 'turn.created', 'turn': {'id': turn_id, 'role': 'assistant', 'start_ms': start_ms}})
@@ -626,7 +636,8 @@ class CascadeVoice:
                 await self.debug('model_failed', turn_id=turn_id, error_type=type(error).__name__)
                 if self.owner is not None:
                     await self.owner.barge_in('lab_model_exception')
-                await self.emit({'type': 'error', 'message': 'Lab model turn failed; reconnect if it persists.'})
+                await self.emit({'type': 'error', 'reconnect_required': True,
+                                 'message': 'Lab model turn failed; reconnect to continue.'})
             finally:
                 if self.turn == turn_id:
                     self.turn = None

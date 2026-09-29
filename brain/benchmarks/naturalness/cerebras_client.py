@@ -77,9 +77,11 @@ def collect_delta(calls, delta):
 class CerebrasClient:
     def __init__(self, model='gpt-oss-120b', thinking='low', system_prompt='',
                  max_output_tokens=1024, run_dir=None, http_client=None,
-                 parallel_tool_calls=False, **unused):
+                 parallel_tool_calls=False, connect_retries=0, **unused):
         if type(parallel_tool_calls) is not bool:
             raise ValueError('parallel_tool_calls must be a boolean')
+        if type(connect_retries) is not int or connect_retries not in (0, 1):
+            raise ValueError('connect_retries must be 0 or 1')
         controls = request_controls(model, thinking)
         self.model = model
         self.thinking = thinking
@@ -87,6 +89,7 @@ class CerebrasClient:
         self.max_output_tokens = max_output_tokens
         # This batches model selections; the validated actions still run in order.
         self.parallel_tool_calls = parallel_tool_calls
+        self.connect_retries = connect_retries
         self._specs = []
         self._selected = set()
         self._bridge = None
@@ -96,7 +99,8 @@ class CerebrasClient:
         self.http = http_client or httpx.Client(
             base_url='https://api.cerebras.ai/v1',
             headers={'Authorization': 'Bearer ' + api_key()}, timeout=30,
-            follow_redirects=False)
+            follow_redirects=False,
+            transport=httpx.HTTPTransport(retries=1) if connect_retries else None)
         self.backend_info = {'provider': 'cerebras', 'model': model, 'streaming': True,
                              'reasoning_format': controls['reasoning_format'], 'reasoning_effort': thinking,
                              'request_controls': dict(controls),
@@ -105,7 +109,10 @@ class CerebrasClient:
                              'private_reasoning_policy': 'Discard separate reasoning fields; do not emit, save or replay them.',
                              'effort_mapping': 'Cerebras high selects Qwen native xhigh' if model == 'qwen-3.8-27b' else 'Provider low/medium/high',
                              'max_completion_tokens': max_output_tokens,
-                             'retry_policy': 'none; rate limits and failures are retained',
+                             'retry_policy': ('one transport connection retry for ConnectError/ConnectTimeout only; '
+                                              'no status, read, write or tool retry' if connect_retries else
+                                              'none; rate limits and failures are retained'),
+                             'connect_retries_configured': connect_retries,
                              'tool_execution': 'local production allowlist, sequential',
                              'parallel_tool_calls': parallel_tool_calls,
                              'tool_limits': {'per_turn': 16, 'model_rounds': 9},
@@ -153,6 +160,7 @@ class CerebrasClient:
                 with self.http.stream('POST', '/chat/completions', json=body,
                                       timeout=httpx.Timeout(max(.01, min(10, remaining)), connect=max(.01, min(10, remaining)))) as response:
                     request = {'round': round_index, 'status': response.status_code,
+                               'connect_retries_configured': self.connect_retries,
                                'headers_ms': (time.perf_counter()-request_start)*1000}
                     result.timings['http_requests'].append(request)
                     if response.status_code != 200:

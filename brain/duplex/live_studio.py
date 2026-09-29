@@ -194,6 +194,8 @@ class TrialConversation(server.Conversation):
                           endpoint_ms=a['endpoint_ms'], incomplete_hold_ms=a['incomplete_hold_ms'],
                           reasoning_effort=a['reasoning_effort'], max_output_tokens=a['max_output_tokens'],
                           conversation_policy=a['conversation_policy'],parallel_tool_calls=a['parallel_tool_calls'])
+            if a['provider'] == 'cerebras' and self.app.get('remote_access'):
+                kwargs['connect_retries'] = 1
         factory = self.app.get('trial_voice_factory', cls)
         self.voice = factory(self.runtime, self.app['run_dir'] / 'voice', self.emit,
                              self.mask.feed, self.realtime_event, **kwargs)
@@ -355,6 +357,7 @@ def create_studio(args):
                 required.append('CEREBRAS_API_KEY')
             missing = [key for key in required if not app['env'].get(key)]
             result.append(dict(item, available=not missing, missing=missing,
+                               connect_retries_configured=1 if remote and item['provider'] == 'cerebras' else 0,
                                source_hashes=app['trial_source_hashes']))
         return result
 
