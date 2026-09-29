@@ -912,18 +912,18 @@
     },
     {
       "path": "brain/duplex/static/animation_picker.mjs",
-      "bytes": 7665,
-      "sha256": "e4fd98f0d5c61c9736fe0db845895c53a16aecbc0e2cb21e99eda73d7eea184f"
+      "bytes": 7652,
+      "sha256": "63950818f1a0a58362fde05a91dbe409970e159c451805835d188abbc0e67482"
     },
     {
       "path": "brain/duplex/static/animation_picker.test.mjs",
-      "bytes": 5854,
-      "sha256": "4ab2fee61cdeb5969e7d30cd3e1c147abcf6bb889682252e137e1c39d87d2d54"
+      "bytes": 7931,
+      "sha256": "ff8be5662ded6f4351f150483d7ce4536bfc18e9f6f4f3873ff913518302f531"
     },
     {
       "path": "brain/duplex/static/app.js",
       "bytes": 28591,
-      "sha256": "9a781bbe9f53e294bd2d5fabf30710b30748de9971e7bf3897b711fca1a0a976"
+      "sha256": "b7244f939d121e6f8e681bebc9a00d539cd8e1484eb3b0c6f9eb80e52b5bada9"
     },
     {
       "path": "brain/duplex/static/capture-worklet.js",
@@ -963,7 +963,7 @@
     {
       "path": "brain/duplex/static/index.html",
       "bytes": 5703,
-      "sha256": "e40c3989755f8afae4a8b9722b677b9270d2e79b6be2279066e1c43fd8a57059"
+      "sha256": "5d157332b0995e7e2cd45687c6a4fb5777da201a7d9c984b682f119ab60d0912"
     },
     {
       "path": "brain/duplex/static/inspect.css",
@@ -1242,7 +1242,7 @@
     }
   ],
   "file_count": 248,
-  "total_bytes": 13307797,
+  "total_bytes": 13309861,
   "mutable_files": [
     "docs/endpoint.json"
   ],
