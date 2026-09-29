@@ -1,6 +1,21 @@
 {
   "files": [
     {
+      "path": ".env.example",
+      "bytes": 261,
+      "sha256": "621d41a49514f4d9a5f964b89dc1258458c0882ca1d7479b85b53d9dd9fd4192"
+    },
+    {
+      "path": ".gitignore",
+      "bytes": 63,
+      "sha256": "5def4753fc7889558b2eed5f2a08ba569cfdd95dee4fc7b098e67993bf9d669c"
+    },
+    {
+      "path": "README.md",
+      "bytes": 2092,
+      "sha256": "3838abb8d028013f28675633f7ac67a86af2db7f560b95af878199e8c2cca1e7"
+    },
+    {
       "path": "brain/art_direction/artist_studio_20260916/reuse/drawn/atlas.json",
       "bytes": 174800,
       "sha256": "229bcecdee62216684b535ee1dfae16536df4a41896c51a88c87621ceb94e4a3"
@@ -621,6 +636,46 @@
       "sha256": "b9663084c1130a0c617b8d793728ec60f9daa9a46985265528e46131092e2aee"
     },
     {
+      "path": "brain/deploy/LAPTOP_HOST.md",
+      "bytes": 2493,
+      "sha256": "4e094936945c2c471db9149384a04cea29e91ead7cf43566108bdae361bb1cb7"
+    },
+    {
+      "path": "brain/deploy/build_release.py",
+      "bytes": 9718,
+      "sha256": "7aabf8e1e57765b45bba199f97e61c95df75157fd95c33955f19c8e6a556f8df"
+    },
+    {
+      "path": "brain/deploy/fixtures/audio/audio_phrase_seam-1.wav",
+      "bytes": 188204,
+      "sha256": "11fc41d4e9092e3362d407958d4c9110b03ae61834000406cb5f6be9f5560890"
+    },
+    {
+      "path": "brain/deploy/fixtures/manifest.json",
+      "bytes": 1780,
+      "sha256": "560b41970c352c5b57488f13bc1f70f860dc3b72a490706e79e5568248162756"
+    },
+    {
+      "path": "brain/deploy/laptop_host.py",
+      "bytes": 18189,
+      "sha256": "2b93e6d9617beecb7167d78edf4ba60da1070848d8c8213ad5efd3c8d2711ca9"
+    },
+    {
+      "path": "brain/deploy/start_laptop_host.ps1",
+      "bytes": 866,
+      "sha256": "f971992d652ecee8b178b74121ab8ef2ac7b1d92dd6f25d2f1d73ddbb985cf20"
+    },
+    {
+      "path": "brain/deploy/test_remote_e2e.py",
+      "bytes": 18353,
+      "sha256": "ed0fe65df5148192680f8ae3c49b8918b92b945003542962abfdf1885330bdac"
+    },
+    {
+      "path": "brain/deploy/test_remote_e2e_helpers.py",
+      "bytes": 3284,
+      "sha256": "d02f51343075c3b574851ca643e34456b7bed796a4661b06ca19a41c71a11fe7"
+    },
+    {
       "path": "brain/duplex/__init__.py",
       "bytes": 42,
       "sha256": "5d72754d88de174c794e9c99541783681f2e5b26eb251c42d084bbf5dd88659a"
@@ -876,6 +931,16 @@
       "sha256": "cb6330f47484818380347d77ffdeae6ae9928b4ed110edd4071ac47ad4bf84a0"
     },
     {
+      "path": "brain/harness/test_live_studio.py",
+      "bytes": 14657,
+      "sha256": "15e536c4851d8787b9ef2c5d04e73e99404fff1394bb9323d52f4dc7af8bf34b"
+    },
+    {
+      "path": "brain/harness/test_live_studio_remote.py",
+      "bytes": 7325,
+      "sha256": "10b8ae16693c815edc7d129207481c86a30c7a8980fe43433b9edd94f60324ae"
+    },
+    {
       "path": "brain/ui/static/drawn_face_renderer.js",
       "bytes": 47400,
       "sha256": "22084e744e8d11ed0484b273b8f82ee3af8c9e9e11070c6290a3e535f6d48ce3"
@@ -889,8 +954,41 @@
       "path": "design/hexapod_phone_quad_r5_20260912/cad/output/assembly_manifest.json",
       "bytes": 227780,
       "sha256": "67f0d5e3bfb633414722b17305cef4212ca7f8fa753aa922a252bc383306ad3d"
+    },
+    {
+      "path": "docs/.nojekyll",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/app.js",
+      "bytes": 1591,
+      "sha256": "1bce5ef9320e9f87fc39bba6153f27fe89cb8d52d60dc7172601ccf1cb399e49"
+    },
+    {
+      "path": "docs/endpoint.json",
+      "bytes": 89,
+      "sha256": "f93c604117e6d57973c85aab1ec181075d25161ab12133b50611bff140f0e443"
+    },
+    {
+      "path": "docs/index.html",
+      "bytes": 1109,
+      "sha256": "3369f351fc530a6e910fb8207aa924faac50fe5c7403e89107a68993014deb70"
+    },
+    {
+      "path": "docs/style.css",
+      "bytes": 1439,
+      "sha256": "1e37fcb179494f86d5cd4f117c18d5ca4fe090ad4f26c37a7a3b3f9d5e70f5cb"
+    },
+    {
+      "path": "requirements.txt",
+      "bytes": 168,
+      "sha256": "64fa68318ab3f91abe89919c90007c36625148e92d7d133a8ecb3d25d3385d1c"
     }
   ],
-  "file_count": 178,
-  "total_bytes": 12397493
+  "file_count": 197,
+  "total_bytes": 12669174,
+  "mutable_files": [
+    "docs/endpoint.json"
+  ]
 }

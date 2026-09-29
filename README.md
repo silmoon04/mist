@@ -19,6 +19,18 @@ Codex choices additionally require a signed-in Codex CLI on the service host;
 they are optional and may be unavailable on ordinary cloud hosts. The service
 can launch without provider keys, but those architectures will be unavailable.
 
+The checked-in smoke fixture is one synthetic Deepgram Aura2 Thalia audio case,
+with its source and WAV hashes in `brain/deploy/fixtures/manifest.json`. It is
+not a human recording. The remote protocol smoke runner is opt-in: see
+`brain/deploy/LAPTOP_HOST.md`; its received audio and transcripts belong in a
+private output directory.
+
+Run the packaged offline checks with `python -B -m
+brain.harness.test_live_studio_remote`, `python -B
+brain/harness/test_live_studio.py`, `python -B
+brain/harness/test_laptop_host.py`, and `python -B
+brain/deploy/test_remote_e2e_helpers.py`.
+
 Build a fresh release from the private workspace with `python
 brain/deploy/build_release.py`. The script copies an explicit source list and
 only PNG files referenced by the face manifests. Review `release-manifest.json`

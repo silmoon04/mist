@@ -45,7 +45,10 @@ RELEASE_FILES = [
     "brain/benchmarks/naturalness/cerebras_client.py",
     "brain/harness/pi_client.py", "brain/harness/codex_client.py",
     "brain/harness/response_format.py", "brain/harness/eval_luna_conversations.py",
-    "brain/harness/test_laptop_host.py",
+    "brain/harness/test_laptop_host.py", "brain/harness/test_live_studio.py",
+    "brain/harness/test_live_studio_remote.py",
+    "brain/deploy/fixtures/manifest.json",
+    "brain/deploy/fixtures/audio/audio_phrase_seam-1.wav",
     f"brain/{DRAWN}/atlas.json", f"brain/{HANDDRAWN}/manifest.json",
     f"brain/{HANDDRAWN}/runtime.js",
     "design/hexapod_phone_quad_r5_20260912/cad/output/assembly_manifest.json",
@@ -54,6 +57,8 @@ DEPLOY_FILES = (
     "laptop_host.py",
     "start_laptop_host.ps1",
     "LAPTOP_HOST.md",
+    "test_remote_e2e.py",
+    "test_remote_e2e_helpers.py",
 )
 PAGE_FILES = ("index.html", "style.css", "app.js", ".nojekyll")
 
@@ -137,7 +142,8 @@ def build(output: Path, dry_run: bool) -> dict:
         files.append({"path": relative.replace("\\", "/"), "bytes": source.stat().st_size,
                       "sha256": hashlib.sha256(source.read_bytes()).hexdigest()})
     report = {"files": files, "file_count": len(files),
-              "total_bytes": sum(item["bytes"] for item in files)}
+              "total_bytes": sum(item["bytes"] for item in files),
+              "mutable_files": ["docs/endpoint.json"]}
     if not dry_run:
         output = output.resolve()
         if output == PROJECT or not output.is_relative_to(PROJECT / "output"):
@@ -171,7 +177,24 @@ def build(output: Path, dry_run: bool) -> dict:
             check_source(source, secrets)
             shutil.copyfile(source, endpoint)
         (output / ".gitignore").write_text(
-            ".env\n__pycache__/\n*.pyc\nbrain/results/\noutput/\n.venv/\n", encoding="utf-8")
+            "/.env\n__pycache__/\n*.pyc\n/brain/results/\n/output/\n.venv/\n", encoding="utf-8")
+        known = {item["path"] for item in files}
+        extras = [
+            "brain/deploy/build_release.py", "requirements.txt", ".env.example",
+            "README.md", ".gitignore", "docs/endpoint.json",
+            *(f"brain/deploy/{name}" for name in DEPLOY_FILES),
+            *(f"docs/{name}" for name in PAGE_FILES),
+        ]
+        for relative in extras:
+            target = output / relative
+            if not target.is_file() or relative in known:
+                continue
+            files.append({"path": relative, "bytes": target.stat().st_size,
+                          "sha256": hashlib.sha256(target.read_bytes()).hexdigest()})
+            known.add(relative)
+        report["files"] = sorted(files, key=lambda item: item["path"])
+        report["file_count"] = len(files)
+        report["total_bytes"] = sum(item["bytes"] for item in files)
         (output / "release-manifest.json").write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
     return report
 
