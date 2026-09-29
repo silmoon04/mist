@@ -42,6 +42,8 @@ RELEASE_FILES = [
     "brain/face_assets/app/app_data.js",
     "brain/benchmarks/naturalness/cascade_voice.py",
     "brain/benchmarks/naturalness/cerebras_client.py",
+    "brain/benchmarks/naturalness/streaming_voice_20260930.py",
+    "brain/benchmarks/naturalness/streaming_asr_20260930.py",
     # The public Cerebras offline suite imports objective_checks from runner.
     "brain/benchmarks/naturalness/runner.py",
     "brain/harness/pi_client.py", "brain/harness/codex_client.py",

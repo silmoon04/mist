@@ -24,6 +24,13 @@ Codex choices additionally require a signed-in Codex CLI on the service host;
 they are optional and may be unavailable on ordinary cloud hosts. The service
 can launch without provider keys, but those architectures will be unavailable.
 
+Select **Qwen · Flux + MIST** in the architecture menu to try Deepgram Flux
+for recognition and turn detection. It keeps the Qwen reply model, expression
+reader, tools, and MIST voice. It uses the same three provider keys and does not
+require JEV. Flux waits for its `EndOfTurn` event before requesting a reply;
+the debugger records its settings and transcript events. The existing Qwen
+expression-reader option remains the remote default.
+
 The checked-in smoke fixture is one synthetic Deepgram Aura2 Thalia audio case,
 with its source and WAV hashes in `brain/deploy/fixtures/manifest.json`. It is
 not a human recording. The remote protocol smoke runner is opt-in: see

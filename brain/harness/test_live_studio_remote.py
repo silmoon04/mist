@@ -87,6 +87,8 @@ class RemoteTests(unittest.IsolatedAsyncioTestCase):
         self.assertEqual(catalog['default'],'qwen-affect')
         self.assertEqual(next(item for item in catalog['architectures'] if item['id']=='qwen-affect')
                          ['connect_retries_configured'],1)
+        self.assertEqual(next(item for item in catalog['architectures'] if item['id']=='qwen-flux')
+                         ['connect_retries_configured'],1)
         self.assertEqual((await self.request('GET','/trial/sessions')).status,200)
         self.assertEqual((await self.request('GET','/config')).status,200)
         self.assertTrue((await (await self.request('GET','/config')).json())['remote_mode'])
@@ -113,6 +115,13 @@ class RemoteTests(unittest.IsolatedAsyncioTestCase):
         self.app['env'].update(ELEVENLABS_API_KEY='fake-key', DEEPGRAM_API_KEY='fake-key', CEREBRAS_API_KEY='fake-key')
         self.app['trial_voice_factory'] = Voice
         with patch('duplex.live_studio.StreamingTTS', Mask):
+            flux_ws = await self.client.ws_connect('/trial/voice?architecture=qwen-flux', headers=self.headers)
+            self.assertEqual((await flux_ws.receive_json(timeout=3))['type'],'studio_session')
+            while (await flux_ws.receive_json(timeout=3))['type'] != 'ready':
+                pass
+            self.assertEqual(Voice.instances[-1].kwargs['connect_retries'],1)
+            await flux_ws.close()
+            await asyncio.wait_for(self.app['trial_closed'].wait(),3)
             ws = await self.client.ws_connect('/trial/voice?architecture=cerebras-balanced', headers=self.headers)
             self.assertEqual((await ws.receive_json(timeout=3))['type'],'studio_session')
             while (await ws.receive_json(timeout=3))['type'] != 'ready':

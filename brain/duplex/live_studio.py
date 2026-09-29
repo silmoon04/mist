@@ -28,6 +28,7 @@ from duplex.expression_policy import normalize_expression
 from duplex.trial_traces import BufferedJournal, TraceStore
 from duplex.remote_access import RemoteAccess
 from benchmarks.naturalness.cascade_voice import CascadeVoice
+from benchmarks.naturalness.streaming_voice_20260930 import StreamingComparisonVoice
 
 ARCHITECTURES = [
     dict(id='cerebras-balanced', label='Cerebras · more pause time', provider='cerebras',
@@ -53,6 +54,13 @@ ARCHITECTURES = [
          conversation_policy='responsive',background_context=True,parallel_tool_calls=True,playback_buffer_ms=120,
          affect_model='qwen-3.8-27b',affect_reasoning='none',
          description='A second Qwen reads the conversation for face and voice variation. Speech starts independently; late suggestions are discarded. Experimental.'),
+    dict(id='qwen-flux',label='Qwen · Flux + MIST',provider='cerebras',
+         model='qwen-3.8-27b',reasoning_effort='low',endpoint_ms=None,floor='selective',
+         background_provider='cerebras',background_model='gpt-oss-120b',background_reasoning_effort='medium',
+         conversation_policy='responsive',background_context=True,parallel_tool_calls=True,playback_buffer_ms=120,
+         affect_model='qwen-3.8-27b',affect_reasoning='none',
+         asr_provider='flux',turn_policy='flux_end_of_turn',incomplete_hold_ms=0,jev_enabled=False,
+         description='Qwen and the separate expression reader use MIST voice. Deepgram Flux decides when your turn ends; brief acknowledgements preserve the floor. Experimental.'),
     dict(id='oss-affect',label='Qwen · GPT-OSS expression reader',provider='cerebras',
          model='qwen-3.8-27b',reasoning_effort='low',endpoint_ms=500,floor='selective',
          background_provider='cerebras',background_model='gpt-oss-120b',background_reasoning_effort='medium',
@@ -75,7 +83,8 @@ ARCHITECTURES = [
 for architecture in ARCHITECTURES:
     architecture.update(backing_model='gpt-6-luna',
                         speech_backend='streaming-tts', voice_id=server.VOICE,
-                        incomplete_hold_ms=900, hardware_connected=False)
+                        hardware_connected=False)
+    architecture.setdefault('incomplete_hold_ms', 900)
     architecture.setdefault('reasoning_effort', 'low')
     for key,value in dict(background_model='gpt-6-luna',background_provider='codex',background_reasoning_effort='low',
                           background_context=False,conversation_policy='standard',parallel_tool_calls=False,playback_buffer_ms=200).items():
@@ -189,11 +198,13 @@ class TrialConversation(server.Conversation):
             cls = NativeVoice
             kwargs.update(model=a['backing_model'])
         else:
-            cls = CascadeVoice
+            cls = StreamingComparisonVoice if a.get('asr_provider') == 'flux' else CascadeVoice
             kwargs.update(provider=a['provider'], model=a['model'], floor=a['floor'],
                           endpoint_ms=a['endpoint_ms'], incomplete_hold_ms=a['incomplete_hold_ms'],
                           reasoning_effort=a['reasoning_effort'], max_output_tokens=a['max_output_tokens'],
                           conversation_policy=a['conversation_policy'],parallel_tool_calls=a['parallel_tool_calls'])
+            if a.get('asr_provider') == 'flux':
+                kwargs.update(asr_provider='flux', jev_enabled=False, live_mode=True)
             if a['provider'] == 'cerebras' and self.app.get('remote_access'):
                 kwargs['connect_retries'] = 1
         factory = self.app.get('trial_voice_factory', cls)
@@ -317,13 +328,15 @@ def create_studio(args):
     app['trial_source_hashes'] = {name:hashlib.sha256((BRAIN / name).read_bytes()).hexdigest()
         for name in ('duplex/live_studio.py', 'duplex/server.py', 'duplex/native.py',
                      'benchmarks/naturalness/cascade_voice.py', 'benchmarks/naturalness/cerebras_client.py',
+                     'benchmarks/naturalness/streaming_voice_20260930.py',
+                     'benchmarks/naturalness/streaming_asr_20260930.py',
                      'duplex/background.py', 'duplex/affect_director.py', 'duplex/affect_controller.py',
                      'duplex/expression_policy.py', 'duplex/expression_requests.py',
                      'duplex/persona.txt', 'duplex/conversation_policy.py', 'duplex/tts.py', 'duplex/static/app.js',
                      'duplex/static/playback.js', 'duplex/lipsync.py',
                      'duplex/listener_feedback.py', 'duplex/listener_backchannels.py', 'duplex/listener_voice.py',
                      'duplex/static/listener_cue.js', 'duplex/static/user_transcript_state.mjs',
-                     'duplex/static/index.html', 'duplex/static/style.css',
+                     'duplex/static/index.html', 'duplex/static/style.css', 'duplex/static/trials.js',
                      'duplex/static/activity_state.js', 'duplex/static/expression_policy.js',
                      'art_direction/artist_studio_20260916/reuse/handdrawn_v6/runtime.js',
                      'ui/static/drawn_face_renderer.js')}

@@ -17,8 +17,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 2733,
-      "sha256": "e1ddd5977cbce548ccfc01e56267d488a15c66feee0ef268d70cb60e586557dd"
+      "bytes": 3175,
+      "sha256": "fe6000def233622942fa3eb596acd55e6f9167cdcb09edb76cd8aefbadc162cd"
     },
     {
       "path": "brain/art_direction/artist_studio_20260916/reuse/drawn/atlas.json",
@@ -646,6 +646,16 @@
       "sha256": "99c298d609ece66a556f508a7edb1e0c8b8775d1a33440a874a9597a4dce105a"
     },
     {
+      "path": "brain/benchmarks/naturalness/streaming_asr_20260930.py",
+      "bytes": 29622,
+      "sha256": "223ae97a0804a442c49014268828cbc095f8b6ced491936c00d55993d7ee4d78"
+    },
+    {
+      "path": "brain/benchmarks/naturalness/streaming_voice_20260930.py",
+      "bytes": 21672,
+      "sha256": "ace49a62d3967cd2e07639192137c9d23025108d2f7ebc6aa7e6634551661e7e"
+    },
+    {
       "path": "brain/benchmarks/naturalness/test_cerebras_client.py",
       "bytes": 17941,
       "sha256": "85eec78669dbab4063b6298fcb29cc7f60269d4d07b639ca4c52f80f6aa49fdf"
@@ -657,8 +667,8 @@
     },
     {
       "path": "brain/deploy/build_release.py",
-      "bytes": 11083,
-      "sha256": "15eab204487f36e2e1f1928df65c7c31fee7e1f1c5393195e25afb3b8105d8aa"
+      "bytes": 11209,
+      "sha256": "7c86c263c98c67b1dc6c21a115be6d510223ca52d0c5c081ef0248319ef9277b"
     },
     {
       "path": "brain/deploy/fixtures/audio/audio_phrase_seam-1.wav",
@@ -762,8 +772,8 @@
     },
     {
       "path": "brain/duplex/live_studio.py",
-      "bytes": 33435,
-      "sha256": "4c4ba333c137981a9607261c8f9e9543c51b9f5e4e6e09c5efabca3c156fe4a5"
+      "bytes": 34655,
+      "sha256": "32b7f63f3721cd64235cc314e490325ae153d78cafd0a3bdfd48951e38c1c9ed"
     },
     {
       "path": "brain/duplex/memory_requests.py",
@@ -897,8 +907,8 @@
     },
     {
       "path": "brain/duplex/static/trials.js",
-      "bytes": 24063,
-      "sha256": "1ef4ea7b90afc993bf64482e2c9d94bdb0457c2e716ae1a78d97eae4cffdb641"
+      "bytes": 24199,
+      "sha256": "f3c5d19fd3869459dbc9a63a15231d24ce3684bd6f5dc2628bd974d22a5d7ad7"
     },
     {
       "path": "brain/duplex/static/user_transcript_state.mjs",
@@ -947,13 +957,13 @@
     },
     {
       "path": "brain/harness/test_live_studio.py",
-      "bytes": 14379,
-      "sha256": "745dba2e763aaaecdcf0cd063bced2315964997e93f0d764950f1aee602d8f07"
+      "bytes": 16022,
+      "sha256": "8d6c33d66364124a63fb4bd31dffb0609992987f58ef86ef0d0ffbdc899fb8bd"
     },
     {
       "path": "brain/harness/test_live_studio_remote.py",
-      "bytes": 7682,
-      "sha256": "ac48ff0129c6fca78a394ff9fd78f60f1a7b62b9b6a328d10622f4801e5398fe"
+      "bytes": 8329,
+      "sha256": "4cea48cade8d998711f432548fb298bfa0e2fa95c25b523bd4ad0be656a1e977"
     },
     {
       "path": "brain/harness/test_remote_voice_recovery.mjs",
@@ -1011,8 +1021,8 @@
       "sha256": "64fa68318ab3f91abe89919c90007c36625148e92d7d133a8ecb3d25d3385d1c"
     }
   ],
-  "file_count": 202,
-  "total_bytes": 12727435,
+  "file_count": 204,
+  "total_bytes": 12782943,
   "mutable_files": [
     "docs/endpoint.json"
   ],

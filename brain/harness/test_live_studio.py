@@ -92,7 +92,7 @@ class Tests(unittest.IsolatedAsyncioTestCase):
 
     async def test_catalog_is_explicit_and_does_not_change_global_environment(self):
         data = await (await self.client.get('/trial/catalog')).json()
-        self.assertEqual(len(data['architectures']), 11)
+        self.assertEqual(len(data['architectures']), 12)
         self.assertEqual(data['default'], 'cerebras-balanced')
         ws, trace = await self.connect('cerebras-fast')
         self.assertEqual(Voice.instances[-1].kwargs['endpoint_ms'], 300)
@@ -162,6 +162,33 @@ class Tests(unittest.IsolatedAsyncioTestCase):
         config=saved['session']['config']
         self.assertEqual(config['playback_buffer_ms'],120)
         self.assertEqual(config['background_reasoning_effort'],'medium')
+
+    async def test_flux_profile_keeps_qwen_affect_configuration_and_provider_turns(self):
+        data = await (await self.client.get('/trial/catalog')).json()
+        catalog = {a['id']:a for a in data['architectures']}
+        current, flux = catalog['qwen-affect'], catalog['qwen-flux']
+        self.assertEqual(data['default'], 'cerebras-balanced')
+        self.assertEqual(current['endpoint_ms'], 500)
+        for key in ('provider', 'model', 'reasoning_effort', 'floor', 'background_provider',
+                    'background_model', 'background_reasoning_effort', 'conversation_policy',
+                    'background_context', 'parallel_tool_calls', 'playback_buffer_ms',
+                    'affect_model', 'affect_reasoning', 'voice_id', 'speech_backend',
+                    'max_output_tokens'):
+            self.assertEqual(flux[key], current[key], key)
+        self.assertIsNone(flux['endpoint_ms'])
+        self.assertEqual(flux['turn_policy'], 'flux_end_of_turn')
+        self.assertEqual(flux['incomplete_hold_ms'], 0)
+        self.assertFalse(flux['jev_enabled'])
+        ws, trace = await self.connect('qwen-flux')
+        voice = Voice.instances[-1]
+        self.assertEqual(voice.kwargs['asr_provider'], 'flux')
+        self.assertFalse(voice.kwargs['jev_enabled'])
+        self.assertTrue(voice.kwargs['live_mode'])
+        self.assertIsNone(voice.kwargs['endpoint_ms'])
+        self.assertEqual(voice.kwargs['incomplete_hold_ms'], 0)
+        await self.end(ws)
+        saved = await (await self.client.get('/trial/export?session='+trace)).json()
+        self.assertEqual(saved['session']['config']['id'], 'qwen-flux')
 
     async def test_actual_face_request_and_browser_playback_are_saved(self):
         ws, trace = await self.connect()
