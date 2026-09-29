@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "status": "online",
-  "api_origin": "https://homeland-sum-expo-society.trycloudflare.com",
-  "updated_at": "2026-09-29T11:36:12Z",
-  "last_seen_at": "2026-09-29T11:36:12Z"
+  "status": "offline",
+  "api_origin": null,
+  "updated_at": "2026-09-29T11:40:10Z",
+  "last_seen_at": "2026-09-29T11:40:09Z"
 }
