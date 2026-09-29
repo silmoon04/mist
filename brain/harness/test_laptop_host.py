@@ -88,6 +88,24 @@ class LaptopHostTests(unittest.TestCase):
         finally:
             listener.close()
 
+    def test_readiness_keeps_same_tunnel_through_dns_propagation(self):
+        elapsed = [0]
+        calls = []
+        class Alive:
+            def poll(self): return None
+        def probe(url):
+            calls.append(url)
+            return elapsed[0] >= 85
+        def sleep(seconds):
+            elapsed[0] += seconds
+        origin = "https://fresh.trycloudflare.com"
+        self.assertTrue(host.await_readiness(
+            origin, Alive(), Alive(), lambda: False,
+            probe=probe, clock=lambda: elapsed[0], sleep=sleep,
+        ))
+        self.assertEqual(elapsed[0], 85)
+        self.assertEqual(set(calls), {origin + "/try"})
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -1,10 +1,16 @@
 param(
-    [ValidateSet('Start','Stop','Status')][string]$Action = 'Start'
+    [ValidateSet('Start','Stop','Status')][string]$Action = 'Start',
+    [string]$StateDir
 )
 
 $ErrorActionPreference = 'Stop'
 $scriptPath = Join-Path $PSScriptRoot 'laptop_host.py'
 $python = (Get-Command python -ErrorAction Stop).Source
+$stateArgs = @()
+if ($PSBoundParameters.ContainsKey('StateDir')) {
+    $StateDir = [System.IO.Path]::GetFullPath($StateDir)
+    $stateArgs = @('--state-dir', $StateDir)
+}
 
 if ($Action -eq 'Start') {
     $existing = Get-CimInstance Win32_Process -Filter "Name = 'python.exe'" |
@@ -13,10 +19,14 @@ if ($Action -eq 'Start') {
         Write-Output 'MIST laptop host is already running.'
         exit 0
     }
-    Start-Process -FilePath $python -ArgumentList @('"' + $scriptPath + '"', 'run') -WindowStyle Hidden -WorkingDirectory (Split-Path $PSScriptRoot -Parent)
+    $launchArgs = @(('"' + $scriptPath + '"'), 'run')
+    if ($stateArgs.Count) {
+        $launchArgs += @('--state-dir', ('"' + $StateDir + '"'))
+    }
+    Start-Process -FilePath $python -ArgumentList $launchArgs -WindowStyle Hidden -WorkingDirectory (Split-Path $PSScriptRoot -Parent)
     Write-Output 'MIST laptop host launch requested.'
 } elseif ($Action -eq 'Stop') {
-    & $python $scriptPath stop
+    & $python $scriptPath stop @stateArgs
 } else {
-    & $python $scriptPath status
+    & $python $scriptPath status @stateArgs
 }

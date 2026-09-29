@@ -10,7 +10,6 @@ import hashlib
 import json
 from pathlib import Path
 import re
-import shutil
 
 
 PROJECT = Path(__file__).resolve().parents[2]
@@ -47,6 +46,7 @@ RELEASE_FILES = [
     "brain/harness/response_format.py", "brain/harness/eval_luna_conversations.py",
     "brain/harness/test_laptop_host.py", "brain/harness/test_live_studio.py",
     "brain/harness/test_live_studio_remote.py",
+    "brain/harness/test_start_laptop_host.ps1",
     "brain/deploy/fixtures/manifest.json",
     "brain/deploy/fixtures/audio/audio_phrase_seam-1.wav",
     f"brain/{DRAWN}/atlas.json", f"brain/{HANDDRAWN}/manifest.json",
@@ -61,6 +61,8 @@ DEPLOY_FILES = (
     "test_remote_e2e_helpers.py",
 )
 PAGE_FILES = ("index.html", "style.css", "app.js", ".nojekyll")
+TEXT_SUFFIXES = {".py", ".js", ".mjs", ".html", ".css", ".json", ".txt", ".md", ".ps1"}
+TEXT_NAMES = {".env.example", ".gitignore", ".gitattributes"}
 
 
 def referenced_assets(manifest: Path, field: str) -> set[str]:
@@ -132,6 +134,19 @@ def check_source(path: Path, secrets: list[str] | None = None) -> None:
             raise ValueError(f"Private environment value found in: {path.relative_to(PROJECT)}")
 
 
+def release_bytes(source: Path) -> bytes:
+    """Match the LF bytes Git checks out regardless of core.autocrlf."""
+    data = source.read_bytes()
+    if source.suffix.lower() in TEXT_SUFFIXES or source.name in TEXT_NAMES:
+        return data.replace(b"\r\n", b"\n")
+    return data
+
+
+def copy_release(source: Path, target: Path) -> None:
+    target.parent.mkdir(parents=True, exist_ok=True)
+    target.write_bytes(release_bytes(source))
+
+
 def build(output: Path, dry_run: bool) -> dict:
     paths = file_list()
     secrets = private_values()
@@ -139,49 +154,57 @@ def build(output: Path, dry_run: bool) -> dict:
     for relative in paths:
         source = PROJECT / relative
         check_source(source, secrets)
-        files.append({"path": relative.replace("\\", "/"), "bytes": source.stat().st_size,
-                      "sha256": hashlib.sha256(source.read_bytes()).hexdigest()})
+        payload = release_bytes(source)
+        files.append({"path": relative.replace("\\", "/"), "bytes": len(payload),
+                      "sha256": hashlib.sha256(payload).hexdigest()})
     report = {"files": files, "file_count": len(files),
               "total_bytes": sum(item["bytes"] for item in files),
-              "mutable_files": ["docs/endpoint.json"]}
+              "mutable_files": ["docs/endpoint.json"],
+              "hash_policy": "Static text uses LF bytes; binary files use original bytes. Dynamic endpoint is excluded."}
     if not dry_run:
         output = output.resolve()
         if output == PROJECT or not output.is_relative_to(PROJECT / "output"):
             raise ValueError("Release output must be beneath project/output")
         for item in files:
             target = output / item["path"]
-            target.parent.mkdir(parents=True, exist_ok=True)
-            shutil.copyfile(PROJECT / item["path"], target)
+            copy_release(PROJECT / item["path"], target)
         (output / "brain" / "deploy").mkdir(parents=True, exist_ok=True)
-        shutil.copyfile(Path(__file__), output / "brain" / "deploy" / "build_release.py")
-        shutil.copyfile(BRAIN / "deploy" / "requirements.txt", output / "requirements.txt")
-        shutil.copyfile(BRAIN / "deploy" / ".env.example", output / ".env.example")
-        shutil.copyfile(BRAIN / "deploy" / "README.md", output / "README.md")
+        copy_release(Path(__file__), output / "brain" / "deploy" / "build_release.py")
+        copy_release(BRAIN / "deploy" / "requirements.txt", output / "requirements.txt")
+        copy_release(BRAIN / "deploy" / ".env.example", output / ".env.example")
+        copy_release(BRAIN / "deploy" / "README.md", output / "README.md")
         for name in DEPLOY_FILES:
             source = BRAIN / "deploy" / name
             if source.is_file():
                 check_source(source, secrets)
-                shutil.copyfile(source, output / "brain" / "deploy" / name)
+                copy_release(source, output / "brain" / "deploy" / name)
         docs = output / "docs"
         docs.mkdir(exist_ok=True)
         for name in PAGE_FILES:
             source = BRAIN / "deploy" / "pages" / name
             if source.is_file():
                 check_source(source, secrets)
-                shutil.copyfile(source, docs / name)
+                copy_release(source, docs / name)
         # The deployed tunnel origin is written by the private laptop host.
         # Refreshing app sources must not revert that public status file.
         endpoint = docs / "endpoint.json"
         if not endpoint.exists():
             source = BRAIN / "deploy" / "pages" / "endpoint.json"
             check_source(source, secrets)
-            shutil.copyfile(source, endpoint)
+            copy_release(source, endpoint)
         (output / ".gitignore").write_text(
             "/.env\n__pycache__/\n*.pyc\n/brain/results/\n/output/\n.venv/\n", encoding="utf-8")
+        (output / ".gitattributes").write_text(
+            "*.py text eol=lf\n*.js text eol=lf\n*.mjs text eol=lf\n"
+            "*.html text eol=lf\n*.css text eol=lf\n*.json text eol=lf\n"
+            "*.txt text eol=lf\n*.md text eol=lf\n*.ps1 text eol=lf\n"
+            ".env.example text eol=lf\n.gitignore text eol=lf\n"
+            ".gitattributes text eol=lf\n*.png binary\n*.wav binary\n",
+            encoding="utf-8")
         known = {item["path"] for item in files}
         extras = [
             "brain/deploy/build_release.py", "requirements.txt", ".env.example",
-            "README.md", ".gitignore", "docs/endpoint.json",
+            "README.md", ".gitignore", ".gitattributes",
             *(f"brain/deploy/{name}" for name in DEPLOY_FILES),
             *(f"docs/{name}" for name in PAGE_FILES),
         ]

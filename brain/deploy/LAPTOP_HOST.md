@@ -6,6 +6,8 @@ The existing local service on port 9053 is separate. The laptop must stay awake,
 online, and signed in to `gh` for endpoint publication.
 The supervisor reserves port 9067 before opening a tunnel. If another listener
 already owns it, hosting stays offline and that listener is left alone.
+After cloudflared reports a new hostname, the supervisor allows up to five
+minutes for DNS propagation and public HTTPS readiness before replacing it.
 
 Run `powershell -File brain/deploy/start_laptop_host.ps1` to start it with no visible
 child console. Use `-Action Status` or `-Action Stop` with the same script. For
@@ -14,6 +16,18 @@ lock rejects a second supervisor, and `stop` asks the running instance to shut
 down through an instance-specific state file. It does not kill a process by PID.
 On Windows, the tunnel and app are attached to a process job that closes them if
 the supervisor crashes.
+
+When launching from a clean release checkout, pass `-StateDir` with the absolute
+path to the private state directory already in use. Pass the same value for
+`-Action Status` and `-Action Stop`; for example:
+
+```powershell
+powershell -File brain/deploy/start_laptop_host.ps1 -Action Status -StateDir 'C:\private\mist\laptop-hosting'
+```
+
+Omitting `-StateDir` keeps the default `brain/results/laptop-hosting/` relative
+to the checkout containing the script. A login task must include `-StateDir` if
+the private directory is outside that checkout.
 
 Private state lives in `brain/results/laptop-hosting/`, including the pairing
 code, logs, trials, supervisor state, and an empty task-specific Cloudflare config.

@@ -32,6 +32,7 @@ URL_RE = re.compile(r"https://[a-z0-9-]+\.trycloudflare\.com\b", re.I)
 PORT = 9067
 POLL_SECONDS = 1
 CHECK_SECONDS = 15
+READINESS_SECONDS = 300
 CREATE_NO_WINDOW = getattr(subprocess, "CREATE_NO_WINDOW", 0)
 
 
@@ -168,6 +169,20 @@ def await_url(log_path: Path, tunnel: subprocess.Popen, stopped, timeout: int = 
                 return match.group(0).lower()
         time.sleep(POLL_SECONDS)
     return None
+
+
+def await_readiness(origin: str, app: subprocess.Popen, tunnel: subprocess.Popen,
+                    stopped, *, timeout: int = READINESS_SECONDS,
+                    probe=healthy, clock=time.monotonic, sleep=time.sleep) -> bool:
+    """Give a new quick-tunnel hostname time to propagate through local DNS."""
+    deadline = clock() + timeout
+    while clock() < deadline and not stopped():
+        if app.poll() is not None or tunnel.poll() is not None:
+            return False
+        if probe(origin + "/try"):
+            return True
+        sleep(POLL_SECONDS)
+    return False
 
 
 def terminate(child: subprocess.Popen | None) -> None:
@@ -345,21 +360,12 @@ class Host:
                                 creationflags=CREATE_NO_WINDOW,
                             )
                             job.assign(app)
-                        ready_deadline = time.monotonic() + 60
-                        ready = False
-                        while time.monotonic() < ready_deadline and not self.stop_requested():
-                            if app.poll() is not None or tunnel.poll() is not None:
-                                break
-                            if healthy(origin + "/try"):
-                                self.last_seen = now()
-                                self.state("online", origin)
-                                self.publish("online", origin)
-                                backoff = 2
-                                ready = True
-                                break
-                            time.sleep(POLL_SECONDS)
-                        if not ready:
+                        if not await_readiness(origin, app, tunnel, self.stop_requested):
                             raise RuntimeError("Remote app did not become reachable")
+                        self.last_seen = now()
+                        self.state("online", origin)
+                        self.publish("online", origin)
+                        backoff = 2
                         if self.stop_requested():
                             continue
                         misses = 0

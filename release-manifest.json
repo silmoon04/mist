@@ -6,19 +6,24 @@
       "sha256": "621d41a49514f4d9a5f964b89dc1258458c0882ca1d7479b85b53d9dd9fd4192"
     },
     {
+      "path": ".gitattributes",
+      "bytes": 276,
+      "sha256": "3b3e0120a61f46925c3a5ac7ca675d22b9fc96778bc862ad070bb31f5919dd0d"
+    },
+    {
       "path": ".gitignore",
       "bytes": 63,
       "sha256": "5def4753fc7889558b2eed5f2a08ba569cfdd95dee4fc7b098e67993bf9d669c"
     },
     {
       "path": "README.md",
-      "bytes": 2092,
-      "sha256": "3838abb8d028013f28675633f7ac67a86af2db7f560b95af878199e8c2cca1e7"
+      "bytes": 2733,
+      "sha256": "e1ddd5977cbce548ccfc01e56267d488a15c66feee0ef268d70cb60e586557dd"
     },
     {
       "path": "brain/art_direction/artist_studio_20260916/reuse/drawn/atlas.json",
-      "bytes": 174800,
-      "sha256": "229bcecdee62216684b535ee1dfae16536df4a41896c51a88c87621ceb94e4a3"
+      "bytes": 167739,
+      "sha256": "2f3cae948293ccfd02a8c40ecab8fdc978915d78a51e92e81d9d4c100e2bb67a"
     },
     {
       "path": "brain/art_direction/artist_studio_20260916/reuse/drawn/sheets/bar.png",
@@ -637,13 +642,13 @@
     },
     {
       "path": "brain/deploy/LAPTOP_HOST.md",
-      "bytes": 2493,
-      "sha256": "4e094936945c2c471db9149384a04cea29e91ead7cf43566108bdae361bb1cb7"
+      "bytes": 3190,
+      "sha256": "5996bdc36ef802f3ec96b827db41cdbd73358ceac9e57282807ebef01100dc99"
     },
     {
       "path": "brain/deploy/build_release.py",
-      "bytes": 9718,
-      "sha256": "7aabf8e1e57765b45bba199f97e61c95df75157fd95c33955f19c8e6a556f8df"
+      "bytes": 10823,
+      "sha256": "f9a96dacb60651a34bf309d24a1b97f34bd9c8133fac8abf918674f4a2e24e62"
     },
     {
       "path": "brain/deploy/fixtures/audio/audio_phrase_seam-1.wav",
@@ -652,18 +657,18 @@
     },
     {
       "path": "brain/deploy/fixtures/manifest.json",
-      "bytes": 1780,
-      "sha256": "560b41970c352c5b57488f13bc1f70f860dc3b72a490706e79e5568248162756"
+      "bytes": 1730,
+      "sha256": "93235f29ac19d088571a6a4a79b9925647be69a9d5bbada36511cd51016943ad"
     },
     {
       "path": "brain/deploy/laptop_host.py",
-      "bytes": 18189,
-      "sha256": "2b93e6d9617beecb7167d78edf4ba60da1070848d8c8213ad5efd3c8d2711ca9"
+      "bytes": 18310,
+      "sha256": "0f0fa398b16e5bdf2a7a3d70f2ac6c2b2a9deb4982e91d3a284900232e031b61"
     },
     {
       "path": "brain/deploy/start_laptop_host.ps1",
-      "bytes": 866,
-      "sha256": "f971992d652ecee8b178b74121ab8ef2ac7b1d92dd6f25d2f1d73ddbb985cf20"
+      "bytes": 1213,
+      "sha256": "7fc824b7c43e17d6e71854de9040acdf4102206822c2a7b85d9fae3052a0a060"
     },
     {
       "path": "brain/deploy/test_remote_e2e.py",
@@ -682,8 +687,8 @@
     },
     {
       "path": "brain/duplex/affect_controller.py",
-      "bytes": 2163,
-      "sha256": "d2e57386068d03df42b652c369834e605a3ded3bc5ef0458e8bdd60636c97a50"
+      "bytes": 2113,
+      "sha256": "64d7f82c700d45b2abb1070d82c4664cbd1ed2d377bbea721ed80cb0cd09a3ac"
     },
     {
       "path": "brain/duplex/affect_director.py",
@@ -722,8 +727,8 @@
     },
     {
       "path": "brain/duplex/face_map.json",
-      "bytes": 20269,
-      "sha256": "0301731929890ceb33b97f7ec520a8e30dcb34ae44c321272a413d14c4c8683b"
+      "bytes": 19411,
+      "sha256": "387d2c4ca13109df6edecead154a208c46eff2d49e557b023fe7175a251e57fc"
     },
     {
       "path": "brain/duplex/lipsync.py",
@@ -747,8 +752,8 @@
     },
     {
       "path": "brain/duplex/live_studio.py",
-      "bytes": 33709,
-      "sha256": "51e8ee798b1b273ea435ac58df35f2400ec516e942829df35ca352c0961cc4b1"
+      "bytes": 33198,
+      "sha256": "5acea4751ea4b1b633917b4afa738f6791e35ea4d3e0e80e06bd31a938db178d"
     },
     {
       "path": "brain/duplex/memory_requests.py",
@@ -762,13 +767,13 @@
     },
     {
       "path": "brain/duplex/native.py",
-      "bytes": 18346,
-      "sha256": "bd3ffc66373efcaf298844adaf97eb121c1859d156bffadf2ae19a1477ab8ac9"
+      "bytes": 18244,
+      "sha256": "fcd5fc633e1cb319d9f3591e0538f5db88c58600c1b128e0832f616c734e343b"
     },
     {
       "path": "brain/duplex/persona.txt",
-      "bytes": 8302,
-      "sha256": "d4e790a7ff46d425aa08014acfe45b3a9c47c301fb06c32b49a0958a64bc9dc0"
+      "bytes": 8273,
+      "sha256": "59182e7a8a64c8d07f733785e5858c1ed33db99f8b110ce94a8956ad127b1f80"
     },
     {
       "path": "brain/duplex/phrasing.py",
@@ -782,8 +787,8 @@
     },
     {
       "path": "brain/duplex/runtime.py",
-      "bytes": 9846,
-      "sha256": "7d428e070474050493afe58b832133389db4657abb7e01ffe3ac26a12187df1a"
+      "bytes": 9746,
+      "sha256": "64a5b8a478d8ea03d11f74ab6d465e2dfd5e853dad8bbf8558c2e10b72d84b7f"
     },
     {
       "path": "brain/duplex/sensors.py",
@@ -792,8 +797,8 @@
     },
     {
       "path": "brain/duplex/server.py",
-      "bytes": 23702,
-      "sha256": "d0a9d71aa1e94b0f534292ceffcd3afaf2538a3cf7660ec2f365a4eb4890869d"
+      "bytes": 23525,
+      "sha256": "efd64550c637e22114483679f646b6970f6515c5ee9627e31004f04b2cab53d9"
     },
     {
       "path": "brain/duplex/static/activity_state.js",
@@ -802,8 +807,8 @@
     },
     {
       "path": "brain/duplex/static/app.js",
-      "bytes": 20978,
-      "sha256": "b3f676e2ffa6c64867328e45eef316036ae5edd771f1d83c8f9738fe8521efcb"
+      "bytes": 20818,
+      "sha256": "cc71155770ae57c9439519c49e319aae6fec083d6fbb4919be6788928458e8f7"
     },
     {
       "path": "brain/duplex/static/capture-worklet.js",
@@ -812,13 +817,13 @@
     },
     {
       "path": "brain/duplex/static/debug.html",
-      "bytes": 2169,
-      "sha256": "7708b61de4b4071ed45d36d839bf8bd67d13e7acbb1a2b3cdcc67ea1e6394911"
+      "bytes": 2163,
+      "sha256": "74b60234f3e766f303a84b1ddd80cfa4e497ff7ebd1543568c02f8d79b4574b6"
     },
     {
       "path": "brain/duplex/static/debug.js",
-      "bytes": 6098,
-      "sha256": "b1ab8aa5adf2af8b13723a7d19972c7d58c1949893e4f4d9ca96a622680cd813"
+      "bytes": 6095,
+      "sha256": "7fbf574cd29c304b216e4a69950a5df9cec7522f47a77935661c8de4e5f80221"
     },
     {
       "path": "brain/duplex/static/delivery.js",
@@ -832,23 +837,23 @@
     },
     {
       "path": "brain/duplex/static/expressions.html",
-      "bytes": 3512,
-      "sha256": "47b14c8f753b43c3c122ca3847c8411c529fb1ce59ba47d83c83014264f4de7a"
+      "bytes": 3494,
+      "sha256": "331d1eba37eaf8bf7109ddd27c89a2a9f13363b7c37373add7ef839d761cb027"
     },
     {
       "path": "brain/duplex/static/expressions.js",
-      "bytes": 6387,
-      "sha256": "1aeffc63949dbdd91f24de49d772e09a248906ed91d8b68d2607781e3adc31d3"
+      "bytes": 6364,
+      "sha256": "38eadad7b83d73e3ff718117cc4090158520896dccffeef2cd7c2e5a612e6f96"
     },
     {
       "path": "brain/duplex/static/index.html",
-      "bytes": 4021,
-      "sha256": "4be5595736cd13943fefbb307a4b8d25632c2fb264925e379b4988af2dbf45e6"
+      "bytes": 3998,
+      "sha256": "eb71448218384b711074373da86fee1f94395f7297d9d464fde03aa37ecb646d"
     },
     {
       "path": "brain/duplex/static/inspect.css",
-      "bytes": 3179,
-      "sha256": "22338a6d8734030f83e49d1a4d4ce88f615af9b721f1382123ac3c25ec0047bb"
+      "bytes": 3176,
+      "sha256": "c418e62015037dcecf527101df3c3ced9b11649c4a23ad1751a487c4431f0763"
     },
     {
       "path": "brain/duplex/static/listener_cue.js",
@@ -867,8 +872,8 @@
     },
     {
       "path": "brain/duplex/static/style.css",
-      "bytes": 3918,
-      "sha256": "11cfec20c5998f03d802328f75b99ef64f29a16928c0cf32fa353090fd15512b"
+      "bytes": 3917,
+      "sha256": "9c9ff68973ca3053969cb3bc8890d5a1da05eba4b8c38c00ca3dc527c056a81b"
     },
     {
       "path": "brain/duplex/static/trials.css",
@@ -877,13 +882,13 @@
     },
     {
       "path": "brain/duplex/static/trials.html",
-      "bytes": 4559,
-      "sha256": "dea4e9ec8f9e96409d1ddd2c7f5fcdea41f769dfe7a9434e30ae10f9b1e908d4"
+      "bytes": 4521,
+      "sha256": "a1eee49faf822e6d429407b453e32309083c0292d6e49650a9639099add7c09f"
     },
     {
       "path": "brain/duplex/static/trials.js",
-      "bytes": 24144,
-      "sha256": "2c9bd2102e4810fe41c8caec78838b3db8bcaeebc9223a535d864bc8020fcebd"
+      "bytes": 24063,
+      "sha256": "1ef4ea7b90afc993bf64482e2c9d94bdb0457c2e716ae1a78d97eae4cffdb641"
     },
     {
       "path": "brain/duplex/static/user_transcript_state.mjs",
@@ -902,13 +907,13 @@
     },
     {
       "path": "brain/face_assets/app/app_data.js",
-      "bytes": 154720,
-      "sha256": "109d1dd2aa286a3090e493aa0f61294a4bb6472985f8916e9c75dfce37e5c98f"
+      "bytes": 154719,
+      "sha256": "7b78506fe42ba507c369bcd883f0db69d90ca3c5bc72894ed03d98370cb9e0a2"
     },
     {
       "path": "brain/harness/codex_client.py",
-      "bytes": 29043,
-      "sha256": "f1a10259bae6501a7a94c417efaca4fc5268128a87d680f27998b69acaa86a78"
+      "bytes": 28541,
+      "sha256": "3ee6b4ab61889df5a6dff81aca0be2555ece121d178157200ab37241e77c5143"
     },
     {
       "path": "brain/harness/eval_luna_conversations.py",
@@ -927,18 +932,23 @@
     },
     {
       "path": "brain/harness/test_laptop_host.py",
-      "bytes": 4260,
-      "sha256": "cb6330f47484818380347d77ffdeae6ae9928b4ed110edd4071ac47ad4bf84a0"
+      "bytes": 4909,
+      "sha256": "3f086a8487b6d3104ae87909c11b10eb155b2144b621cca4646e9e849f414fd3"
     },
     {
       "path": "brain/harness/test_live_studio.py",
-      "bytes": 14657,
-      "sha256": "15e536c4851d8787b9ef2c5d04e73e99404fff1394bb9323d52f4dc7af8bf34b"
+      "bytes": 14379,
+      "sha256": "745dba2e763aaaecdcf0cd063bced2315964997e93f0d764950f1aee602d8f07"
     },
     {
       "path": "brain/harness/test_live_studio_remote.py",
       "bytes": 7325,
       "sha256": "10b8ae16693c815edc7d129207481c86a30c7a8980fe43433b9edd94f60324ae"
+    },
+    {
+      "path": "brain/harness/test_start_laptop_host.ps1",
+      "bytes": 1900,
+      "sha256": "411e1c042359f883d7837e24935c550e9ab1a6475ba4010773615cb0354f0757"
     },
     {
       "path": "brain/ui/static/drawn_face_renderer.js",
@@ -952,8 +962,8 @@
     },
     {
       "path": "design/hexapod_phone_quad_r5_20260912/cad/output/assembly_manifest.json",
-      "bytes": 227780,
-      "sha256": "67f0d5e3bfb633414722b17305cef4212ca7f8fa753aa922a252bc383306ad3d"
+      "bytes": 218652,
+      "sha256": "b5ce759c4d21c41f397505a6ddc3d9d5663b2c0b75c0cf2875b0122238e648ce"
     },
     {
       "path": "docs/.nojekyll",
@@ -964,11 +974,6 @@
       "path": "docs/app.js",
       "bytes": 1591,
       "sha256": "1bce5ef9320e9f87fc39bba6153f27fe89cb8d52d60dc7172601ccf1cb399e49"
-    },
-    {
-      "path": "docs/endpoint.json",
-      "bytes": 89,
-      "sha256": "f93c604117e6d57973c85aab1ec181075d25161ab12133b50611bff140f0e443"
     },
     {
       "path": "docs/index.html",
@@ -986,9 +991,10 @@
       "sha256": "64fa68318ab3f91abe89919c90007c36625148e92d7d133a8ecb3d25d3385d1c"
     }
   ],
-  "file_count": 197,
-  "total_bytes": 12669174,
+  "file_count": 198,
+  "total_bytes": 12655618,
   "mutable_files": [
     "docs/endpoint.json"
-  ]
+  ],
+  "hash_policy": "Static text uses LF bytes; binary files use original bytes. Dynamic endpoint is excluded."
 }
