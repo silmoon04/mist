@@ -1,7 +1,8 @@
 param(
     [ValidateSet('Start','Stop','Status')][string]$Action = 'Start',
     [string]$StateDir,
-    [string]$Cloudflared
+    [string]$Cloudflared,
+    [ValidateSet('auto','quic','http2')][string]$Protocol = 'auto'
 )
 
 $ErrorActionPreference = 'Stop'
@@ -27,6 +28,9 @@ if ($Action -eq 'Start') {
     if ($PSBoundParameters.ContainsKey('Cloudflared')) {
         $Cloudflared = [System.IO.Path]::GetFullPath($Cloudflared)
         $launchArgs += @('--cloudflared', ('"' + $Cloudflared + '"'))
+    }
+    if ($PSBoundParameters.ContainsKey('Protocol')) {
+        $launchArgs += @('--protocol', $Protocol)
     }
     Start-Process -FilePath $python -ArgumentList $launchArgs -WindowStyle Hidden -WorkingDirectory (Split-Path $PSScriptRoot -Parent)
     Write-Output 'MIST laptop host launch requested.'

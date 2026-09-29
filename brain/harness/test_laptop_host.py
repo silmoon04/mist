@@ -15,6 +15,13 @@ import laptop_host as host
 
 
 class LaptopHostTests(unittest.TestCase):
+    def test_tunnel_command_uses_selected_protocol(self):
+        command = host.tunnel_command(Path("cloudflared.exe"), Path("empty.yaml"), "quic")
+        self.assertEqual(command[-2:], ["--protocol", "quic"])
+        self.assertIn("http://127.0.0.1:9067", command)
+        with self.assertRaises(ValueError):
+            host.tunnel_command(Path("cloudflared.exe"), Path("empty.yaml"), "invalid")
+
     def test_endpoint_never_contains_pair_code_and_offline_clears_url(self):
         online = host.endpoint_payload("online", "https://test.trycloudflare.com", "2026-09-29T10:00:00Z")
         offline = host.endpoint_payload("offline", None, online["last_seen_at"])

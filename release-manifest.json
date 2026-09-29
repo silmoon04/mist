@@ -652,8 +652,8 @@
     },
     {
       "path": "brain/deploy/LAPTOP_HOST.md",
-      "bytes": 3414,
-      "sha256": "83b1ee8874ce0645e27d0d771ea0966d1e6672b5ba97e0f3f08287be219be718"
+      "bytes": 3638,
+      "sha256": "7548628e63db07ee575e033d5fcf5128537d403a0436d67b4f3ce63b482ca525"
     },
     {
       "path": "brain/deploy/build_release.py",
@@ -672,13 +672,13 @@
     },
     {
       "path": "brain/deploy/laptop_host.py",
-      "bytes": 18310,
-      "sha256": "0f0fa398b16e5bdf2a7a3d70f2ac6c2b2a9deb4982e91d3a284900232e031b61"
+      "bytes": 18738,
+      "sha256": "ad7201e34da56123ed888115cce77151c9b8d021bf399cf03d97866f0070c910"
     },
     {
       "path": "brain/deploy/start_laptop_host.ps1",
-      "bytes": 1439,
-      "sha256": "be0165d6eaa4714c038ddd5858212ea8d7a62555478bd69b34d95f7475bb8796"
+      "bytes": 1617,
+      "sha256": "37f99839fc670e6423b205ce87f98a46f3295d11bb8fa335dc12f10b51e5c183"
     },
     {
       "path": "brain/deploy/test_remote_e2e.py",
@@ -942,8 +942,8 @@
     },
     {
       "path": "brain/harness/test_laptop_host.py",
-      "bytes": 4909,
-      "sha256": "3f086a8487b6d3104ae87909c11b10eb155b2144b621cca4646e9e849f414fd3"
+      "bytes": 5310,
+      "sha256": "2667e1e8d8cab99328a20eb14986ff56703f26e929156ff7f962c3d0370ee4e1"
     },
     {
       "path": "brain/harness/test_live_studio.py",
@@ -967,8 +967,8 @@
     },
     {
       "path": "brain/harness/test_start_laptop_host.ps1",
-      "bytes": 2094,
-      "sha256": "367b04b028a695cc3c65ddcaa1b62884619691270db9d39c752122c708ea546c"
+      "bytes": 2139,
+      "sha256": "062daf48057ce8b1b9690541e2b01f3dc8d1e30f6a79661fc134edeee0dc34eb"
     },
     {
       "path": "brain/ui/static/drawn_face_renderer.js",
@@ -1012,7 +1012,7 @@
     }
   ],
   "file_count": 202,
-  "total_bytes": 12726159,
+  "total_bytes": 12727435,
   "mutable_files": [
     "docs/endpoint.json"
   ],

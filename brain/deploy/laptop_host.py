@@ -30,6 +30,7 @@ REPO = "silmoon04/mist"
 ENDPOINT = "docs/endpoint.json"
 URL_RE = re.compile(r"https://[a-z0-9-]+\.trycloudflare\.com\b", re.I)
 PORT = 9067
+PROTOCOLS = ("auto", "quic", "http2")
 POLL_SECONDS = 1
 CHECK_SECONDS = 15
 READINESS_SECONDS = 300
@@ -160,6 +161,13 @@ def reserve_port(port: int = PORT) -> socket.socket:
         raise
 
 
+def tunnel_command(cloudflared: Path, config: Path, protocol: str) -> list[str]:
+    if protocol not in PROTOCOLS:
+        raise ValueError(f"Unsupported tunnel protocol: {protocol}")
+    return [str(cloudflared), "--config", str(config), "tunnel",
+            "--url", f"http://127.0.0.1:{PORT}", "--protocol", protocol]
+
+
 def await_url(log_path: Path, tunnel: subprocess.Popen, stopped, timeout: int = 90) -> str | None:
     deadline = time.monotonic() + timeout
     while time.monotonic() < deadline and tunnel.poll() is None and not stopped():
@@ -270,11 +278,13 @@ class OwnedProcessJob:
 
 
 class Host:
-    def __init__(self, state_dir: Path, cloudflared: Path, python: Path, gh: str):
+    def __init__(self, state_dir: Path, cloudflared: Path, python: Path, gh: str,
+                 protocol: str = "auto"):
         self.dir = state_dir.resolve()
         self.cloudflared = cloudflared
         self.python = python
         self.gh = gh
+        self.protocol = protocol
         self.identity = uuid.uuid4().hex
         self.state_path = self.dir / "state.json"
         self.stop_path = self.dir / "stop.json"
@@ -338,8 +348,7 @@ class Host:
                         reservation = reserve_port()
                         with tunnel_log.open("w", encoding="utf-8") as log:
                             tunnel = subprocess.Popen(
-                                [str(self.cloudflared), "--config", str(config), "tunnel",
-                                 "--url", f"http://127.0.0.1:{PORT}", "--protocol", "http2"],
+                                tunnel_command(self.cloudflared, config, self.protocol),
                                 cwd=ROOT, stdout=log, stderr=subprocess.STDOUT,
                                 creationflags=CREATE_NO_WINDOW,
                             )
@@ -422,6 +431,7 @@ def main() -> int:
     parser.add_argument("command", choices=("run", "stop", "status"))
     parser.add_argument("--state-dir", type=Path, default=DEFAULT_STATE_DIR)
     parser.add_argument("--cloudflared", type=Path, default=Path.home() / "bin" / "cloudflared.exe")
+    parser.add_argument("--protocol", choices=PROTOCOLS, default="auto")
     parser.add_argument("--python", type=Path, default=Path(sys.executable))
     parser.add_argument("--gh", default="gh")
     args = parser.parse_args()
@@ -435,7 +445,7 @@ def main() -> int:
             print("No supervisor state found")
         return 0
     try:
-        Host(args.state_dir, args.cloudflared, args.python, args.gh).run()
+        Host(args.state_dir, args.cloudflared, args.python, args.gh, args.protocol).run()
     except RuntimeError as exc:
         print(exc, file=sys.stderr)
         return 1

@@ -31,6 +31,9 @@ the private directory is outside that checkout.
 To test a separate cloudflared executable, pass its absolute path with
 `-Cloudflared`. The launcher passes it only to a newly started supervisor; it
 does not replace the user-installed executable or change a running tunnel.
+Use `-Protocol quic` to select UDP/QUIC for a new supervisor. The supported
+choices are `auto` (default), `quic`, and `http2`; this controls only the
+cloudflared-to-edge connection and leaves the local app on loopback HTTP.
 
 Private state lives in `brain/results/laptop-hosting/`, including the pairing
 code, logs, trials, supervisor state, and an empty task-specific Cloudflare config.

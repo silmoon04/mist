@@ -24,7 +24,7 @@ function Start-Process {
     }
 }
 
-. $launcher -Action Start -StateDir $stateDir -Cloudflared $cloudflared | Out-Null
+. $launcher -Action Start -StateDir $stateDir -Cloudflared $cloudflared -Protocol quic | Out-Null
 if ($null -eq $script:capturedLaunch) { throw 'Start-Process was not called' }
 $expected = @(
     ('"' + (Join-Path (Split-Path $launcher -Parent) 'laptop_host.py') + '"'),
@@ -32,7 +32,9 @@ $expected = @(
     '--state-dir',
     ('"' + [System.IO.Path]::GetFullPath($stateDir) + '"'),
     '--cloudflared',
-    ('"' + [System.IO.Path]::GetFullPath($cloudflared) + '"')
+    ('"' + [System.IO.Path]::GetFullPath($cloudflared) + '"'),
+    '--protocol',
+    'quic'
 )
 $actual = $script:capturedLaunch.ArgumentList
 if ($actual.Count -ne $expected.Count) {
