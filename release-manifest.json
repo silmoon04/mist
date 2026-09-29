@@ -7,8 +7,8 @@
     },
     {
       "path": ".gitattributes",
-      "bytes": 262,
-      "sha256": "e2a5e87c270a66ac6374f108483e64578396f7228567c53f02ed47cff4990479"
+      "bytes": 280,
+      "sha256": "dc136a60bc9653461e9afb25627cc73d306895def0241d7b29508051be3111e4"
     },
     {
       "path": ".gitignore",
@@ -672,8 +672,8 @@
     },
     {
       "path": "brain/deploy/build_release.py",
-      "bytes": 11783,
-      "sha256": "53bb257c1ca5bb8c1a41f51ef3d1ebeb072b65898daa2d1d8fda9406e395844d"
+      "bytes": 11810,
+      "sha256": "a631624f19c79e1c7e2ef44932680b6a85cdf8d40afffa5b603e3aaa16cebe47"
     },
     {
       "path": "brain/deploy/fixtures/audio/audio_phrase_seam-1.wav",
@@ -1112,7 +1112,7 @@
     }
   ],
   "file_count": 222,
-  "total_bytes": 12948958,
+  "total_bytes": 12949003,
   "mutable_files": [
     "docs/endpoint.json"
   ],

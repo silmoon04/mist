@@ -73,7 +73,7 @@ DEPLOY_FILES = (
     "test_remote_e2e_helpers.py",
 )
 PAGE_FILES = ("index.html", "style.css", "app.js", ".nojekyll")
-TEXT_SUFFIXES = {".py", ".js", ".mjs", ".html", ".css", ".json", ".txt", ".md", ".ps1"}
+TEXT_SUFFIXES = {".py", ".js", ".mjs", ".cjs", ".html", ".css", ".json", ".txt", ".md", ".ps1"}
 TEXT_NAMES = {".env.example", ".gitignore", ".gitattributes"}
 
 
@@ -207,7 +207,7 @@ def build(output: Path, dry_run: bool) -> dict:
         (output / ".gitignore").write_bytes(
             b"/.env\n__pycache__/\n*.pyc\n/brain/results/\n/output/\n.venv/\n")
         (output / ".gitattributes").write_bytes((
-            "*.py text eol=lf\n*.js text eol=lf\n*.mjs text eol=lf\n"
+            "*.py text eol=lf\n*.js text eol=lf\n*.mjs text eol=lf\n*.cjs text eol=lf\n"
             "*.html text eol=lf\n*.css text eol=lf\n*.json text eol=lf\n"
             "*.txt text eol=lf\n*.md text eol=lf\n*.ps1 text eol=lf\n"
             ".env.example text eol=lf\n.gitignore text eol=lf\n"
