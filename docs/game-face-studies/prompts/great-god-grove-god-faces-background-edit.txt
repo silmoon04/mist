@@ -1,0 +1,4 @@
+Use case: precise-object-edit.
+Asset type: original MIST expression study.
+Input image: this is the exact five-face sheet to edit.
+Change only the BACKGROUND. Replace every dark backdrop area, including dark negative spaces inside the eyes, with a perfectly uniform single solid color #0B1410. This must be a pixel-flat backdrop: no grain, mottling, paper texture, cloudy shading, lighting falloff, vignette or gradients. Preserve every cyan face contour, placement, thickness, aperture, mouth, emotional pose, edge antialiasing and scale as closely as possible. Keep the 1536 by 1024 landscape composition with exactly five faces in cells 1,2,3,4,5 of the invisible 3-column by 2-row grid; keep the bottom-right cell completely empty dark field. Do not add any faces, marks, text, labels, numbers, frames, props, borders or watermarks.

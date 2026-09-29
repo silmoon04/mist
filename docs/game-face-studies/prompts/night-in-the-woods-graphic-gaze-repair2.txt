@@ -1,0 +1,11 @@
+Use case: precise-object-edit
+Asset type: local contour cleanup of a MIST expression study.
+Edit target: the supplied 1536 by 1024 landscape sheet, with five turquoise/cyan MIST faces on a dark background in an invisible 3-column by 2-row layout. The sixth, lower-right cell is empty.
+
+Redraw ONLY the LEFT EYE of the TOP-RIGHT skeptical face from clean contours. That eye occupies roughly x1100 through x1240 and y210 through y305. Keep its intended long, rounded, separate upper-lid bar above the lower filled cyan aperture, and keep the dark sideways pupil cutout inside the aperture. Preserve its skeptical half-lidded attitude, approximate shape, scale and placement. A clean redraw of this one eye is allowed.
+
+Make the narrow gap below the intentional upper-lid bar and the right-side area surrounding this eye completely clean dark background. There must be no tiny floating cyan mark, fleck, scratch, detached point or fragment around this eye. In particular remove the accidental cyan fleck near x1233,y236. The broad intentional upper-lid bar is the only separate cyan component above this eye and must remain.
+
+Keep the OTHER FOUR FACES unchanged. Keep the TOP-RIGHT face's RIGHT EYE and MOUTH unchanged. Preserve all facial emotions, positions, proportions, colours and material treatment across the rest of the image. Retain five faces, the full landscape sheet and the empty lower-right cell. No added labels, symbols, props, borders, housing or visible grid.
+
+The edited eye should look like a confidently drawn MIST graphic, with a broad lid bar and a smooth filled lower eye aperture, against an uninterrupted clean dark gap and surrounding background.

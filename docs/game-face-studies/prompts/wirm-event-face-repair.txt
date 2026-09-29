@@ -1,0 +1,10 @@
+Use case: precise-object-edit
+Asset type: static original MIST expression study.
+Input image: this existing five-face MIST sheet is the edit target.
+Primary request: Change ONLY the ten eye forms into a minimal filled-aperture family for our original event-response experiment. Each eye must be ONE solid cyan/turquoise silhouette, with NO dark pupil cutout and NO open C/loop construction. Keep MIST recognizable through cyan on almost-black, two eyes and one simple mouth. Use clean rounded shapes with strong pose contrast.
+Top-left attentive: two solid upright softly rounded bean eyes, slightly unequal heights, receptive.
+Top-middle considering: one shorter slanted solid bean and one taller upright solid bean, with noticeable size asymmetry and both leaning toward the upper-right.
+Top-right skeptical: two low solid flattened lid shapes with different slopes, one nearly horizontal and the other lowered at its outer end.
+Bottom-left amused: two compact solid curved crescent eyes, upward arches with different peaks; they are solid marks, without any circular cutouts.
+Bottom-middle concerned: two solid tall drooping tear-drop-like eye shapes, upper inner corners softly lifted and lower tips rounded. The eye forms themselves can taper; do NOT add a tear or any separate mark.
+Invariants: Keep all five mouth shapes completely unchanged. Keep face count EXACTLY FIVE, eye count exactly TWO per face, mouth count exactly ONE per face. Preserve face positions, same overall face width, landscape 3:2 invisible 3-by-2 layout, cyan/turquoise color, opaque almost-black background and all margins. Bottom-right sixth cell remains completely empty. No detached eyebrow, extra eye fragments, text, props, frames, grid, body, nose or decoration.

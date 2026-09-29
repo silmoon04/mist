@@ -1,0 +1,2016 @@
+{
+  "version": 1,
+  "studies": [
+    {
+      "id": "later-alligator-sweet-geraldine",
+      "displayTitle": "Later Alligator / Sweet Geraldine",
+      "category": "handdrawn",
+      "approach": "Large directional open-C eyes and small asymmetric mouths make each event-specific reaction a held character pose.",
+      "sheet": "sheets/later-alligator-sweet-geraldine.png",
+      "prompt": "prompts/later-alligator-sweet-geraldine.txt",
+      "width": 1536,
+      "height": 1024,
+      "poses": [
+        {
+          "id": "later-alligator-sweet-geraldine__attentive",
+          "label": "Attentive",
+          "column": 0,
+          "row": 0
+        },
+        {
+          "id": "later-alligator-sweet-geraldine__considering",
+          "label": "Considering",
+          "column": 1,
+          "row": 0
+        },
+        {
+          "id": "later-alligator-sweet-geraldine__skeptical",
+          "label": "Skeptical",
+          "column": 2,
+          "row": 0
+        },
+        {
+          "id": "later-alligator-sweet-geraldine__amused",
+          "label": "Amused",
+          "column": 0,
+          "row": 1
+        },
+        {
+          "id": "later-alligator-sweet-geraldine__concerned",
+          "label": "Concerned",
+          "column": 1,
+          "row": 1
+        }
+      ],
+      "sourceStudyUrl": "https://silmoon04.github.io/mist/game-face-references/#later-alligator-sweet-geraldine",
+      "referenceUrl": "https://community.wacom.com/en-gb/later-alligator-a-qa-with-the-small-buteras/",
+      "people": [
+        {
+          "name": "Lindsay Small-Butera",
+          "role": "Director; writing, concepting, storyboarding, animation and design (self-described in interview)",
+          "sourceUrl": "https://community.wacom.com/en-gb/later-alligator-a-qa-with-the-small-buteras/"
+        },
+        {
+          "name": "Alex Small-Butera",
+          "role": "Keyframer; animation and design (described by Lindsay in joint interview)",
+          "sourceUrl": "https://community.wacom.com/en-gb/later-alligator-a-qa-with-the-small-buteras/"
+        }
+      ],
+      "limitations": "Original static MIST adaptation of researched directional acting. The catalog source was inspected as a still, so no animation timing is claimed. Slight tonal softness remains in the almost-black raster background.",
+      "tool": "built-in image_gen",
+      "kind": "static expression study"
+    },
+    {
+      "id": "slime-rancher-face-shader",
+      "displayTitle": "Slime Rancher / six faces",
+      "category": "process",
+      "approach": "Treat eyes and mouth as independent graphic channels; compact filled eye apertures stay coherent while five mouth masks carry contrasting attitudes.",
+      "sheet": "sheets/slime-rancher-face-shader.png",
+      "prompt": "prompts/slime-rancher-face-shader.txt",
+      "width": 1536,
+      "height": 1024,
+      "poses": [
+        {
+          "id": "slime-rancher-face-shader__attentive",
+          "label": "Attentive",
+          "column": 0,
+          "row": 0
+        },
+        {
+          "id": "slime-rancher-face-shader__considering",
+          "label": "Considering",
+          "column": 1,
+          "row": 0
+        },
+        {
+          "id": "slime-rancher-face-shader__skeptical",
+          "label": "Skeptical",
+          "column": 2,
+          "row": 0
+        },
+        {
+          "id": "slime-rancher-face-shader__amused",
+          "label": "Amused",
+          "column": 0,
+          "row": 1
+        },
+        {
+          "id": "slime-rancher-face-shader__concerned",
+          "label": "Concerned",
+          "column": 1,
+          "row": 1
+        }
+      ],
+      "sourceStudyUrl": "https://silmoon04.github.io/mist/game-face-references/#slime-rancher-face-shader",
+      "referenceUrl": "https://store.steampowered.com/news/posts/?appids=433340&enddate=1576525914&feed=steam_community_announcements",
+      "people": [
+        {
+          "name": "Ian McConville",
+          "role": "Principal Artist; author of the Slime Rancher 1.4.0 face-shader rebuild (the post spells the title 'Principle Artist')",
+          "sourceUrl": "https://store.steampowered.com/news/posts/?appids=433340&enddate=1576525914&feed=steam_community_announcements"
+        }
+      ],
+      "limitations": "The authored masks are a static experiment inspired by channel separation; this sheet is not an implementation or test of the game's face shader. Slight tonal softness remains in the almost-black raster background.",
+      "tool": "built-in image_gen",
+      "kind": "static expression study"
+    },
+    {
+      "id": "dicey-dungeons-lady-luck-warrior",
+      "displayTitle": "Dicey Dungeons / Lady Luck",
+      "category": "cozy",
+      "approach": "Contrast composed side gaze and clipped lids with alert delight; integrated upper lids change attitude before mouth size increases.",
+      "sheet": "sheets/dicey-dungeons-lady-luck-warrior.png",
+      "prompt": "prompts/dicey-dungeons-lady-luck-warrior.txt",
+      "width": 1536,
+      "height": 1024,
+      "poses": [
+        {
+          "id": "dicey-dungeons-lady-luck-warrior__attentive",
+          "label": "Attentive",
+          "column": 0,
+          "row": 0
+        },
+        {
+          "id": "dicey-dungeons-lady-luck-warrior__considering",
+          "label": "Considering",
+          "column": 1,
+          "row": 0
+        },
+        {
+          "id": "dicey-dungeons-lady-luck-warrior__skeptical",
+          "label": "Skeptical",
+          "column": 2,
+          "row": 0
+        },
+        {
+          "id": "dicey-dungeons-lady-luck-warrior__amused",
+          "label": "Amused",
+          "column": 0,
+          "row": 1
+        },
+        {
+          "id": "dicey-dungeons-lady-luck-warrior__concerned",
+          "label": "Concerned",
+          "column": 1,
+          "row": 1
+        }
+      ],
+      "sourceStudyUrl": "https://silmoon04.github.io/mist/game-face-references/#dicey-dungeons-lady-luck-warrior",
+      "referenceUrl": "https://terrycavanaghgames.com/dice/presskit/xbox/",
+      "people": [
+        {
+          "name": "Marlowe Dobbe",
+          "role": "Art and Animation",
+          "sourceUrl": "https://diceydungeons.com/credits.html"
+        }
+      ],
+      "limitations": "The side gaze and eyelid contrast are an original static adaptation. Exact source animation timing or lip sync is not established. Slight tonal softness remains in the almost-black raster background.",
+      "tool": "built-in image_gen",
+      "kind": "static expression study"
+    },
+    {
+      "id": "omori-held-pencil-face",
+      "displayTitle": "OMORI / pencil portrait",
+      "category": "dialogue",
+      "approach": "Restrained upright oval eye apertures, very small closed mouths and quiet held poses; the amused pose uses closed crescent eyes to distinguish it from attentive listening.",
+      "sheet": "sheets/omori-held-pencil-face.png",
+      "prompt": "prompts/omori-held-pencil-face.txt",
+      "width": 1536,
+      "height": 1024,
+      "poses": [
+        {
+          "id": "omori-held-pencil-face__attentive",
+          "label": "Attentive",
+          "column": 0,
+          "row": 0
+        },
+        {
+          "id": "omori-held-pencil-face__considering",
+          "label": "Considering",
+          "column": 1,
+          "row": 0
+        },
+        {
+          "id": "omori-held-pencil-face__skeptical",
+          "label": "Skeptical",
+          "column": 2,
+          "row": 0
+        },
+        {
+          "id": "omori-held-pencil-face__amused",
+          "label": "Amused",
+          "column": 0,
+          "row": 1
+        },
+        {
+          "id": "omori-held-pencil-face__concerned",
+          "label": "Concerned",
+          "column": 1,
+          "row": 1
+        }
+      ],
+      "sourceStudyUrl": "https://silmoon04.github.io/mist/game-face-references/#omori-held-pencil-face",
+      "referenceUrl": "https://www.omocat.com/omori",
+      "people": [
+        {
+          "name": "OMOCAT",
+          "role": "OMORI Game Director, Illustrator, Writer, Programmer, Animator / Video Editor, among other project roles listed in the artist CV; individual GIF authorship is not separately itemized.",
+          "sourceUrl": "https://www.omocat.com/pagecv"
+        }
+      ],
+      "limitations": "This is an original restrained MIST acting experiment; handmade line boil is deliberately not represented in this still sheet. The generated tiny mouth proportions approximate the prompt rather than enforce a measured pixel ratio. Slight tonal softness remains in the almost-black raster background.",
+      "tool": "built-in image_gen",
+      "kind": "static expression study"
+    },
+    {
+      "id": "cuphead-hopus-pocus-pencil",
+      "displayTitle": "Cuphead / Hopus Pocus",
+      "category": "handdrawn",
+      "approach": "Coordinated elastic deformation: wide squashed skeptical eyes, tall lifted amused eyes, unequal concern teardrops, and distinct mouth silhouettes; the attentive mouth is a short closed curve.",
+      "sheet": "sheets/cuphead-hopus-pocus-pencil.png",
+      "prompt": "prompts/cuphead-hopus-pocus-pencil.txt",
+      "width": 1536,
+      "height": 1024,
+      "poses": [
+        {
+          "id": "cuphead-hopus-pocus-pencil__attentive",
+          "label": "Attentive",
+          "column": 0,
+          "row": 0
+        },
+        {
+          "id": "cuphead-hopus-pocus-pencil__considering",
+          "label": "Considering",
+          "column": 1,
+          "row": 0
+        },
+        {
+          "id": "cuphead-hopus-pocus-pencil__skeptical",
+          "label": "Skeptical",
+          "column": 2,
+          "row": 0
+        },
+        {
+          "id": "cuphead-hopus-pocus-pencil__amused",
+          "label": "Amused",
+          "column": 0,
+          "row": 1
+        },
+        {
+          "id": "cuphead-hopus-pocus-pencil__concerned",
+          "label": "Concerned",
+          "column": 1,
+          "row": 1
+        }
+      ],
+      "sourceStudyUrl": "https://silmoon04.github.io/mist/game-face-references/#cuphead-hopus-pocus-pencil",
+      "referenceUrl": "https://tinanawrocki.blogspot.com/2017/10/cuphead-hopus-pocus-magician-rabbit.html",
+      "people": [
+        {
+          "name": "Tina Nawrocki",
+          "role": "Animator of Hopus Pocus, identified in her own production post",
+          "sourceUrl": "https://tinanawrocki.blogspot.com/2017/10/cuphead-hopus-pocus-magician-rabbit.html"
+        }
+      ],
+      "limitations": "This still sheet explores coordinated distortion; it does not establish animation timing, transitions or a production facial rig. Slight tonal softness remains in the almost-black raster background.",
+      "tool": "built-in image_gen",
+      "kind": "static expression study"
+    },
+    {
+      "id": "smile-for-me-response-comparisons",
+      "displayTitle": "Smile For Me / responses",
+      "category": "dialogue",
+      "approach": "Conversational acknowledgement and polite refusal use different gaze, eye tension and compact mouth silhouettes.",
+      "sheet": "sheets/smile-for-me-response-comparisons.png",
+      "prompt": "prompts/smile-for-me-response-comparisons.txt",
+      "width": 1536,
+      "height": 1024,
+      "poses": [
+        {
+          "id": "smile-for-me-response-comparisons__attentive",
+          "label": "Attentive",
+          "column": 0,
+          "row": 0
+        },
+        {
+          "id": "smile-for-me-response-comparisons__considering",
+          "label": "Considering",
+          "column": 1,
+          "row": 0
+        },
+        {
+          "id": "smile-for-me-response-comparisons__skeptical",
+          "label": "Skeptical",
+          "column": 2,
+          "row": 0
+        },
+        {
+          "id": "smile-for-me-response-comparisons__amused",
+          "label": "Amused",
+          "column": 0,
+          "row": 1
+        },
+        {
+          "id": "smile-for-me-response-comparisons__concerned",
+          "label": "Concerned",
+          "column": 1,
+          "row": 1
+        }
+      ],
+      "sourceStudyUrl": "https://silmoon04.github.io/mist/game-face-references/#smile-for-me-response-comparisons",
+      "referenceUrl": "https://limbolane.com/games/smile-for-me",
+      "people": [
+        {
+          "name": "Yugo Limbo",
+          "role": "Co-creator (official press credits); animator, game developer and comic artist (official studio biography)",
+          "sourceUrl": "https://limbolane.com/games/smile-for-me/press"
+        },
+        {
+          "name": "Day Lane",
+          "role": "Co-creator (official press credits); producer, programmer and gameplay designer (official studio biography)",
+          "sourceUrl": "https://limbolane.com/about"
+        }
+      ],
+      "limitations": "The almost-black backdrop retains faint low-level raster color variation. One background-only imagegen edit was inspected but did not reliably produce a single uniform RGB fill, so the original generation is selected. These are static acting studies; no game motion or timing is inferred.",
+      "tool": "built-in image_gen",
+      "kind": "static expression study"
+    },
+    {
+      "id": "isat-odile-mixed-affect",
+      "displayTitle": "In Stars and Time / Odile",
+      "category": "dialogue",
+      "approach": "Heavy lids and uneven apertures convey tired reassurance, while the mouth distinguishes wry warmth, doubt and concern.",
+      "sheet": "sheets/isat-odile-mixed-affect.png",
+      "prompt": "prompts/isat-odile-mixed-affect.txt",
+      "width": 1536,
+      "height": 1024,
+      "poses": [
+        {
+          "id": "isat-odile-mixed-affect__attentive",
+          "label": "Attentive",
+          "column": 0,
+          "row": 0
+        },
+        {
+          "id": "isat-odile-mixed-affect__considering",
+          "label": "Considering",
+          "column": 1,
+          "row": 0
+        },
+        {
+          "id": "isat-odile-mixed-affect__skeptical",
+          "label": "Skeptical",
+          "column": 2,
+          "row": 0
+        },
+        {
+          "id": "isat-odile-mixed-affect__amused",
+          "label": "Amused",
+          "column": 0,
+          "row": 1
+        },
+        {
+          "id": "isat-odile-mixed-affect__concerned",
+          "label": "Concerned",
+          "column": 1,
+          "row": 1
+        }
+      ],
+      "sourceStudyUrl": "https://silmoon04.github.io/mist/game-face-references/#isat-odile-mixed-affect",
+      "referenceUrl": "https://armor-games-studios.itch.io/in-stars-and-time",
+      "people": [
+        {
+          "name": "Adrienne Bazir (insertdisc5)",
+          "role": "Game developer and cartoonist with 2D animation experience; developer of In Stars and Time. Individual portrait animation credit not established here.",
+          "sourceUrl": "https://www.insertdisc5.com/about"
+        }
+      ],
+      "limitations": "The almost-black backdrop retains faint low-level raster color variation. One background-only imagegen edit was inspected but did not reliably produce a single uniform RGB fill, so the original generation is selected. These are static acting studies; no game motion or timing is inferred.",
+      "tool": "built-in image_gen",
+      "kind": "static expression study"
+    },
+    {
+      "id": "chicory-feeling-first-faces",
+      "displayTitle": "Chicory / character studies",
+      "category": "graphic",
+      "approach": "Eye aperture, face-axis angle and mouth shape are coordinated around each feeling, using soft filled eye shapes and broad pose contrast.",
+      "sheet": "sheets/chicory-feeling-first-faces.png",
+      "prompt": "prompts/chicory-feeling-first-faces.txt",
+      "width": 1536,
+      "height": 1024,
+      "poses": [
+        {
+          "id": "chicory-feeling-first-faces__attentive",
+          "label": "Attentive",
+          "column": 0,
+          "row": 0
+        },
+        {
+          "id": "chicory-feeling-first-faces__considering",
+          "label": "Considering",
+          "column": 1,
+          "row": 0
+        },
+        {
+          "id": "chicory-feeling-first-faces__skeptical",
+          "label": "Skeptical",
+          "column": 2,
+          "row": 0
+        },
+        {
+          "id": "chicory-feeling-first-faces__amused",
+          "label": "Amused",
+          "column": 0,
+          "row": 1
+        },
+        {
+          "id": "chicory-feeling-first-faces__concerned",
+          "label": "Concerned",
+          "column": 1,
+          "row": 1
+        }
+      ],
+      "sourceStudyUrl": "https://silmoon04.github.io/mist/game-face-references/#chicory-feeling-first-faces",
+      "referenceUrl": "https://community.wacom.com/en-us/designing-chicorys-creatures-with-alexis-dean-jones/",
+      "people": [
+        {
+          "name": "Alexis Dean-Jones",
+          "role": "Artist & Animator; character design and animation",
+          "sourceUrl": "https://www.alexisdeanjones.com/about"
+        },
+        {
+          "name": "Greg Lobanov",
+          "role": "Director",
+          "sourceUrl": "https://chicorygame.com/"
+        }
+      ],
+      "limitations": "The almost-black backdrop retains faint low-level raster color variation. One background-only imagegen edit was inspected but did not reliably produce a single uniform RGB fill, so the original generation is selected. These are static acting studies; no game motion or timing is inferred.",
+      "tool": "built-in image_gen",
+      "kind": "static expression study"
+    },
+    {
+      "id": "undertale-flowey-denial",
+      "displayTitle": "UNDERTALE / Flowey",
+      "category": "dialogue",
+      "approach": "Small shifts in open versus narrowed eyes reveal subtext while a stable face arrangement makes the mouth's emotional turn easy to read.",
+      "sheet": "sheets/undertale-flowey-denial.png",
+      "prompt": "prompts/undertale-flowey-denial.txt",
+      "width": 1536,
+      "height": 1024,
+      "poses": [
+        {
+          "id": "undertale-flowey-denial__attentive",
+          "label": "Attentive",
+          "column": 0,
+          "row": 0
+        },
+        {
+          "id": "undertale-flowey-denial__considering",
+          "label": "Considering",
+          "column": 1,
+          "row": 0
+        },
+        {
+          "id": "undertale-flowey-denial__skeptical",
+          "label": "Skeptical",
+          "column": 2,
+          "row": 0
+        },
+        {
+          "id": "undertale-flowey-denial__amused",
+          "label": "Amused",
+          "column": 0,
+          "row": 1
+        },
+        {
+          "id": "undertale-flowey-denial__concerned",
+          "label": "Concerned",
+          "column": 1,
+          "row": 1
+        }
+      ],
+      "sourceStudyUrl": "https://silmoon04.github.io/mist/game-face-references/#undertale-flowey-denial",
+      "referenceUrl": "https://undertale.com/alarmclock/flowey/",
+      "people": [
+        {
+          "name": "Toby Fox",
+          "role": "UNDERTALE creator and interviewer; exact authorship of the selected Alarm Clock portrait pixels is not established by the page.",
+          "sourceUrl": "https://toby.fangamer.com/interviews/temmie/"
+        },
+        {
+          "name": "Temmie Chang",
+          "role": "UNDERTALE art collaborator; separately credited as Main Artist and Main Animator on DELTARUNE Chapter 2. This is not an attribution of the Flowey portraits to her.",
+          "sourceUrl": "https://undertale.com/deltarune-update-092021/"
+        }
+      ],
+      "limitations": "The almost-black backdrop retains faint low-level raster color variation. One background-only imagegen edit was inspected but did not reliably produce a single uniform RGB fill, so the original generation is selected. These are static acting studies; no game motion or timing is inferred.",
+      "tool": "built-in image_gen",
+      "kind": "static expression study"
+    },
+    {
+      "id": "great-god-grove-god-faces",
+      "displayTitle": "Great God Grove / god faces",
+      "category": "3d",
+      "approach": "Bold emotional eye silhouettes, including inward closed lids, are paired with tiny pinched mouths to test how much feeling the eyes can carry.",
+      "sheet": "sheets/great-god-grove-god-faces.png",
+      "prompt": "prompts/great-god-grove-god-faces.txt",
+      "width": 1536,
+      "height": 1024,
+      "poses": [
+        {
+          "id": "great-god-grove-god-faces__attentive",
+          "label": "Attentive",
+          "column": 0,
+          "row": 0
+        },
+        {
+          "id": "great-god-grove-god-faces__considering",
+          "label": "Considering",
+          "column": 1,
+          "row": 0
+        },
+        {
+          "id": "great-god-grove-god-faces__skeptical",
+          "label": "Skeptical",
+          "column": 2,
+          "row": 0
+        },
+        {
+          "id": "great-god-grove-god-faces__amused",
+          "label": "Amused",
+          "column": 0,
+          "row": 1
+        },
+        {
+          "id": "great-god-grove-god-faces__concerned",
+          "label": "Concerned",
+          "column": 1,
+          "row": 1
+        }
+      ],
+      "sourceStudyUrl": "https://silmoon04.github.io/mist/game-face-references/#great-god-grove-god-faces",
+      "referenceUrl": "https://limbolane.com/games/great-god-grove/press",
+      "people": [
+        {
+          "name": "Jack Cornish",
+          "role": "3d animations",
+          "sourceUrl": "https://limbolane.com/games/great-god-grove/press"
+        },
+        {
+          "name": "Yugo Limbo",
+          "role": "Developer (with Day Lane); animator in official studio biography",
+          "sourceUrl": "https://limbolane.com/games/great-god-grove/press"
+        },
+        {
+          "name": "Day Lane",
+          "role": "Developer (with Yugo Limbo)",
+          "sourceUrl": "https://limbolane.com/games/great-god-grove/press"
+        }
+      ],
+      "limitations": "The almost-black backdrop retains faint low-level raster color variation. One background-only imagegen edit was inspected but did not reliably produce a single uniform RGB fill, so the original generation is selected. These are static acting studies; no game motion or timing is inferred.",
+      "tool": "built-in image_gen",
+      "kind": "static expression study"
+    },
+    {
+      "id": "cuphead-baroness-pencil",
+      "displayTitle": "Cuphead / Baroness",
+      "category": "handdrawn",
+      "approach": "Theatrical lid-and-mouth contrast: unequal open and hooded C eyes, inward-slanted skeptical lids, closed amused arcs with a broader filled mouth, and asymmetrical concerned eyes.",
+      "sheet": "sheets/cuphead-baroness-pencil.png",
+      "prompt": "prompts/cuphead-baroness-pencil.txt",
+      "width": 1536,
+      "height": 1024,
+      "poses": [
+        {
+          "id": "cuphead-baroness-pencil__attentive",
+          "label": "Attentive",
+          "column": 0,
+          "row": 0
+        },
+        {
+          "id": "cuphead-baroness-pencil__considering",
+          "label": "Considering",
+          "column": 1,
+          "row": 0
+        },
+        {
+          "id": "cuphead-baroness-pencil__skeptical",
+          "label": "Skeptical",
+          "column": 2,
+          "row": 0
+        },
+        {
+          "id": "cuphead-baroness-pencil__amused",
+          "label": "Amused",
+          "column": 0,
+          "row": 1
+        },
+        {
+          "id": "cuphead-baroness-pencil__concerned",
+          "label": "Concerned",
+          "column": 1,
+          "row": 1
+        }
+      ],
+      "sourceStudyUrl": "https://silmoon04.github.io/mist/game-face-references/#cuphead-baroness-pencil",
+      "referenceUrl": "https://tinanawrocki.blogspot.com/2017/09/cuphead-baroness-von-bon-bon.html",
+      "people": [
+        {
+          "name": "Tina Nawrocki",
+          "role": "Animator and designer of this character, identified in her own production post",
+          "sourceUrl": "https://tinanawrocki.blogspot.com/2017/09/cuphead-baroness-von-bon-bon.html"
+        }
+      ],
+      "limitations": "Study distinction remains modest within MIST's familiar C-eye vocabulary. Skepticism reads somewhat stern and concern can also read pained. This is a static original adaptation; no source motion or timing is claimed. The generated dark field has faint texture rather than a mathematically uniform fill.",
+      "tool": "built-in image_gen",
+      "kind": "static expression study"
+    },
+    {
+      "id": "pizza-tower-peppino-poses",
+      "displayTitle": "Pizza Tower / Peppino",
+      "category": "handdrawn",
+      "approach": "Controlled elastic proportions: tall narrow attentive C eyes, broad compressed considering eyes, low skeptical apertures, broad amused arcs and mouth, and unequal elongated concerned eyes.",
+      "sheet": "sheets/pizza-tower-peppino-poses.png",
+      "prompt": "prompts/pizza-tower-peppino-poses.txt",
+      "width": 1536,
+      "height": 1024,
+      "poses": [
+        {
+          "id": "pizza-tower-peppino-poses__attentive",
+          "label": "Attentive",
+          "column": 0,
+          "row": 0
+        },
+        {
+          "id": "pizza-tower-peppino-poses__considering",
+          "label": "Considering",
+          "column": 1,
+          "row": 0
+        },
+        {
+          "id": "pizza-tower-peppino-poses__skeptical",
+          "label": "Skeptical",
+          "column": 2,
+          "row": 0
+        },
+        {
+          "id": "pizza-tower-peppino-poses__amused",
+          "label": "Amused",
+          "column": 0,
+          "row": 1
+        },
+        {
+          "id": "pizza-tower-peppino-poses__concerned",
+          "label": "Concerned",
+          "column": 1,
+          "row": 1
+        }
+      ],
+      "sourceStudyUrl": "https://silmoon04.github.io/mist/game-face-references/#pizza-tower-peppino-poses",
+      "referenceUrl": "https://gamingreinvented.com/interview/an-interview-with-the-developer-of-wario-land-successor-pizza-tower/",
+      "people": [
+        {
+          "name": "Pizza Tower Guy (McPig)",
+          "role": "Programming and animations, self-described in the 2019 developer interview",
+          "sourceUrl": "https://gamingreinvented.com/interview/an-interview-with-the-developer-of-wario-land-successor-pizza-tower/"
+        }
+      ],
+      "limitations": "The selected targeted edit strengthens proportion changes but does not reproduce extreme source anatomy or establish animation overshoot/timing. Directional attention is implied through eye shape without pupils. The generated dark field has faint texture.",
+      "tool": "built-in image_gen",
+      "kind": "static expression study"
+    },
+    {
+      "id": "spiritfarer-trailer-stella-daffodil",
+      "displayTitle": "Spiritfarer / Stella and Daffodil",
+      "category": "cozy",
+      "approach": "Quiet warmth through economical closed mouth curves, soft C-eye openings, subtle asymmetric lid attitudes, a relaxed amused squint and a small empathetic frown.",
+      "sheet": "sheets/spiritfarer-trailer-stella-daffodil.png",
+      "prompt": "prompts/spiritfarer-trailer-stella-daffodil.txt",
+      "width": 1536,
+      "height": 1024,
+      "poses": [
+        {
+          "id": "spiritfarer-trailer-stella-daffodil__attentive",
+          "label": "Attentive",
+          "column": 0,
+          "row": 0
+        },
+        {
+          "id": "spiritfarer-trailer-stella-daffodil__considering",
+          "label": "Considering",
+          "column": 1,
+          "row": 0
+        },
+        {
+          "id": "spiritfarer-trailer-stella-daffodil__skeptical",
+          "label": "Skeptical",
+          "column": 2,
+          "row": 0
+        },
+        {
+          "id": "spiritfarer-trailer-stella-daffodil__amused",
+          "label": "Amused",
+          "column": 0,
+          "row": 1
+        },
+        {
+          "id": "spiritfarer-trailer-stella-daffodil__concerned",
+          "label": "Concerned",
+          "column": 1,
+          "row": 1
+        }
+      ],
+      "sourceStudyUrl": "https://silmoon04.github.io/mist/game-face-references/#spiritfarer-trailer-stella-daffodil",
+      "referenceUrl": "https://www.toonboom.com/spiritfarer-animated-trailer",
+      "people": [
+        {
+          "name": "David Liu",
+          "role": "Director and animation",
+          "sourceUrl": "https://www.toonboom.com/spiritfarer-animated-trailer"
+        },
+        {
+          "name": "India Swift",
+          "role": "Animation",
+          "sourceUrl": "https://www.toonboom.com/spiritfarer-animated-trailer"
+        },
+        {
+          "name": "Hardik Manktala",
+          "role": "Animation",
+          "sourceUrl": "https://www.toonboom.com/spiritfarer-animated-trailer"
+        },
+        {
+          "name": "Kevin Ryan",
+          "role": "Animation",
+          "sourceUrl": "https://www.toonboom.com/spiritfarer-animated-trailer"
+        },
+        {
+          "name": "Parker Pierce",
+          "role": "Animation",
+          "sourceUrl": "https://www.toonboom.com/spiritfarer-animated-trailer"
+        },
+        {
+          "name": "Danny Reyes",
+          "role": "Animation",
+          "sourceUrl": "https://www.toonboom.com/spiritfarer-animated-trailer"
+        },
+        {
+          "name": "Daniel Barón",
+          "role": "Animation",
+          "sourceUrl": "https://www.toonboom.com/spiritfarer-animated-trailer"
+        }
+      ],
+      "limitations": "Differences from the other C-eye MIST sheets are subtle. Upward-left attention is implied through negative-space openings rather than explicit pupils; the amused pose has one mostly closed eye. This adapts a trailer close-up, not verified in-game animation. The generated dark field has faint texture.",
+      "tool": "built-in image_gen",
+      "kind": "static expression study"
+    },
+    {
+      "id": "dory-independent-face-prototype",
+      "displayTitle": "Dory / independent face controls",
+      "category": "process",
+      "approach": "Authored process experiment pairing discrete open, half-lidded and closed eye states with independently selected quiet listening, uncertain, skeptical, amused and concerned mouths.",
+      "sheet": "sheets/dory-independent-face-prototype.png",
+      "prompt": "prompts/dory-independent-face-prototype.txt",
+      "width": 1536,
+      "height": 1024,
+      "poses": [
+        {
+          "id": "dory-independent-face-prototype__attentive",
+          "label": "Attentive",
+          "column": 0,
+          "row": 0
+        },
+        {
+          "id": "dory-independent-face-prototype__considering",
+          "label": "Considering",
+          "column": 1,
+          "row": 0
+        },
+        {
+          "id": "dory-independent-face-prototype__skeptical",
+          "label": "Skeptical",
+          "column": 2,
+          "row": 0
+        },
+        {
+          "id": "dory-independent-face-prototype__amused",
+          "label": "Amused",
+          "column": 0,
+          "row": 1
+        },
+        {
+          "id": "dory-independent-face-prototype__concerned",
+          "label": "Concerned",
+          "column": 1,
+          "row": 1
+        }
+      ],
+      "sourceStudyUrl": "https://silmoon04.github.io/mist/game-face-references/#dory-independent-face-prototype",
+      "referenceUrl": "https://twocentstudios.com/2024/04/01/indie-game-devlog-04/",
+      "people": [
+        {
+          "name": "Chris (twocentstudios)",
+          "role": "Solo developer and author of the Dory character prototype",
+          "sourceUrl": "https://twocentstudios.com/2024/04/01/indie-game-devlog-04/"
+        }
+      ],
+      "limitations": "Explicitly our process experiment, not a verified Dory facial style or demonstrated emotional performance. The sheet uses MIST's familiar C-eye vocabulary, so its distinction lies mainly in discrete lid and mouth states. The attentive mouth is deliberately neutral. The generated dark field has faint texture.",
+      "tool": "built-in image_gen",
+      "kind": "static expression study"
+    },
+    {
+      "id": "astro-bot-led-acting",
+      "displayTitle": "Astro Bot / eye acting",
+      "category": "3d",
+      "approach": "Restricted eye-led vocabulary: solid upright capsules, asymmetric clipped apertures, lowered skeptical wedges, joyful arcs and drooping concerned apertures, paired with very small MIST mouths.",
+      "sheet": "sheets/astro-bot-led-acting.png",
+      "prompt": "prompts/astro-bot-led-acting.txt",
+      "width": 1536,
+      "height": 1024,
+      "poses": [
+        {
+          "id": "astro-bot-led-acting__attentive",
+          "label": "Attentive",
+          "column": 0,
+          "row": 0
+        },
+        {
+          "id": "astro-bot-led-acting__considering",
+          "label": "Considering",
+          "column": 1,
+          "row": 0
+        },
+        {
+          "id": "astro-bot-led-acting__skeptical",
+          "label": "Skeptical",
+          "column": 2,
+          "row": 0
+        },
+        {
+          "id": "astro-bot-led-acting__amused",
+          "label": "Amused",
+          "column": 0,
+          "row": 1
+        },
+        {
+          "id": "astro-bot-led-acting__concerned",
+          "label": "Concerned",
+          "column": 1,
+          "row": 1
+        }
+      ],
+      "sourceStudyUrl": "https://silmoon04.github.io/mist/game-face-references/#astro-bot-led-acting",
+      "referenceUrl": "https://blog.playstation.com/2019/01/24/astro-bot-rescue-mission-inside-the-art-and-animation-of-japan-studios-ps-vr-hit/",
+      "people": [
+        {
+          "name": "Jamie Alexander Smith",
+          "role": "Animation Lead, Astro Bot Rescue Mission",
+          "sourceUrl": "https://blog.playstation.com/2019/01/24/astro-bot-rescue-mission-inside-the-art-and-animation-of-japan-studios-ps-vr-hit/"
+        },
+        {
+          "name": "Jamie Smith",
+          "role": "Principal Animation Director, Team Asobi (2024 interview)",
+          "sourceUrl": "https://blog.playstation.com/2024/09/09/astro-bot-how-team-asobi-created-a-unified-vision-for-fun/"
+        },
+        {
+          "name": "Maki Murakami",
+          "role": "Senior Animator, Team Asobi (2024 interview)",
+          "sourceUrl": "https://blog.playstation.com/2024/09/09/astro-bot-how-team-asobi-created-a-unified-vision-for-fun/"
+        },
+        {
+          "name": "Sebastian Brueckner",
+          "role": "Art Director, Astro Bot Rescue Mission",
+          "sourceUrl": "https://blog.playstation.com/2019/01/24/astro-bot-rescue-mission-inside-the-art-and-animation-of-japan-studios-ps-vr-hit/"
+        }
+      ],
+      "limitations": "MIST's tiny mouths are intentional additions because the source character is mouthless. The selected targeted edit uses filled apertures with soft shape asymmetry, but no source body acting, blink rule or timing is claimed. The generated dark field has faint texture.",
+      "tool": "built-in image_gen",
+      "kind": "static expression study"
+    },
+    {
+      "id": "night-in-the-woods-graphic-gaze",
+      "displayTitle": "Night in the Woods / gaze",
+      "category": "graphic",
+      "approach": "Large graphic eye apertures, deliberate held gaze, strong upper-lid silhouettes and tiny restrained mouths.",
+      "sheet": "sheets/night-in-the-woods-graphic-gaze.png",
+      "prompt": "prompts/night-in-the-woods-graphic-gaze-fresh1.txt",
+      "width": 1536,
+      "height": 1024,
+      "poses": [
+        {
+          "id": "night-in-the-woods-graphic-gaze__attentive",
+          "label": "Attentive",
+          "column": 0,
+          "row": 0
+        },
+        {
+          "id": "night-in-the-woods-graphic-gaze__considering",
+          "label": "Considering",
+          "column": 1,
+          "row": 0
+        },
+        {
+          "id": "night-in-the-woods-graphic-gaze__skeptical",
+          "label": "Skeptical",
+          "column": 2,
+          "row": 0
+        },
+        {
+          "id": "night-in-the-woods-graphic-gaze__amused",
+          "label": "Amused",
+          "column": 0,
+          "row": 1
+        },
+        {
+          "id": "night-in-the-woods-graphic-gaze__concerned",
+          "label": "Concerned",
+          "column": 1,
+          "row": 1
+        }
+      ],
+      "sourceStudyUrl": "https://silmoon04.github.io/mist/game-face-references/#night-in-the-woods-graphic-gaze",
+      "referenceUrl": "https://playism.com/wp-content/uploads/2021/05/nitw_en_03-800x450.jpeg",
+      "people": [
+        {
+          "name": "Scott Benson",
+          "role": "Art and animation; co-designer and art director",
+          "sourceUrl": "https://www.inverse.com/article/13084-this-video-game-creator-proves-late-night-twitter-isn-t-a-waste-of-time"
+        },
+        {
+          "name": "Charles Huettner",
+          "role": "Additional animation, described by Benson as animation work on the game",
+          "sourceUrl": "https://www.inverse.com/article/13084-this-video-game-creator-proves-late-night-twitter-isn-t-a-waste-of-time"
+        }
+      ],
+      "limitations": "Static gaze and eyelid experiment. Display-size readability has not been tested on the physical robot screen. Slight tonal/material variation remains in the background; no pixel-uniformness claim is made. The selected right-eye taper is visually accepted as intentional despite threshold component separation.",
+      "tool": "built-in image_gen",
+      "kind": "static expression study"
+    },
+    {
+      "id": "antonblast-anton-reaction",
+      "displayTitle": "ANTONBLAST / Anton",
+      "category": "action",
+      "approach": "Stronger eye compression and original contrasting digital mouth silhouettes, adapted from the open-mouth versus clenched reaction contrast.",
+      "sheet": "sheets/antonblast-anton-reaction.png",
+      "prompt": "prompts/antonblast-anton-reaction.txt",
+      "width": 1536,
+      "height": 1024,
+      "poses": [
+        {
+          "id": "antonblast-anton-reaction__attentive",
+          "label": "Attentive",
+          "column": 0,
+          "row": 0
+        },
+        {
+          "id": "antonblast-anton-reaction__considering",
+          "label": "Considering",
+          "column": 1,
+          "row": 0
+        },
+        {
+          "id": "antonblast-anton-reaction__skeptical",
+          "label": "Skeptical",
+          "column": 2,
+          "row": 0
+        },
+        {
+          "id": "antonblast-anton-reaction__amused",
+          "label": "Amused",
+          "column": 0,
+          "row": 1
+        },
+        {
+          "id": "antonblast-anton-reaction__concerned",
+          "label": "Concerned",
+          "column": 1,
+          "row": 1
+        }
+      ],
+      "sourceStudyUrl": "https://silmoon04.github.io/mist/game-face-references/#antonblast-anton-reaction",
+      "referenceUrl": "https://www.fangamer.com/collections/popular/products/antonblast-game-nintendo-switch",
+      "people": [
+        {
+          "name": "Juniper / PinPan",
+          "role": "Lead gameplay animator on AntonBlast, self-credited on artist profile",
+          "sourceUrl": "https://pinpan.itch.io/"
+        }
+      ],
+      "limitations": "Original MIST mouth-shape contrast. These are independent held poses, with no claim about ANTONBLAST timing or transition order.",
+      "tool": "built-in image_gen",
+      "kind": "static expression study"
+    },
+    {
+      "id": "moss-quill-lico-process",
+      "displayTitle": "Moss / Quill",
+      "category": "process",
+      "approach": "An original relationship-focused pose experiment: direct listening eye contact, a searching doubt pose, restrained displeasure, acknowledgement and empathy.",
+      "sheet": "sheets/moss-quill-lico-process.png",
+      "prompt": "prompts/moss-quill-lico-process.txt",
+      "width": 1536,
+      "height": 1024,
+      "poses": [
+        {
+          "id": "moss-quill-lico-process__attentive",
+          "label": "Attentive",
+          "column": 0,
+          "row": 0
+        },
+        {
+          "id": "moss-quill-lico-process__considering",
+          "label": "Considering",
+          "column": 1,
+          "row": 0
+        },
+        {
+          "id": "moss-quill-lico-process__skeptical",
+          "label": "Skeptical",
+          "column": 2,
+          "row": 0
+        },
+        {
+          "id": "moss-quill-lico-process__amused",
+          "label": "Amused",
+          "column": 0,
+          "row": 1
+        },
+        {
+          "id": "moss-quill-lico-process__concerned",
+          "label": "Concerned",
+          "column": 1,
+          "row": 1
+        }
+      ],
+      "sourceStudyUrl": "https://silmoon04.github.io/mist/game-face-references/#moss-quill-lico-process",
+      "referenceUrl": "https://blog.playstation.com/2018/04/09/the-magic-of-animation-in-moss-how-polyarc-brought-quill-to-life/",
+      "people": [
+        {
+          "name": "Richard (Rick) Lico",
+          "role": "Animation Director",
+          "sourceUrl": "https://blog.playstation.com/2018/04/09/the-magic-of-animation-in-moss-how-polyarc-brought-quill-to-life/"
+        }
+      ],
+      "limitations": "Original MIST experiment informed by relational animation process. It does not reproduce or claim a verified Moss facial style, timing or interaction behaviour.",
+      "tool": "built-in image_gen",
+      "kind": "static expression study"
+    },
+    {
+      "id": "cuphead-pip-dot-pencil",
+      "displayTitle": "Cuphead / Pip and Dot",
+      "category": "handdrawn",
+      "approach": "Controlled organic contours with conflicting asymmetric lids and side glances, retaining fixed eye spacing and a stable MIST identity.",
+      "sheet": "sheets/cuphead-pip-dot-pencil.png",
+      "prompt": "prompts/cuphead-pip-dot-pencil.txt",
+      "width": 1536,
+      "height": 1024,
+      "poses": [
+        {
+          "id": "cuphead-pip-dot-pencil__attentive",
+          "label": "Attentive",
+          "column": 0,
+          "row": 0
+        },
+        {
+          "id": "cuphead-pip-dot-pencil__considering",
+          "label": "Considering",
+          "column": 1,
+          "row": 0
+        },
+        {
+          "id": "cuphead-pip-dot-pencil__skeptical",
+          "label": "Skeptical",
+          "column": 2,
+          "row": 0
+        },
+        {
+          "id": "cuphead-pip-dot-pencil__amused",
+          "label": "Amused",
+          "column": 0,
+          "row": 1
+        },
+        {
+          "id": "cuphead-pip-dot-pencil__concerned",
+          "label": "Concerned",
+          "column": 1,
+          "row": 1
+        }
+      ],
+      "sourceStudyUrl": "https://silmoon04.github.io/mist/game-face-references/#cuphead-pip-dot-pencil",
+      "referenceUrl": "https://tinanawrocki.blogspot.com/2017/10/cuphead-pip-and-dot-domino.html",
+      "people": [
+        {
+          "name": "Tina Nawrocki",
+          "role": "Animator and designer of this character, identified in her own production post",
+          "sourceUrl": "https://tinanawrocki.blogspot.com/2017/10/cuphead-pip-and-dot-domino.html"
+        }
+      ],
+      "limitations": "Original MIST asymmetric attitudes based on inspected production poses. No source animation timing or small-screen device test is claimed.",
+      "tool": "built-in image_gen",
+      "kind": "static expression study"
+    },
+    {
+      "id": "wandersong-singing-face",
+      "displayTitle": "Wandersong / singing",
+      "category": "graphic",
+      "approach": "Simple cutout-like apertures whose mouth and eye combinations each serve one event: listening, weighing a thought, doubt, delight and concern.",
+      "sheet": "sheets/wandersong-singing-face.png",
+      "prompt": "prompts/wandersong-singing-face.txt",
+      "width": 1536,
+      "height": 1024,
+      "poses": [
+        {
+          "id": "wandersong-singing-face__attentive",
+          "label": "Attentive",
+          "column": 0,
+          "row": 0
+        },
+        {
+          "id": "wandersong-singing-face__considering",
+          "label": "Considering",
+          "column": 1,
+          "row": 0
+        },
+        {
+          "id": "wandersong-singing-face__skeptical",
+          "label": "Skeptical",
+          "column": 2,
+          "row": 0
+        },
+        {
+          "id": "wandersong-singing-face__amused",
+          "label": "Amused",
+          "column": 0,
+          "row": 1
+        },
+        {
+          "id": "wandersong-singing-face__concerned",
+          "label": "Concerned",
+          "column": 1,
+          "row": 1
+        }
+      ],
+      "sourceStudyUrl": "https://silmoon04.github.io/mist/game-face-references/#wandersong-singing-face",
+      "referenceUrl": "https://wanderso.ng/",
+      "people": [
+        {
+          "name": "Greg Lobanov",
+          "role": "Creator; creator/director in his development interview",
+          "sourceUrl": "https://wanderso.ng/"
+        }
+      ],
+      "limitations": "Independent MIST event poses informed by the action/face agreement. No singing sequence, interpolation or source motion timing is claimed.",
+      "tool": "built-in image_gen",
+      "kind": "static expression study"
+    },
+    {
+      "id": "cult-lamb-follower-reaction",
+      "displayTitle": "Cult of the Lamb / reaction",
+      "category": "graphic",
+      "approach": "Original MIST adaptation of stable oval-eye identity and event-directed reactions from the studio-published follower clip. A targeted edit establishes tall filled cyan ovals with dark vertical pupils.",
+      "sheet": "sheets/cult-lamb-follower-reaction.png",
+      "prompt": "prompts/cult-lamb-follower-reaction.txt",
+      "width": 1536,
+      "height": 1024,
+      "poses": [
+        {
+          "id": "cult-lamb-follower-reaction__attentive",
+          "label": "Attentive",
+          "column": 0,
+          "row": 0
+        },
+        {
+          "id": "cult-lamb-follower-reaction__considering",
+          "label": "Considering",
+          "column": 1,
+          "row": 0
+        },
+        {
+          "id": "cult-lamb-follower-reaction__skeptical",
+          "label": "Skeptical",
+          "column": 2,
+          "row": 0
+        },
+        {
+          "id": "cult-lamb-follower-reaction__amused",
+          "label": "Amused",
+          "column": 0,
+          "row": 1
+        },
+        {
+          "id": "cult-lamb-follower-reaction__concerned",
+          "label": "Concerned",
+          "column": 1,
+          "row": 1
+        }
+      ],
+      "sourceStudyUrl": "https://silmoon04.github.io/mist/game-face-references/#cult-lamb-follower-reaction",
+      "referenceUrl": "https://giphy.com/gifs/cult-of-the-lamb-massive-monster-kjua05Qw2EXPJ4NlvR",
+      "people": [
+        {
+          "name": "James Pearmain",
+          "role": "Art Director at Massive Monster",
+          "sourceUrl": "https://massivemonster.com/about"
+        },
+        {
+          "name": "Jan F Sorrentino",
+          "role": "Animator at Massive Monster; maker of Doom & Shroom fan-animation",
+          "sourceUrl": "https://massivemonster.com/about"
+        }
+      ],
+      "limitations": "Static pose adaptation only. Continuous source motion was not verified, and the source clip is studio-published rather than verified gameplay. The tall cyan apertures and dark pupils are our original inversion of the studied oval-eye design. No specific animator attribution.",
+      "tool": "built-in image_gen",
+      "kind": "static expression study"
+    },
+    {
+      "id": "webbed-social-acting",
+      "displayTitle": "Webbed / greeting",
+      "category": "graphic",
+      "approach": "Original face-only inference from Webbed's targeted greeting and raised-limb dance: broad social gaze, eye lift/compression and a reserved success response.",
+      "sheet": "sheets/webbed-social-acting.png",
+      "prompt": "prompts/webbed-social-acting.txt",
+      "width": 1536,
+      "height": 1024,
+      "poses": [
+        {
+          "id": "webbed-social-acting__attentive",
+          "label": "Attentive",
+          "column": 0,
+          "row": 0
+        },
+        {
+          "id": "webbed-social-acting__considering",
+          "label": "Considering",
+          "column": 1,
+          "row": 0
+        },
+        {
+          "id": "webbed-social-acting__skeptical",
+          "label": "Skeptical",
+          "column": 2,
+          "row": 0
+        },
+        {
+          "id": "webbed-social-acting__amused",
+          "label": "Amused",
+          "column": 0,
+          "row": 1
+        },
+        {
+          "id": "webbed-social-acting__concerned",
+          "label": "Concerned",
+          "column": 1,
+          "row": 1
+        }
+      ],
+      "sourceStudyUrl": "https://silmoon04.github.io/mist/game-face-references/#webbed-social-acting",
+      "referenceUrl": "https://webbed.website/presskit.html",
+      "people": [
+        {
+          "name": "Riley Neville",
+          "role": "Programming, Art, Sound and Game Design",
+          "sourceUrl": "https://webbed.website/credits.html"
+        }
+      ],
+      "limitations": "Original face-only inference from a body-led source. Face gaze substitutes for social orientation and limb acting. Welcome is quite cheerful and amused mouth fairly broad. No timing or continuous motion claim.",
+      "tool": "built-in image_gen",
+      "kind": "static expression study"
+    },
+    {
+      "id": "pikuniku-minimal-body-language",
+      "displayTitle": "Pikuniku / body language",
+      "category": "graphic",
+      "approach": "Original face-acting experiment from a posture-led source: reduce detail and replace lean, compression and recovery with bold eye silhouettes and a quiet mouth. A targeted edit removes hollow eyes and establishes simple solid apertures.",
+      "sheet": "sheets/pikuniku-minimal-body-language.png",
+      "prompt": "prompts/pikuniku-minimal-body-language.txt",
+      "width": 1536,
+      "height": 1024,
+      "poses": [
+        {
+          "id": "pikuniku-minimal-body-language__attentive",
+          "label": "Attentive",
+          "column": 0,
+          "row": 0
+        },
+        {
+          "id": "pikuniku-minimal-body-language__considering",
+          "label": "Considering",
+          "column": 1,
+          "row": 0
+        },
+        {
+          "id": "pikuniku-minimal-body-language__skeptical",
+          "label": "Skeptical",
+          "column": 2,
+          "row": 0
+        },
+        {
+          "id": "pikuniku-minimal-body-language__amused",
+          "label": "Amused",
+          "column": 0,
+          "row": 1
+        },
+        {
+          "id": "pikuniku-minimal-body-language__concerned",
+          "label": "Concerned",
+          "column": 1,
+          "row": 1
+        }
+      ],
+      "sourceStudyUrl": "https://silmoon04.github.io/mist/game-face-references/#pikuniku-minimal-body-language",
+      "referenceUrl": "https://pikuniku.net/presskit/sheet.php?p=pikuniku",
+      "people": [
+        {
+          "name": "Arnaud De Bock",
+          "role": "Game Design/Art/Producer",
+          "sourceUrl": "https://pikuniku.net/presskit/sheet.php?p=pikuniku"
+        },
+        {
+          "name": "Rémi Forcadell",
+          "role": "Game Developer/Writer",
+          "sourceUrl": "https://pikuniku.net/presskit/sheet.php?p=pikuniku"
+        }
+      ],
+      "limitations": "Original face-only experiment from a posture-led source whose inspected pose had no visible mouth. Solid cyan eye apertures and all five mouth poses are authored MIST adaptations. No continuous motion claim.",
+      "tool": "built-in image_gen",
+      "kind": "static expression study"
+    },
+    {
+      "id": "lil-gator-head-followthrough",
+      "displayTitle": "Lil Gator Game / head follow-through",
+      "category": "3d",
+      "approach": "Original frozen-pose inference from large-head follow-through: broad MIST eyes with purposeful gaze offset and unequal settling, readable before adding motion. A targeted edit establishes broad horizontal eyes with clean dark gaze cutouts.",
+      "sheet": "sheets/lil-gator-head-followthrough.png",
+      "prompt": "prompts/lil-gator-head-followthrough.txt",
+      "width": 1536,
+      "height": 1024,
+      "poses": [
+        {
+          "id": "lil-gator-head-followthrough__attentive",
+          "label": "Attentive",
+          "column": 0,
+          "row": 0
+        },
+        {
+          "id": "lil-gator-head-followthrough__considering",
+          "label": "Considering",
+          "column": 1,
+          "row": 0
+        },
+        {
+          "id": "lil-gator-head-followthrough__skeptical",
+          "label": "Skeptical",
+          "column": 2,
+          "row": 0
+        },
+        {
+          "id": "lil-gator-head-followthrough__amused",
+          "label": "Amused",
+          "column": 0,
+          "row": 1
+        },
+        {
+          "id": "lil-gator-head-followthrough__concerned",
+          "label": "Concerned",
+          "column": 1,
+          "row": 1
+        }
+      ],
+      "sourceStudyUrl": "https://silmoon04.github.io/mist/game-face-references/#lil-gator-head-followthrough",
+      "referenceUrl": "https://www.gamedeveloper.com/design/the-exaggerated-animations-and-tottering-wobble-bones-of-lil-gator-game",
+      "people": [
+        {
+          "name": "Scott Slucher",
+          "role": "Developer explaining his character design and animation implementation",
+          "sourceUrl": "https://www.gamedeveloper.com/design/the-exaggerated-animations-and-tottering-wobble-bones-of-lil-gator-game"
+        }
+      ],
+      "limitations": "Original frozen face-pose inference from head lag and large-head acting. Static eye offset cannot validate follow-through timing. Welcome reads quiet and neutral; amused mouth supplies much of the warmth.",
+      "tool": "built-in image_gen",
+      "kind": "static expression study"
+    },
+    {
+      "id": "battleblock-cutscene-puppets",
+      "displayTitle": "BattleBlock Theater: simple faces with authored puppet movement",
+      "category": "process",
+      "approach": "Original MIST process study using rough-pose clarity, independent eye/mouth arrival and simple puppet-like holds; expressive mouth contrast without copying the cutscene characters.",
+      "sheet": "sheets/battleblock-cutscene-puppets.png",
+      "prompt": "prompts/battleblock-cutscene-puppets.txt",
+      "width": 1536,
+      "height": 1024,
+      "poses": [
+        {
+          "id": "battleblock-cutscene-puppets__attentive",
+          "label": "Attentive",
+          "column": 0,
+          "row": 0
+        },
+        {
+          "id": "battleblock-cutscene-puppets__considering",
+          "label": "Considering",
+          "column": 1,
+          "row": 0
+        },
+        {
+          "id": "battleblock-cutscene-puppets__skeptical",
+          "label": "Skeptical",
+          "column": 2,
+          "row": 0
+        },
+        {
+          "id": "battleblock-cutscene-puppets__amused",
+          "label": "Amused",
+          "column": 0,
+          "row": 1
+        },
+        {
+          "id": "battleblock-cutscene-puppets__concerned",
+          "label": "Concerned",
+          "column": 1,
+          "row": 1
+        }
+      ],
+      "sourceStudyUrl": "https://silmoon04.github.io/mist/game-face-references/#battleblock-cutscene-puppets",
+      "referenceUrl": "https://blog.thebehemoth.com/2013/05/07/battleblock-theater-cutscene-development/",
+      "people": [
+        {
+          "name": "Derek Lieu",
+          "role": "Cutscene animator for the nine shipped game cutscenes",
+          "sourceUrl": "https://blog.thebehemoth.com/2013/05/07/battleblock-theater-cutscene-development/"
+        },
+        {
+          "name": "Dan Paladin",
+          "role": "Art, storyboards and rough opening animatic; art and animation for the 2011 opening/prologue",
+          "sourceUrl": "https://blog.thebehemoth.com/2013/05/07/battleblock-theater-cutscene-development/"
+        }
+      ],
+      "limitations": "Original process-led static pose experiment. Independent eye/mouth arrival and overshoot are proposed design ideas, not validated animation timing. Welcome reads attentive but somewhat neutral.",
+      "tool": "built-in image_gen",
+      "kind": "static expression study"
+    },
+    {
+      "id": "botanicula-tiny-faces",
+      "displayTitle": "Botanicula: tiny eyes, unusual bodies and group staging",
+      "category": "handdrawn",
+      "approach": "Original MIST adaptation of sparse mark readability and directed group attention from inspected Botanicula stills. Compact eye pairs move as a unit, and small mouth silhouettes keep quiet reactions legible.",
+      "sheet": "sheets/botanicula-tiny-faces.png",
+      "prompt": "prompts/botanicula-tiny-faces.txt",
+      "width": 1536,
+      "height": 1024,
+      "poses": [
+        {
+          "id": "botanicula-tiny-faces__attentive",
+          "label": "Attentive",
+          "column": 0,
+          "row": 0
+        },
+        {
+          "id": "botanicula-tiny-faces__considering",
+          "label": "Considering",
+          "column": 1,
+          "row": 0
+        },
+        {
+          "id": "botanicula-tiny-faces__skeptical",
+          "label": "Skeptical",
+          "column": 2,
+          "row": 0
+        },
+        {
+          "id": "botanicula-tiny-faces__amused",
+          "label": "Amused",
+          "column": 0,
+          "row": 1
+        },
+        {
+          "id": "botanicula-tiny-faces__concerned",
+          "label": "Concerned",
+          "column": 1,
+          "row": 1
+        }
+      ],
+      "sourceStudyUrl": "https://silmoon04.github.io/mist/game-face-references/#botanicula-tiny-faces",
+      "referenceUrl": "https://amanita-design.net/games/botanicula.html",
+      "people": [
+        {
+          "name": "Jaromír Plachý",
+          "role": "Animator and creator of Botanicula, as described on Amanita's official forum index",
+          "sourceUrl": "https://forum.amanita-design.net/"
+        }
+      ],
+      "limitations": "Adapted from inspected still images; source motion and expression hold timing were not inspected. Generated cyan marks and the dark backdrop retain subtle tonal shading.",
+      "tool": "built-in image_gen",
+      "kind": "static expression study"
+    },
+    {
+      "id": "bugsnax-eggabell-rosenthal",
+      "displayTitle": "Bugsnax: Eggabell animation set (inspection pending)",
+      "category": "3d",
+      "approach": "Our original experiment in an authored set of held MIST reactions, using contrasting aperture eyes and small closed-mouth states. The selectable animation set is a process cue only; Eggabell's facial style was not visually verified.",
+      "sheet": "sheets/bugsnax-eggabell-rosenthal.png",
+      "prompt": "prompts/bugsnax-eggabell-rosenthal.txt",
+      "width": 1536,
+      "height": 1024,
+      "poses": [
+        {
+          "id": "bugsnax-eggabell-rosenthal__attentive",
+          "label": "Attentive",
+          "column": 0,
+          "row": 0
+        },
+        {
+          "id": "bugsnax-eggabell-rosenthal__considering",
+          "label": "Considering",
+          "column": 1,
+          "row": 0
+        },
+        {
+          "id": "bugsnax-eggabell-rosenthal__skeptical",
+          "label": "Skeptical",
+          "column": 2,
+          "row": 0
+        },
+        {
+          "id": "bugsnax-eggabell-rosenthal__amused",
+          "label": "Amused",
+          "column": 0,
+          "row": 1
+        },
+        {
+          "id": "bugsnax-eggabell-rosenthal__concerned",
+          "label": "Concerned",
+          "column": 1,
+          "row": 1
+        }
+      ],
+      "sourceStudyUrl": "https://silmoon04.github.io/mist/game-face-references/#bugsnax-eggabell-rosenthal",
+      "referenceUrl": "https://jeffrosenthal.artstation.com/projects/18PRbL",
+      "people": [
+        {
+          "name": "Jeff Rosenthal",
+          "role": "Character animation work for Bugsnax, self-attributed on Eggabell portfolio page",
+          "sourceUrl": "https://jeffrosenthal.artstation.com/projects/18PRbL"
+        }
+      ],
+      "limitations": "The Eggabell model did not render during research. These poses do not claim an observed Bugsnax expression style or performance. Generated cyan marks and the dark backdrop retain subtle tonal shading.",
+      "tool": "built-in image_gen",
+      "kind": "static expression study"
+    },
+    {
+      "id": "cuphead-jake-clark-process",
+      "displayTitle": "Jake Clark / Cuphead process",
+      "category": "process",
+      "approach": "Our original experiment in approving distinct MIST key expressions before any animation. Broad eye arcs, deliberate squash, and purpose-drawn mouth silhouettes separate the five held poses.",
+      "sheet": "sheets/cuphead-jake-clark-process.png",
+      "prompt": "prompts/cuphead-jake-clark-process.txt",
+      "width": 1536,
+      "height": 1024,
+      "poses": [
+        {
+          "id": "cuphead-jake-clark-process__attentive",
+          "label": "Attentive",
+          "column": 0,
+          "row": 0
+        },
+        {
+          "id": "cuphead-jake-clark-process__considering",
+          "label": "Considering",
+          "column": 1,
+          "row": 0
+        },
+        {
+          "id": "cuphead-jake-clark-process__skeptical",
+          "label": "Skeptical",
+          "column": 2,
+          "row": 0
+        },
+        {
+          "id": "cuphead-jake-clark-process__amused",
+          "label": "Amused",
+          "column": 0,
+          "row": 1
+        },
+        {
+          "id": "cuphead-jake-clark-process__concerned",
+          "label": "Concerned",
+          "column": 1,
+          "row": 1
+        }
+      ],
+      "sourceStudyUrl": "https://silmoon04.github.io/mist/game-face-references/#cuphead-jake-clark-process",
+      "referenceUrl": "https://gdcvault.com/play/1024315/Animation-Bootcamp-Cuphead-Process-and",
+      "people": [
+        {
+          "name": "Jake Clark",
+          "role": "Animator and designer on Cuphead; presenter of his animation and design process",
+          "sourceUrl": "https://jake-clark.tumblr.com/post/158375449032/hey-everyone-heres-a-talk-i-recently-gave-at-gdc"
+        }
+      ],
+      "limitations": "The reference verifies Clark's design and animation process talk, not a viewed face sequence or specific Cuphead facial technique. Generated cyan marks and the dark backdrop retain subtle tonal shading.",
+      "tool": "built-in image_gen",
+      "kind": "static expression study"
+    },
+    {
+      "id": "farewell-north-kyle-banks-face-process",
+      "displayTitle": "Farewell North / face process",
+      "category": "process",
+      "approach": "Our original experiment separating gaze, lid openness, and mouth shape into clear MIST dialogue poses. Rounded apertures with restrained pupils expose the contribution of gaze at review size.",
+      "sheet": "sheets/farewell-north-kyle-banks-face-process.png",
+      "prompt": "prompts/farewell-north-kyle-banks-face-process.txt",
+      "width": 1536,
+      "height": 1024,
+      "poses": [
+        {
+          "id": "farewell-north-kyle-banks-face-process__attentive",
+          "label": "Attentive",
+          "column": 0,
+          "row": 0
+        },
+        {
+          "id": "farewell-north-kyle-banks-face-process__considering",
+          "label": "Considering",
+          "column": 1,
+          "row": 0
+        },
+        {
+          "id": "farewell-north-kyle-banks-face-process__skeptical",
+          "label": "Skeptical",
+          "column": 2,
+          "row": 0
+        },
+        {
+          "id": "farewell-north-kyle-banks-face-process__amused",
+          "label": "Amused",
+          "column": 0,
+          "row": 1
+        },
+        {
+          "id": "farewell-north-kyle-banks-face-process__concerned",
+          "label": "Concerned",
+          "column": 1,
+          "row": 1
+        }
+      ],
+      "sourceStudyUrl": "https://silmoon04.github.io/mist/game-face-references/#farewell-north-kyle-banks-face-process",
+      "referenceUrl": "https://www.youtube.com/watch?v=fkB3tK6zZSo",
+      "people": [
+        {
+          "name": "Kyle Banks",
+          "role": "Developer and author of the facial-animation devlog",
+          "sourceUrl": "https://www.youtube.com/watch?v=fkB3tK6zZSo"
+        }
+      ],
+      "limitations": "The devlog's reported eye tracking, blink, expression and lip-sync work supplies process context. No source motion or frame-level performance was inspected. Generated cyan marks and the dark backdrop retain subtle tonal shading.",
+      "tool": "built-in image_gen",
+      "kind": "static expression study"
+    },
+    {
+      "id": "klei-symbol-animation-process",
+      "displayTitle": "Klei / animation symbols",
+      "category": "process",
+      "approach": "Our original experiment in reusable MIST eye and mouth symbols with purpose-drawn replacements for strong reactions. Shared open-arc forms anchor identity while lid clips and asymmetric replacements carry the acting.",
+      "sheet": "sheets/klei-symbol-animation-process.png",
+      "prompt": "prompts/klei-symbol-animation-process.txt",
+      "width": 1536,
+      "height": 1024,
+      "poses": [
+        {
+          "id": "klei-symbol-animation-process__attentive",
+          "label": "Attentive",
+          "column": 0,
+          "row": 0
+        },
+        {
+          "id": "klei-symbol-animation-process__considering",
+          "label": "Considering",
+          "column": 1,
+          "row": 0
+        },
+        {
+          "id": "klei-symbol-animation-process__skeptical",
+          "label": "Skeptical",
+          "column": 2,
+          "row": 0
+        },
+        {
+          "id": "klei-symbol-animation-process__amused",
+          "label": "Amused",
+          "column": 0,
+          "row": 1
+        },
+        {
+          "id": "klei-symbol-animation-process__concerned",
+          "label": "Concerned",
+          "column": 1,
+          "row": 1
+        }
+      ],
+      "sourceStudyUrl": "https://silmoon04.github.io/mist/game-face-references/#klei-symbol-animation-process",
+      "referenceUrl": "https://gdcvault.com/play/1020165/2D-Animation-at-Klei",
+      "people": [
+        {
+          "name": "Jeff Agala",
+          "role": "Klei animator and GDC co-presenter",
+          "sourceUrl": "https://kleiforums.com/forums/topic/37347-2-d-animation-at-klei/"
+        },
+        {
+          "name": "Aaron Bouthillier",
+          "role": "Klei animator and GDC co-presenter",
+          "sourceUrl": "https://gdcvault.com/play/1020165/2D-Animation-at-Klei"
+        }
+      ],
+      "limitations": "The Klei sources verify reusable symbol animation and responsiveness as production topics. The slide deck and source facial sequences were not visually inspected. Generated cyan marks and the dark backdrop retain subtle tonal shading.",
+      "tool": "built-in image_gen",
+      "kind": "static expression study"
+    },
+    {
+      "id": "ori-james-benson-process",
+      "displayTitle": "James Benson / Ori reel",
+      "category": "process",
+      "approach": "Original MIST experiment based on testing short interaction beats before expanding the animation set. Open C eyes, asymmetric clipped lids and restrained closed mouths carry listening, interruption, scrutiny, recognition and concern as held poses.",
+      "sheet": "sheets/ori-james-benson-process.png",
+      "prompt": "prompts/ori-james-benson-process.txt",
+      "width": 1536,
+      "height": 1024,
+      "poses": [
+        {
+          "id": "ori-james-benson-process__attentive",
+          "label": "Attentive",
+          "column": 0,
+          "row": 0
+        },
+        {
+          "id": "ori-james-benson-process__considering",
+          "label": "Considering",
+          "column": 1,
+          "row": 0
+        },
+        {
+          "id": "ori-james-benson-process__skeptical",
+          "label": "Skeptical",
+          "column": 2,
+          "row": 0
+        },
+        {
+          "id": "ori-james-benson-process__amused",
+          "label": "Amused",
+          "column": 0,
+          "row": 1
+        },
+        {
+          "id": "ori-james-benson-process__concerned",
+          "label": "Concerned",
+          "column": 1,
+          "row": 1
+        }
+      ],
+      "sourceStudyUrl": "https://silmoon04.github.io/mist/game-face-references/#ori-james-benson-process",
+      "referenceUrl": "https://gdcvault.com/play/1021791/Animation-Bootcamp-The-Animation-Process",
+      "people": [
+        {
+          "name": "James Benson",
+          "role": "Ori animator; GDC speaker on its animation process",
+          "sourceUrl": "https://gdcvault.com/play/1021791/Animation-Bootcamp-The-Animation-Process"
+        }
+      ],
+      "limitations": "Process reference only. No Ori facial technique, eye-specific claim, precise acting moment or timing is asserted. Static holds cannot validate interaction timing. The dark background has faint tonal variation rather than exact uniform RGB.",
+      "tool": "built-in image_gen",
+      "kind": "static expression study"
+    },
+    {
+      "id": "psychonauts2-richardson-mailroom",
+      "displayTitle": "Psychonauts 2 / mailroom acting",
+      "category": "3d",
+      "approach": "Original MIST adaptation of target-directed mechanical attention seen in sampled mailroom frames. Two circular apertures use weighted cutouts and asymmetric lid clipping; the mouth stays secondary to the eyes.",
+      "sheet": "sheets/psychonauts2-richardson-mailroom.png",
+      "prompt": "prompts/psychonauts2-richardson-mailroom.txt",
+      "width": 1536,
+      "height": 1024,
+      "poses": [
+        {
+          "id": "psychonauts2-richardson-mailroom__attentive",
+          "label": "Attentive",
+          "column": 0,
+          "row": 0
+        },
+        {
+          "id": "psychonauts2-richardson-mailroom__considering",
+          "label": "Considering",
+          "column": 1,
+          "row": 0
+        },
+        {
+          "id": "psychonauts2-richardson-mailroom__skeptical",
+          "label": "Skeptical",
+          "column": 2,
+          "row": 0
+        },
+        {
+          "id": "psychonauts2-richardson-mailroom__amused",
+          "label": "Amused",
+          "column": 0,
+          "row": 1
+        },
+        {
+          "id": "psychonauts2-richardson-mailroom__concerned",
+          "label": "Concerned",
+          "column": 1,
+          "row": 1
+        }
+      ],
+      "sourceStudyUrl": "https://silmoon04.github.io/mist/game-face-references/#psychonauts2-richardson-mailroom",
+      "referenceUrl": "https://vimeo.com/619494977",
+      "people": [
+        {
+          "name": "Miyuki Richardson",
+          "role": "Animator in official credits; reel author showing in-game animations, layouts and cutscenes",
+          "sourceUrl": "https://www.doublefine.com/games/psychonauts-2/credits"
+        }
+      ],
+      "limitations": "Source analysis used sampled frames, not continuous motion; no blink timing, delayed mouth timing or FaceFX mechanism is inferred. Static two-eye MIST poses adapt attention composition. A detached eyebrow-like stroke was removed by a targeted built-in edit. The dark background has faint tonal variation.",
+      "tool": "built-in image_gen",
+      "kind": "static expression study"
+    },
+    {
+      "id": "spiritfarer-game-individual-actions",
+      "displayTitle": "Spiritfarer / individual actions",
+      "category": "process",
+      "approach": "Original MIST experiment with individuality within a shared response structure. Broad organic eye apertures change their mass, opening and asymmetry for each emotional hold rather than transforming one neutral pose.",
+      "sheet": "sheets/spiritfarer-game-individual-actions.png",
+      "prompt": "prompts/spiritfarer-game-individual-actions.txt",
+      "width": 1536,
+      "height": 1024,
+      "poses": [
+        {
+          "id": "spiritfarer-game-individual-actions__attentive",
+          "label": "Attentive",
+          "column": 0,
+          "row": 0
+        },
+        {
+          "id": "spiritfarer-game-individual-actions__considering",
+          "label": "Considering",
+          "column": 1,
+          "row": 0
+        },
+        {
+          "id": "spiritfarer-game-individual-actions__skeptical",
+          "label": "Skeptical",
+          "column": 2,
+          "row": 0
+        },
+        {
+          "id": "spiritfarer-game-individual-actions__amused",
+          "label": "Amused",
+          "column": 0,
+          "row": 1
+        },
+        {
+          "id": "spiritfarer-game-individual-actions__concerned",
+          "label": "Concerned",
+          "column": 1,
+          "row": 1
+        }
+      ],
+      "sourceStudyUrl": "https://silmoon04.github.io/mist/game-face-references/#spiritfarer-game-individual-actions",
+      "referenceUrl": "https://www.toonboom.com/thunder-lotus-games-on-animating-the-afterlife-in-spiritfarer",
+      "people": [
+        {
+          "name": "Alexandre Boyer",
+          "role": "Animation Director",
+          "sourceUrl": "https://thunderlotusgames.com/press-kits/spiritfarer-press-kit/"
+        },
+        {
+          "name": "Simon Nakauchi Pelletier",
+          "role": "Animator",
+          "sourceUrl": "https://thunderlotusgames.com/press-kits/spiritfarer-press-kit/"
+        },
+        {
+          "name": "Mathieu Choquet",
+          "role": "Animator",
+          "sourceUrl": "https://thunderlotusgames.com/press-kits/spiritfarer-press-kit/"
+        }
+      ],
+      "limitations": "Process testimony supports shared actions, individuality and interruptibility; proposed MIST facial forms are our experiment. The leaf-like concept is only partly realized and retains familiar C-eye vocabulary. Static poses do not validate interruptibility or recovery timing. The dark background has faint tonal variation.",
+      "tool": "built-in image_gen",
+      "kind": "static expression study"
+    },
+    {
+      "id": "thank-goodness-pip-animation-process",
+      "displayTitle": "Pip Williamson / drawn poses in-engine",
+      "category": "process",
+      "approach": "Original MIST replacement-pose experiment based on the documented rough-first hybrid workflow. Open loops, a compact horizontal aperture, an angular skeptical eye and chevron mouths create authored silhouettes that would need separate drawings.",
+      "sheet": "sheets/thank-goodness-pip-animation-process.png",
+      "prompt": "prompts/thank-goodness-pip-animation-process.txt",
+      "width": 1536,
+      "height": 1024,
+      "poses": [
+        {
+          "id": "thank-goodness-pip-animation-process__attentive",
+          "label": "Attentive",
+          "column": 0,
+          "row": 0
+        },
+        {
+          "id": "thank-goodness-pip-animation-process__considering",
+          "label": "Considering",
+          "column": 1,
+          "row": 0
+        },
+        {
+          "id": "thank-goodness-pip-animation-process__skeptical",
+          "label": "Skeptical",
+          "column": 2,
+          "row": 0
+        },
+        {
+          "id": "thank-goodness-pip-animation-process__amused",
+          "label": "Amused",
+          "column": 0,
+          "row": 1
+        },
+        {
+          "id": "thank-goodness-pip-animation-process__concerned",
+          "label": "Concerned",
+          "column": 1,
+          "row": 1
+        }
+      ],
+      "sourceStudyUrl": "https://silmoon04.github.io/mist/game-face-references/#thank-goodness-pip-animation-process",
+      "referenceUrl": "https://www.williamsonpip.co.uk/project/thank-goodness-youre-here",
+      "people": [
+        {
+          "name": "Pip Williamson",
+          "role": "Animation team lead; character, interactive and stylised animation",
+          "sourceUrl": "https://www.williamsonpip.co.uk/project/thank-goodness-youre-here"
+        },
+        {
+          "name": "James Carbutt",
+          "role": "Design",
+          "sourceUrl": "https://www.williamsonpip.co.uk/project/thank-goodness-youre-here"
+        },
+        {
+          "name": "Will Todd",
+          "role": "Development",
+          "sourceUrl": "https://www.williamsonpip.co.uk/project/thank-goodness-youre-here"
+        }
+      ],
+      "limitations": "Process source supports the hybrid workflow; no source facial pose or motion observation is claimed. Considering and Skeptical use similar downturned chevron mouths, with their distinction carried by the eye silhouettes. The dark background has faint tonal variation.",
+      "tool": "built-in image_gen",
+      "kind": "static expression study"
+    },
+    {
+      "id": "wirm-event-face",
+      "displayTitle": "Wirm / falling reaction",
+      "category": "graphic",
+      "approach": "Original MIST experiment inspired by the developer's explicit event-to-expression relationship. Minimal solid cyan eye silhouettes change between receptive beans, an asymmetric considering pair, compressed skeptical lids, amused crescents and soft drooping concern.",
+      "sheet": "sheets/wirm-event-face.png",
+      "prompt": "prompts/wirm-event-face.txt",
+      "width": 1536,
+      "height": 1024,
+      "poses": [
+        {
+          "id": "wirm-event-face__attentive",
+          "label": "Attentive",
+          "column": 0,
+          "row": 0
+        },
+        {
+          "id": "wirm-event-face__considering",
+          "label": "Considering",
+          "column": 1,
+          "row": 0
+        },
+        {
+          "id": "wirm-event-face__skeptical",
+          "label": "Skeptical",
+          "column": 2,
+          "row": 0
+        },
+        {
+          "id": "wirm-event-face__amused",
+          "label": "Amused",
+          "column": 0,
+          "row": 1
+        },
+        {
+          "id": "wirm-event-face__concerned",
+          "label": "Concerned",
+          "column": 1,
+          "row": 1
+        }
+      ],
+      "sourceStudyUrl": "https://silmoon04.github.io/mist/game-face-references/#wirm-event-face",
+      "referenceUrl": "https://gamemaker.io/en/blog/webbed-interview",
+      "people": [
+        {
+          "name": "Riley Neville",
+          "role": "Developer; describes making Wirm in a direct 2022 interview",
+          "sourceUrl": "https://gamemaker.io/en/blog/webbed-interview"
+        }
+      ],
+      "limitations": "The falling-expression connection comes from a 2022 developer statement, not verification of the shipped 2025 build. Static required-emotion poses do not show causal timing or a recovery blink. The first output retained C eyes; a targeted built-in edit established the intended solid eye family. The dark background has faint tonal variation.",
+      "tool": "built-in image_gen",
+      "kind": "static expression study"
+    }
+  ],
+  "totalFaces": 175
+}

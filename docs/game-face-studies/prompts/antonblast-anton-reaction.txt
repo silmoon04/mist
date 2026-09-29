@@ -1,0 +1,17 @@
+Use case: stylized-concept
+Asset type: original MIST robot-screen expression study, a raster sheet for art review.
+Input images: Image 1, faces_sheet.png, is the local MIST edit target. Image 2, user_reference.png, is supporting cyan screen-face identity reference only.
+Primary request: Reinterpret the MIST target into an entirely new sheet of FIVE independently drawn MIST faces. Keep the recognizable turquoise/cyan graphic face identity: two eyes and one mouth per face on an almost-black flat background.
+Composition: landscape, six equal cells in an INVISIBLE three-column by two-row grid. Put one complete face in each top-left, top-middle, top-right, bottom-left and bottom-middle cell. The bottom-right cell is completely empty dark background. Exactly five faces total. Consistent scale, comfortable margins, stable mouth baseline, all features inside their own cell.
+Palette and finish: turquoise/cyan facial marks on flat near-black charcoal. Clean organic digital contours, readable at a small robot-screen size. Use deliberate shapes and asymmetry.
+Constraints: no visible grid, text, numbers, labels, symbols, props, costumes, character bodies, housing, bezels, frames, paper, teeth, tongues, eyebrows detached from eyes, tears, stray marks, watermark or logo. Do not reproduce either reference sheet's layout. Do not draw the game characters. Every face is a held acting pose with a different gaze, lid attitude and mouth. Skeptical and concerned mouths must never smile. The first face has a small CLOSED mouth.
+
+Study approach: ANTONBLAST inspired shape contrast. Adapt the contrast between a large reaction mouth and a compressed recovery shape into original MIST digital forms. Use bold angular-rounded eyes. Let mouth silhouette change category across poses while maintaining the MIST identity. Copy neither anatomy nor teeth. These are separate held emotions, not frames of a claimed source sequence.
+The FIVE cells in row-major order:
+1. Attentive welcome: two open rounded C-shaped cyan eyes, receptive and direct; compact closed mouth stroke with a warm subtle upward bend.
+2. Consideration/doubt: eye contours lean toward the left, one taller and one compressed; small pinched diagonal closed mouth, uncertain rather than cheerful.
+3. Mild frustration: two sharply compressed inward-facing eye apertures with flattened low lids; a broad but shallow compressed cyan mouth ribbon with its corners down, a clenched DIGITAL frown shape with no teeth.
+4. Amused recognition: two clean closed happy arch eyes; compact but distinct open bowl-shaped cyan mouth aperture, modest delighted reaction with no teeth or tongue.
+5. Gentle concern: two tall worried eye contours whose inner lids lift, softer than pose 3; small pinched inverted arch mouth with corners down. Reduce intensity for empathy while preserving a readable worried silhouette.
+
+Final check before rendering: five faces in cells 1–5 only; cell 6 empty; exactly two eyes and one mouth each; no text; five different acting poses.

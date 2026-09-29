@@ -1,0 +1,26 @@
+Use case: style-transfer.
+Asset type: one original static MIST expression-study sheet for a face-design review.
+
+Input image role: the local faces_sheet.png is the edit target and MIST identity anchor. Reinterpret its cyan facial marks into a new sheet with only FIVE faces. The user_reference.png informed the familiar screen-face identity; do not reproduce its physical screens, paper, icons, labels, or glow.
+
+Scene/backdrop: a completely uniform almost-black flat backdrop, approximately #091411, edge to edge. Landscape composition with a 3:2 aspect ratio, ideally 1536 by 1024. Five LARGE readable faces on six equal cells in an INVISIBLE three-column, two-row grid: top-left, top-center, top-right; bottom-left, bottom-center; bottom-right is completely empty background. Exactly one face per occupied cell. Every face is centered inside its cell with comfortable margins. Consistent overall facial scale and a stable mouth baseline. No face should spill into an adjacent cell. Do not draw panels or outlines around faces.
+
+Subject and MIST identity: exactly two eyes and one mouth in each face, only turquoise/cyan graphic marks, approximately #57E5D7, against the almost-black field. Retain the recognizable MIST family: smooth rounded open C-shaped eye contours, clipped lid-like eye apertures, modest expressive arcs, small economical mouths, and intentional asymmetry. Eyes may be compressed or expanded according to this study but must feel like designed MIST screen marks. No generic animal anatomy, nose, whiskers, ears, head outline, hair, teeth, tongue, cheek shapes, bodies, arms, or detached extra brows. Integrated lids belong to an eye shape; there should be no stray cyan fragments. Flat color and clean organic contours, no gradients, bloom, glossy glass, dimensional rendering, textures, random wobbles, or pixel art.
+
+All five are distinct held acting poses; no duplicated or merely resized face. Pose order:
+1 TOP LEFT: attentive welcome, friendly receptive eyes and a SMALL CLOSED mouth. Listening and quiet presence.
+2 TOP CENTER: consideration or doubt, directional attention or deliberate eye asymmetry, a restrained uncertain CLOSED mouth.
+3 TOP RIGHT: dry skepticism or mild frustration, distinctly lowered or angled lids and a small level or downward mouth. Clearly NOT a happy smile.
+4 BOTTOM LEFT: amused recognition, readable warm delight in the eyes, a gentle smile or modest mouth opening.
+5 BOTTOM CENTER: gentle concern or sadness, empathetic drooping eye attitude with a small DOWNWARD concerned mouth. Clearly NOT a happy or talking mouth.
+6 BOTTOM RIGHT: entirely blank, no marks.
+
+No text, numbers, labels, captions, grid lines, logos, watermarks, props, physical bezels, screens, symbols, framing, or white paper. Export the complete original five-face sheet.
+
+Study adaptation: the observed elastic proportion changes and tiny puckered mouth versus huge horizontal opening in the Peppino illustration. Use controlled proportion changes in MIST's eye pair and mouth width, keeping MIST's own screen-face identity; no human face, head, moustache, teeth, costume, or source-character anatomy. This sheet should have stronger shape elasticity than the other MIST sheets, not merely thicker lines.
+
+1: fairly tall open C eyes with attentive widened spacing; an exceptionally small closed welcome curve.
+2: both eyes shift their open notches toward upper right, one stretches taller and the other compresses horizontally; one tiny squeezed uncertain mouth mark.
+3: both eye apertures squeeze into different low horizontal clipped shapes, a short flat tense mouth beneath; distinctly skeptical.
+4: open curved eyes broaden with amused recognition, different proportions from pose 1; a broad but modestly shallow joyful mouth opening, a single smooth cyan shape without teeth or tongue, visibly wider than the other mouths.
+5: the pair sits closer together with taller soft C forms and an inward worried incline; a tiny downturned worried mouth. Exaggerate eye geometry enough to be visible but keep each face comfortably inside its cell, the intended emotion readable, and each mouth a single intentional design.

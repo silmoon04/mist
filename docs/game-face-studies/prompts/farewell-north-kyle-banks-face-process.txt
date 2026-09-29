@@ -1,0 +1,16 @@
+Use case: style-transfer
+Asset type: static MIST expression sheet for a game-face review board.
+Input images: Image 1 is the MIST edit target and identity reference. Image 2 is a supporting style reference for the recognizable graphic cyan face only. Reinterpret Image 1 into a fresh sheet. Remove all physical screens, bezels, props, white paper, labels and existing sheet framing.
+Scene/backdrop: uniform almost-black flat background (#091310), no gradient or texture.
+Subject: exactly FIVE independent MIST faces, each with exactly two eyes and one small mouth, turquoise-cyan marks (#59E2D5). No nose, brows separate from eyes, cheeks, ears, tears, hands or bodies.
+Composition: landscape 1536 by 1024 raster sheet. Use an invisible three-column, two-row layout. Five equally scaled faces centered in cells 1, 2, 3 across the top row and cells 4, 5 across the bottom row. Cell 6, the entire lower-right sixth, remains completely empty dark background. No marks whatsoever in that sixth. Face centers near (256,256), (768,256), (1280,256), (256,768), (768,768). Comfortable margins around every face, each face entirely within its cell. Keep a stable baseline.
+Rendering: smooth deliberate contours, clean rounded terminals, readable graphic screen-face marks. Flat cyan with at most very subtle restrained glow. Every pose must be independently drawn with a distinctly different gaze or eyelid and mouth attitude.
+Pose order, mandatory: 1 attentive welcome with a CLOSED small mouth; 2 considering or doubtful with restrained uncertain mouth; 3 dry skepticism or mild frustration with a level or downward mouth, never a smile; 4 amused recognition with warm eyes and a gentle smile or modest opening; 5 gentle concern or sadness with empathetic eyes and a small downturned mouth, never a smile.
+Avoid: text, numbers, frames, grid lines, logos, watermark, props, random fragments, accidental teeth, tongue, extra facial features, mismatched face counts, duplicates, loud speaking mouths in attentive or concerned poses.
+
+Original experiment based on the developer's reported work on gaze, blinking, facial expressions and lip sync for Farewell North. No shot-level face performance was inspected, so do not imitate or invent the game's human face style. Build five independent MIST dialogue poses that expose three authored controls clearly: gaze direction, lid aperture and restrained mouth silhouette. Use clean cyan outlined oval or rounded-capsule eye apertures with one simple cyan pupil each inside dark space; eye outline and pupil belong together, no extra marks. Comfortable graphic scale lets the reactions read when viewed smaller.
+Pose 1: upright eye apertures, pupils directed gently toward the viewer, relaxed symmetrical eyelids, a short closed level mouth with softly rounded ends.
+Pose 2: pupils look up-right, the right lid slightly tighter, a tiny closed slanted mouth suggesting thought.
+Pose 3: low horizontal oval apertures with lowered upper lids, pupils directed aside, mouth short and flat with one corner pushed downward, visibly skeptical.
+Pose 4: pupils reorient toward the listener and apertures widen softly, one curved eyelid signals warm recognition, tiny shallow open crescent smile.
+Pose 5: eye apertures tilt inward with low pupils and softened lids, small gently downturned mouth, concerned listening rather than speaking.

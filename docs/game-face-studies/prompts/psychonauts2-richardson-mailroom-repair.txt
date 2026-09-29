@@ -1,0 +1,5 @@
+Use case: precise-object-edit
+Asset type: static MIST expression sheet.
+Input image: this local five-face MIST sheet is the edit target.
+Primary request: Remove only the detached cyan arch floating above the right eye of the top-left attentive face. This is an accidental extra eyebrow-like fragment. Replace that detached arch with the same uninterrupted almost-black background. Keep the two circular eyes and small closed smiling mouth underneath exactly as they are.
+Constraints: Preserve all FIVE complete faces, all other eye and mouth shapes, cyan/turquoise palette, their size, location and baseline, the landscape 3:2 six-cell invisible layout, and the completely blank bottom-right sixth cell. Each face must have exactly two eyes and one mouth. Do not add replacement marks, eyebrows, text, props, frames, grid lines or decorations. Change nothing else.

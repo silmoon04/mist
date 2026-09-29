@@ -1,0 +1,26 @@
+Use case: style-transfer.
+Asset type: one original static MIST expression-study sheet for a face-design review.
+
+Input image role: the local faces_sheet.png is the edit target and MIST identity anchor. Reinterpret its cyan facial marks into a new sheet with only FIVE faces. The user_reference.png informed the familiar screen-face identity; do not reproduce its physical screens, paper, icons, labels, or glow.
+
+Scene/backdrop: a completely uniform almost-black flat backdrop, approximately #091411, edge to edge. Landscape composition with a 3:2 aspect ratio, ideally 1536 by 1024. Five LARGE readable faces on six equal cells in an INVISIBLE three-column, two-row grid: top-left, top-center, top-right; bottom-left, bottom-center; bottom-right is completely empty background. Exactly one face per occupied cell. Every face is centered inside its cell with comfortable margins. Consistent overall facial scale and a stable mouth baseline. No face should spill into an adjacent cell. Do not draw panels or outlines around faces.
+
+Subject and MIST identity: exactly two eyes and one mouth in each face, only turquoise/cyan graphic marks, approximately #57E5D7, against the almost-black field. Retain the recognizable MIST family: smooth rounded open C-shaped eye contours, clipped lid-like eye apertures, modest expressive arcs, small economical mouths, and intentional asymmetry. Eyes may be compressed or expanded according to this study but must feel like designed MIST screen marks. No generic animal anatomy, nose, whiskers, ears, head outline, hair, teeth, tongue, cheek shapes, bodies, arms, or detached extra brows. Integrated lids belong to an eye shape; there should be no stray cyan fragments. Flat color and clean organic contours, no gradients, bloom, glossy glass, dimensional rendering, textures, random wobbles, or pixel art.
+
+All five are distinct held acting poses; no duplicated or merely resized face. Pose order:
+1 TOP LEFT: attentive welcome, friendly receptive eyes and a SMALL CLOSED mouth. Listening and quiet presence.
+2 TOP CENTER: consideration or doubt, directional attention or deliberate eye asymmetry, a restrained uncertain CLOSED mouth.
+3 TOP RIGHT: dry skepticism or mild frustration, distinctly lowered or angled lids and a small level or downward mouth. Clearly NOT a happy smile.
+4 BOTTOM LEFT: amused recognition, readable warm delight in the eyes, a gentle smile or modest mouth opening.
+5 BOTTOM CENTER: gentle concern or sadness, empathetic drooping eye attitude with a small DOWNWARD concerned mouth. Clearly NOT a happy or talking mouth.
+6 BOTTOM RIGHT: entirely blank, no marks.
+
+No text, numbers, labels, captions, grid lines, logos, watermarks, props, physical bezels, screens, symbols, framing, or white paper. Export the complete original five-face sheet.
+
+Study adaptation: the supplied Stella close-up shows upward-left attention and a small closed smile; the creator account emphasizes emotional small facial changes. Author an original MIST sheet with quiet warmth, gentle asymmetric gaze and economical mouth curves. Capture modest affection without importing Stella, Daffodil, animal anatomy, protective arms or a human face. This sheet should feel calm, observant, and understated, with readable differences. Use mostly open C eyes and soft clipped apertures with DARK negative-space gaze notches, integrated within each eye, never extra detached pupils or brows.
+
+1: both soft C eye openings suggest settled upward-left attention, tiny closed smile, receptive and quietly affectionate.
+2: attention drifts toward upper left with one eye slightly more hooded than the other, short uncertain mouth with one side barely descending.
+3: gaze becomes sideward and the integrated lids fall lower; small almost horizontal mouth with a slight downturn at one end, gentle dry skepticism.
+4: softly squinting warm C eyes, one a little more closed, paired with a modest closed upward smile, an unmistakable but restrained recognition.
+5: soft eyes with inner corners lifted and outer contours drooping gently; tiny symmetric downturned mouth, sympathetic concern. Make the fifth mouth clearly sad despite the warmth in the eyes. Keep quiet acting differences legible at thumbnail scale.

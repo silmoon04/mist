@@ -1,0 +1,17 @@
+Use case: stylized-concept
+Asset type: original MIST robot-screen expression study, a raster sheet for art review.
+Input images: Image 1, faces_sheet.png, is the local MIST edit target. Image 2, user_reference.png, is supporting cyan screen-face identity reference only.
+Primary request: Reinterpret the MIST target into an entirely new sheet of FIVE independently drawn MIST faces. Keep the recognizable turquoise/cyan graphic face identity: two eyes and one mouth per face on an almost-black flat background.
+Composition: landscape, six equal cells in an INVISIBLE three-column by two-row grid. Put one complete face in each top-left, top-middle, top-right, bottom-left and bottom-middle cell. The bottom-right cell is completely empty dark background. Exactly five faces total. Consistent scale, comfortable margins, stable mouth baseline, all features inside their own cell.
+Palette and finish: turquoise/cyan facial marks on flat near-black charcoal. Clean organic digital contours, readable at a small robot-screen size. Use deliberate shapes and asymmetry.
+Constraints: no visible grid, text, numbers, labels, symbols, props, costumes, character bodies, housing, bezels, frames, paper, teeth, tongues, eyebrows detached from eyes, tears, stray marks, watermark or logo. Do not reproduce either reference sheet's layout. Do not draw the game characters. Every face is a held acting pose with a different gaze, lid attitude and mouth. Skeptical and concerned mouths must never smile. The first face has a small CLOSED mouth.
+
+Study approach: Moss / Rick Lico process-informed MIST experiment. This is our authored facial study, not a claim that Moss uses these shapes. Express intent and mutual acknowledgement through eye contact. Rounded precise C-eyes and controlled integrated lids. Give each pose a clear relational job without adding arms, antennae, gestures, or bodies.
+The FIVE cells in row-major order:
+1. Attentive welcome: two full rounded cyan C-eyes face the viewer equally, comfortable and alert; small closed horizontal mouth with the faintest warm upward turn. This is a listening pause.
+2. Consideration/doubt: the eye openings shift toward upper-right as if searching for an answer, one eye slightly narrower; short closed slanted mouth shows careful uncertainty.
+3. Dry skepticism: eyes hold still with low level upper lids and a small left-right mismatch; mouth is a restrained shallow downturned stroke, a dry doubtful pause.
+4. Amused recognition: eye contours soften into friendly slightly squinted crescents, one eye opens a little more in recognition; a small shallow open smile bowl, modest acknowledgement after understanding.
+5. Gentle concern: eye contours become taller and inner lid ends lift with gentle worry, gaze directly acknowledges the viewer; a small smooth inverted mouth arc, empathetic sadness. Make this clearly concerned rather than drowsy or happy.
+
+Final check before rendering: five faces in cells 1–5 only; cell 6 empty; exactly two eyes and one mouth each; no text; five different acting poses.

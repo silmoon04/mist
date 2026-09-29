@@ -1,0 +1,17 @@
+Use case: stylized-concept
+Asset type: original MIST robot-screen expression study, a raster sheet for art review.
+Input images: Image 1, faces_sheet.png, is the local MIST edit target. Image 2, user_reference.png, is supporting cyan screen-face identity reference only.
+Primary request: Reinterpret the MIST target into an entirely new sheet of FIVE independently drawn MIST faces. Keep the recognizable turquoise/cyan graphic face identity: two eyes and one mouth per face on an almost-black flat background.
+Composition: landscape, six equal cells in an INVISIBLE three-column by two-row grid. Put one complete face in each top-left, top-middle, top-right, bottom-left and bottom-middle cell. The bottom-right cell is completely empty dark background. Exactly five faces total. Consistent scale, comfortable margins, stable mouth baseline, all features inside their own cell.
+Palette and finish: turquoise/cyan facial marks on flat near-black charcoal. Clean organic digital contours, readable at a small robot-screen size. Use deliberate shapes and asymmetry.
+Constraints: no visible grid, text, numbers, labels, symbols, props, costumes, character bodies, housing, bezels, frames, paper, teeth, tongues, eyebrows detached from eyes, tears, stray marks, watermark or logo. Do not reproduce either reference sheet's layout. Do not draw the game characters. Every face is a held acting pose with a different gaze, lid attitude and mouth. Skeptical and concerned mouths must never smile. The first face has a small CLOSED mouth.
+
+Study approach: Cuphead / Pip and Dot inspired conflicting facial attitudes. Borrow deliberate left-right eye asymmetry, sideways gaze and strong differences between lowered lids and broad recognition. Draw original MIST forms. Fixed cyan identity, eye spacing and overall face size. Use clean slightly organic hand-authored contours, no pencil-paper texture, random wobble, teeth, anatomy, costume, bow, hat or domino.
+The FIVE cells in row-major order:
+1. Attentive welcome: round cyan open C-eyes, one integrated upper lid just subtly lower than the other; eyes address the viewer; compact gently upturned CLOSED mouth.
+2. Consideration/doubt: left eye is a round C, right eye is half-lidded, both eye openings/gaze aim toward upper-left; very short off-centre slanted mouth, hesitant.
+3. Dry skepticism: one eye fully half-lidded and the other narrowly open, deliberate sideways gaze; sharply flattened small cyan mouth with a single lowered corner. It reads unimpressed, never grinning.
+4. Amused recognition: eye pair contrasts a happy closed arch with a lively rounded C-eye; small broad but gentle smile, modest mouth opening. This contrast should feel like a delighted wink of understanding.
+5. Gentle concern: both eye contours slope their inner ends upward, one eye is softly lowered and the other open enough to engage the viewer; compact smooth downturned mouth. Vulnerable asymmetry with no tears or stray marks.
+
+Final check before rendering: five faces in cells 1–5 only; cell 6 empty; exactly two eyes and one mouth each; no text; five different acting poses.

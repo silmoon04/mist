@@ -1,0 +1,9 @@
+Use case: precise-object-edit
+Asset type: repair of a selected MIST expression study.
+Edit target: the supplied landscape 1536 by 1024 image, containing five turquoise/cyan MIST faces on a flat almost-black background in cells 1 through 5 of an invisible three-column, two-row grid; cell 6 is empty.
+
+Make exactly ONE local correction: erase the tiny detached cyan diagonal speck at about pixel x1233, y236 (coordinates measured from the top-left). It is in the TOP-RIGHT skeptical face, just beyond the right tip of that face's LEFT eye, immediately below and right of its intended long horizontal upper-lid bar. It is a tiny accidental 2 to 4 pixel fleck floating in the dark gap.
+
+Replace that speck with the surrounding dark background. Retain the intended separated long upper-lid bar, the entire cyan eye below it, its pupil cutout and all other features. The upper-lid bar is intentional and must remain exactly as it is.
+
+Preserve all five existing poses, facial proportions, gaze, eyelids, mouth attitudes, colours, line thicknesses, texture, face placements, margins, full-sheet dimensions and invisible grid. Preserve the empty bottom-right cell. Do not redraw, simplify, smooth, reshape, recolour, move or add any eye or mouth. Do not add text, labels, props, grid lines or frames. The result should visually match the input everywhere except for the removal of this single tiny speck.

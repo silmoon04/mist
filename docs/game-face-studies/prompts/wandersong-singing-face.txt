@@ -1,0 +1,17 @@
+Use case: stylized-concept
+Asset type: original MIST robot-screen expression study, a raster sheet for art review.
+Input images: Image 1, faces_sheet.png, is the local MIST edit target. Image 2, user_reference.png, is supporting cyan screen-face identity reference only.
+Primary request: Reinterpret the MIST target into an entirely new sheet of FIVE independently drawn MIST faces. Keep the recognizable turquoise/cyan graphic face identity: two eyes and one mouth per face on an almost-black flat background.
+Composition: landscape, six equal cells in an INVISIBLE three-column by two-row grid. Put one complete face in each top-left, top-middle, top-right, bottom-left and bottom-middle cell. The bottom-right cell is completely empty dark background. Exactly five faces total. Consistent scale, comfortable margins, stable mouth baseline, all features inside their own cell.
+Palette and finish: turquoise/cyan facial marks on flat near-black charcoal. Clean organic digital contours, readable at a small robot-screen size. Use deliberate shapes and asymmetry.
+Constraints: no visible grid, text, numbers, labels, symbols, props, costumes, character bodies, housing, bezels, frames, paper, teeth, tongues, eyebrows detached from eyes, tears, stray marks, watermark or logo. Do not reproduce either reference sheet's layout. Do not draw the game characters. Every face is a held acting pose with a different gaze, lid attitude and mouth. Skeptical and concerned mouths must never smile. The first face has a small CLOSED mouth.
+
+Study approach: Wandersong inspired action-led expressions and simple cutout shapes. Translate the agreement between the bard's eyes and mouth into original MIST poses. Smooth playful filled cyan apertures and a few open C forms, precise contours with gently varied shape. These are event poses rather than a singing sequence; no note wheel, musical notes, costumes, colours other than cyan or background scenery.
+The FIVE cells in row-major order:
+1. Attentive welcome: two open rounded cyan C-eye forms with direct receptive gaze; one compact CLOSED gently curved mouth stroke. Clearly listening.
+2. Consideration/doubt: two cyan eye apertures clipped by angled lids, gaze aimed up-left, one smaller aperture; short closed off-centre diagonal mouth.
+3. Dry skepticism: two compressed horizontal cyan slit eyes, one slit higher; short crooked downturned mouth with a low corner. Dry and doubtful, not happy.
+4. Amused recognition: two closed upward arch eye contours and a small open round-bottom cyan mouth bowl. Eyes and mouth agree on a completed delight/acknowledgement beat, no teeth or tongue.
+5. Gentle concern: two softly drooping open eye apertures with their inner upper ends raised, viewer-directed gaze; small closed inverted arc mouth. Eyes and mouth agree on quiet empathy, with no happy curve.
+
+Final check before rendering: five faces in cells 1–5 only; cell 6 empty; exactly two eyes and one mouth each; no text; five different acting poses.

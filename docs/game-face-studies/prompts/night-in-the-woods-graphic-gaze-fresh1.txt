@@ -1,0 +1,22 @@
+Use case: stylized-concept
+Asset type: original MIST robot-screen expression study, a raster sheet for art review.
+Input images: Image 1, faces_sheet.png, is the local MIST edit target. Image 2, user_reference.png, is supporting cyan screen-face identity reference only.
+Primary request: Reinterpret the MIST target into an entirely new sheet of FIVE independently drawn MIST faces. Keep the recognizable turquoise/cyan graphic face identity: two eyes and one mouth per face on an almost-black flat background.
+Composition: landscape, six equal cells in an INVISIBLE three-column by two-row grid. Put one complete face in each top-left, top-middle, top-right, bottom-left and bottom-middle cell. The bottom-right cell is completely empty dark background. Exactly five faces total. Consistent scale, comfortable margins, stable mouth baseline, all features inside their own cell.
+Palette and finish: turquoise/cyan facial marks on flat near-black charcoal. Clean organic digital contours, readable at a small robot-screen size. Use deliberate shapes and asymmetry.
+Constraints: no visible grid, text, numbers, labels, symbols, props, costumes, character bodies, housing, bezels, frames, paper, teeth, tongues, eyebrows detached from eyes, tears, stray marks, watermark or logo. Do not reproduce either reference sheet's layout. Do not draw the game characters. Every face is a held acting pose with a different gaze, lid attitude and mouth. Skeptical and concerned mouths must never smile. The first face has a small CLOSED mouth.
+
+Study approach: Night in the Woods inspired gaze-led acting. Borrow its large eye shapes and tiny mouth scale, using original MIST marks. Make filled cyan apertures with dark pupil cutouts, clipped by clear upper lids. Attention comes from the pupil target and lid shape. Mouths stay tiny. Reserve asymmetry for doubt.
+The FIVE cells in row-major order:
+1. Attentive welcome: two wide vertical cyan eye apertures, pupils look directly at the viewer, upper lids lifted softly. Tiny closed mouth, a short barely upturned cyan stroke.
+2. Consideration/doubt: pupils look toward upper-left, one lid a little lower, restrained short diagonal closed mouth.
+3. Dry skepticism: both pupils hold a side glance toward the right, low horizontal lids compress the apertures, one lid marginally lower. Tiny flat-to-downturned closed mouth, distinctly unimpressed.
+4. Amused recognition: eye apertures softly narrow into happy crescents, pupils still address the viewer if visible. Tiny gentle curved smile, closed and modest.
+5. Gentle concern: inward ends of upper lids tilt upward with an empathetic worried eye shape, pupils return to the viewer. Tiny inverted curved mouth, visibly concerned and downturned.
+
+Final check before rendering: five faces in cells 1–5 only; cell 6 empty; exactly two eyes and one mouth each; no text; five different acting poses.
+
+Fresh-sheet refinement: Make a NEW reinterpretation from the two original MIST references. Do not preserve a prior expression sheet's pixels. The study remains gaze-led: large simple cyan eye apertures with clean dark pupil cutouts and tiny restrained mouths.
+Use clean solid filled eye silhouettes, with each upper lid integrated into its eye's top contour. No separate lid bars or detached eyebrow strokes. For the skeptical pose use flat clipped TOP EDGES built directly into the filled eye silhouettes, with a dry side-glance and a tiny flat-to-downturned mouth.
+Every face has exactly TWO eye shapes and ONE mouth shape. Dark negative space within an eye is allowed for the pupil, but there are no tiny cyan fragments, dots, scratches, flecks, tears or floating marks anywhere. Make all the surrounding dark fields empty and clean, including gaps between features and the entire blank sixth cell.
+Keep the requested five acting poses and their original emotion order. Pose1 is attentive with a closed small mouth, pose2 uncertain, pose3 skeptical with no smile, pose4 modestly amused, and pose5 softly concerned with a small downturned mouth.

@@ -1,0 +1,3 @@
+Use case: precise-object-edit. One tiny local change to the supplied MIST sheet. Preserve the canvas, dark background, exact five faces and their positions, blank bottom-right sixth cell, palette, elastic eye designs, and every feature in the other four faces.
+Change ONLY the mouth in the TOP-LEFT attentive welcome face. Replace its broad thick crescent with a VERY SHORT CLOSED gently curved cyan line, approximately half its current width, with uniform thin stroke and rounded ends. It should be a calm receptive listening smile. No filled area, no open mouth or speech silhouette. Keep the mouth center exactly in place.
+Keep every eye unchanged and every other mouth unchanged. Exactly two eyes and one mouth per face. No text, marks, frames, props or other changes.
