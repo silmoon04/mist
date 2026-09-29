@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "status": "offline",
-  "api_origin": null,
-  "updated_at": "2026-09-29T08:24:05Z",
-  "last_seen_at": "2026-09-29T08:24:05Z"
+  "status": "online",
+  "api_origin": "https://genetics-reliability-syracuse-hopefully.trycloudflare.com",
+  "updated_at": "2026-09-29T08:25:37Z",
+  "last_seen_at": "2026-09-29T08:25:37Z"
 }
