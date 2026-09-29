@@ -4,6 +4,7 @@ import time
 import sys
 from pathlib import Path
 import tempfile
+import pytest
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
@@ -89,7 +90,7 @@ def test_digest_requires_exact_user_span_and_keeps_disfluency_for_speech_feedbac
     memory.observe('user', 'Um, I-I meant 244, sorry.')
     wait_summary(memory)
     context = memory.context('number')
-    assert 'User repaired the number to 244' in context
+    assert 'correction (user quote)' in context
     assert 'I-I meant 244' in context
     assert 'Fabricated' not in context
     assert memory.version == (1, 1, 'speech_feedback')
@@ -164,7 +165,8 @@ def test_real_sqlite_store_persists_and_restores_digest():
         reopened = SessionStore(Path(temp) / 'session.sqlite3')
         resumed = SessionMemory(reopened, 'resume-me', summary_client_factory=Client, summary_every=1)
         assert resumed.version == (1, 1, 'discussion')
-        assert '244 attempts reported' in resumed.context('attempts')
+        assert 'known (user quote)' in resumed.context('attempts')
+        assert '244 attempts' in resumed.context('attempts')
         resumed.close()
         reopened.close()
 
@@ -295,7 +297,75 @@ def test_inflight_old_mode_digest_is_discarded_after_mode_switch():
     release.set()
     wait_summary(memory)
     context = memory.context('speech feedback')
-    assert 'New speech feedback note' in context
+    assert 'speech feedback' in context
     assert 'Old discussion note' not in context
+    assert memory._summary[0]['text'] == 'New speech feedback note'
     assert memory.diagnostics()['last_summary']['mode'] == 'speech_feedback'
+    memory.close()
+
+
+def test_implicit_followup_retrieves_older_topic_evidence():
+    with tempfile.TemporaryDirectory() as temp:
+        store = SessionStore(Path(temp) / 'session.sqlite3')
+        memory = SessionMemory(store, 'implicit', summary_client_factory=lambda: None,
+                               summary_every=1000)
+        for index in range(4):
+            memory.observe('user', f'Initial chassis note {index}.')
+        memory.observe('user', 'I have never run the battery endurance test.')
+        for index in range(16):
+            memory.observe('user', f'Discussing the bracket geometry, part {index}.')
+        memory.observe('user', 'Back to the battery module.')
+        memory.observe('user', 'Did we already try it?')
+        context = memory.context('Did we already try it?', recent_limit=2, max_chars=1800)
+        assert 'never run the battery endurance test' in context
+        memory.close()
+        store.close()
+
+
+def test_digest_rejects_claim_that_reverses_uncertain_or_negative_quote():
+    lines = ['[U1] I have never run the battery endurance test.',
+             '[U2] I think the controller may be overheating, but I have not measured it.']
+    invalid = ('{"items":['
+               '{"kind":"known","text":"The battery endurance test failed",'
+               '"source_id":1,"quote":"never run the battery endurance test"},'
+               '{"kind":"known","text":"The controller overheated",'
+               '"source_id":2,"quote":"controller may be overheating"}]}')
+    try:
+        SessionMemory._validate(invalid, lines)
+    except ValueError:
+        pass
+    else:
+        raise AssertionError('Unsupported digest was accepted')
+
+
+def test_digest_rejects_contracted_negation_as_a_passing_test():
+    lines = ["[U1] I haven't run the battery endurance test."]
+    invalid = ('{"items":[{"kind":"known","text":"The battery endurance test passed",'
+               '"source_id":1,"quote":"haven\'t run the battery endurance test"}]}')
+    with pytest.raises(ValueError, match='No source-verified notes'):
+        SessionMemory._validate(invalid, lines)
+
+
+def test_prior_digest_interpretation_is_not_replayed_to_summarizer():
+    memory = SessionMemory(Store(), 'prior', summary_client_factory=lambda: None,
+                           summary_every=1000)
+    prompt = memory._prompt(['[U1] I suspect a loose wire.'],
+                            [{'kind': 'known', 'text': 'The wire was confirmed loose',
+                              'source_id': 1, 'quote': 'I suspect a loose wire'}], 'discussion')
+    assert 'The wire was confirmed loose' not in prompt
+    assert 'I suspect a loose wire' in prompt
+    memory.close()
+
+
+def test_digest_quotes_are_rendered_without_model_interpretation():
+    store = Store()
+    memory = SessionMemory(store, 'quotes', summary_client_factory=lambda: None,
+                           summary_every=1000)
+    memory.observe('user', 'I suspect a loose wire, but have not inspected it.')
+    memory._summary = [{'kind': 'hypothesis', 'text': 'The wire was confirmed loose',
+                        'source_id': 1, 'quote': 'I suspect a loose wire'}]
+    context = memory.context('wire')
+    assert 'hypothesis (user quote)' in context
+    assert 'I suspect a loose wire' in context
+    assert 'confirmed loose' not in context
     memory.close()

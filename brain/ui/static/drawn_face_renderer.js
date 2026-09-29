@@ -150,6 +150,7 @@
     return {slope:Number.isFinite(slope)?slope:0,straight:longest?.angle};
   }
 
+  const RIG_CACHE=new WeakMap();
   function create(container, options={}) {
     const runtime=options.runtime||root.MistFaceRuntime, data=options.data||root.MIST_DATA;
     if(!runtime || !data) throw new Error('MIST face runtime and data must load first');
@@ -159,7 +160,7 @@
     let fallbackHost=null,canvas=null,context=null;
     if(container) {
       fallbackHost=document.createElement('div');fallbackHost.style.cssText='position:absolute;inset:0';
-      canvas=document.createElement('canvas');canvas.width=1000;canvas.height=640;canvas.hidden=true;
+      canvas=document.createElement('canvas');canvas.width=Number.isFinite(options.previewCanvasWidth)?Math.round(clamp(options.previewCanvasWidth,100,1000)):1000;canvas.height=Math.round(canvas.width*.64);canvas.hidden=true;
       canvas.style.cssText='display:none;position:absolute;inset:0;width:100%;height:100%;object-fit:contain';
       canvas.setAttribute('aria-hidden','true');
       const position=container.style.position||root.getComputedStyle?.(container)?.position;
@@ -167,6 +168,10 @@
       container.append(fallbackHost,canvas);context=canvas.getContext('2d');
     }
     const base=runtime.create(fallbackHost,{...options,autoStart:false});
+    let byRuntime=RIG_CACHE.get(data);
+    if(!byRuntime){byRuntime=new WeakMap();RIG_CACHE.set(data,byRuntime);}
+    let geometry=byRuntime.get(runtime);
+    if(!geometry){
     const faces=new Map(data.faces.map(face=>[face.id,face]));
     const rigs=new Map();
     const alignments={};
@@ -181,6 +186,9 @@
       const scale=index<raw.length?Math.hypot(role.points[index][0]-role.points[0][0],role.points[index][1]-role.points[0][1])/Math.hypot(raw[index][0]-raw[0][0],raw[index][1]-raw[0][1]):1;
       rigs.set(face.id,{face,layers,scale,dx:role.points[0][0]-raw[0][0]*scale,dy:role.points[0][1]-raw[0][1]*scale});
     }
+      geometry={faces,rigs,alignments};byRuntime.set(runtime,geometry);
+    }
+    const {faces,rigs,alignments}=geometry;
     let atlas=options.atlas||null,images=options.images||{},loaded=!!atlas && !!options.images,error=null,dead=false,raf=null;
     let current=base.expression,transition=null;
     let started=now(),blinkAt=-Infinity,nextBlink=started+3350,blinkCount=0,gaze=null;
@@ -639,7 +647,7 @@
     function update(time=now()) {
       if(dead)return null;
       if(!reduced && time>=nextBlink) {blinkAt=animationTime(time);nextBlink=time+[4100,5200,3600,6100,4450][++blinkCount%5];}
-      base.update(time);const state=stateAt(time);state.drawnPainted=paintIfDue(state);return state;
+      if(!options.skipHiddenFallbackUpdates||!loaded)base.update(time);const state=stateAt(time);state.drawnPainted=paintIfDue(state);return state;
     }
     function renderTo(targetCanvas,time=now(),overrides={}) {
       const oldCanvas=canvas,oldContext=context;

@@ -197,7 +197,8 @@ class Conversation:
             if cancel:await cancel(receipt.get('job_id'))
         elif kind=='start_background':
             self.user_revision+=1
-            result=await self.brain.handle('start_background_task',{'question':packet.get('question')})
+            result=await self.brain.handle('start_background_task',{'question':packet.get('question'),
+                                           'task_type':packet.get('task_type','analysis')})
             await self.emit({'type':'brain_job',**result})
         elif kind=='sensors':
             snapshot=self.runtime.ingest(packet.get('packet'))

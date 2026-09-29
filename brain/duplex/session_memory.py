@@ -26,7 +26,7 @@ MEMORY_RESPONSE_FORMAT = {
                     'items': {
                         'type': 'object',
                         'properties': {
-                            'kind': {'type': 'string', 'enum': ['goal', 'known', 'unknown', 'task', 'correction']},
+                            'kind': {'type': 'string', 'enum': ['goal', 'known', 'unknown', 'task', 'correction', 'hypothesis', 'question', 'negation']},
                             'text': {'type': 'string'},
                             'source_id': {'type': 'integer'},
                             'quote': {'type': 'string'},
@@ -207,6 +207,20 @@ class SessionMemory:
         with self._lock:
             recent = self.store.list_turns(self.session_id, limit=max(1, recent_limit), newest_first=True)
             terms = re.findall(r'[\w]+', query.casefold())[:10]
+            # A short follow-up often names no subject. The last finalized user
+            # turn supplies the current topic, including after an explicit shift.
+            content = [term for term in terms if len(term) > 2 and term not in
+                       {'did', 'we', 'already', 'try', 'tried', 'it', 'this', 'that',
+                        'what', 'when', 'where', 'why', 'how', 'was', 'were', 'the',
+                        'and', 'for', 'you', 'about', 'again', 'yet'}]
+            if len(content) < 2:
+                prior_user = next((r for r in recent if r['role'] == 'user'
+                                   and r['text'].strip().casefold() != query.strip().casefold()), None)
+                if prior_user:
+                    terms += [term for term in re.findall(r'[\w]+', prior_user['text'].casefold())
+                              if len(term) > 3 and term not in
+                              {'back', 'about', 'that', 'this', 'with', 'from', 'what',
+                               'have', 'were', 'please', 'topic', 'returning'}][:5]
             terms += [_spoken_number(int(term)) for term in terms
                       if term.isascii() and term.isdecimal() and len(term) <= 3]
             lookup = ' OR '.join('"' + term + '"' for term in terms if len(term) > 2)
@@ -256,7 +270,9 @@ class SessionMemory:
         note_budget = int(available * .15) + found_left
         note_parts = []
         for item in summary:
-            piece = f"- {item['kind']}: {item['text']} [U{item['source_id']}: “{item['quote']}”]"
+            # Model-written interpretations are navigation metadata, not
+            # evidence. Give the speaker the user's literal words instead.
+            piece = f"- {item['kind']} (user quote) [U{item['source_id']}]: “{item['quote']}”"
             if len(piece) + 1 <= note_budget:
                 note_parts.append(piece)
                 note_budget -= len(piece) + 1
@@ -342,20 +358,24 @@ class SessionMemory:
                     self._wake.set()
 
     def _prompt(self, source_lines, previous, mode):
+        previous_quotes = [{'source_id': item['source_id'], 'quote': item['quote']}
+                           for item in previous if 'source_id' in item and 'quote' in item]
         focus = ('Retain user goals, corrections, open questions, and precise claims. '
                  'Preserve speech fillers or self-repairs only where they matter to what '
                  'the user meant or to requested speech feedback.' if mode == 'speech_feedback'
-                 else 'Retain goals, corrections, open questions, precise claims, and '
-                 'meaningful uncertainty. Compress incidental speech disfluency while '
+                else 'Retain goals, corrections, open questions, precise claims, and '
+                 'meaningful uncertainty. Distinguish observed facts, untested ideas, '
+                 'negative statements, and questions. Compress incidental speech disfluency while '
                  'keeping the exact evidence quote.')
         return ("Create a compact task-adaptive memory from FINAL USER TURNS only. "
-                "Prior notes are hints, never independent evidence. " + focus + " "
-                "Return JSON only: {\"items\":[{\"kind\":\"goal|known|unknown|task|correction\","
+                "Prior cited spans are navigation hints; classify them again from the final user turns. " + focus + " "
+                "Return JSON only: {\"items\":[{\"kind\":\"goal|known|unknown|task|correction|hypothesis|question|negation\","
                 "\"text\":\"short cautious note\",\"source_id\":integer,"
                 "\"quote\":\"exact contiguous substring of that user's turn\"}]}. "
-                "Maximum 12 items. Never invent source IDs, causality, facts, or code inspection. "
+                "Maximum 12 items. A hypothesis is not an observed fact; an unrun test has no result. "
+                "Never invent source IDs, causality, facts, or code inspection. "
                 "Do not cite assistant/generated/tool text. Unknown causal shares stay unknown.\n"
-                "Previous notes: " + json.dumps(previous, ensure_ascii=False)[:2500] + '\n'
+                "Previous user quote references: " + json.dumps(previous_quotes, ensure_ascii=False)[:2500] + '\n'
                 "Final user turns:\n" + '\n'.join(source_lines))
 
     @staticmethod
@@ -378,11 +398,34 @@ class SessionMemory:
             if not isinstance(item, dict):
                 continue
             kind, statement, source_id, quote = (item.get(k) for k in ('kind', 'text', 'source_id', 'quote'))
-            if (kind not in ('goal', 'known', 'unknown', 'task', 'correction')
+            if (kind not in ('goal', 'known', 'unknown', 'task', 'correction',
+                            'hypothesis', 'question', 'negation')
                     or type(source_id) is not int or source_id not in sources
                     or not isinstance(statement, str) or not statement.strip()
                     or not isinstance(quote, str) or len(quote.strip()) < 3
                     or quote not in sources[source_id]):
+                continue
+            # An exact citation does not validate a paraphrase. Reject the
+            # clearest modality reversal and keep all rendered notes quote-only.
+            source_words = set(re.findall(r"[a-z]+", quote.casefold()))
+            statement_words = set(re.findall(r"[a-z]+", statement.casefold()))
+            uncertain = {'may', 'might', 'perhaps', 'possibly', 'possible', 'think',
+                         'suspect', 'guess', 'hypothesis', 'hypothesize'}
+            preserves_uncertainty = uncertain | {'uncertain', 'unconfirmed', 'unverified',
+                                                 'could', 'seems', 'suspected'}
+            negative = {'not', 'never', 'no', 'without', 'cannot'}
+            preserves_negative = negative | {'unrun', 'untested', 'unknown',
+                                             'unmeasured', 'missing', 'absent'}
+            # Tokenizing "haven't" yields "haven" and "t"; preserve the
+            # polarity of n't contractions before checking the note.
+            contracted_negative = re.compile(r"\b[a-z]+n['’]t\b")
+            source_negative = bool(source_words & negative or
+                                   contracted_negative.search(quote.casefold()))
+            statement_negative = bool(statement_words & preserves_negative or
+                                      contracted_negative.search(statement.casefold()))
+            if kind == 'known' and ((source_words & uncertain and not
+                                    statement_words & preserves_uncertainty) or
+                                   (source_negative and not statement_negative)):
                 continue
             accepted.append({'kind': kind, 'text': statement.strip()[:240],
                              'source_id': source_id, 'quote': quote[:240]})

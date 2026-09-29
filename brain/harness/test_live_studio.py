@@ -19,8 +19,9 @@ from duplex.session_store import SessionStore
 
 
 class Mask:
-    def __init__(self, key, emit):
+    def __init__(self, key, emit, model_id='eleven_flash_v2_5'):
         self.emit = emit
+        self.model_id = model_id
         self.pending = False
         self.epoch = 0
         self.muted = False
@@ -101,7 +102,7 @@ class Tests(unittest.IsolatedAsyncioTestCase):
 
     async def test_catalog_is_explicit_and_does_not_change_global_environment(self):
         data = await (await self.client.get('/trial/catalog')).json()
-        self.assertEqual(len(data['architectures']), 13)
+        self.assertEqual(len(data['architectures']), 15)
         self.assertEqual(data['default'], 'qwen-memory')
         ws, trace = await self.connect('cerebras-fast')
         self.assertEqual(Voice.instances[-1].kwargs['endpoint_ms'], 300)

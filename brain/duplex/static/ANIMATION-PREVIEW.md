@@ -1,8 +1,10 @@
 # Animation preview
 
-Open the live MIST page and press **Animations** in the header. A compact tray keeps the face visible while you choose a face, an activity motion, or both. The face menu includes all 40 exact original face IDs; the activity menu is populated from the current hand-drawn v6 manifest. **Return to live** releases both selections. The two menus also have individual “Follow live” options.
+Open the MIST page and press **Animations**. The browse tray keeps the main face visible while you switch between **Faces** and **Activities**. Face groups can be filtered, every card has a live thumbnail, and the selected card is marked for assistive technology and by sight. The face grid contains all 40 original face IDs. The activity grid contains all nine motions in the hand-drawn v6 manifest.
 
-Preview selection is local to this browser. On the hosted site, open the page after pairing; the preview works before starting voice or granting microphone access. It does not send an expression command to the server. Live expression and activity events continue while preview is active, then become visible when preview is released. If actual speech plays, the existing audio clock continues to drive mouth movement. Preview does not generate speech, transcripts, or activity events. If the activity assets fail to load, that menu stays disabled and the face menu remains available.
+Select any face or motion to preview it on the main MIST face. **Return to live** releases both selections; live expression and activity updates remain available underneath the preview. Opening the tray does not require pairing, voice, or microphone permission. It sends no commands to the server and creates no transcripts, speech, or activity events.
+
+Thumbnails use the installed MIST renderers and shared decoded activity assets. Their runtimes are created only while a card is visible and the tray is open. A single 15 fps scheduler advances visible thumbnails; it stops when the tray or page closes, or when reduced motion is preferred. Closing or scrolling away destroys the card renderer. If the hand-drawn assets fail to load, the grid reports activity previews as unavailable and the main live face continues normally.
 
 Checks:
 
@@ -10,5 +12,3 @@ Checks:
 node --test brain/duplex/static/animation_picker.test.mjs
 node brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/test_runtime.cjs
 ```
-
-The UI detector reported one existing 2 px transcript accent border in `style.css`; it did not flag the new preview controls. The detector could not resolve the app's server-root stylesheet URL from the local HTML file. Visual browser inspection remains useful after the hosting release is built.

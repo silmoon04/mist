@@ -4,6 +4,7 @@ import base64
 from collections import deque
 import json
 import logging
+import re
 import time
 import uuid
 
@@ -17,11 +18,19 @@ LOG = logging.getLogger('mist.voice')
 # Flash settings change delivery variation, not a guaranteed named emotion.
 # Select once per reply so streamed phrases share a stable synthesis context.
 DELIVERY_STABILITY = {'neutral': .5, 'warm': .4, 'gentle': .65, 'bright': .3, 'serious': .75}
+DELIVERY_TAGS = {'neutral': None, 'warm': '[warmly]', 'gentle': '[gently]',
+                 'bright': '[excited]', 'serious': '[seriously]'}
+DELIVERY_TAG_PATTERN = re.compile(r'\[(?:warmly|gently|excited|seriously)\]\s*', re.IGNORECASE)
+FLASH_MODEL = 'eleven_flash_v2_5'
+EXPRESSIVE_MODEL = 'eleven_v4_turbo'
 
 
 class StreamingTTS:
-    def __init__(self, key, emit):
+    def __init__(self, key, emit, model_id=FLASH_MODEL):
+        if model_id not in (FLASH_MODEL, EXPRESSIVE_MODEL):
+            raise ValueError('Unsupported ElevenLabs streaming model')
         self.key, self.emit = key, emit
+        self.model_id = model_id
         self.epoch = self.sequence = 0
         self.muted = self.closed = False
         self.client = self.socket = self.reader = self.watchdog = None
@@ -46,8 +55,12 @@ class StreamingTTS:
             if self.socket is not None and not self.socket.closed:
                 return
             began = time.monotonic()
-            url = (f'wss://api.elevenlabs.io/v1/text-to-speech/{VOICE}/multi-stream-input'
-                   '?model_id=eleven_flash_v2_5&output_format=pcm_24000&inactivity_timeout=180&sync_alignment=true')
+            if self.model_id == EXPRESSIVE_MODEL:
+                url = ('wss://api.elevenlabs.io/v1/text-to-dialogue/multi-stream-input'
+                       f'?model_id={self.model_id}&output_format=pcm_24000&sync_alignment=true')
+            else:
+                url = (f'wss://api.elevenlabs.io/v1/text-to-speech/{VOICE}/multi-stream-input'
+                       f'?model_id={self.model_id}&output_format=pcm_24000&inactivity_timeout=180&sync_alignment=true')
             try:
                 for attempt in range(3):
                     try:
@@ -75,10 +88,13 @@ class StreamingTTS:
             raise ValueError('Unknown speech delivery profile')
         if self.closed or self.muted:
             return
+        requested_epoch = self.epoch
         if self.active is not None:
             await self.finish()
         try:
             await self.connect()
+            if self.closed or self.muted or self.epoch != requested_epoch:
+                return
             if len(self.pending) >= 4:
                 raise RuntimeError('Too many pending TTS replies')
             context = uuid.uuid4().hex
@@ -86,21 +102,88 @@ class StreamingTTS:
             self.pending[context] = {'epoch': self.epoch, 'seq': self.sequence, 'chunks': deque(),
                 'done': False, 'audible': audible, 'text': '', 'buffer': '', 'first_text': None, 'first_audio': None,
                 'bytes': 0, 'last_send': time.monotonic(), 'finished': False, 'phrase_count': 0,
-                'caption_text':'','caption_alignment_complete':True,'delivery':delivery,'turn_id':turn_id}
+                'caption_text':'','caption_alignment_complete':True,'delivery':delivery,'turn_id':turn_id,
+                'provider_started':False,'provider_initialized':False}
             self.sequence += 1
-            await self.socket.send_json({'context_id': context, 'text': ' ',
-                'voice_settings': {'stability': DELIVERY_STABILITY[delivery], 'similarity_boost': .8, 'use_speaker_boost': False},
-                'generation_config': {'chunk_length_schedule': [120, 160, 250, 290]}})
-            await self.emit({'type':'speech_style','turn_id':turn_id,'context_id':context,
-                'delivery':delivery,'stability':DELIVERY_STABILITY[delivery],
-                'model':'eleven_flash_v2_5','named_emotion_guaranteed':False})
         except (aiohttp.ClientError, asyncio.TimeoutError, ConnectionError, RuntimeError) as error:
             await self.fail(type(error).__name__)
+
+    def set_delivery(self, delivery):
+        """Update the active reply's delivery until its first provider frame is committed."""
+        if delivery not in DELIVERY_STABILITY or self.closed or self.muted:
+            return False
+        entry = self.pending.get(self.active)
+        if entry is None or entry['provider_started'] or entry['provider_initialized']:
+            return False
+        entry['delivery'] = delivery
+        return True
+
+    def _current(self, context, entry):
+        return (not self.closed and not self.muted and entry['epoch'] == self.epoch
+                and self.pending.get(context) is entry)
+
+    async def _start_provider_context(self, context, entry, first_text):
+        if not self._current(context, entry):
+            return None
+        if entry['provider_started']:
+            return first_text
+        # Commit synchronously before awaiting I/O so an affect result cannot race
+        # between provider initialization and the first tagged text frame.
+        entry['provider_started'] = True
+        delivery = entry['delivery']
+        if self.model_id == EXPRESSIVE_MODEL:
+            await self.socket.send_json({'context_id': context, 'voices': [VOICE]})
+            if not self._current(context, entry):
+                return None
+            tag = DELIVERY_TAGS[delivery]
+            normalized_text = first_text if first_text.endswith(' ') else first_text + ' '
+            tagged_text = f'{tag} {normalized_text}' if tag else normalized_text
+            await self.socket.send_json({'context_id': context,
+                'inputs': [{'text': tagged_text, 'voice_id': VOICE}], 'flush': True})
+            if not self._current(context, entry):
+                return None
+            entry['provider_initialized'] = True
+            await self.emit({'type':'speech_style','phase':'committed','turn_id':entry['turn_id'],
+                'context_id':context,'epoch':entry['epoch'],'delivery':delivery,'tagged':tag is not None,
+                'model':self.model_id,'named_emotion_guaranteed':False})
+            return None
+        await self.socket.send_json({'context_id': context, 'text': ' ',
+            'voice_settings': {'stability': DELIVERY_STABILITY[delivery], 'similarity_boost': .8, 'use_speaker_boost': False},
+            'generation_config': {'chunk_length_schedule': [120, 160, 250, 290]}})
+        if not self._current(context, entry):
+            return None
+        entry['provider_initialized'] = True
+        await self.emit({'type':'speech_style','phase':'committed','turn_id':entry['turn_id'],
+            'context_id':context,'epoch':entry['epoch'],'delivery':delivery,'stability':DELIVERY_STABILITY[delivery],
+            'model':self.model_id,'named_emotion_guaranteed':False})
+        return first_text
+
+    async def _send_phrase(self, context, entry, text):
+        if not self._current(context, entry):
+            return
+        if self.model_id == EXPRESSIVE_MODEL:
+            if not entry['provider_started']:
+                remainder = await self._start_provider_context(context, entry, text)
+                if remainder is None:
+                    return
+                text = remainder
+            if not self._current(context, entry):
+                return
+            await self.socket.send_json({'context_id':context,
+                'inputs':[{'text':text if text.endswith(' ') else text+' ','voice_id':VOICE}],
+                'flush':True})
+        else:
+            if not entry['provider_started']:
+                await self._start_provider_context(context, entry, text)
+            if not self._current(context, entry):
+                return
+            await self.socket.send_json({'context_id':context,'text':text if text.endswith(' ') else text+' ','flush':True})
 
     async def text(self, delta):
         if self.muted or self.closed or not delta or self.active not in self.pending:
             return
-        entry = self.pending[self.active]
+        context = self.active
+        entry = self.pending[context]
         entry['text'] += delta
         entry['buffer'] += delta
         if len(entry['text']) > 8000:
@@ -114,11 +197,14 @@ class StreamingTTS:
             while (boundary:=next_phrase(entry['buffer'])) is not None:
                 end,reason=boundary
                 text,entry['buffer']=entry['buffer'][:end],entry['buffer'][end:]
-                await self.socket.send_json({'context_id':self.active,'text':text if text.endswith(' ') else text+' ','flush':True})
+                await self._send_phrase(context,entry,text)
+                if not self._current(context, entry):
+                    return
                 entry['phrase_count']+=1
                 self.diagnostic('tts_phrase',sequence=entry['seq'],characters=len(text),boundary=reason)
         except (aiohttp.ClientError, ConnectionError, RuntimeError) as error:
-            await self.fail(type(error).__name__)
+            if self._current(context, entry):
+                await self.fail(type(error).__name__)
 
     async def finish(self, transcript=''):
         context = self.active
@@ -137,15 +223,24 @@ class StreamingTTS:
             return
         entry['finished'] = True
         entry['last_send'] = time.monotonic()
-        self.active = None
+        if self.active == context:
+            self.active = None
+        if not entry['provider_started'] and not entry['buffer'].strip():
+            self.pending.pop(context, None)
+            return
         try:
             if entry['buffer'].strip():
-                await self.socket.send_json({'context_id': context, 'text': entry['buffer']+' '})
+                await self._send_phrase(context,entry,entry['buffer'])
                 entry['buffer'] = ''
+            if not self._current(context, entry):
+                return
             await self.socket.send_json({'context_id': context, 'flush': True})
+            if not self._current(context, entry):
+                return
             await self.socket.send_json({'context_id': context, 'close_context': True})
         except (aiohttp.ClientError, ConnectionError, RuntimeError) as error:
-            await self.fail(type(error).__name__)
+            if self._current(context, entry):
+                await self.fail(type(error).__name__)
 
     async def receive(self, socket):
         try:
@@ -187,8 +282,11 @@ class StreamingTTS:
             entry['bytes'] += len(raw)
             if entry['bytes'] > 48000*90:
                 raise ValueError('TTS reply exceeded duration bound')
-            cues, alignment_source = mouth_cues(raw, message,audio_offset=audio_offset)
-            captions,entry['caption_text'],caption_source=caption_cues(message,len(raw)/48000,audio_offset,entry['caption_text'])
+            aligned_message = self._without_delivery_tag_alignment(message)
+            if self.model_id == EXPRESSIVE_MODEL:
+                aligned_message = self._shift_chunk_alignment(aligned_message, audio_offset)
+            cues, alignment_source = mouth_cues(raw, aligned_message,audio_offset=audio_offset)
+            captions,entry['caption_text'],caption_source=caption_cues(aligned_message,len(raw)/48000,audio_offset,entry['caption_text'])
             if caption_source=='unavailable':entry['caption_alignment_complete']=False
             elif not entry['caption_alignment_complete']:caption_source+='_partial'
             entry['chunks'].append((raw,cues,alignment_source,captions,caption_source))
@@ -207,6 +305,65 @@ class StreamingTTS:
                 await self.fail(code, message)
                 return
         await self.drain()
+
+    @staticmethod
+    def _without_delivery_tag_alignment(message):
+        """Hide any provider-returned control-tag characters from captions/cues."""
+        result = dict(message)
+        for key in ('normalizedAlignment', 'normalized_alignment', 'alignment'):
+            alignment = result.get(key)
+            if not isinstance(alignment, dict):
+                continue
+            chars = alignment.get('chars')
+            starts = alignment.get('charStartTimesMs', alignment.get('char_start_times_ms'))
+            lengths_key = next((name for name in ('charDurationsMs','char_durations_ms','chars_durations_ms')
+                                if isinstance(alignment.get(name), list)), None)
+            lengths = alignment.get(lengths_key) if lengths_key else None
+            if not all(isinstance(value, list) for value in (chars, starts, lengths)):
+                continue
+            if not (len(chars) == len(starts) == len(lengths)):
+                continue
+            joined = ''.join(char if isinstance(char, str) else '\0' for char in chars)
+            remove = set()
+            for match in DELIVERY_TAG_PATTERN.finditer(joined):
+                remove.update(range(match.start(), match.end()))
+            if remove:
+                alignment_copy = dict(alignment)
+                keep = [i for i in range(len(chars)) if i not in remove]
+                alignment_copy['chars'] = [chars[i] for i in keep]
+                if 'charStartTimesMs' in alignment_copy:
+                    alignment_copy['charStartTimesMs'] = [starts[i] for i in keep]
+                if 'char_start_times_ms' in alignment_copy:
+                    alignment_copy['char_start_times_ms'] = [starts[i] for i in keep]
+                alignment_copy[lengths_key] = [lengths[i] for i in keep]
+                result[key] = alignment_copy
+        return result
+
+    @staticmethod
+    def _shift_chunk_alignment(message, audio_offset):
+        """Convert TTD packet-relative character times to the shared reply clock.
+
+        Text-to-Dialogue returns normalized_alignment starts relative to each
+        audio packet. The lipsync helpers consume reply-relative times, so add
+        the preceding PCM duration before their existing audio_offset subtraction.
+        """
+        result = dict(message)
+        shift_ms = audio_offset * 1000
+        for key in ('normalizedAlignment', 'normalized_alignment', 'alignment'):
+            alignment = result.get(key)
+            if not isinstance(alignment, dict):
+                continue
+            alignment_copy = dict(alignment)
+            shifted = False
+            for name in ('charStartTimesMs', 'char_start_times_ms'):
+                starts = alignment_copy.get(name)
+                if isinstance(starts, list):
+                    alignment_copy[name] = [value + shift_ms if isinstance(value, (int, float))
+                                             and not isinstance(value, bool) else value for value in starts]
+                    shifted = True
+            if shifted:
+                result[key] = alignment_copy
+        return result
 
     async def empty_reply_error(self):
         """The WebSocket can end without an error when account billing blocks speech."""
@@ -253,13 +410,16 @@ class StreamingTTS:
             await self.drain()
 
     async def interrupt(self):
-        contexts = list(self.pending)
+        contexts = [context for context, entry in self.pending.items() if entry['provider_started']]
         self.epoch += 1
         self.pending.clear()
         self.active = None
         await self.emit({'type': 'audio_reset', 'epoch': self.epoch})
         if self.socket is not None and not self.socket.closed:
             for context in contexts:
+                # A context may not have reached its first provider send yet.
+                # Close contexts whose first provider send has started, including in-flight sends.
+                # The pending map is already cleared, so retain no audio or text.
                 try:
                     await self.socket.send_json({'context_id': context, 'close_context': True})
                 except (aiohttp.ClientError, ConnectionError, RuntimeError):

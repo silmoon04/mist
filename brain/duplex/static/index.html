@@ -1,13 +1,13 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>MIST | Native voice</title><link rel="stylesheet" href="/duplex/style.css?v=20260929-picker2"></head>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>MIST | Native voice</title><link rel="stylesheet" href="/duplex/style.css?v=20260929-grid1"></head>
 <body>
 <main id="companion"><div id="face" style="position:absolute" aria-label="MIST animated face"><div id="listening-signal" aria-hidden="true" hidden><svg viewBox="0 0 126 56" focusable="false"><path class="signal-origin" d="M2 28h8"/><g id="signal-bars"></g></svg></div></div><div id="caption" aria-live="polite"></div><div id="user-transcript" aria-live="polite" aria-atomic="true" hidden><span>You</span><p></p></div>
 <header><strong>MIST</strong><span id="status" role="status">Ready to connect</span><span id="preview-indicator" hidden>Preview</span><button id="animations" aria-controls="animation-picker" aria-expanded="false">Animations</button><button id="settings" aria-label="Open controls">Controls</button></header>
 <div id="storage-status" role="status" hidden></div>
 <footer><button id="talk">Start conversation</button><button id="stop" disabled>Stop speaking</button><span id="latency">MIST (refined)</span></footer>
-<section id="animation-picker" aria-labelledby="animation-heading" hidden><div class="picker-head"><h2 id="animation-heading">Animation preview</h2><button id="close-animations" aria-label="Close animation preview">Close</button></div>
-<div class="picker-fields"><label for="preview-face">Face<select id="preview-face"><option value="">Follow live face</option></select></label>
-<label for="preview-activity">Activity motion<select id="preview-activity" disabled><option value="">Follow live activity</option></select></label></div>
+<section id="animation-picker" aria-labelledby="animation-heading" hidden><div class="picker-head"><div><h2 id="animation-heading">Choose an animation</h2><p class="picker-intro">Preview a face or activity motion without starting a conversation.</p></div><button id="close-animations" aria-label="Close animation preview">Close</button></div>
+<div class="picker-toolbar"><div class="picker-tabs" role="tablist" aria-label="Animation type"><button id="face-tab" role="tab" aria-selected="true" aria-controls="animation-grid">Faces <span id="face-count"></span></button><button id="activity-tab" role="tab" aria-selected="false" aria-controls="animation-grid">Activities <span id="activity-count"></span></button></div><label class="picker-filter">Group<select id="animation-group"><option value="all">All groups</option></select></label></div>
+<div id="animation-grid" class="animation-grid" role="tabpanel" aria-labelledby="face-tab" aria-label="Face animations"></div>
 <div class="preview-actions"><button id="preview-auto" disabled>Return to live</button><span id="preview-status" role="status">Live animation is following MIST.</span></div></section></main>
 <aside id="panel" hidden><div class="panel-head"><h1>Conversation controls</h1><button id="close-panel">Close</button></div>
 <p><a href="/debug" target="_blank" rel="noopener">Live debug view</a><span id="local-study-links"> · <a href="/studio/handdrawn_v6/" target="_blank" rel="noopener">Activity motion</a> · <a href="/studio/drawn/transitions.html" target="_blank" rel="noopener">Expression inspector</a> · <a href="/duplex/luna-tests.html" target="_blank" rel="noopener">Luna tests</a></span></p>
@@ -17,13 +17,13 @@
 <p id="storage-details" class="note" hidden></p>
 <label>Recorded streaming TTS sample<audio controls preload="none" src="/duplex/sample.wav?v=20260914-tts1"></audio></label>
 <button id="fullscreen">Full-screen face</button>
-<p id="brain-status" role="status">Background analysis is idle.</p><button id="cancel-background" hidden>Cancel analysis</button>
+<p id="brain-status" role="status">No background tasks.</p><div id="background-jobs"></div><button id="cancel-background" hidden>Cancel latest task</button>
 <label class="listener-ack-option"><input type="checkbox" id="listener-acks" checked><span>Listening acknowledgements</span><small id="listener-ack-status"></small></label>
-<form id="background-form"><label>Question to work on<input id="background-question" maxlength="1200" required></label><button>Think in background</button></form>
+<form id="background-form"><label>Question to work on<input id="background-question" maxlength="1200" required></label><label>Task<select id="background-type"><option value="analysis">Think through it</option><option value="web_research">Search the web</option></select></label><button>Start task</button></form>
 <label><input type="checkbox" id="sensors">Share this phone's motion sensors</label><pre id="sensor-status">Sensors are off. No camera is connected.</pre>
 <div class="buttons"><button id="robot-stop">Stop robot preview</button><button id="resume">Resume preview</button></div><p id="motion-status" role="status">No movement preview requested.</p><p class="note">R5 commands are previews. No calibrated motor transport is connected.</p>
 <details><summary>Conversation transcript</summary><div id="transcript"></div></details>
 <section id="fixture-box" hidden><h2>Synthetic conversation test</h2><p>Uses a generated voice. Does not open the microphone.</p><button id="test-connect">Connect test session</button><form id="fixture"><input id="fixture-text" value="Hello MIST. I finally finished building your legs. What do you think?" aria-label="Synthetic test phrase" maxlength="220"><button>Speak test phrase</button></form></section>
 <section id="text-box" hidden><form id="text-form"><label>Type a test message<input id="text-input" maxlength="1200" required></label><button>Send</button></form><p class="note">Uses the model, voice and animations. Skips speech recognition.</p></section>
 <p id="error" role="alert"></p></aside>
-<script src="/face-data.js"></script><script src="/face-runtime.js?v=20260922-fps15-th"></script><script src="/drawn-face-runtime.js?v=20260924-trials1"></script><script src="/studio/handdrawn_v6/runtime.js?v=20260929-picker1"></script><script type="module" src="/duplex/app.js?v=20260929-picker1"></script></body></html>
+<script src="/face-data.js"></script><script src="/face-runtime.js?v=20260922-fps15-th"></script><script src="/drawn-face-runtime.js?v=20260929-gridperf1"></script><script src="/studio/handdrawn_v6/runtime.js?v=20260929-grid1"></script><script type="module" src="/duplex/app.js?v=20260929-gridperf1"></script></body></html>

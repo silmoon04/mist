@@ -5,7 +5,7 @@ import {ActivityState} from './activity_state.js?v=20260924-sync1';
 import {UserTranscriptState} from './user_transcript_state.mjs?v=20260928-listener3';
 import {newListenerCue} from './listener_cue.js?v=20260928-listener3';
 import {MicrophoneSignal} from './microphone_signal.mjs?v=20260929-listening-signal1';
-import {animationCatalog,AnimationPreview} from './animation_picker.mjs?v=20260929-picker1';
+import {AnimationPreview,VisiblePreviewScheduler,installAnimationPicker} from './animation_picker.mjs?v=20260929-grid1';
 const $=id=>document.getElementById(id);let ws=null,context=null,player=null,stream=null,capture=null,ready=false,fixtureMode=false,seq=0,lastSensor=0,wake=null;
 const trialArchitecture=new URLSearchParams(location.search).get('architecture');
 const trialMemoryMode=new URLSearchParams(location.search).get('memory_mode')==='speech_feedback'?'speech_feedback':'discussion';
@@ -13,6 +13,18 @@ let starting=false,connectionGeneration=0;
 let listenerCue=null;
 if(trialArchitecture){document.body.classList.add('trial-frame');$('text-box').hidden=trialArchitecture==='native';}
 let pendingCaption='',lastSpeechKey=null,backgroundJob=null,micFrames=0,micPower=0,pendingPlaybackConfiguration=null;
+const backgroundJobs=new Map();
+function renderBackgroundJobs(){
+ const active=[...backgroundJobs.values()].filter(job=>job.status==='running');
+ $('brain-status').textContent=active.length?`${active.length} background task${active.length===1?'':'s'} running.`:'No background tasks running.';
+ $('cancel-background').hidden=true;$('background-jobs').replaceChildren();
+ for(const job of [...backgroundJobs.values()].reverse()){
+  const row=document.createElement('div');row.className='background-job';
+  const info=document.createElement('span');info.textContent=`${job.question||'Task'} · ${job.status}${job.elapsed_s?` · ${job.elapsed_s.toFixed(1)} s`:''}${job.context_changed?' · earlier context':''}`;
+  row.append(info);if(job.status==='running'){const button=document.createElement('button');button.textContent='Cancel';button.setAttribute('aria-label',`Cancel ${job.question||'task'}`);button.onclick=()=>send({type:'cancel_background',job_id:job.job_id});row.append(button);}
+  $('background-jobs').append(row);
+ }
+}
 let micSeq=0,micSignalTimer=null,lastMicDraw=0,storageState=null,latestSummary=null;
 const micSignal=new MicrophoneSignal();
 const signal=$('listening-signal'),signalBars=[];
@@ -76,39 +88,34 @@ function renderExpression(){
 function expression(command,options={}){const requested=typeof command==='string'?{expression:command}:command;if(options.source==='manual'&&(requested.persistent??!Object.hasOwn(requested,'duration_ms')))timedFaceReceipt=null;const result=expressionPolicy.request(requested,options);renderExpression();trace({type:'expression',phase:'request',expression:requested.expression,source:options.source||'model',status:result.status,reason:result.reason||null,queue_depth:result.queueDepth??expressionPolicy.snapshot().queueDepth,persistent:requested.persistent??!Object.hasOwn(requested,'duration_ms')});return result;}
 function state(value){conversationState=value;renderExpression();}
 renderExpression();setInterval(renderExpression,50);
-const catalog=animationCatalog(map);
-const faceSelect=$('preview-face'),activitySelect=$('preview-activity');
-let currentGroup=null,groupElement=null;
-for(const item of catalog.faces){
- if(item.group!==currentGroup){currentGroup=item.group;groupElement=document.createElement('optgroup');groupElement.label=currentGroup.replaceAll('_',' ');faceSelect.append(groupElement);}
- groupElement.append(new Option(item.label,item.id));
-}
-let activityAssetsReady=false;
-face.ready.then(ready=>{
- if(!ready||!face.loaded||!face.manifest?.activities?.length)throw new Error('Activity assets unavailable');
- const activities=animationCatalog(map,face.manifest).activities;
- for(const item of activities)activitySelect.add(new Option(item.label,item.id));
- activityAssetsReady=activities.length>0;activitySelect.disabled=!activityAssetsReady;
- renderPreviewStatus();
-}).catch(()=>{activityAssetsReady=false;activitySelect.disabled=true;renderPreviewStatus();});
+const scheduler=new VisiblePreviewScheduler();let picker=null,activityAssetsReady=false;
 function renderPreviewStatus(){
  const parts=[];
- if(preview.faceId)parts.push(`face ${catalog.faces.find(item=>item.id===preview.faceId)?.label||preview.faceId}`);
- if(preview.activityId)parts.push(`activity ${activitySelect.selectedOptions[0]?.textContent||preview.activityId}`);
- $('preview-status').textContent=(parts.length?`Previewing ${parts.join(' with ')}.`:'Following live MIST.')+(!activityAssetsReady?' Activity unavailable.':'');
- $('preview-auto').disabled=!preview.active;
- $('preview-indicator').hidden=!preview.active;
- $('companion').classList.toggle('has-preview',preview.active);
- renderExpression();
+ if(preview.faceId)parts.push(`face ${map.faces[preview.faceId]?.name||preview.faceId}`);
+ if(preview.activityId)parts.push(`activity ${face.manifest?.activities?.find(item=>item.id===preview.activityId)?.label||preview.activityId}`);
+ $('preview-status').textContent=parts.length?`Previewing ${parts.join(' with ')}.`:'Following live MIST.';
+ $('preview-auto').disabled=!preview.active;$('preview-indicator').hidden=!preview.active;$('companion').classList.toggle('has-preview',preview.active);renderExpression();
 }
-faceSelect.onchange=()=>{preview.selectFace(faceSelect.value);renderPreviewStatus();};
-activitySelect.onchange=()=>{if(!preview.selectActivity(activitySelect.value))activitySelect.value='';renderPreviewStatus();};
-$('preview-auto').onclick=()=>{preview.release();faceSelect.value='';activitySelect.value='';renderPreviewStatus();};
+function chooseAnimation(item,mode){
+ if(mode==='faces'){preview.selectFace(item.id);picker?.markSelected(item.id,'faces');}
+ else if(preview.selectActivity(item.id)){picker?.markSelected(item.id,'activities');}
+ renderPreviewStatus();
+}
+face.ready.then(ready=>{
+ if(!ready||!face.loaded||!face.manifest?.activities?.length)throw new Error('Activity assets unavailable');
+ activityAssetsReady=true;
+ const Runtime=window.MistHanddrawnRuntime||window.MistDrawnFaceRuntime||window.MistFaceRuntime;
+ picker=installAnimationPicker({map,manifest:face.manifest,grid:$('animation-grid'),groupSelect:$('animation-group'),tabs:{faces:$('face-tab'),activities:$('activity-tab')},scheduler,onSelect:chooseAnimation,
+  makePreview(item,mode,mount){const instance=Runtime.create(mount,{data:window.MIST_DATA,atlasUrl:'/drawn/atlas.json',manifestUrl:'/studio/handdrawn_v6/manifest.json',manifest:face.manifest,expression:mode==='faces'?item.id:map.expressions.neutral.primary,previewCanvasWidth:250,skipHiddenFallbackUpdates:true,autoStart:false});if(mode==='activities')instance.ready.then(ok=>{if(ok)instance.previewActivity(item.id);});return {update:time=>instance.update(time),destroy:()=>instance.destroy()};}});
+ picker.setOpen(!$('animation-picker').hidden&&!document.hidden);$('face-count').textContent=picker.catalog.faces.length;$('activity-count').textContent=picker.catalog.activities.length;
+ renderPreviewStatus();
+}).catch(()=>{activityAssetsReady=false;$('activity-tab').disabled=true;$('activity-count').textContent='unavailable';$('preview-status').textContent='Activity previews are unavailable; live MIST is unchanged.';});
+$('preview-auto').onclick=()=>{preview.release();picker?.markSelected(null,null);renderPreviewStatus();};
 $('pair-form').hidden=pairOK;$('pair-state').textContent=pairOK?'This screen is paired.':'Enter the code printed by the local MIST server.';$('fixture-box').hidden=!config.fixtures_enabled;
 function send(data){if(ws?.readyState===WebSocket.OPEN)ws.send(JSON.stringify(data));}
 function error(message){$('error').textContent=message;$('status').textContent=message;$('panel').hidden=false;}
 function stopPlayback(){listenerCue?.reset('explicit_stop');player?.reset();expressionPolicy.interrupt();state('listening');send({type:'barge_in'});}
-async function end(){listenerCue?.reset('disconnected');connectionGeneration++;starting=false;ready=false;pendingPlaybackConfiguration=null;timedFaceReceipt=null;pendingCaption='';lastSpeechKey=null;stopMicSignal();finishStorageStatus();stream?.getTracks().forEach(t=>t.stop());stream=null;capture?.disconnect();capture=null;player?.reset();ws?.close();ws=null;const oldWake=wake;wake=null;$('talk').textContent='Start conversation';$('stop').disabled=true;$('status').textContent='Conversation ended';$('caption').textContent='';transcript.user='';transcript.assistant='';renderUserTranscript(userTranscript.reset());backgroundJob=null;$('brain-status').textContent='Background analysis is idle.';$('cancel-background').hidden=true;face.resetActivities?.();connectionActivity=null;expressionPolicy.reset();state('available');await oldWake?.release().catch(()=>{});}
+async function end(){listenerCue?.reset('disconnected');connectionGeneration++;starting=false;ready=false;pendingPlaybackConfiguration=null;timedFaceReceipt=null;pendingCaption='';lastSpeechKey=null;stopMicSignal();finishStorageStatus();stream?.getTracks().forEach(t=>t.stop());stream=null;capture?.disconnect();capture=null;player?.reset();ws?.close();ws=null;const oldWake=wake;wake=null;$('talk').textContent='Start conversation';$('stop').disabled=true;$('status').textContent='Conversation ended';$('caption').textContent='';transcript.user='';transcript.assistant='';renderUserTranscript(userTranscript.reset());backgroundJob=null;backgroundJobs.clear();renderBackgroundJobs();face.resetActivities?.();connectionActivity=null;expressionPolicy.reset();state('available');await oldWake?.release().catch(()=>{});}
 async function start(test=false){
  if(ws||starting)return end();if(!pairOK){$('panel').hidden=false;return;}
  starting=true;const generation=++connectionGeneration;
@@ -195,7 +202,7 @@ async function receive(event){
  else if(event.type==='state'){state(event.state);$('status').textContent=player?.sample()?.active?'Speaking, still listening':event.state==='listening'?'Listening':event.state==='thinking'?'Thinking':event.state==='checking'?'Checking':'Connecting';}
  else if(event.type==='tool'){addTranscript('assistant',event.name==='remember'&&event.result.status==='saved'?`Saved preference: ${event.result.note}`:`[${event.name}: ${event.result.status||'read'}]`);if(event.name==='stop_robot'){expression('alert');$('motion-status').textContent='Preview stopped. Hardware stop is not connected.';}if(event.result.status==='preview_only'){$('motion-status').textContent=`Prepared ${event.result.action.replaceAll('_',' ')} preview. No hardware movement.`;if(event.result.action==='phone_pan')face.setGaze(Math.max(-1,Math.min(1,event.result.angle_rad/Math.PI)),0);}}
  else if(event.type==='sensors')$('sensor-status').textContent=JSON.stringify(event.snapshot,null,2);
- else if(event.type==='brain_job'){backgroundJob=event.job_id;$('brain-status').textContent=event.status==='running'?'Working in the background.':`Background analysis ${event.status}${event.elapsed_s?` in ${event.elapsed_s.toFixed(1)} s`:''}.`;$('cancel-background').hidden=event.status!=='running';}
+ else if(event.type==='brain_job'){backgroundJob=event.job_id;backgroundJobs.set(event.job_id,{...backgroundJobs.get(event.job_id),...event});while(backgroundJobs.size>12){const finished=[...backgroundJobs.keys()].find(id=>backgroundJobs.get(id).status!=='running');if(!finished)break;backgroundJobs.delete(finished);}renderBackgroundJobs();}
  else if(event.type==='latency'){const m=event.tts||event.conversion;$('latency').textContent=`${event.tts?'Streaming TTS':'Voice conversion'} ${(m.first_byte_s||0).toFixed(2)} s`;}
  else if(event.type==='voice_warning'){$('error').textContent=event.message;$('status').textContent='Listening; voice interrupted';}
  else if(event.type==='error'){if(event.reconnect_required===true){await end();error(event.message);$('status').textContent='Reconnect to continue';$('talk').textContent='Reconnect';}else{if(event.fatal)await end();error(event.message);}}
@@ -203,10 +210,11 @@ async function receive(event){
 $('talk').onclick=()=>start(false).catch(e=>error(e.message));$('test-connect').onclick=()=>start(true).catch(e=>error(e.message));$('stop').onclick=stopPlayback;
 $('listener-acks').onchange=()=>{if(!$('listener-acks').checked)listenerCue?.reset('disabled');if(ready)send({type:'listener_ack_config',enabled:$('listener-acks').checked});};
 $('cancel-background').onclick=()=>send({type:'cancel_background',job_id:backgroundJob});
-$('background-form').onsubmit=event=>{event.preventDefault();if(!ready){error('Start a conversation first.');return;}send({type:'start_background',question:$('background-question').value});$('background-question').value='';};
-function closePicker(){const tray=$('animation-picker');tray.hidden=true;$('companion').classList.remove('preview-open');$('animations').setAttribute('aria-expanded','false');$('animations').focus();}
+$('background-form').onsubmit=event=>{event.preventDefault();if(!ready){error('Start a conversation first.');return;}send({type:'start_background',question:$('background-question').value,task_type:$('background-type').value});$('background-question').value='';};
+const pickerMotion=matchMedia('(prefers-reduced-motion: reduce)');scheduler.setReducedMotion(pickerMotion.matches);pickerMotion.addEventListener?.('change',event=>scheduler.setReducedMotion(event.matches));document.addEventListener('visibilitychange',()=>scheduler.setOpen(!$('animation-picker').hidden&&!document.hidden));
+function closePicker(){const tray=$('animation-picker');picker?.setOpen(false);tray.hidden=true;$('companion').classList.remove('preview-open');$('animations').setAttribute('aria-expanded','false');$('animations').focus();}
 $('settings').onclick=()=>{if(!$('animation-picker').hidden)closePicker();$('panel').hidden=false;};
-$('animations').onclick=()=>{const tray=$('animation-picker');if(!tray.hidden){closePicker();return;}$('panel').hidden=true;tray.hidden=false;$('companion').classList.add('preview-open');$('animations').setAttribute('aria-expanded','true');faceSelect.focus();};
+$('animations').onclick=()=>{const tray=$('animation-picker');if(!tray.hidden){closePicker();return;}$('panel').hidden=true;tray.hidden=false;$('companion').classList.add('preview-open');$('animations').setAttribute('aria-expanded','true');picker?.setOpen(true);$('face-tab').focus();};
 $('close-animations').onclick=closePicker;
 document.addEventListener('keydown',event=>{if(event.key==='Escape'&&!$('animation-picker').hidden)closePicker();});
 $('close-panel').onclick=()=>{$('panel').hidden=true;};
@@ -218,7 +226,7 @@ $('text-form').onsubmit=event=>{event.preventDefault();if(!ready){error('Start a
 function sensor(kind,values){if(!ready||!$('sensors').checked||Date.now()-lastSensor<500)return;lastSensor=Date.now();send({type:'sensors',packet:{kind,seq:seq++,captured_at:Date.now()/1000,values}});}
 $('sensors').onchange=async()=>{if(!$('sensors').checked)return;try{if(typeof window.DeviceMotionEvent?.requestPermission==='function')await window.DeviceMotionEvent.requestPermission();$('sensor-status').textContent='Waiting for reported phone motion. No body-attitude transform is applied.';}catch{error('Motion permission was not enabled');}};
 window.addEventListener('devicemotion',e=>{const a=e.accelerationIncludingGravity||{},g=e.rotationRate||{};const values={ax:a.x,ay:a.y,az:a.z,gx:g.alpha,gy:g.beta,gz:g.gamma};sensor('phone_motion',Object.fromEntries(Object.entries(values).filter(([,v])=>Number.isFinite(v))));});
-window.addEventListener('beforeunload',()=>{listenerCue?.reset('page_closed');stopMicSignal();stream?.getTracks().forEach(t=>t.stop());player?.reset();context?.close().catch(()=>{});ws?.close();});
+window.addEventListener('beforeunload',()=>{picker?.destroy();scheduler.destroy();listenerCue?.reset('page_closed');stopMicSignal();stream?.getTracks().forEach(t=>t.stop());player?.reset();context?.close().catch(()=>{});ws?.close();});
 window.addEventListener('error',event=>{if(trialArchitecture)trace({type:'client_error',message:event.message});});
 window.addEventListener('unhandledrejection',event=>{if(trialArchitecture)trace({type:'client_error',message:String(event.reason)});});
 

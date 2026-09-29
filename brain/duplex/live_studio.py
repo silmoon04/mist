@@ -92,11 +92,19 @@ ARCHITECTURES = [
          model='Codex native V3', endpoint_ms=None, floor='native',
          description='Codex handles listening and turn taking. Luna handles delegated tools. Its reply text uses the same MIST voice.'),
 ]
+ARCHITECTURES.insert(1, {**ARCHITECTURES[0], 'id':'qwen-expressive',
+    'label':'Qwen · expressive MIST (experimental)', 'tts_model':'eleven_v4_turbo',
+    'description':'The memory and Flux setup with Eleven v4 Turbo delivery cues. Experimental: voice timing and mouth sync may differ from standard MIST.'})
+ARCHITECTURES.insert(2, {**ARCHITECTURES[0], 'id':'qwen-memory-pause',
+    'label':'Qwen · more time to continue', 'complete_hold_ms':800,
+    'description':'Adds an 800 ms continuation window after a complete Flux endpoint. Gives you more time to add a clause, but delays replies after genuine endings.'})
 for architecture in ARCHITECTURES:
     architecture.update(backing_model='gpt-6-luna',
                         speech_backend='streaming-tts', voice_id=server.VOICE,
                         hardware_connected=False)
     architecture.setdefault('incomplete_hold_ms', 900)
+    if architecture.get('asr_provider') == 'flux':
+        architecture.setdefault('complete_hold_ms', 350 if architecture.get('turn_policy') == 'flux_with_continuation_hold' else 0)
     architecture.setdefault('reasoning_effort', 'low')
     for key,value in dict(background_model='gpt-6-luna',background_provider='codex',background_reasoning_effort='low',
                           background_context=False,conversation_policy='standard',parallel_tool_calls=False,playback_buffer_ms=200).items():
@@ -179,6 +187,10 @@ class TrialConversation(server.Conversation):
             return 'speech_already_started' if self.affect_speech_locked else 'user_speaking'
         if decision['change'] and self.temporary_face is not None:
             return 'temporary_face_active'
+        update_delivery = getattr(self.mask, 'set_delivery', None)
+        if getattr(self.mask, 'active', None) is not None and callable(update_delivery):
+            if not update_delivery(decision['delivery']):
+                return 'speech_already_started'
         # No await separates the final ownership checks from local state changes.
         # The face packet still carries its revision for browser-side rejection.
         if decision['change']:
@@ -187,6 +199,8 @@ class TrialConversation(server.Conversation):
                     {'expression':decision['expression'],'variant':decision['variant']},
                     request_text=self.user_request_text)
             except ValueError:
+                if getattr(self.mask, 'active', None) is not None and callable(update_delivery):
+                    update_delivery(self.delivery)
                 return 'request_constraint'
         self.delivery=decision['delivery']
         if decision['change']:
@@ -195,6 +209,10 @@ class TrialConversation(server.Conversation):
         return 'applied_before_speech'
 
     async def emit(self, event):
+        if event.get('type') == 'speech_style' and event.get('phase') == 'committed' and \
+                event.get('epoch') == getattr(self.mask, 'epoch', None) and \
+                event.get('turn_id') == self.assistant_turn:
+            self.affect_speech_locked = True
         remote = self.app.get('remote_access')
         if remote:
             event = remote.scrub(event)
@@ -247,7 +265,8 @@ class TrialConversation(server.Conversation):
             await self.emit({'type':'session_storage','session_id':self.journal.trace_id,
                              'recording':True,'status':'recording','audio':['mic','assistant'], 'location':'host'})
             self.storage_task = asyncio.create_task(self.monitor_storage())
-        self.mask = StreamingTTS(self.app['env']['ELEVENLABS_API_KEY'], self.emit)
+        tts_options = {'model_id':self.architecture['tts_model']} if self.architecture.get('tts_model') else {}
+        self.mask = StreamingTTS(self.app['env']['ELEVENLABS_API_KEY'], self.emit, **tts_options)
         await self.mask.start()
         kwargs = dict(speech_backend='streaming-tts', background=self.brain,
                       expression_revision=lambda: self.expression_revision,
@@ -263,7 +282,8 @@ class TrialConversation(server.Conversation):
                           reasoning_effort=a['reasoning_effort'], max_output_tokens=a['max_output_tokens'],
                           conversation_policy=a['conversation_policy'],parallel_tool_calls=a['parallel_tool_calls'])
             if a.get('asr_provider') == 'flux':
-                kwargs.update(asr_provider='flux', jev_enabled=False, live_mode=True)
+                kwargs.update(asr_provider='flux', jev_enabled=False, live_mode=True,
+                              complete_hold_ms=a['complete_hold_ms'])
             if a['provider'] == 'cerebras' and self.app.get('remote_access'):
                 kwargs['connect_retries'] = 1
         factory = self.app.get('trial_voice_factory', cls)
@@ -293,7 +313,6 @@ class TrialConversation(server.Conversation):
             if turn.get('role')=='user':
                 self.affect_speech_locked=False
                 if self.affect:self.delivery='neutral'
-            elif turn.get('role')=='assistant':self.affect_speech_locked=True
         await super().realtime_event(event)
         if self.affect and event.get('type')=='turn.done' and turn.get('role')=='user' and turn.get('transcript','').strip():
             records=[]

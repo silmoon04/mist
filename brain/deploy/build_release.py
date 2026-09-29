@@ -48,6 +48,9 @@ RELEASE_FILES = [
     # The public Cerebras offline suite imports objective_checks from runner.
     "brain/benchmarks/naturalness/runner.py",
     "brain/harness/pi_client.py", "brain/harness/codex_client.py",
+    "brain/harness/codex_tool_bridge.mjs",
+    "brain/extensions/robot-tools.ts", "brain/extensions/grounding.ts",
+    "brain/art_direction/artist_studio_20260916/reuse/runtime/playback.js",
     "brain/harness/response_format.py", "brain/harness/eval_luna_conversations.py",
     "brain/harness/test_laptop_host.py", "brain/harness/test_live_studio.py",
     "brain/harness/test_live_studio_remote.py",
@@ -59,6 +62,18 @@ RELEASE_FILES = [
     "brain/harness/test_playback_receipts.py",
     "brain/duplex/static/trial_memory.test.mjs", "brain/duplex/static/microphone_signal.test.mjs",
     "brain/benchmarks/naturalness/test_cerebras_client.py",
+    *[f"brain/harness/{name}" for name in (
+        "test_affect_studio.py", "test_affect_controller.py", "test_background.py",
+        "test_codex_client.py", "test_streaming_tts.py", "test_lipsync.py", "test_phrasing.py",
+        "test_tts_expressive_protocol_20260929.py", "test_duplex_playback.mjs",
+    )],
+    *[f"brain/benchmarks/naturalness/{name}" for name in (
+        "quality_gate_20260929.py", "turn_gap_benchmark_20260929.py",
+        "voice_quality_20260929.py", "test_streaming_voice_20260930.py",
+        "jev_turn_policy_20260930.py", "jev_comparison_20260929.py",
+        "robust_conversation_20260929/cases.json", "robust_conversation_20260929/README.md",
+        "robust_conversation_20260929/runner.py", "robust_conversation_20260929/test_runner.py",
+    )],
     "brain/deploy/fixtures/manifest.json",
     "brain/deploy/fixtures/audio/audio_phrase_seam-1.wav",
     f"brain/{DRAWN}/atlas.json", f"brain/{HANDDRAWN}/manifest.json",
@@ -73,7 +88,7 @@ DEPLOY_FILES = (
     "test_remote_e2e_helpers.py",
 )
 PAGE_FILES = ("index.html", "style.css", "app.js", ".nojekyll")
-TEXT_SUFFIXES = {".py", ".js", ".mjs", ".cjs", ".html", ".css", ".json", ".txt", ".md", ".ps1"}
+TEXT_SUFFIXES = {".py", ".js", ".ts", ".mjs", ".cjs", ".html", ".css", ".json", ".txt", ".md", ".ps1"}
 TEXT_NAMES = {".env.example", ".gitignore", ".gitattributes"}
 
 
@@ -131,7 +146,7 @@ def check_source(path: Path, secrets: list[str] | None = None) -> None:
         raise ValueError(f"Missing or linked release file: {path.relative_to(PROJECT)}")
     if path.stat().st_size > 50 * 1024 * 1024:
         raise ValueError(f"Oversized release file: {path.relative_to(PROJECT)}")
-    if path.suffix.lower() in {".py", ".js", ".mjs", ".html", ".css", ".json", ".txt"}:
+    if path.suffix.lower() in {".py", ".js", ".ts", ".mjs", ".html", ".css", ".json", ".txt"}:
         data = path.read_text(encoding="utf-8")
         # Check for literal credentials and machine-local paths without echoing
         # the matched value to stdout or the generated manifest.
@@ -205,9 +220,15 @@ def build(output: Path, dry_run: bool) -> dict:
             check_source(source, secrets)
             copy_release(source, endpoint)
         (output / ".gitignore").write_bytes(
-            b"/.env\n__pycache__/\n*.pyc\n/brain/results/\n/output/\n.venv/\n")
+            b"/.env\n__pycache__/\n*.pyc\n/brain/results/\n/output/\n.venv/\nnode_modules/\n**/runtime_checks.json\n")
+        (output / "package.json").write_text(json.dumps({
+            "name": "mist-contract-tests", "private": True, "type": "module",
+            "engines": {"node": ">=24"}, "dependencies": {"typebox": "1.3.3"},
+        }, indent=2) + "\n", encoding="utf-8")
+        check_source(BRAIN / "deploy" / "package-lock.json", secrets)
+        copy_release(BRAIN / "deploy" / "package-lock.json", output / "package-lock.json")
         (output / ".gitattributes").write_bytes((
-            "*.py text eol=lf\n*.js text eol=lf\n*.mjs text eol=lf\n*.cjs text eol=lf\n"
+            "*.py text eol=lf\n*.js text eol=lf\n*.ts text eol=lf\n*.mjs text eol=lf\n*.cjs text eol=lf\n"
             "*.html text eol=lf\n*.css text eol=lf\n*.json text eol=lf\n"
             "*.txt text eol=lf\n*.md text eol=lf\n*.ps1 text eol=lf\n"
             ".env.example text eol=lf\n.gitignore text eol=lf\n"
@@ -215,7 +236,7 @@ def build(output: Path, dry_run: bool) -> dict:
         known = {item["path"] for item in files}
         extras = [
             "brain/deploy/build_release.py", "requirements.txt", ".env.example",
-            "README.md", ".gitignore", ".gitattributes",
+            "README.md", ".gitignore", ".gitattributes", "package.json", "package-lock.json",
             *(f"brain/deploy/{name}" for name in DEPLOY_FILES),
             *(f"docs/{name}" for name in PAGE_FILES),
         ]

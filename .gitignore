@@ -4,3 +4,5 @@ __pycache__/
 /brain/results/
 /output/
 .venv/
+node_modules/
+**/runtime_checks.json

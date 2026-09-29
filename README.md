@@ -32,6 +32,20 @@ block a reply. Difficult tool work can run on a separate Codex Luna worker when
 the host has a signed-in Codex CLI. Earlier architectures remain available for
 comparison.
 
+The experimental **Qwen · expressive MIST** choice uses Eleven v4 Turbo with the
+same cloned voice. The expression reader can choose a delivery style before
+the first phrase is submitted. Late suggestions do not restart speech. Some
+v4 packets lack character timings; those packets use audio energy for mouth
+movement. The default retains Flash and its more complete character alignment.
+**Qwen · more time to continue** waits 800 ms after a complete endpoint instead
+of the default 350 ms. This reduces some premature replies and adds that wait
+to genuine turn endings.
+
+Background web research uses a separate Luna worker, with at most two jobs at
+once. The task list shows the question, progress, duration, and cancellation.
+Results from an earlier conversational context remain readable but do not
+automatically interrupt the current topic.
+
 The face view's **Animations** button opens a local preview of all 40 faces and
 nine activity motions. Choose either or both, then use **Return to live** to
 resume automatic choices. This works without starting voice after pairing on
@@ -67,6 +81,14 @@ brain.harness.test_live_studio_remote`, `python -B
 brain/harness/test_live_studio.py`, `python -B
 brain/harness/test_laptop_host.py`, and `python -B
 brain/deploy/test_remote_e2e_helpers.py`.
+
+For the full offline regression gate, install Node 24 or later, run `npm install`,
+then `python -B brain/benchmarks/naturalness/quality_gate_20260929.py`.
+This runs control-flow, memory, streaming-protocol, turn-gap, and animation tests
+without provider requests. It does not grade audible quality or naturalness.
+The frozen conversation set and live voice runner are in
+`brain/benchmarks/naturalness/`; their provider runs are opt-in and keep results
+under the ignored local results directory.
 
 Build a fresh release from the private workspace with `python
 brain/deploy/build_release.py`. The script copies an explicit source list and
