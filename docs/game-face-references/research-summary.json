@@ -1,0 +1,56 @@
+{
+  "date": "2026-09-29",
+  "entries": 35,
+  "featured": 24,
+  "creditedPeople": 53,
+  "primarySources": 78,
+  "mediaUrls": 85,
+  "branches": [
+    {
+      "file": "3d.json",
+      "sha256": "924936801d266bfd87bef3f8e154074fbdead3605b1c80c89d029a590c9b8caa",
+      "entries": 4
+    },
+    {
+      "file": "cozy.json",
+      "sha256": "a4d2441c98f5cd36295357d05c6717018e49be96c9b7bad18f4e7543b9bfe9bb",
+      "entries": 4
+    },
+    {
+      "file": "dialogue.json",
+      "sha256": "b29dfcde67a731b952815936360f147420ed30c5a43dcc6e67bf1afc24d6c749",
+      "entries": 3
+    },
+    {
+      "file": "exaggerated.json",
+      "sha256": "dd273f776259fb722f2cbfbfb5b9f5a0c5fb6791fd59c26080f85d3f6b55a42f",
+      "entries": 3
+    },
+    {
+      "file": "graphic.json",
+      "sha256": "0ba0274d8ceec49fe7b8901ba812d9d1052a71022ed5fa81816c3881bb908624",
+      "entries": 4
+    },
+    {
+      "file": "handdrawn.json",
+      "sha256": "fae1b9102e71383b82959354e8df48b19a76a816a1c17db637ff8585218d03d0",
+      "entries": 5
+    },
+    {
+      "file": "minimal.json",
+      "sha256": "6beac7173f5a44d82205bad8af1225a345ac5c7bbeaabafd286b178b4f9acf6c",
+      "entries": 4
+    },
+    {
+      "file": "narrative.json",
+      "sha256": "ab48493393b0aa2c80f6d8940bade44df0cbdc8bab69c8405e8ce037bb602d9d",
+      "entries": 4
+    },
+    {
+      "file": "process.json",
+      "sha256": "3c4a766245966e9e5838423cd6e514526fc992777ece1de02f8457b2ed407592",
+      "entries": 4
+    }
+  ],
+  "method": "Creator credits, supplied media and sampled visual frames; production timing is not inferred from stills."
+}

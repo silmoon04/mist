@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Game faces · MIST</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="review-state.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="identity"><a class="mist-mark" href="../" aria-label="MIST home"><svg viewBox="0 0 52 28" aria-hidden="true"><path d="M17 6a7 7 0 1 0 0 12M35 6a7 7 0 1 1 0 12M22 24h8"/></svg></a><h1>Game faces</h1><span id="total-count" class="quiet"></span></div>
+    <nav aria-label="Board tools"><button id="motion-toggle" type="button" aria-pressed="true">Pause GIFs</button><button id="export-toggle" type="button">Export notes</button><a href="research.md" download>Research</a><a href="../acting-animations/">Animations</a></nav>
+  </header>
+  <main>
+    <form id="filters" class="filters" role="search">
+      <label class="search-field"><span class="sr-only">Find a game, animator or acting technique</span><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><input id="search" type="search" placeholder="Game, artist, eye movement…" autocomplete="off"></label>
+      <label><span class="sr-only">Style or context</span><select id="category"><option value="">All styles / contexts</option></select></label>
+      <label><span class="sr-only">Media type</span><select id="media-filter"><option value="">All media</option><option value="motion">Motion references</option><option value="still">Still references</option></select></label>
+      <label class="toggle-filter"><input id="indie-filter" type="checkbox"><span>Indie</span></label>
+      <label class="toggle-filter"><input id="featured-filter" type="checkbox"><span>Start here</span></label>
+      <label class="toggle-filter"><input id="saved-filter" type="checkbox"><span>Saved <span id="saved-count">0</span></span></label>
+      <button id="reset-filters" class="subtle" type="button" hidden>Reset</button>
+    </form>
+    <div class="board-meta"><p id="result-count" aria-live="polite">Loading references…</p><p>Source artwork. Notes are our analysis.</p></div>
+    <section id="board" class="reference-wall" aria-label="Game animation references"></section>
+    <div id="empty-state" class="empty-state" hidden><p id="empty-message">No matches.</p><button id="empty-reset" type="button">Clear filters</button></div>
+  </main>
+  <dialog id="detail-dialog" class="detail-dialog" aria-labelledby="detail-title">
+    <div class="dialog-top"><div class="dialog-paging"><button id="previous-reference" type="button" aria-label="Previous reference">‹</button><span id="detail-position"></span><button id="next-reference" type="button" aria-label="Next reference">›</button></div><div class="dialog-tools"><button id="detail-motion" type="button" aria-pressed="true">Pause GIFs</button><button id="close-detail" type="button" aria-label="Close reference">Close</button></div></div>
+    <div class="detail-layout"><section class="detail-art" aria-label="Reference media"><div id="detail-media" class="detail-media"></div><div id="media-picker" class="media-picker"></div><p id="media-credit" class="media-credit"></p></section><section class="detail-info"><div class="detail-heading"><h2 id="detail-title"></h2><button id="detail-save" type="button" aria-pressed="false">Save</button></div><p id="detail-studio" class="quiet"></p><p id="detail-summary"></p><div id="detail-people"></div><div id="detail-tags" class="tags"></div><section class="analysis-section"><h3>Acting notes</h3><div id="detail-observations"></div></section><section class="analysis-section"><h3>Ideas for MIST <span class="quiet">our inference</span></h3><ul id="detail-ideas"></ul></section><section class="personal-notes"><label for="why-note">What works for you?</label><textarea id="why-note" rows="3" maxlength="20000" placeholder="A blink, a held pose, a mouth shape…"></textarea><p id="note-status" class="quiet" aria-live="polite">Saved in this browser.</p></section><details id="source-details"><summary>Sources & research limits</summary><div id="detail-sources"></div><p id="detail-research-notes"></p></details></section></div>
+  </dialog>
+  <dialog id="export-dialog" class="export-dialog" aria-labelledby="export-title"><h2 id="export-title">Your notes</h2><p id="export-summary"></p><div class="export-actions"><button id="export-json" type="button">Download JSON</button><button id="export-markdown" type="button">Download shortlist</button><label class="file-button">Import notes<input id="import-notes" type="file" accept="application/json,.json"></label></div><p id="import-status" aria-live="polite"></p><button id="close-export" type="button">Close</button></dialog>
+  <noscript><p class="empty-state">This reference board needs JavaScript. <a href="research.md">Read the research notes</a>.</p></noscript>
+</body>
+</html>

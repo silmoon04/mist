@@ -1,0 +1,17 @@
+{
+  "date": "2026-09-29",
+  "catalogSha256": "489dd7822c08ccdbfbc47ae612608ec2d9e91d46663b30dabbe093d80e602f9e",
+  "studies": 35,
+  "files": {
+    "index.html": "a382d599065f1a3dff63e57a3e4d3a46b5f5cb7223c544e7c17445ff97cd75e7",
+    "style.css": "5be672155e92680f27807d4f05108077d0b80b8fd75c26f08f5d77c1877859f0",
+    "app.js": "3ed2f2281d01a15a78cf2fda319a7712aa2ace0934a085a8356ff3d02f0ec6b7",
+    "review-state.js": "9e9f70f2cd93ee2b93bc0b9dfb6e9eef181ccb86deb1ffa4a1db67f7c5242950",
+    "catalog.json": "489dd7822c08ccdbfbc47ae612608ec2d9e91d46663b30dabbe093d80e602f9e",
+    "research.md": "012cb3e35a15c9ee052a110a80a2a216642fc59deac7f3fedfa7a03e9cd73e02",
+    "sources.csv": "df7f01492ce854bc109ff300850719baa959fd5eae08f0a8aae57c28bda96ad2",
+    "research-summary.json": "8897525317e6304703a2e302c04cd6bb900568d71d42ec0fc90601fc1eefb31c",
+    "mist-direction.md": "126a55ecf0660d70f18a2bbe99790b85fd8ddfab0bac96c14513b718aa73772f",
+    "README.md": "9c2c19cb7e71538884a3ed18956c8fc12289dbf857a39f0eb2dd2d7ed6471966"
+  }
+}

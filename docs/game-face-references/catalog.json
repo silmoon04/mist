@@ -1,0 +1,3081 @@
+[
+  {
+    "id": "later-alligator-sweet-geraldine",
+    "title": "Later Alligator: Sweet Geraldine and character-specific reactions",
+    "studio": "SmallBu Animation Studio / Pillow Fight",
+    "category": "handdrawn",
+    "people": [
+      {
+        "name": "Lindsay Small-Butera",
+        "role": "Director; writing, concepting, storyboarding, animation and design (self-described in interview)",
+        "sourceUrl": "https://community.wacom.com/en-gb/later-alligator-a-qa-with-the-small-buteras/"
+      },
+      {
+        "name": "Alex Small-Butera",
+        "role": "Keyframer; animation and design (described by Lindsay in joint interview)",
+        "sourceUrl": "https://community.wacom.com/en-gb/later-alligator-a-qa-with-the-small-buteras/"
+      }
+    ],
+    "tags": [
+      "eyes",
+      "mouth",
+      "dialogue reactions",
+      "personality",
+      "asymmetry"
+    ],
+    "summary": "Large directional eyes and a small curved mouth make a boastful dialogue pose legible without a large facial rig.",
+    "observations": [
+      {
+        "text": "In the inspected Sweet Geraldine frame, huge eyes look upward while the small mouth curves up toward the snout. A fang and tilted face add personality; the pose reads alongside her boast about being a claw-machine mastermind.",
+        "basis": "visual observation",
+        "sourceUrl": "https://community.wacom.com/en-gb/later-alligator-a-qa-with-the-small-buteras/"
+      },
+      {
+        "text": "Lindsay says the reaction sets were decided case by case around each alligator's conversation nodes, with shared categories including wins, losses, happy, sad, disappointed and angry.",
+        "basis": "creator statement",
+        "sourceUrl": "https://community.wacom.com/en-gb/later-alligator-a-qa-with-the-small-buteras/"
+      },
+      {
+        "text": "The duo describe getting the feeling of the gesture down rapidly and refining it in later passes. Alex describes exporting labeled PNG sequences from Harmony for assembly in Unity.",
+        "basis": "creator statement",
+        "sourceUrl": "https://community.wacom.com/en-gb/later-alligator-a-qa-with-the-small-buteras/"
+      }
+    ],
+    "mistIdeas": [
+      "Our inference: give MIST distinct confident, sheepish and uncertain resting mouth shapes before adding movement. The eyes should establish attention, with the mouth providing attitude.",
+      "Our inference: author reactions to concrete events such as recognition, misunderstanding and successful completion. Reuse broad emotion categories but choose a different held pose for each event."
+    ],
+    "media": [
+      {
+        "kind": "gif",
+        "url": "https://community.wacom.com/en-us/us/wp-content/uploads/sites/40/2019/10/lateralligator.gif",
+        "sourceUrl": "https://community.wacom.com/en-gb/later-alligator-a-qa-with-the-small-buteras/",
+        "credit": "SmallBu / Pillow Fight; hosted in Wacom interview",
+        "alt": "Sweet Geraldine dialogue and expressive alligator face",
+        "verified": true,
+        "motionVerified": false
+      },
+      {
+        "kind": "youtube",
+        "url": "https://www.youtube.com/watch?v=YbmKuBrDhow",
+        "sourceUrl": "https://community.wacom.com/en-gb/later-alligator-a-qa-with-the-small-buteras/",
+        "credit": "SmallBu / Pillow Fight",
+        "alt": "Official Later Alligator trailer embedded in creator interview",
+        "verified": true,
+        "motionVerified": false
+      }
+    ],
+    "sources": [
+      {
+        "title": "Later Alligator: A Q&A with the Small-Buteras",
+        "url": "https://community.wacom.com/en-gb/later-alligator-a-qa-with-the-small-buteras/",
+        "kind": "artist",
+        "supports": "Named division of work, character-specific reaction design, drawing and export process; supplied GIF"
+      },
+      {
+        "title": "Chomping through Later Alligator with Lindsay Small-Butera",
+        "url": "https://www.toonboom.com/later-alligator-lindsay-small-butera",
+        "kind": "artist",
+        "supports": "Lindsay's account of animation and interactive writing"
+      }
+    ],
+    "confidence": "high",
+    "researchNotes": "Direct GIF returned HTTP 200 image/gif and was visually inspected through a browser screenshot. Only a sampled still was inspected; no claims about timing, blink cadence or transitions. Joint authorship is established, but the individual animator of this exact GIF is not identified.",
+    "branch": "narrative",
+    "featured": true,
+    "displayTitle": "Later Alligator / Sweet Geraldine"
+  },
+  {
+    "id": "slime-rancher-face-shader",
+    "title": "Slime Rancher: six faces and a separate mouth mask",
+    "studio": "Monomi Park",
+    "category": "process",
+    "people": [
+      {
+        "name": "Ian McConville",
+        "role": "Principal Artist; author of the Slime Rancher 1.4.0 face-shader rebuild (the post spells the title 'Principle Artist')",
+        "sourceUrl": "https://store.steampowered.com/news/posts/?appids=433340&enddate=1576525914&feed=steam_community_announcements"
+      }
+    ],
+    "tags": [
+      "graphic face",
+      "mouth masks",
+      "expression vocabulary",
+      "small eyes",
+      "shader"
+    ],
+    "summary": "A developer-supplied six-face GIF shows how much expression can fit on the same nearly featureless round body.",
+    "observations": [
+      {
+        "text": "In the inspected GIF frame, the happy bottom-centre face uses dot eyes and a broad open mouth; the worried bottom-right face retains tiny eyes but replaces that mouth with a small downturned shape. The body design stays consistent.",
+        "basis": "visual observation",
+        "sourceUrl": "https://store.steampowered.com/news/posts/?appids=433340&enddate=1576525914&feed=steam_community_announcements"
+      },
+      {
+        "text": "The startled bottom-left face enlarges the eye marks and uses a small open mouth. This is an expression-shape comparison, not a verified timing analysis.",
+        "basis": "visual observation",
+        "sourceUrl": "https://store.steampowered.com/news/posts/?appids=433340&enddate=1576525914&feed=steam_community_announcements"
+      },
+      {
+        "text": "McConville describes separate eye and mouth channels in an RGBA distance-field mask, mouth-size changes through smoothstep, and UV noise for face wobble. He says swapping the source texture produces different faces.",
+        "basis": "creator statement",
+        "sourceUrl": "https://store.steampowered.com/news/posts/?appids=433340&enddate=1576525914&feed=steam_community_announcements"
+      }
+    ],
+    "mistIdeas": [
+      "Our inference: keep MIST's familiar eyes and body, and author a small set of clearly different mouth silhouettes before adding more continuous movement.",
+      "Our inference: separate gaze, eye aperture, and mouth state so a listening response can move the eyes first and change the mouth only after recognition. The delayed timing is our proposal, not a measured property of this GIF.",
+      "Our inference: use wobble as a small secondary effect; it should not replace authored reactions or make every state equally active."
+    ],
+    "media": [
+      {
+        "kind": "gif",
+        "url": "https://steamcdn-a.akamaihd.net/steamcommunity/public/images/clans/11544764/dbcc1e5c037a11b9f2583407bb057fc247464ac2.gif",
+        "sourceUrl": "https://store.steampowered.com/news/posts/?appids=433340&enddate=1576525914&feed=steam_community_announcements",
+        "credit": "Ian McConville / Monomi Park",
+        "alt": "Six pink slimes compare angry, distressed, altered-eye, startled, happy and worried face shapes.",
+        "verified": true,
+        "motionVerified": false
+      }
+    ],
+    "sources": [
+      {
+        "title": "Slime Faces: Behind The Scenes, 25 June 2019",
+        "url": "https://store.steampowered.com/news/posts/?appids=433340&enddate=1576525914&feed=steam_community_announcements",
+        "kind": "developer",
+        "supports": "Named artist, face shader design, exact official GIF and its context."
+      }
+    ],
+    "confidence": "high",
+    "researchNotes": "GIF URL extracted from the rendered developer post and loaded successfully. A displayed frame was inspected; continuous motion was not perceived or measured. McConville is not relabelled as a credited character animator.",
+    "branch": "3d",
+    "featured": true,
+    "displayTitle": "Slime Rancher / six faces"
+  },
+  {
+    "id": "dicey-dungeons-lady-luck-warrior",
+    "title": "Dicey Dungeons: Lady Luck and the newly transformed warrior",
+    "studio": "Terry Cavanagh, Marlowe Dobbe and Chipzel",
+    "category": "cozy",
+    "people": [
+      {
+        "name": "Marlowe Dobbe",
+        "role": "Art and Animation",
+        "sourceUrl": "https://diceydungeons.com/credits.html"
+      }
+    ],
+    "tags": [
+      "half-lidded eyes",
+      "sideways gaze",
+      "contrasting expressions",
+      "simple face",
+      "dialogue"
+    ],
+    "summary": "An official dialogue GIF gives a clear comparison between composed, knowing attention and open excitement in the same scene.",
+    "observations": [
+      {
+        "text": "In the inspected GIF frame, Lady Luck has a half-lidded sideways eye, a high curved brow and a small angular smile. The warrior has open eyes, raised brows and an open grin. Their attitudes remain distinct at a glance.",
+        "basis": "visual observation",
+        "sourceUrl": "https://terrycavanaghgames.com/dice/presskit/xbox/"
+      },
+      {
+        "text": "The facial contrast is supported by gesture: Lady Luck presents an open palm while the warrior holds his sword up. Only a sampled GIF frame was inspected; this does not establish timing or lip-sync behavior.",
+        "basis": "visual observation",
+        "sourceUrl": "https://terrycavanaghgames.com/dice/presskit/xbox/"
+      }
+    ],
+    "mistIdeas": [
+      "Our inference: build a mildly amused listening pose around eyelid height and sideways gaze, then keep that eye pose while the mouth changes for speech.",
+      "Our inference: distinguish alert delight from ordinary warmth with eye opening and brow height before increasing mouth size. Avoid giving every positive state the warrior's excited grin."
+    ],
+    "media": [
+      {
+        "kind": "gif",
+        "url": "https://terrycavanaghgames.com/dice/presskit/xbox/dicey_dungeons/images/amdicenow.gif",
+        "sourceUrl": "https://terrycavanaghgames.com/dice/presskit/xbox/",
+        "credit": "Marlowe Dobbe / Dicey Dungeons team",
+        "alt": "Lady Luck's half-lidded expression contrasts with the warrior's open-eyed grin during dialogue.",
+        "verified": true,
+        "motionVerified": false
+      },
+      {
+        "kind": "youtube",
+        "url": "https://www.youtube.com/embed/E2AdLWsRuHg",
+        "sourceUrl": "https://terrycavanaghgames.com/dice/presskit/xbox/",
+        "credit": "Dicey Dungeons team",
+        "alt": "Launch trailer linked by the official press kit; continuous motion not inspected.",
+        "verified": true,
+        "motionVerified": false
+      }
+    ],
+    "sources": [
+      {
+        "title": "Dicey Dungeons credits",
+        "url": "https://diceydungeons.com/credits.html",
+        "kind": "developer",
+        "supports": "Explicit Art and Animation credit for Marlowe Dobbe."
+      },
+      {
+        "title": "Dicey Dungeons portfolio",
+        "url": "https://marlowedobbe.com/dicey-dungeons",
+        "kind": "artist",
+        "supports": "Artist's own project page confirms art and animation and supplies additional game media."
+      },
+      {
+        "title": "Dicey Dungeons Xbox press kit",
+        "url": "https://terrycavanaghgames.com/dice/presskit/xbox/",
+        "kind": "official media",
+        "supports": "Source of the supplied dialogue GIF and launch trailer."
+      }
+    ],
+    "confidence": "high",
+    "researchNotes": "GIF URL was extracted from the live press-kit HTML and rendered in the browser. Analysis is from one displayed frame. No continuous motion, frame counts, timing or exact lip-sync claim. This is a character-led adjacent reference, not a farming/cozy genre claim.",
+    "branch": "cozy",
+    "featured": true,
+    "displayTitle": "Dicey Dungeons / Lady Luck"
+  },
+  {
+    "id": "omori-held-pencil-face",
+    "title": "OMORI: a held face with changing pencil contours",
+    "studio": "OMOCAT, LLC.",
+    "category": "dialogue",
+    "people": [
+      {
+        "name": "OMOCAT",
+        "role": "OMORI Game Director, Illustrator, Writer, Programmer, Animator / Video Editor, among other project roles listed in the artist CV; individual GIF authorship is not separately itemized.",
+        "sourceUrl": "https://www.omocat.com/pagecv"
+      }
+    ],
+    "tags": [
+      "held expression",
+      "line boil",
+      "small mouth",
+      "grayscale",
+      "restraint"
+    ],
+    "summary": "The supplied portrait GIF keeps a nearly neutral face while the contours change slightly, showing how a held expression can remain visibly drawn without constant emotional movement.",
+    "observations": [
+      {
+        "text": "The artist's portfolio GIF has a frontal head, dark oval eyes, gently angled brows and a very small mouth. Across its three decoded frames, the same neutral expression remains while hair, shoulders and contours shift slightly.",
+        "basis": "visual observation",
+        "sourceUrl": "https://www.omocat.com/omori"
+      },
+      {
+        "text": "The mouth remains tiny relative to the eyes and dark hair mass. The drawing does not need a wide mouth or a smile to read as a face; this is useful when a character is listening or withholding a response.",
+        "basis": "visual observation",
+        "sourceUrl": "https://www.omocat.com/omori"
+      },
+      {
+        "text": "OMOCAT's portfolio CV explicitly includes animation and video editing among their OMORI roles. It also credits illustration separately, so this is stronger evidence than inferring animation work from a general art credit.",
+        "basis": "creator statement",
+        "sourceUrl": "https://www.omocat.com/pagecv"
+      }
+    ],
+    "mistIdeas": [
+      "Our inference: design a readable listening pose with a very small mouth and stable gaze, then allow only a faint surface or contour variation if it suits MIST's existing material.",
+      "Our inference: reserve a blink, gaze change or mouth opening for a conversational event. A held emotional pose and visual texture can be controlled independently.",
+      "Our inference: do not copy pencil jitter directly onto a robot display without testing. The transferable choice is restrained acting; the handmade texture is optional."
+    ],
+    "media": [
+      {
+        "kind": "gif",
+        "url": "https://images.squarespace-cdn.com/content/v1/61d61babf89b4d299bb8ea6b/bbde21ae-c89f-45a3-afc4-8eeb9e2f557f/tumblr_oj3c4gMAW71qegob8o7_r1_640.gif",
+        "sourceUrl": "https://www.omocat.com/omori",
+        "credit": "OMOCAT / OMOCAT, LLC.",
+        "alt": "Official portfolio GIF of OMORI's frontal neutral portrait with small changes in pencil contours",
+        "verified": true,
+        "motionVerified": false
+      },
+      {
+        "kind": "gif",
+        "url": "https://images.squarespace-cdn.com/content/v1/61d61babf89b4d299bb8ea6b/20496e94-27ca-40b4-aa56-5b26a1ac3088/tumblr_n4ebp7GzDg1qegob8o2_500.gif",
+        "sourceUrl": "https://www.omocat.com/omori",
+        "credit": "OMOCAT / OMOCAT, LLC.",
+        "alt": "Official portfolio GIF, inspected still shows a pencil-drawn face resting on a pillow with closed eyelids",
+        "verified": true,
+        "motionVerified": false
+      }
+    ],
+    "sources": [
+      {
+        "title": "OMORI, 2014-2020, OMOCAT portfolio",
+        "url": "https://www.omocat.com/omori",
+        "kind": "artist",
+        "supports": "Creator-supplied original GIF links and project authorship statement."
+      },
+      {
+        "title": "OMOCAT CV",
+        "url": "https://www.omocat.com/pagecv",
+        "kind": "artist",
+        "supports": "Explicit, separate illustration and animation/video-editing project roles."
+      }
+    ],
+    "confidence": "high",
+    "researchNotes": "Main GIF's three stored frames were decoded and inspected individually; this verifies drawing differences but not continuous motion perception. motionVerified remains false. The frame count describes this supplied portfolio GIF only, not a game production specification. No clip timestamps or dialogue cue timings were verified.",
+    "branch": "dialogue",
+    "featured": true,
+    "displayTitle": "OMORI / pencil portrait"
+  },
+  {
+    "id": "cuphead-hopus-pocus-pencil",
+    "title": "Cuphead: Hopus Pocus: mouth shapes that change the character",
+    "studio": "Studio MDHR",
+    "category": "handdrawn",
+    "people": [
+      {
+        "name": "Tina Nawrocki",
+        "role": "Animator of Hopus Pocus, identified in her own production post",
+        "sourceUrl": "https://tinanawrocki.blogspot.com/2017/10/cuphead-hopus-pocus-magician-rabbit.html"
+      }
+    ],
+    "tags": [
+      "eyes",
+      "mouth silhouettes",
+      "asymmetry",
+      "identity anchors",
+      "pencil drawings"
+    ],
+    "summary": "A small two-tooth smile and a predatory grin feel different while preserving the same rabbit.",
+    "observations": [
+      {
+        "text": "The first attack drawing has a small mouth and two front teeth beneath narrowed, offset eyelids. Other drawings expose a long serrated grin and larger eye openings.",
+        "basis": "visual observation",
+        "sourceUrl": "https://tinanawrocki.blogspot.com/2017/10/cuphead-hopus-pocus-magician-rabbit.html"
+      },
+      {
+        "text": "The smear drawing stretches head and hands together. Nose, eye masses and grin remain grouped rather than moving as unrelated parts.",
+        "basis": "visual observation",
+        "sourceUrl": "https://tinanawrocki.blogspot.com/2017/10/cuphead-hopus-pocus-magician-rabbit.html"
+      },
+      {
+        "text": "The death drawing stretches the neck and pulls the eyes into unequal vertical shapes; nose and ears still identify the rabbit.",
+        "basis": "visual observation",
+        "sourceUrl": "https://tinanawrocki.blogspot.com/2017/10/cuphead-hopus-pocus-magician-rabbit.html"
+      }
+    ],
+    "mistIdeas": [
+      "Our inference: draw different mouth silhouettes for interest, delight and alarm rather than scaling one oval.",
+      "Our inference: test one coordinated facial distortion followed by a return to the neutral layout; these stills do not establish its duration."
+    ],
+    "media": [
+      {
+        "kind": "image",
+        "url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhyduftNE9evT6t4k80_zW-g77MEq15p11WBbN_Wn4UaXQe6bfCNgLYejq1oh-qpzNi-ztdnDz1jygM65P1b0b2Lfp6guUv09Fk8sPAFpxogfmVp3P2-A58XAwYFoTvJHtiy5ch4aihSYH9/s1600/RabbitAttack00000.png",
+        "sourceUrl": "https://tinanawrocki.blogspot.com/2017/10/cuphead-hopus-pocus-magician-rabbit.html",
+        "credit": "Tina Nawrocki / Studio MDHR",
+        "alt": "Hopus Pocus: mouth shapes that change the character - original pencil drawing RabbitAttack00000.png",
+        "verified": true,
+        "motionVerified": false
+      },
+      {
+        "kind": "image",
+        "url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEguQXXOFJZXbiXVJNkGsQz40m5ICjeR5UyLIcy8EfgHPGIPqYhe-bITMY_5DogqeyOUFgTuNDXOnYWkHbT2u7y2YOBu0-LjRYwld3BFs52MPNrK6JQwLEPzthj3lq9gKj-UsbsSqUvFHJBc/s1600/RabbitAttack00007.png",
+        "sourceUrl": "https://tinanawrocki.blogspot.com/2017/10/cuphead-hopus-pocus-magician-rabbit.html",
+        "credit": "Tina Nawrocki / Studio MDHR",
+        "alt": "Hopus Pocus: mouth shapes that change the character - original pencil drawing RabbitAttack00007.png",
+        "verified": true,
+        "motionVerified": false
+      },
+      {
+        "kind": "image",
+        "url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEigCRJ-R4qsRdye-jVHy5r_af6QGhv3jcFPvChodeO7Bho44pFqjsyQ-xVu-k1_ta8k7ok5S61STzYeB2BpwZWJoO4GYC_80l_xylJNjT-rvYrvSYSURCPEOIHYNU_m7fY1PUcMqlBgqocg/s1600/RabbitAttack00023.png",
+        "sourceUrl": "https://tinanawrocki.blogspot.com/2017/10/cuphead-hopus-pocus-magician-rabbit.html",
+        "credit": "Tina Nawrocki / Studio MDHR",
+        "alt": "Hopus Pocus: mouth shapes that change the character - original pencil drawing RabbitAttack00023.png",
+        "verified": true,
+        "motionVerified": false
+      },
+      {
+        "kind": "image",
+        "url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh-OgTklTqg86O8onOYOFuPHBy-GMhTWMEse4CiUiCHs9kq4SQJSAKOes6JIMHs8hlhga-OV4E4V_lAAz57bXfq3w_SObSv7Lt0liVMV1z679ehWxsvkoWYrwJ07lBmN9JwChSBGpO8rrS5/s1600/RabbitAttack00024.png",
+        "sourceUrl": "https://tinanawrocki.blogspot.com/2017/10/cuphead-hopus-pocus-magician-rabbit.html",
+        "credit": "Tina Nawrocki / Studio MDHR",
+        "alt": "Hopus Pocus: mouth shapes that change the character - original pencil drawing RabbitAttack00024.png",
+        "verified": true,
+        "motionVerified": false
+      },
+      {
+        "kind": "image",
+        "url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhnBMLljcIqxcUMOUMMXIy_wGvXmT9KZvZHJF-GUG89nkeyQVZTnL8Srphuf0UVxS-kG4Sn5ne5F5sYXL07xjwlsQiWnXmCETgT8jEOlUQ2vxyol0AyPm9yHaYiFuie7x_KNLewBFObZn1e/s1600/RabbitDeath00003.png",
+        "sourceUrl": "https://tinanawrocki.blogspot.com/2017/10/cuphead-hopus-pocus-magician-rabbit.html",
+        "credit": "Tina Nawrocki / Studio MDHR",
+        "alt": "Hopus Pocus: mouth shapes that change the character - original pencil drawing RabbitDeath00003.png",
+        "verified": true,
+        "motionVerified": false
+      },
+      {
+        "kind": "page",
+        "url": "https://tinanawrocki.blogspot.com/2017/10/cuphead-hopus-pocus-magician-rabbit.html",
+        "sourceUrl": "https://tinanawrocki.blogspot.com/2017/10/cuphead-hopus-pocus-magician-rabbit.html",
+        "credit": "Tina Nawrocki / Studio MDHR",
+        "alt": "Animator post with embedded original pencil-test videos",
+        "verified": true,
+        "motionVerified": false
+      }
+    ],
+    "sources": [
+      {
+        "title": "Tina Nawrocki: Hopus Pocus: mouth shapes that change the character",
+        "url": "https://tinanawrocki.blogspot.com/2017/10/cuphead-hopus-pocus-magician-rabbit.html",
+        "kind": "artist",
+        "supports": "Authorship, production drawings and embedded pencil-test clips."
+      }
+    ],
+    "confidence": "high",
+    "researchNotes": "Original stills fetched successfully and visually inspected. Blogger video embeds located in source HTML but not continuously viewed. No hold duration, transition order, recovery timing or blink motivation inferred from the selected stills.",
+    "branch": "handdrawn",
+    "featured": true,
+    "displayTitle": "Cuphead / Hopus Pocus",
+    "previewIndex": 2
+  },
+  {
+    "id": "smile-for-me-response-comparisons",
+    "title": "Smile For Me: Putunia and Jerafina response comparisons",
+    "studio": "LimboLane",
+    "category": "dialogue",
+    "people": [
+      {
+        "name": "Yugo Limbo",
+        "role": "Co-creator (official press credits); animator, game developer and comic artist (official studio biography)",
+        "sourceUrl": "https://limbolane.com/games/smile-for-me/press"
+      },
+      {
+        "name": "Day Lane",
+        "role": "Co-creator (official press credits); producer, programmer and gameplay designer (official studio biography)",
+        "sourceUrl": "https://limbolane.com/about"
+      }
+    ],
+    "tags": [
+      "response",
+      "mouth",
+      "gaze",
+      "personality",
+      "conversation"
+    ],
+    "summary": "Official side-by-side nod/shake GIFs connect expression references directly to a player's conversational response.",
+    "observations": [
+      {
+        "text": "The sampled Putunia frame pairs a small, clenched-looking mouth and intense narrow eyes with a raised boxing glove and question marks. The body and face both support the confrontational line.",
+        "basis": "visual observation",
+        "sourceUrl": "https://limbolane.com/games/smile-for-me"
+      },
+      {
+        "text": "The sampled Jerafina frame uses a tilted face, conspicuous lips, a relaxed seated pose and crossed legs for a very different conversational attitude from Putunia.",
+        "basis": "visual observation",
+        "sourceUrl": "https://limbolane.com/games/smile-for-me"
+      },
+      {
+        "text": "The official page supplies comparison GIFs named for nod/shake responses. The press history attributes the nod-and-shake controls to Day and the collage-art and live-action puppetry direction to Yugo.",
+        "basis": "creator statement",
+        "sourceUrl": "https://limbolane.com/games/smile-for-me/press"
+      }
+    ],
+    "mistIdeas": [
+      "Our inference: design separate acknowledging and declining responses. A nod should settle into attentive eyes, while a decline could use a small sideways gaze and a restrained mouth instead of a universal happy bounce.",
+      "Our inference: retain a little character attitude during interaction. The same input can have more personality than a generic checkmark."
+    ],
+    "media": [
+      {
+        "kind": "gif",
+        "url": "https://images.ctfassets.net/uhpvzhjs1ddl/33Zq1xMfT58jEYUx2rTSvd/334f2558cd1e6e0cc4618b8861d404f1/SFM_GIF_Nod_Shake_Comparison_Putunia.gif",
+        "sourceUrl": "https://limbolane.com/games/smile-for-me",
+        "credit": "LimboLane",
+        "alt": "Putunia side-by-side nod/shake comparison",
+        "verified": true,
+        "motionVerified": false
+      },
+      {
+        "kind": "gif",
+        "url": "https://images.ctfassets.net/uhpvzhjs1ddl/2hBB5VqN7IvFIPK9sxqBru/b6b44e65225c9465e26d5975516d21be/SFM_GIF_Nod_Shake_Comparison_Jerafina.gif",
+        "sourceUrl": "https://limbolane.com/games/smile-for-me",
+        "credit": "LimboLane",
+        "alt": "Jerafina side-by-side nod/shake comparison",
+        "verified": true,
+        "motionVerified": false
+      }
+    ],
+    "sources": [
+      {
+        "title": "Smile For Me official page",
+        "url": "https://limbolane.com/games/smile-for-me",
+        "kind": "developer",
+        "supports": "Source-hosted response comparison GIFs"
+      },
+      {
+        "title": "Smile For Me official press kit",
+        "url": "https://limbolane.com/games/smile-for-me/press",
+        "kind": "developer",
+        "supports": "Co-creator credits and division of creative interests"
+      },
+      {
+        "title": "About LimboLane",
+        "url": "https://limbolane.com/about",
+        "kind": "developer",
+        "supports": "Yugo's animator role and Day's production, programming and design roles"
+      }
+    ],
+    "confidence": "high",
+    "researchNotes": "Both direct GIFs returned HTTP 200 image/gif and were inspected as browser stills. Their response-comparison purpose is established by official labels, but the complete animated differences and exact timing were not observed. The official sources do not assign every 2D character shot solely to Yugo. Legacy /presskit/SmileForMe/index.html is a 404; current /games/smile-for-me/press works.",
+    "branch": "narrative",
+    "featured": true,
+    "displayTitle": "Smile For Me / responses"
+  },
+  {
+    "id": "isat-odile-mixed-affect",
+    "title": "In Stars and Time: Odile's wry reassurance",
+    "studio": "insertdisc5; published by Armor Games Studios",
+    "category": "dialogue",
+    "people": [
+      {
+        "name": "Adrienne Bazir (insertdisc5)",
+        "role": "Game developer and cartoonist with 2D animation experience; developer of In Stars and Time. Individual portrait animation credit not established here.",
+        "sourceUrl": "https://www.insertdisc5.com/about"
+      }
+    ],
+    "tags": [
+      "mixed feelings",
+      "half-lidded eyes",
+      "asymmetry",
+      "grayscale",
+      "dialogue portraits"
+    ],
+    "summary": "A half-smile and tired, pinched eyes make reassurance sound dry and complicated before the sentence is finished.",
+    "observations": [
+      {
+        "text": "In the official Odile screenshot, the mouth lifts in a small uneven smile while the eyes remain heavily lidded. The inner brow area pinches upward. The combination reads as wry concern rather than uncomplicated happiness; that emotional reading is our visual interpretation.",
+        "basis": "visual observation",
+        "sourceUrl": "https://armor-games-studios.itch.io/in-stars-and-time"
+      },
+      {
+        "text": "The portrait reaches above the dialogue box and includes an angled upper body. This lets the face retain its fine eye and mouth shapes while the torso supplies a relaxed attitude.",
+        "basis": "visual observation",
+        "sourceUrl": "https://armor-games-studios.itch.io/in-stars-and-time"
+      },
+      {
+        "text": "The official battle screenshot gives four simultaneous face treatments: a narrow-eyed smirk, a worried mouth with sweat, an active open-mouth attack pose, and a downturned tired face. Their differences remain readable without hue.",
+        "basis": "visual observation",
+        "sourceUrl": "https://armor-games-studios.itch.io/in-stars-and-time"
+      }
+    ],
+    "mistIdeas": [
+      "Our inference: author a reassuring-but-unsure pose with a small smile, lowered lids and a slight inward lift at the brow; avoid moving every feature toward a single happy/sad label.",
+      "Our inference: use a three-pose cue sequence for a difficult answer: attentive hold, wry acknowledgement at the qualifying clause, then a quieter recovery. Exact durations would need testing; none are measured from this screenshot.",
+      "Our inference: judge the expression in grayscale and at final display size before adding color or effects. Preserve MIST's silhouette while changing the relationship between lid angle and mouth asymmetry."
+    ],
+    "media": [
+      {
+        "kind": "image",
+        "url": "https://img.itch.zone/aW1hZ2UvMTM5MDUxMS8xMzYzNTA1MC5wbmc=/original/hnB32k.png",
+        "sourceUrl": "https://armor-games-studios.itch.io/in-stars-and-time",
+        "credit": "insertdisc5 / Armor Games Studios",
+        "alt": "Odile dialogue portrait with half-lidded eyes and a wry smile beside a remark about resting before the end of the world",
+        "verified": true,
+        "motionVerified": false
+      },
+      {
+        "kind": "image",
+        "url": "https://img.itch.zone/aW1hZ2UvMTM5MDUxMS8xMzYzNTA2MS5wbmc=/original/NbpSwM.png",
+        "sourceUrl": "https://armor-games-studios.itch.io/in-stars-and-time",
+        "credit": "insertdisc5 / Armor Games Studios",
+        "alt": "Four grayscale battle portraits showing contrasting eye, brow and mouth choices",
+        "verified": true,
+        "motionVerified": false
+      },
+      {
+        "kind": "youtube",
+        "url": "https://www.youtube-nocookie.com/embed/Glec7uzohbg?feature=oembed",
+        "sourceUrl": "https://armorgamesstudios.com/games/in-stars-and-time",
+        "credit": "insertdisc5 / Armor Games Studios",
+        "alt": "Official In Stars and Time release trailer, supplied as a motion reference for user inspection",
+        "verified": true,
+        "motionVerified": false
+      }
+    ],
+    "sources": [
+      {
+        "title": "Adrienne Bazir: About",
+        "url": "https://www.insertdisc5.com/about",
+        "kind": "artist",
+        "supports": "Name, professional background, project identity; does not individually credit each animation."
+      },
+      {
+        "title": "In Stars and Time official publisher page",
+        "url": "https://armorgamesstudios.com/games/in-stars-and-time",
+        "kind": "developer",
+        "supports": "Developer credit and official trailer link."
+      },
+      {
+        "title": "In Stars and Time official itch.io page",
+        "url": "https://armor-games-studios.itch.io/in-stars-and-time",
+        "kind": "official media",
+        "supports": "Source of the inspected full-size screenshots."
+      }
+    ],
+    "confidence": "high",
+    "researchNotes": "Two full-size official screenshots visually inspected. Trailer URL verified from publisher link, but video not continuously watched; no timestamps or production timing claims. Official itch GIF g1Yra4.gif was inspected as a still and mainly shows the overworld, so it was not selected as the face reference.",
+    "branch": "dialogue",
+    "featured": true,
+    "displayTitle": "In Stars and Time / Odile"
+  },
+  {
+    "id": "chicory-feeling-first-faces",
+    "title": "Chicory: Alexis Dean-Jones's feeling-first character poses",
+    "studio": "Wishes Unlimited / Chicory development team",
+    "category": "graphic",
+    "people": [
+      {
+        "name": "Alexis Dean-Jones",
+        "role": "Artist & Animator; character design and animation",
+        "sourceUrl": "https://www.alexisdeanjones.com/about"
+      },
+      {
+        "name": "Greg Lobanov",
+        "role": "Director",
+        "sourceUrl": "https://chicorygame.com/"
+      }
+    ],
+    "tags": [
+      "mouth",
+      "eyes",
+      "pose",
+      "silhouette",
+      "expression studies"
+    ],
+    "summary": "The animator's published development drawings show how head angle, eyelids and mouth silhouette can carry a feeling before motion is added.",
+    "observations": [
+      {
+        "text": "The published dog sketchbook page includes a huge open-mouth, raised-brush pose alongside compressed, side-looking and smaller-mouth poses. Eye size, mouth opening and head angle change together.",
+        "basis": "visual observation",
+        "sourceUrl": "https://community.wacom.com/en-us/wp-content/uploads/sites/40/2020/01/1473899aad3904e92e7c03e3ec438933_original.png"
+      },
+      {
+        "text": "The adjacent character study contrasts drooping lids and lowered heads with sharply angled profiles. These are pose drawings, not evidence of transition timing.",
+        "basis": "visual observation",
+        "sourceUrl": "https://community.wacom.com/en-us/wp-content/uploads/sites/40/2020/01/e43be3de2c2c2ebae1488de3e1f8d54d_original.png"
+      },
+      {
+        "text": "Dean-Jones says she often starts with a feeling and conveys it through expression or pose, and uses animal videos to understand movement, angles and proportions.",
+        "basis": "creator statement",
+        "sourceUrl": "https://community.wacom.com/en-us/designing-chicorys-creatures-with-alexis-dean-jones/"
+      }
+    ],
+    "mistIdeas": [
+      "Our inference: draw one unmistakable still for listening, uncertainty, recognition and delight before animating any transition.",
+      "Our inference: coordinate MIST's eye aperture and mouth opening around the same feeling; avoid mixing a delighted mouth with an unrelated neutral gaze.",
+      "Our inference: make acknowledgement a change in head/face orientation plus expression, then hold long enough to read before recovering."
+    ],
+    "media": [
+      {
+        "kind": "image",
+        "url": "https://community.wacom.com/en-us/wp-content/uploads/sites/40/2020/01/1473899aad3904e92e7c03e3ec438933_original.png",
+        "sourceUrl": "https://community.wacom.com/en-us/designing-chicorys-creatures-with-alexis-dean-jones/",
+        "credit": "Alexis Dean-Jones / Chicory; reproduced in Wacom creator interview",
+        "alt": "Dog character development sketches with varied mouth openings, head angles and brush poses",
+        "verified": true,
+        "motionVerified": false
+      },
+      {
+        "kind": "image",
+        "url": "https://community.wacom.com/en-us/wp-content/uploads/sites/40/2020/01/e43be3de2c2c2ebae1488de3e1f8d54d_original.png",
+        "sourceUrl": "https://community.wacom.com/en-us/designing-chicorys-creatures-with-alexis-dean-jones/",
+        "credit": "Alexis Dean-Jones / Chicory; reproduced in Wacom creator interview",
+        "alt": "Character studies with drooping lids, angular faces and expressive head postures",
+        "verified": true,
+        "motionVerified": false
+      },
+      {
+        "kind": "youtube",
+        "url": "https://www.youtube.com/embed/zqSZrq5LzSU",
+        "sourceUrl": "https://chicorygame.com/",
+        "credit": "Chicory development team",
+        "alt": "Official Chicory trailer embedded on the game's site",
+        "verified": true,
+        "motionVerified": false
+      },
+      {
+        "kind": "page",
+        "url": "https://www.alexisdeanjones.com/animation",
+        "sourceUrl": "https://www.alexisdeanjones.com/",
+        "credit": "Alexis Dean-Jones",
+        "alt": "Artist's animation-reel page linked from her portfolio; playback not verified",
+        "verified": true,
+        "motionVerified": false
+      }
+    ],
+    "sources": [
+      {
+        "title": "Chicory official site",
+        "url": "https://chicorygame.com/",
+        "kind": "developer",
+        "supports": "Artist & Animator and Director credits; official trailer"
+      },
+      {
+        "title": "About Alexis Dean-Jones",
+        "url": "https://www.alexisdeanjones.com/about",
+        "kind": "artist",
+        "supports": "First-person confirmation of Chicory character design and animation"
+      },
+      {
+        "title": "Designing Chicory's creatures with Alexis Dean-Jones",
+        "url": "https://community.wacom.com/en-us/designing-chicorys-creatures-with-alexis-dean-jones/",
+        "kind": "artist",
+        "supports": "Direct craft interview, development drawings, expression/pose approach"
+      }
+    ],
+    "confidence": "high",
+    "researchNotes": "Both development sheets were visually inspected. Official secretcode.gif was also sampled, but it emphasizes a puzzle rather than face acting, so it is not a lead moodboard tile. No claims about precise blink, anticipation or recovery timing. The reel page is a bibliography link, not a verified playable clip.",
+    "branch": "graphic",
+    "featured": true,
+    "displayTitle": "Chicory / character studies",
+    "previewIndex": 1
+  },
+  {
+    "id": "undertale-flowey-denial",
+    "title": "UNDERTALE: Flowey's polite face and emotional denial",
+    "studio": "Toby Fox",
+    "category": "dialogue",
+    "people": [
+      {
+        "name": "Toby Fox",
+        "role": "UNDERTALE creator and interviewer; exact authorship of the selected Alarm Clock portrait pixels is not established by the page.",
+        "sourceUrl": "https://toby.fangamer.com/interviews/temmie/"
+      },
+      {
+        "name": "Temmie Chang",
+        "role": "UNDERTALE art collaborator; separately credited as Main Artist and Main Animator on DELTARUNE Chapter 2. This is not an attribution of the Flowey portraits to her.",
+        "sourceUrl": "https://undertale.com/deltarune-update-092021/"
+      }
+    ],
+    "tags": [
+      "mixed feelings",
+      "pose changes",
+      "small face",
+      "dialogue beats",
+      "held poses"
+    ],
+    "summary": "An official sequence pairs simple smiling portraits with denial, embarrassment and a remembered act of care, giving useful examples of a face saying more than its words.",
+    "observations": [
+      {
+        "text": "The bicycle sequence changes the eye and mouth treatment while preserving Flowey's flower outline, stem and overall placement. A narrowed-eyed expression accompanies his hypothetical gift; later the face returns to a plain open-eyed smile when the desired bicycle is specified.",
+        "basis": "visual observation",
+        "sourceUrl": "https://undertale.com/alarmclock/flowey/"
+      },
+      {
+        "text": "In the inspected panels, a large-eyed smile accompanies the claim that a gift would waste everyone's time. This mismatch between friendly mouth and defensive language is a useful mixed-affect reading, not a claim about a documented production method.",
+        "basis": "visual observation",
+        "sourceUrl": "https://undertale.com/alarmclock/flowey/"
+      },
+      {
+        "text": "The published panel order includes standalone pauses before and after a painful memory. These are readable dialogue beats on a static page; the page does not establish how many milliseconds the game would hold them.",
+        "basis": "visual observation",
+        "sourceUrl": "https://undertale.com/alarmclock/flowey/"
+      },
+      {
+        "text": "In Toby Fox's interview, Temmie recalls being impressed by Flowey's acting and laugh in an early demo. This is evidence of the creators' attention to acting, not proof that Temmie animated the scene.",
+        "basis": "creator statement",
+        "sourceUrl": "https://toby.fangamer.com/interviews/temmie/"
+      }
+    ],
+    "mistIdeas": [
+      "Our inference: keep the body or chassis nearly fixed during a spoken thought, then change the face when the intention changes. This gives a small eye or mouth change more weight.",
+      "Our inference: for an awkward admission, hold a socially pleasant mouth while the eyes narrow or avert, insert a still pause, then let the mouth soften. This should be authored as an acting cue, not a generic idle loop.",
+      "Our inference: separate speech-mouth motion from the expressive mouth pose so the expression can remain readable during silence. Use the phrase boundary and the emotional turn as cue inputs."
+    ],
+    "media": [
+      {
+        "kind": "image",
+        "url": "https://undertale.com/alarmclock/flowey/flowey-03-00.png",
+        "sourceUrl": "https://undertale.com/alarmclock/flowey/",
+        "credit": "UNDERTALE / Toby Fox; individual portrait artist not verified",
+        "alt": "Flowey's open-eyed smile while specifying the bicycle he claims not to want",
+        "verified": true,
+        "motionVerified": false
+      },
+      {
+        "kind": "image",
+        "url": "https://undertale.com/alarmclock/flowey/flowey-03-01.png",
+        "sourceUrl": "https://undertale.com/alarmclock/flowey/",
+        "credit": "UNDERTALE / Toby Fox; individual portrait artist not verified",
+        "alt": "Following Flowey dialogue panel denying the usefulness of the desired bicycle",
+        "verified": true,
+        "motionVerified": false
+      },
+      {
+        "kind": "page",
+        "url": "https://undertale.com/alarmclock/flowey/",
+        "sourceUrl": "https://undertale.com/alarmclock/flowey/",
+        "credit": "UNDERTALE / Toby Fox",
+        "alt": "Full official face-and-dialogue sequence, including pauses and the remembered kindness",
+        "verified": true,
+        "motionVerified": false
+      }
+    ],
+    "sources": [
+      {
+        "title": "UNDERTALE 5th Anniversary Alarm Clock Winter Dialogue: Flowey",
+        "url": "https://undertale.com/alarmclock/flowey/",
+        "kind": "official media",
+        "supports": "Exact official sequence and portrait panel URLs; static publication, not a measured animation recording."
+      },
+      {
+        "title": "Interview Time with Temmie!",
+        "url": "https://toby.fangamer.com/interviews/temmie/",
+        "kind": "artist",
+        "supports": "First-person account of working with Toby and response to Flowey's early-demo acting."
+      },
+      {
+        "title": "DELTARUNE Status Update, September 2021",
+        "url": "https://undertale.com/deltarune-update-092021/",
+        "kind": "developer",
+        "supports": "Explicit Main Artist and Main Animator credit for Temmie on Chapter 2; Toby describes his design and writing role."
+      }
+    ],
+    "confidence": "medium",
+    "researchNotes": "Portrait panels visually inspected in the browser. Strong reference for sequential acting and subtext, but individual portrait artist not verified from first-party credits. Do not relabel this as a Temmie animation sheet. No motion or timing was inferred from the static panels.",
+    "branch": "dialogue",
+    "featured": true,
+    "displayTitle": "UNDERTALE / Flowey"
+  },
+  {
+    "id": "great-god-grove-god-faces",
+    "title": "Great God Grove: contrasting god faces",
+    "studio": "LimboLane",
+    "category": "3d",
+    "people": [
+      {
+        "name": "Jack Cornish",
+        "role": "3d animations",
+        "sourceUrl": "https://limbolane.com/games/great-god-grove/press"
+      },
+      {
+        "name": "Yugo Limbo",
+        "role": "Developer (with Day Lane); animator in official studio biography",
+        "sourceUrl": "https://limbolane.com/games/great-god-grove/press"
+      },
+      {
+        "name": "Day Lane",
+        "role": "Developer (with Yugo Limbo)",
+        "sourceUrl": "https://limbolane.com/games/great-god-grove/press"
+      }
+    ],
+    "tags": [
+      "mouth shapes",
+      "closed eyes",
+      "contrast",
+      "held poses"
+    ],
+    "summary": "A supplied god-dialogue GIF juxtaposes very different face designs while keeping the speaking face large and readable.",
+    "observations": [
+      {
+        "text": "One sampled frame pairs a long green face with closed angled eyelids on the left and a round orange face with star-shaped eyes and a small pinched mouth on the right. The compact mouth marks contrast with very different eye silhouettes.",
+        "basis": "visual observation",
+        "sourceUrl": "https://limbolane.com/games/great-god-grove/press"
+      },
+      {
+        "text": "The official press kit specifically credits Jack Cornish for 3d animations; it credits Day Lane and Yugo Limbo as developers.",
+        "basis": "creator statement",
+        "sourceUrl": "https://limbolane.com/games/great-god-grove/press"
+      }
+    ],
+    "mistIdeas": [
+      "Our inference: test emotional eye silhouettes independently from mouth size. Small closed or pinched mouths can carry a feeling when the lids or pupils already establish it.",
+      "Our inference: include at least one inward-looking pose with closed angled lids. Keep it visually different from an ordinary blink."
+    ],
+    "media": [
+      {
+        "kind": "gif",
+        "url": "https://images.ctfassets.net/uhpvzhjs1ddl/5JfVe7RAVhpR7FAH50Jfle/0084285294749e67f64ad916b5dca0d1/storepage_gif3_nosplit.gif",
+        "sourceUrl": "https://limbolane.com/games/great-god-grove/press",
+        "credit": "LimboLane; 3D animation credit Jack Cornish",
+        "alt": "Side-by-side god dialogue with contrasting eye and mouth designs",
+        "verified": true,
+        "motionVerified": false
+      }
+    ],
+    "sources": [
+      {
+        "title": "Great God Grove official press kit",
+        "url": "https://limbolane.com/games/great-god-grove/press",
+        "kind": "developer",
+        "supports": "Named animation credit and supplied dialogue GIF"
+      },
+      {
+        "title": "About LimboLane",
+        "url": "https://limbolane.com/about",
+        "kind": "developer",
+        "supports": "Studio and creator identities"
+      }
+    ],
+    "confidence": "medium",
+    "researchNotes": "GIF returned HTTP 200 image/gif and was visually inspected through a browser screenshot. Timing and full transition logic were not verified. Jack's project-wide 3D animation credit is exact, but the press kit does not attribute this individual shot. This is a useful face-shape reference with weaker shot-level authorship than the SmallBu interview.",
+    "branch": "narrative",
+    "featured": true,
+    "displayTitle": "Great God Grove / god faces"
+  },
+  {
+    "id": "cuphead-baroness-pencil",
+    "title": "Cuphead: Baroness Von Bon Bon: theatrical facial extremes",
+    "studio": "Studio MDHR",
+    "category": "handdrawn",
+    "people": [
+      {
+        "name": "Tina Nawrocki",
+        "role": "Animator and designer of this character, identified in her own production post",
+        "sourceUrl": "https://tinanawrocki.blogspot.com/2017/09/cuphead-baroness-von-bon-bon.html"
+      }
+    ],
+    "tags": [
+      "eyes",
+      "mouth silhouettes",
+      "asymmetry",
+      "identity anchors",
+      "pencil drawings"
+    ],
+    "summary": "Closed eyes, an open jaw, a clenched grin and startled eyes demonstrate distinct emotional drawings.",
+    "observations": [
+      {
+        "text": "The compact pose combines closed eyelids with a tiny heart-like mouth. Another drawing expands the jaw and makes the two eyes unequal.",
+        "basis": "visual observation",
+        "sourceUrl": "https://tinanawrocki.blogspot.com/2017/09/cuphead-baroness-von-bon-bon.html"
+      },
+      {
+        "text": "The detached-head drawing uses inward-angled lids and a broad toothy mouth. Spiral hair and the conical hat preserve identity.",
+        "basis": "visual observation",
+        "sourceUrl": "https://tinanawrocki.blogspot.com/2017/09/cuphead-baroness-von-bon-bon.html"
+      },
+      {
+        "text": "The leaning drawing opens both eyes while keeping the mouth small. Face and extended arms jointly establish the reaction.",
+        "basis": "visual observation",
+        "sourceUrl": "https://tinanawrocki.blogspot.com/2017/09/cuphead-baroness-von-bon-bon.html"
+      }
+    ],
+    "mistIdeas": [
+      "Our inference: approve an expression sheet with distinct mouth and lid drawings before interpolating motion.",
+      "Our inference: support a readable facial reaction with a small head movement rather than animating every feature constantly."
+    ],
+    "media": [
+      {
+        "kind": "image",
+        "url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj1fjJC-J8LjKp-xn9AxFzNkfCTy-PQF5SYCpsDEyBPyar-Om3YyfAB9jeI3dApJpMj_akCHAofMs9OskDz2kT1GCXgs5JhoHGaSbLqOTMonZQhjAcYSfv7YJ_RECxu88-I2IRCzpBgdEBN/s1600/PrincessIntro00007.png",
+        "sourceUrl": "https://tinanawrocki.blogspot.com/2017/09/cuphead-baroness-von-bon-bon.html",
+        "credit": "Tina Nawrocki / Studio MDHR",
+        "alt": "Baroness Von Bon Bon: theatrical facial extremes - original pencil drawing PrincessIntro00007.png",
+        "verified": true,
+        "motionVerified": false
+      },
+      {
+        "kind": "image",
+        "url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhAVESp3vg9dcsI_buf6y8nqzeIu-GlpSaG4RFeFyIQ8bIrLc3bW3bFP_h1ere_QQIwl4h7XDAU76AspXVMTnedoQfvA4i2dPtu_CjwEwY61WXxrq21G3ERTlwcDrjRuzlWiYwVCIHkiUdO/s1600/PrincessIntro00010.png",
+        "sourceUrl": "https://tinanawrocki.blogspot.com/2017/09/cuphead-baroness-von-bon-bon.html",
+        "credit": "Tina Nawrocki / Studio MDHR",
+        "alt": "Baroness Von Bon Bon: theatrical facial extremes - original pencil drawing PrincessIntro00010.png",
+        "verified": true,
+        "motionVerified": false
+      },
+      {
+        "kind": "image",
+        "url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjjxlC3am3RONb51YJcmjnxmeB3QkWYYLQAZdqanyoRGDXSxayl1BU8N4bv018dGeSaX6gkBsN9CbYMD_iz7WMfjFEiIlXEfD52xWtGwUHxzxc_FURBXZPRN4lmb1ntwa7xW4gyp-a2rbIn/s1600/PrincessIntro00019.png",
+        "sourceUrl": "https://tinanawrocki.blogspot.com/2017/09/cuphead-baroness-von-bon-bon.html",
+        "credit": "Tina Nawrocki / Studio MDHR",
+        "alt": "Baroness Von Bon Bon: theatrical facial extremes - original pencil drawing PrincessIntro00019.png",
+        "verified": true,
+        "motionVerified": false
+      },
+      {
+        "kind": "image",
+        "url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh0w5Gyp9ONEVB4Aif8rzk1QxHlJk2GDABh2J19WztgOtFjNemKSrlERHzGl-NxZBkI3X38v-mj-BFlV_Mq8rU8R5lq_kqKxO1Fl2zG6T6nNeLieTF7OwoICavUAW_ZOpfMhuTQIxHtZaWR/s1600/PrincessIntro00051.png",
+        "sourceUrl": "https://tinanawrocki.blogspot.com/2017/09/cuphead-baroness-von-bon-bon.html",
+        "credit": "Tina Nawrocki / Studio MDHR",
+        "alt": "Baroness Von Bon Bon: theatrical facial extremes - original pencil drawing PrincessIntro00051.png",
+        "verified": true,
+        "motionVerified": false
+      },
+      {
+        "kind": "page",
+        "url": "https://tinanawrocki.blogspot.com/2017/09/cuphead-baroness-von-bon-bon.html",
+        "sourceUrl": "https://tinanawrocki.blogspot.com/2017/09/cuphead-baroness-von-bon-bon.html",
+        "credit": "Tina Nawrocki / Studio MDHR",
+        "alt": "Animator post with embedded original pencil-test videos",
+        "verified": true,
+        "motionVerified": false
+      }
+    ],
+    "sources": [
+      {
+        "title": "Tina Nawrocki: Baroness Von Bon Bon: theatrical facial extremes",
+        "url": "https://tinanawrocki.blogspot.com/2017/09/cuphead-baroness-von-bon-bon.html",
+        "kind": "artist",
+        "supports": "Authorship, production drawings and embedded pencil-test clips."
+      }
+    ],
+    "confidence": "high",
+    "researchNotes": "Original stills fetched successfully and visually inspected. Blogger video embeds located in source HTML but not continuously viewed. No hold duration, transition order, recovery timing or blink motivation inferred from the selected stills.",
+    "branch": "handdrawn",
+    "featured": true,
+    "displayTitle": "Cuphead / Baroness",
+    "previewIndex": 1
+  },
+  {
+    "id": "pizza-tower-peppino-poses",
+    "title": "Pizza Tower: Peppino's elastic expression shapes",
+    "studio": "Tour De Pizza",
+    "category": "handdrawn",
+    "people": [
+      {
+        "name": "Pizza Tower Guy (McPig)",
+        "role": "Programming and animations, self-described in the 2019 developer interview",
+        "sourceUrl": "https://gamingreinvented.com/interview/an-interview-with-the-developer-of-wario-land-successor-pizza-tower/"
+      }
+    ],
+    "tags": [
+      "eyes",
+      "contour breaks",
+      "asymmetry",
+      "mouth contrast"
+    ],
+    "summary": "A useful upper limit for expression amplitude: the face changes silhouette as well as internal eye and mouth shapes.",
+    "observations": [
+      {
+        "text": "The three-pose Peppino illustration contrasts a huge horizontal tooth-and-mouth opening with a tiny puckered mouth. The eyes protrude beyond the head mass and shift together toward the object of attention.",
+        "basis": "visual observation",
+        "sourceUrl": "https://gamingreinvented.com/wp-content/uploads/2019/02/PeppinoArtwork-1024x683.jpg"
+      },
+      {
+        "text": "The creator says his drawing approach lets him animate quickly without keeping identical proportions in every drawing. This supports controlled proportion changes, but does not establish a particular frame count or timing curve.",
+        "basis": "creator statement",
+        "sourceUrl": "https://gamingreinvented.com/interview/an-interview-with-the-developer-of-wario-land-successor-pizza-tower/"
+      }
+    ],
+    "mistIdeas": [
+      "Our inference: make a surprised MIST pose change the spacing and height of both eyes before adding extra effects. Let the silhouette carry the reaction.",
+      "Our inference: reserve a short eye-shape overshoot for exceptional surprise, then recover to MIST's normal proportions. Preserve its own face design and palette.",
+      "Our inference: test a tiny compressed mouth against a much wider peak mouth. These distinct key poses may read better than several subtly different smiles."
+    ],
+    "media": [
+      {
+        "kind": "image",
+        "url": "https://gamingreinvented.com/wp-content/uploads/2019/02/PeppinoArtwork-1024x683.jpg",
+        "sourceUrl": "https://gamingreinvented.com/interview/an-interview-with-the-developer-of-wario-land-successor-pizza-tower/",
+        "credit": "Pizza Tower Guy / Tour De Pizza; published with creator interview by Gaming Reinvented",
+        "alt": "Three drawn Peppino poses with protruding eyes, a broad open mouth and compressed lips",
+        "verified": true,
+        "motionVerified": false
+      }
+    ],
+    "sources": [
+      {
+        "title": "An Interview With: The Developer of Wario Land Successor Pizza Tower",
+        "url": "https://gamingreinvented.com/interview/an-interview-with-the-developer-of-wario-land-successor-pizza-tower/",
+        "kind": "artist",
+        "supports": "First-person animation credit, relaxed proportion rationale and expressive character artwork"
+      }
+    ],
+    "confidence": "medium",
+    "researchNotes": "Artwork inspected in browser. This is a three-pose illustration, not a filmstrip or sampled animation sequence. Anticipation, held peaks, smear duration and recovery timing were not verified. Interview predates release; do not present its team list as complete release credits. Name is retained as the public alias.",
+    "branch": "exaggerated",
+    "featured": true,
+    "displayTitle": "Pizza Tower / Peppino"
+  },
+  {
+    "id": "spiritfarer-trailer-stella-daffodil",
+    "title": "Spiritfarer animated trailer: Stella holding Daffodil",
+    "studio": "Knights of the Light Table for Thunder Lotus",
+    "category": "cozy",
+    "people": [
+      {
+        "name": "David Liu",
+        "role": "Director and animation",
+        "sourceUrl": "https://www.toonboom.com/spiritfarer-animated-trailer"
+      },
+      {
+        "name": "India Swift",
+        "role": "Animation",
+        "sourceUrl": "https://www.toonboom.com/spiritfarer-animated-trailer"
+      },
+      {
+        "name": "Hardik Manktala",
+        "role": "Animation",
+        "sourceUrl": "https://www.toonboom.com/spiritfarer-animated-trailer"
+      },
+      {
+        "name": "Kevin Ryan",
+        "role": "Animation",
+        "sourceUrl": "https://www.toonboom.com/spiritfarer-animated-trailer"
+      },
+      {
+        "name": "Parker Pierce",
+        "role": "Animation",
+        "sourceUrl": "https://www.toonboom.com/spiritfarer-animated-trailer"
+      },
+      {
+        "name": "Danny Reyes",
+        "role": "Animation",
+        "sourceUrl": "https://www.toonboom.com/spiritfarer-animated-trailer"
+      },
+      {
+        "name": "Daniel Barón",
+        "role": "Animation",
+        "sourceUrl": "https://www.toonboom.com/spiritfarer-animated-trailer"
+      }
+    ],
+    "tags": [
+      "modest warmth",
+      "upward gaze",
+      "small smile",
+      "body language",
+      "subtle expression"
+    ],
+    "summary": "A supplied close-up communicates affection with a small closed-mouth smile and attentive eyes, rather than a broad grin.",
+    "observations": [
+      {
+        "text": "In the inspected close-up, Stella's pupils point upward and left, her mouth forms a small closed smile, and her arms enclose Daffodil. The face and protective gesture carry the same gentle attitude.",
+        "basis": "visual observation",
+        "sourceUrl": "https://www.toonboom.com/spiritfarer-animated-trailer"
+      },
+      {
+        "text": "The creators attribute the trailer's emotional effect to small facial changes and body language, supported by color, lighting, music and timing.",
+        "basis": "creator statement",
+        "sourceUrl": "https://www.toonboom.com/spiritfarer-animated-trailer"
+      }
+    ],
+    "mistIdeas": [
+      "Our inference: test a quiet contentment state with a small mouth curve, stable upward gaze and a modest head angle. Keep ample space between this and a delighted grin.",
+      "Our inference: preserve an emotional eye-and-brow pose across talking mouth shapes. The still suggests this separation as a design approach; it does not prove the trailer uses such a rig."
+    ],
+    "media": [
+      {
+        "kind": "image",
+        "url": "https://www.toonboom.com/wp-content/uploads/2025/05/Spiritfarer_Animated_Trailer_Screenshot_04-1024x576.jpg",
+        "sourceUrl": "https://www.toonboom.com/spiritfarer-animated-trailer",
+        "credit": "Knights of the Light Table / Thunder Lotus",
+        "alt": "Stella looks upward with a restrained smile while holding Daffodil.",
+        "verified": true,
+        "motionVerified": false
+      },
+      {
+        "kind": "image",
+        "url": "https://www.toonboom.com/wp-content/uploads/2025/05/Spiritfarer_Animated_Trailer_Screenshot_02-1024x576.jpg",
+        "sourceUrl": "https://www.toonboom.com/spiritfarer-animated-trailer",
+        "credit": "Knights of the Light Table / Thunder Lotus",
+        "alt": "Ensemble dock scene with varied faces, including a broad open-mouth shark smile.",
+        "verified": true,
+        "motionVerified": false
+      },
+      {
+        "kind": "youtube",
+        "url": "https://www.youtube.com/embed/PZfqGU6Y5uU",
+        "sourceUrl": "https://www.toonboom.com/spiritfarer-animated-trailer",
+        "credit": "Knights of the Light Table / Thunder Lotus",
+        "alt": "Official animated trailer, What Will You Leave Behind?",
+        "verified": true,
+        "motionVerified": false
+      }
+    ],
+    "sources": [
+      {
+        "title": "Knights of the Light Table ferry us through Spiritfarer's animated trailer",
+        "url": "https://www.toonboom.com/spiritfarer-animated-trailer",
+        "kind": "artist",
+        "supports": "First-person process interview, complete trailer animation credits, supplied stills and official trailer embed."
+      }
+    ],
+    "confidence": "high",
+    "researchNotes": "Both image URLs were extracted from live interview HTML and inspected in the browser. The trailer is a separate animation production from the game. No individual shot animator is identified. Video is provided for user viewing; no exact timestamp or motion observation is claimed.",
+    "branch": "cozy",
+    "featured": true,
+    "displayTitle": "Spiritfarer / Stella and Daffodil"
+  },
+  {
+    "id": "dory-independent-face-prototype",
+    "title": "Dory prototype - independent eye and mouth controls",
+    "studio": "twocentstudios",
+    "category": "process",
+    "people": [
+      {
+        "name": "Chris (twocentstudios)",
+        "role": "Solo developer and author of the Dory character prototype",
+        "sourceUrl": "https://twocentstudios.com/2024/04/01/indie-game-devlog-04/"
+      }
+    ],
+    "tags": [
+      "independent tracks",
+      "discrete shapes",
+      "blink control",
+      "dialogue triggers"
+    ],
+    "summary": "A small, unusually explicit prototype shows how graphic facial shapes can remain independent of body animation.",
+    "observations": [
+      {
+        "text": "The author models separate open and closed eye objects, parents them to the character's armature, and tests blink control with the action button.",
+        "basis": "creator statement",
+        "sourceUrl": "https://twocentstudios.com/2024/04/01/indie-game-devlog-04/"
+      },
+      {
+        "text": "He proposes named expressions pairing eye and mouth shapes, driven from dialogue; his working blink demo uses a separate Godot AnimationPlayer so body animation can continue.",
+        "basis": "creator statement",
+        "sourceUrl": "https://twocentstudios.com/2024/04/01/indie-game-devlog-04/"
+      }
+    ],
+    "mistIdeas": [
+      "Our inference: keep expression choice, gaze, blink and speech-mouth controllers separate, with clear priorities when they overlap.",
+      "Our inference: prototype an emotional pose using a small set of deliberate shapes before adding continuous morphs. Independence should permit a listening mouth to remain still while the eyes react."
+    ],
+    "media": [
+      {
+        "kind": "video",
+        "url": "https://twocentstudios.com/images/devlog04-08.mp4",
+        "sourceUrl": "https://twocentstudios.com/2024/04/01/indie-game-devlog-04/",
+        "credit": "Chris / twocentstudios",
+        "alt": "Developer-supplied automatic blink prototype, described in the article",
+        "verified": true,
+        "motionVerified": false
+      },
+      {
+        "kind": "video",
+        "url": "https://twocentstudios.com/images/devlog04-06.mp4",
+        "sourceUrl": "https://twocentstudios.com/2024/04/01/indie-game-devlog-04/",
+        "credit": "Chris / twocentstudios",
+        "alt": "Developer-supplied manual blink-control prototype, linked by the article",
+        "verified": true,
+        "motionVerified": false
+      },
+      {
+        "kind": "image",
+        "url": "https://twocentstudios.com/images/devlog04-10.jpg",
+        "sourceUrl": "https://twocentstudios.com/2024/04/01/indie-game-devlog-04/",
+        "credit": "Chris / twocentstudios",
+        "alt": "Dory's separate face geometry, identified by the developer's caption",
+        "verified": true,
+        "motionVerified": false
+      }
+    ],
+    "sources": [
+      {
+        "title": "Indie Game Devlog 04 - Animating Faces",
+        "url": "https://twocentstudios.com/2024/04/01/indie-game-devlog-04/",
+        "kind": "developer",
+        "supports": "First-person implementation account and original face-demo files."
+      },
+      {
+        "title": "About twocentstudios",
+        "url": "https://twocentstudios.com/about/",
+        "kind": "developer",
+        "supports": "Author introduces himself as Chris; do not infer a surname or professional animator credit."
+      }
+    ],
+    "confidence": "high",
+    "researchNotes": "Explicitly a development prototype, not a released game's proven acting system or an experienced animator portfolio. Page HTML read directly after web fetch timed out. Automatic MP4 and face image checked HTTP 200 with correct MIME type; manual MP4 URL verified in source HTML. Motion and pixels not inspected. No claim that the prototype demonstrates strong emotional performance.",
+    "branch": "process",
+    "featured": true,
+    "displayTitle": "Dory / independent face controls",
+    "previewIndex": 2
+  },
+  {
+    "id": "astro-bot-led-acting",
+    "title": "Astro Bot: LED eyes and physical acting",
+    "studio": "Team Asobi / Japan Studio (Rescue Mission)",
+    "category": "3d",
+    "people": [
+      {
+        "name": "Jamie Alexander Smith",
+        "role": "Animation Lead, Astro Bot Rescue Mission",
+        "sourceUrl": "https://blog.playstation.com/2019/01/24/astro-bot-rescue-mission-inside-the-art-and-animation-of-japan-studios-ps-vr-hit/"
+      },
+      {
+        "name": "Jamie Smith",
+        "role": "Principal Animation Director, Team Asobi (2024 interview)",
+        "sourceUrl": "https://blog.playstation.com/2024/09/09/astro-bot-how-team-asobi-created-a-unified-vision-for-fun/"
+      },
+      {
+        "name": "Maki Murakami",
+        "role": "Senior Animator, Team Asobi (2024 interview)",
+        "sourceUrl": "https://blog.playstation.com/2024/09/09/astro-bot-how-team-asobi-created-a-unified-vision-for-fun/"
+      },
+      {
+        "name": "Sebastian Brueckner",
+        "role": "Art Director, Astro Bot Rescue Mission",
+        "sourceUrl": "https://blog.playstation.com/2019/01/24/astro-bot-rescue-mission-inside-the-art-and-animation-of-japan-studios-ps-vr-hit/"
+      }
+    ],
+    "tags": [
+      "LED eyes",
+      "no mouth",
+      "no pupils",
+      "body acting",
+      "event response"
+    ],
+    "summary": "A directly relevant screen-face reference with named animation staff and original studio-published GIFs.",
+    "observations": [
+      {
+        "text": "Doucet says the design deliberately avoided a mouth and stretching faces, leaving the eyes as its main expressive feature.",
+        "basis": "creator statement",
+        "sourceUrl": "https://www.pushsquare.com/features/interview-the-making-of-astro-bot-the-ps5s-next-great-exclusive"
+      },
+      {
+        "text": "The inspected celebration GIF frame combines two upward blue eye arcs with lifted hands and an upright body. The face has no separately drawn pupil, brow or mouth; the silhouette reinforces the eye expression.",
+        "basis": "visual observation",
+        "sourceUrl": "https://farm5.staticflickr.com/4836/39891228403_12f092a56a_o.gif"
+      },
+      {
+        "text": "The Rescue Mission team reports that conventional cartoon exaggeration required timing adjustments for VR. They also describe bosses becoming vulnerable and silly as the player hits back, making expression a response to progress in the encounter.",
+        "basis": "creator statement",
+        "sourceUrl": "https://blog.playstation.com/2019/01/24/astro-bot-rescue-mission-inside-the-art-and-animation-of-japan-studios-ps-vr-hit/"
+      },
+      {
+        "text": "Jamie Smith describes studying children's excited actions, including jumping, to build playfulness into animation.",
+        "basis": "creator statement",
+        "sourceUrl": "https://blog.playstation.com/2024/09/09/astro-bot-how-team-asobi-created-a-unified-vision-for-fun/"
+      }
+    ],
+    "mistIdeas": [
+      "Our inference: test a small eye-shape vocabulary on MIST's existing face before adding extra facial features. Pair each shape with one readable head or body attitude.",
+      "Our inference: make a completed action trigger a held pleased shape, followed by a small recovery. Do not run the entire expressive vocabulary as an idle loop.",
+      "Our inference: use a blink at a change of attention or after a completed reaction, then let the new gaze settle. This is a proposed MIST experiment, not a verified Astro blink rule."
+    ],
+    "media": [
+      {
+        "kind": "gif",
+        "url": "https://farm5.staticflickr.com/4836/39891228403_12f092a56a_o.gif",
+        "sourceUrl": "https://blog.playstation.com/2019/01/24/astro-bot-rescue-mission-inside-the-art-and-animation-of-japan-studios-ps-vr-hit/",
+        "credit": "Team Asobi / Sony Interactive Entertainment",
+        "alt": "Astro celebration animation; inspected frame shows curved blue eyes and lifted hands",
+        "verified": true,
+        "motionVerified": false
+      },
+      {
+        "kind": "gif",
+        "url": "https://farm8.staticflickr.com/7881/31914878607_25f295492a_o.gif",
+        "sourceUrl": "https://blog.playstation.com/2019/01/24/astro-bot-rescue-mission-inside-the-art-and-animation-of-japan-studios-ps-vr-hit/",
+        "credit": "Team Asobi / Sony Interactive Entertainment",
+        "alt": "Studio-published Astro body-action loop; head lowered in sampled poses",
+        "verified": true,
+        "motionVerified": false
+      },
+      {
+        "kind": "youtube",
+        "url": "https://www.youtube.com/watch?v=unYFdcEjV9k",
+        "sourceUrl": "https://www.youtube.com/watch?v=unYFdcEjV9k",
+        "credit": "PlayStation / Team Asobi",
+        "alt": "Official 2024 Astro Bot launch trailer",
+        "verified": true,
+        "motionVerified": false
+      }
+    ],
+    "sources": [
+      {
+        "title": "Inside the Art and Animation of Japan Studio's PS VR Hit",
+        "url": "https://blog.playstation.com/2019/01/24/astro-bot-rescue-mission-inside-the-art-and-animation-of-japan-studios-ps-vr-hit/",
+        "kind": "developer",
+        "supports": "Exact 2018 animation and art credits; timing process; official GIFs"
+      },
+      {
+        "title": "How Team Asobi created a unified vision for fun",
+        "url": "https://blog.playstation.com/2024/09/09/astro-bot-how-team-asobi-created-a-unified-vision-for-fun/",
+        "kind": "developer",
+        "supports": "2024 animation personnel and Smith's acting reference"
+      },
+      {
+        "title": "Interview: The Making of Astro Bot",
+        "url": "https://www.pushsquare.com/features/interview-the-making-of-astro-bot-the-ps5s-next-great-exclusive",
+        "kind": "developer",
+        "supports": "Direct Nicolas Doucet statements about minimal facial design"
+      }
+    ],
+    "confidence": "high",
+    "researchNotes": "Official GIF URLs resolved and were inspected through browser screenshots. Sampled poses only, not continuous motion perception; no exact timing or blink-rate claim. The 2019 and 2024 credit labels are kept separate as published. Specific GIF authorship is not assigned to an individual.",
+    "branch": "minimal",
+    "featured": true,
+    "displayTitle": "Astro Bot / eye acting"
+  },
+  {
+    "id": "night-in-the-woods-graphic-gaze",
+    "title": "Night in the Woods: graphic gaze and restrained mouths",
+    "studio": "Infinite Fall",
+    "category": "graphic",
+    "people": [
+      {
+        "name": "Scott Benson",
+        "role": "Art and animation; co-designer and art director",
+        "sourceUrl": "https://www.inverse.com/article/13084-this-video-game-creator-proves-late-night-twitter-isn-t-a-waste-of-time"
+      },
+      {
+        "name": "Charles Huettner",
+        "role": "Additional animation, described by Benson as animation work on the game",
+        "sourceUrl": "https://www.inverse.com/article/13084-this-video-game-creator-proves-late-night-twitter-isn-t-a-waste-of-time"
+      }
+    ],
+    "tags": [
+      "eyes",
+      "gaze",
+      "graphic shapes",
+      "small mouths",
+      "silhouette"
+    ],
+    "summary": "Large, high-contrast eye shapes make attention readable while mouths occupy very little of the face.",
+    "observations": [
+      {
+        "text": "In the publisher's Miller's storefront still, the two profile characters each have one dominant elongated eye; Mae's paired orange eyes stand out against her dark face. Tiny mouth marks leave the eyes as the main facial signal.",
+        "basis": "visual observation",
+        "sourceUrl": "https://playism.com/wp-content/uploads/2021/05/nitw_en_03-800x450.jpeg"
+      },
+      {
+        "text": "Benson describes the intended setting as a close group of chatty friends in a bustling small town and explicitly identifies his own art and animation work and Huettner's animation contribution.",
+        "basis": "creator statement",
+        "sourceUrl": "https://www.inverse.com/article/13084-this-video-game-creator-proves-late-night-twitter-isn-t-a-waste-of-time"
+      }
+    ],
+    "mistIdeas": [
+      "Our inference: let gaze establish the target before changing MIST's mouth, and hold the target until a meaningful event interrupts it.",
+      "Our inference: try a small set of strong upper-lid silhouettes, with a tiny neutral mouth. Test whether attention remains readable at the actual display size.",
+      "Our inference: reserve asymmetry for suspicion or uncertainty rather than continuously varying both eyes."
+    ],
+    "media": [
+      {
+        "kind": "image",
+        "url": "https://playism.com/wp-content/uploads/2021/05/nitw_en_03-800x450.jpeg",
+        "sourceUrl": "https://playism.com/en/game/nitw/",
+        "credit": "Infinite Fall / PLAYISM",
+        "alt": "Mae and two profile characters outside Miller's; large colored eyes and minimal mouths",
+        "verified": true,
+        "motionVerified": false
+      },
+      {
+        "kind": "youtube",
+        "url": "https://www.youtube.com/embed/u17kM8oSz3k?enablejsapi=1",
+        "sourceUrl": "https://playism.com/en/game/nitw/",
+        "credit": "Infinite Fall / PLAYISM",
+        "alt": "Official publisher gameplay video; inspect dialogue reactions manually",
+        "verified": true,
+        "motionVerified": false
+      },
+      {
+        "kind": "youtube",
+        "url": "https://www.youtube.com/watch?v=Xzhe45Q8780",
+        "sourceUrl": "https://www.gamedeveloper.com/design/video-nuke-possum-springs---a-i-night-in-the-woods-i-postmortem",
+        "credit": "Scott Benson / GDC",
+        "alt": "Nuke Possum Springs: creator postmortem, contextual craft reference",
+        "verified": true,
+        "motionVerified": false
+      }
+    ],
+    "sources": [
+      {
+        "title": "Night in the Woods official publisher page",
+        "url": "https://playism.com/en/game/nitw/",
+        "kind": "official media",
+        "supports": "Studio identity, screenshot and official video URLs"
+      },
+      {
+        "title": "Scott Benson interview",
+        "url": "https://www.inverse.com/article/13084-this-video-game-creator-proves-late-night-twitter-isn-t-a-waste-of-time",
+        "kind": "artist",
+        "supports": "Direct creator testimony about art/animation responsibilities and character-oriented design"
+      },
+      {
+        "title": "Night in the Woods Coming to PS4",
+        "url": "https://blog.playstation.com/?p=133410",
+        "kind": "developer",
+        "supports": "Benson's co-designer and art-director credit, intended character relationships"
+      },
+      {
+        "title": "Nuke Possum Springs postmortem",
+        "url": "https://www.gamedeveloper.com/design/video-nuke-possum-springs---a-i-night-in-the-woods-i-postmortem",
+        "kind": "talk",
+        "supports": "Official GDC talk identity and linked video; not a verified facial-timing tutorial"
+      }
+    ],
+    "confidence": "high",
+    "researchNotes": "Publisher still visually inspected. Video URLs recovered from official pages, but playback and exact timestamps were not verified. No blink timing, animation frame counts, or reaction sequence is claimed. Specific shot ownership is not established by the general animation credits.",
+    "branch": "graphic",
+    "featured": true,
+    "displayTitle": "Night in the Woods / gaze"
+  },
+  {
+    "id": "antonblast-anton-reaction",
+    "title": "ANTONBLAST: Anton's open-mouth to clenched-teeth reaction",
+    "studio": "Summitsphere",
+    "category": "action",
+    "people": [
+      {
+        "name": "Juniper / PinPan",
+        "role": "Lead gameplay animator on AntonBlast, self-credited on artist profile",
+        "sourceUrl": "https://pinpan.itch.io/"
+      }
+    ],
+    "tags": [
+      "mouth contrast",
+      "contour breaks",
+      "extreme poses",
+      "eyes"
+    ],
+    "summary": "An official eight-second close-up shows how mouth area and silhouette can dominate a reaction without requiring detailed facial anatomy.",
+    "observations": [
+      {
+        "text": "At the inspected start of the official clip, Anton has a tall open mouth, separated upper and lower tooth bands and raised arms. At the inspected end, the mouth becomes a large clenched white tooth mass, with narrow eyes and a raised fist. These are sharply different readable shapes.",
+        "basis": "visual observation",
+        "sourceUrl": "https://www.fangamer.com/cdn/shop/videos/c/vp/2736a2cbb0124e29bc1287cb906bcd57/2736a2cbb0124e29bc1287cb906bcd57.SD-480p-0.9Mbps-50188450.mp4?v=0"
+      },
+      {
+        "text": "The dark hair and beard create an angular outline around the bright mouth. The face is not limited to moving small features inside an unchanged oval.",
+        "basis": "visual observation",
+        "sourceUrl": "https://www.fangamer.com/cdn/shop/videos/c/vp/2736a2cbb0124e29bc1287cb906bcd57/2736a2cbb0124e29bc1287cb906bcd57.SD-480p-0.9Mbps-50188450.mp4?v=0"
+      }
+    ],
+    "mistIdeas": [
+      "Our inference: give surprise and determined recovery genuinely different mouth silhouettes instead of scaling one mouth path.",
+      "Our inference: test a compressed anticipatory eye pose, a single large reaction peak, and a smaller settled expression. This proposed sequence is a MIST experiment, not measured ANTONBLAST timing.",
+      "Our inference: keep MIST's outer housing stable while allowing its digital eye and mouth graphics to deform strongly inside it. Copy the contrast of shapes, not Anton's teeth, beard or colour scheme."
+    ],
+    "media": [
+      {
+        "kind": "video",
+        "url": "https://www.fangamer.com/cdn/shop/videos/c/vp/2736a2cbb0124e29bc1287cb906bcd57/2736a2cbb0124e29bc1287cb906bcd57.SD-480p-0.9Mbps-50188450.mp4?v=0",
+        "sourceUrl": "https://www.fangamer.com/collections/popular/products/antonblast-game-nintendo-switch",
+        "credit": "Summitsphere; official physical edition page at Fangamer",
+        "alt": "Anton close-up reaction clip, from open-mouth scream to clenched teeth and raised fist",
+        "verified": true,
+        "motionVerified": false
+      },
+      {
+        "kind": "gif",
+        "url": "https://images.squarespace-cdn.com/content/v1/614a40f4524fa4378a698fea/7bcd7180-9541-4704-937a-208f5cb35b6b/4Kn3hb.gif",
+        "sourceUrl": "https://www.joystickventures.com/portfolio/antonblast",
+        "credit": "Summitsphere / Joystick Ventures",
+        "alt": "Official ANTONBLAST gameplay GIF for whole-body action context",
+        "verified": true,
+        "motionVerified": false
+      }
+    ],
+    "sources": [
+      {
+        "title": "PinPan artist profile",
+        "url": "https://pinpan.itch.io/",
+        "kind": "artist",
+        "supports": "Juniper's first-person lead gameplay animator credit"
+      },
+      {
+        "title": "ANTONBLAST physical edition",
+        "url": "https://www.fangamer.com/collections/popular/products/antonblast-game-nintendo-switch",
+        "kind": "official media",
+        "supports": "Source page for the exact reaction video URL"
+      },
+      {
+        "title": "AntonBlast publisher portfolio",
+        "url": "https://www.joystickventures.com/portfolio/antonblast",
+        "kind": "developer",
+        "supports": "Summitsphere developer credit and official gameplay GIF"
+      }
+    ],
+    "confidence": "medium",
+    "researchNotes": "The direct video loaded and played; beginning and final poses were visually inspected through browser screenshots. Continuous timing, exact holds, smears and recovery duration were not perceived, so motionVerified remains false. PinPan's profile credit was retrieved from the web index; direct browser navigation timed out. This credit does not prove PinPan personally animated this particular close-up. Tony Grayson is not labelled as its animator.",
+    "branch": "exaggerated",
+    "featured": true,
+    "displayTitle": "ANTONBLAST / Anton",
+    "previewIndex": 0
+  },
+  {
+    "id": "moss-quill-lico-process",
+    "title": "Moss - Quill acknowledges the player",
+    "studio": "Polyarc",
+    "category": "process",
+    "people": [
+      {
+        "name": "Richard (Rick) Lico",
+        "role": "Animation Director",
+        "sourceUrl": "https://blog.playstation.com/2018/04/09/the-magic-of-animation-in-moss-how-polyarc-brought-quill-to-life/"
+      }
+    ],
+    "tags": [
+      "eye contact",
+      "intent",
+      "responsive gestures",
+      "reaction systems",
+      "overlap"
+    ],
+    "summary": "A face becomes a relationship when its look and gestures answer the person in front of it.",
+    "observations": [
+      {
+        "text": "Lico describes deliberate eye contact, returning the player's wave, petting and high-five interactions as ways to build mutual acknowledgement and trust.",
+        "basis": "creator statement",
+        "sourceUrl": "https://blog.playstation.com/2018/04/09/the-magic-of-animation-in-moss-how-polyarc-brought-quill-to-life/"
+      },
+      {
+        "text": "He requires personality to survive gameplay actions while input stays immediate and movement fluid; he explicitly seeks nuanced, honest gestures.",
+        "basis": "creator statement",
+        "sourceUrl": "https://blog.playstation.com/2018/04/09/the-magic-of-animation-in-moss-how-polyarc-brought-quill-to-life/"
+      },
+      {
+        "text": "The GDC slides identify a reaction system, limited gameplay interruptions using idle cycles, and particle physics to help overlapping action.",
+        "basis": "creator statement",
+        "sourceUrl": "https://media.gdcvault.com/gdc2018/presentations/Lico_Richard_Animating_Quill_Creating.pdf"
+      }
+    ],
+    "mistIdeas": [
+      "Our inference: give MIST a listening look that locks onto the user before a reply, then a small acknowledgement after understanding.",
+      "Our inference: prioritize an incoming user event over decorative idle motion, preserving the current facial pose into the response.",
+      "Our inference: let a secondary antenna or chassis settle finish after the principal eye reaction; never require that settle before accepting another event."
+    ],
+    "media": [
+      {
+        "kind": "youtube",
+        "url": "https://www.youtube.com/watch?v=u3CzLVpuE4k",
+        "sourceUrl": "https://gdcvault.com/play/1025414/Animating-Quill-Creating-an-Emotional",
+        "credit": "Richard Lico / Polyarc / GDC",
+        "alt": "Animating Quill: Creating an Emotional Experience - official GDC talk",
+        "verified": true,
+        "motionVerified": false
+      },
+      {
+        "kind": "image",
+        "url": "https://blog.playstation.com/tachyon/2018/04/Moss.jpg",
+        "sourceUrl": "https://blog.playstation.com/2018/04/09/the-magic-of-animation-in-moss-how-polyarc-brought-quill-to-life/",
+        "credit": "Polyarc / PlayStation Blog",
+        "alt": "Official Moss article illustration; supplied as a fallback still, not a motion study",
+        "verified": true,
+        "motionVerified": false
+      }
+    ],
+    "sources": [
+      {
+        "title": "The Magic of Animation in Moss: How Polyarc Brought Quill to Life",
+        "url": "https://blog.playstation.com/2018/04/09/the-magic-of-animation-in-moss-how-polyarc-brought-quill-to-life/",
+        "kind": "developer",
+        "supports": "Lico's byline and first-person explanation of the character's relational gestures and responsive personality."
+      },
+      {
+        "title": "Animating Quill: Creating an Emotional Experience",
+        "url": "https://gdcvault.com/play/1025414/Animating-Quill-Creating-an-Emotional",
+        "kind": "talk",
+        "supports": "Official GDC speaker, studio and talk record."
+      },
+      {
+        "title": "Animating Quill - presentation slides",
+        "url": "https://media.gdcvault.com/gdc2018/presentations/Lico_Richard_Animating_Quill_Creating.pdf",
+        "kind": "talk",
+        "supports": "Reaction system, idle interruptions and overlap; slides 32-33 and 64 (zero-based PDF pages)."
+      }
+    ],
+    "confidence": "high",
+    "researchNotes": "Primary text and PDF inspected. Official GDC YouTube title/uploader verified by oEmbed. Still returned HTTP 200 image/jpeg, but its pixels were not inspected. The blog's five historic motion examples embed Gfycat; those obsolete references were excluded. No continuous motion inspected and no performance timestamps claimed.",
+    "branch": "process",
+    "featured": true,
+    "displayTitle": "Moss / Quill"
+  },
+  {
+    "id": "cuphead-pip-dot-pencil",
+    "title": "Cuphead: Pip and Dot: conflicting faces on one body",
+    "studio": "Studio MDHR",
+    "category": "handdrawn",
+    "people": [
+      {
+        "name": "Tina Nawrocki",
+        "role": "Animator and designer of this character, identified in her own production post",
+        "sourceUrl": "https://tinanawrocki.blogspot.com/2017/10/cuphead-pip-and-dot-domino.html"
+      }
+    ],
+    "tags": [
+      "eyes",
+      "mouth silhouettes",
+      "asymmetry",
+      "identity anchors",
+      "pencil drawings"
+    ],
+    "summary": "Two faces share a rectangular body but carry different attitudes.",
+    "observations": [
+      {
+        "text": "In the idle drawing, the upper face bares clenched teeth while the lower face grins. Their sideways pupils establish attitude inside a stable rectangular silhouette.",
+        "basis": "visual observation",
+        "sourceUrl": "https://tinanawrocki.blogspot.com/2017/10/cuphead-pip-and-dot-domino.html"
+      },
+      {
+        "text": "The hat drawings contrast lowered lids with sharply angled brows and broader grins. The hat and bow distinguish the two faces.",
+        "basis": "visual observation",
+        "sourceUrl": "https://tinanawrocki.blogspot.com/2017/10/cuphead-pip-and-dot-domino.html"
+      },
+      {
+        "text": "The mouth-attack drawing separates the domino halves and exposes large teeth while the small faces remain legible.",
+        "basis": "visual observation",
+        "sourceUrl": "https://tinanawrocki.blogspot.com/2017/10/cuphead-pip-and-dot-domino.html"
+      }
+    ],
+    "mistIdeas": [
+      "Our inference: try an asymmetric MIST listening pose with one lid lower and a restrained mouth.",
+      "Our inference: fix two or three identity anchors while the lids and mouth carry a reaction."
+    ],
+    "media": [
+      {
+        "kind": "image",
+        "url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjq1nn9R7EQbZdRhesuErLTvfmg4R4x9O4vIEyZQEjvv9Htwx3tAkjzmHrtoWkvO3KXjzJz-YAdaYQCTGGr8UtRHuoKBjtjgWdTP_EOhImxFOz4gT2FdLNpAErrQBPc0C3RnInQ14nAvIkm/s1600/DominoIdle00000.png",
+        "sourceUrl": "https://tinanawrocki.blogspot.com/2017/10/cuphead-pip-and-dot-domino.html",
+        "credit": "Tina Nawrocki / Studio MDHR",
+        "alt": "Pip and Dot: conflicting faces on one body - original pencil drawing DominoIdle00000.png",
+        "verified": true,
+        "motionVerified": false
+      },
+      {
+        "kind": "image",
+        "url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiDKYVg9zl2AHL-FYZ3IxjQpOgtF49K6SHl_72ksBEhEosi6VYb7-rCBX68TfLvIb7saHd48S-etdieEyeX5uTPIS7_ivwXQ4g2amtiCyNgf-bCAjBjO2iuRMsW1LM8o6g_FEc-MYZUFypt/s1600/DominoAttackHat00008.png",
+        "sourceUrl": "https://tinanawrocki.blogspot.com/2017/10/cuphead-pip-and-dot-domino.html",
+        "credit": "Tina Nawrocki / Studio MDHR",
+        "alt": "Pip and Dot: conflicting faces on one body - original pencil drawing DominoAttackHat00008.png",
+        "verified": true,
+        "motionVerified": false
+      },
+      {
+        "kind": "image",
+        "url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEirkSzDv4Nf6a2Wm7cXF7gkqGP6fLP-deCT6QU15HLdJGStEQNO2msBCl2YdubTNUbxNfvMwGDPfCEvQlXsMZWe56PV5mmucaqhsoAbZOlhkSbH2BmRC-ySB9RJ2eTNDqrsia40471RM3ol/s1600/DominoAttackHat00015.png",
+        "sourceUrl": "https://tinanawrocki.blogspot.com/2017/10/cuphead-pip-and-dot-domino.html",
+        "credit": "Tina Nawrocki / Studio MDHR",
+        "alt": "Pip and Dot: conflicting faces on one body - original pencil drawing DominoAttackHat00015.png",
+        "verified": true,
+        "motionVerified": false
+      },
+      {
+        "kind": "image",
+        "url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEijYbOeayW9K-Kq9MesQ7ERBedoSEiPV34Uzlpe7A2FDIRZxcDNo_ZtfoY8LNvR0AU4KIDf3U_EDwt68ASCrsOrCZXPItto1Fc2kqUdzRhBbt27vORZPwyHk5enjYnMiQXAcu4i2JAIMpkS/s1600/DominoAttack00010.png",
+        "sourceUrl": "https://tinanawrocki.blogspot.com/2017/10/cuphead-pip-and-dot-domino.html",
+        "credit": "Tina Nawrocki / Studio MDHR",
+        "alt": "Pip and Dot: conflicting faces on one body - original pencil drawing DominoAttack00010.png",
+        "verified": true,
+        "motionVerified": false
+      },
+      {
+        "kind": "image",
+        "url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgdyxxYJg1ne80B1hJ2PiFZ-LcjeLihdvJq3HHqgXDPc8LdwRINjim0ughjowT-xD2Ic44tsK0cxuSdCgaxnuX8jSnDUjC8sjD2IXAgk4neZEOzvjILZl8E1vhf4xv-suu4a-1fyJnuiIrV/s1600/DominoDeath00013.png",
+        "sourceUrl": "https://tinanawrocki.blogspot.com/2017/10/cuphead-pip-and-dot-domino.html",
+        "credit": "Tina Nawrocki / Studio MDHR",
+        "alt": "Pip and Dot: conflicting faces on one body - original pencil drawing DominoDeath00013.png",
+        "verified": true,
+        "motionVerified": false
+      },
+      {
+        "kind": "page",
+        "url": "https://tinanawrocki.blogspot.com/2017/10/cuphead-pip-and-dot-domino.html",
+        "sourceUrl": "https://tinanawrocki.blogspot.com/2017/10/cuphead-pip-and-dot-domino.html",
+        "credit": "Tina Nawrocki / Studio MDHR",
+        "alt": "Animator post with embedded original pencil-test videos",
+        "verified": true,
+        "motionVerified": false
+      }
+    ],
+    "sources": [
+      {
+        "title": "Tina Nawrocki: Pip and Dot: conflicting faces on one body",
+        "url": "https://tinanawrocki.blogspot.com/2017/10/cuphead-pip-and-dot-domino.html",
+        "kind": "artist",
+        "supports": "Authorship, production drawings and embedded pencil-test clips."
+      }
+    ],
+    "confidence": "high",
+    "researchNotes": "Original stills fetched successfully and visually inspected. Blogger video embeds located in source HTML but not continuously viewed. No hold duration, transition order, recovery timing or blink motivation inferred from the selected stills.",
+    "branch": "handdrawn",
+    "featured": true,
+    "displayTitle": "Cuphead / Pip and Dot"
+  },
+  {
+    "id": "wandersong-singing-face",
+    "title": "Wandersong: make the face follow an action",
+    "studio": "Wishes Ultd.",
+    "category": "graphic",
+    "people": [
+      {
+        "name": "Greg Lobanov",
+        "role": "Creator; creator/director in his development interview",
+        "sourceUrl": "https://wanderso.ng/"
+      }
+    ],
+    "tags": [
+      "mouth",
+      "closed eyes",
+      "event-driven",
+      "singing",
+      "cutout"
+    ],
+    "summary": "The bard's singing pose is a useful reference for giving a minimal face one clear job tied to the player's action.",
+    "observations": [
+      {
+        "text": "A sampled frame of the official first GIF shows the bard with closed eyes and an open mouth inside the colored singing wheel. The face agrees with the action displayed by the surrounding interface.",
+        "basis": "visual observation",
+        "sourceUrl": "https://wanderso.ng/img/screens/01.gif"
+      },
+      {
+        "text": "The official game description says different things respond differently to singing and advertises a dance button usable anywhere.",
+        "basis": "creator statement",
+        "sourceUrl": "https://wanderso.ng/"
+      },
+      {
+        "text": "Lobanov describes a visual style deliberately easy to create new assets for, with individual screens drawn for emotional variation. He calls its rough, playful character an invitation to try things.",
+        "basis": "creator statement",
+        "sourceUrl": "https://www.gamedeveloper.com/business/road-to-the-igf-greg-lobanov-s-i-wandersong-i-"
+      }
+    ],
+    "mistIdeas": [
+      "Our inference: choose the mouth from a meaningful state such as speaking, listening, or acknowledging, then let eye shape support that action.",
+      "Our inference: use a closed-eye smile only for a completed acknowledgement or delight beat, and return to an attentive gaze afterward.",
+      "Our inference: test distinct event poses before adding interpolation. A readable pose should survive as a still at robot-screen scale."
+    ],
+    "media": [
+      {
+        "kind": "gif",
+        "url": "https://wanderso.ng/img/screens/01.gif",
+        "sourceUrl": "https://wanderso.ng/",
+        "credit": "Greg Lobanov / Wishes Ultd.",
+        "alt": "Bard singing inside the colored note-selection wheel",
+        "verified": true,
+        "motionVerified": false
+      },
+      {
+        "kind": "gif",
+        "url": "https://wanderso.ng/img/screens/03.gif",
+        "sourceUrl": "https://wanderso.ng/",
+        "credit": "Greg Lobanov / Wishes Ultd.",
+        "alt": "Bard and another character in a paper-cut landscape",
+        "verified": true,
+        "motionVerified": false
+      },
+      {
+        "kind": "youtube",
+        "url": "https://www.youtube.com/embed/_8fjXrzkUhM?rel=0&showinfo=0",
+        "sourceUrl": "https://wanderso.ng/",
+        "credit": "Wishes Ultd.",
+        "alt": "Official Wandersong trailer embedded by the creator",
+        "verified": true,
+        "motionVerified": false
+      }
+    ],
+    "sources": [
+      {
+        "title": "Wandersong official site",
+        "url": "https://wanderso.ng/",
+        "kind": "developer",
+        "supports": "Creator credit, event-driven singing/dance descriptions, nine official GIF links and trailer"
+      },
+      {
+        "title": "Road to the IGF: Greg Lobanov's Wandersong",
+        "url": "https://www.gamedeveloper.com/business/road-to-the-igf-greg-lobanov-s-i-wandersong-i-",
+        "kind": "artist",
+        "supports": "Creator testimony on expressive visual variation, accessible asset creation and playful roughness"
+      },
+      {
+        "title": "An interview with Wandersong creator Greg Lobanov",
+        "url": "https://www.lootpots.com/articles/an-interview-with-wandersong-creator-greg-lobanov-16012019/",
+        "kind": "artist",
+        "supports": "Direct creator discussion of jagged, erratic, paper-cut shapes"
+      }
+    ],
+    "confidence": "high",
+    "researchNotes": "GIF URLs were extracted from the official HTML, returned HTTP 200 image/gif, and sampled visually in the browser. Continuous motion was not perceived, so motionVerified remains false. The site credits Greg as Creator rather than giving a separate Animator line. Alexis Dean-Jones is not credited here as animator; her verified character-animation role is Chicory.",
+    "branch": "graphic",
+    "featured": true,
+    "displayTitle": "Wandersong / singing"
+  },
+  {
+    "id": "cult-lamb-follower-reaction",
+    "title": "Cult of the Lamb: studio-published follower reaction",
+    "studio": "Massive Monster",
+    "category": "graphic",
+    "people": [
+      {
+        "name": "James Pearmain",
+        "role": "Art Director at Massive Monster",
+        "sourceUrl": "https://massivemonster.com/about"
+      },
+      {
+        "name": "Jan F Sorrentino",
+        "role": "Animator at Massive Monster; maker of Doom & Shroom fan-animation",
+        "sourceUrl": "https://massivemonster.com/about"
+      }
+    ],
+    "tags": [
+      "large eye shapes",
+      "mouth contrast",
+      "environmental reaction",
+      "graphic readability"
+    ],
+    "summary": "A studio-posted rabbit follower reaction separates a strongly readable eye design from a changing small mouth.",
+    "observations": [
+      {
+        "text": "Two inspected frames show the rabbit with very large dark oval eyes and thin pale vertical pupils. Its mouth changes from a small tooth-bearing shape to an open smile while its hands stay near its chest.",
+        "basis": "visual observation",
+        "sourceUrl": "https://giphy.com/gifs/cult-of-the-lamb-massive-monster-kjua05Qw2EXPJ4NlvR"
+      },
+      {
+        "text": "In the second inspected frame, a foreground finger points toward the rabbit. This grounds the reaction in an interaction, although isolated screenshots do not establish the precise sequence or cause.",
+        "basis": "visual observation",
+        "sourceUrl": "https://giphy.com/gifs/cult-of-the-lamb-massive-monster-kjua05Qw2EXPJ4NlvR"
+      }
+    ],
+    "mistIdeas": [
+      "Our inference: use a stable, recognizable eye design with a small number of clear mouth changes so talking does not erase the face's identity.",
+      "Our inference: attach reactions to a visible or audible event and give attention a target. Do not copy the follower's extreme eye proportions into every MIST state."
+    ],
+    "media": [
+      {
+        "kind": "video",
+        "url": "https://i.giphy.com/kjua05Qw2EXPJ4NlvR.mp4",
+        "sourceUrl": "https://giphy.com/gifs/cult-of-the-lamb-massive-monster-kjua05Qw2EXPJ4NlvR",
+        "credit": "Massive Monster; individual clip animator not verified",
+        "alt": "Rabbit follower reaction clip posted by Massive Monster on GIPHY.",
+        "verified": true,
+        "motionVerified": false
+      }
+    ],
+    "sources": [
+      {
+        "title": "Massive Monster GIPHY reaction",
+        "url": "https://giphy.com/gifs/cult-of-the-lamb-massive-monster-kjua05Qw2EXPJ4NlvR",
+        "kind": "official media",
+        "supports": "Studio account publishes the reaction clip; browser player exposes the MP4 URL."
+      },
+      {
+        "title": "About Massive Monster",
+        "url": "https://massivemonster.com/about",
+        "kind": "developer",
+        "supports": "Current staff credits for James Pearmain and Jan F Sorrentino; Jan's fan-animation history."
+      }
+    ],
+    "confidence": "medium",
+    "researchNotes": "Two displayed frames were inspected. Browser DOM exposed the MP4 source. Continuous motion and timing were not perceived. This appears as a polished animated clip, not verified in-game follower animation. The studio staff page does not establish that Jan or James animated this clip or any specific release-era follower. Their names are leads with exact staff roles, not shot attribution.",
+    "branch": "cozy",
+    "featured": true,
+    "displayTitle": "Cult of the Lamb / reaction"
+  },
+  {
+    "id": "webbed-social-acting",
+    "title": "Webbed: greeting and dance as social expression",
+    "studio": "Sbug Games",
+    "category": "graphic",
+    "people": [
+      {
+        "name": "Riley Neville",
+        "role": "Programming, Art, Sound and Game Design",
+        "sourceUrl": "https://webbed.website/credits.html"
+      }
+    ],
+    "tags": [
+      "nonhuman",
+      "spider",
+      "social response",
+      "small face",
+      "gesture"
+    ],
+    "summary": "A tiny spider remains socially readable through visible eyes, orientation and raised front limbs; the developer provides original greeting and dance GIFs.",
+    "observations": [
+      {
+        "text": "In the greeting GIF's inspected frame, the spider sits directly beside another insect under its speech balloon. The small bright eye marks remain visible against the dark face, while proximity makes the interaction legible.",
+        "basis": "visual observation",
+        "sourceUrl": "https://webbed.website/img/presskit/gifs/G_day.gif"
+      },
+      {
+        "text": "The dance GIF's inspected frame shows the spider leaning with front limbs raised beside a much larger moth. The face occupies very little of the image; the limb silhouette supplies a stronger signal.",
+        "basis": "visual observation",
+        "sourceUrl": "https://webbed.website/img/presskit/gifs/danceparty.gif"
+      },
+      {
+        "text": "Neville describes the spider's dance as a wiggle-arms move and discusses procedurally animated characters in the GameMaker interview.",
+        "basis": "creator statement",
+        "sourceUrl": "https://gamemaker.io/en/blog/webbed-interview"
+      }
+    ],
+    "mistIdeas": [
+      "Our inference: make a greeting a brief acknowledgement of the arriving person, with a held look and one small gesture. The social target matters more than adding a large smile.",
+      "Our inference: test MIST reactions at the smallest intended display size. If the face becomes hard to read, reinforce the same intent through a body tilt rather than adding tiny facial detail.",
+      "Our inference: reserve an energetic celebration for meaningful success; return to a settled attentive pose after it."
+    ],
+    "media": [
+      {
+        "kind": "gif",
+        "url": "https://webbed.website/img/presskit/gifs/G_day.gif",
+        "sourceUrl": "https://webbed.website/presskit.html",
+        "credit": "Sbug Games / Riley Neville",
+        "alt": "Webbed spider and insect greeting with a dialogue balloon",
+        "verified": true,
+        "motionVerified": false
+      },
+      {
+        "kind": "gif",
+        "url": "https://webbed.website/img/presskit/gifs/danceparty.gif",
+        "sourceUrl": "https://webbed.website/presskit.html",
+        "credit": "Sbug Games / Riley Neville",
+        "alt": "Webbed spider social dance beside a moth",
+        "verified": true,
+        "motionVerified": false
+      },
+      {
+        "kind": "youtube",
+        "url": "https://www.youtube.com/embed/xcSo912bT44",
+        "sourceUrl": "https://webbed.website/",
+        "credit": "Sbug Games",
+        "alt": "Webbed official site trailer",
+        "verified": true,
+        "motionVerified": false
+      }
+    ],
+    "sources": [
+      {
+        "title": "Webbed credits",
+        "url": "https://webbed.website/credits.html",
+        "kind": "developer",
+        "supports": "Riley Neville's exact combined credit"
+      },
+      {
+        "title": "Webbed press kit",
+        "url": "https://webbed.website/presskit.html",
+        "kind": "official media",
+        "supports": "Original GIF and screenshot assets; lead developer identity"
+      },
+      {
+        "title": "The Spider Practically Marketed Herself: Riley Neville, Webbed",
+        "url": "https://gamemaker.io/en/blog/webbed-interview",
+        "kind": "developer",
+        "supports": "Direct creator account of procedural characters and the dance gesture"
+      }
+    ],
+    "confidence": "high",
+    "researchNotes": "GIF assets loaded in browser and sampled frames were inspected. No continuous playback analysis or frame counts. Neville is credited exactly as the game credits state, without inventing a separate lead-animator title.",
+    "branch": "minimal",
+    "featured": true,
+    "displayTitle": "Webbed / greeting"
+  },
+  {
+    "id": "pikuniku-minimal-body-language",
+    "title": "Pikuniku: two eyes, posture and comic context",
+    "studio": "Sectordub",
+    "category": "graphic",
+    "people": [
+      {
+        "name": "Arnaud De Bock",
+        "role": "Game Design/Art/Producer",
+        "sourceUrl": "https://pikuniku.net/presskit/sheet.php?p=pikuniku"
+      },
+      {
+        "name": "Rémi Forcadell",
+        "role": "Game Developer/Writer",
+        "sourceUrl": "https://pikuniku.net/presskit/sheet.php?p=pikuniku"
+      }
+    ],
+    "tags": [
+      "minimal face",
+      "body language",
+      "eyes",
+      "procedural animation",
+      "posture"
+    ],
+    "summary": "A useful limit case: a character can remain readable with two eye dots and little facial detail when its posture carries the action.",
+    "observations": [
+      {
+        "text": "The official swimming screenshot shows the red character tilted diagonally with bent legs and two small eye dots; no mouth is visible in this pose. Orientation and limb silhouette supply most of the action information.",
+        "basis": "visual observation",
+        "sourceUrl": "https://pikuniku.net/presskit/pikuniku/images/pikuniku_screenshot_5.png"
+      },
+      {
+        "text": "De Bock explicitly says the minimal aesthetic was chosen to keep attention on characters' physical appearance and body language.",
+        "basis": "creator statement",
+        "sourceUrl": "https://www.nintendolife.com/news/2017/09/feature_picking_apart_the_mind_behind_the_delightful_dystopia_of_pikuniku"
+      }
+    ],
+    "mistIdeas": [
+      "Our inference: test an attentive MIST state with a quiet mouth and a deliberate eye/face orientation change, so the display can communicate without constant mouth activity.",
+      "Our inference: assign a single posture-like change to each event: lean or shift toward input, compress on uncertainty, return on acknowledgement.",
+      "Our inference: compare an eyes-only reaction against a full facial reaction at small size; keep the simpler version if it reads equally well."
+    ],
+    "media": [
+      {
+        "kind": "gif",
+        "url": "https://pikuniku.net/presskit/pikuniku/images/rhythmgame.gif",
+        "sourceUrl": "https://pikuniku.net/presskit/sheet.php?p=pikuniku",
+        "credit": "Sectordub / Devolver Digital",
+        "alt": "Official rhythm-game GIF supplied in the press kit; facial content and motion require manual viewing",
+        "verified": true,
+        "motionVerified": false
+      },
+      {
+        "kind": "gif",
+        "url": "https://pikuniku.net/images/header_60.gif",
+        "sourceUrl": "https://pikuniku.net/",
+        "credit": "Sectordub / Devolver Digital",
+        "alt": "Official site character/header GIF; rendering not inspected successfully",
+        "verified": true,
+        "motionVerified": false
+      },
+      {
+        "kind": "youtube",
+        "url": "https://www.youtube.com/embed/7KPKVD2kpFY",
+        "sourceUrl": "https://pikuniku.net/presskit/sheet.php?p=pikuniku",
+        "credit": "Sectordub / Devolver Digital",
+        "alt": "Official Pikuniku launch trailer",
+        "verified": true,
+        "motionVerified": false
+      }
+    ],
+    "sources": [
+      {
+        "title": "Pikuniku official press kit",
+        "url": "https://pikuniku.net/presskit/sheet.php?p=pikuniku",
+        "kind": "developer",
+        "supports": "Exact team credits, screenshot and GIF URLs, official launch trailer"
+      },
+      {
+        "title": "Picking Apart The Mind Behind The Delightful Dystopia Of PikuNiku",
+        "url": "https://www.nintendolife.com/news/2017/09/feature_picking_apart_the_mind_behind_the_delightful_dystopia_of_pikuniku",
+        "kind": "artist",
+        "supports": "Direct creator explanation of minimal aesthetics and body language"
+      },
+      {
+        "title": "Pikuniku at Pictoplasma 2017",
+        "url": "https://conference.pictoplasma.com/uncategorized/pikuniku/",
+        "kind": "talk",
+        "supports": "Conference organizer describes De Bock's procedural-animation and empathy talk; recording not inspected"
+      },
+      {
+        "title": "The Invisible Ink at Ludicious X",
+        "url": "https://gamedesign.zhdk.ch/news/arnaud-de-bock-confirmed-speaker-of-the-conference-interactive-experiences-at-ludicious-x/",
+        "kind": "talk",
+        "supports": "University organizer verifies artist/game-designer role and a talk on character empathy and accessibility"
+      }
+    ],
+    "confidence": "medium",
+    "researchNotes": "Credit is intentionally Art, not Animator: no separate animation credit was established. Official screenshot 5 was visually inspected, but its face is small, so it is not the lead board tile. Both GIF URLs came from official HTML; rhythmgame.gif returned HTTP 200 image/gif. The header GIF fetched but did not render in the image tool. No continuous motion, facial acting sequence, or timing verified. Conference pages verify talk topics rather than specific techniques in their contents.",
+    "branch": "graphic",
+    "featured": true,
+    "displayTitle": "Pikuniku / body language"
+  },
+  {
+    "id": "lil-gator-head-followthrough",
+    "title": "Lil Gator Game: a heavy head with a simple face",
+    "studio": "MegaWobble",
+    "category": "3d",
+    "people": [
+      {
+        "name": "Scott Slucher",
+        "role": "Developer explaining his character design and animation implementation",
+        "sourceUrl": "https://www.gamedeveloper.com/design/the-exaggerated-animations-and-tottering-wobble-bones-of-lil-gator-game"
+      }
+    ],
+    "tags": [
+      "head follow-through",
+      "appeal",
+      "large eyes",
+      "body acting",
+      "secondary motion"
+    ],
+    "summary": "Slucher's own explanation separates authored movement, speed-dependent blending, head lag and secondary physics.",
+    "observations": [
+      {
+        "text": "The inspected sword-swing image puts the large pale eye and black pupil against the green head; the open jaw and broad head silhouette remain readable amid the flying cardboard. This is a still-image observation.",
+        "basis": "visual observation",
+        "sourceUrl": "https://www.gamedeveloper.com/design/the-exaggerated-animations-and-tottering-wobble-bones-of-lil-gator-game"
+      },
+      {
+        "text": "Slucher says the oversized head and arms make small movements read strongly; he accounts for the head's weight when animating.",
+        "basis": "creator statement",
+        "sourceUrl": "https://www.gamedeveloper.com/design/the-exaggerated-animations-and-tottering-wobble-bones-of-lil-gator-game"
+      },
+      {
+        "text": "Slucher describes blend trees driven by speed and surface angle, then procedural head lag and body leaning in turns. He explicitly says the blended animations are subtler, so large movements are not constant.",
+        "basis": "creator statement",
+        "sourceUrl": "https://www.gamedeveloper.com/design/the-exaggerated-animations-and-tottering-wobble-bones-of-lil-gator-game"
+      }
+    ],
+    "mistIdeas": [
+      "Our inference: give MIST's eye/head orientation a small follow-through relative to a body turn, then let it settle cleanly.",
+      "Our inference: distinguish a quiet attention shift from a full-body enthusiastic response; do not reuse the same large bounce for both.",
+      "Our inference: test the expression in a frozen silhouette first. The face should remain readable before adding spring motion."
+    ],
+    "media": [
+      {
+        "kind": "image",
+        "url": "https://eu-images.contentstack.com/v3/assets/blt740a130ae3c5d529/blt99c954c98b135471/650effa9c6abf427f547e08d/Gator_3.jpg/?width=1400&auto=webp&quality=80&disable=upscale",
+        "sourceUrl": "https://www.gamedeveloper.com/design/the-exaggerated-animations-and-tottering-wobble-bones-of-lil-gator-game",
+        "credit": "MegaWobble, supplied in Scott Slucher developer interview / Game Developer",
+        "alt": "Lil Gator swinging a sword, with a large clear eye, open jaw, and broad head silhouette.",
+        "verified": true,
+        "motionVerified": false
+      }
+    ],
+    "sources": [
+      {
+        "title": "The exaggerated animations and tottering wobble bones of Lil Gator Game",
+        "url": "https://www.gamedeveloper.com/design/the-exaggerated-animations-and-tottering-wobble-bones-of-lil-gator-game",
+        "kind": "developer",
+        "supports": "First-person interview with Scott Slucher on his animation choices; supplied reference still."
+      },
+      {
+        "title": "Lil Gator Game creator page",
+        "url": "https://www.patreon.com/lilgatorgame/about",
+        "kind": "developer",
+        "supports": "Scott Slucher, Robin Burgess and Connor Quinn are the game team."
+      }
+    ],
+    "confidence": "high",
+    "researchNotes": "Face still inspected directly. The interview's historical Gfycat embed is https://gfycat.com/ifr/ZigzagAshamedBarnowl; not included as working motion media because playback was not verified. No blendshape or facial-texture implementation claim is established by this source.",
+    "branch": "3d",
+    "featured": true,
+    "displayTitle": "Lil Gator Game / head follow-through"
+  },
+  {
+    "id": "battleblock-cutscene-puppets",
+    "title": "BattleBlock Theater: simple faces with authored puppet movement",
+    "studio": "The Behemoth",
+    "category": "process",
+    "people": [
+      {
+        "name": "Derek Lieu",
+        "role": "Cutscene animator for the nine shipped game cutscenes",
+        "sourceUrl": "https://blog.thebehemoth.com/2013/05/07/battleblock-theater-cutscene-development/"
+      },
+      {
+        "name": "Dan Paladin",
+        "role": "Art, storyboards and rough opening animatic; art and animation for the 2011 opening/prologue",
+        "sourceUrl": "https://blog.thebehemoth.com/2013/05/07/battleblock-theater-cutscene-development/"
+      }
+    ],
+    "tags": [
+      "simple faces",
+      "held poses",
+      "overshoot",
+      "recovery",
+      "process"
+    ],
+    "summary": "The closest structural lesson for MIST: an extremely simple face can act through the movement of the whole graphic and carefully chosen reaction shapes.",
+    "observations": [
+      {
+        "text": "The official finished cutscene still uses tiny eyes and large open mouths on white, flat characters. Round, square and irregular heads remain readable against a busy purple scene.",
+        "basis": "visual observation",
+        "sourceUrl": "https://blog.thebehemoth.com/wp-content/uploads/2013/05/08-shot-with-lightswm.jpg"
+      },
+      {
+        "text": "Lieu describes sketching puppet motion paths, manually keyframing rotation and offsetting Hatty from the boat movement to avoid rigid attachment. He also describes adjustable inertial overshoot and settling.",
+        "basis": "creator statement",
+        "sourceUrl": "https://blog.thebehemoth.com/2013/05/07/battleblock-theater-cutscene-development/"
+      },
+      {
+        "text": "The production began with Paladin's rough drawings and story beats, which Lieu animated before swapping in final artwork. This is evidence for testing acting before surface polish.",
+        "basis": "creator statement",
+        "sourceUrl": "https://blog.thebehemoth.com/2013/05/07/battleblock-theater-cutscene-development/"
+      }
+    ],
+    "mistIdeas": [
+      "Our inference: validate MIST reactions as rough eye-and-mouth poses before adding glow, noise or shading.",
+      "Our inference: offset eye arrival, mouth arrival and whole-face settle slightly so a reaction does not resemble one rigid layer being scaled.",
+      "Our inference: try a small rotation or translation overshoot followed by a deliberate readable hold. Tune recovery to the event's importance; avoid making every idle movement bounce.",
+      "Our inference: preserve simple facial marks and spend the motion budget on clear staging, gaze direction and purposeful pauses."
+    ],
+    "media": [
+      {
+        "kind": "image",
+        "url": "https://blog.thebehemoth.com/wp-content/uploads/2013/05/08-shot-with-lightswm.jpg",
+        "sourceUrl": "https://blog.thebehemoth.com/2013/05/07/battleblock-theater-cutscene-development/",
+        "credit": "Dan Paladin / Derek Lieu / The Behemoth",
+        "alt": "BattleBlock friends with tiny eyes and large open mouths in a final cutscene still",
+        "verified": true,
+        "motionVerified": false
+      },
+      {
+        "kind": "image",
+        "url": "https://blog.thebehemoth.com/wp-content/uploads/2013/05/bbt_cutscene_sketchwm.jpg",
+        "sourceUrl": "https://blog.thebehemoth.com/2013/05/07/battleblock-theater-cutscene-development/",
+        "credit": "Dan Paladin / The Behemoth",
+        "alt": "Original pencil storyboard showing simple face shapes and stage directions",
+        "verified": true,
+        "motionVerified": false
+      },
+      {
+        "kind": "video",
+        "url": "https://vimeo.com/65080296",
+        "sourceUrl": "https://blog.thebehemoth.com/2013/05/07/battleblock-theater-cutscene-development/",
+        "credit": "Derek Lieu / Dan Paladin / The Behemoth",
+        "alt": "The final BattleBlock Theater intro cutscene linked by its animator",
+        "verified": false,
+        "motionVerified": false,
+        "availability": "The original video link returned 404 during research."
+      },
+      {
+        "kind": "youtube",
+        "url": "https://www.youtube.com/watch?v=AL-25TrqEOY",
+        "sourceUrl": "https://blog.thebehemoth.com/2013/05/07/battleblock-theater-cutscene-development/",
+        "credit": "Dan Paladin / The Behemoth",
+        "alt": "Earlier 2011 opening and prologue embedded in the official development article",
+        "verified": true,
+        "motionVerified": false
+      }
+    ],
+    "sources": [
+      {
+        "title": "BattleBlock Theater Cutscene Development",
+        "url": "https://blog.thebehemoth.com/2013/05/07/battleblock-theater-cutscene-development/",
+        "kind": "developer",
+        "supports": "Direct animator account, specific division of credits, process images and original/final motion references"
+      }
+    ],
+    "confidence": "high",
+    "researchNotes": "Official article and two images inspected in browser. Video URLs were verified in the article's rendered DOM; videos were not continuously watched. Timing claims are limited to the animator's description. No measured hold lengths, anticipation durations or smear frames are asserted.",
+    "branch": "exaggerated",
+    "featured": false,
+    "displayTitle": "BattleBlock Theater: simple faces with authored puppet movement"
+  },
+  {
+    "id": "botanicula-tiny-faces",
+    "title": "Botanicula: tiny eyes, unusual bodies and group staging",
+    "studio": "Amanita Design",
+    "category": "handdrawn",
+    "people": [
+      {
+        "name": "Jaromír Plachý",
+        "role": "Animator and creator of Botanicula, as described on Amanita's official forum index",
+        "sourceUrl": "https://forum.amanita-design.net/"
+      }
+    ],
+    "tags": [
+      "nonhuman",
+      "tiny eyes",
+      "silhouette",
+      "attention",
+      "ensemble"
+    ],
+    "summary": "The botanical cast shows how much character can survive when faces are a few tiny marks on strongly different bodies.",
+    "observations": [
+      {
+        "text": "In screenshot 04, several small protagonists cluster together on a branch opposite a huge hanging dark creature. Tiny bright eyes, very different body proportions and the distance between groups carry the scene; a detailed human face is unnecessary.",
+        "basis": "visual observation",
+        "sourceUrl": "https://amanita-design.net/img/games/botanicula-04@2x.jpg"
+      },
+      {
+        "text": "Screenshot 03 repeats a one-eyed creature at different sizes. The large foreground eye gives a clear directional cue, while the surrounding small versions retain the same instantly readable eye-and-body arrangement.",
+        "basis": "visual observation",
+        "sourceUrl": "https://amanita-design.net/img/games/botanicula-03@2x.jpg"
+      },
+      {
+        "text": "In the archived IndieCade interview, Plachý and Stehlík describe nature and an old garden as inspiration; they also say the musicians saw animations during the collaboration.",
+        "basis": "creator statement",
+        "sourceUrl": "https://forum.amanita-design.net/index.php?topic=4278.0"
+      }
+    ],
+    "mistIdeas": [
+      "Our inference: let a shift of attention move the whole eye pair or head toward a specific target, then hold. Avoid continual wandering that has no apparent object.",
+      "Our inference: try quiet listening with a nearly still face and a slight body lean. Contrast will give the next clear reaction more weight.",
+      "Our inference: borrow the clarity of silhouette and gaze, not the botanical textures or character shapes."
+    ],
+    "media": [
+      {
+        "kind": "image",
+        "url": "https://amanita-design.net/img/games/botanicula-04@2x.jpg",
+        "sourceUrl": "https://amanita-design.net/games/botanicula.html",
+        "credit": "Amanita Design / Jaromír Plachý",
+        "alt": "Tiny botanical protagonists face a large dark hanging creature",
+        "verified": true,
+        "motionVerified": false
+      },
+      {
+        "kind": "image",
+        "url": "https://amanita-design.net/img/games/botanicula-03@2x.jpg",
+        "sourceUrl": "https://amanita-design.net/games/botanicula.html",
+        "credit": "Amanita Design / Jaromír Plachý",
+        "alt": "One-eyed creatures at multiple scales around tree branches",
+        "verified": true,
+        "motionVerified": false
+      },
+      {
+        "kind": "youtube",
+        "url": "https://www.youtube.com/embed/gxoxCxLdsNE",
+        "sourceUrl": "https://amanita-design.net/games/botanicula.html",
+        "credit": "Amanita Design",
+        "alt": "Botanicula trailer embedded on the developer's official page",
+        "verified": true,
+        "motionVerified": false
+      }
+    ],
+    "sources": [
+      {
+        "title": "Botanicula official game page",
+        "url": "https://amanita-design.net/games/botanicula.html",
+        "kind": "official media",
+        "supports": "Screenshots, trailer and five-creature premise"
+      },
+      {
+        "title": "Amanita Design official forum index",
+        "url": "https://forum.amanita-design.net/",
+        "kind": "developer",
+        "supports": "Plachý's animator and creator attribution"
+      },
+      {
+        "title": "IndieCade interview with Jaromír Plachý and Peter Stehlík",
+        "url": "https://forum.amanita-design.net/index.php?topic=4278.0",
+        "kind": "developer",
+        "supports": "Archived direct interview on inspiration and animation/music collaboration"
+      }
+    ],
+    "confidence": "medium",
+    "researchNotes": "Three official stills were inspected. Trailer embed URL verified in developer page HTML, but its motion was not inspected. Credit evidence is Amanita's own forum description rather than a full production credit roll; the interview is a moderator-posted archive of the original interview. Do not infer expression hold lengths from these stills.",
+    "branch": "minimal",
+    "featured": false,
+    "displayTitle": "Botanicula: tiny eyes, unusual bodies and group staging",
+    "previewIndex": 1
+  },
+  {
+    "id": "bugsnax-eggabell-rosenthal",
+    "title": "Bugsnax: Eggabell animation set (inspection pending)",
+    "studio": "Young Horses",
+    "category": "3d",
+    "people": [
+      {
+        "name": "Jeff Rosenthal",
+        "role": "Character animation work for Bugsnax, self-attributed on Eggabell portfolio page",
+        "sourceUrl": "https://jeffrosenthal.artstation.com/projects/18PRbL"
+      }
+    ],
+    "tags": [
+      "character animation",
+      "interactive model",
+      "inspection pending"
+    ],
+    "summary": "A character-specific animator portfolio is a useful follow-up source, but its model did not render in this session.",
+    "observations": [
+      {
+        "text": "Rosenthal identifies this as his character animation work for Bugsnax and tells viewers to change animations using the dropdown below the time slider. No visible face-performance observation is claimed.",
+        "basis": "creator statement",
+        "sourceUrl": "https://jeffrosenthal.artstation.com/projects/18PRbL"
+      }
+    ],
+    "mistIdeas": [
+      "Our inference, pending playback: use the artist's selectable animation set to compare idle, speaking and reaction poses before choosing any Eggabell-specific technique. No adoption recommendation follows from the blocked viewer alone."
+    ],
+    "media": [
+      {
+        "kind": "page",
+        "url": "https://sketchfab.com/models/4e24d8c42d7645baa98bb9ad2bc53241/embed",
+        "sourceUrl": "https://jeffrosenthal.artstation.com/projects/18PRbL",
+        "credit": "Jeff Rosenthal / Young Horses",
+        "alt": "Artist-embedded Eggabell animation model with selectable animations; rendering failed in the research browser.",
+        "verified": true,
+        "motionVerified": false
+      }
+    ],
+    "sources": [
+      {
+        "title": "Bugsnax Character Animations - Eggabell",
+        "url": "https://jeffrosenthal.artstation.com/projects/18PRbL",
+        "kind": "artist",
+        "supports": "Exact character animation attribution and embedded model URL."
+      },
+      {
+        "title": "Jeff Rosenthal Resume",
+        "url": "https://jeffrosenthal.artstation.com/resume",
+        "kind": "artist",
+        "supports": "Contract work on Bugsnax and character-animation/rigging skills."
+      }
+    ],
+    "confidence": "medium",
+    "researchNotes": "Source and embed URLs verified in page DOM. Sketchfab showed 'Model is too heavy for your device and can not be rendered properly'. This is an explicitly incomplete follow-up card, not a visually verified moodboard image. Do not promote it alongside inspected faces without that qualification.",
+    "branch": "3d",
+    "featured": false,
+    "displayTitle": "Bugsnax: Eggabell animation set (inspection pending)",
+    "researchStatus": "The credited model could not be rendered during research."
+  },
+  {
+    "id": "cuphead-jake-clark-process",
+    "title": "Cuphead: Jake Clark's animation process and philosophy",
+    "studio": "Studio MDHR",
+    "category": "process",
+    "people": [
+      {
+        "name": "Jake Clark",
+        "role": "Animator and designer on Cuphead; presenter of his animation and design process",
+        "sourceUrl": "https://jake-clark.tumblr.com/post/158375449032/hey-everyone-heres-a-talk-i-recently-gave-at-gdc"
+      }
+    ],
+    "tags": [
+      "process",
+      "character design",
+      "handdrawn"
+    ],
+    "summary": "A directly credited game animator explains how boss designs become animation; useful process context for the face studies.",
+    "observations": [
+      {
+        "text": "Clark identifies the talk as a presentation of his own Cuphead animation and design processes.",
+        "basis": "creator statement",
+        "sourceUrl": "https://jake-clark.tumblr.com/post/158375449032/hey-everyone-heres-a-talk-i-recently-gave-at-gdc"
+      }
+    ],
+    "mistIdeas": [
+      "Our inference: separate MIST's design constraints from the acting plan, then approve readable key expressions before building all in-betweens."
+    ],
+    "media": [
+      {
+        "kind": "youtube",
+        "url": "https://www.youtube.com/watch?v=RmGb-jU3uVQ",
+        "sourceUrl": "https://gdcvault.com/play/1024315/Animation-Bootcamp-Cuphead-Process-and",
+        "credit": "Jake Clark / Studio MDHR / GDC",
+        "alt": "Cuphead's Animation Process and Philosophy, GDC talk",
+        "verified": true,
+        "motionVerified": false
+      }
+    ],
+    "sources": [
+      {
+        "title": "Jake Clark announces his GDC talk",
+        "url": "https://jake-clark.tumblr.com/post/158375449032/hey-everyone-heres-a-talk-i-recently-gave-at-gdc",
+        "kind": "artist",
+        "supports": "Direct attribution of the animation and design presentation."
+      },
+      {
+        "title": "Animation Bootcamp: Cuphead Process and Philosophy",
+        "url": "https://gdcvault.com/play/1024315/Animation-Bootcamp-Cuphead-Process-and",
+        "kind": "talk",
+        "supports": "Conference record."
+      }
+    ],
+    "confidence": "high",
+    "researchNotes": "YouTube oEmbed returned the exact title and GDC Festival of Gaming channel, confirming a usable official embed. Talk not continuously viewed; no specific motion or timestamp claims.",
+    "branch": "handdrawn",
+    "featured": false,
+    "displayTitle": "Jake Clark / Cuphead process"
+  },
+  {
+    "id": "farewell-north-kyle-banks-face-process",
+    "title": "Farewell North - making the human companion responsive",
+    "studio": "Kyle Banks",
+    "category": "process",
+    "people": [
+      {
+        "name": "Kyle Banks",
+        "role": "Developer and author of the facial-animation devlog",
+        "sourceUrl": "https://www.youtube.com/watch?v=fkB3tK6zZSo"
+      }
+    ],
+    "tags": [
+      "eye tracking",
+      "blink",
+      "lip sync",
+      "expressions",
+      "iteration"
+    ],
+    "summary": "A solo developer documents the difficult jump from a face that merely exists to a character who can carry close dialogue.",
+    "observations": [
+      {
+        "text": "Banks reports that his human protagonist initially had to be kept distant or off-screen. His devlog describes adding eye tracking, blinking, expressions and lip sync with Unity, Blender and FaceIt.",
+        "basis": "creator statement",
+        "sourceUrl": "https://www.youtube.com/watch?v=fkB3tK6zZSo"
+      },
+      {
+        "text": "He warns in his own description that expressions can quickly feel wrong and still require refinement; hiring animators and adding believable behaviour alone had not resolved the lifeless face.",
+        "basis": "creator statement",
+        "sourceUrl": "https://www.youtube.com/watch?v=fkB3tK6zZSo"
+      }
+    ],
+    "mistIdeas": [
+      "Our inference: review MIST at its actual conversation size, because a small distant character can conceal a weak face.",
+      "Our inference: evaluate gaze, blink, expression and speech as separate contributions; freeze three channels while judging the fourth, then restore them together."
+    ],
+    "media": [
+      {
+        "kind": "youtube",
+        "url": "https://www.youtube.com/watch?v=fkB3tK6zZSo",
+        "sourceUrl": "https://www.youtube.com/watch?v=fkB3tK6zZSo",
+        "credit": "Kyle Banks / Farewell North; edited by TheShelfman",
+        "alt": "Adding Facial Animation to my Indie Game! - the developer's face-process devlog",
+        "verified": true,
+        "motionVerified": false
+      }
+    ],
+    "sources": [
+      {
+        "title": "Adding Facial Animation to my Indie Game! | Devlog",
+        "url": "https://www.youtube.com/watch?v=fkB3tK6zZSo",
+        "kind": "developer",
+        "supports": "Original author, process description and chapter labels; title/uploader checked through oEmbed and description read from original YouTube page."
+      },
+      {
+        "title": "Farewell North official site",
+        "url": "https://farewell-north.com/",
+        "kind": "developer",
+        "supports": "Game, developer context and first-person development FAQ."
+      }
+    ],
+    "confidence": "high",
+    "researchNotes": "A developer-process complement, not a claim that Banks individually animated every shot. Video source verified, but no continuous motion or frame-level acting inspected. Author's chapter labels are 2:28 Blink and Eye Animation, 6:44 Lip Sync, 9:33 Facial Animation; these identify sections only, not verified performance moments.",
+    "branch": "process",
+    "featured": false,
+    "displayTitle": "Farewell North / face process"
+  },
+  {
+    "id": "klei-symbol-animation-process",
+    "title": "Klei: hand-drawn appeal with reusable animation symbols",
+    "studio": "Klei Entertainment",
+    "category": "process",
+    "people": [
+      {
+        "name": "Jeff Agala",
+        "role": "Klei animator and GDC co-presenter",
+        "sourceUrl": "https://kleiforums.com/forums/topic/37347-2-d-animation-at-klei/"
+      },
+      {
+        "name": "Aaron Bouthillier",
+        "role": "Klei animator and GDC co-presenter",
+        "sourceUrl": "https://gdcvault.com/play/1020165/2D-Animation-at-Klei"
+      }
+    ],
+    "tags": [
+      "process",
+      "symbol animation",
+      "responsiveness",
+      "identity consistency"
+    ],
+    "summary": "A production reference for keeping an expressive design consistent across reusable game animation states.",
+    "observations": [
+      {
+        "text": "The official session overview covers character design, polished symbol animation, costume and colour swapping, animation reuse, and working with designers to refine responsiveness.",
+        "basis": "creator statement",
+        "sourceUrl": "https://gdcvault.com/play/1020165/2D-Animation-at-Klei"
+      }
+    ],
+    "mistIdeas": [
+      "Our inference: keep reusable neutral eye and mouth symbols, but allow purpose-drawn replacements for extreme expressions.",
+      "Our inference: map expressions to actual dialogue or game events, with explicit entry and recovery states. This is an implementation proposal, not an observed Klei facial sequence."
+    ],
+    "media": [
+      {
+        "kind": "page",
+        "url": "https://media.gdcvault.com/GDC2014/Presentations/Agala_Jeff_2D_Animation_at.pdf",
+        "sourceUrl": "https://gdcvault.com/play/1020165/2D-Animation-at-Klei",
+        "credit": "Jeff Agala and Aaron Bouthillier / Klei / GDC",
+        "alt": "Official 2-D Animation at Klei presentation slides",
+        "verified": true,
+        "motionVerified": false
+      }
+    ],
+    "sources": [
+      {
+        "title": "2D Animation at Klei Entertainment",
+        "url": "https://gdcvault.com/play/1020165/2D-Animation-at-Klei",
+        "kind": "talk",
+        "supports": "Presenter names, studio and session scope."
+      },
+      {
+        "title": "Klei developer links the 2014 presentation",
+        "url": "https://kleiforums.com/forums/topic/37347-2-d-animation-at-klei/",
+        "kind": "developer",
+        "supports": "Identifies the speakers as Klei animators and links the slide deck."
+      }
+    ],
+    "confidence": "medium",
+    "researchNotes": "Process context only, not a face moodboard tile. Slide URL confirmed in indexed official source; direct fetch restricted. No shot-level animation attribution or facial-motion observation claimed.",
+    "branch": "handdrawn",
+    "featured": false,
+    "displayTitle": "Klei / animation symbols"
+  },
+  {
+    "id": "ori-james-benson-process",
+    "title": "Ori and the Blind Forest - James Benson's acting and gameplay reel",
+    "studio": "Moon Studios",
+    "category": "process",
+    "people": [
+      {
+        "name": "James Benson",
+        "role": "Ori animator; GDC speaker on its animation process",
+        "sourceUrl": "https://gdcvault.com/play/1021791/Animation-Bootcamp-The-Animation-Process"
+      }
+    ],
+    "tags": [
+      "animator portfolio",
+      "interaction prototyping",
+      "readable actions"
+    ],
+    "summary": "An animator-owned reel and a documented method for testing character interactions before committing to production animation.",
+    "observations": [
+      {
+        "text": "In Moon Studios' first-person postmortem, Thomas Mahler says Benson made short videos exploring world interactions, enemies and abilities for team evaluation before full in-game sets were produced.",
+        "basis": "creator statement",
+        "sourceUrl": "https://www.gamedeveloper.com/audio/postmortem-moon-studios-heartfelt-i-ori-and-the-blind-forest-i-"
+      }
+    ],
+    "mistIdeas": [
+      "Our inference: make a short MIST interaction reel covering interruption, recognition, uncertainty and recovery, then approve those beats before expanding the expression library.",
+      "Our inference: judge whether the response reads with the mouth held still, so dialogue motion cannot hide weak acting."
+    ],
+    "media": [
+      {
+        "kind": "youtube",
+        "url": "https://www.youtube.com/watch?v=gPWsk8N-EfE",
+        "sourceUrl": "https://www.youtube.com/@thejazzman9475",
+        "credit": "James Benson / Moon Studios",
+        "alt": "Ori Animation Reel - James Benson's own uploaded portfolio reel",
+        "verified": true,
+        "motionVerified": false
+      },
+      {
+        "kind": "youtube",
+        "url": "https://www.youtube.com/watch?v=m8lOwrWNbEY",
+        "sourceUrl": "https://gdcvault.com/play/1021791/Animation-Bootcamp-The-Animation-Process",
+        "credit": "James Benson / GDC / Moon Studios",
+        "alt": "The Animation Process Of Ori & The Blind Forest - official GDC process talk",
+        "verified": true,
+        "motionVerified": false
+      },
+      {
+        "kind": "image",
+        "url": "https://i.ytimg.com/vi/gPWsk8N-EfE/hqdefault.jpg",
+        "sourceUrl": "https://www.youtube.com/watch?v=gPWsk8N-EfE",
+        "credit": "James Benson / Moon Studios",
+        "alt": "Publisher-supplied reel thumbnail; not a verified facial close-up",
+        "verified": true,
+        "motionVerified": false
+      }
+    ],
+    "sources": [
+      {
+        "title": "Animation Bootcamp: The Animation Process of Ori",
+        "url": "https://gdcvault.com/play/1021791/Animation-Bootcamp-The-Animation-Process",
+        "kind": "talk",
+        "supports": "Benson's role as speaker and the talk's animation subject."
+      },
+      {
+        "title": "Ori Animation Reel - James Benson",
+        "url": "https://www.youtube.com/watch?v=gPWsk8N-EfE",
+        "kind": "artist",
+        "supports": "Artist-owned portfolio media; title, uploader and thumbnail verified through YouTube oEmbed."
+      },
+      {
+        "title": "Postmortem: Moon Studios' heartfelt Ori and the Blind Forest",
+        "url": "https://www.gamedeveloper.com/audio/postmortem-moon-studios-heartfelt-i-ori-and-the-blind-forest-i-",
+        "kind": "developer",
+        "supports": "Mahler's account of Benson's short interaction prototype videos."
+      }
+    ],
+    "confidence": "medium",
+    "researchNotes": "An adjacent process reference, not a proven facial technique. No primary eye/ear-specific claim verified. Video frames and continuous motion were not inspected; no precise acting moments or timestamps asserted. Research assistance verified reel and GDC YouTube metadata.",
+    "branch": "process",
+    "featured": false,
+    "displayTitle": "James Benson / Ori reel",
+    "previewIndex": 0
+  },
+  {
+    "id": "psychonauts2-richardson-mailroom",
+    "title": "Psychonauts 2: Richardson's mailroom robot acting",
+    "studio": "Double Fine Productions",
+    "category": "3d",
+    "people": [
+      {
+        "name": "Miyuki Richardson",
+        "role": "Animator in official credits; reel author showing in-game animations, layouts and cutscenes",
+        "sourceUrl": "https://www.doublefine.com/games/psychonauts-2/credits"
+      }
+    ],
+    "tags": [
+      "robot",
+      "attention",
+      "body acting",
+      "layout",
+      "eye direction"
+    ],
+    "summary": "A credited animator's reel offers a useful robot comparison and clearly labels her animation work separately from layout-only contributions.",
+    "observations": [
+      {
+        "text": "In the inspected mailroom sequence around 4:08 to 4:20, the robot's luminous circular eye, head angle, and oversized mechanical hand make the letter exchange readable. At 4:14 the frame places the eye beside the envelope, bringing face and task into one composition.",
+        "basis": "visual observation",
+        "sourceUrl": "https://vimeo.com/619494977"
+      },
+      {
+        "text": "At approximately 4:20 the reel visibly labels the shot 'Layout and Animation'. Earlier examples, including the inspected 1:36 frame, say 'Layout Only' and credit final animation to Squeeze Animation Studios.",
+        "basis": "visual observation",
+        "sourceUrl": "https://vimeo.com/619494977"
+      },
+      {
+        "text": "Double Fine's official credits name Richardson among the animators and separately acknowledge FaceFX-generated facial animations; this does not establish which mechanism any individual shot uses.",
+        "basis": "creator statement",
+        "sourceUrl": "https://www.doublefine.com/games/psychonauts-2/credits"
+      }
+    ],
+    "mistIdeas": [
+      "Our inference: tie a MIST attention change to an actual event or object, then align the face, head, and one body gesture around that target.",
+      "Our inference: a mechanical face can retain its identity while the head and body carry emphasis. Avoid forcing a human mouth performance into every response.",
+      "Our inference: review future MIST animation in labelled stages: anticipation, attention shift, reaction hold, and return. The reel does not supply measured timing values for these stages."
+    ],
+    "media": [
+      {
+        "kind": "video",
+        "url": "https://player.vimeo.com/video/619494977?h=831ae4368a",
+        "sourceUrl": "https://vimeo.com/619494977",
+        "credit": "Miyuki Richardson / Double Fine Productions; additional shot-specific credits appear within the reel",
+        "alt": "Psychonauts 2 animation reel, including a mailroom robot sequence around 4:08 to 4:20. Contains story spoilers.",
+        "verified": true,
+        "motionVerified": false,
+        "availability": "Played in the research browser; some direct HTTP probes were rejected by Vimeo."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Miyuki Richardson - Psychonauts 2 Animation Reel",
+        "url": "https://vimeo.com/619494977",
+        "kind": "artist",
+        "supports": "Artist attribution, exact embed supplied by the player's Embed dialog, per-shot contribution labels, inspected robot frames."
+      },
+      {
+        "title": "Psychonauts 2 Cast & Credits",
+        "url": "https://www.doublefine.com/games/psychonauts-2/credits",
+        "kind": "developer",
+        "supports": "Richardson's animator credit; Squeeze studio team and FaceFX acknowledgement."
+      },
+      {
+        "title": "Miyuki Richardson Resume",
+        "url": "https://maruyamamiyuki.wixsite.com/portfolio/resume",
+        "kind": "artist",
+        "supports": "Senior animator role at Double Fine and in-game/cinematic animation experience."
+      }
+    ],
+    "confidence": "high",
+    "researchNotes": "Video played and timestamps were verified against the player, but analysis is based on sampled frames, not continuous motion perception. Do not infer blink timing, delayed-mouth timing or frame counts. Major story spoilers. This is the larger-production comparison, not a small indie production.",
+    "branch": "3d",
+    "featured": false,
+    "displayTitle": "Psychonauts 2 / mailroom acting"
+  },
+  {
+    "id": "spiritfarer-game-individual-actions",
+    "title": "Spiritfarer: individuality within a shared action set",
+    "studio": "Thunder Lotus",
+    "category": "process",
+    "people": [
+      {
+        "name": "Alexandre Boyer",
+        "role": "Animation Director",
+        "sourceUrl": "https://thunderlotusgames.com/press-kits/spiritfarer-press-kit/"
+      },
+      {
+        "name": "Simon Nakauchi Pelletier",
+        "role": "Animator",
+        "sourceUrl": "https://thunderlotusgames.com/press-kits/spiritfarer-press-kit/"
+      },
+      {
+        "name": "Mathieu Choquet",
+        "role": "Animator",
+        "sourceUrl": "https://thunderlotusgames.com/press-kits/spiritfarer-press-kit/"
+      }
+    ],
+    "tags": [
+      "character-specific reactions",
+      "dialogue expressions",
+      "interruptible actions",
+      "warmth"
+    ],
+    "summary": "The animators explain how common actions can carry distinct personalities, a useful foundation for MIST's event-driven reactions.",
+    "observations": [
+      {
+        "text": "Boyer and Pelletier describe a largely shared action list for the spirits, including interaction, eating, sleeping and hugging, while making each spirit's movement individual.",
+        "basis": "creator statement",
+        "sourceUrl": "https://www.toonboom.com/thunder-lotus-games-on-animating-the-afterlife-in-spiritfarer"
+      },
+      {
+        "text": "The interview identifies dialogue expressions among Stella's animation work. It also describes returning control once an action has communicated its meaning, allowing the player to cancel into another action.",
+        "basis": "creator statement",
+        "sourceUrl": "https://www.toonboom.com/thunder-lotus-games-on-animating-the-afterlife-in-spiritfarer"
+      }
+    ],
+    "mistIdeas": [
+      "Our inference: give MIST a common reaction structure with expression-specific gaze, eyelids and recovery, rather than using the same bounce for every event.",
+      "Our inference: define the minimum visible beat of a reaction and let a new conversational event interrupt its tail. Preserve the emotional eye pose when speech begins instead of resetting the face to neutral."
+    ],
+    "media": [
+      {
+        "kind": "youtube",
+        "url": "https://www.youtube.com/embed/Xu4JHmcfrtw",
+        "sourceUrl": "https://www.toonboom.com/thunder-lotus-games-on-animating-the-afterlife-in-spiritfarer",
+        "credit": "Thunder Lotus",
+        "alt": "Official Spiritfarer launch trailer illustrating in-game hand-drawn animation.",
+        "verified": true,
+        "motionVerified": false
+      },
+      {
+        "kind": "youtube",
+        "url": "https://www.youtube.com/embed/sJlv5aul3Jk",
+        "sourceUrl": "https://www.toonboom.com/thunder-lotus-games-on-animating-the-afterlife-in-spiritfarer",
+        "credit": "Thunder Lotus",
+        "alt": "Early Spiritfarer platforming test supplied by Thunder Lotus; process reference rather than a face close-up.",
+        "verified": true,
+        "motionVerified": false
+      }
+    ],
+    "sources": [
+      {
+        "title": "Thunder Lotus Games on animating the afterlife in Spiritfarer",
+        "url": "https://www.toonboom.com/thunder-lotus-games-on-animating-the-afterlife-in-spiritfarer",
+        "kind": "developer",
+        "supports": "First-person animator interview about expressive actions, individuality and player control; contains official video embeds."
+      },
+      {
+        "title": "Spiritfarer press kit",
+        "url": "https://thunderlotusgames.com/press-kits/spiritfarer-press-kit/",
+        "kind": "developer",
+        "supports": "Names the animation director and animators separately from artists and trailer collaborators."
+      }
+    ],
+    "confidence": "high",
+    "researchNotes": "Process evidence is first-person interview testimony. Embedded YouTube URLs verified in live page HTML, but continuous footage was not perceived. The inspected official fishing screenshot was too wide for face analysis and is deliberately not presented as a face moodboard image. Do not merge these in-game credits with the Knights of the Light Table trailer team.",
+    "branch": "cozy",
+    "featured": false,
+    "displayTitle": "Spiritfarer / individual actions"
+  },
+  {
+    "id": "thank-goodness-pip-animation-process",
+    "title": "Thank Goodness You're Here!: Pip Williamson's hybrid character workflow",
+    "studio": "Coal Supper",
+    "category": "process",
+    "people": [
+      {
+        "name": "Pip Williamson",
+        "role": "Animation team lead; character, interactive and stylised animation",
+        "sourceUrl": "https://www.williamsonpip.co.uk/project/thank-goodness-youre-here"
+      },
+      {
+        "name": "James Carbutt",
+        "role": "Design",
+        "sourceUrl": "https://www.williamsonpip.co.uk/project/thank-goodness-youre-here"
+      },
+      {
+        "name": "Will Todd",
+        "role": "Development",
+        "sourceUrl": "https://www.williamsonpip.co.uk/project/thank-goodness-youre-here"
+      }
+    ],
+    "tags": [
+      "pose design",
+      "sprite swaps",
+      "rough animation",
+      "snappy motion",
+      "process"
+    ],
+    "summary": "A named animation lead explains how to preserve drawn poses when implementing character animation in an engine.",
+    "observations": [
+      {
+        "text": "Pip says the team began with free-drawn roughs, then used a hybrid workflow combining in-engine animation and replacement sprites where position, rotation and scale were insufficient.",
+        "basis": "creator statement",
+        "sourceUrl": "https://www.williamsonpip.co.uk/project/thank-goodness-youre-here"
+      },
+      {
+        "text": "Her portfolio says this retained snappy movements from the frame-by-frame roughs, and identifies her work animating over 200 game elements and leading the animation team.",
+        "basis": "creator statement",
+        "sourceUrl": "https://www.williamsonpip.co.uk/project/thank-goodness-youre-here"
+      }
+    ],
+    "mistIdeas": [
+      "Our inference: sketch MIST's extreme mouth and eyelid poses first, then decide which transitions need replacement drawings. Do not force every expression through interpolation of one neutral shape.",
+      "Our inference: compare rough expression changes against the final engine playback so implementation convenience does not erase the pose contrast."
+    ],
+    "media": [
+      {
+        "kind": "page",
+        "url": "https://www.williamsonpip.co.uk/project/thank-goodness-youre-here",
+        "sourceUrl": "https://www.williamsonpip.co.uk/project/thank-goodness-youre-here",
+        "credit": "Pip Williamson / Coal Supper",
+        "alt": "Creator portfolio with credits, GIF, storyboards and behind-the-scenes video",
+        "verified": true,
+        "motionVerified": false
+      },
+      {
+        "kind": "youtube",
+        "url": "https://www.youtube.com/embed/zOCLmbFMeL8?start=248",
+        "sourceUrl": "https://www.williamsonpip.co.uk/project/thank-goodness-youre-here",
+        "credit": "Coal Supper / Panic; linked by Pip Williamson",
+        "alt": "Behind-the-scenes film at the portfolio's supplied start position",
+        "verified": true,
+        "motionVerified": false
+      }
+    ],
+    "sources": [
+      {
+        "title": "Thank Goodness You're Here! - Pip Williamson",
+        "url": "https://www.williamsonpip.co.uk/project/thank-goodness-youre-here",
+        "kind": "artist",
+        "supports": "First-person production account, lead role, credits and supplied video embed"
+      }
+    ],
+    "confidence": "high",
+    "researchNotes": "Process-only entry. Creator-supplied GIF URL was discovered in portfolio HTML: https://cdn.prod.website-files.com/6418da293bb6147d7f358723/6644bd632801997bd73aeb49_TGYH_Thumbnail_800px.gif . Direct browser inspection was blocked by site-safety policy; no workaround attempted and it is omitted from display media. The supplied YouTube start=248 is authored by the portfolio, not a researcher-verified moment. No facial pose or motion observation is claimed.",
+    "branch": "narrative",
+    "featured": false,
+    "displayTitle": "Pip Williamson / drawn poses in-engine",
+    "previewIndex": 0
+  },
+  {
+    "id": "wirm-event-face",
+    "title": "Wirm: a minimal face reacts to falling",
+    "studio": "Sbug Games",
+    "category": "graphic",
+    "people": [
+      {
+        "name": "Riley Neville",
+        "role": "Developer; describes making Wirm in a direct 2022 interview",
+        "sourceUrl": "https://gamemaker.io/en/blog/webbed-interview"
+      }
+    ],
+    "tags": [
+      "minimal face",
+      "event response",
+      "mouth change",
+      "physics",
+      "nonhuman"
+    ],
+    "summary": "A useful indie comparator because its creator explicitly ties a tiny facial change to a physical event: falling off a rock.",
+    "observations": [
+      {
+        "text": "Neville describes Wirm's smiling face changing to an open-mouth expression when it falls off a rock. This is direct evidence of an event-driven expression rather than a claim inferred from a trailer.",
+        "basis": "creator statement",
+        "sourceUrl": "https://gamemaker.io/en/blog/webbed-interview"
+      },
+      {
+        "text": "The inspected official screenshot shows only small dark face marks at the worm's end, while the body drapes over a rock toward a gap. The facial marks remain attached to the body's orientation.",
+        "basis": "visual observation",
+        "sourceUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1934870/c0838cc251025a7c7750ab960fc6559668463c72/ss_c0838cc251025a7c7750ab960fc6559668463c72.1920x1080.jpg?t=1765317868"
+      }
+    ],
+    "mistIdeas": [
+      "Our inference: connect surprise to a real interrupt or unexpected outcome, then let the face recover when that condition ends.",
+      "Our inference: test the same causal structure with MIST's eyes alone: a brief opening change followed by a stable look at the cause. The mouth is optional; the event relationship is the useful reference.",
+      "Our inference: a blink can punctuate the return to listening after surprise, but the sources here do not establish a Wirm blink technique."
+    ],
+    "media": [
+      {
+        "kind": "image",
+        "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1934870/c0838cc251025a7c7750ab960fc6559668463c72/ss_c0838cc251025a7c7750ab960fc6559668463c72.1920x1080.jpg?t=1765317868",
+        "sourceUrl": "https://store.steampowered.com/app/1934870/Wirm/",
+        "credit": "Sbug Games",
+        "alt": "Wirm draped over a rock toward a gap, showing its tiny face",
+        "verified": true,
+        "motionVerified": false
+      },
+      {
+        "kind": "video",
+        "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1934870/extras/9777660c6fab28be4121e14c09f7cef9.mp4?t=1765317868",
+        "sourceUrl": "https://store.steampowered.com/app/1934870/Wirm/",
+        "credit": "Sbug Games",
+        "alt": "Official store-page looping Wirm banner video; supplementary visual only",
+        "verified": true,
+        "motionVerified": false
+      }
+    ],
+    "sources": [
+      {
+        "title": "Riley Neville interview",
+        "url": "https://gamemaker.io/en/blog/webbed-interview",
+        "kind": "developer",
+        "supports": "Developer identity and explicit falling-to-expression relationship in the project as described in 2022"
+      },
+      {
+        "title": "Wirm official Steam page",
+        "url": "https://store.steampowered.com/app/1934870/Wirm/",
+        "kind": "official media",
+        "supports": "Studio, official screenshots and published store description"
+      },
+      {
+        "title": "Steam app details for Wirm",
+        "url": "https://store.steampowered.com/api/appdetails?appids=1934870",
+        "kind": "official media",
+        "supports": "Exact screenshot and store-page loop URLs"
+      }
+    ],
+    "confidence": "medium",
+    "researchNotes": "Screenshot inspected; MP4 URL came directly from the official Steam description via its app-details API and was not continuously viewed. Falling expression evidence is a 2022 development statement, not a verification of the shipped 2025 build. No specific animator title is claimed.",
+    "branch": "minimal",
+    "featured": false,
+    "displayTitle": "Wirm / falling reaction"
+  }
+]
