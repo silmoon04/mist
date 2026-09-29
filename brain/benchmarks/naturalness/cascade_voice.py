@@ -56,18 +56,31 @@ def incomplete_clause(text):
 class PCMTrack:
     """Bounded 16 kHz PCM16 uplink with the production append interface."""
     def __init__(self):
-        self.queue = asyncio.Queue(maxsize=30)
+        self.queue = asyncio.Queue(maxsize=100)
+        self.received_samples = 0
+        self.rejected_samples = 0
+        self.sent_samples = 0
+        self.high_watermark = 0
 
     def append(self, pcm):
         if not isinstance(pcm, bytes) or len(pcm) % 2 or len(pcm) > 6400:
             raise ValueError('Expected bounded 16 kHz mono PCM16')
         if not pcm:
             return
+        self.received_samples += len(pcm) // 2
         chunks = [pcm[i:i + 640] for i in range(0, len(pcm), 640)]
         if self.queue.qsize() + len(chunks) > self.queue.maxsize:
+            self.rejected_samples += len(pcm) // 2
             raise ValueError('Microphone uplink is behind; reconnect')
         for chunk in chunks:
             self.queue.put_nowait(chunk)
+        self.high_watermark = max(self.high_watermark, self.queue.qsize())
+
+    def statistics(self):
+        return {'queue_frames':self.queue.qsize(), 'queue_ms':self.queue.qsize()*20,
+                'capacity_ms':self.queue.maxsize*20, 'high_watermark_frames':self.high_watermark,
+                'received_samples':self.received_samples, 'rejected_samples':self.rejected_samples,
+                'sent_samples':self.sent_samples}
 
 
 async def send_paced_pcm(track, send_bytes, is_closed, *, clock=time.perf_counter, sleep=asyncio.sleep):
@@ -99,6 +112,8 @@ async def send_paced_pcm(track, send_bytes, is_closed, *, clock=time.perf_counte
             # Empty input still supplies silence for its endpoint detector.
             batch.append(pcm.ljust(640, b'\0'))
         await send_bytes(b''.join(batch))
+        if hasattr(track, 'sent_samples'):
+            track.sent_samples += sum(len(part) // 2 for part in batch)
         sent_frames += count
         last_write = now
 
@@ -198,6 +213,8 @@ class CascadeVoice:
                  incomplete_hold_ms=None, reasoning_effort=None, max_output_tokens=None,
                  conversation_policy='standard', parallel_tool_calls=False, connect_retries=0):
         self.runtime, self.run_dir = runtime, Path(run_dir)
+        self.session_memory = getattr(runtime, 'session_memory', None)
+        self._context_history = []
         self.emit, self.audio, self.dc_event = emit, audio, dc_event
         self.background = background
         self.background_delivery_job = None
@@ -262,6 +279,9 @@ class CascadeVoice:
         self._close_lock = asyncio.Lock()
         self._close_complete = False
         self._retirement_task = None
+        self._model_retirement_task = None
+        self._model_retirements = set()
+        self._model_interrupt = asyncio.Event()
         self.tasks = set()
         self.requests = asyncio.Queue(maxsize=8)
         self.closed = False
@@ -570,24 +590,34 @@ class CascadeVoice:
             await self.debug('thinking_started', turn_id=turn_id, input_text=text, application_context=is_context)
             try:
                 prompt = text
-                if self.needs_reset:
+                if self.needs_reset or self.session_memory is not None:
                     # The interrupted provider history may contain unspoken words or unfinished tools.
-                    if getattr(self.client, '_desynced', False):
+                    if self.client is None:
+                        self.client = await asyncio.to_thread(self.make_client)
+                    elif getattr(self.client, '_desynced', False):
                         await asyncio.to_thread(self.client.close)
                         self.client = await asyncio.to_thread(self.make_client)
                     else:
                         await asyncio.to_thread(self.client.new_session)
                     self.needs_reset = False
-                    if self.history:
+                    if self.session_memory is not None:
+                        prompt = self.session_memory.context(text) + '\nCurrent user request: ' + text
+                        await self.debug('memory_context', **self.session_memory.diagnostics(),
+                                         context_chars=len(prompt))
+                    elif self._context_history or self.history:
                         prompt = ('Prior conversation records, quoted as context. Assistant records are generated '
                                   'text; playback is unverified. Never resume an interrupted answer.\n' +
-                                  json.dumps(self.history[-8:]) + '\nCurrent user: ' + text)
+                                  json.dumps(self._context_history or self.history) + '\nCurrent user: ' + text)
                 if self.closed or revision != self.revision:
                     continue
                 self.history.append({'role': 'application_report' if is_context else 'user', 'text': text})
+                self._context_history.append(dict(self.history[-1]))
                 self.client._bridge = RevisionBridge(self, revision, expression_revision, text, allow_tools=not is_context)
-                def callback(event):
-                    future = asyncio.run_coroutine_threadsafe(self.model_event(event, revision, turn_id, start_ms, job_id), self.loop)
+                def callback(event, *, callback_revision=revision, callback_turn_id=turn_id,
+                             callback_start_ms=start_ms, callback_job_id=job_id):
+                    future = asyncio.run_coroutine_threadsafe(
+                        self.model_event(event, callback_revision, callback_turn_id,
+                                         callback_start_ms, callback_job_id), self.loop)
                     try:
                         future.result(timeout=10)
                     except FutureTimeout:
@@ -596,7 +626,9 @@ class CascadeVoice:
                 remaining = min(35, 44 - (time.monotonic() - started))
                 if remaining <= 0:
                     raise TimeoutError('Lab turn deadline expired during session reset')
-                result = await asyncio.to_thread(self.client.ask, prompt, timeout=remaining, on_event=callback)
+                result = await self.await_model_turn(prompt, remaining, callback, revision)
+                if result is None:
+                    continue
                 if not self.background_result_current(job_id) and revision==self.revision:
                     await self.cancel_background_delivery(job_id)
                 if self.closed or revision != self.revision:
@@ -621,6 +653,11 @@ class CascadeVoice:
                     self.output_turn = turn_id
                 await self.dc_event({'type': 'turn.done', 'turn': {'id': turn_id, 'role': 'assistant', 'transcript': result.text}})
                 self.history.append({'role': 'assistant_generated', 'text': result.text, 'playback_verified': False})
+                self._context_history.append(dict(self.history[-1]))
+                # Legacy profiles retain an initial task window and recent turns.
+                # The memory profile retrieves its full durable ledger instead.
+                if len(self._context_history) > 96:
+                    self._context_history = self._context_history[:16] + self._context_history[-80:]
                 self.history = self.history[-16:]
                 await self.debug('thinking_finished', turn_id=turn_id,
                                  duration_ms=round((time.monotonic() - started) * 1000, 2),
@@ -641,6 +678,54 @@ class CascadeVoice:
             finally:
                 if self.turn == turn_id:
                     self.turn = None
+
+    def retire_model(self, client, ask_task):
+        async def retire():
+            try:
+                await ask_task
+            except BaseException:
+                pass
+            finally:
+                await asyncio.to_thread(client.close)
+        task = asyncio.create_task(retire())
+        self._model_retirements.add(task)
+        task.add_done_callback(self._model_retirements.discard)
+
+    async def await_model_turn(self, prompt, timeout, callback, revision):
+        if self.provider != 'cerebras':
+            return await asyncio.to_thread(self.client.ask, prompt, timeout=timeout, on_event=callback)
+        if len(self._model_retirements) >= 2:
+            raise RuntimeError('Two interrupted model requests are still retiring; reconnect to continue')
+        if self.closed or revision != self.revision:
+            return None
+        self._model_interrupt.clear()
+        client = self.client
+        ask_task = asyncio.create_task(asyncio.to_thread(client.ask, prompt, timeout=timeout, on_event=callback))
+        wake_task = asyncio.create_task(self._model_interrupt.wait())
+        retired = False
+        try:
+            done, _ = await asyncio.wait((ask_task, wake_task), return_when=asyncio.FIRST_COMPLETED)
+            if ask_task in done:
+                return await ask_task
+            if not self.closed and revision == self.revision:
+                return await ask_task
+            self.retire_model(client, ask_task)
+            retired = True
+            if self.client is client:
+                self.client = None
+            self.needs_reset = True
+            await self.debug('interrupted_generation_discarded', turn_id=self.turn,
+                             playback_verified=False)
+            return None
+        except asyncio.CancelledError:
+            if not retired:
+                self.retire_model(client, ask_task)
+                if self.client is client:
+                    self.client = None
+            raise
+        finally:
+            wake_task.cancel()
+            await asyncio.gather(wake_task, return_exceptions=True)
 
     async def context(self, text, *, job_id=None):
         if not isinstance(text, str) or len(text) > 10000:
@@ -677,6 +762,7 @@ class CascadeVoice:
     async def interrupt(self):
         await self.listener.cancel('interrupted')
         self.revision += 1
+        self._model_interrupt.set()
         self.background_delivery_job = None
         self.needs_reset = self.needs_reset or self.speaking()
         await self.debug('interrupt', turn_id=self.turn)
@@ -690,6 +776,7 @@ class CascadeVoice:
             if self._close_complete:
                 return
             self.closed = True
+            self._model_interrupt.set()
             await self.listener.close()
             self.revision += 1
             # Stop producers before closing their socket. An already suspended send
@@ -719,7 +806,19 @@ class CascadeVoice:
                 await asyncio.to_thread(cancel)
             if self.client:
                 await asyncio.to_thread(self.client.close)
+            if self._model_retirements:
+                try:
+                    await asyncio.wait_for(asyncio.shield(asyncio.gather(*self._model_retirements,
+                                                                          return_exceptions=True)), timeout=30)
+                except asyncio.TimeoutError:
+                    if self._model_retirement_task is None:
+                        self._model_retirement_task = asyncio.create_task(self.retire_models())
+                    raise RuntimeError('Interrupted model request is still retiring; do not start a replacement session yet') from None
             self._close_complete = True
+
+    async def retire_models(self):
+        await asyncio.gather(*self._model_retirements, return_exceptions=True)
+        await self.close()
 
     async def retire_startup(self):
         try:

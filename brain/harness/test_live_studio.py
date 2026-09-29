@@ -1,17 +1,21 @@
 """Architecture isolation, cancellation and saved browser/server observations."""
 import asyncio
+import base64
 import json
 from pathlib import Path
 import sys
 import tempfile
+import time
 from types import SimpleNamespace
 import unittest
 from unittest.mock import patch
+import wave
 
 from aiohttp.test_utils import TestClient, TestServer
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from duplex.live_studio import create_studio
+from duplex.session_store import SessionStore
 
 
 class Mask:
@@ -25,6 +29,11 @@ class Mask:
     async def warm(self): pass
     async def feed(self, *args): pass
     def diagnostic(self, *args, **kwargs): pass
+    async def begin(self, *args, **kwargs): pass
+    async def text(self, *args, **kwargs): pass
+    async def finish(self, text):
+        await self.emit({'type':'audio', 'pcm':base64.b64encode(b'\x01\x00' * 160).decode(),
+                         'sample_rate':24000, 'text':text, 'turn_id':self.turn_id if hasattr(self, 'turn_id') else 1})
 
 
 class Voice:
@@ -92,8 +101,8 @@ class Tests(unittest.IsolatedAsyncioTestCase):
 
     async def test_catalog_is_explicit_and_does_not_change_global_environment(self):
         data = await (await self.client.get('/trial/catalog')).json()
-        self.assertEqual(len(data['architectures']), 12)
-        self.assertEqual(data['default'], 'cerebras-balanced')
+        self.assertEqual(len(data['architectures']), 13)
+        self.assertEqual(data['default'], 'qwen-memory')
         ws, trace = await self.connect('cerebras-fast')
         self.assertEqual(Voice.instances[-1].kwargs['endpoint_ms'], 300)
         await self.end(ws)
@@ -130,7 +139,7 @@ class Tests(unittest.IsolatedAsyncioTestCase):
                 self.assertEqual(architecture['max_output_tokens'],4096)
             elif architecture['provider']=='codex':
                 self.assertEqual(architecture['max_output_tokens'],400)
-        self.assertEqual(data['default'],'cerebras-balanced')
+        self.assertEqual(data['default'],'qwen-memory')
 
     async def test_switch_keeps_archives_and_fresh_runtime(self):
         ws, first = await self.connect()
@@ -167,7 +176,7 @@ class Tests(unittest.IsolatedAsyncioTestCase):
         data = await (await self.client.get('/trial/catalog')).json()
         catalog = {a['id']:a for a in data['architectures']}
         current, flux = catalog['qwen-affect'], catalog['qwen-flux']
-        self.assertEqual(data['default'], 'cerebras-balanced')
+        self.assertEqual(data['default'], 'qwen-memory')
         self.assertEqual(current['endpoint_ms'], 500)
         for key in ('provider', 'model', 'reasoning_effort', 'floor', 'background_provider',
                     'background_model', 'background_reasoning_effort', 'conversation_policy',
@@ -204,6 +213,162 @@ class Tests(unittest.IsolatedAsyncioTestCase):
         events = saved['events']
         self.assertTrue(any(r['event'].get('type') == 'face' for r in events))
         self.assertTrue(any(r['source'] == 'browser' and r['event'].get('client_ms') == 123.5 for r in events))
+
+    async def test_caption_receipt_is_durable_partial_and_visible_in_memory(self):
+        ws, trace = await self.connect('qwen-memory')
+        session = self.app['trial_owner']['session']
+        await session.realtime_event({'type':'turn.done', 'turn':{
+            'id':42, 'role':'assistant', 'transcript':'Hello there, and more words.'}})
+        await session.emit({'type':'audio', 'epoch':1, 'seq':4,
+            'sample_rate':24000, 'pcm':base64.b64encode(b'\x01\x00'*160).decode(),
+            'caption_source':'elevenlabs_alignment',
+            'caption_cues':[{'time':0, 'text':'Hello'}, {'time':.003, 'text':'Hello there'}]})
+        for text in ('Hello', 'Invented words', 'Hello there'):
+            await ws.send_json({'type':'debug_client', 'event':{
+                'type':'caption_progress', 'epoch':1, 'sequence':4,
+                'source':'elevenlabs_alignment', 'text':text, 'client_ms':20}})
+        await ws.send_json({'type':'ping'})
+        while (await ws.receive_json(timeout=3))['type'] != 'pong':
+            pass
+        context = session.memory.context('Hello')
+        self.assertIn('browser-reported displayed speech caption', context)
+        self.assertIn('Hello there', context)
+        self.assertIn('audio hearing unverified', context)
+        await session.emit({'type':'audio_reset', 'epoch':2})
+        await ws.send_json({'type':'debug_client', 'event':{
+            'type':'caption_progress', 'epoch':1, 'sequence':4,
+            'source':'elevenlabs_alignment', 'text':'Hello there'}})
+        await self.end(ws)
+        saved = await (await self.client.get('/trial/export?session='+trace)).json()
+        receipts = [row['event'] for row in saved['events']
+                    if row['event'].get('type') == 'playback_receipt']
+        self.assertEqual([row['text'] for row in receipts], ['Hello', 'Hello there'])
+        self.assertTrue(all(row['complete'] is False for row in receipts))
+        turns = self.app['trial_store'].database.list_turns(trace)
+        self.assertEqual(turns[-1]['text'], 'Hello there, and more words.')
+        self.assertFalse(turns[-1]['playback_verified'])
+
+    async def test_memory_profile_saves_final_turns_and_both_audio_streams(self):
+        class SummaryClient:
+            calls = 0
+            def ask(self, prompt, timeout):
+                SummaryClient.calls += 1
+                self.assert_prompt = prompt
+                return SimpleNamespace(text=json.dumps({'items':[{
+                    'kind':'known', 'text':'The user reported 244 removal attempts',
+                    'source_id':5, 'quote':'244 removal attempts'}]}), errors=[])
+
+        async def no_affect_provider(*args):
+            return None
+
+        affect_patch = patch('duplex.live_studio.AffectController.submit', no_affect_provider)
+        affect_patch.start()
+        self.addCleanup(affect_patch.stop)
+        self.app['summary_client_factory'] = SummaryClient
+        catalog = {item['id']:item for item in (await (await self.client.get('/trial/catalog')).json())['architectures']}
+        profile = catalog['qwen-memory']
+        self.assertEqual((profile['asr_provider'], profile['turn_policy'], profile['summary_every']),
+                         ('flux', 'flux_with_continuation_hold', 4))
+        self.assertTrue(profile['session_memory'])
+        ws, trace = await self.connect('qwen-memory')
+        voice = Voice.instances[-1]
+        self.assertEqual((voice.kwargs['model'], voice.kwargs['asr_provider']), ('qwen-3.8-27b', 'flux'))
+        self.assertIsNotNone(voice.runtime.session_memory)
+        session = self.app['trial_owner']['session']
+        first = 'There were 244 removal attempts in the old report.'
+        spoken_turns = ('The cause is still unknown.', 'Please ask before assuming a cause.',
+                        'The previous total was 241 failures.', 'Today I want to review the results.',
+                        first) + tuple(f'Later conversation item {n}.' for n in range(12))
+        for number, spoken in enumerate(spoken_turns, 1):
+            await voice.dc_event({'type':'turn.created', 'turn':{'id':number, 'role':'user'}})
+            await voice.dc_event({'type':'turn.done', 'turn':{'id':number, 'role':'user',
+                                                          'transcript':spoken}})
+        await voice.dc_event({'type':'turn.created', 'turn':{'id':20, 'role':'assistant'}})
+        await voice.dc_event({'type':'turn.done', 'turn':{'id':20, 'role':'assistant',
+                                                       'transcript':'I will check that total.'}})
+        recalled = voice.runtime.call('recall', {'query':'244 removal attempts'})
+        self.assertIn(first, recalled['session_context'])
+        self.assertIn('assistant generated, delivery unverified',
+                      voice.runtime.session_memory.context('check that total'))
+        mic_a = b'\x03\x00' * 320
+        mic_b = b'\x05\x00' * 320
+        await ws.send_json({'type':'mic', 'seq':1, 'pcm':base64.b64encode(mic_a).decode()})
+        await ws.send_json({'type':'mic', 'seq':2, 'pcm':base64.b64encode(mic_b).decode()})
+        await ws.send_json({'type':'ping'})
+        while (await ws.receive_json(timeout=3))['type'] != 'pong':
+            pass
+        until = time.monotonic() + 3
+        while time.monotonic() < until:
+            memory = await (await self.client.get('/trial/memory?session='+trace)).json()
+            if (memory['summaries'] and
+                    json.loads(memory['summaries'][-1]['text'])['user_revision'] >= 16):
+                break
+            await asyncio.sleep(.01)
+        self.assertGreaterEqual(SummaryClient.calls, 1)
+        self.assertTrue(memory['summaries'], voice.runtime.session_memory.diagnostics())
+        await self.end(ws)
+        memory = await (await self.client.get('/trial/memory?session='+trace)).json()
+        self.assertEqual([turn['role'] for turn in memory['turns']], ['user'] * 17 + ['assistant'])
+        self.assertFalse(memory['turns'][-1]['playback_verified'])
+        self.assertEqual(memory['turns'][4]['text'], first)
+        self.assertGreaterEqual(memory['summaries'][-1]['version'], 1)
+        self.assertEqual(json.loads(memory['summaries'][-1]['text'])['user_revision'], 16)
+        streams = {item['stream']:item for item in memory['audio']}
+        self.assertEqual(streams['mic']['byte_count'], len(mic_a + mic_b))
+        self.assertEqual(streams['assistant_generated']['byte_count'], 320)
+        for stream, expected in [('mic', mic_a + mic_b),
+                                 ('assistant_generated', b'\x01\x00' * 160)]:
+            response = await self.client.get('/trial/audio?session='+trace+'&stream='+stream)
+            self.assertEqual(response.status, 200)
+            data = await response.read()
+            with wave.open(__import__('io').BytesIO(data), 'rb') as recording:
+                self.assertEqual(recording.getframerate(), 16000 if stream == 'mic' else 24000)
+                self.assertEqual(recording.readframes(recording.getnframes()), expected)
+        await self.client.close()
+        reopened = SessionStore(Path(self.tmp.name) / 'sessions.sqlite3')
+        try:
+            self.assertEqual(len(reopened.list_turns(trace)), 18)
+            self.assertEqual(json.loads(reopened.list_summaries(trace)[-1]['text'])['user_revision'], 16)
+            self.assertEqual({item['stream'] for item in reopened.audio_summary(trace)['streams']},
+                             {'mic', 'assistant_generated'})
+        finally:
+            reopened.close()
+
+    async def test_mic_bytes_survive_provider_uplink_overflow(self):
+        ws, trace = await self.connect('qwen-memory')
+        def reject(_pcm):
+            raise ValueError('uplink is behind')
+        Voice.instances[-1].track = SimpleNamespace(append=reject, statistics=lambda:{})
+        raw = b'\x07\x00' * 320
+        await ws.send_json({'type':'mic', 'seq':3, 'pcm':base64.b64encode(raw).decode()})
+        while True:
+            message = await ws.receive_json(timeout=3)
+            if message['type'] == 'error':
+                self.assertTrue(message['reconnect_required'])
+                self.assertIn('Recording was retained', message['message'])
+                break
+        await ws.close()
+        await asyncio.wait_for(self.app['trial_closed'].wait(), 3)
+        memory = await (await self.client.get('/trial/memory?session='+trace)).json()
+        self.assertEqual(memory['audio'][0]['byte_count'], len(raw))
+        response = await self.client.get('/trial/audio?session='+trace+'&stream=mic')
+        with wave.open(__import__('io').BytesIO(await response.read()), 'rb') as recording:
+            self.assertEqual(recording.readframes(recording.getnframes()), raw)
+
+    async def test_explicit_preference_is_loaded_into_next_trial(self):
+        ws, first = await self.connect('qwen-memory')
+        note = 'Please keep your answers concise.'
+        current = Voice.instances[-1].runtime
+        self.assertEqual(current.call('remember', {'note':note},
+                          request_text='Remember this preference for future conversations: '+note)['status'],
+                         'saved')
+        await self.end(ws)
+        ws, second = await self.connect('qwen-memory')
+        self.assertNotEqual(first, second)
+        next_runtime = Voice.instances[-1].runtime
+        self.assertEqual([item['text'] for item in next_runtime.memory], [note])
+        self.assertIn(note, next_runtime.call('recall', {'query':'answers'})['notes'][0]['text'])
+        await self.end(ws)
 
     async def test_disconnect_cancels_startup_then_allows_new_architecture(self):
         Voice.startup_gate = asyncio.Event()

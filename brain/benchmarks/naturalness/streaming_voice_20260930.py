@@ -10,25 +10,26 @@ import re
 import time
 import uuid
 
+
 try:
     from .cascade_voice import CascadeVoice, incomplete_clause, is_backchannel, send_paced_pcm
 except ImportError:
     from cascade_voice import CascadeVoice, incomplete_clause, is_backchannel, send_paced_pcm
 
+from duplex.turn_policy import backchannel, continue_assistant, direct_stop, incomplete_turn
+
 
 def explicit_stop(text: str) -> bool:
     """Only a direct, complete stop command can preempt at the partial stage."""
-    value = re.sub(r"[.!?,]+$", "", text.strip().casefold()).strip()
-    return bool(re.fullmatch(
-        r"(?:(?:hey\s+)?mist[, ]+)?(?:please\s+)?(?:stop|stop talking|stop speaking|be quiet|"
-        r"pause|pause speaking|freeze|stop moving)(?:\s+(?:now|please))?", value))
+    return direct_stop(text)
 
 
 class StreamingComparisonVoice(CascadeVoice):
     """Nova, Flux, or Scribe recognition with matched local floor policies."""
 
     def __init__(self, *args, asr_provider='nova', asr_adapter=None,
-                 jev_enabled=False, jev_policy=None, live_mode=False, **kwargs):
+                 jev_enabled=False, jev_policy=None, live_mode=False,
+                 incomplete_min_hold_ms=900, incomplete_max_hold_ms=1500, **kwargs):
         # The comparison uses one local floor policy in both conditions. JEV
         # supplies semantic advice only at a candidate endpoint.
         kwargs['floor'] = 'selective'
@@ -42,6 +43,11 @@ class StreamingComparisonVoice(CascadeVoice):
             raise ValueError('JEV enabled comparison requires a policy')
         self.asr_provider = asr_provider
         self.live_mode = live_mode
+        if not 0 <= incomplete_min_hold_ms <= incomplete_max_hold_ms:
+            raise ValueError('Invalid incomplete endpoint hold bounds')
+        self.incomplete_min_hold_s = incomplete_min_hold_ms / 1000
+        self.incomplete_max_hold_s = incomplete_max_hold_ms / 1000
+        self._incomplete_hold_started_at = None
         self.asr_adapter = asr_adapter
         self.jev_enabled = bool(jev_enabled)
         self.jev_policy = jev_policy
@@ -99,7 +105,8 @@ class StreamingComparisonVoice(CascadeVoice):
                              'max_output_tokens': self.max_output_tokens,
                              'output_limit_kind': self.output_limit_kind,
                              'endpoint_ms': None if self.asr_provider == 'flux' else self.endpoint_ms,
-                             'incomplete_hold_ms': self.hold_s * 1000,
+                             'incomplete_hold_ms': max(self.hold_s, self.incomplete_min_hold_s) * 1000 if self.live_mode else self.hold_s * 1000,
+                             'incomplete_max_hold_ms': self.incomplete_max_hold_s * 1000,
                              'typed_input_supported': True,
                              'startup': {'media_ready_ms': round((time.monotonic() - self.started_at) * 1000)}})
             await self.debug('streaming_comparison_ready', asr_provider=self.asr_provider,
@@ -172,10 +179,8 @@ class StreamingComparisonVoice(CascadeVoice):
             self._local_stop_fired = True
             await self.debug('explicit_stop_yield', text=text)
             await self.open_user_turn()
-        elif (self.live_mode and self.asr_provider == 'flux' and self.user_turn is None
-              and len(text.split()) >= 3 and not is_backchannel(text)):
-            await self.debug('substantive_partial_yield', text=text)
-            await self.open_user_turn()
+        # General partials are provisional ASR hypotheses. Word count does
+        # not distinguish a takeover from negation or quoted speech.
 
     async def asr_event(self, event):
         """Handle provider events quickly; semantic work runs in a separate task."""
@@ -285,7 +290,8 @@ class StreamingComparisonVoice(CascadeVoice):
         await self.debug('candidate_endpoint', text=text, source=source,
                          snapshot=vars(snapshot) if snapshot else None,
                          provider_turn_id=provider_key, serial=serial)
-        if self.asr_provider == 'flux' and not self.jev_enabled and not self.hold_s:
+        if (self.asr_provider == 'flux' and not self.jev_enabled
+                and not self.hold_s and not incomplete_turn(text)):
             # EndOfTurn is authoritative. Commit before reading another Flux
             # packet so a new StartOfTurn cannot cancel the finished turn.
             await self._resolve_endpoint(serial, provider_key, source, snapshot)
@@ -340,12 +346,23 @@ class StreamingComparisonVoice(CascadeVoice):
         # Both arms share the same local backchannel/incomplete rules. Semantic
         # wait can extend a clause beyond the lexical rule, but never forces a
         # standalone acknowledgement into a reply.
-        if self.overlap and is_backchannel(text) and self.user_turn is None:
-            await self._keep_floor(text, source, 'local_backchannel')
+        if self.overlap and self.user_turn is None and (backchannel(text) or continue_assistant(text)):
+            await self._keep_floor(text, source,
+                                   'local_backchannel' if backchannel(text) else 'local_continue')
             return
-        if incomplete_clause(text) and self.hold_s and not (semantic_wait_applied or semantic_turn_ready):
-            await self.debug('floor_incomplete_hold', text=text, hold_ms=round(self.hold_s*1000))
-            await asyncio.sleep(self.hold_s)
+        if incomplete_turn(text) and not (semantic_wait_applied or semantic_turn_ready):
+            now = time.monotonic()
+            if getattr(self, '_incomplete_hold_started_at', None) is None:
+                self._incomplete_hold_started_at = now
+            configured = self.hold_s
+            if self.live_mode:
+                configured = max(configured, getattr(self, 'incomplete_min_hold_s', .9))
+            remaining = max(0, getattr(self, 'incomplete_max_hold_s', 1.5) - (now - self._incomplete_hold_started_at))
+            grace = min(configured, remaining)
+            await self.debug('floor_incomplete_hold', text=text, hold_ms=round(grace*1000),
+                             remaining_ms=round(remaining*1000))
+            if grace:
+                await asyncio.sleep(grace)
             if serial != self._endpoint_serial:
                 return
         await self._commit_provider_turn(provider_key, source)
@@ -388,6 +405,7 @@ class StreamingComparisonVoice(CascadeVoice):
         self._provider_turn = None
         self._provider_turn_serial += 1
         self._local_stop_fired = False
+        self._incomplete_hold_started_at = None
         self._candidate_task = None
         self.clear_utterance()
 

@@ -2,6 +2,7 @@
 import hashlib
 import json
 import math
+import re
 import time
 from pathlib import Path
 from duplex.expression_policy import EXPRESSIONS, normalize_expression, expression_parameters
@@ -11,6 +12,16 @@ from duplex.motion_requests import validate_motion_request
 
 BRAIN=Path(__file__).resolve().parents[1]
 MANIFEST=BRAIN.parent/'design/hexapod_phone_quad_r5_20260912/cad/output/assembly_manifest.json'
+
+_RECALL_FILLER = frozenset('a an and are about did do does for from how i in is it me my of on or '
+                           'our say said tell the to was were what when where who why with you your'.split())
+
+
+def _recall_search_query(query):
+    """Turn a spoken question into safe FTS terms, retaining only useful words."""
+    terms = [term for term in re.findall(r'\w+', query.casefold())
+             if (len(term) > 2 or term.isdecimal()) and term not in _RECALL_FILLER]
+    return ' OR '.join('"' + term + '"' for term in dict.fromkeys(terms[:24]))
 
 def finite(value,low,high):
     if type(value) not in (int,float):raise ValueError('Expected a finite numeric value')
@@ -82,9 +93,23 @@ class RobotRuntime:
             note=args.get('note','')
             if not isinstance(note,str) or not 1<=len(note.strip())<=240:raise ValueError('Preference must be 1 to 240 characters')
             self.memory=(self.memory+[{'text':note.strip(),'source':'user_report','saved_at':time.time()}])[-60:]
-            self.memory_path.write_text(json.dumps(self.memory,indent=2),encoding='utf-8')
+            database=getattr(self,'session_database',None)
+            if database:database.save_preference(note.strip(),session_id=getattr(self,'session_id',None))
+            else:self.memory_path.write_text(json.dumps(self.memory,indent=2),encoding='utf-8')
             return {'status':'saved','note':note.strip()}
-        if name=='recall':return {'notes':self.memory[-12:],'source':'saved_user_reports'}
+        if name=='recall':
+            session_memory=getattr(self,'session_memory',None)
+            query=args.get('query',request_text or '')
+            if not isinstance(query,str) or len(query)>1600:raise ValueError('Recall query must be bounded text')
+            database=getattr(self,'session_database',None)
+            if args.get('scope','session') not in ('session','all'):raise ValueError('Unknown recall scope')
+            search_query=_recall_search_query(query)
+            past=(database.search_turns(search_query,limit=8)
+                  if database and args.get('scope')=='all' and search_query else [])
+            return {'notes':self.memory[-12:],'source':'saved_preferences_and_session_ledger' if session_memory else 'saved_user_reports',
+                    **({'past_session_matches':past,'past_scope':'Local saved sessions; sources may be ASR errors or generated hypotheses.'} if args.get('scope')=='all' else {}),
+                    **({'session_context':session_memory.context(query),
+                        'scope':'Current session transcript and working notes. Empty matches do not prove something was never said.'} if session_memory else {})}
         if name not in ('preview_motion','pan_phone'):raise ValueError('Tool not allowed')
         if request_text is not None:validate_motion_request(request_text,'phone_pan' if name=='pan_phone' else args.get('action'))
         if self.estop:return {'status':'refused','reason':'Preview stop is latched. Resume explicitly in the interface.'}
@@ -120,4 +145,4 @@ def specs():
         tool('stop_robot','Immediately clear and latch the preview command path. No hardware stop acknowledgement.',{}),
         tool('set_expression','Change the face to one available preset, retained until changed. Use duration_ms only for an explicitly timed flash. When a requested preset or variant is unavailable, make no call; an uncertain face is still a change. Omit optional fields unless requested. Listening, thinking and speaking are handled by the interface. Do not call per word or audio chunk.',expression_parameters(),['expression']),
         tool('remember','Save a non-sensitive preference only when explicitly asked to remember or save it for future conversations. Do not save casual facts or temporary guidance such as for now, stop joking, or keep it gentle. Current conversation context already retains those. Never store secrets or guesses.',{'note':{'type':'string','maxLength':240,'description':'The preference as requested, without added conditions. If asked to save exact words, copy them verbatim, including punctuation.'}},['note']),
-        tool('recall','Read saved user preferences as fallible reports.',{})]
+        tool('recall','Search session turns and working notes, plus saved preferences. Check before claiming the user never supplied a detail. Use scope all for earlier conversations. Distinguish quoted facts from unknown causal explanations.',{'query':{'type':'string','maxLength':1600},'scope':{'type':'string','enum':['session','all']}})]

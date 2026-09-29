@@ -40,7 +40,11 @@ class RemoteTests(unittest.IsolatedAsyncioTestCase):
         self.assertEqual(await session.json(), {'authenticated':False,'remote_mode':True})
         for method,path in [('POST','/trial/bootstrap'),('GET','/trial/catalog'),
                             ('GET','/trial/sessions'),('GET','/trial/events?session=x'),
-                            ('GET','/trial/export?session=x'),('GET','/config'),
+                            ('GET','/trial/export?session=x'),
+                            ('GET','/trial/memory?session=x'),
+                            ('GET','/trial/audio?session=x&stream=mic'),
+                            ('GET','/trial/audio?session=x&stream=assistant_generated'),
+                            ('GET','/config'),
                             ('GET','/debug/events'),('GET','/'),('GET','/duplex/app.js'),
                             ('POST','/pair')]:
             with self.subTest(path=path):
@@ -84,7 +88,12 @@ class RemoteTests(unittest.IsolatedAsyncioTestCase):
         self.assertTrue((await (await self.request('GET','/trial/session')).json())['authenticated'])
         self.assertEqual((await self.request('POST','/trial/bootstrap',json={})).status,200)
         catalog = await (await self.request('GET','/trial/catalog')).json()
-        self.assertEqual(catalog['default'],'qwen-affect')
+        self.assertEqual(catalog['default'],'qwen-memory')
+        self.assertTrue(next(item for item in catalog['architectures'] if item['id']=='qwen-memory')
+                        ['session_memory'])
+        for path in ('/trial/memory?session=x', '/trial/audio?session=x&stream=mic'):
+            self.assertEqual((await self.request('GET', path,
+                headers={'Origin':'https://evil.test'})).status, 403)
         self.assertEqual(next(item for item in catalog['architectures'] if item['id']=='qwen-affect')
                          ['connect_retries_configured'],1)
         self.assertEqual(next(item for item in catalog['architectures'] if item['id']=='qwen-flux')

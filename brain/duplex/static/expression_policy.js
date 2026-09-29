@@ -159,7 +159,9 @@ export class ExpressionPolicy {
       this.thinkingIndex = (this.thinkingIndex+1)%this.thinkingFaces.length;
       this.thinkingFace = {...this.thinkingFaces[this.thinkingIndex],nextAt:at+this.transitionMs+THINKING_FACE_TIMING.holdMs};
     }
-    const defaultExpression = this.state === 'listening' ? 'listening' : 'neutral';
+    // Quiet listening rests on the ordinary neutral face; live microphone
+    // energy is shown beside it, never by changing the mouth or preset.
+    const defaultExpression = 'neutral';
     const selected = showThinkingFace ? this.thinkingFace : this.active;
     const expression = selected?.expression || defaultExpression;
     const requestedFaceId = selected?.faceId || this.map.expressions[expression].primary;

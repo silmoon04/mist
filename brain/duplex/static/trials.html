@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>MIST · Voice trials</title><link rel="icon" href="data:,"><link rel="stylesheet" href="/duplex/trials.css">
+<title>MIST · Voice trials</title><link rel="icon" href="data:,"><link rel="stylesheet" href="/duplex/trials.css?v=20260929-host-sessions1">
 </head>
 <body>
 <header class="topbar"><a class="brand" href="/try">MIST <span>Voice trials</span></a><span id="connection" role="status">Connecting to server</span><button id="logout" hidden>Unpair</button><button id="retry" hidden>Retry connection</button></header>
@@ -16,6 +16,7 @@
 <main id="studio">
 <section class="conversation" aria-label="Conversation">
   <div class="architecture-bar"><label for="architecture">Architecture</label><select id="architecture" disabled><option>Loading options...</option></select><button id="disconnect" disabled>Disconnect</button></div>
+  <label class="memory-mode" for="memory-mode">Session notes <select id="memory-mode"><option value="discussion">Discussion</option><option value="speech_feedback">Speech feedback</option></select></label>
   <p id="architecture-description" class="description"></p>
   <div id="frame-shell" class="frame-shell"><div id="frame-empty" class="empty">Connecting to the local voice service...</div><iframe id="voice" title="MIST conversation and animated face" allow="microphone; autoplay; fullscreen" hidden></iframe></div>
   <div class="conversation-notes"><span>Start the microphone in the face view. Listening stays active during speech; turn-taking depends on the selected architecture.</span><span>Robot tools are previews. Switching starts a fresh conversation; saved traces stay available.</span></div>
@@ -23,6 +24,7 @@
 <aside class="debug" aria-label="Conversation trace">
   <div class="debug-head"><h1>Trace</h1><div><button id="pause" disabled>Pause updates</button><a id="export" aria-disabled="true">Export session</a></div></div>
   <label class="trace-label" for="session">View session</label><select id="session" disabled><option value="__live">Follow current conversation</option></select>
+  <section class="session-memory" aria-labelledby="session-memory-title"><div class="session-memory-head"><h2 id="session-memory-title">Saved on this host</h2><button id="refresh-memory" disabled>Refresh</button></div><p id="memory-status" role="status">Choose a session to see saved notes and audio.</p><div id="memory-notes"></div><div id="memory-audio"></div></section>
   <div class="trace-info"><span id="trace-state">No conversation yet</span><code id="trace-id"></code></div>
   <div id="metrics" class="metrics"><p class="empty">Stage timings appear when events arrive.</p></div>
   <p class="clock-note">Event times use the server receipt clock. Provider durations and browser playback estimates are labeled separately; none measure physical mouth-to-ear delay.</p>
@@ -34,5 +36,5 @@
   <p class="retention">Up to 100 events are rendered per page. Loaded events remain available here; export retrieves the session's public trace.</p>
 </aside>
 </main>
-<script type="module" src="/duplex/trials.js?v=20260929-remote2"></script>
+<script type="module" src="/duplex/trials.js?v=20260929-host-sessions1"></script>
 </body></html>

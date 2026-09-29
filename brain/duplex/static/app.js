@@ -1,15 +1,43 @@
 import {Playback} from './playback.js?v=20260924-long-buffer1';
 import {replyExpression} from './delivery.js?v=20260922-expression-policy';
-import {ExpressionPolicy} from './expression_policy.js?v=20260924-affect-ack1';
+import {ExpressionPolicy} from './expression_policy.js?v=20260929-listening-rest1';
 import {ActivityState} from './activity_state.js?v=20260924-sync1';
 import {UserTranscriptState} from './user_transcript_state.mjs?v=20260928-listener3';
 import {newListenerCue} from './listener_cue.js?v=20260928-listener3';
+import {MicrophoneSignal} from './microphone_signal.mjs?v=20260929-listening-signal1';
 const $=id=>document.getElementById(id);let ws=null,context=null,player=null,stream=null,capture=null,ready=false,fixtureMode=false,seq=0,lastSensor=0,wake=null;
 const trialArchitecture=new URLSearchParams(location.search).get('architecture');
+const trialMemoryMode=new URLSearchParams(location.search).get('memory_mode')==='speech_feedback'?'speech_feedback':'discussion';
 let starting=false,connectionGeneration=0;
 let listenerCue=null;
 if(trialArchitecture){document.body.classList.add('trial-frame');$('text-box').hidden=trialArchitecture==='native';}
 let pendingCaption='',lastSpeechKey=null,backgroundJob=null,micFrames=0,micPower=0,pendingPlaybackConfiguration=null;
+let micSeq=0,micSignalTimer=null,lastMicDraw=0,storageState=null,latestSummary=null;
+const micSignal=new MicrophoneSignal();
+const signal=$('listening-signal'),signalBars=[];
+for(let i=0;i<8;i++){const bar=document.createElementNS('http://www.w3.org/2000/svg','path');bar.setAttribute('d',`M${17+i*14} 26v4`);$('signal-bars').append(bar);signalBars.push(bar);}
+function drawMicSignal(levels=micSignal.levels){
+ const now=performance.now();if(now-lastMicDraw<30)return;lastMicDraw=now;
+ for(let i=0;i<signalBars.length;i++){
+  const level=levels[i],height=reducedMotion?4:4+level*32,x=17+i*14;
+  signalBars[i].setAttribute('d',`M${x} ${28-height/2}v${height}`);
+  signalBars[i].style.opacity=String(.35+level*.65);
+ }
+}
+function stopMicSignal(){clearTimeout(micSignalTimer);micSignalTimer=null;micSignal.clear();signal.hidden=true;}
+function updateStorage(event){
+ if(event.recording!==true)return;
+ storageState={sessionId:String(event.session_id||''),status:event.status,location:event.location,audio:event.audio};
+ const label=event.status==='recording'?'Recording on MIST host':event.status==='saved'?'Session saved on MIST host':'Recording unavailable';
+ const status=$('storage-status');status.hidden=false;status.dataset.status=event.status;status.textContent=label;
+ const details=$('storage-details');details.hidden=false;
+ details.textContent=`${event.status==='saved'?'Latest saved session':'Current session'}: ${storageState.sessionId || 'pending'} · microphone + MIST audio · MIST host${event.status==='error'?' · recording failed':''}`;
+}
+function finishStorageStatus(){
+ if(storageState?.status!=='recording')return;
+ $('storage-status').textContent='Recording ended · check MIST host sessions';
+ $('storage-details').textContent=`Latest session: ${storageState.sessionId} · final storage status pending on MIST host`;
+}
 const userTranscript=new UserTranscriptState();
 function renderUserTranscript(snapshot=userTranscript.snapshot()){
  const band=$('user-transcript');const line=band.querySelector('p');line.textContent=snapshot.text;
@@ -24,7 +52,7 @@ const config=await(await fetch('/config')).json();let pairOK=config.paired;let c
 if(config.remote_mode)$('local-study-links').hidden=true;
 const reducedMotion=!!window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
 const expressionPolicy=new ExpressionPolicy(map,{transitionMs:reducedMotion?0:(window.MistDrawnFaceRuntime?.timing?.transitionMs??260)});let conversationState='available',lastFaceId=null,lastGaze=null,timedFaceReceipt=null;
-window.MistDebug=Object.freeze({snapshot:()=>({ready,conversationState,userTranscript:userTranscript.snapshot(),listenerCue:listenerCue?.sample()||null,expression:expressionPolicy.snapshot(),playback:player?.sample()||null,face:face.snapshot()})});
+window.MistDebug=Object.freeze({snapshot:()=>({ready,conversationState,userTranscript:userTranscript.snapshot(),listenerCue:listenerCue?.sample()||null,expression:expressionPolicy.snapshot(),playback:player?.sample()||null,face:face.snapshot(),sessionStorage:storageState,sessionSummary:latestSummary})});
 if(config.speech_backend==='voice-changer'){$('backend-description').textContent='Codex native voice, converted to MIST. The microphone stays available while MIST speaks.';$('backend-note').textContent='Voice conversion adds a delay. Original Codex audio is never played.';}
 function renderExpression(){
  const shot=expressionPolicy.setState(player?.sample()?.active?'speaking':conversationState);
@@ -49,11 +77,11 @@ $('pair-form').hidden=pairOK;$('pair-state').textContent=pairOK?'This screen is 
 function send(data){if(ws?.readyState===WebSocket.OPEN)ws.send(JSON.stringify(data));}
 function error(message){$('error').textContent=message;$('status').textContent=message;$('panel').hidden=false;}
 function stopPlayback(){listenerCue?.reset('explicit_stop');player?.reset();expressionPolicy.interrupt();state('listening');send({type:'barge_in'});}
-async function end(){listenerCue?.reset('disconnected');connectionGeneration++;starting=false;ready=false;pendingPlaybackConfiguration=null;timedFaceReceipt=null;pendingCaption='';lastSpeechKey=null;stream?.getTracks().forEach(t=>t.stop());stream=null;capture?.disconnect();capture=null;player?.reset();ws?.close();ws=null;const oldWake=wake;wake=null;$('talk').textContent='Start conversation';$('stop').disabled=true;$('status').textContent='Conversation ended';$('caption').textContent='';transcript.user='';transcript.assistant='';renderUserTranscript(userTranscript.reset());backgroundJob=null;$('brain-status').textContent='Background analysis is idle.';$('cancel-background').hidden=true;face.resetActivities?.();connectionActivity=null;expressionPolicy.reset();state('available');await oldWake?.release().catch(()=>{});}
+async function end(){listenerCue?.reset('disconnected');connectionGeneration++;starting=false;ready=false;pendingPlaybackConfiguration=null;timedFaceReceipt=null;pendingCaption='';lastSpeechKey=null;stopMicSignal();finishStorageStatus();stream?.getTracks().forEach(t=>t.stop());stream=null;capture?.disconnect();capture=null;player?.reset();ws?.close();ws=null;const oldWake=wake;wake=null;$('talk').textContent='Start conversation';$('stop').disabled=true;$('status').textContent='Conversation ended';$('caption').textContent='';transcript.user='';transcript.assistant='';renderUserTranscript(userTranscript.reset());backgroundJob=null;$('brain-status').textContent='Background analysis is idle.';$('cancel-background').hidden=true;face.resetActivities?.();connectionActivity=null;expressionPolicy.reset();state('available');await oldWake?.release().catch(()=>{});}
 async function start(test=false){
  if(ws||starting)return end();if(!pairOK){$('panel').hidden=false;return;}
  starting=true;const generation=++connectionGeneration;
- fixtureMode=test;lastSpeechKey=null;pendingPlaybackConfiguration='default';renderUserTranscript(userTranscript.reset());transcript.user='';$('error').textContent='';context??=new AudioContext();await context.resume();
+ fixtureMode=test;micSeq=0;lastSpeechKey=null;pendingPlaybackConfiguration='default';renderUserTranscript(userTranscript.reset());transcript.user='';$('error').textContent='';context??=new AudioContext();await context.resume();
  listenerCue?.reset('new_session');
  listenerCue=newListenerCue(context,face,event=>{if(ready)send(event);});
  player=new Playback(context,face,detail=>{
@@ -83,17 +111,19 @@ async function start(test=false){
   catch(e){starting=false;error('Microphone was not enabled. You can reconnect when ready.');return;}
  }
  if(generation!==connectionGeneration){stream?.getTracks().forEach(t=>t.stop());stream=null;return;}
- const voicePath=trialArchitecture?`/trial/voice?architecture=${encodeURIComponent(trialArchitecture)}`:'/voice';
+ const voicePath=trialArchitecture?`/trial/voice?architecture=${encodeURIComponent(trialArchitecture)}&memory_mode=${trialMemoryMode}`:'/voice';
  ws=new WebSocket(`${location.protocol==='https:'?'wss':'ws'}://${location.host}${voicePath}`);starting=false;$('status').textContent='Connecting voice';$('talk').textContent='End conversation';
  connectionActivity=face.setActivity?.('connecting',{owner:'transport'}).token;
  const socket=ws;socket.onmessage=event=>{if(ws===socket)receive(JSON.parse(event.data));};socket.onerror=()=>{if(ws===socket){face.clearActivity?.(connectionActivity,{immediate:true});error('Voice connection failed. Check pairing and local server.');}};
- socket.onclose=()=>{if(ws!==socket)return;listenerCue?.reset('disconnected');ready=false;pendingPlaybackConfiguration=null;timedFaceReceipt=null;stream?.getTracks().forEach(t=>t.stop());stream=null;capture?.disconnect();capture=null;player?.reset();renderUserTranscript(userTranscript.reset());transcript.user='';face.resetActivities?.();expressionPolicy.reset();state('available');wake?.release().catch(()=>{});wake=null;ws=null;$('talk').textContent='Start conversation';$('stop').disabled=true;$('status').textContent='Disconnected';};
+ socket.onclose=()=>{if(ws!==socket)return;listenerCue?.reset('disconnected');ready=false;pendingPlaybackConfiguration=null;timedFaceReceipt=null;stopMicSignal();finishStorageStatus();stream?.getTracks().forEach(t=>t.stop());stream=null;capture?.disconnect();capture=null;player?.reset();renderUserTranscript(userTranscript.reset());transcript.user='';face.resetActivities?.();expressionPolicy.reset();state('available');wake?.release().catch(()=>{});wake=null;ws=null;$('talk').textContent='Start conversation';$('stop').disabled=true;$('status').textContent='Disconnected';};
  try{wake=await navigator.wakeLock?.request('screen');}catch{}
 }
 const transcript={user:'',assistant:''};
 async function microphone(){
  await context.audioWorklet.addModule('/duplex/capture-worklet.js');const source=context.createMediaStreamSource(stream);capture=new AudioWorkletNode(context,'mist-capture');source.connect(capture);const mute=context.createGain();mute.gain.value=0;capture.connect(mute).connect(context.destination);
- capture.port.onmessage=event=>{if(!ready)return;const {pcm,rms}=event.data;micFrames++;micPower+=(rms||0)**2;let chars='';for(const byte of new Uint8Array(pcm))chars+=String.fromCharCode(byte);send({type:'mic',pcm:btoa(chars)});
+ capture.port.onmessage=event=>{if(!ready)return;const {pcm,rms}=event.data;const captureMs=performance.now();micFrames++;micPower+=(rms||0)**2;
+  micSignal.observe(pcm);signal.hidden=false;drawMicSignal();clearTimeout(micSignalTimer);micSignalTimer=setTimeout(()=>{micSignal.clear();drawMicSignal();},180);
+  let chars='';for(const byte of new Uint8Array(pcm))chars+=String.fromCharCode(byte);send({type:'mic',seq:micSeq++,capture_ms:captureMs,pcm:btoa(chars)});
   // Keep the uplink active. Native user-turn detection handles interruption;
   // raw microphone volume cannot distinguish speech from loudspeaker echo.
  };
@@ -102,7 +132,9 @@ function addTranscript(role,text){const p=document.createElement('p');p.textCont
 async function receive(event){
  listenerCue?.observe(event);
  if(event.type!=='state')face.handleEvent?.(event);
- if(event.type==='studio_session'){
+ if(event.type==='session_storage'){updateStorage(event);}
+ else if(event.type==='session_summary'){latestSummary=event;}
+ else if(event.type==='studio_session'){
    const bufferMs=Object.hasOwn(event.architecture||{},'playback_buffer_ms')?event.architecture.playback_buffer_ms:200;
    try{player.setStartBufferMs(bufferMs);}catch{await end();error('Invalid playback buffer setting. Expected an integer from 120 to 400 ms.');return;}
    pendingPlaybackConfiguration='studio_session';
@@ -151,7 +183,7 @@ $('text-form').onsubmit=event=>{event.preventDefault();if(!ready){error('Start a
 function sensor(kind,values){if(!ready||!$('sensors').checked||Date.now()-lastSensor<500)return;lastSensor=Date.now();send({type:'sensors',packet:{kind,seq:seq++,captured_at:Date.now()/1000,values}});}
 $('sensors').onchange=async()=>{if(!$('sensors').checked)return;try{if(typeof window.DeviceMotionEvent?.requestPermission==='function')await window.DeviceMotionEvent.requestPermission();$('sensor-status').textContent='Waiting for reported phone motion. No body-attitude transform is applied.';}catch{error('Motion permission was not enabled');}};
 window.addEventListener('devicemotion',e=>{const a=e.accelerationIncludingGravity||{},g=e.rotationRate||{};const values={ax:a.x,ay:a.y,az:a.z,gx:g.alpha,gy:g.beta,gz:g.gamma};sensor('phone_motion',Object.fromEntries(Object.entries(values).filter(([,v])=>Number.isFinite(v))));});
-window.addEventListener('beforeunload',()=>{listenerCue?.reset('page_closed');stream?.getTracks().forEach(t=>t.stop());player?.reset();context?.close().catch(()=>{});ws?.close();});
+window.addEventListener('beforeunload',()=>{listenerCue?.reset('page_closed');stopMicSignal();stream?.getTracks().forEach(t=>t.stop());player?.reset();context?.close().catch(()=>{});ws?.close();});
 window.addEventListener('error',event=>{if(trialArchitecture)trace({type:'client_error',message:event.message});});
 window.addEventListener('unhandledrejection',event=>{if(trialArchitecture)trace({type:'client_error',message:String(event.reason)});});
 

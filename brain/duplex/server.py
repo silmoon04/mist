@@ -168,9 +168,13 @@ class Conversation:
         kind=packet.get('type')
         if kind=='mic':
             raw=base64.b64decode(packet.get('pcm',''),validate=True)
-            listener=getattr(self.voice,'listener',None)
-            if listener:listener.note_pcm(raw)
-            self.voice.track.append(raw)
+            try:
+                self.accept_microphone(raw, packet)
+            except ValueError as error:
+                if 'uplink is behind' not in str(error):raise
+                await self.emit({'type':'error','fatal':True,'reconnect_required':True,
+                                 'message':'Microphone input fell behind. Recording was retained on the host; reconnect before continuing.'})
+                await self.ws.close()
         elif kind=='listener_ack_config':
             listener=getattr(self.voice,'listener',None)
             if listener:await listener.configure(packet.get('enabled'))
@@ -221,10 +225,15 @@ class Conversation:
             for i in range(0,len(pcm),640):
                 if not self.alive:break
                 await asyncio.sleep(max(0,started+i/32000-time.monotonic()))
-                self.voice.track.append(pcm[i:i+640])
+                self.accept_microphone(pcm[i:i+640], {'source':'synthetic_fixture'})
             await self.emit({'type':'fixture_finished','text':text})
         elif kind=='ping':await self.emit({'type':'pong'})
         else:raise ValueError('Unsupported session event')
+
+    def accept_microphone(self, raw, metadata=None):
+        listener=getattr(self.voice,'listener',None)
+        if listener:listener.note_pcm(raw)
+        self.voice.track.append(raw)
     async def close(self):
         if not self.alive:return
         self.alive=False

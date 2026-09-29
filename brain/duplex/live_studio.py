@@ -1,6 +1,7 @@
 """Local voice comparisons with isolated conversations and saved observable traces."""
 import argparse
 import asyncio
+import base64
 import contextvars
 import hashlib
 import json
@@ -26,11 +27,22 @@ from duplex.affect_controller import AffectController
 from duplex.expression_requests import expression_request_constraint
 from duplex.expression_policy import normalize_expression
 from duplex.trial_traces import BufferedJournal, TraceStore
+from duplex.database_traces import DatabaseTraceStore
+from duplex.session_memory import SessionMemory
+from duplex.playback_receipts import PlaybackReceipts
 from duplex.remote_access import RemoteAccess
 from benchmarks.naturalness.cascade_voice import CascadeVoice
 from benchmarks.naturalness.streaming_voice_20260930 import StreamingComparisonVoice
 
 ARCHITECTURES = [
+    dict(id='qwen-memory',label='Qwen · memory + Flux',provider='cerebras',
+         model='qwen-3.8-27b',reasoning_effort='low',endpoint_ms=None,floor='selective',
+         background_provider='codex',background_model='gpt-6-luna',background_reasoning_effort='low',
+         conversation_policy='grounded',background_context=True,parallel_tool_calls=True,playback_buffer_ms=120,
+         affect_model='qwen-3.8-27b',affect_reasoning='none',session_memory=True,
+         summary_model='qwen-3.8-27b',summary_effort='none',summary_every=4,
+         asr_provider='flux',turn_policy='flux_with_continuation_hold',incomplete_hold_ms=1200,jev_enabled=False,
+         description='Qwen speaks; a separate Qwen keeps sourced working notes. Flux listens, Luna can handle deeper tool work. Audio and history are saved on the host.'),
     dict(id='cerebras-balanced', label='Cerebras · more pause time', provider='cerebras',
          model='gpt-oss-120b', endpoint_ms=700, floor='selective',
          description='Waits 700 ms for a pause. Lets brief acknowledgements pass; waits for recognised words before interrupting.'),
@@ -118,10 +130,32 @@ class TrialConversation(server.Conversation):
         local = dict(app)
         local.update(runtime=RobotRuntime(run_dir / 'state'), run_dir=run_dir, journal=journal)
         super().__init__(local, ws)
+        self.database = getattr(app.get('trial_store'), 'database', None)
+        if self.database:
+            self.runtime.session_database=self.database
+            self.runtime.session_id=journal.trace_id
+            self.runtime.memory=list(reversed(self.database.list_preferences()))
+        self.memory = None
+        self.storage_task = None
+        self.storage_started = time.monotonic()
+        self.storage_failed = False
+        self._remembered_turns = set()
+        self._last_mic_seq = None
+        self._mic_gaps = 0
+        self._last_mic_report = 0
+        self.playback_receipts = PlaybackReceipts()
+        if self.database and architecture.get('session_memory'):
+            self.memory = SessionMemory(self.database, journal.trace_id,
+                summary_client_factory=app.get('summary_client_factory'),
+                summary_every=architecture.get('summary_every', 4),
+                mode=architecture.get('memory_mode','discussion'))
+            self.runtime.session_memory = self.memory
+            self.memory.playback_context = self.playback_receipts.context
         self.brain = BackgroundBrain(self.runtime, run_dir / 'background', self.emit,
                                      lambda: self.user_revision, model=architecture['background_model'],
                                      provider=architecture['background_provider'],reasoning_effort=architecture['background_reasoning_effort'],
-                                     context=(lambda:getattr(self.voice,'history',[])) if architecture['background_context'] else None)
+                                     context=(lambda:[{'role':'application_report','text':self.memory.context(self.user_request_text, max_chars=5000)}]
+                                              if self.memory else getattr(self.voice,'history',[])) if architecture['background_context'] else None)
         self.input_tasks = set()
         self.started = False
         self.current_face = {'expression':'neutral','variant':0}
@@ -164,6 +198,26 @@ class TrialConversation(server.Conversation):
         remote = self.app.get('remote_access')
         if remote:
             event = remote.scrub(event)
+        if event.get('type') == 'audio':
+            self.playback_receipts.observe_audio(event)
+        elif event.get('type') == 'audio_reset':
+            self.playback_receipts.reset(event.get('epoch'))
+        if self.database and event.get('type') in ('audio','listener_cue') and event.get('pcm'):
+            try:
+                raw = base64.b64decode(event['pcm'], validate=True)
+                if not self.database.enqueue_audio(self.journal.trace_id, 'assistant_generated', raw,
+                        sample_rate=event.get('sample_rate', 24000),
+                        timestamp_ms=round((time.monotonic()-self.storage_started)*1000),
+                        metadata={key:event[key] for key in ('type','epoch','turn_id','cue_id','chunk_id','text') if key in event}):
+                    self.storage_failed = True
+            except (ValueError, OSError, RuntimeError):
+                self.storage_failed = True
+        if self.memory and event.get('type') == 'tool':
+            self.memory.observe('tool', json.dumps({'name':event.get('name'),'result':event.get('result')},ensure_ascii=False))
+        if self.database and event.get('type') == 'transcript_done' and event.get('role') == 'user' and event.get('floor_preserved') and event.get('text','').strip():
+            text=self.journal.journal._cleaner.text(event['text'])
+            if self.memory:self.memory.observe('user',text)
+            else:self.database.append_turn(self.journal.trace_id,'user',text)
         if event.get('type') == 'audio_reset':
             await super().emit(event)
             temporary=self.temporary_face
@@ -188,6 +242,11 @@ class TrialConversation(server.Conversation):
         await super().emit(event)
 
     async def start(self):
+        if self.memory:self.memory.start()
+        if self.database:
+            await self.emit({'type':'session_storage','session_id':self.journal.trace_id,
+                             'recording':True,'status':'recording','audio':['mic','assistant'], 'location':'host'})
+            self.storage_task = asyncio.create_task(self.monitor_storage())
         self.mask = StreamingTTS(self.app['env']['ELEVENLABS_API_KEY'], self.emit)
         await self.mask.start()
         kwargs = dict(speech_backend='streaming-tts', background=self.brain,
@@ -222,6 +281,14 @@ class TrialConversation(server.Conversation):
     async def realtime_event(self, event):
         self.journal.record(event, 'model_protocol')
         turn=event.get('turn',{})
+        if self.database and event.get('type') == 'turn.done' and turn.get('transcript','').strip():
+            role=turn.get('role')
+            identity=f"{role}:{turn.get('id')}"
+            if role in ('user','assistant') and identity not in self._remembered_turns:
+                clean=self.journal.journal._cleaner.text(turn['transcript'])
+                if self.memory:self.memory.observe(role,clean,event_id=identity,playback_verified=False)
+                else:self.database.append_turn(self.journal.trace_id,role,clean,source_event_id=identity,playback_verified=False)
+                self._remembered_turns.add(identity)
         if event.get('type')=='turn.created':
             if turn.get('role')=='user':
                 self.affect_speech_locked=False
@@ -257,6 +324,9 @@ class TrialConversation(server.Conversation):
             self.journal.record(packet, 'browser_command')
         if kind == 'debug_client' and isinstance(packet.get('event'),dict):
             self.acknowledge_face_transition(packet['event'])
+            receipt = self.playback_receipts.accept(packet['event'])
+            if receipt:
+                self.journal.record(receipt, 'browser_receipt')
         if kind == 'debug_client' and packet.get('event', {}).get('type') in ('expression_transition', 'client_error'):
             self.journal.record(packet['event'], 'browser')
         elif kind == 'text':
@@ -282,7 +352,49 @@ class TrialConversation(server.Conversation):
         else:
             await super().handle(packet)
 
+    def accept_microphone(self, raw, metadata=None):
+        if not isinstance(raw,bytes) or len(raw)%2 or len(raw)>6400:
+            raise ValueError('Expected bounded 16 kHz mono PCM16')
+        metadata=metadata or {}
+        seq=metadata.get('seq')
+        if type(seq) is int:
+            if self._last_mic_seq is not None and seq != self._last_mic_seq+1:self._mic_gaps+=1
+            self._last_mic_seq=seq
+        if self.database and raw:
+            accepted=self.database.enqueue_audio(self.journal.trace_id,'mic',raw,sample_rate=16000,
+                timestamp_ms=round((time.monotonic()-self.storage_started)*1000),
+                metadata={key:metadata[key] for key in ('seq','capture_ms','source') if key in metadata})
+            if not accepted:self.storage_failed=True
+        # Capture precedes the provider queue so rejected packets remain available.
+        try:super().accept_microphone(raw, metadata)
+        finally:
+            now=time.monotonic()
+            if now-self._last_mic_report>=1:
+                self._last_mic_report=now
+                stats=getattr(self.voice.track,'statistics',lambda:{})()
+                self.journal.record({'type':'microphone_transport','seq':seq,'sequence_gaps':self._mic_gaps,**stats})
+
+    async def monitor_storage(self):
+        previous=None
+        while self.alive:
+            await asyncio.sleep(.5)
+            if self.memory:
+                details=self.memory.diagnostics()
+                signature=json.dumps(details,sort_keys=True)
+                if signature!=previous:
+                    previous=signature
+                    await self.emit({'type':'session_summary',**details})
+            status=self.database.audio_status()
+            if self.storage_failed or status.get('errors') or status.get('dropped'):
+                await self.emit({'type':'session_storage','session_id':self.journal.trace_id,
+                                 'recording':False,'status':'error','location':'host'})
+                self.storage_failed=True
+                return
+
     async def close(self):
+        if self.storage_task:
+            self.storage_task.cancel()
+            await asyncio.gather(self.storage_task,return_exceptions=True)
         if self.affect:self.affect.closed=True
         for task in self.input_tasks:
             task.cancel()
@@ -290,6 +402,13 @@ class TrialConversation(server.Conversation):
         self.input_tasks.clear()
         await super().close()
         if self.affect:await self.affect.close()
+        if self.memory:await asyncio.to_thread(self.memory.close)
+        if self.database:
+            await asyncio.to_thread(self.database.flush_audio)
+            status=self.database.audio_status()
+            self.journal.record({'type':'session_storage','session_id':self.journal.trace_id,
+                'recording':False,'status':'error' if self.storage_failed or status.get('errors') or status.get('dropped') else 'saved',
+                'audio':['mic','assistant'],'location':'host'})
 
 
 def create_studio(args):
@@ -323,7 +442,7 @@ def create_studio(args):
     if remote:
         private_values.append(pair_code)
         remote.secret_values = tuple(private_values)
-    store = TraceStore(app['run_dir'] / 'traces', secrets=private_values)
+    store = DatabaseTraceStore(app['run_dir'] / 'traces', secrets=private_values)
     app['trial_store'] = store
     app['trial_source_hashes'] = {name:hashlib.sha256((BRAIN / name).read_bytes()).hexdigest()
         for name in ('duplex/live_studio.py', 'duplex/server.py', 'duplex/native.py',
@@ -331,6 +450,8 @@ def create_studio(args):
                      'benchmarks/naturalness/streaming_voice_20260930.py',
                      'benchmarks/naturalness/streaming_asr_20260930.py',
                      'duplex/background.py', 'duplex/affect_director.py', 'duplex/affect_controller.py',
+                     'duplex/session_store.py', 'duplex/session_memory.py', 'duplex/database_traces.py', 'duplex/playback_receipts.py',
+                     'duplex/turn_policy.py', 'duplex/static/microphone_signal.mjs', 'duplex/static/trial_memory.mjs',
                      'duplex/expression_policy.py', 'duplex/expression_requests.py',
                      'duplex/persona.txt', 'duplex/conversation_policy.py', 'duplex/tts.py', 'duplex/static/app.js',
                      'duplex/static/playback.js', 'duplex/lipsync.py',
@@ -434,7 +555,7 @@ def create_studio(args):
     async def architectures(r):
         authorize(r)
         return web.json_response({'architectures':catalog(),
-                                  'default':'qwen-affect' if remote else 'cerebras-balanced'})
+                                  'default':'qwen-memory'})
 
     async def sessions(r):
         authorize(r)
@@ -464,6 +585,23 @@ def create_studio(args):
         return web.json_response(data, headers={'Cache-Control':'no-store',
             'Content-Disposition':f'attachment; filename="mist-{trace.trace_id}.json"'})
 
+    async def saved_memory(r):
+        trace=selected_trace(r)
+        audio=await asyncio.to_thread(store.database.audio_summary,trace.trace_id)
+        return web.json_response({'session_id':trace.trace_id,
+            'turns':await asyncio.to_thread(store.database.list_turns,trace.trace_id),
+            'summaries':await asyncio.to_thread(store.database.list_summaries,trace.trace_id),
+            'audio':[{k:v for k,v in stream.items() if k!='path'} for stream in audio['streams']],
+            'audio_status':audio['audio_status']},headers={'Cache-Control':'no-store'})
+
+    async def saved_audio(r):
+        trace=selected_trace(r)
+        stream=r.query.get('stream','mic')
+        if stream not in ('mic','assistant_generated'):raise web.HTTPBadRequest()
+        path=store.database.audio_path(trace.trace_id,stream)
+        if not path.is_file():raise web.HTTPNotFound(text='No recorded audio for this session.')
+        return web.FileResponse(path,headers={'Cache-Control':'no-store','Content-Type':'audio/wav'})
+
     async def disconnect(r):
         authorize(r, mutation=True)
         owner = app['trial_owner']
@@ -487,6 +625,9 @@ def create_studio(args):
             raise web.HTTPBadRequest(text='Choose a listed architecture.')
         if not architecture['available']:
             raise web.HTTPServiceUnavailable(text='A required provider key is missing.')
+        mode=r.query.get('memory_mode','discussion')
+        if mode not in ('discussion','speech_feedback'):raise web.HTTPBadRequest(text='Unknown memory mode.')
+        architecture={**architecture,'memory_mode':mode}
         if app['trial_health']['quarantined']:
             raise web.HTTPServiceUnavailable(text='A previous provider has not retired safely. Restart the local voice trial server.')
         if app['trial_owner'] is not None or app['sessions']['owner'] is not None:
@@ -601,6 +742,8 @@ def create_studio(args):
     app.router.add_get('/trial/sessions', sessions)
     app.router.add_get('/trial/events', events)
     app.router.add_get('/trial/export', export)
+    app.router.add_get('/trial/memory', saved_memory)
+    app.router.add_get('/trial/audio', saved_audio)
     app.router.add_post('/trial/disconnect', disconnect)
     app.router.add_get('/trial/voice', websocket)
 
@@ -611,6 +754,7 @@ def create_studio(args):
         logger.setLevel(logging.INFO)
         yield
         logger.removeHandler(handler)
+        await asyncio.to_thread(store.close)
 
     async def shutdown(app):
         owner = app['trial_owner']

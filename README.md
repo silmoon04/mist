@@ -24,12 +24,30 @@ Codex choices additionally require a signed-in Codex CLI on the service host;
 they are optional and may be unavailable on ordinary cloud hosts. The service
 can launch without provider keys, but those architectures will be unavailable.
 
-Select **Qwen · Flux + MIST** in the architecture menu to try Deepgram Flux
-for recognition and turn detection. It keeps the Qwen reply model, expression
-reader, tools, and MIST voice. It uses the same three provider keys and does not
-require JEV. Flux waits for its `EndOfTurn` event before requesting a reply;
-the debugger records its settings and transcript events. The existing Qwen
-expression-reader option remains the remote default.
+The default **Qwen · memory + Flux** uses Flux for recognition, Qwen for replies,
+a separate Qwen expression reader, and the MIST voice. A second background Qwen
+client makes a short, sourced digest every four user turns. Replies also receive
+recent verbatim turns and local retrieval, so a slow or failed digest does not
+block a reply. Difficult tool work can run on a separate Codex Luna worker when
+the host has a signed-in Codex CLI. Earlier architectures remain available for
+comparison.
+
+New sessions are saved on the service host, including sessions started from a
+remote phone. The private run directory contains `sessions.sqlite3` for turns,
+events, notes, preferences, and versioned summaries, plus `sessions/<id>/mic.wav`
+and `assistant_generated.wav` for audio. The microphone file contains the PCM
+received by the host; the generated voice file includes speech that may have
+been interrupted before playback. Chunk metadata preserves timing and sequence
+information. Neither file proves what a person heard. Recordings remain local
+to the host, while recognition and voice generation still use their configured
+providers. No automatic recording deletion is configured.
+
+In the trial page, **Saved on this host** shows the selected session's notes and
+audio without an export step. **Speech feedback** keeps verbatim speech central
+to the digest rather than smoothing out wording. The original final transcript
+and recording are retained in both modes; ASR errors may still need checking
+against the audio. Explicitly saved preferences carry into new conversations;
+other past-session material can be searched with the recall tool.
 
 The checked-in smoke fixture is one synthetic Deepgram Aura2 Thalia audio case,
 with its source and WAV hashes in `brain/deploy/fixtures/manifest.json`. It is

@@ -1,14 +1,16 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>MIST | Native voice</title><link rel="stylesheet" href="/duplex/style.css?v=20260928-listener3"></head>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>MIST | Native voice</title><link rel="stylesheet" href="/duplex/style.css?v=20260929-listening-signal1"></head>
 <body>
-<main id="companion"><div id="face" style="position:absolute" aria-label="MIST animated face"></div><div id="caption" aria-live="polite"></div><div id="user-transcript" aria-live="polite" aria-atomic="true" hidden><span>You</span><p></p></div>
+<main id="companion"><div id="face" style="position:absolute" aria-label="MIST animated face"><div id="listening-signal" aria-hidden="true" hidden><svg viewBox="0 0 126 56" focusable="false"><path class="signal-origin" d="M2 28h8"/><g id="signal-bars"></g></svg></div></div><div id="caption" aria-live="polite"></div><div id="user-transcript" aria-live="polite" aria-atomic="true" hidden><span>You</span><p></p></div>
 <header><strong>MIST</strong><span id="status" role="status">Ready to connect</span><button id="settings" aria-label="Open controls">Controls</button></header>
+<div id="storage-status" role="status" hidden></div>
 <footer><button id="talk">Start conversation</button><button id="stop" disabled>Stop speaking</button><span id="latency">MIST (refined)</span></footer></main>
 <aside id="panel" hidden><div class="panel-head"><h1>Conversation controls</h1><button id="close-panel">Close</button></div>
 <p><a href="/debug" target="_blank" rel="noopener">Live debug view</a><span id="local-study-links"> · <a href="/studio/handdrawn_v6/" target="_blank" rel="noopener">Activity motion</a> · <a href="/studio/drawn/transitions.html" target="_blank" rel="noopener">Expression inspector</a> · <a href="/duplex/luna-tests.html" target="_blank" rel="noopener">Luna tests</a></span></p>
 <p id="backend-description">MIST speaks through streaming TTS. The microphone stays available while MIST speaks.</p>
 <form id="pair-form"><label>Local pairing code<input id="pair-code" type="password" autocomplete="off" required></label><button>Pair this screen</button></form>
 <p id="pair-state"></p><p class="note" id="backend-note">You can interrupt MIST while it speaks. Speech starts as the reply arrives.</p>
+<p id="storage-details" class="note" hidden></p>
 <label>Recorded streaming TTS sample<audio controls preload="none" src="/duplex/sample.wav?v=20260914-tts1"></audio></label>
 <label>Expression<select id="expression"></select></label><button id="fullscreen">Full-screen face</button>
 <p id="brain-status" role="status">Background analysis is idle.</p><button id="cancel-background" hidden>Cancel analysis</button>
@@ -20,4 +22,4 @@
 <section id="fixture-box" hidden><h2>Synthetic conversation test</h2><p>Uses a generated voice. Does not open the microphone.</p><button id="test-connect">Connect test session</button><form id="fixture"><input id="fixture-text" value="Hello MIST. I finally finished building your legs. What do you think?" aria-label="Synthetic test phrase" maxlength="220"><button>Speak test phrase</button></form></section>
 <section id="text-box" hidden><form id="text-form"><label>Type a test message<input id="text-input" maxlength="1200" required></label><button>Send</button></form><p class="note">Uses the model, voice and animations. Skips speech recognition.</p></section>
 <p id="error" role="alert"></p></aside>
-<script src="/face-data.js"></script><script src="/face-runtime.js?v=20260922-fps15-th"></script><script src="/drawn-face-runtime.js?v=20260924-trials1"></script><script src="/studio/handdrawn_v6/runtime.js?v=20260924-sync1"></script><script type="module" src="/duplex/app.js?v=20260929-reconnect1"></script></body></html>
+<script src="/face-data.js"></script><script src="/face-runtime.js?v=20260922-fps15-th"></script><script src="/drawn-face-runtime.js?v=20260924-trials1"></script><script src="/studio/handdrawn_v6/runtime.js?v=20260924-sync1"></script><script type="module" src="/duplex/app.js?v=20260929-listening-signal1"></script></body></html>
