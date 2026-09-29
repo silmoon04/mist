@@ -752,13 +752,13 @@
     },
     {
       "path": "brain/deploy/test_remote_e2e.py",
-      "bytes": 18353,
-      "sha256": "ed0fe65df5148192680f8ae3c49b8918b92b945003542962abfdf1885330bdac"
+      "bytes": 19533,
+      "sha256": "ca66b2ea30d0a1b95ea9995b0813933faa4ba704a788b8a5cabe15c28e8873a3"
     },
     {
       "path": "brain/deploy/test_remote_e2e_helpers.py",
-      "bytes": 3284,
-      "sha256": "d02f51343075c3b574851ca643e34456b7bed796a4661b06ca19a41c71a11fe7"
+      "bytes": 4063,
+      "sha256": "d5fb9d80ab65b7c5e5e3c47199216f0dd5a8bfde3009a907c995e589e8103b3c"
     },
     {
       "path": "brain/duplex/__init__.py",
@@ -1237,7 +1237,7 @@
     }
   ],
   "file_count": 247,
-  "total_bytes": 13299840,
+  "total_bytes": 13301799,
   "mutable_files": [
     "docs/endpoint.json"
   ],

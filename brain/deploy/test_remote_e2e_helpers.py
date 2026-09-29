@@ -4,10 +4,22 @@ import tempfile
 from pathlib import Path
 import unittest
 
-from test_remote_e2e import Attempt, base_origin, fixture_pcm, has_reply, plan_from_catalog, public_event
+from test_remote_e2e import Attempt, base_origin, complete_audio, fixture_pcm, has_reply, plan_from_catalog, public_event
 
 
 class RunnerHelpers(unittest.TestCase):
+    def test_complete_audio_requires_matching_final_and_all_samples(self):
+        final = {'type': 'latency', 'tts': {'epoch': 2, 'sequence': 4, 'output_s': .2}}
+        packet = {'type': 'audio', 'epoch': 2, 'seq': 4, 'sample_rate': 24000, 'pcm_bytes': 4800}
+        self.assertFalse(complete_audio([packet, packet]))
+        self.assertFalse(complete_audio([packet, final]))
+        self.assertTrue(complete_audio([packet, final, packet]))
+        self.assertFalse(complete_audio([packet, final, packet], after=2))
+        stale = dict(packet, epoch=1)
+        self.assertFalse(complete_audio([stale, final, packet]))
+        self.assertFalse(complete_audio([packet, final, packet, packet]))
+        self.assertEqual(public_event(final)['tts'], final['tts'])
+
     def test_checked_in_synthetic_audio_is_validated(self):
         fixture_id, name, pcm = fixture_pcm()
         self.assertEqual(fixture_id, 'mist.naturalness.v1.audio_phrase_seam')

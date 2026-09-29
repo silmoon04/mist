@@ -61,6 +61,10 @@ def public_event(event):
     if kind == 'tool':
         result = event.get('result') or {}
         row['result'] = {key: result[key] for key in ('status', 'expression', 'variant', 'action') if key in result}
+    if kind == 'latency' and isinstance(event.get('tts'), dict):
+        row['tts'] = {key: event['tts'][key] for key in
+                      ('sequence', 'epoch', 'output_s', 'first_byte_s', 'characters', 'phrases')
+                      if key in event['tts']}
     return row
 
 
@@ -139,6 +143,22 @@ def has_reply(rows, *, after=0, topic=()):
                                                   for word in topic))
 
 
+def complete_audio(rows, *, after=0):
+    """Require a provider final and every PCM byte for that epoch/sequence."""
+    recent = rows[after:]
+    finals = [row['tts'] for row in recent if row.get('type') == 'latency'
+              and isinstance(row.get('tts'), dict) and row['tts'].get('output_s', 0) > 0]
+    for metric in reversed(finals):
+        packets = [row for row in recent if row.get('type') == 'audio'
+                   and row.get('epoch') == metric.get('epoch')
+                   and row.get('seq') == metric.get('sequence')]
+        if packets and all(row.get('sample_rate') == 24000 for row in packets):
+            expected = round(metric['output_s'] * 48000)
+            if sum(row.get('pcm_bytes', 0) for row in packets) == expected:
+                return True
+    return False
+
+
 def plan_from_catalog(catalog, primary, alternate, pcm):
     for identifier in (primary, alternate):
         if identifier not in catalog or not catalog[identifier].get('available'):
@@ -173,8 +193,9 @@ async def check_boundary(http, base, origin):
 async def one(http, base, origin, arch, name, out, kind, pcm=None):
     attempt = Attempt(name, out)
     checks = {'architecture': arch, 'ready': False, 'assistant_reply': False,
-              'received_pcm': False, 'closed_cleanly': False, 'safe_to_continue': False}
+              'received_pcm': False, 'tts_complete': False, 'closed_cleanly': False, 'safe_to_continue': False}
     ws = None
+    marker = 0
     try:
         startup_started = time.monotonic()
         ws = await http.ws_connect(base + '/trial/voice?architecture=' + arch,
@@ -189,14 +210,14 @@ async def one(http, base, origin, arch, name, out, kind, pcm=None):
         if kind == 'audio':
             await asyncio.wait_for(paced_input(ws, pcm), 20)
             await receive_until(ws, attempt, lambda e, rows: has_reply(rows, topic=('screw', 'washer', 'bracket'))
-                                and bool(attempt.audio), TURN_LIMIT)
+                                and complete_audio(rows), TURN_LIMIT)
             checks['user_recognized'] = any(e.get('type') == 'transcript_done' and e.get('role') == 'user'
                                             and any(word in str(e.get('text', '')).casefold()
                                                     for word in ('screw', 'washer', 'bracket'))
                                             for e in attempt.events)
         elif kind == 'expression':
             await ws.send_json({'type': 'text', 'text': 'Please set a sad expression, then say a short calm goodnight.'})
-            await receive_until(ws, attempt, lambda e, rows: has_reply(rows) and bool(attempt.audio), TURN_LIMIT)
+            await receive_until(ws, attempt, lambda e, rows: has_reply(rows) and complete_audio(rows), TURN_LIMIT)
             checks['expression_tool_state'] = any(e.get('type') == 'tool' and e.get('name') == 'set_expression'
                                                   for e in attempt.events)
         elif kind == 'interrupt':
@@ -208,15 +229,16 @@ async def one(http, base, origin, arch, name, out, kind, pcm=None):
             marker = len(attempt.events)
             await ws.send_json({'type': 'text', 'text': 'New request: say one brief sentence about a blue bracket.'})
             await receive_until(ws, attempt, lambda e, rows: has_reply(rows, after=marker, topic=('bracket',)) and
-                                any(row.get('type') == 'audio' for row in rows[marker:]), TURN_LIMIT)
+                                complete_audio(rows, after=marker), TURN_LIMIT)
             checks['fresh_reply_after_interrupt'] = True
         else:
             await ws.send_json({'type': 'text', 'text': 'Say one brief sentence about a blue bracket.'})
             await receive_until(ws, attempt, lambda e, rows: has_reply(rows, topic=('bracket',)) and
-                                bool(attempt.audio), TURN_LIMIT)
+                                complete_audio(rows), TURN_LIMIT)
         topic = ('screw', 'washer', 'bracket') if kind == 'audio' else ('bracket',) if kind in ('interrupt', 'switch') else ()
         checks['assistant_reply'] = has_reply(attempt.events, topic=topic)
         checks['received_pcm'] = len(attempt.audio) >= 2 and len(attempt.audio) % 2 == 0
+        checks['tts_complete'] = complete_audio(attempt.events, after=marker)
     except Exception as error:
         category = 'transport' if isinstance(error, (TimeoutError, ConnectionError, aiohttp.ClientError)) else 'application_or_provider'
         attempt.failures.append(f'{category}: {type(error).__name__}: {str(error)[:240]}')
@@ -308,7 +330,7 @@ async def run(args):
     except Exception as error:
         summary['setup_failure'] = f'{type(error).__name__}: {str(error)[:240]}'
     (out / 'summary.json').write_text(json.dumps(summary, indent=2), encoding='utf-8')
-    required = ('ready', 'assistant_reply', 'received_pcm', 'closed_cleanly')
+    required = ('ready', 'assistant_reply', 'received_pcm', 'tts_complete', 'closed_cleanly')
     return 0 if not summary.get('setup_failure') and all(summary['boundary'].values()) and \
         len(summary['attempts']) == 4 and all(not a['failures'] and
         all(a['checks'].get(key) is True for key in required) and
