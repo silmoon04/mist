@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import json
+import copy
 import os
 from pathlib import Path
 import sys
@@ -77,16 +78,25 @@ def collect_delta(calls, delta):
 class CerebrasClient:
     def __init__(self, model='gpt-oss-120b', thinking='low', system_prompt='',
                  max_output_tokens=1024, run_dir=None, http_client=None,
-                 parallel_tool_calls=False, connect_retries=0, **unused):
+                 parallel_tool_calls=False, connect_retries=0, response_format=None, **unused):
         if type(parallel_tool_calls) is not bool:
             raise ValueError('parallel_tool_calls must be a boolean')
         if type(connect_retries) is not int or connect_retries not in (0, 1):
             raise ValueError('connect_retries must be 0 or 1')
         controls = request_controls(model, thinking)
+        if response_format is not None:
+            if not isinstance(response_format, dict) or response_format.get('type') not in ('json_object', 'json_schema'):
+                raise ValueError('response_format must be a JSON object or schema configuration')
+            if response_format['type'] == 'json_schema':
+                spec = response_format.get('json_schema')
+                if not isinstance(spec, dict) or not isinstance(spec.get('name'), str) or not isinstance(spec.get('schema'), dict):
+                    raise ValueError('response_format json_schema requires name and schema')
+                jsonschema.Draft202012Validator.check_schema(spec['schema'])
         self.model = model
         self.thinking = thinking
         self.prompt = system_prompt
         self.max_output_tokens = max_output_tokens
+        self.response_format = copy.deepcopy(response_format)
         # This batches model selections; the validated actions still run in order.
         self.parallel_tool_calls = parallel_tool_calls
         self.connect_retries = connect_retries
@@ -153,6 +163,8 @@ class CerebrasClient:
                 body = {'model': self.model, 'messages': self.messages, 'stream': True,
                         'max_completion_tokens': self.max_output_tokens,
                         **request_controls(self.model, self.thinking)}
+                if self.response_format is not None:
+                    body['response_format'] = copy.deepcopy(self.response_format)
                 if tools:
                     body.update(tools=tools, tool_choice='auto', parallel_tool_calls=self.parallel_tool_calls)
                 text, calls, finish, done = '', {}, None, False

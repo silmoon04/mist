@@ -13,12 +13,42 @@ import time
 from typing import Callable
 
 
+MEMORY_RESPONSE_FORMAT = {
+    'type': 'json_schema',
+    'json_schema': {
+        'name': 'session_memory',
+        'strict': True,
+        'schema': {
+            'type': 'object',
+            'properties': {
+                'items': {
+                    'type': 'array',
+                    'items': {
+                        'type': 'object',
+                        'properties': {
+                            'kind': {'type': 'string', 'enum': ['goal', 'known', 'unknown', 'task', 'correction']},
+                            'text': {'type': 'string'},
+                            'source_id': {'type': 'integer'},
+                            'quote': {'type': 'string'},
+                        },
+                        'required': ['kind', 'text', 'source_id', 'quote'],
+                        'additionalProperties': False,
+                    },
+                },
+            },
+            'required': ['items'],
+            'additionalProperties': False,
+        },
+    },
+}
+
+
 def _default_summary_client():
     from benchmarks.naturalness.cerebras_client import CerebrasClient
 
     client = CerebrasClient(model='qwen-3.8-27b', thinking='none',
                             system_prompt='Extract concise, sourced conversation memory as JSON only.',
-                            max_output_tokens=750)
+                            max_output_tokens=750, response_format=MEMORY_RESPONSE_FORMAT)
     client.new_session()
     return client
 

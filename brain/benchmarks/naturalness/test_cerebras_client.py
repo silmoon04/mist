@@ -162,6 +162,21 @@ class CerebrasTests(unittest.TestCase):
         self.assertNotEqual(old, client.thread_id)
         self.assertEqual(client.messages, [{'role':'system','content':'MIST'}])
 
+    def test_opt_in_structured_response_format_is_sent_without_mutating_input(self):
+        schema = {'type': 'json_schema', 'json_schema': {
+            'name': 'short_note', 'strict': True,
+            'schema': {'type': 'object', 'properties': {'note': {'type': 'string'}},
+                       'required': ['note'], 'additionalProperties': False}}}
+        client = self.client([stream([{'content': '{"note":"ready"}'}])],
+                             model='qwen-3.8-27b', thinking='none', response_format=schema)
+        schema['json_schema']['name'] = 'mutated_later'
+        result = client.ask('Summarize')
+        self.assertEqual(result.errors, [])
+        self.assertEqual(self.requests[0]['response_format']['json_schema']['name'], 'short_note')
+        self.assertEqual(json.loads(result.text), {'note': 'ready'})
+        with self.assertRaisesRegex(ValueError, 'response_format'):
+            CerebrasClient(response_format={'type': 'json_schema', 'json_schema': {}})
+
     def test_partial_visible_output_is_retained_and_followup_requires_reset(self):
         client = self.client([stream([{'content':'Four.'}], done=False)])
         events = []

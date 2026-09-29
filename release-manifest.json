@@ -637,8 +637,8 @@
     },
     {
       "path": "brain/benchmarks/naturalness/cerebras_client.py",
-      "bytes": 15609,
-      "sha256": "f746f4fc816d71aa8993957b81855772b829a80f2c90e5b3243fd0cf90857267"
+      "bytes": 16518,
+      "sha256": "baceeefb6a8d825e58372306b8fc00bc32ff039ec688837d2bc8b4513d76d8e7"
     },
     {
       "path": "brain/benchmarks/naturalness/runner.py",
@@ -657,8 +657,8 @@
     },
     {
       "path": "brain/benchmarks/naturalness/test_cerebras_client.py",
-      "bytes": 17941,
-      "sha256": "85eec78669dbab4063b6298fcb29cc7f60269d4d07b639ca4c52f80f6aa49fdf"
+      "bytes": 18928,
+      "sha256": "63f03a3ae416e2aaef614e50a973c2b9684cd85cf637a5f2ccda0ab8cef16eb2"
     },
     {
       "path": "brain/deploy/LAPTOP_HOST.md",
@@ -832,8 +832,8 @@
     },
     {
       "path": "brain/duplex/session_memory.py",
-      "bytes": 20569,
-      "sha256": "b02adf1401a887672a58788193f742fa1cf8bdfe04ab4c4bafd32811693d063a"
+      "bytes": 21603,
+      "sha256": "38d2ab8de046f94ab285bc22554e6b02456640171f781a6df235d0fe58d6765e"
     },
     {
       "path": "brain/duplex/session_store.py",
@@ -1092,7 +1092,7 @@
     }
   ],
   "file_count": 218,
-  "total_bytes": 12923749,
+  "total_bytes": 12926679,
   "mutable_files": [
     "docs/endpoint.json"
   ],
