@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {existsSync,readFileSync} from 'node:fs';
-import {AnimationPreview,PreviewLifecycle,VisiblePreviewScheduler,animationCatalog} from './animation_picker.mjs';
+import {AnimationPreview,PreviewLifecycle,VisiblePreviewScheduler,animationCatalog,installAnimationPicker} from './animation_picker.mjs';
 
 const map=JSON.parse(readFileSync(new URL('../face_map.json',import.meta.url)));
 const assetsRoot=new URL('../../art_direction/artist_studio_20260916/reuse/handdrawn_v6/',import.meta.url);
@@ -53,6 +53,38 @@ test('selecting an active activity again returns to live animation',()=>{
  assert.equal(preview.activityId,null);
  assert.equal(preview.active,false);
  assert.deepEqual(calls,[['preview','reading'],['clear']]);
+});
+
+test('picker card follows accepted, toggled-off, and rejected activity preview choices',()=>{
+ class Element{
+  constructor(){this.children=[];this.attrs={};this.listeners={};this.dataset={};}
+  append(...children){this.children.push(...children);}
+  replaceChildren(...children){this.children=children;}
+  setAttribute(name,value){this.attrs[name]=value;}
+  getAttribute(name){return this.attrs[name];}
+  addEventListener(name,callback){this.listeners[name]=callback;}
+  click(){this.listeners.click?.();}
+  add(option){this.children.push(option);}
+ }
+ const oldDocument=globalThis.document,oldOption=globalThis.Option;
+ globalThis.document={createElement:()=>new Element()};globalThis.Option=class{constructor(label,value){this.label=label;this.value=value;}};
+ try{
+  const grid=new Element(),groupSelect=new Element(),tabs={faces:new Element(),activities:new Element()};
+  tabs.faces.id='faces';tabs.activities.id='activities';
+  const scheduler={setVisible(){},setOpen(){},destroy(){}};
+  const preview=new AnimationPreview({previewActivity:id=>({accepted:id!=='rejected'}),clearPreviewActivity(){}});
+  let picker;
+  picker=installAnimationPicker({map:{faces:{}},manifest:{activities:[{id:'reading',label:'Reading',placement:'side'},{id:'rejected',label:'Rejected',placement:'side'}]},grid,groupSelect,tabs,scheduler,makePreview:()=>null,
+   onSelect(item){if(preview.selectActivity(item.id))picker.markSelected(preview.activityId,preview.activityId?'activities':null);}});
+  picker.setMode('activities');
+  const [reading,rejected]=grid.children;
+  reading.click();assert.equal(reading.getAttribute('aria-pressed'),'true');
+  reading.click();assert.equal(reading.getAttribute('aria-pressed'),'false','toggled-off activity must not look selected');
+  reading.click();rejected.click();
+  assert.equal(reading.getAttribute('aria-pressed'),'true','rejection preserves the prior selection');
+  assert.equal(rejected.getAttribute('aria-pressed'),'false');
+  picker.destroy();
+ }finally{globalThis.document=oldDocument;globalThis.Option=oldOption;}
 });
 
 test('one shared scheduler ticks visible cards at 15 fps and cancels on close, reduced motion, and destroy',()=>{
