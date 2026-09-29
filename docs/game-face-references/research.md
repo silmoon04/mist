@@ -809,4 +809,3 @@ Sources:
 - [Steam app details for Wirm](https://store.steampowered.com/api/appdetails?appids=1934870)
 
 Screenshot inspected; MP4 URL came directly from the official Steam description via its app-details API and was not continuously viewed. Falling expression evidence is a 2022 development statement, not a verification of the shipped 2025 build. No specific animator title is claimed.
-
