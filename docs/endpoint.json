@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "status": "online",
-  "api_origin": "https://norm-valid-players-dialogue.trycloudflare.com",
-  "updated_at": "2026-09-29T20:35:03Z",
-  "last_seen_at": "2026-09-29T20:35:03Z"
+  "status": "offline",
+  "api_origin": null,
+  "updated_at": "2026-09-29T22:07:29Z",
+  "last_seen_at": "2026-09-29T22:06:17Z"
 }
