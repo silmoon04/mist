@@ -1,6 +1,7 @@
 $ErrorActionPreference = 'Stop'
 $launcher = Join-Path (Split-Path $PSScriptRoot -Parent) 'deploy/start_laptop_host.ps1'
 $stateDir = Join-Path $env:TEMP 'mist host state with spaces'
+$cloudflared = Join-Path $env:TEMP 'mist tunnel binary with spaces/cloudflared.exe'
 $script:capturedLaunch = $null
 
 function Get-CimInstance {
@@ -23,13 +24,15 @@ function Start-Process {
     }
 }
 
-. $launcher -Action Start -StateDir $stateDir | Out-Null
+. $launcher -Action Start -StateDir $stateDir -Cloudflared $cloudflared | Out-Null
 if ($null -eq $script:capturedLaunch) { throw 'Start-Process was not called' }
 $expected = @(
     ('"' + (Join-Path (Split-Path $launcher -Parent) 'laptop_host.py') + '"'),
     'run',
     '--state-dir',
-    ('"' + [System.IO.Path]::GetFullPath($stateDir) + '"')
+    ('"' + [System.IO.Path]::GetFullPath($stateDir) + '"'),
+    '--cloudflared',
+    ('"' + [System.IO.Path]::GetFullPath($cloudflared) + '"')
 )
 $actual = $script:capturedLaunch.ArgumentList
 if ($actual.Count -ne $expected.Count) {

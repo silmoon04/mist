@@ -42,6 +42,8 @@ RELEASE_FILES = [
     "brain/face_assets/app/app_data.js",
     "brain/benchmarks/naturalness/cascade_voice.py",
     "brain/benchmarks/naturalness/cerebras_client.py",
+    # The public Cerebras offline suite imports objective_checks from runner.
+    "brain/benchmarks/naturalness/runner.py",
     "brain/harness/pi_client.py", "brain/harness/codex_client.py",
     "brain/harness/response_format.py", "brain/harness/eval_luna_conversations.py",
     "brain/harness/test_laptop_host.py", "brain/harness/test_live_studio.py",

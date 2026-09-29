@@ -641,19 +641,24 @@
       "sha256": "f746f4fc816d71aa8993957b81855772b829a80f2c90e5b3243fd0cf90857267"
     },
     {
+      "path": "brain/benchmarks/naturalness/runner.py",
+      "bytes": 22566,
+      "sha256": "99c298d609ece66a556f508a7edb1e0c8b8775d1a33440a874a9597a4dce105a"
+    },
+    {
       "path": "brain/benchmarks/naturalness/test_cerebras_client.py",
       "bytes": 17941,
       "sha256": "85eec78669dbab4063b6298fcb29cc7f60269d4d07b639ca4c52f80f6aa49fdf"
     },
     {
       "path": "brain/deploy/LAPTOP_HOST.md",
-      "bytes": 3190,
-      "sha256": "5996bdc36ef802f3ec96b827db41cdbd73358ceac9e57282807ebef01100dc99"
+      "bytes": 3414,
+      "sha256": "83b1ee8874ce0645e27d0d771ea0966d1e6672b5ba97e0f3f08287be219be718"
     },
     {
       "path": "brain/deploy/build_release.py",
-      "bytes": 10959,
-      "sha256": "9cea3d00718ab938ce96458e4c6631cffccc7b52bea2ce03cdd6ed0a9f9a81c5"
+      "bytes": 11083,
+      "sha256": "15eab204487f36e2e1f1928df65c7c31fee7e1f1c5393195e25afb3b8105d8aa"
     },
     {
       "path": "brain/deploy/fixtures/audio/audio_phrase_seam-1.wav",
@@ -672,8 +677,8 @@
     },
     {
       "path": "brain/deploy/start_laptop_host.ps1",
-      "bytes": 1213,
-      "sha256": "7fc824b7c43e17d6e71854de9040acdf4102206822c2a7b85d9fae3052a0a060"
+      "bytes": 1439,
+      "sha256": "be0165d6eaa4714c038ddd5858212ea8d7a62555478bd69b34d95f7475bb8796"
     },
     {
       "path": "brain/deploy/test_remote_e2e.py",
@@ -962,8 +967,8 @@
     },
     {
       "path": "brain/harness/test_start_laptop_host.ps1",
-      "bytes": 1900,
-      "sha256": "411e1c042359f883d7837e24935c550e9ab1a6475ba4010773615cb0354f0757"
+      "bytes": 2094,
+      "sha256": "367b04b028a695cc3c65ddcaa1b62884619691270db9d39c752122c708ea546c"
     },
     {
       "path": "brain/ui/static/drawn_face_renderer.js",
@@ -1006,8 +1011,8 @@
       "sha256": "64fa68318ab3f91abe89919c90007c36625148e92d7d133a8ecb3d25d3385d1c"
     }
   ],
-  "file_count": 201,
-  "total_bytes": 12702825,
+  "file_count": 202,
+  "total_bytes": 12726159,
   "mutable_files": [
     "docs/endpoint.json"
   ],

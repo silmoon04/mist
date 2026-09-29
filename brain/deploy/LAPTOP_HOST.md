@@ -28,6 +28,9 @@ powershell -File brain/deploy/start_laptop_host.ps1 -Action Status -StateDir 'C:
 Omitting `-StateDir` keeps the default `brain/results/laptop-hosting/` relative
 to the checkout containing the script. A login task must include `-StateDir` if
 the private directory is outside that checkout.
+To test a separate cloudflared executable, pass its absolute path with
+`-Cloudflared`. The launcher passes it only to a newly started supervisor; it
+does not replace the user-installed executable or change a running tunnel.
 
 Private state lives in `brain/results/laptop-hosting/`, including the pairing
 code, logs, trials, supervisor state, and an empty task-specific Cloudflare config.
