@@ -1,0 +1,878 @@
+{
+  "version": 1,
+  "created": "2026-09-29",
+  "kind": "Three-pose acting studies",
+  "liveAssetsChanged": false,
+  "groups": [
+    {
+      "id": "aardman",
+      "label": "Wallace & Gromit / Shaun",
+      "inspiration": "Silent acting, restrained reactions and deliberate pauses.",
+      "sourceUrl": "https://www.aardman.com/latest-news/2025/june/behind-the-craft-wallace-gromit-shot-on-iphone/",
+      "examples": [
+        {
+          "id": "listening",
+          "label": "Attentive listening",
+          "when": "You are explaining something and have not finished.",
+          "notes": "Keep the mouth closed. The final lids are relaxed; avoid holding them so long that attention reads as boredom.",
+          "poses": [
+            {
+              "label": "Setup",
+              "file": "poses/aardman/listening_0.png",
+              "durationMs": 900,
+              "sha256": "4c6368018a502396ae3318319e69ab1b0015a8d6112a3b59262ab33e35026199",
+              "sourceRect": [
+                0,
+                0,
+                512,
+                341
+              ]
+            },
+            {
+              "label": "Change",
+              "file": "poses/aardman/listening_1.png",
+              "durationMs": 280,
+              "sha256": "78ca18842c918930ad265b9e3f43b80d5188b0a0b07f767c6055b2c8993f81e5",
+              "sourceRect": [
+                512,
+                0,
+                512,
+                341
+              ]
+            },
+            {
+              "label": "Settle",
+              "file": "poses/aardman/listening_2.png",
+              "durationMs": 1300,
+              "sha256": "c3bcc983b148b7bf06c98441e1648f222565ab40a713e04be8cd41f71ffef3ca",
+              "sourceRect": [
+                1024,
+                0,
+                512,
+                341
+              ]
+            }
+          ]
+        },
+        {
+          "id": "disbelief",
+          "label": "Dry disbelief",
+          "when": "A playful claim invites a gentle, sceptical reaction.",
+          "notes": "Use for shared humour, not when the user is describing a real problem.",
+          "poses": [
+            {
+              "label": "Setup",
+              "file": "poses/aardman/disbelief_0.png",
+              "durationMs": 450,
+              "sha256": "cda48f77b514e3a7439263d915ed33d7c0b27beb716867b210a52795c652f69c",
+              "sourceRect": [
+                0,
+                341,
+                512,
+                342
+              ]
+            },
+            {
+              "label": "Change",
+              "file": "poses/aardman/disbelief_1.png",
+              "durationMs": 280,
+              "sha256": "9e32b3e52fdc4f81ed2ca60bc9d2589988c09391abb165a404d3b74fb4394dbb",
+              "sourceRect": [
+                512,
+                341,
+                512,
+                342
+              ]
+            },
+            {
+              "label": "Settle",
+              "file": "poses/aardman/disbelief_2.png",
+              "durationMs": 1100,
+              "sha256": "16e58cd664652812188313d5ee0edef42fb311832c530a0780d0c94f326185d8",
+              "sourceRect": [
+                1024,
+                341,
+                512,
+                342
+              ]
+            }
+          ]
+        },
+        {
+          "id": "realisation",
+          "label": "Quiet realisation",
+          "when": "Something that was unclear starts to make sense.",
+          "notes": "The short closed-eye pose marks a thought change. In a finished animation, the answer event would trigger the final pose.",
+          "poses": [
+            {
+              "label": "Setup",
+              "file": "poses/aardman/realisation_0.png",
+              "durationMs": 850,
+              "sha256": "65581d0dcba129ca150fd084828f64f6612eaa794909d92bb9d656460bd5b409",
+              "sourceRect": [
+                0,
+                683,
+                512,
+                341
+              ]
+            },
+            {
+              "label": "Change",
+              "file": "poses/aardman/realisation_1.png",
+              "durationMs": 135,
+              "sha256": "a797c772615548a218a9603b18aea7904d3010fc2367c9ae4ba2c248bfd82a8e",
+              "sourceRect": [
+                512,
+                683,
+                512,
+                341
+              ]
+            },
+            {
+              "label": "Settle",
+              "file": "poses/aardman/realisation_2.png",
+              "durationMs": 1000,
+              "sha256": "f895170551877ab11ba31cb50ed06265bcda3e3ff0453a9676b911a1203d5052",
+              "sourceRect": [
+                1024,
+                683,
+                512,
+                341
+              ]
+            }
+          ]
+        }
+      ],
+      "sheet": "source/aardman.png",
+      "sourceSha256": "ca3955533a3036b3020c1388c4e61003bcc0b89e95bd5281c85daf2278bb8386",
+      "sourceWidth": 1536,
+      "sourceHeight": 1024,
+      "prompt": "prompts/aardman.txt"
+    },
+    {
+      "id": "bluey",
+      "label": "Bluey",
+      "inspiration": "Warmth, mixed feelings and modest everyday reactions.",
+      "sourceUrl": "https://www.bluey.tv/blog/go-behind-the-scenes-of-the-sign/",
+      "examples": [
+        {
+          "id": "reassurance",
+          "label": "Reassurance",
+          "when": "You sound frustrated and MIST has understood why.",
+          "notes": "Let concern register before the small smile. Reassurance should not look like celebrating bad news.",
+          "poses": [
+            {
+              "label": "Setup",
+              "file": "poses/bluey/reassurance_0.png",
+              "durationMs": 700,
+              "sha256": "d4b960c5c3c9537565c88e4fb4699bf82b0fa52d1eb21fc9b114de8e07ab276b",
+              "sourceRect": [
+                0,
+                0,
+                512,
+                341
+              ]
+            },
+            {
+              "label": "Change",
+              "file": "poses/bluey/reassurance_1.png",
+              "durationMs": 550,
+              "sha256": "de8926ea52f1e485d07987dfda9cbbc77141d5d480318405dbe81b5a17d5a13a",
+              "sourceRect": [
+                512,
+                0,
+                512,
+                341
+              ]
+            },
+            {
+              "label": "Settle",
+              "file": "poses/bluey/reassurance_2.png",
+              "durationMs": 1300,
+              "sha256": "c0ccd654130d4112288b8711a1234114a59f40276c1359b603eb475c15e0afa6",
+              "sourceRect": [
+                1024,
+                0,
+                512,
+                341
+              ]
+            }
+          ]
+        },
+        {
+          "id": "delight",
+          "label": "Shared delight",
+          "when": "You share good news or show something you made.",
+          "notes": "A small surprise opens into warmth. Keep this distinct from the much bigger comic triumph.",
+          "poses": [
+            {
+              "label": "Setup",
+              "file": "poses/bluey/delight_0.png",
+              "durationMs": 500,
+              "sha256": "d799289451a74528802bf1c44e881819dfffd233fbeae9e5fdafe1682ee0f9b9",
+              "sourceRect": [
+                0,
+                341,
+                512,
+                342
+              ]
+            },
+            {
+              "label": "Change",
+              "file": "poses/bluey/delight_1.png",
+              "durationMs": 240,
+              "sha256": "292ef1b3c475abefeb75c142d912c4046afe65b4e237062816f67789b6e342cc",
+              "sourceRect": [
+                512,
+                341,
+                512,
+                342
+              ]
+            },
+            {
+              "label": "Settle",
+              "file": "poses/bluey/delight_2.png",
+              "durationMs": 1100,
+              "sha256": "e007e7acecd53aabed3ff3f2d750dd63a26ea28ecd26adb2cac98eb8d5d38b6c",
+              "sourceRect": [
+                1024,
+                341,
+                512,
+                342
+              ]
+            }
+          ]
+        },
+        {
+          "id": "uncertainty",
+          "label": "Admitting uncertainty",
+          "when": "MIST needs clarification or is unsure of its answer.",
+          "notes": "The final pose remains tentative. It should accompany honest wording rather than disguise uncertainty.",
+          "poses": [
+            {
+              "label": "Setup",
+              "file": "poses/bluey/uncertainty_0.png",
+              "durationMs": 700,
+              "sha256": "9e9306bead160e48a261f02faf159d27e68a729871e187c32727e9f0aac89c1e",
+              "sourceRect": [
+                0,
+                683,
+                512,
+                341
+              ]
+            },
+            {
+              "label": "Change",
+              "file": "poses/bluey/uncertainty_1.png",
+              "durationMs": 450,
+              "sha256": "fd4f1ca4cee54e51c853447e11755cde46396a000d905d7796cbafdedffff138",
+              "sourceRect": [
+                512,
+                683,
+                512,
+                341
+              ]
+            },
+            {
+              "label": "Settle",
+              "file": "poses/bluey/uncertainty_2.png",
+              "durationMs": 1200,
+              "sha256": "2b210f1a3dcc4fb190fa400a58c8998d703140a8fe0497ecd32e10586a874d9b",
+              "sourceRect": [
+                1024,
+                683,
+                512,
+                341
+              ]
+            }
+          ]
+        }
+      ],
+      "sheet": "source/bluey.png",
+      "sourceSha256": "f2127a2af16f878527cefe42dfed076161286f9e09fae1f8754a52f43849d682",
+      "sourceWidth": 1536,
+      "sourceHeight": 1024,
+      "prompt": "prompts/bluey.txt"
+    },
+    {
+      "id": "pixar",
+      "label": "Inside Out",
+      "inspiration": "Different rhythms for recall, concentration and discovery.",
+      "sourceUrl": "https://lumiere-a.akamaihd.net/v1/documents/inside_out_2_production_notes_updated_final_05-23-2024_f2901ceb.pdf",
+      "examples": [
+        {
+          "id": "recall",
+          "label": "Remembering calmly",
+          "when": "MIST is recalling something from the conversation.",
+          "notes": "Look away briefly, then return to the person. This is one possible acting choice, not a rule for how humans remember.",
+          "poses": [
+            {
+              "label": "Setup",
+              "file": "poses/pixar/recall_0.png",
+              "durationMs": 700,
+              "sha256": "02ae9d184c3ff5b23360b65f3182e1e5367862c93a4eac3e56f9ee2f8280fb9f",
+              "sourceRect": [
+                0,
+                0,
+                512,
+                341
+              ]
+            },
+            {
+              "label": "Change",
+              "file": "poses/pixar/recall_1.png",
+              "durationMs": 950,
+              "sha256": "ceb530b3f8c2970b5b2969d2ea38d71fc29b5ac79f929ff444f8a6b26a1b1943",
+              "sourceRect": [
+                512,
+                0,
+                512,
+                341
+              ]
+            },
+            {
+              "label": "Settle",
+              "file": "poses/pixar/recall_2.png",
+              "durationMs": 1100,
+              "sha256": "7534417c7ee9ae97d65239aa7354aab3b8e3a758a35ac95e5572b32b82a5e9f9",
+              "sourceRect": [
+                1024,
+                0,
+                512,
+                341
+              ]
+            }
+          ]
+        },
+        {
+          "id": "checking",
+          "label": "Checking carefully",
+          "when": "A fact or tool result needs a second look.",
+          "notes": "Hold the checking pose while work is pending; the settle belongs after verification. These preview durations are only a sketch.",
+          "poses": [
+            {
+              "label": "Setup",
+              "file": "poses/pixar/checking_0.png",
+              "durationMs": 450,
+              "sha256": "40b87fafeb46482a66250cad4508f5ad601f091c9ee5dd12924452b001d0abb4",
+              "sourceRect": [
+                0,
+                341,
+                512,
+                342
+              ]
+            },
+            {
+              "label": "Change",
+              "file": "poses/pixar/checking_1.png",
+              "durationMs": 1000,
+              "sha256": "7b471ce42392a91297e276eaef179a83a6cd352d591ae48730efeacd588e75b7",
+              "sourceRect": [
+                512,
+                341,
+                512,
+                342
+              ]
+            },
+            {
+              "label": "Settle",
+              "file": "poses/pixar/checking_2.png",
+              "durationMs": 1000,
+              "sha256": "e2d5543701f0103e36cd292352e5c9eb3ed565ed9e08ae2d87472b933efb87d4",
+              "sourceRect": [
+                1024,
+                341,
+                512,
+                342
+              ]
+            }
+          ]
+        },
+        {
+          "id": "discovery",
+          "label": "Excited discovery",
+          "when": "A useful answer or solution has actually been found.",
+          "notes": "The gaze opens before the smile. Avoid showing success merely because a timer expired.",
+          "poses": [
+            {
+              "label": "Setup",
+              "file": "poses/pixar/discovery_0.png",
+              "durationMs": 550,
+              "sha256": "8bb6d3cc8db8ed72167455d79f25804badcd4fcd4a87194ff049dbd5f6d9e62e",
+              "sourceRect": [
+                0,
+                683,
+                512,
+                341
+              ]
+            },
+            {
+              "label": "Change",
+              "file": "poses/pixar/discovery_1.png",
+              "durationMs": 200,
+              "sha256": "f6440f4aa3cc167d0922eb5493b990aa21a20b573e4e3051d94ca872c43dcafd",
+              "sourceRect": [
+                512,
+                683,
+                512,
+                341
+              ]
+            },
+            {
+              "label": "Settle",
+              "file": "poses/pixar/discovery_2.png",
+              "durationMs": 1000,
+              "sha256": "d7ad441b9015c4f13aedd646a88dfdc541b94dea31dff7ac60ddee1e34c8b311",
+              "sourceRect": [
+                1024,
+                683,
+                512,
+                341
+              ]
+            }
+          ]
+        }
+      ],
+      "sheet": "source/pixar.png",
+      "sourceSha256": "62f3237ba31fa8ceb06783698d2276eae609e06b5cd38d3fd76885284eabfb1d",
+      "sourceWidth": 1536,
+      "sourceHeight": 1024,
+      "prompt": "prompts/pixar.txt"
+    },
+    {
+      "id": "mickey",
+      "label": "Mickey shorts",
+      "inspiration": "Graphic exaggeration, sudden accents and comic recovery.",
+      "sourceUrl": "https://www.disneyexaminer.com/p/a-conversation-with-paul-rudish-creator-of-disney-mickey-mouse-shorts",
+      "examples": [
+        {
+          "id": "double_take",
+          "label": "Comic double-take",
+          "when": "Something unexpectedly absurd deserves a second look.",
+          "notes": "Keep the stretched middle pose brief. The settle reads dubious, so use it during playful exchanges.",
+          "poses": [
+            {
+              "label": "Setup",
+              "file": "poses/mickey/double_take_0.png",
+              "durationMs": 600,
+              "sha256": "91519033af036a75d4bc51c06644b046b21839cd04f5848f5b355f25e0bd2498",
+              "sourceRect": [
+                0,
+                0,
+                512,
+                341
+              ]
+            },
+            {
+              "label": "Change",
+              "file": "poses/mickey/double_take_1.png",
+              "durationMs": 135,
+              "sha256": "cc94215faff6beb059e31fc974170a3b12f4e4b8da6f0530c0e56e3cf40570ca",
+              "sourceRect": [
+                512,
+                0,
+                512,
+                341
+              ]
+            },
+            {
+              "label": "Settle",
+              "file": "poses/mickey/double_take_2.png",
+              "durationMs": 1000,
+              "sha256": "405aa559af3900416bef5b049be8e5f0174e264c49b4fefc054a1ebe96eca75b",
+              "sourceRect": [
+                1024,
+                0,
+                512,
+                341
+              ]
+            }
+          ]
+        },
+        {
+          "id": "mock_outrage",
+          "label": "Mock outrage",
+          "when": "You are already joking together and a theatrical reaction fits.",
+          "notes": "The accent can read angry on its own. The quick wink and smile are essential; do not use it for user distress or a failed task.",
+          "poses": [
+            {
+              "label": "Setup",
+              "file": "poses/mickey/mock_outrage_0.png",
+              "durationMs": 550,
+              "sha256": "e8fecb8f8f176c436d37baec12dcb182a3fa16af08449665ccbd7f83d6dc6f0b",
+              "sourceRect": [
+                0,
+                341,
+                512,
+                342
+              ]
+            },
+            {
+              "label": "Change",
+              "file": "poses/mickey/mock_outrage_1.png",
+              "durationMs": 180,
+              "sha256": "120a532ca8738ab9ec67acc176e396cb3b7f075f2d0f781ec7b795a66f195d9b",
+              "sourceRect": [
+                512,
+                341,
+                512,
+                342
+              ]
+            },
+            {
+              "label": "Settle",
+              "file": "poses/mickey/mock_outrage_2.png",
+              "durationMs": 1200,
+              "sha256": "66f98f23c109cb3e0f8ba924f101fdc3cb34b1005ccafe4a432471bcfe9754cd",
+              "sourceRect": [
+                1024,
+                341,
+                512,
+                342
+              ]
+            }
+          ]
+        },
+        {
+          "id": "triumph",
+          "label": "Tiny triumph",
+          "when": "A small shared challenge has been completed.",
+          "notes": "A quick burst, then a proud smile. Reserve it for occasional wins rather than every tool call.",
+          "poses": [
+            {
+              "label": "Setup",
+              "file": "poses/mickey/triumph_0.png",
+              "durationMs": 500,
+              "sha256": "875d61c84ca464531a2483248e747e4bfe74b06fe6460f48f0c9f6a13e676532",
+              "sourceRect": [
+                0,
+                683,
+                512,
+                341
+              ]
+            },
+            {
+              "label": "Change",
+              "file": "poses/mickey/triumph_1.png",
+              "durationMs": 300,
+              "sha256": "578df4af2d913f85009902843bd88225530c50dd60dbced12e28e466d20638e0",
+              "sourceRect": [
+                512,
+                683,
+                512,
+                341
+              ]
+            },
+            {
+              "label": "Settle",
+              "file": "poses/mickey/triumph_2.png",
+              "durationMs": 1100,
+              "sha256": "b8ccf52f1e9551cf7a2ee91c50913dd60f1b238d8409ce61654e01c719fab806",
+              "sourceRect": [
+                1024,
+                683,
+                512,
+                341
+              ]
+            }
+          ]
+        }
+      ],
+      "sheet": "source/mickey.png",
+      "sourceSha256": "020e5da0aec10f2dadcd383966194e64202932e4c5bca573ce906f94c10cb32a",
+      "sourceWidth": 1536,
+      "sourceHeight": 1024,
+      "prompt": "prompts/mickey.txt"
+    },
+    {
+      "id": "simons_cat",
+      "label": "Simon's Cat",
+      "inspiration": "Clear visual intention, directed gaze and patient waiting.",
+      "sourceUrl": "https://simonscat.com/history",
+      "examples": [
+        {
+          "id": "notice",
+          "label": "Spots something interesting",
+          "when": "A relevant new sound or object catches attention.",
+          "notes": "Both pupils share a direction. Shift attention only when something relevant happened, not randomly during the user's speech.",
+          "poses": [
+            {
+              "label": "Setup",
+              "file": "poses/simons_cat/notice_0.png",
+              "durationMs": 850,
+              "sha256": "0ee8e40ff5369af2c1d5ec2d0f700b9337c2dac2d916784136e6ca218667feff",
+              "sourceRect": [
+                0,
+                0,
+                512,
+                341
+              ]
+            },
+            {
+              "label": "Change",
+              "file": "poses/simons_cat/notice_1.png",
+              "durationMs": 200,
+              "sha256": "c2ca2d49c4e368461fe2f2d7bd1efd3aaa147992e00d351359b70694ac3196a3",
+              "sourceRect": [
+                512,
+                0,
+                512,
+                341
+              ]
+            },
+            {
+              "label": "Settle",
+              "file": "poses/simons_cat/notice_2.png",
+              "durationMs": 1200,
+              "sha256": "c365595e01946abae33066bf38768ca119d14fd534cf05c1913c42d607bf4a90",
+              "sourceRect": [
+                1024,
+                0,
+                512,
+                341
+              ]
+            }
+          ]
+        },
+        {
+          "id": "waiting",
+          "label": "Asking, then waiting",
+          "when": "MIST has asked a question and leaves room for your reply.",
+          "notes": "The smile settles into a closed mouth. In conversation, the waiting pose should hold rather than repeatedly restart.",
+          "poses": [
+            {
+              "label": "Setup",
+              "file": "poses/simons_cat/waiting_0.png",
+              "durationMs": 500,
+              "sha256": "c17a18d68112bab263334f35c84328f1468908f3321ef894562f4314e8956215",
+              "sourceRect": [
+                0,
+                341,
+                512,
+                342
+              ]
+            },
+            {
+              "label": "Change",
+              "file": "poses/simons_cat/waiting_1.png",
+              "durationMs": 450,
+              "sha256": "fa8f7b853f9530852564549f286451fce109a5a9119f02cb61212f113e941e36",
+              "sourceRect": [
+                512,
+                341,
+                512,
+                342
+              ]
+            },
+            {
+              "label": "Settle",
+              "file": "poses/simons_cat/waiting_2.png",
+              "durationMs": 1600,
+              "sha256": "0f1644b758d17b353f9a6f5984cd43db6bfb4acc66af8c8733354091f7a5d59d",
+              "sourceRect": [
+                1024,
+                341,
+                512,
+                342
+              ]
+            }
+          ]
+        },
+        {
+          "id": "clarify",
+          "label": "Did you mean that?",
+          "when": "A light misunderstanding needs clarification.",
+          "notes": "The last two poses are deliberately close. Do not use the puzzled look as a default listening loop.",
+          "poses": [
+            {
+              "label": "Setup",
+              "file": "poses/simons_cat/clarify_0.png",
+              "durationMs": 750,
+              "sha256": "f9e4676de49ec0d214d4b02524ce5f6b84419fdd4c5120be48fc86c85a36e5f6",
+              "sourceRect": [
+                0,
+                683,
+                512,
+                341
+              ]
+            },
+            {
+              "label": "Change",
+              "file": "poses/simons_cat/clarify_1.png",
+              "durationMs": 260,
+              "sha256": "6b67447faef16bc55bd20e287786a56017824a5ca6664f9268d97005d858241f",
+              "sourceRect": [
+                512,
+                683,
+                512,
+                341
+              ]
+            },
+            {
+              "label": "Settle",
+              "file": "poses/simons_cat/clarify_2.png",
+              "durationMs": 1400,
+              "sha256": "a91eaf549c775fe110a997517f7e8aa1909309616a19810a7e3465596c3129b9",
+              "sourceRect": [
+                1024,
+                683,
+                512,
+                341
+              ]
+            }
+          ]
+        }
+      ],
+      "sheet": "source/simons_cat.png",
+      "sourceSha256": "dea3e74df9544c23494e805ba76daf4bb16215bc108406808cff1c0a5734c220",
+      "sourceWidth": 1536,
+      "sourceHeight": 1024,
+      "prompt": "prompts/simons_cat.txt"
+    },
+    {
+      "id": "peanuts",
+      "label": "Peanuts / Snoopy",
+      "inspiration": "Minimal marks, quiet holds and understated humour.",
+      "sourceUrl": "https://www.peanuts.com/classic-holiday-specials",
+      "examples": [
+        {
+          "id": "company",
+          "label": "Contented company",
+          "when": "MIST is available during a comfortable pause.",
+          "notes": "A quiet acknowledgement, then rest. The small marks need a phone-distance legibility check before production use.",
+          "poses": [
+            {
+              "label": "Setup",
+              "file": "poses/peanuts/company_0.png",
+              "durationMs": 1300,
+              "sha256": "015dcf0e92e5e3bf6c7b3a3d41fd4a6bddc248f083351779922f0eba8913ca72",
+              "sourceRect": [
+                0,
+                0,
+                512,
+                341
+              ]
+            },
+            {
+              "label": "Change",
+              "file": "poses/peanuts/company_1.png",
+              "durationMs": 550,
+              "sha256": "785102a870300f5ccadc0784bdd4d27d6a440227e40fe1d6f16eb14b207bc315",
+              "sourceRect": [
+                512,
+                0,
+                512,
+                341
+              ]
+            },
+            {
+              "label": "Settle",
+              "file": "poses/peanuts/company_2.png",
+              "durationMs": 1800,
+              "sha256": "ba38e521e96933a8c3816eb4aa20e8d9becf2ffa45aed5563070a90f23614555",
+              "sourceRect": [
+                1024,
+                0,
+                512,
+                341
+              ]
+            }
+          ]
+        },
+        {
+          "id": "wry",
+          "label": "Wry acknowledgement",
+          "when": "A familiar joke needs only a small response.",
+          "notes": "The sideways glance resolves into a tiny wink. Keep it affectionate rather than dismissive.",
+          "poses": [
+            {
+              "label": "Setup",
+              "file": "poses/peanuts/wry_0.png",
+              "durationMs": 900,
+              "sha256": "d85ccc4ce09e71cb27ba2f573ed3a0b50b72b178af6dbb2f3baf985d14f6467b",
+              "sourceRect": [
+                0,
+                341,
+                512,
+                342
+              ]
+            },
+            {
+              "label": "Change",
+              "file": "poses/peanuts/wry_1.png",
+              "durationMs": 500,
+              "sha256": "06d95ccc0a9229b321a9c2f5e0e1e8094a876f690b1ee0ac81351e952530b86f",
+              "sourceRect": [
+                512,
+                341,
+                512,
+                342
+              ]
+            },
+            {
+              "label": "Settle",
+              "file": "poses/peanuts/wry_2.png",
+              "durationMs": 1300,
+              "sha256": "3b67c631629fffb77762c8e14cea2d3c592ae64ac374443d6233b79eda2a3bbb",
+              "sourceRect": [
+                1024,
+                341,
+                512,
+                342
+              ]
+            }
+          ]
+        },
+        {
+          "id": "pride",
+          "label": "Quiet pride",
+          "when": "You have made progress and a modest smile is enough.",
+          "notes": "This shares a closed-eye smile with Contented company. Timing and context distinguish the two; they are not unrelated face designs.",
+          "poses": [
+            {
+              "label": "Setup",
+              "file": "poses/peanuts/pride_0.png",
+              "durationMs": 650,
+              "sha256": "73cd52a95d415724685ffd8b383d925798270166fbacae1cafe5a9a43bda472e",
+              "sourceRect": [
+                0,
+                683,
+                512,
+                341
+              ]
+            },
+            {
+              "label": "Change",
+              "file": "poses/peanuts/pride_1.png",
+              "durationMs": 350,
+              "sha256": "ce405aff004f03f1867095d3722d040026c3cba24c5bb114e98e4aa86c6f696f",
+              "sourceRect": [
+                512,
+                683,
+                512,
+                341
+              ]
+            },
+            {
+              "label": "Settle",
+              "file": "poses/peanuts/pride_2.png",
+              "durationMs": 1500,
+              "sha256": "7decf6fb6f59e907df2dd3e4d2d27174a935b1109b095049138784ce45a132f5",
+              "sourceRect": [
+                1024,
+                683,
+                512,
+                341
+              ]
+            }
+          ]
+        }
+      ],
+      "sheet": "source/peanuts.png",
+      "sourceSha256": "e12e5d9d9406be16523cc082db22fc9c3a88da1e3ecda9f269700fea355e2c10",
+      "sourceWidth": 1536,
+      "sourceHeight": 1024,
+      "prompt": "prompts/peanuts.txt"
+    }
+  ]
+}

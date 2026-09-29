@@ -1,0 +1,26 @@
+INITIAL GENERATION PROMPT
+
+Use case: stylized-concept.
+Asset type: MIST facial acting study, one landscape 1536 x 1024 PNG image, opaque uniform dark background.
+Primary request: Create one exact equal 3-column by 3-row contact sheet of nine MIST robot-face expressions. The three columns are successive animation beats: LEFT setup, MIDDLE strong accent, RIGHT settle. Each row is its own short acting idea. This is an occasional reaction study with bold expressive construction.
+Reference role: The attached image is an identity and palette reference ONLY: cyan hand-drawn graphic eyes and simple cyan mouth on dark blue-black. IGNORE the reference's panels, labels, lettering, icons, borders, layout, gradients and screen devices. Keep MIST recognisable through the two-eye-and-mouth-only luminous graphic vocabulary.
+Style: Take inspiration from Paul Rudish's Mickey Mouse shorts' rubbery graphic exaggeration, highly varied expression silhouettes and mischievous visual comedy. Draw MIST, never Mickey. Use bold squashed crescents, unequal tall eyes, sharply angled but round-ended integrated eye lids, jaunty asymmetric mouth curves. Confident hand-drawn solid cyan marks with softly imperfect edges and very restrained glow. The expressions must differ in eye and mouth construction, not merely in small variations of the same face.
+Scene/background: Every pixel behind the faces is the same flat opaque #101c20. No gradients, panels, frames, cell outlines, vignettes, texture or borders. No lettering or other marks.
+Composition: Exactly nine isolated faces, arranged on invisible equal cells in three columns and three rows. Cell center x coordinates near 256, 768, 1280 and y coordinates near 171, 512, 853 on the requested 1536 x 1024 canvas. Maintain face center and nominal scale within each sequence. Each face fits comfortably inside its cell, with generous clear dark space between faces. Only facial shapes deform. No head silhouette or containers. All nine faces use exactly two eyes and one mouth each. Eyelids are integrated eye shapes, never separate eyebrows.
+ROW 1 / top / comic double-take:
+LEFT: Casual half-lidded eyes, a short relaxed slightly crooked mouth. Easygoing baseline.
+MIDDLE: Wildly unequal WIDE eyes, one very tall open oval and the other much shorter broader oval, a small startled open oval mouth. Big stretched comic surprise, with strong asymmetry.
+RIGHT: One lid drops into an amused skeptical look, the other eye is rounder and more alert; a short crooked mouth implies 'oh, really?'.
+ROW 2 / middle / playful mock outrage:
+LEFT: Relaxed asymmetrical eye shapes with a sly short smirk.
+MIDDLE: Sharply squashed inward-tilting integrated eyelids and a wide exaggerated angular open mouth, round-edged cyan outline with dark interior. A theatrical overreaction that remains silly, not genuinely hostile or threatening. No fangs, teeth or tongue.
+RIGHT: Release into a cheeky wink: one open rounded eye, the other a compressed playful crescent, with a forgiving broad upward grin.
+ROW 3 / bottom / tiny triumph:
+LEFT: Concentrated low flattened eyes, short straight focused mouth.
+MIDDLE: Both eyes compactly squeezed into joyous upward arcs or crescents, and a big bowl-shaped open grin drawn as a simple cyan outline with dark interior.
+RIGHT: Relaxed proud half-lids at different angles and a small asymmetric smirk. Quiet satisfied landing after the burst.
+Constraints: Cyan face marks only, no actual Mickey character, mouse ears, nose, head, body, limbs, hands, props, icons, badges, sweat, tears, sparkles, motion marks, separate eyebrows, text, captions, numbers, signatures, watermarks or cell borders. Exactly three facial elements in every pose. Keep the background uniform #101c20 and preserve generous gutters.
+
+TARGETED CORRECTION PROMPT
+
+Edit this MIST acting-study sheet. Make only one change: replace the background with a perfectly uniform, opaque solid #101c20 (RGB 16,28,32). This exact flat background is important for later asset extraction. Remove all background texture, noise, gradients and uneven lighting; distant dark areas must be the exact same #101c20. Preserve all nine faces and every eye and mouth shape, position, scale and cyan color exactly as in the image. Keep only a very narrow restrained glow immediately around the cyan strokes, with no glow spreading into the empty cell gutters. Preserve the 1536 x 1024 landscape canvas and equal 3 columns by 3 rows. No text, no borders, no new marks.

@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>MIST / Acting studies</title>
+  <link rel="stylesheet" href="style.css?v=2">
+</head>
+<body>
+  <header>
+    <a class="brand" href="../">MIST</a>
+    <span class="page-name">Acting studies</span>
+    <nav aria-label="Other previews"><a href="../">MIST voice</a></nav>
+    <a class="pack" href="MIST_acting_studies_v1.zip" download>Download pack</a>
+  </header>
+  <main>
+    <div class="toolbar"><p id="study-count">18 examples · 3 poses each · timing sketches</p><div class="filters"><label><input id="selected-only" type="checkbox" disabled>Selected only</label><label for="filter">Show <select id="filter" disabled><option value="all">All</option></select></label></div></div>
+    <section class="review-toolbar" aria-label="Your animation review">
+      <div class="review-summary"><strong id="selected-count">0 selected</strong><span id="save-status" role="status">Saved only in this browser.</span></div>
+      <div class="review-actions"><button id="export-json" type="button" disabled>Export review</button><button id="export-markdown" type="button" disabled>Download notes</button><button id="copy-review" type="button" disabled>Copy review link</button><button id="import-review" type="button" disabled>Import review</button><input id="import-file" type="file" accept=".json,application/json" hidden></div>
+      <p class="review-help">Pick whole sequences or individual poses. Export or share your review link to send your choices and notes back.</p>
+      <p id="review-message" class="small" role="status" hidden></p>
+      <div id="share-fallback" hidden><label for="share-url">Copy this review link</label><input id="share-url" type="url" readonly></div>
+    </section>
+    <p id="status" role="status">Loading poses…</p>
+    <p id="error" role="alert" hidden></p>
+    <div id="groups"></div>
+    <p id="empty-selection" class="small" hidden>No selected examples in this view.</p>
+  </main>
+  <dialog id="player" aria-labelledby="player-title" aria-describedby="player-note">
+    <div class="dialog-head"><h2 id="player-title"></h2><button id="close" type="button" autofocus>Close</button></div>
+    <p id="player-when"></p>
+    <div class="player-stage"><img id="player-image" alt=""></div>
+    <div class="pose-status"><span id="pose-label"></span><span id="pose-position"></span></div>
+    <div class="player-controls"><button id="play" type="button">Play</button><button id="stop" type="button">Stop</button><button id="next" type="button">Next pose</button><a id="download-pose" download>Download PNG</a></div>
+    <p id="player-note" class="small">Three key poses; no in-between frames.</p>
+    <p id="motion-note" class="small" hidden>Reduced motion: paused. Use Next pose.</p>
+    <p id="player-notes" class="small"></p>
+  </dialog>
+  <script src="review-state.js?v=2"></script>
+  <script src="app.js?v=2"></script>
+</body>
+</html>

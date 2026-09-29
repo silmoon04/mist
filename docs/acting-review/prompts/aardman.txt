@@ -1,0 +1,27 @@
+Use case: stylized-concept
+Asset type: MIST robot face acting-study sheet.
+
+Generate ONE landscape image, ideally exactly 1536 x 1024 pixels, containing an exact equal 3-column by 3-row grid of NINE face poses. There are no visible grid lines. Every cell has the same uniform dark background #101c20, extending edge to edge. Equal thirds of the canvas define the cells.
+
+Input image 1 is a style and identity reference only: preserve MIST's bright cyan marks on a dark background, rounded slightly handmade eye shapes, and tiny simple mouth. Do not copy its labels, screens, borders, pictograms, props, or layout.
+
+Interpret the restrained silent acting of Wallace & Gromit and Shaun the Sheep: rounded eye masses, expressive lifted lids, deliberate mild asymmetry, patient attentive holds, tiny funny changes that register clearly. Keep MIST an abstract robot face. Use carefully hand-drawn cyan eye shapes and restrained soft glow, with dark pupils or negative space where needed to make the gaze legible. No clay head, no animal, no body, no ears, no hair, no human nose. Two eyes in every open-eyed pose and two closed-eye strokes for a blink; a tiny mouth is permitted.
+
+Each ROW is ONE three-pose acting sequence read LEFT to RIGHT: setup, change, settle. Keep each face centered at exactly the same relative position and scale in all three cells of its row. Keep the baseline and eye spacing stable. Change only the face parts. Each complete face should occupy roughly the central 50 percent of the cell width. Give every face comfortable dark space around it.
+
+ROW 1, attentive listening:
+LEFT: calm rounded open eyes looking forward, a small closed mouth.
+MIDDLE: a slight gaze toward a speaker to the face's right, with one upper eyelid lifted a little more than the other, small closed mouth.
+RIGHT: a softened attentive hold toward that speaker, subtly relaxed lids, closed mouth. Warm patience, no grin.
+
+ROW 2, dry disbelief:
+LEFT: neutral open eyes and a tiny horizontal mouth.
+MIDDLE: one eye narrowed by its lid, the other wider, with a small sideways glance.
+RIGHT: both eyes settle into a deadpan narrow-eye hold, with a tiny straight mouth. Gentle dry humour. Do not make the brows or eyes angry.
+
+ROW 3, quiet realisation:
+LEFT: puzzled, mildly asymmetric gaze and a tiny uncertain closed mouth.
+MIDDLE: one short blink shown as TWO fully closed eye strokes, with the little mouth held quiet.
+RIGHT: both eyes open and focus together, accompanied by a tiny satisfied closed-mouth smile. A quiet understanding, not excitement.
+
+Make the setup/change/settle progression distinct and readable at thumbnail size while keeping every expression restrained. Keep visual continuity between all nine faces. Exactly nine faces, one per cell. No text, labels, typography, watermark, arrows, icons, border lines, screen frames, card shapes, panels, decorative marks, or props. Do not include the words MIST or any row titles in the image. Flat uniform #101c20 background with cyan face marks only.

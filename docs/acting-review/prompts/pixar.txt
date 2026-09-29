@@ -1,0 +1,32 @@
+INITIAL GENERATION PROMPT
+
+Use case: stylized-concept.
+Asset type: MIST robot face acting-study contact sheet.
+Create ONE polished landscape image, 1536 x 1024 preferred, with exactly NINE separate cyan faces arranged in an evenly spaced THREE COLUMN by THREE ROW invisible grid. A single uniform near-black charcoal background covers the whole canvas. No panel outlines, no dividers, no borders, no captions or lettering. Every cell contains ONLY two expressive cyan eyes and ONE small cyan mouth, nothing else.
+
+Input image 1 is an IDENTITY REFERENCE for MIST's luminous cyan-on-dark face, NOT a layout or icon reference. Preserve its friendly digital personality, thick rounded cyan geometry, modest gap between eyes, small low-centered mouth and soft controlled glow. Remove all text, icons, device casings and white areas found in that reference. Evolve its eye language: freely use FILLED cyan eye masses with clearly readable dark pupils, expressive gaze direction, asymmetric sculptural upper lids and flexible smooth eye silhouettes. A consistent MIST identity in all nine faces. Keep cyan-only facial marks on near-black, crisp visible edges with restrained soft glow. No colored characters, human bodies, hair, skin, cheeks, tears, eyebrows floating separately, props, symbols or extra face marks.
+
+Acting direction: nuanced feature-animation emotional acting inspired by the mixed-emotion temperaments and clear thought changes of Inside Out and Inside Out 2. Borrow expressive timing, gaze-led attention, hesitation and emotional transitions, never the actual character designs, colors, costumes or bodies. Each row is one short scene ordered LEFT setup, MIDDLE thought change, RIGHT settle. Avoid nine disconnected emoji emotes. The eye-to-mouth scale and face center must stay consistent across each row; eye silhouette and pupil direction carry the acting. Compose all nine cells with comfortable equal dark breathing space, faces approximately the same size and centered on the cell locations. These are drawings of momentary acting poses, not animated footage.
+
+TOP ROW — remembering calmly, quiet reflective energy:
+LEFT: relaxed attentive eyes, soft open cyan eye masses and centered dark pupils, a small neutral closed mouth. It reads as listening and ready to remember.
+MIDDLE: eyes clearly LOOK UP, dark pupils high within cyan masses, slightly uneven sculptural lid heights suggesting an inward thought; small CLOSED mouth, no O mouth. Warm curiosity rather than distress.
+RIGHT: gaze returns gently forward, upper lids relax; a tiny restrained “I remember” closed smile. Make the return in gaze visible and the smile noticeably subtler than the bottom-right joy.
+
+MIDDLE ROW — checking carefully, focused but not angry:
+LEFT: open neutral forward gaze, balanced rounded eye masses, small neutral mouth.
+MIDDLE: concentrated lids narrow the eye openings, dark pupils clearly gaze SIDEWAYS toward viewer-right. One lid can sit a little higher than the other. Keep inner eye corners level or gently rounded: do not form an angry V. Small controlled closed mouth.
+RIGHT: level direct eyes with centered pupils return forward and a small decisive STRAIGHT mouth; assurance and clarity, no scowl.
+
+BOTTOM ROW — excited discovery, distinctly higher energy than the top row:
+LEFT: active focused gaze, a slight expressive mismatch in eye openness and a small anticipatory mouth, visibly alert.
+MIDDLE: sudden wide-eye realization, rounder expanded filled cyan eye masses with clearly visible dark pupils, and a SMALL OPEN mouth. Surprise at having understood something; no panic.
+RIGHT: happy lifted eyes, delighted upward smile, unmistakably joyful discovery. Joy is expressed through eye shape and mouth alone. Keep the eyes recognizable as MIST.
+
+Final constraints: exactly 3 columns and 3 rows, exactly 9 faces, every face exactly 2 eyes and 1 small mouth. Equal invisible cells; consistent center and scale within each row. Cyan and dark charcoal only. No words, labels, numbers, borders, device shells, icons or watermarks.
+
+SINGLE TARGETED CORRECTION PROMPT
+
+Use case: precise-object-edit.
+Edit the supplied MIST acting-study sheet with ONE localized change: in the BOTTOM-LEFT cell, remove the detached cyan eyebrow arc floating above the right-hand eye. Replace that detached arc with the same surrounding dark background. Preserve the eye beneath it exactly; preserve both eyes and the small mouth in that bottom-left face. That cell should contain exactly two eyes and one small mouth, no detached extra mark.
+Preserve EVERY other pixel-level visual feature as closely as possible: all other eight faces, all facial expressions, pupil directions, eye positions and silhouettes, mouths, glow, cyan palette, texture, near-black background, invisible evenly spaced 3-by-3 grid, 1536-by-1024 landscape dimensions, face scale and placement. Do not add eyebrows anywhere. No text, no borders, no icons, no other changes.
