@@ -632,8 +632,8 @@
     },
     {
       "path": "brain/benchmarks/naturalness/cascade_voice.py",
-      "bytes": 44519,
-      "sha256": "8c82c6896b3b59e9ef30d51f7f9360b14c30882a94890298c92e8711d7b5ba1c"
+      "bytes": 44679,
+      "sha256": "dea94f7e4444cb672a6567e8ed0e9d6744501b032bf69e6e0d87cc2c12c7c7c4"
     },
     {
       "path": "brain/benchmarks/naturalness/cerebras_client.py",
@@ -812,8 +812,8 @@
     },
     {
       "path": "brain/duplex/remote_access.py",
-      "bytes": 4257,
-      "sha256": "e7f8bd4193e6bb768afb8259d574f0540c2e40846e38fa2793d1aa1e98129b91"
+      "bytes": 4285,
+      "sha256": "2d121b4d6b53b7172d5f56881ef47144e643c29d1f33c31e7b7687d55191dd37"
     },
     {
       "path": "brain/duplex/runtime.py",
@@ -1012,8 +1012,8 @@
     },
     {
       "path": "brain/harness/test_live_studio_remote.py",
-      "bytes": 8946,
-      "sha256": "176473586d7346ee64ba5d57846ea50a26e794c86198fe670996f563b7b3c7f0"
+      "bytes": 9194,
+      "sha256": "74113bca2462a9c476f07d7237aa140c829ff02328837c35f11c5b6d082e9a7c"
     },
     {
       "path": "brain/harness/test_memory_requests.py",
@@ -1092,7 +1092,7 @@
     }
   ],
   "file_count": 218,
-  "total_bytes": 12923313,
+  "total_bytes": 12923749,
   "mutable_files": [
     "docs/endpoint.json"
   ],

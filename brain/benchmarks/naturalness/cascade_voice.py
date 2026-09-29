@@ -275,6 +275,7 @@ class CascadeVoice:
         self.bridge = RuntimeBridge(runtime)
         self.specifications = runtime_specs() + background_specs()
         self.client = self.http = self.socket = self.loop = None
+        self._model_client_ready = False
         self._startup_worker = None
         self._close_lock = asyncio.Lock()
         self._close_complete = False
@@ -341,6 +342,7 @@ class CascadeVoice:
         if self.closed:
             raise RuntimeError('Voice session closed during model startup')
         self.client = client
+        self._model_client_ready = True
         params = {'model': 'nova-3', 'language': 'en-GB', 'encoding': 'linear16',
                   'sample_rate': 16000, 'channels': 1, 'interim_results': 'true',
                   'endpointing': self.endpoint_ms, 'utterance_end_ms': 1000, 'vad_events': 'true',
@@ -713,6 +715,7 @@ class CascadeVoice:
             retired = True
             if self.client is client:
                 self.client = None
+            self._model_client_ready = True
             self.needs_reset = True
             await self.debug('interrupted_generation_discarded', turn_id=self.turn,
                              playback_verified=False)
@@ -753,7 +756,7 @@ class CascadeVoice:
         await self.commit_utterance('keyboard_test')
 
     async def submit_text(self, text):
-        if self.closed or self.client is None:
+        if self.closed or (self.client is None and not self._model_client_ready):
             raise RuntimeError('Voice session is not ready for typed input')
         await self.say_text(text)
         return {'status': 'queued', 'input_mode': 'text', 'revision': self.revision,

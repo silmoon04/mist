@@ -78,7 +78,7 @@ class RemoteAccess:
             raise web.HTTPForbidden(text='Unrecognised host or origin.')
         path = request.path
         public = ((path == '/try' and request.method == 'GET') or
-                  (path in ('/duplex/trials.js', '/duplex/trials.css') and request.method == 'GET') or
+                  (path in ('/duplex/trials.js', '/duplex/trials.css', '/duplex/trial_memory.mjs') and request.method == 'GET') or
                   (path == '/trial/session' and request.method == 'GET') or
                   (path == '/trial/pair' and request.method == 'POST'))
         if not public and not self.authenticated(request):

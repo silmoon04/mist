@@ -52,6 +52,10 @@ class RemoteTests(unittest.IsolatedAsyncioTestCase):
                 self.assertEqual(response.status, 401)
         self.assertEqual((await self.request('GET','/try')).status,200)
         self.assertEqual((await self.request('GET','/duplex/trials.css')).status,200)
+        # The pairing page imports this static helper before a user signs in.
+        helper = await self.request('GET','/duplex/trial_memory.mjs')
+        self.assertEqual(helper.status,200)
+        self.assertIn('javascript',helper.content_type)
         with self.assertRaises(WSServerHandshakeError) as caught:
             await self.client.ws_connect('/trial/voice?architecture=native', headers=self.headers)
         self.assertEqual(caught.exception.status,401)
