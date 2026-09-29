@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "status": "online",
-  "api_origin": "https://expires-obituaries-finances-paste.trycloudflare.com",
-  "updated_at": "2026-09-29T11:42:03Z",
-  "last_seen_at": "2026-09-29T11:42:03Z"
+  "status": "offline",
+  "api_origin": null,
+  "updated_at": "2026-09-29T11:47:57Z",
+  "last_seen_at": "2026-09-29T11:47:57Z"
 }
