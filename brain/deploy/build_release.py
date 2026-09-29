@@ -56,6 +56,7 @@ RELEASE_FILES = [
     "brain/harness/test_live_studio_remote.py",
     "brain/harness/test_start_laptop_host.ps1",
     "brain/harness/test_remote_voice_recovery.mjs",
+    "brain/harness/test_host_launcher.mjs",
     "brain/harness/test_session_voice_options.py",
     "brain/harness/test_session_store.py", "brain/harness/test_session_memory.py",
     "brain/harness/test_database_traces.py", "brain/harness/test_memory_requests.py",

@@ -45,6 +45,16 @@ test('rejected activity selection keeps the current preview and can still be ret
  assert.equal(preview.active,false);
 });
 
+test('selecting an active activity again returns to live animation',()=>{
+ const calls=[];
+ const preview=new AnimationPreview({previewActivity:id=>{calls.push(['preview',id]);return {accepted:true};},clearPreviewActivity:()=>calls.push(['clear'])});
+ assert.equal(preview.selectActivity('reading'),true);
+ assert.equal(preview.selectActivity('reading'),true);
+ assert.equal(preview.activityId,null);
+ assert.equal(preview.active,false);
+ assert.deepEqual(calls,[['preview','reading'],['clear']]);
+});
+
 test('one shared scheduler ticks visible cards at 15 fps and cancels on close, reduced motion, and destroy',()=>{
  let next=0;const queued=new Map(),cancelled=[],frames=[];
  const scheduler=new VisiblePreviewScheduler({requestFrame:callback=>{const id=++next;queued.set(id,callback);return id;},cancelFrame:id=>{cancelled.push(id);queued.delete(id);},onFrame:(ids,time)=>frames.push([ids,time])});
