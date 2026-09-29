@@ -1,0 +1,18 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MIST | Expression inspector</title><link rel="stylesheet" href="/duplex/inspect.css?v=debug3"></head><body>
+<header><h1>MIST expression inspector</h1><a href="/">Conversation</a><a href="/debug">Live debug</a><span id="count" class="badge"></span></header><main>
+<p class="note">Inspect all 40 original face variants with the same renderer used by MIST. This page runs locally without a microphone or model calls. The live mouth currently follows amplitude using AA and rest; the full viseme sweep here is a diagnostic animation, not phoneme recognition.</p>
+<div class="layout"><section class="controls">
+<label>Named expression<select id="preset"><option value="">Choose a preset</option></select></label>
+<label>Face variant<select id="variant"></select></label>
+<label>Animation<select id="mode"><option value="sweep">Speech: all mouth shapes</option><option value="live">Speech: live AA/rest pattern</option><option value="hold">Hold one mouth shape</option><option value="idle">Idle face</option><option value="transition">Expression transition</option><option value="blink">Blink inspection</option></select></label>
+<label>Transition from<select id="from"></select></label><label>Transition duration (ms)<input id="transition" type="number" min="1" max="1200" value="260"></label>
+<label>Mouth shape<select id="viseme"></select></label><label>Mouth amount <output id="amount-value">0.8</output><input id="amount" type="range" min="0" max="1" step="0.05" value="0.8"></label>
+<label>Gaze X<input id="gaze-x" type="range" min="-1" max="1" step="0.05" value="0"></label><label>Gaze Y<input id="gaze-y" type="range" min="-1" max="1" step="0.05" value="0"></label>
+<label>Playback speed<select id="speed"><option value="0.25">0.25x</option><option value="0.5">0.5x</option><option value="1" selected>1x</option><option value="2">2x</option></select></label>
+<label class="inline"><input id="cycle" type="checkbox" checked>Cycle all variants</label><label class="inline"><input id="gallery-motion" type="checkbox" checked>Animate gallery</label><label class="inline"><input id="guides" type="checkbox" checked>Bounds and grid</label><label class="inline"><input id="glow" type="checkbox" checked>Glow</label>
+</section><section><div id="stage" class="stage guides"><div id="focus"></div><div id="bounds" class="bounds"></div></div>
+<div class="bar"><button id="play">Pause</button><button id="previous">Previous frame</button><button id="next">Next frame</button><button id="restart">Restart loop</button><button id="save-svg">Save frame SVG</button><button id="save-json">Save frame data</button></div>
+<div class="framebar"><input id="scrub" aria-label="Animation time" type="range" min="0" max="4000" step="16.666667" value="0"><output id="frame" class="badge"></output></div><p id="readout" class="note"></p>
+<details><summary>Frame geometry and mouth state</summary><pre id="state"></pre></details></section></div>
+<h2>All face variants</h2><p class="note">Click a card to inspect it. Selecting a variant stops automatic variant cycling, but keeps the current animation running. Frame steps are 1/60 second. The four-second timeline repeats.</p><div id="gallery" class="gallery"></div>
+</main><script src="/face-data.js"></script><script src="/face-runtime.js"></script><script type="module" src="/duplex/expressions.js?v=debug3"></script></body></html>

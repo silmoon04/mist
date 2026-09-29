@@ -1,0 +1,2675 @@
+{
+  "version": 6,
+  "fps": 15,
+  "complete": true,
+  "faceStyle": "original-mist",
+  "assets": {
+    "coding": {
+      "type": "activity",
+      "source": "source/coding.png",
+      "sourceSha256": "cfea8a3b799853d279488cc38e3bfb0075588f17b35ea938cd844b903b7edd58",
+      "sourceSize": [
+        1448,
+        1086
+      ],
+      "nativeAlpha": true,
+      "registration": "center",
+      "scale": 0.7829457364341085,
+      "frames": [
+        {
+          "file": "frames/coding/00.png",
+          "pose": "enter_0",
+          "sourceCell": [
+            0,
+            0,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            128,
+            161,
+            113,
+            51
+          ],
+          "bounds": [
+            82,
+            106,
+            93,
+            45
+          ],
+          "sha256": "27734e5802886a2ece33cc0751d4f29c839aa7e87372adbf07b203ae0695d982"
+        },
+        {
+          "file": "frames/coding/01.png",
+          "pose": "enter_1",
+          "sourceCell": [
+            362,
+            0,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            97,
+            150,
+            169,
+            75
+          ],
+          "bounds": [
+            60,
+            97,
+            137,
+            63
+          ],
+          "sha256": "d6e8cb112c36fc58ef49ffe40a5c775bfac013751fb52a4603932765764debdc"
+        },
+        {
+          "file": "frames/coding/02.png",
+          "pose": "enter_2",
+          "sourceCell": [
+            724,
+            0,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            63,
+            132,
+            239,
+            108
+          ],
+          "bounds": [
+            32,
+            84,
+            192,
+            89
+          ],
+          "sha256": "18bd66cef798562257f7e97d542277ffd5b192a67829b5632e19cb1dbd47f852"
+        },
+        {
+          "file": "frames/coding/03.png",
+          "pose": "enter_3",
+          "sourceCell": [
+            1086,
+            0,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            53,
+            129,
+            249,
+            114
+          ],
+          "bounds": [
+            28,
+            81,
+            200,
+            94
+          ],
+          "sha256": "38f57847c9dd27fdc547914459c93b9eba0984234343685aac828f07b669c105"
+        },
+        {
+          "file": "frames/coding/04.png",
+          "pose": "loop_0",
+          "sourceCell": [
+            0,
+            362,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            56,
+            127,
+            248,
+            117
+          ],
+          "bounds": [
+            29,
+            80,
+            199,
+            96
+          ],
+          "sha256": "7428fb6620b3704ed77641380ac65cb50436819c5c3d01a2f626706a4a8f00bd"
+        },
+        {
+          "file": "frames/coding/05.png",
+          "pose": "loop_1",
+          "sourceCell": [
+            362,
+            362,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            57,
+            130,
+            246,
+            113
+          ],
+          "bounds": [
+            30,
+            82,
+            197,
+            93
+          ],
+          "sha256": "be7047d5e054b855c3b36be3a811272a02afbad090f0f6baee2d2eab375a5f83"
+        },
+        {
+          "file": "frames/coding/06.png",
+          "pose": "loop_2",
+          "sourceCell": [
+            724,
+            362,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            57,
+            130,
+            245,
+            113
+          ],
+          "bounds": [
+            30,
+            82,
+            197,
+            93
+          ],
+          "sha256": "f155e15738b2eccf8042e9629af7d2d83de5d708fd7a850589c60ab0066dc7cc"
+        },
+        {
+          "file": "frames/coding/07.png",
+          "pose": "loop_3",
+          "sourceCell": [
+            1086,
+            362,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            56,
+            130,
+            246,
+            113
+          ],
+          "bounds": [
+            30,
+            82,
+            197,
+            93
+          ],
+          "sha256": "965a9f0b15663901fe6c3d4787fd55de3aeac7a1550da0f60bde3dec26d8f051"
+        },
+        {
+          "file": "frames/coding/08.png",
+          "pose": "exit_0",
+          "sourceCell": [
+            0,
+            724,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            53,
+            130,
+            252,
+            116
+          ],
+          "bounds": [
+            27,
+            80,
+            202,
+            96
+          ],
+          "sha256": "6af706f2030693753a582b2a3473274987683106357f1776ee2cb21bf2b95187"
+        },
+        {
+          "file": "frames/coding/09.png",
+          "pose": "exit_1",
+          "sourceCell": [
+            362,
+            724,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            65,
+            135,
+            232,
+            105
+          ],
+          "bounds": [
+            35,
+            85,
+            186,
+            87
+          ],
+          "sha256": "b42db72f135e9e8fb41730e0eddf3859c9ef5320d0a35b8e01734f59be729c88"
+        },
+        {
+          "file": "frames/coding/10.png",
+          "pose": "exit_2",
+          "sourceCell": [
+            724,
+            724,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            96,
+            150,
+            172,
+            76
+          ],
+          "bounds": [
+            59,
+            96,
+            139,
+            64
+          ],
+          "sha256": "d4c1b90c75c84dfe075017529ac7013d57c49435a452cde76c8f8566005a669d"
+        },
+        {
+          "file": "frames/coding/11.png",
+          "pose": "exit_3",
+          "sourceCell": [
+            1086,
+            724,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            131,
+            165,
+            103,
+            46
+          ],
+          "bounds": [
+            86,
+            108,
+            85,
+            41
+          ],
+          "sha256": "9f305e0009105e03844933b94cd90c8c4d6da4a2f697ccce5392d018671c75ce"
+        }
+      ]
+    },
+    "reading": {
+      "type": "activity",
+      "source": "source/reading.png",
+      "sourceSha256": "f5c890a47c34fe947196265ecc9fce000ca0b63a85445302dc15c4a7d2751b6c",
+      "sourceSize": [
+        1448,
+        1086
+      ],
+      "nativeAlpha": true,
+      "registration": "center",
+      "scale": 0.8487394957983193,
+      "frames": [
+        {
+          "file": "frames/reading/00.png",
+          "pose": "enter_0",
+          "sourceCell": [
+            0,
+            0,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            137,
+            144,
+            99,
+            110
+          ],
+          "bounds": [
+            84,
+            79,
+            89,
+            98
+          ],
+          "sha256": "6b061b9ff42fec644b2f536076845a34386cc2307bc0e15f970bcea6c7c46da0"
+        },
+        {
+          "file": "frames/reading/01.png",
+          "pose": "enter_1",
+          "sourceCell": [
+            362,
+            0,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            108,
+            120,
+            148,
+            160
+          ],
+          "bounds": [
+            63,
+            58,
+            131,
+            141
+          ],
+          "sha256": "734f410692029ff497f4f1ca0eac1a696ea8617d391c772d9855f8aea0b1c127"
+        },
+        {
+          "file": "frames/reading/02.png",
+          "pose": "enter_2",
+          "sourceCell": [
+            724,
+            0,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            78,
+            93,
+            204,
+            213
+          ],
+          "bounds": [
+            39,
+            35,
+            178,
+            186
+          ],
+          "sha256": "ff5bb981de5acbf71ce1f5b8ce50e111ef83ba17dfcea7335f321852aba942e3"
+        },
+        {
+          "file": "frames/reading/03.png",
+          "pose": "enter_3",
+          "sourceCell": [
+            1086,
+            0,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            74,
+            77,
+            220,
+            230
+          ],
+          "bounds": [
+            32,
+            28,
+            192,
+            200
+          ],
+          "sha256": "bac307db7b69e603bf53a56ed1e77b250a02063f023aaba8b75c7570f3958068"
+        },
+        {
+          "file": "frames/reading/04.png",
+          "pose": "loop_0",
+          "sourceCell": [
+            0,
+            362,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            74,
+            73,
+            221,
+            231
+          ],
+          "bounds": [
+            32,
+            28,
+            193,
+            201
+          ],
+          "sha256": "ac80fe2a85cc6c11dbf4cdcffd21852685c6032696134fc48a5452eacb8164c9"
+        },
+        {
+          "file": "frames/reading/05.png",
+          "pose": "loop_1",
+          "sourceCell": [
+            362,
+            362,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            74,
+            73,
+            221,
+            231
+          ],
+          "bounds": [
+            32,
+            28,
+            193,
+            201
+          ],
+          "sha256": "4be6f75a787b5ac868c39d7cba1e943cafa90b2f09417e6de47a7d8e50023ec4"
+        },
+        {
+          "file": "frames/reading/06.png",
+          "pose": "loop_2",
+          "sourceCell": [
+            724,
+            362,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            74,
+            73,
+            220,
+            231
+          ],
+          "bounds": [
+            32,
+            28,
+            192,
+            201
+          ],
+          "sha256": "fcd62ae8f62ed458ff461ad052b003999c49495e3540ac5db138597cf97a92d8"
+        },
+        {
+          "file": "frames/reading/07.png",
+          "pose": "loop_3",
+          "sourceCell": [
+            1086,
+            362,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            74,
+            73,
+            220,
+            231
+          ],
+          "bounds": [
+            32,
+            28,
+            192,
+            201
+          ],
+          "sha256": "50d404e967d845d4bb4549061b025908d47ed2c0fc7286976c4a4de332e49aae"
+        },
+        {
+          "file": "frames/reading/08.png",
+          "pose": "exit_0",
+          "sourceCell": [
+            0,
+            724,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            74,
+            65,
+            221,
+            232
+          ],
+          "bounds": [
+            32,
+            27,
+            193,
+            202
+          ],
+          "sha256": "143f9cea8f28693454f797dc36dd34de065aae1ad4ed2d8e88969f2a5521e9ca"
+        },
+        {
+          "file": "frames/reading/09.png",
+          "pose": "exit_1",
+          "sourceCell": [
+            362,
+            724,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            90,
+            77,
+            195,
+            204
+          ],
+          "bounds": [
+            43,
+            39,
+            171,
+            178
+          ],
+          "sha256": "c83203c81476d40ddcb49bddcbcce27df382cda75c8932a1017c4735d28afa82"
+        },
+        {
+          "file": "frames/reading/10.png",
+          "pose": "exit_2",
+          "sourceCell": [
+            724,
+            724,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            107,
+            103,
+            153,
+            161
+          ],
+          "bounds": [
+            61,
+            57,
+            135,
+            142
+          ],
+          "sha256": "4af22e7583336fe8e632bb659886f5240c0735c90b8ecdb3200791c0f52b5039"
+        },
+        {
+          "file": "frames/reading/11.png",
+          "pose": "exit_3",
+          "sourceCell": [
+            1086,
+            724,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            136,
+            139,
+            92,
+            99
+          ],
+          "bounds": [
+            87,
+            84,
+            83,
+            89
+          ],
+          "sha256": "9dd4af13c453bc32e93ebf62a51241ee2dd766bd9e1a348705ed460e6d057900"
+        }
+      ]
+    },
+    "writing": {
+      "type": "activity",
+      "source": "source/writing.png",
+      "sourceSha256": "2a0eda8413123cde526bbf3c52181aac992c5f01130d053660d3d9c47296ce25",
+      "sourceSize": [
+        1448,
+        1086
+      ],
+      "nativeAlpha": true,
+      "registration": "center",
+      "scale": 0.7062937062937062,
+      "frames": [
+        {
+          "file": "frames/writing/00.png",
+          "pose": "enter_0",
+          "sourceCell": [
+            0,
+            0,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            136,
+            168,
+            99,
+            73
+          ],
+          "bounds": [
+            91,
+            100,
+            74,
+            56
+          ],
+          "sha256": "c0c3ebb79a4c371ae9c625da6c132495e09fb3e62d15d2cf29fb480376c788ee"
+        },
+        {
+          "file": "frames/writing/01.png",
+          "pose": "enter_1",
+          "sourceCell": [
+            362,
+            0,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            105,
+            144,
+            166,
+            114
+          ],
+          "bounds": [
+            68,
+            86,
+            121,
+            85
+          ],
+          "sha256": "53cd6126b8283f36daa1a7cf46af2a551b18414f925ba20886f5a1dce7b760e9"
+        },
+        {
+          "file": "frames/writing/02.png",
+          "pose": "enter_2",
+          "sourceCell": [
+            724,
+            0,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            67,
+            114,
+            223,
+            161
+          ],
+          "bounds": [
+            47,
+            69,
+            162,
+            118
+          ],
+          "sha256": "1dacadbcac35a0e5e80140603e3ddbe1f73f96295f5407885eb1cb063b93b689"
+        },
+        {
+          "file": "frames/writing/03.png",
+          "pose": "enter_3",
+          "sourceCell": [
+            1086,
+            0,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            43,
+            100,
+            258,
+            186
+          ],
+          "bounds": [
+            35,
+            60,
+            186,
+            136
+          ],
+          "sha256": "774705a5cbe3f986ddd03038d0ef43b2203486f487a17f8367250e39b3d6586a"
+        },
+        {
+          "file": "frames/writing/04.png",
+          "pose": "loop_0",
+          "sourceCell": [
+            0,
+            362,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            43,
+            100,
+            258,
+            186
+          ],
+          "bounds": [
+            35,
+            60,
+            186,
+            136
+          ],
+          "sha256": "cf446faa913b08646f9ae8940ae3886708afd809cd41a0e9ccec0c175d24ce88"
+        },
+        {
+          "file": "frames/writing/05.png",
+          "pose": "loop_1",
+          "sourceCell": [
+            362,
+            362,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            52,
+            76,
+            234,
+            210
+          ],
+          "bounds": [
+            43,
+            52,
+            170,
+            153
+          ],
+          "sha256": "8de7c036527dbffd64d4b6004c6fad6b04fc3e82ad675410554d12c9737f13d0"
+        },
+        {
+          "file": "frames/writing/06.png",
+          "pose": "loop_2",
+          "sourceCell": [
+            724,
+            362,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            43,
+            100,
+            258,
+            186
+          ],
+          "bounds": [
+            35,
+            60,
+            186,
+            136
+          ],
+          "sha256": "38691d6f780055671d54759a737eddcf083882719700aac87aa3f7f1c89a37a4"
+        },
+        {
+          "file": "frames/writing/07.png",
+          "pose": "loop_3",
+          "sourceCell": [
+            1086,
+            362,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            46,
+            98,
+            280,
+            187
+          ],
+          "bounds": [
+            27,
+            60,
+            202,
+            136
+          ],
+          "sha256": "136c76fd499c9add85eacee01bf3e7f0a15b41b223d11c2e9175fafb75797db1"
+        },
+        {
+          "file": "frames/writing/08.png",
+          "pose": "exit_0",
+          "sourceCell": [
+            0,
+            724,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            43,
+            101,
+            258,
+            185
+          ],
+          "bounds": [
+            35,
+            61,
+            186,
+            135
+          ],
+          "sha256": "6e771e91d749f96c783a48ee5b42a4618861dd3f6db6ecdcb6dc2e6f56c61ab1"
+        },
+        {
+          "file": "frames/writing/09.png",
+          "pose": "exit_1",
+          "sourceCell": [
+            362,
+            724,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            62,
+            110,
+            224,
+            160
+          ],
+          "bounds": [
+            47,
+            70,
+            162,
+            117
+          ],
+          "sha256": "812fdd6c473feb4e3fbf331c86b5cd70785ea7799a299ab673b4d872a986fba5"
+        },
+        {
+          "file": "frames/writing/10.png",
+          "pose": "exit_2",
+          "sourceCell": [
+            724,
+            724,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            103,
+            139,
+            162,
+            114
+          ],
+          "bounds": [
+            69,
+            86,
+            119,
+            85
+          ],
+          "sha256": "f3bad99266d0893616001ec48f2ef74b517917bc08efec1baf46a8086d5f1cdb"
+        },
+        {
+          "file": "frames/writing/11.png",
+          "pose": "exit_3",
+          "sourceCell": [
+            1086,
+            724,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            129,
+            162,
+            105,
+            68
+          ],
+          "bounds": [
+            89,
+            102,
+            78,
+            52
+          ],
+          "sha256": "595470cc513f71bde2f28942d332823798a322064d51f35d00e98419f9385932"
+        }
+      ]
+    },
+    "email": {
+      "type": "activity",
+      "source": "source/email.png",
+      "sourceSha256": "c5b4e685823b7dceca47404251f8fb29e11c380d9b1609b41b45d4989d188e94",
+      "sourceSize": [
+        1448,
+        1086
+      ],
+      "nativeAlpha": true,
+      "registration": "center",
+      "scale": 0.8487394957983193,
+      "frames": [
+        {
+          "file": "frames/email/00.png",
+          "pose": "enter_0",
+          "sourceCell": [
+            0,
+            0,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            128,
+            163,
+            122,
+            86
+          ],
+          "bounds": [
+            74,
+            89,
+            109,
+            78
+          ],
+          "sha256": "e68c60e992f5c262950134d968bbf403ce644136625a2bd81ba7454c033adf8d"
+        },
+        {
+          "file": "frames/email/01.png",
+          "pose": "enter_1",
+          "sourceCell": [
+            362,
+            0,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            101,
+            150,
+            159,
+            109
+          ],
+          "bounds": [
+            58,
+            79,
+            140,
+            98
+          ],
+          "sha256": "8898b2afd492570453e608bc7849fca72452d879f0611c3c667b9e152ae4bb94"
+        },
+        {
+          "file": "frames/email/02.png",
+          "pose": "enter_2",
+          "sourceCell": [
+            724,
+            0,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            72,
+            129,
+            212,
+            144
+          ],
+          "bounds": [
+            36,
+            65,
+            185,
+            127
+          ],
+          "sha256": "d65f80759ad2547d4dd94fb75d863e0521c3887664061100589405a6ce500d06"
+        },
+        {
+          "file": "frames/email/03.png",
+          "pose": "enter_3",
+          "sourceCell": [
+            1086,
+            0,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            60,
+            120,
+            232,
+            160
+          ],
+          "bounds": [
+            27,
+            58,
+            202,
+            141
+          ],
+          "sha256": "1aa67a8a6c5fcf47838d0aa1165ed0a093e770c6c463d142420999ddf22d76c9"
+        },
+        {
+          "file": "frames/email/04.png",
+          "pose": "loop_0",
+          "sourceCell": [
+            0,
+            362,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            77,
+            58,
+            224,
+            212
+          ],
+          "bounds": [
+            31,
+            36,
+            195,
+            185
+          ],
+          "sha256": "34bf2c16df53dadf0a15da8cbca62cffa4a0e8014f685224c7fcbcdcb380cc25"
+        },
+        {
+          "file": "frames/email/05.png",
+          "pose": "loop_1",
+          "sourceCell": [
+            362,
+            362,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            69,
+            58,
+            228,
+            212
+          ],
+          "bounds": [
+            29,
+            36,
+            199,
+            185
+          ],
+          "sha256": "df0d8a4d1363046dead0f7e1b106ea495ca69502189999b232fb6c6c7cb67409"
+        },
+        {
+          "file": "frames/email/06.png",
+          "pose": "loop_2",
+          "sourceCell": [
+            724,
+            362,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            67,
+            58,
+            225,
+            212
+          ],
+          "bounds": [
+            30,
+            36,
+            196,
+            185
+          ],
+          "sha256": "3b1d29da2b3a8e67ee76b6418c96fe81765cf1703a9a5966827d2e2b024eb6ec"
+        },
+        {
+          "file": "frames/email/07.png",
+          "pose": "loop_3",
+          "sourceCell": [
+            1086,
+            362,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            63,
+            69,
+            225,
+            201
+          ],
+          "bounds": [
+            30,
+            40,
+            196,
+            176
+          ],
+          "sha256": "44501e28b92e7f07f0e9043b0c4791c9e5603fbd03d91569bc063968e9e07daa"
+        },
+        {
+          "file": "frames/email/08.png",
+          "pose": "exit_0",
+          "sourceCell": [
+            0,
+            724,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            77,
+            48,
+            227,
+            202
+          ],
+          "bounds": [
+            29,
+            40,
+            198,
+            177
+          ],
+          "sha256": "8b426285842f762c4eb8f7132facf6eb5c5b697f9b5c6f8ab71cd57185b55c0d"
+        },
+        {
+          "file": "frames/email/09.png",
+          "pose": "exit_1",
+          "sourceCell": [
+            362,
+            724,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            86,
+            62,
+            196,
+            177
+          ],
+          "bounds": [
+            43,
+            51,
+            171,
+            155
+          ],
+          "sha256": "c2eac24e1f83996d5ed090177d71bc18783e5057e7404e354e4d6e78fcb77b1b"
+        },
+        {
+          "file": "frames/email/10.png",
+          "pose": "exit_2",
+          "sourceCell": [
+            724,
+            724,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            103,
+            84,
+            153,
+            146
+          ],
+          "bounds": [
+            61,
+            64,
+            135,
+            129
+          ],
+          "sha256": "197de4e624e5f6f7296ad35e4f50af962a88eb506aab85c5343f88f586892d08"
+        },
+        {
+          "file": "frames/email/11.png",
+          "pose": "exit_3",
+          "sourceCell": [
+            1086,
+            724,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            118,
+            105,
+            115,
+            119
+          ],
+          "bounds": [
+            77,
+            75,
+            103,
+            106
+          ],
+          "sha256": "3de03d0eef0d9f0eab522a87ebc2b37dc6ed219b5f7ffa28fe80f90570360661"
+        }
+      ]
+    },
+    "searching": {
+      "type": "activity",
+      "source": "source/searching.png",
+      "sourceSha256": "a98b48a45accfec6c4be36674edfd7ccf8ea2fd0aef0248fe81b6e14f4df724a",
+      "sourceSize": [
+        1448,
+        1086
+      ],
+      "nativeAlpha": true,
+      "registration": "center",
+      "scale": 0.8178137651821862,
+      "frames": [
+        {
+          "file": "frames/searching/00.png",
+          "pose": "enter_0",
+          "sourceCell": [
+            0,
+            0,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            158,
+            172,
+            121,
+            120
+          ],
+          "bounds": [
+            76,
+            77,
+            104,
+            103
+          ],
+          "sha256": "8823061dfc055a8d59269f7f81556a17e3b4141613936c0e9b56085d05670449"
+        },
+        {
+          "file": "frames/searching/01.png",
+          "pose": "enter_1",
+          "sourceCell": [
+            362,
+            0,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            112,
+            146,
+            159,
+            160
+          ],
+          "bounds": [
+            61,
+            60,
+            135,
+            136
+          ],
+          "sha256": "ec43cd0963ddd247f712dc1fa63ec42d27ba4401abd23297e7ac4b543ffdfe47"
+        },
+        {
+          "file": "frames/searching/02.png",
+          "pose": "enter_2",
+          "sourceCell": [
+            724,
+            0,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            78,
+            121,
+            193,
+            196
+          ],
+          "bounds": [
+            47,
+            46,
+            163,
+            165
+          ],
+          "sha256": "cc4e8e73b967e573dd9ef5e8e3586c9274030cb686035389a6e64cb990a032ed"
+        },
+        {
+          "file": "frames/searching/03.png",
+          "pose": "enter_3",
+          "sourceCell": [
+            1086,
+            0,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            49,
+            106,
+            212,
+            217
+          ],
+          "bounds": [
+            39,
+            37,
+            178,
+            182
+          ],
+          "sha256": "7546437bcf9f7b916cfd0a9c79a3bea8851630a1e54c6bd210f0ac8d7825f788"
+        },
+        {
+          "file": "frames/searching/04.png",
+          "pose": "loop_0",
+          "sourceCell": [
+            0,
+            362,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            78,
+            56,
+            241,
+            236
+          ],
+          "bounds": [
+            27,
+            29,
+            202,
+            198
+          ],
+          "sha256": "40ceca1763d1cef26ce09a60cce8b223af398205a05744adf6afe4fdca14ad32"
+        },
+        {
+          "file": "frames/searching/05.png",
+          "pose": "loop_1",
+          "sourceCell": [
+            362,
+            362,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            86,
+            54,
+            225,
+            231
+          ],
+          "bounds": [
+            34,
+            31,
+            189,
+            194
+          ],
+          "sha256": "2867e59f9e07a7472c42ceacd509b728b5324aea49e41bd2cb6120952b4c3671"
+        },
+        {
+          "file": "frames/searching/06.png",
+          "pose": "loop_2",
+          "sourceCell": [
+            724,
+            362,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            86,
+            54,
+            233,
+            238
+          ],
+          "bounds": [
+            31,
+            28,
+            195,
+            200
+          ],
+          "sha256": "2f468130ff4bb7393419bbafddd34f50d2bf40b5baea0b527a102c619843861e"
+        },
+        {
+          "file": "frames/searching/07.png",
+          "pose": "loop_3",
+          "sourceCell": [
+            1086,
+            362,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            53,
+            87,
+            217,
+            231
+          ],
+          "bounds": [
+            37,
+            31,
+            182,
+            194
+          ],
+          "sha256": "cfd8ce791ae8771fec2e1528ffc92695b0729d33860bd9f6e8f425c2e1404005"
+        },
+        {
+          "file": "frames/searching/08.png",
+          "pose": "exit_0",
+          "sourceCell": [
+            0,
+            724,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            98,
+            39,
+            214,
+            215
+          ],
+          "bounds": [
+            38,
+            38,
+            180,
+            181
+          ],
+          "sha256": "23f10214f84c914f7e63c3745a6e55cac95c43870e6ae8c9522ce56fc9d7617b"
+        },
+        {
+          "file": "frames/searching/09.png",
+          "pose": "exit_1",
+          "sourceCell": [
+            362,
+            724,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            110,
+            63,
+            184,
+            183
+          ],
+          "bounds": [
+            51,
+            51,
+            155,
+            155
+          ],
+          "sha256": "abba7f84315c38c282feb01e450747f0f96e4e8eb0557d2dd2d80818ffeb21e9"
+        },
+        {
+          "file": "frames/searching/10.png",
+          "pose": "exit_2",
+          "sourceCell": [
+            724,
+            724,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            118,
+            103,
+            134,
+            134
+          ],
+          "bounds": [
+            71,
+            71,
+            114,
+            114
+          ],
+          "sha256": "5c2c6deb4f2837b98c8a0554833b3f77034f896cc065c4a5cd88b6de801ad0d3"
+        },
+        {
+          "file": "frames/searching/11.png",
+          "pose": "exit_3",
+          "sourceCell": [
+            1086,
+            724,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            115,
+            124,
+            102,
+            103
+          ],
+          "bounds": [
+            84,
+            84,
+            88,
+            89
+          ],
+          "sha256": "c73d6d90394f4925f177475256629737422585463b549bd5bd6a889ba623a56d"
+        }
+      ]
+    },
+    "planning": {
+      "type": "activity",
+      "source": "source/planning.png",
+      "sourceSha256": "e550dd0c2c075e49af89d834b6b375270e051edfc3039e53fa3d48d9567040a5",
+      "sourceSize": [
+        1448,
+        1086
+      ],
+      "nativeAlpha": true,
+      "registration": "center",
+      "scale": 0.7266187050359713,
+      "frames": [
+        {
+          "file": "frames/planning/00.png",
+          "pose": "enter_0",
+          "sourceCell": [
+            0,
+            0,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            182,
+            208,
+            52,
+            51
+          ],
+          "bounds": [
+            107,
+            108,
+            42,
+            41
+          ],
+          "sha256": "697a1cab050869a1c3b34a94219ea941ca7d05e3210cd90d21763d45c5b77e3e"
+        },
+        {
+          "file": "frames/planning/01.png",
+          "pose": "enter_1",
+          "sourceCell": [
+            362,
+            0,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            75,
+            184,
+            223,
+            90
+          ],
+          "bounds": [
+            45,
+            93,
+            166,
+            70
+          ],
+          "sha256": "12d7377f7aace38ac739b942b29c1a0d7cd070ff0ad3083ee1d3f57904d8269a"
+        },
+        {
+          "file": "frames/planning/02.png",
+          "pose": "enter_2",
+          "sourceCell": [
+            724,
+            0,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            53,
+            182,
+            241,
+            92
+          ],
+          "bounds": [
+            39,
+            93,
+            179,
+            71
+          ],
+          "sha256": "50c31193acd9b0fdc87d16558361dcf0bad8cdde8c1abbcc3858abaaa033a18b"
+        },
+        {
+          "file": "frames/planning/03.png",
+          "pose": "enter_3",
+          "sourceCell": [
+            1086,
+            0,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            28,
+            181,
+            255,
+            93
+          ],
+          "bounds": [
+            33,
+            92,
+            190,
+            72
+          ],
+          "sha256": "18c33b7884b6e7d74af561ca3210f9fd752da67fd18b82b09d8447ae7d0ecaae"
+        },
+        {
+          "file": "frames/planning/04.png",
+          "pose": "loop_0",
+          "sourceCell": [
+            0,
+            362,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            79,
+            127,
+            258,
+            94
+          ],
+          "bounds": [
+            32,
+            92,
+            192,
+            73
+          ],
+          "sha256": "0087b4093b851a94617176b27241a73156c6520e0d37f001171f5908befbb11b"
+        },
+        {
+          "file": "frames/planning/05.png",
+          "pose": "loop_1",
+          "sourceCell": [
+            362,
+            362,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            69,
+            127,
+            241,
+            94
+          ],
+          "bounds": [
+            39,
+            92,
+            179,
+            73
+          ],
+          "sha256": "76ff720ab8cd4a06d68ac2f06fc00cdde0f7bd394b1574b6291b7c87e3738b19"
+        },
+        {
+          "file": "frames/planning/06.png",
+          "pose": "loop_2",
+          "sourceCell": [
+            724,
+            362,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            49,
+            127,
+            251,
+            94
+          ],
+          "bounds": [
+            35,
+            92,
+            187,
+            73
+          ],
+          "sha256": "526efa05482b8124cd920d0955ed41b998eb64cf14a2bf18056a87740be4da12"
+        },
+        {
+          "file": "frames/planning/07.png",
+          "pose": "loop_3",
+          "sourceCell": [
+            1086,
+            362,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            30,
+            127,
+            254,
+            94
+          ],
+          "bounds": [
+            34,
+            92,
+            189,
+            73
+          ],
+          "sha256": "e1fdd04bd80aa0098eabf1e4ab3695ec928a8d5100c2bd5268a1cb2f62c7d663"
+        },
+        {
+          "file": "frames/planning/08.png",
+          "pose": "exit_0",
+          "sourceCell": [
+            0,
+            724,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            73,
+            80,
+            272,
+            92
+          ],
+          "bounds": [
+            27,
+            93,
+            202,
+            71
+          ],
+          "sha256": "2a9de7d9445e59fa7ce1a288e9dc4bb0bfac4e3bf4489136602b9bf97aa8b615"
+        },
+        {
+          "file": "frames/planning/09.png",
+          "pose": "exit_1",
+          "sourceCell": [
+            362,
+            724,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            73,
+            82,
+            231,
+            87
+          ],
+          "bounds": [
+            42,
+            94,
+            172,
+            68
+          ],
+          "sha256": "5079ed19a80a5acd7c8d642768bfca512609c735a5f8b1d3adb23965441edf4c"
+        },
+        {
+          "file": "frames/planning/10.png",
+          "pose": "exit_2",
+          "sourceCell": [
+            724,
+            724,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            75,
+            88,
+            199,
+            82
+          ],
+          "bounds": [
+            54,
+            96,
+            149,
+            64
+          ],
+          "sha256": "a5acdbace90741254b3712fa073cdcf29551886163bf74bdaed1b15f7fd40191"
+        },
+        {
+          "file": "frames/planning/11.png",
+          "pose": "exit_3",
+          "sourceCell": [
+            1086,
+            724,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            133,
+            108,
+            52,
+            52
+          ],
+          "bounds": [
+            107,
+            107,
+            42,
+            42
+          ],
+          "sha256": "683c283238aa8c5cf3af8779d7e094bbb49ad4d013a94fa1a3a90c09b3062377"
+        }
+      ]
+    },
+    "calculating": {
+      "type": "activity",
+      "source": "source/calculating.png",
+      "sourceSha256": "21094f5a9916f1cabecceb6720c8cd05985d7d4282ec72f1ca1e7dd506908037",
+      "sourceSize": [
+        1448,
+        1086
+      ],
+      "nativeAlpha": true,
+      "registration": "center",
+      "scale": 0.7163120567375887,
+      "frames": [
+        {
+          "file": "frames/calculating/00.png",
+          "pose": "enter_0",
+          "sourceCell": [
+            0,
+            0,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            111,
+            183,
+            97,
+            38
+          ],
+          "bounds": [
+            91,
+            112,
+            74,
+            32
+          ],
+          "sha256": "2329b8a16c7a1feecf5998ccabe9fdc7f4ed5ed51cf7f5a421e3ec0993515676"
+        },
+        {
+          "file": "frames/calculating/01.png",
+          "pose": "enter_1",
+          "sourceCell": [
+            362,
+            0,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            90,
+            176,
+            143,
+            54
+          ],
+          "bounds": [
+            75,
+            107,
+            107,
+            43
+          ],
+          "sha256": "e2fed614235f8d1e23000f5a640bb08f467904d2302e365d61ce0e289743397f"
+        },
+        {
+          "file": "frames/calculating/02.png",
+          "pose": "enter_2",
+          "sourceCell": [
+            724,
+            0,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            44,
+            167,
+            254,
+            70
+          ],
+          "bounds": [
+            35,
+            101,
+            186,
+            54
+          ],
+          "sha256": "5742258f0df67f9fb49ae77ecd62f3af8e0c448b3a31fe391871d832567b36e0"
+        },
+        {
+          "file": "frames/calculating/03.png",
+          "pose": "enter_3",
+          "sourceCell": [
+            1086,
+            0,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            29,
+            167,
+            263,
+            74
+          ],
+          "bounds": [
+            32,
+            100,
+            193,
+            57
+          ],
+          "sha256": "f565589aac6b7c05a3f418710587d33119951881c250c177af3fd8ca1c6cda4a"
+        },
+        {
+          "file": "frames/calculating/04.png",
+          "pose": "loop_0",
+          "sourceCell": [
+            0,
+            362,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            62,
+            142,
+            275,
+            70
+          ],
+          "bounds": [
+            28,
+            101,
+            201,
+            54
+          ],
+          "sha256": "d0c3613ecb491cf4ec0739021bba50961f50571b63d53b7cbfee02f21f5414e3"
+        },
+        {
+          "file": "frames/calculating/05.png",
+          "pose": "loop_1",
+          "sourceCell": [
+            362,
+            362,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            50,
+            142,
+            276,
+            70
+          ],
+          "bounds": [
+            27,
+            101,
+            202,
+            54
+          ],
+          "sha256": "fb71f4713ebc7d924ce3109b762debe24f0a7b21aaf4eea7aff656b524fc4274"
+        },
+        {
+          "file": "frames/calculating/06.png",
+          "pose": "loop_2",
+          "sourceCell": [
+            724,
+            362,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            36,
+            142,
+            275,
+            71
+          ],
+          "bounds": [
+            28,
+            101,
+            201,
+            55
+          ],
+          "sha256": "2001bd726d7065d072d28105e5d4f0619d73564bc88a366275202315d682d781"
+        },
+        {
+          "file": "frames/calculating/07.png",
+          "pose": "loop_3",
+          "sourceCell": [
+            1086,
+            362,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            25,
+            141,
+            276,
+            71
+          ],
+          "bounds": [
+            27,
+            101,
+            202,
+            55
+          ],
+          "sha256": "9c779f5a5b33738436125b5561de9afeb51af468befa13aefeba9e316f39b28f"
+        },
+        {
+          "file": "frames/calculating/08.png",
+          "pose": "exit_0",
+          "sourceCell": [
+            0,
+            724,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            67,
+            114,
+            267,
+            74
+          ],
+          "bounds": [
+            30,
+            100,
+            196,
+            57
+          ],
+          "sha256": "49cca5189a14897f1db1cb0811b1e3b0a2d17ec2d165d5a2affa470aef87b0eb"
+        },
+        {
+          "file": "frames/calculating/09.png",
+          "pose": "exit_1",
+          "sourceCell": [
+            362,
+            724,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            69,
+            117,
+            245,
+            65
+          ],
+          "bounds": [
+            38,
+            103,
+            180,
+            51
+          ],
+          "sha256": "b899d4651f8b9d30168148015451b51d9f9986125f42376285777d908d6b877b"
+        },
+        {
+          "file": "frames/calculating/10.png",
+          "pose": "exit_2",
+          "sourceCell": [
+            724,
+            724,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            74,
+            128,
+            222,
+            49
+          ],
+          "bounds": [
+            47,
+            109,
+            163,
+            39
+          ],
+          "sha256": "568684508319e06f361aec8206c127d944b2cbae9cc996e4bbe107a74ddbea1e"
+        },
+        {
+          "file": "frames/calculating/11.png",
+          "pose": "exit_3",
+          "sourceCell": [
+            1086,
+            724,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            96,
+            134,
+            147,
+            35
+          ],
+          "bounds": [
+            73,
+            114,
+            110,
+            29
+          ],
+          "sha256": "6c0fadb0aa484a9cb1ba5920a70fc2301c98b673f9519d858985bfa184a58281"
+        }
+      ]
+    },
+    "connecting": {
+      "type": "activity",
+      "source": "source/connecting.png",
+      "sourceSha256": "0383a71dbd8ca70ceed3afc39d533bb4f014c02011e6123ced880bbfedd0f54e",
+      "sourceSize": [
+        1448,
+        1086
+      ],
+      "nativeAlpha": true,
+      "registration": "center",
+      "scale": 0.8047808764940239,
+      "frames": [
+        {
+          "file": "frames/connecting/00.png",
+          "pose": "enter_0",
+          "sourceCell": [
+            0,
+            0,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            100,
+            191,
+            171,
+            37
+          ],
+          "bounds": [
+            57,
+            111,
+            142,
+            35
+          ],
+          "sha256": "d8a99c191afc7db970cb2e8b8e6b0dec94fb4bf1f3bd92dc1545ddb2794dcf6a"
+        },
+        {
+          "file": "frames/connecting/01.png",
+          "pose": "enter_1",
+          "sourceCell": [
+            362,
+            0,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            83,
+            157,
+            199,
+            77
+          ],
+          "bounds": [
+            46,
+            95,
+            165,
+            67
+          ],
+          "sha256": "e194aa8e01eb609beabfa517fc8cbc86e8fd3313d6863e00a23c5d6b4d318d04"
+        },
+        {
+          "file": "frames/connecting/02.png",
+          "pose": "enter_2",
+          "sourceCell": [
+            724,
+            0,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            71,
+            148,
+            217,
+            90
+          ],
+          "bounds": [
+            39,
+            90,
+            179,
+            77
+          ],
+          "sha256": "68998a9f8ca3e5b9a6ba7772d3c4f4d51adf1f5303801d65ab1747274670c313"
+        },
+        {
+          "file": "frames/connecting/03.png",
+          "pose": "enter_3",
+          "sourceCell": [
+            1086,
+            0,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            56,
+            147,
+            235,
+            91
+          ],
+          "bounds": [
+            31,
+            89,
+            194,
+            78
+          ],
+          "sha256": "dbbef9716f9b988ed2febe46418494701251c31a74aad2ff4d4dda899a3ce67c"
+        },
+        {
+          "file": "frames/connecting/04.png",
+          "pose": "loop_0",
+          "sourceCell": [
+            0,
+            362,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            64,
+            122,
+            241,
+            86
+          ],
+          "bounds": [
+            29,
+            91,
+            199,
+            74
+          ],
+          "sha256": "323d0d2e779c78f2612dbd2e590b1513e3238b7929bcb12c841e731984ad870f"
+        },
+        {
+          "file": "frames/connecting/05.png",
+          "pose": "loop_1",
+          "sourceCell": [
+            362,
+            362,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            62,
+            120,
+            242,
+            89
+          ],
+          "bounds": [
+            28,
+            90,
+            200,
+            76
+          ],
+          "sha256": "2ee54a69817365aef2a25526a7041bac933c311229bde9b705e394df8e75ef19"
+        },
+        {
+          "file": "frames/connecting/06.png",
+          "pose": "loop_2",
+          "sourceCell": [
+            724,
+            362,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            59,
+            117,
+            245,
+            92
+          ],
+          "bounds": [
+            27,
+            89,
+            202,
+            79
+          ],
+          "sha256": "baa62d12bb0a8735296c4e742483902b007b60496d972d1c16238e548bce965d"
+        },
+        {
+          "file": "frames/connecting/07.png",
+          "pose": "loop_3",
+          "sourceCell": [
+            1086,
+            362,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            56,
+            120,
+            245,
+            89
+          ],
+          "bounds": [
+            27,
+            90,
+            202,
+            76
+          ],
+          "sha256": "9a1ca29d41c806e54c65ba35bd0d742dd9c2e5f875d21b170bfe420a7dca5ec5"
+        },
+        {
+          "file": "frames/connecting/08.png",
+          "pose": "exit_0",
+          "sourceCell": [
+            0,
+            724,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            65,
+            116,
+            242,
+            91
+          ],
+          "bounds": [
+            28,
+            89,
+            200,
+            78
+          ],
+          "sha256": "b00d153ab29879d92b58082992320113e937f40de0630571dd60463f6a056129"
+        },
+        {
+          "file": "frames/connecting/09.png",
+          "pose": "exit_1",
+          "sourceCell": [
+            362,
+            724,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            73,
+            118,
+            222,
+            86
+          ],
+          "bounds": [
+            37,
+            91,
+            183,
+            74
+          ],
+          "sha256": "e925cbbaa065843155e1cf0ea38e296d85854a15c96831fe42e0c9d4ba564b72"
+        },
+        {
+          "file": "frames/connecting/10.png",
+          "pose": "exit_2",
+          "sourceCell": [
+            724,
+            724,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            79,
+            128,
+            205,
+            73
+          ],
+          "bounds": [
+            43,
+            96,
+            170,
+            64
+          ],
+          "sha256": "f6bcf94cf955d7f11c3387eee264ba48e6ed67b623c7b17be0bf4c788017ccfe"
+        },
+        {
+          "file": "frames/connecting/11.png",
+          "pose": "exit_3",
+          "sourceCell": [
+            1086,
+            724,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            93,
+            160,
+            171,
+            37
+          ],
+          "bounds": [
+            57,
+            111,
+            142,
+            35
+          ],
+          "sha256": "ac79b4e291ea28cfb7e79606aa45849b102afb43f0f0abcf43d2a52e578fb451"
+        }
+      ]
+    },
+    "checking": {
+      "type": "activity",
+      "source": "source/checking.png",
+      "sourceSha256": "a46640b09b2d6c54ca61b5288ec124c76899f4da66711ab8e9bcdfe52497c53f",
+      "sourceSize": [
+        1448,
+        1086
+      ],
+      "nativeAlpha": true,
+      "registration": "center",
+      "scale": 0.8523206751054853,
+      "frames": [
+        {
+          "file": "frames/checking/00.png",
+          "pose": "enter_0",
+          "sourceCell": [
+            0,
+            0,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            108,
+            164,
+            164,
+            68
+          ],
+          "bounds": [
+            56,
+            97,
+            145,
+            63
+          ],
+          "sha256": "513ae6fb3f5a8b4456225ae8436724c5af27017dfc61fa092c1a4ec09d25d20e"
+        },
+        {
+          "file": "frames/checking/01.png",
+          "pose": "enter_1",
+          "sourceCell": [
+            362,
+            0,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            98,
+            126,
+            171,
+            146
+          ],
+          "bounds": [
+            53,
+            63,
+            151,
+            130
+          ],
+          "sha256": "ce5366ea1aad15f47da5b93382419b28d1406c7fee63dfdac8d3a21fddc1a2e5"
+        },
+        {
+          "file": "frames/checking/02.png",
+          "pose": "enter_2",
+          "sourceCell": [
+            724,
+            0,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            95,
+            93,
+            173,
+            228
+          ],
+          "bounds": [
+            52,
+            29,
+            153,
+            199
+          ],
+          "sha256": "03d0c630ed3090a76822818e52f2e974db268bb316d3a6cfa3811e090988f1c4"
+        },
+        {
+          "file": "frames/checking/03.png",
+          "pose": "enter_3",
+          "sourceCell": [
+            1086,
+            0,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            87,
+            93,
+            184,
+            230
+          ],
+          "bounds": [
+            47,
+            28,
+            162,
+            201
+          ],
+          "sha256": "ee3f4b9ca0344969074e0e60aeec0f5b0c015d49b60c99e91de9160facf9dad4"
+        },
+        {
+          "file": "frames/checking/04.png",
+          "pose": "loop_0",
+          "sourceCell": [
+            0,
+            362,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            98,
+            78,
+            181,
+            228
+          ],
+          "bounds": [
+            49,
+            29,
+            159,
+            199
+          ],
+          "sha256": "9316735526a5ed4a0912f60e45a208494bfaf61278e46de169ca58a2a6a091c3"
+        },
+        {
+          "file": "frames/checking/05.png",
+          "pose": "loop_1",
+          "sourceCell": [
+            362,
+            362,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            98,
+            77,
+            184,
+            229
+          ],
+          "bounds": [
+            47,
+            28,
+            162,
+            200
+          ],
+          "sha256": "7842ef2aa494336717eb3e0f57f640c259d14426d174af678888c7a84b5851cd"
+        },
+        {
+          "file": "frames/checking/06.png",
+          "pose": "loop_2",
+          "sourceCell": [
+            724,
+            362,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            93,
+            77,
+            182,
+            229
+          ],
+          "bounds": [
+            48,
+            28,
+            160,
+            200
+          ],
+          "sha256": "13220b32d6b9e42747c0fc77db724ad3a763fd06229f91f2b42c02bcc6dc9ba5"
+        },
+        {
+          "file": "frames/checking/07.png",
+          "pose": "loop_3",
+          "sourceCell": [
+            1086,
+            362,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            90,
+            78,
+            181,
+            230
+          ],
+          "bounds": [
+            49,
+            28,
+            159,
+            201
+          ],
+          "sha256": "f40f3657375b8189b5558ed1538baf2d7ac39f5792c002131a59a32ec6bc961b"
+        },
+        {
+          "file": "frames/checking/08.png",
+          "pose": "exit_0",
+          "sourceCell": [
+            0,
+            724,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            102,
+            51,
+            170,
+            231
+          ],
+          "bounds": [
+            53,
+            27,
+            150,
+            202
+          ],
+          "sha256": "0234f047078b54dccb8364e52993f08ca2502eae53e7537d733bc8f8d94eaa4b"
+        },
+        {
+          "file": "frames/checking/09.png",
+          "pose": "exit_1",
+          "sourceCell": [
+            362,
+            724,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            99,
+            77,
+            171,
+            151
+          ],
+          "bounds": [
+            53,
+            61,
+            151,
+            134
+          ],
+          "sha256": "4145599eb76ca049612ec224b4742996a05656c22dcab810ae249d6168688541"
+        },
+        {
+          "file": "frames/checking/10.png",
+          "pose": "exit_2",
+          "sourceCell": [
+            724,
+            724,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            97,
+            132,
+            164,
+            69
+          ],
+          "bounds": [
+            56,
+            96,
+            145,
+            64
+          ],
+          "sha256": "7e2e5d3398d0982bc48b5302c21c6f63d9e318cb6df754946531743e200003d8"
+        },
+        {
+          "file": "frames/checking/11.png",
+          "pose": "exit_3",
+          "sourceCell": [
+            1086,
+            724,
+            362,
+            362
+          ],
+          "sourceBounds": [
+            105,
+            143,
+            150,
+            53
+          ],
+          "bounds": [
+            62,
+            103,
+            133,
+            50
+          ],
+          "sha256": "a0a957e7a4567783044a7c7f06cd027a55694d234f256e591f65aa45ec84eccf"
+        }
+      ]
+    }
+  },
+  "activities": [
+    {
+      "id": "coding",
+      "label": "Coding",
+      "mouth": "neutral",
+      "placement": "side"
+    },
+    {
+      "id": "reading",
+      "label": "Reading files",
+      "mouth": "neutral",
+      "placement": "side"
+    },
+    {
+      "id": "writing",
+      "label": "Writing",
+      "mouth": "neutral",
+      "placement": "side"
+    },
+    {
+      "id": "email",
+      "label": "Checking email",
+      "mouth": "smile",
+      "placement": "side"
+    },
+    {
+      "id": "searching",
+      "label": "Searching",
+      "mouth": "neutral",
+      "placement": "side"
+    },
+    {
+      "id": "planning",
+      "label": "Planning",
+      "mouth": "neutral",
+      "placement": "above"
+    },
+    {
+      "id": "calculating",
+      "label": "Calculating",
+      "mouth": "neutral",
+      "placement": "above"
+    },
+    {
+      "id": "connecting",
+      "label": "Connecting",
+      "mouth": "smile",
+      "placement": "above"
+    },
+    {
+      "id": "checking",
+      "label": "Checking results",
+      "mouth": "neutral",
+      "placement": "side"
+    }
+  ],
+  "provenance": "ImageGen activity symbols combined with original MIST eyes, blinks, transitions and speaking mouths."
+}

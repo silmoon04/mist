@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="no-referrer">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; script-src 'self'; connect-src 'self'; img-src 'self' data:; base-uri 'none'; form-action 'none'">
+  <title>MIST</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <div class="face" aria-hidden="true"><span></span><span></span><i></i></div>
+    <h1>MIST</h1>
+    <p id="status" role="status">Checking the saved address…</p>
+    <a id="open" class="open" hidden rel="noreferrer">Open MIST <span aria-hidden="true">↗</span></a>
+    <button id="retry" type="button" hidden>Check again</button>
+    <p class="note">The laptop needs to be awake and online. Enter your pairing code on the next screen.</p>
+    <small id="updated"></small>
+    <footer><a href="https://github.com/silmoon04/mist">Source</a></footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>

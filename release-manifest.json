@@ -1,0 +1,896 @@
+{
+  "files": [
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/drawn/atlas.json",
+      "bytes": 174800,
+      "sha256": "229bcecdee62216684b535ee1dfae16536df4a41896c51a88c87621ceb94e4a3"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/drawn/sheets/bar.png",
+      "bytes": 687593,
+      "sha256": "1173e1892a41bf96874e6ba127fc09d34c68a4587e8634bf63e1d010b87ddd73"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/drawn/sheets/blink_detail_v2.png",
+      "bytes": 811501,
+      "sha256": "989d3bcc5600b44c9669670dd2e6f0f97c256069201bcaa6148575a96caee629"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/drawn/sheets/mouth_angry_v4.png",
+      "bytes": 715897,
+      "sha256": "5e8371b4a38ef4fe9179e92f2cf1a2a70f282d352da7a2416523c223436906aa"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/drawn/sheets/mouth_combined_v2.png",
+      "bytes": 820378,
+      "sha256": "6887b56afdfae6cb8a614d5fb7b52dc2669e229fc01647d6c773c310d757488b"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/drawn/sheets/mouth_consonants_v3.png",
+      "bytes": 970156,
+      "sha256": "21b52937835c60be0e9a368c6057b8c7de257a2dfe079d1c631b867512257923"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/drawn/sheets/mouth_flat_v4.png",
+      "bytes": 661976,
+      "sha256": "9447deec989f00d4d89dc937ad0a662a5c908d2fa90f21653edb11d8604fa9e4"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/drawn/sheets/mouth_sad_v4.png",
+      "bytes": 990564,
+      "sha256": "e644dde6e158c5adc59f09f936e552755240956ad45bfaada7accad8817e67bb"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/drawn/sheets/mouth_skeptical_v4.png",
+      "bytes": 696925,
+      "sha256": "d7b658cf46d3b4c6322dff907a7025e95e2de29fece40cc9c5ca16faf7ef9507"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/drawn/sheets/mouth_worried_v4.png",
+      "bytes": 980837,
+      "sha256": "23b9d8c3e5a5d917e6cb1bc58eca2b68dda0d4f2e4d7200fac719bfd2a564539"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/drawn/sheets/slot.png",
+      "bytes": 684738,
+      "sha256": "74e4376c72faf4c590abdacad64ff668c3df40378ba27f08ad325bbd7172d585"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/drawn/sheets/v2/eyes_round_loop_arc_v2.png",
+      "bytes": 1110179,
+      "sha256": "853f9cf5a7b9e79fcb5f9773c4c74990c1d72deddc8a73618ef1ca04086379ba"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/calculating/00.png",
+      "bytes": 3993,
+      "sha256": "2329b8a16c7a1feecf5998ccabe9fdc7f4ed5ed51cf7f5a421e3ec0993515676"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/calculating/01.png",
+      "bytes": 6115,
+      "sha256": "e2fed614235f8d1e23000f5a640bb08f467904d2302e365d61ce0e289743397f"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/calculating/02.png",
+      "bytes": 10283,
+      "sha256": "5742258f0df67f9fb49ae77ecd62f3af8e0c448b3a31fe391871d832567b36e0"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/calculating/03.png",
+      "bytes": 12636,
+      "sha256": "f565589aac6b7c05a3f418710587d33119951881c250c177af3fd8ca1c6cda4a"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/calculating/04.png",
+      "bytes": 13262,
+      "sha256": "d0c3613ecb491cf4ec0739021bba50961f50571b63d53b7cbfee02f21f5414e3"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/calculating/05.png",
+      "bytes": 13900,
+      "sha256": "fb71f4713ebc7d924ce3109b762debe24f0a7b21aaf4eea7aff656b524fc4274"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/calculating/06.png",
+      "bytes": 13436,
+      "sha256": "2001bd726d7065d072d28105e5d4f0619d73564bc88a366275202315d682d781"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/calculating/07.png",
+      "bytes": 13763,
+      "sha256": "9c779f5a5b33738436125b5561de9afeb51af468befa13aefeba9e316f39b28f"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/calculating/08.png",
+      "bytes": 12912,
+      "sha256": "49cca5189a14897f1db1cb0811b1e3b0a2d17ec2d165d5a2affa470aef87b0eb"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/calculating/09.png",
+      "bytes": 11631,
+      "sha256": "b899d4651f8b9d30168148015451b51d9f9986125f42376285777d908d6b877b"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/calculating/10.png",
+      "bytes": 7655,
+      "sha256": "568684508319e06f361aec8206c127d944b2cbae9cc996e4bbe107a74ddbea1e"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/calculating/11.png",
+      "bytes": 4630,
+      "sha256": "6c0fadb0aa484a9cb1ba5920a70fc2301c98b673f9519d858985bfa184a58281"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/checking/00.png",
+      "bytes": 10064,
+      "sha256": "513ae6fb3f5a8b4456225ae8436724c5af27017dfc61fa092c1a4ec09d25d20e"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/checking/01.png",
+      "bytes": 19147,
+      "sha256": "ce5366ea1aad15f47da5b93382419b28d1406c7fee63dfdac8d3a21fddc1a2e5"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/checking/02.png",
+      "bytes": 28382,
+      "sha256": "03d0c630ed3090a76822818e52f2e974db268bb316d3a6cfa3811e090988f1c4"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/checking/03.png",
+      "bytes": 29445,
+      "sha256": "ee3f4b9ca0344969074e0e60aeec0f5b0c015d49b60c99e91de9160facf9dad4"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/checking/04.png",
+      "bytes": 29556,
+      "sha256": "9316735526a5ed4a0912f60e45a208494bfaf61278e46de169ca58a2a6a091c3"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/checking/05.png",
+      "bytes": 29055,
+      "sha256": "7842ef2aa494336717eb3e0f57f640c259d14426d174af678888c7a84b5851cd"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/checking/06.png",
+      "bytes": 29093,
+      "sha256": "13220b32d6b9e42747c0fc77db724ad3a763fd06229f91f2b42c02bcc6dc9ba5"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/checking/07.png",
+      "bytes": 29416,
+      "sha256": "f40f3657375b8189b5558ed1538baf2d7ac39f5792c002131a59a32ec6bc961b"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/checking/08.png",
+      "bytes": 28460,
+      "sha256": "0234f047078b54dccb8364e52993f08ca2502eae53e7537d733bc8f8d94eaa4b"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/checking/09.png",
+      "bytes": 19655,
+      "sha256": "4145599eb76ca049612ec224b4742996a05656c22dcab810ae249d6168688541"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/checking/10.png",
+      "bytes": 10496,
+      "sha256": "7e2e5d3398d0982bc48b5302c21c6f63d9e318cb6df754946531743e200003d8"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/checking/11.png",
+      "bytes": 8522,
+      "sha256": "a0a957e7a4567783044a7c7f06cd027a55694d234f256e591f65aa45ec84eccf"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/coding/00.png",
+      "bytes": 6915,
+      "sha256": "27734e5802886a2ece33cc0751d4f29c839aa7e87372adbf07b203ae0695d982"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/coding/01.png",
+      "bytes": 11066,
+      "sha256": "d6e8cb112c36fc58ef49ffe40a5c775bfac013751fb52a4603932765764debdc"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/coding/02.png",
+      "bytes": 16864,
+      "sha256": "18bd66cef798562257f7e97d542277ffd5b192a67829b5632e19cb1dbd47f852"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/coding/03.png",
+      "bytes": 18048,
+      "sha256": "38f57847c9dd27fdc547914459c93b9eba0984234343685aac828f07b669c105"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/coding/04.png",
+      "bytes": 18406,
+      "sha256": "7428fb6620b3704ed77641380ac65cb50436819c5c3d01a2f626706a4a8f00bd"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/coding/05.png",
+      "bytes": 18276,
+      "sha256": "be7047d5e054b855c3b36be3a811272a02afbad090f0f6baee2d2eab375a5f83"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/coding/06.png",
+      "bytes": 18395,
+      "sha256": "f155e15738b2eccf8042e9629af7d2d83de5d708fd7a850589c60ab0066dc7cc"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/coding/07.png",
+      "bytes": 18395,
+      "sha256": "965a9f0b15663901fe6c3d4787fd55de3aeac7a1550da0f60bde3dec26d8f051"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/coding/08.png",
+      "bytes": 18160,
+      "sha256": "6af706f2030693753a582b2a3473274987683106357f1776ee2cb21bf2b95187"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/coding/09.png",
+      "bytes": 16040,
+      "sha256": "b42db72f135e9e8fb41730e0eddf3859c9ef5320d0a35b8e01734f59be729c88"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/coding/10.png",
+      "bytes": 10964,
+      "sha256": "d4c1b90c75c84dfe075017529ac7013d57c49435a452cde76c8f8566005a669d"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/coding/11.png",
+      "bytes": 6296,
+      "sha256": "9f305e0009105e03844933b94cd90c8c4d6da4a2f697ccce5392d018671c75ce"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/connecting/00.png",
+      "bytes": 5962,
+      "sha256": "d8a99c191afc7db970cb2e8b8e6b0dec94fb4bf1f3bd92dc1545ddb2794dcf6a"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/connecting/01.png",
+      "bytes": 8697,
+      "sha256": "e194aa8e01eb609beabfa517fc8cbc86e8fd3313d6863e00a23c5d6b4d318d04"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/connecting/02.png",
+      "bytes": 10262,
+      "sha256": "68998a9f8ca3e5b9a6ba7772d3c4f4d51adf1f5303801d65ab1747274670c313"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/connecting/03.png",
+      "bytes": 10931,
+      "sha256": "dbbef9716f9b988ed2febe46418494701251c31a74aad2ff4d4dda899a3ce67c"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/connecting/04.png",
+      "bytes": 11290,
+      "sha256": "323d0d2e779c78f2612dbd2e590b1513e3238b7929bcb12c841e731984ad870f"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/connecting/05.png",
+      "bytes": 11413,
+      "sha256": "2ee54a69817365aef2a25526a7041bac933c311229bde9b705e394df8e75ef19"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/connecting/06.png",
+      "bytes": 11724,
+      "sha256": "baa62d12bb0a8735296c4e742483902b007b60496d972d1c16238e548bce965d"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/connecting/07.png",
+      "bytes": 12099,
+      "sha256": "9a1ca29d41c806e54c65ba35bd0d742dd9c2e5f875d21b170bfe420a7dca5ec5"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/connecting/08.png",
+      "bytes": 11194,
+      "sha256": "b00d153ab29879d92b58082992320113e937f40de0630571dd60463f6a056129"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/connecting/09.png",
+      "bytes": 9940,
+      "sha256": "e925cbbaa065843155e1cf0ea38e296d85854a15c96831fe42e0c9d4ba564b72"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/connecting/10.png",
+      "bytes": 8647,
+      "sha256": "f6bcf94cf955d7f11c3387eee264ba48e6ed67b623c7b17be0bf4c788017ccfe"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/connecting/11.png",
+      "bytes": 5800,
+      "sha256": "ac79b4e291ea28cfb7e79606aa45849b102afb43f0f0abcf43d2a52e578fb451"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/email/00.png",
+      "bytes": 14506,
+      "sha256": "e68c60e992f5c262950134d968bbf403ce644136625a2bd81ba7454c033adf8d"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/email/01.png",
+      "bytes": 19163,
+      "sha256": "8898b2afd492570453e608bc7849fca72452d879f0611c3c667b9e152ae4bb94"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/email/02.png",
+      "bytes": 26506,
+      "sha256": "d65f80759ad2547d4dd94fb75d863e0521c3887664061100589405a6ce500d06"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/email/03.png",
+      "bytes": 30011,
+      "sha256": "1aa67a8a6c5fcf47838d0aa1165ed0a093e770c6c463d142420999ddf22d76c9"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/email/04.png",
+      "bytes": 33145,
+      "sha256": "34bf2c16df53dadf0a15da8cbca62cffa4a0e8014f685224c7fcbcdcb380cc25"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/email/05.png",
+      "bytes": 33624,
+      "sha256": "df0d8a4d1363046dead0f7e1b106ea495ca69502189999b232fb6c6c7cb67409"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/email/06.png",
+      "bytes": 33052,
+      "sha256": "3b1d29da2b3a8e67ee76b6418c96fe81765cf1703a9a5966827d2e2b024eb6ec"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/email/07.png",
+      "bytes": 31765,
+      "sha256": "44501e28b92e7f07f0e9043b0c4791c9e5603fbd03d91569bc063968e9e07daa"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/email/08.png",
+      "bytes": 32247,
+      "sha256": "8b426285842f762c4eb8f7132facf6eb5c5b697f9b5c6f8ab71cd57185b55c0d"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/email/09.png",
+      "bytes": 27424,
+      "sha256": "c2eac24e1f83996d5ed090177d71bc18783e5057e7404e354e4d6e78fcb77b1b"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/email/10.png",
+      "bytes": 21097,
+      "sha256": "197de4e624e5f6f7296ad35e4f50af962a88eb506aab85c5343f88f586892d08"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/email/11.png",
+      "bytes": 16539,
+      "sha256": "3de03d0eef0d9f0eab522a87ebc2b37dc6ed219b5f7ffa28fe80f90570360661"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/planning/00.png",
+      "bytes": 4131,
+      "sha256": "697a1cab050869a1c3b34a94219ea941ca7d05e3210cd90d21763d45c5b77e3e"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/planning/01.png",
+      "bytes": 9846,
+      "sha256": "12d7377f7aace38ac739b942b29c1a0d7cd070ff0ad3083ee1d3f57904d8269a"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/planning/02.png",
+      "bytes": 11138,
+      "sha256": "50c31193acd9b0fdc87d16558361dcf0bad8cdde8c1abbcc3858abaaa033a18b"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/planning/03.png",
+      "bytes": 11228,
+      "sha256": "18c33b7884b6e7d74af561ca3210f9fd752da67fd18b82b09d8447ae7d0ecaae"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/planning/04.png",
+      "bytes": 12252,
+      "sha256": "0087b4093b851a94617176b27241a73156c6520e0d37f001171f5908befbb11b"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/planning/05.png",
+      "bytes": 11870,
+      "sha256": "76ff720ab8cd4a06d68ac2f06fc00cdde0f7bd394b1574b6291b7c87e3738b19"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/planning/06.png",
+      "bytes": 12186,
+      "sha256": "526efa05482b8124cd920d0955ed41b998eb64cf14a2bf18056a87740be4da12"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/planning/07.png",
+      "bytes": 12180,
+      "sha256": "e1fdd04bd80aa0098eabf1e4ab3695ec928a8d5100c2bd5268a1cb2f62c7d663"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/planning/08.png",
+      "bytes": 12069,
+      "sha256": "2a9de7d9445e59fa7ce1a288e9dc4bb0bfac4e3bf4489136602b9bf97aa8b615"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/planning/09.png",
+      "bytes": 10918,
+      "sha256": "5079ed19a80a5acd7c8d642768bfca512609c735a5f8b1d3adb23965441edf4c"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/planning/10.png",
+      "bytes": 9452,
+      "sha256": "a5acdbace90741254b3712fa073cdcf29551886163bf74bdaed1b15f7fd40191"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/planning/11.png",
+      "bytes": 4090,
+      "sha256": "683c283238aa8c5cf3af8779d7e094bbb49ad4d013a94fa1a3a90c09b3062377"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/reading/00.png",
+      "bytes": 18022,
+      "sha256": "6b061b9ff42fec644b2f536076845a34386cc2307bc0e15f970bcea6c7c46da0"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/reading/01.png",
+      "bytes": 27602,
+      "sha256": "734f410692029ff497f4f1ca0eac1a696ea8617d391c772d9855f8aea0b1c127"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/reading/02.png",
+      "bytes": 39137,
+      "sha256": "ff5bb981de5acbf71ce1f5b8ce50e111ef83ba17dfcea7335f321852aba942e3"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/reading/03.png",
+      "bytes": 42652,
+      "sha256": "bac307db7b69e603bf53a56ed1e77b250a02063f023aaba8b75c7570f3958068"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/reading/04.png",
+      "bytes": 44863,
+      "sha256": "ac80fe2a85cc6c11dbf4cdcffd21852685c6032696134fc48a5452eacb8164c9"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/reading/05.png",
+      "bytes": 43771,
+      "sha256": "4be6f75a787b5ac868c39d7cba1e943cafa90b2f09417e6de47a7d8e50023ec4"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/reading/06.png",
+      "bytes": 44213,
+      "sha256": "fcd62ae8f62ed458ff461ad052b003999c49495e3540ac5db138597cf97a92d8"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/reading/07.png",
+      "bytes": 43834,
+      "sha256": "50d404e967d845d4bb4549061b025908d47ed2c0fc7286976c4a4de332e49aae"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/reading/08.png",
+      "bytes": 42960,
+      "sha256": "143f9cea8f28693454f797dc36dd34de065aae1ad4ed2d8e88969f2a5521e9ca"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/reading/09.png",
+      "bytes": 36789,
+      "sha256": "c83203c81476d40ddcb49bddcbcce27df382cda75c8932a1017c4735d28afa82"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/reading/10.png",
+      "bytes": 27739,
+      "sha256": "4af22e7583336fe8e632bb659886f5240c0735c90b8ecdb3200791c0f52b5039"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/reading/11.png",
+      "bytes": 15801,
+      "sha256": "9dd4af13c453bc32e93ebf62a51241ee2dd766bd9e1a348705ed460e6d057900"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/searching/00.png",
+      "bytes": 12195,
+      "sha256": "8823061dfc055a8d59269f7f81556a17e3b4141613936c0e9b56085d05670449"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/searching/01.png",
+      "bytes": 16857,
+      "sha256": "ec43cd0963ddd247f712dc1fa63ec42d27ba4401abd23297e7ac4b543ffdfe47"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/searching/02.png",
+      "bytes": 21665,
+      "sha256": "cc4e8e73b967e573dd9ef5e8e3586c9274030cb686035389a6e64cb990a032ed"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/searching/03.png",
+      "bytes": 24330,
+      "sha256": "7546437bcf9f7b916cfd0a9c79a3bea8851630a1e54c6bd210f0ac8d7825f788"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/searching/04.png",
+      "bytes": 28552,
+      "sha256": "40ceca1763d1cef26ce09a60cce8b223af398205a05744adf6afe4fdca14ad32"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/searching/05.png",
+      "bytes": 27699,
+      "sha256": "2867e59f9e07a7472c42ceacd509b728b5324aea49e41bd2cb6120952b4c3671"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/searching/06.png",
+      "bytes": 28535,
+      "sha256": "2f468130ff4bb7393419bbafddd34f50d2bf40b5baea0b527a102c619843861e"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/searching/07.png",
+      "bytes": 26483,
+      "sha256": "cfd8ce791ae8771fec2e1528ffc92695b0729d33860bd9f6e8f425c2e1404005"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/searching/08.png",
+      "bytes": 24644,
+      "sha256": "23f10214f84c914f7e63c3745a6e55cac95c43870e6ae8c9522ce56fc9d7617b"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/searching/09.png",
+      "bytes": 20489,
+      "sha256": "abba7f84315c38c282feb01e450747f0f96e4e8eb0557d2dd2d80818ffeb21e9"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/searching/10.png",
+      "bytes": 13757,
+      "sha256": "5c2c6deb4f2837b98c8a0554833b3f77034f896cc065c4a5cd88b6de801ad0d3"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/searching/11.png",
+      "bytes": 10025,
+      "sha256": "c73d6d90394f4925f177475256629737422585463b549bd5bd6a889ba623a56d"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/writing/00.png",
+      "bytes": 5078,
+      "sha256": "c0c3ebb79a4c371ae9c625da6c132495e09fb3e62d15d2cf29fb480376c788ee"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/writing/01.png",
+      "bytes": 9982,
+      "sha256": "53cd6126b8283f36daa1a7cf46af2a551b18414f925ba20886f5a1dce7b760e9"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/writing/02.png",
+      "bytes": 15049,
+      "sha256": "1dacadbcac35a0e5e80140603e3ddbe1f73f96295f5407885eb1cb063b93b689"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/writing/03.png",
+      "bytes": 17558,
+      "sha256": "774705a5cbe3f986ddd03038d0ef43b2203486f487a17f8367250e39b3d6586a"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/writing/04.png",
+      "bytes": 17401,
+      "sha256": "cf446faa913b08646f9ae8940ae3886708afd809cd41a0e9ccec0c175d24ce88"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/writing/05.png",
+      "bytes": 19103,
+      "sha256": "8de7c036527dbffd64d4b6004c6fad6b04fc3e82ad675410554d12c9737f13d0"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/writing/06.png",
+      "bytes": 17736,
+      "sha256": "38691d6f780055671d54759a737eddcf083882719700aac87aa3f7f1c89a37a4"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/writing/07.png",
+      "bytes": 17768,
+      "sha256": "136c76fd499c9add85eacee01bf3e7f0a15b41b223d11c2e9175fafb75797db1"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/writing/08.png",
+      "bytes": 17255,
+      "sha256": "6e771e91d749f96c783a48ee5b42a4618861dd3f6db6ecdcb6dc2e6f56c61ab1"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/writing/09.png",
+      "bytes": 14851,
+      "sha256": "812fdd6c473feb4e3fbf331c86b5cd70785ea7799a299ab673b4d872a986fba5"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/writing/10.png",
+      "bytes": 9714,
+      "sha256": "f3bad99266d0893616001ec48f2ef74b517917bc08efec1baf46a8086d5f1cdb"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/frames/writing/11.png",
+      "bytes": 5137,
+      "sha256": "595470cc513f71bde2f28942d332823798a322064d51f35d00e98419f9385932"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/manifest.json",
+      "bytes": 57580,
+      "sha256": "c4d67775ced473b6e2f7d5c9b6fca33357c842ece92603a3a8744e8e227ea571"
+    },
+    {
+      "path": "brain/art_direction/artist_studio_20260916/reuse/handdrawn_v6/runtime.js",
+      "bytes": 12490,
+      "sha256": "17ec29e5dbabf3b3c3257bc6a46856ac0bf42cbb283560d425d657f9cd484fd4"
+    },
+    {
+      "path": "brain/benchmarks/naturalness/cascade_voice.py",
+      "bytes": 38545,
+      "sha256": "a53e892168ab06f96e7148091b37c69ca0b308fb0afec7d4659832726710f8f9"
+    },
+    {
+      "path": "brain/benchmarks/naturalness/cerebras_client.py",
+      "bytes": 14931,
+      "sha256": "b9663084c1130a0c617b8d793728ec60f9daa9a46985265528e46131092e2aee"
+    },
+    {
+      "path": "brain/duplex/__init__.py",
+      "bytes": 42,
+      "sha256": "5d72754d88de174c794e9c99541783681f2e5b26eb251c42d084bbf5dd88659a"
+    },
+    {
+      "path": "brain/duplex/affect_controller.py",
+      "bytes": 2163,
+      "sha256": "d2e57386068d03df42b652c369834e605a3ded3bc5ef0458e8bdd60636c97a50"
+    },
+    {
+      "path": "brain/duplex/affect_director.py",
+      "bytes": 13316,
+      "sha256": "913c9f9bcb17803bcdc50bcbed6da5d3c04824b70f50bf41565fb732fdada81e"
+    },
+    {
+      "path": "brain/duplex/background.py",
+      "bytes": 21604,
+      "sha256": "de82452b52ba27354fc08c8b9099b3b29742ff99d3aa3f569afed3c78302119e"
+    },
+    {
+      "path": "brain/duplex/conversation_policy.py",
+      "bytes": 2059,
+      "sha256": "a6c4bb8e640764a391c64527c5d7d403522439b57f293eb3cdf344e192207f4a"
+    },
+    {
+      "path": "brain/duplex/conversion.py",
+      "bytes": 11251,
+      "sha256": "70bcc6af031e80719b04da587125233221487df1496fa5c2ead02fc1b58871ab"
+    },
+    {
+      "path": "brain/duplex/debugging.py",
+      "bytes": 2074,
+      "sha256": "8479a2f08f40301f443b7b1ca96c7216b12c14fb4ca886fb5ba5837503fc3b12"
+    },
+    {
+      "path": "brain/duplex/expression_policy.py",
+      "bytes": 2322,
+      "sha256": "9f990f4a2b02adf9097d6810b10a34f9be585a818a8b36888274f9acc4d91035"
+    },
+    {
+      "path": "brain/duplex/expression_requests.py",
+      "bytes": 8628,
+      "sha256": "ecd7892dde7daa91aa48934ef8ab72f6bbf7ea4a19bc199472c81538e5b13465"
+    },
+    {
+      "path": "brain/duplex/face_map.json",
+      "bytes": 20269,
+      "sha256": "0301731929890ceb33b97f7ec520a8e30dcb34ae44c321272a413d14c4c8683b"
+    },
+    {
+      "path": "brain/duplex/lipsync.py",
+      "bytes": 5801,
+      "sha256": "db12e9e4be8e6d80ce0c458413cc783ef5082d4d2408f5f47ddcf7c791f50af8"
+    },
+    {
+      "path": "brain/duplex/listener_backchannels.py",
+      "bytes": 11499,
+      "sha256": "873865f89232eded5d3dbf0b9553a7085400042dbba74d6328c8c5d0b549af24"
+    },
+    {
+      "path": "brain/duplex/listener_feedback.py",
+      "bytes": 8373,
+      "sha256": "31d9dbab52580af368c14d6951ed8324b4154fbd3f403d46b7fcd554ac6bc5ef"
+    },
+    {
+      "path": "brain/duplex/listener_voice.py",
+      "bytes": 9498,
+      "sha256": "cdcf560b05efbab67a9ae0040857637bf084ed9aa028ef45dcaca95e96d289fb"
+    },
+    {
+      "path": "brain/duplex/live_studio.py",
+      "bytes": 33709,
+      "sha256": "51e8ee798b1b273ea435ac58df35f2400ec516e942829df35ca352c0961cc4b1"
+    },
+    {
+      "path": "brain/duplex/memory_requests.py",
+      "bytes": 1769,
+      "sha256": "b1b0f8e9fcd093a9577c7ec17587474ef1befe3d05b28189da199efd2c6a45ae"
+    },
+    {
+      "path": "brain/duplex/motion_requests.py",
+      "bytes": 2985,
+      "sha256": "66dcd9bf6e1e5906d9dfa108aaa7961201b5964b0a91b257b978ada40332a302"
+    },
+    {
+      "path": "brain/duplex/native.py",
+      "bytes": 18346,
+      "sha256": "bd3ffc66373efcaf298844adaf97eb121c1859d156bffadf2ae19a1477ab8ac9"
+    },
+    {
+      "path": "brain/duplex/persona.txt",
+      "bytes": 8302,
+      "sha256": "d4e790a7ff46d425aa08014acfe45b3a9c47c301fb06c32b49a0958a64bc9dc0"
+    },
+    {
+      "path": "brain/duplex/phrasing.py",
+      "bytes": 1466,
+      "sha256": "479b7964515aae8d4c517dc0b9226fbbb17e8a95e448fb24dfac046511d7773c"
+    },
+    {
+      "path": "brain/duplex/remote_access.py",
+      "bytes": 4257,
+      "sha256": "e7f8bd4193e6bb768afb8259d574f0540c2e40846e38fa2793d1aa1e98129b91"
+    },
+    {
+      "path": "brain/duplex/runtime.py",
+      "bytes": 9846,
+      "sha256": "7d428e070474050493afe58b832133389db4657abb7e01ffe3ac26a12187df1a"
+    },
+    {
+      "path": "brain/duplex/sensors.py",
+      "bytes": 3096,
+      "sha256": "af152877bb82b8c5de94b6f84b6b468bbec8e37f7e2496226f61b4b507629d2e"
+    },
+    {
+      "path": "brain/duplex/server.py",
+      "bytes": 23702,
+      "sha256": "d0a9d71aa1e94b0f534292ceffcd3afaf2538a3cf7660ec2f365a4eb4890869d"
+    },
+    {
+      "path": "brain/duplex/static/activity_state.js",
+      "bytes": 452,
+      "sha256": "3e1d2efa1cd4bcd33ba95d7f6ac0c11e559d76d53e30ce08c91c30383b815a94"
+    },
+    {
+      "path": "brain/duplex/static/app.js",
+      "bytes": 20978,
+      "sha256": "b3f676e2ffa6c64867328e45eef316036ae5edd771f1d83c8f9738fe8521efcb"
+    },
+    {
+      "path": "brain/duplex/static/capture-worklet.js",
+      "bytes": 825,
+      "sha256": "ad51a795254e79de00b7951e5ce31bfd32ca57361cda705be8fed0908a862259"
+    },
+    {
+      "path": "brain/duplex/static/debug.html",
+      "bytes": 2169,
+      "sha256": "7708b61de4b4071ed45d36d839bf8bd67d13e7acbb1a2b3cdcc67ea1e6394911"
+    },
+    {
+      "path": "brain/duplex/static/debug.js",
+      "bytes": 6098,
+      "sha256": "b1ab8aa5adf2af8b13723a7d19972c7d58c1949893e4f4d9ca96a622680cd813"
+    },
+    {
+      "path": "brain/duplex/static/delivery.js",
+      "bytes": 806,
+      "sha256": "86725468ab98835b8d3a7c32e81283f89bb338d33945331996b0a1995ca64398"
+    },
+    {
+      "path": "brain/duplex/static/expression_policy.js",
+      "bytes": 9876,
+      "sha256": "5b40dea559836aae33080339fc1645a2acd0ea5c4b97f989079d4c42d631da44"
+    },
+    {
+      "path": "brain/duplex/static/expressions.html",
+      "bytes": 3512,
+      "sha256": "47b14c8f753b43c3c122ca3847c8411c529fb1ce59ba47d83c83014264f4de7a"
+    },
+    {
+      "path": "brain/duplex/static/expressions.js",
+      "bytes": 6387,
+      "sha256": "1aeffc63949dbdd91f24de49d772e09a248906ed91d8b68d2607781e3adc31d3"
+    },
+    {
+      "path": "brain/duplex/static/index.html",
+      "bytes": 4021,
+      "sha256": "4be5595736cd13943fefbb307a4b8d25632c2fb264925e379b4988af2dbf45e6"
+    },
+    {
+      "path": "brain/duplex/static/inspect.css",
+      "bytes": 3179,
+      "sha256": "22338a6d8734030f83e49d1a4d4ce88f615af9b721f1382123ac3c25ec0047bb"
+    },
+    {
+      "path": "brain/duplex/static/listener_cue.js",
+      "bytes": 9775,
+      "sha256": "5af1289363c6acf06fa0dbd1572b6094e9da52daa1c2fc469d95be5c91c160b7"
+    },
+    {
+      "path": "brain/duplex/static/playback.js",
+      "bytes": 7837,
+      "sha256": "c708008c21393cf4b91241e65e3d74f858ac7cc452d40a1ea3dda212252d70e0"
+    },
+    {
+      "path": "brain/duplex/static/sample.wav",
+      "bytes": 92796,
+      "sha256": "916f229828c194e95b404b8346504331df1d39ec154be53408f25015b283a009"
+    },
+    {
+      "path": "brain/duplex/static/style.css",
+      "bytes": 3918,
+      "sha256": "11cfec20c5998f03d802328f75b99ef64f29a16928c0cf32fa353090fd15512b"
+    },
+    {
+      "path": "brain/duplex/static/trials.css",
+      "bytes": 6518,
+      "sha256": "be74b47981bc44717a6db4648dee02d221af36cf9dfa547f8c670855fbabfd08"
+    },
+    {
+      "path": "brain/duplex/static/trials.html",
+      "bytes": 4559,
+      "sha256": "dea4e9ec8f9e96409d1ddd2c7f5fcdea41f769dfe7a9434e30ae10f9b1e908d4"
+    },
+    {
+      "path": "brain/duplex/static/trials.js",
+      "bytes": 24144,
+      "sha256": "2c9bd2102e4810fe41c8caec78838b3db8bcaeebc9223a535d864bc8020fcebd"
+    },
+    {
+      "path": "brain/duplex/static/user_transcript_state.mjs",
+      "bytes": 3430,
+      "sha256": "824d526b6a7ea3c022402507706daf83fb7251252640ea2c61904696351f3895"
+    },
+    {
+      "path": "brain/duplex/trial_traces.py",
+      "bytes": 22333,
+      "sha256": "7ce5a91f3eacb4a651abfc10e20a977898d608d554c07caa82bba3f94d050696"
+    },
+    {
+      "path": "brain/duplex/tts.py",
+      "bytes": 14226,
+      "sha256": "74ca5e1a6d4e6e42aa31ead642c5eb4b8eeefd650832bbaa1f88bb71058ceccd"
+    },
+    {
+      "path": "brain/face_assets/app/app_data.js",
+      "bytes": 154720,
+      "sha256": "109d1dd2aa286a3090e493aa0f61294a4bb6472985f8916e9c75dfce37e5c98f"
+    },
+    {
+      "path": "brain/harness/codex_client.py",
+      "bytes": 29043,
+      "sha256": "f1a10259bae6501a7a94c417efaca4fc5268128a87d680f27998b69acaa86a78"
+    },
+    {
+      "path": "brain/harness/eval_luna_conversations.py",
+      "bytes": 18217,
+      "sha256": "2b89ab77201b134e360adbbcf76cc488f0ad88e478505a2c005dfe0ebb4d5798"
+    },
+    {
+      "path": "brain/harness/pi_client.py",
+      "bytes": 12161,
+      "sha256": "596ebd86865f50f74460dd3c1a2df63bd97a89d4257cdc2c81c7772807b0befd"
+    },
+    {
+      "path": "brain/harness/response_format.py",
+      "bytes": 2505,
+      "sha256": "af38e7122530372c0358e23b45ecbbf41f1552352e9607779ab3a53894378984"
+    },
+    {
+      "path": "brain/harness/test_laptop_host.py",
+      "bytes": 4260,
+      "sha256": "cb6330f47484818380347d77ffdeae6ae9928b4ed110edd4071ac47ad4bf84a0"
+    },
+    {
+      "path": "brain/ui/static/drawn_face_renderer.js",
+      "bytes": 47400,
+      "sha256": "22084e744e8d11ed0484b273b8f82ee3af8c9e9e11070c6290a3e535f6d48ce3"
+    },
+    {
+      "path": "brain/ui/static/face_runtime.js",
+      "bytes": 17125,
+      "sha256": "af28cf1903933ade168ff87a8e930a42b5949d0f3a8cfeed44c406a4a6f5921f"
+    },
+    {
+      "path": "design/hexapod_phone_quad_r5_20260912/cad/output/assembly_manifest.json",
+      "bytes": 227780,
+      "sha256": "67f0d5e3bfb633414722b17305cef4212ca7f8fa753aa922a252bc383306ad3d"
+    }
+  ],
+  "file_count": 178,
+  "total_bytes": 12397493
+}

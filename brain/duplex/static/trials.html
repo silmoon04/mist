@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>MIST · Voice trials</title><link rel="icon" href="data:,"><link rel="stylesheet" href="/duplex/trials.css">
+</head>
+<body>
+<header class="topbar"><a class="brand" href="/try">MIST <span>Voice trials</span></a><span id="connection" role="status">Connecting to server</span><button id="logout" hidden>Unpair</button><button id="retry" hidden>Retry connection</button></header>
+<div id="error" class="error" role="alert" hidden></div>
+<section id="pairing" class="pairing" aria-labelledby="pairing-title" hidden>
+  <h1 id="pairing-title">Pair with MIST</h1>
+  <p>Enter the code shown on the laptop running the voice service.</p>
+  <form id="pair-form"><label for="pair-code">Pairing code</label><div><input id="pair-code" type="password" autocomplete="one-time-code" required><button id="pair-submit" type="submit">Pair</button></div></form>
+  <p id="pair-error" class="pair-error" role="alert" hidden></p>
+</section>
+<main id="studio">
+<section class="conversation" aria-label="Conversation">
+  <div class="architecture-bar"><label for="architecture">Architecture</label><select id="architecture" disabled><option>Loading options...</option></select><button id="disconnect" disabled>Disconnect</button></div>
+  <p id="architecture-description" class="description"></p>
+  <div id="frame-shell" class="frame-shell"><div id="frame-empty" class="empty">Connecting to the local voice service...</div><iframe id="voice" title="MIST conversation and animated face" allow="microphone; autoplay; fullscreen" hidden></iframe></div>
+  <div class="conversation-notes"><span>Start the microphone in the face view. Listening stays active during speech; turn-taking depends on the selected architecture.</span><span>Robot tools are previews. Switching starts a fresh conversation; saved traces stay available.</span></div>
+</section>
+<aside class="debug" aria-label="Conversation trace">
+  <div class="debug-head"><h1>Trace</h1><div><button id="pause" disabled>Pause updates</button><a id="export" aria-disabled="true">Export session</a></div></div>
+  <label class="trace-label" for="session">View session</label><select id="session" disabled><option value="__live">Follow current conversation</option></select>
+  <div class="trace-info"><span id="trace-state">No conversation yet</span><code id="trace-id"></code></div>
+  <div id="metrics" class="metrics"><p class="empty">Stage timings appear when events arrive.</p></div>
+  <p class="clock-note">Event times use the server receipt clock. Provider durations and browser playback estimates are labeled separately; none measure physical mouth-to-ear delay.</p>
+  <details class="configs"><summary>Compare configurations</summary><label for="compare">Compare viewed session with</label><select id="compare"><option value="">No comparison</option></select><div class="config-scroll"><table><thead><tr><th>Setting</th><th id="config-primary-title">Viewed session</th><th id="config-other-title">Comparison</th></tr></thead><tbody id="config-body"></tbody></table></div></details>
+  <div class="filters"><label class="sr-only" for="category">Event category</label><select id="category"><option value="all">All events</option><option value="transcript">Transcript</option><option value="tools">Tools</option><option value="expressions">Expressions</option><option value="audio">Audio and playback</option><option value="errors">Errors and warnings</option><option value="background">Background work</option><option value="model">Model and connection</option></select><label class="sr-only" for="search">Search event data</label><input id="search" type="search" placeholder="Search events" autocomplete="off"></div>
+  <div class="event-status"><span id="event-count">No events loaded</span><label><input id="newest" type="checkbox" checked> Newest first</label></div>
+  <div id="events" class="events" aria-label="Public event data"><p class="empty">Start a conversation or select an earlier session.</p></div>
+  <div class="pages"><button id="previous-page" disabled>Previous page</button><span id="page-label">0 / 0</span><button id="next-page" disabled>Next page</button></div>
+  <p class="retention">Up to 100 events are rendered per page. Loaded events remain available here; export retrieves the session's public trace.</p>
+</aside>
+</main>
+<script type="module" src="/duplex/trials.js?v=20260929-remote2"></script>
+</body></html>

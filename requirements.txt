@@ -1,0 +1,7 @@
+# Python 3.12 runtime dependencies, validated against the development install.
+aiohttp==3.10.5
+aiortc==1.15.0
+av==15.0.0
+numpy==1.26.4
+httpx==0.28.1
+jsonschema==4.25.1

@@ -1,0 +1,7061 @@
+{
+  "version": 4,
+  "fps": 15,
+  "assets": {
+    "round": {
+      "id": "round",
+      "file": "sheets/v2/eyes_round_loop_arc_v2.png",
+      "kind": "eye",
+      "imageWidth": 1024,
+      "imageHeight": 1536,
+      "columns": 4,
+      "rows": 6,
+      "frameOffset": 0,
+      "masterWidth": 157,
+      "masterHeight": 156,
+      "maxWidth": 165,
+      "maxHeight": 161,
+      "anchor": "bottom",
+      "frames": [
+        {
+          "index": 0,
+          "pose": "rest",
+          "x": 61,
+          "y": 129,
+          "w": 163,
+          "h": 162,
+          "cx": 142.5,
+          "cy": 288,
+          "cell": {
+            "x": 0,
+            "y": 0,
+            "w": 256,
+            "h": 314
+          },
+          "cropBounds": {
+            "x": 61,
+            "y": 129,
+            "w": 163,
+            "h": 162
+          },
+          "inkBounds": {
+            "x": 64,
+            "y": 132,
+            "w": 157,
+            "h": 156
+          },
+          "geometricCenter": {
+            "x": 142.5,
+            "y": 210.0
+          },
+          "registration": {
+            "anchorX": 142.5,
+            "anchorY": 288,
+            "method": "horizontal-center-lower-lid"
+          },
+          "inkPixels": 10525,
+          "components": 1
+        },
+        {
+          "index": 1,
+          "pose": "anticipation",
+          "x": 309,
+          "y": 135,
+          "w": 162,
+          "h": 152,
+          "cx": 390.0,
+          "cy": 284,
+          "cell": {
+            "x": 256,
+            "y": 0,
+            "w": 256,
+            "h": 314
+          },
+          "cropBounds": {
+            "x": 309,
+            "y": 135,
+            "w": 162,
+            "h": 152
+          },
+          "inkBounds": {
+            "x": 312,
+            "y": 138,
+            "w": 156,
+            "h": 146
+          },
+          "geometricCenter": {
+            "x": 390.0,
+            "y": 211.0
+          },
+          "registration": {
+            "anchorX": 134.0,
+            "anchorY": 284,
+            "method": "horizontal-center-lower-lid"
+          },
+          "inkPixels": 10096,
+          "components": 1
+        },
+        {
+          "index": 2,
+          "pose": "closing",
+          "x": 558,
+          "y": 148,
+          "w": 161,
+          "h": 129,
+          "cx": 638.5,
+          "cy": 274,
+          "cell": {
+            "x": 512,
+            "y": 0,
+            "w": 256,
+            "h": 314
+          },
+          "cropBounds": {
+            "x": 558,
+            "y": 148,
+            "w": 161,
+            "h": 129
+          },
+          "inkBounds": {
+            "x": 561,
+            "y": 151,
+            "w": 155,
+            "h": 123
+          },
+          "geometricCenter": {
+            "x": 638.5,
+            "y": 212.5
+          },
+          "registration": {
+            "anchorX": 126.5,
+            "anchorY": 274,
+            "method": "horizontal-center-lower-lid"
+          },
+          "inkPixels": 9399,
+          "components": 1
+        },
+        {
+          "index": 3,
+          "pose": "near_closed",
+          "x": 808,
+          "y": 170,
+          "w": 160,
+          "h": 85,
+          "cx": 888.0,
+          "cy": 252,
+          "cell": {
+            "x": 768,
+            "y": 0,
+            "w": 256,
+            "h": 314
+          },
+          "cropBounds": {
+            "x": 808,
+            "y": 170,
+            "w": 160,
+            "h": 85
+          },
+          "inkBounds": {
+            "x": 811,
+            "y": 173,
+            "w": 154,
+            "h": 79
+          },
+          "geometricCenter": {
+            "x": 888.0,
+            "y": 212.5
+          },
+          "registration": {
+            "anchorX": 120.0,
+            "anchorY": 252,
+            "method": "horizontal-center-lower-lid"
+          },
+          "inkPixels": 8019,
+          "components": 1
+        },
+        {
+          "index": 4,
+          "pose": "closed",
+          "x": 56,
+          "y": 411,
+          "w": 171,
+          "h": 61,
+          "cx": 141.5,
+          "cy": 469,
+          "cell": {
+            "x": 0,
+            "y": 314,
+            "w": 256,
+            "h": 238
+          },
+          "cropBounds": {
+            "x": 56,
+            "y": 411,
+            "w": 171,
+            "h": 61
+          },
+          "inkBounds": {
+            "x": 59,
+            "y": 414,
+            "w": 165,
+            "h": 55
+          },
+          "geometricCenter": {
+            "x": 141.5,
+            "y": 441.5
+          },
+          "registration": {
+            "anchorX": 141.5,
+            "anchorY": 155,
+            "method": "horizontal-center-lower-lid"
+          },
+          "inkPixels": 4889,
+          "components": 1
+        },
+        {
+          "index": 5,
+          "pose": "opening_low",
+          "x": 313,
+          "y": 369,
+          "w": 158,
+          "h": 112,
+          "cx": 392.0,
+          "cy": 478,
+          "cell": {
+            "x": 256,
+            "y": 314,
+            "w": 256,
+            "h": 238
+          },
+          "cropBounds": {
+            "x": 313,
+            "y": 369,
+            "w": 158,
+            "h": 112
+          },
+          "inkBounds": {
+            "x": 316,
+            "y": 372,
+            "w": 152,
+            "h": 106
+          },
+          "geometricCenter": {
+            "x": 392.0,
+            "y": 425.0
+          },
+          "registration": {
+            "anchorX": 136.0,
+            "anchorY": 164,
+            "method": "horizontal-center-lower-lid"
+          },
+          "inkPixels": 8668,
+          "components": 1
+        },
+        {
+          "index": 6,
+          "pose": "opening",
+          "x": 557,
+          "y": 349,
+          "w": 162,
+          "h": 148,
+          "cx": 638.0,
+          "cy": 494,
+          "cell": {
+            "x": 512,
+            "y": 314,
+            "w": 256,
+            "h": 238
+          },
+          "cropBounds": {
+            "x": 557,
+            "y": 349,
+            "w": 162,
+            "h": 148
+          },
+          "inkBounds": {
+            "x": 560,
+            "y": 352,
+            "w": 156,
+            "h": 142
+          },
+          "geometricCenter": {
+            "x": 638.0,
+            "y": 423.0
+          },
+          "registration": {
+            "anchorX": 126.0,
+            "anchorY": 180,
+            "method": "horizontal-center-lower-lid"
+          },
+          "inkPixels": 9997,
+          "components": 1
+        },
+        {
+          "index": 7,
+          "pose": "settled",
+          "x": 801,
+          "y": 337,
+          "w": 167,
+          "h": 167,
+          "cx": 884.5,
+          "cy": 501,
+          "cell": {
+            "x": 768,
+            "y": 314,
+            "w": 256,
+            "h": 238
+          },
+          "cropBounds": {
+            "x": 801,
+            "y": 337,
+            "w": 167,
+            "h": 167
+          },
+          "inkBounds": {
+            "x": 804,
+            "y": 340,
+            "w": 161,
+            "h": 161
+          },
+          "geometricCenter": {
+            "x": 884.5,
+            "y": 420.5
+          },
+          "registration": {
+            "anchorX": 116.5,
+            "anchorY": 187,
+            "method": "horizontal-center-lower-lid"
+          },
+          "inkPixels": 10952,
+          "components": 1
+        }
+      ],
+      "sha256": "853f9cf5a7b9e79fcb5f9773c4c74990c1d72deddc8a73618ef1ca04086379ba",
+      "hasTransparentPixels": false,
+      "registration": "constant scale, horizontal center, lower eye baseline / upper mouth baseline",
+      "provenance": "ImageGen raster source copied without modification"
+    },
+    "hook": {
+      "id": "hook",
+      "file": "sheets/blink_detail_v2.png",
+      "kind": "eye",
+      "imageWidth": 1254,
+      "imageHeight": 1254,
+      "columns": 4,
+      "rows": 4,
+      "frameOffset": 0,
+      "masterWidth": 198,
+      "masterHeight": 183,
+      "maxWidth": 206,
+      "maxHeight": 183,
+      "anchor": "bottom",
+      "frames": [
+        {
+          "index": 0,
+          "pose": "rest",
+          "x": 71,
+          "y": 108,
+          "w": 204,
+          "h": 189,
+          "cx": 173.0,
+          "cy": 294,
+          "cell": {
+            "x": 0,
+            "y": 0,
+            "w": 314,
+            "h": 314
+          },
+          "cropBounds": {
+            "x": 71,
+            "y": 108,
+            "w": 204,
+            "h": 189
+          },
+          "inkBounds": {
+            "x": 74,
+            "y": 111,
+            "w": 198,
+            "h": 183
+          },
+          "geometricCenter": {
+            "x": 173.0,
+            "y": 202.5
+          },
+          "registration": {
+            "anchorX": 173.0,
+            "anchorY": 294,
+            "method": "horizontal-center-lower-lid"
+          },
+          "inkPixels": 17199,
+          "components": 1
+        },
+        {
+          "index": 1,
+          "pose": "anticipation",
+          "x": 371,
+          "y": 118,
+          "w": 212,
+          "h": 176,
+          "cx": 477.0,
+          "cy": 291,
+          "cell": {
+            "x": 314,
+            "y": 0,
+            "w": 313,
+            "h": 314
+          },
+          "cropBounds": {
+            "x": 371,
+            "y": 118,
+            "w": 212,
+            "h": 176
+          },
+          "inkBounds": {
+            "x": 374,
+            "y": 121,
+            "w": 206,
+            "h": 170
+          },
+          "geometricCenter": {
+            "x": 477.0,
+            "y": 206.0
+          },
+          "registration": {
+            "anchorX": 163.0,
+            "anchorY": 291,
+            "method": "horizontal-center-lower-lid"
+          },
+          "inkPixels": 17047,
+          "components": 1
+        },
+        {
+          "index": 2,
+          "pose": "closing",
+          "x": 675,
+          "y": 134,
+          "w": 207,
+          "h": 159,
+          "cx": 778.5,
+          "cy": 290,
+          "cell": {
+            "x": 627,
+            "y": 0,
+            "w": 313,
+            "h": 314
+          },
+          "cropBounds": {
+            "x": 675,
+            "y": 134,
+            "w": 207,
+            "h": 159
+          },
+          "inkBounds": {
+            "x": 678,
+            "y": 137,
+            "w": 201,
+            "h": 153
+          },
+          "geometricCenter": {
+            "x": 778.5,
+            "y": 213.5
+          },
+          "registration": {
+            "anchorX": 151.5,
+            "anchorY": 290,
+            "method": "horizontal-center-lower-lid"
+          },
+          "inkPixels": 16413,
+          "components": 1
+        },
+        {
+          "index": 3,
+          "pose": "near_closed",
+          "x": 975,
+          "y": 153,
+          "w": 205,
+          "h": 137,
+          "cx": 1077.5,
+          "cy": 287,
+          "cell": {
+            "x": 940,
+            "y": 0,
+            "w": 314,
+            "h": 314
+          },
+          "cropBounds": {
+            "x": 975,
+            "y": 153,
+            "w": 205,
+            "h": 137
+          },
+          "inkBounds": {
+            "x": 978,
+            "y": 156,
+            "w": 199,
+            "h": 131
+          },
+          "geometricCenter": {
+            "x": 1077.5,
+            "y": 221.5
+          },
+          "registration": {
+            "anchorX": 137.5,
+            "anchorY": 287,
+            "method": "horizontal-center-lower-lid"
+          },
+          "inkPixels": 16192,
+          "components": 1
+        },
+        {
+          "index": 4,
+          "pose": "closed",
+          "x": 66,
+          "y": 465,
+          "w": 212,
+          "h": 85,
+          "cx": 172.0,
+          "cy": 547,
+          "cell": {
+            "x": 0,
+            "y": 314,
+            "w": 314,
+            "h": 313
+          },
+          "cropBounds": {
+            "x": 66,
+            "y": 465,
+            "w": 212,
+            "h": 85
+          },
+          "inkBounds": {
+            "x": 69,
+            "y": 468,
+            "w": 206,
+            "h": 79
+          },
+          "geometricCenter": {
+            "x": 172.0,
+            "y": 507.5
+          },
+          "registration": {
+            "anchorX": 172.0,
+            "anchorY": 233,
+            "method": "horizontal-center-lower-lid"
+          },
+          "inkPixels": 8683,
+          "components": 1
+        },
+        {
+          "index": 5,
+          "pose": "opening_low",
+          "x": 371,
+          "y": 437,
+          "w": 209,
+          "h": 135,
+          "cx": 475.5,
+          "cy": 569,
+          "cell": {
+            "x": 314,
+            "y": 314,
+            "w": 313,
+            "h": 313
+          },
+          "cropBounds": {
+            "x": 371,
+            "y": 437,
+            "w": 209,
+            "h": 135
+          },
+          "inkBounds": {
+            "x": 374,
+            "y": 440,
+            "w": 203,
+            "h": 129
+          },
+          "geometricCenter": {
+            "x": 475.5,
+            "y": 504.5
+          },
+          "registration": {
+            "anchorX": 161.5,
+            "anchorY": 255,
+            "method": "horizontal-center-lower-lid"
+          },
+          "inkPixels": 15853,
+          "components": 1
+        },
+        {
+          "index": 6,
+          "pose": "opening",
+          "x": 670,
+          "y": 407,
+          "w": 212,
+          "h": 169,
+          "cx": 776.0,
+          "cy": 573,
+          "cell": {
+            "x": 627,
+            "y": 314,
+            "w": 313,
+            "h": 313
+          },
+          "cropBounds": {
+            "x": 670,
+            "y": 407,
+            "w": 212,
+            "h": 169
+          },
+          "inkBounds": {
+            "x": 673,
+            "y": 410,
+            "w": 206,
+            "h": 163
+          },
+          "geometricCenter": {
+            "x": 776.0,
+            "y": 491.5
+          },
+          "registration": {
+            "anchorX": 149.0,
+            "anchorY": 259,
+            "method": "horizontal-center-lower-lid"
+          },
+          "inkPixels": 16673,
+          "components": 1
+        },
+        {
+          "index": 7,
+          "pose": "settled",
+          "x": 979,
+          "y": 397,
+          "w": 201,
+          "h": 179,
+          "cx": 1079.5,
+          "cy": 573,
+          "cell": {
+            "x": 940,
+            "y": 314,
+            "w": 314,
+            "h": 313
+          },
+          "cropBounds": {
+            "x": 979,
+            "y": 397,
+            "w": 201,
+            "h": 179
+          },
+          "inkBounds": {
+            "x": 982,
+            "y": 400,
+            "w": 195,
+            "h": 173
+          },
+          "geometricCenter": {
+            "x": 1079.5,
+            "y": 486.5
+          },
+          "registration": {
+            "anchorX": 139.5,
+            "anchorY": 259,
+            "method": "horizontal-center-lower-lid"
+          },
+          "inkPixels": 16463,
+          "components": 1
+        }
+      ],
+      "sha256": "989d3bcc5600b44c9669670dd2e6f0f97c256069201bcaa6148575a96caee629",
+      "hasTransparentPixels": false,
+      "registration": "constant scale, horizontal center, lower eye baseline / upper mouth baseline",
+      "provenance": "ImageGen raster source copied without modification"
+    },
+    "arc": {
+      "id": "arc",
+      "file": "sheets/v2/eyes_round_loop_arc_v2.png",
+      "kind": "eye",
+      "imageWidth": 1024,
+      "imageHeight": 1536,
+      "columns": 4,
+      "rows": 6,
+      "frameOffset": 16,
+      "masterWidth": 171,
+      "masterHeight": 72,
+      "maxWidth": 173,
+      "maxHeight": 72,
+      "anchor": "bottom",
+      "frames": [
+        {
+          "index": 0,
+          "pose": "rest",
+          "x": 54,
+          "y": 1089,
+          "w": 177,
+          "h": 78,
+          "cx": 142.5,
+          "cy": 1164,
+          "cell": {
+            "x": 0,
+            "y": 1040,
+            "w": 256,
+            "h": 188
+          },
+          "cropBounds": {
+            "x": 54,
+            "y": 1089,
+            "w": 177,
+            "h": 78
+          },
+          "inkBounds": {
+            "x": 57,
+            "y": 1092,
+            "w": 171,
+            "h": 72
+          },
+          "geometricCenter": {
+            "x": 142.5,
+            "y": 1128.0
+          },
+          "registration": {
+            "anchorX": 142.5,
+            "anchorY": 124,
+            "method": "horizontal-center-lower-lid"
+          },
+          "inkPixels": 5517,
+          "components": 1
+        },
+        {
+          "index": 1,
+          "pose": "anticipation",
+          "x": 302,
+          "y": 1096,
+          "w": 176,
+          "h": 73,
+          "cx": 390.0,
+          "cy": 1166,
+          "cell": {
+            "x": 256,
+            "y": 1040,
+            "w": 256,
+            "h": 188
+          },
+          "cropBounds": {
+            "x": 302,
+            "y": 1096,
+            "w": 176,
+            "h": 73
+          },
+          "inkBounds": {
+            "x": 305,
+            "y": 1099,
+            "w": 170,
+            "h": 67
+          },
+          "geometricCenter": {
+            "x": 390.0,
+            "y": 1132.5
+          },
+          "registration": {
+            "anchorX": 134.0,
+            "anchorY": 126,
+            "method": "horizontal-center-lower-lid"
+          },
+          "inkPixels": 5325,
+          "components": 1
+        },
+        {
+          "index": 2,
+          "pose": "closing",
+          "x": 550,
+          "y": 1116,
+          "w": 175,
+          "h": 62,
+          "cx": 637.5,
+          "cy": 1175,
+          "cell": {
+            "x": 512,
+            "y": 1040,
+            "w": 256,
+            "h": 188
+          },
+          "cropBounds": {
+            "x": 550,
+            "y": 1116,
+            "w": 175,
+            "h": 62
+          },
+          "inkBounds": {
+            "x": 553,
+            "y": 1119,
+            "w": 169,
+            "h": 56
+          },
+          "geometricCenter": {
+            "x": 637.5,
+            "y": 1147.0
+          },
+          "registration": {
+            "anchorX": 125.5,
+            "anchorY": 135,
+            "method": "horizontal-center-lower-lid"
+          },
+          "inkPixels": 4980,
+          "components": 1
+        },
+        {
+          "index": 3,
+          "pose": "near_closed",
+          "x": 799,
+          "y": 1132,
+          "w": 172,
+          "h": 49,
+          "cx": 885.0,
+          "cy": 1178,
+          "cell": {
+            "x": 768,
+            "y": 1040,
+            "w": 256,
+            "h": 188
+          },
+          "cropBounds": {
+            "x": 799,
+            "y": 1132,
+            "w": 172,
+            "h": 49
+          },
+          "inkBounds": {
+            "x": 802,
+            "y": 1135,
+            "w": 166,
+            "h": 43
+          },
+          "geometricCenter": {
+            "x": 885.0,
+            "y": 1156.5
+          },
+          "registration": {
+            "anchorX": 117.0,
+            "anchorY": 138,
+            "method": "horizontal-center-lower-lid"
+          },
+          "inkPixels": 4601,
+          "components": 1
+        },
+        {
+          "index": 4,
+          "pose": "closed",
+          "x": 54,
+          "y": 1347,
+          "w": 175,
+          "h": 43,
+          "cx": 141.5,
+          "cy": 1387,
+          "cell": {
+            "x": 0,
+            "y": 1228,
+            "w": 256,
+            "h": 308
+          },
+          "cropBounds": {
+            "x": 54,
+            "y": 1347,
+            "w": 175,
+            "h": 43
+          },
+          "inkBounds": {
+            "x": 57,
+            "y": 1350,
+            "w": 169,
+            "h": 37
+          },
+          "geometricCenter": {
+            "x": 141.5,
+            "y": 1368.5
+          },
+          "registration": {
+            "anchorX": 141.5,
+            "anchorY": 159,
+            "method": "horizontal-center-lower-lid"
+          },
+          "inkPixels": 4637,
+          "components": 1
+        },
+        {
+          "index": 5,
+          "pose": "opening_low",
+          "x": 302,
+          "y": 1324,
+          "w": 174,
+          "h": 58,
+          "cx": 389.0,
+          "cy": 1379,
+          "cell": {
+            "x": 256,
+            "y": 1228,
+            "w": 256,
+            "h": 308
+          },
+          "cropBounds": {
+            "x": 302,
+            "y": 1324,
+            "w": 174,
+            "h": 58
+          },
+          "inkBounds": {
+            "x": 305,
+            "y": 1327,
+            "w": 168,
+            "h": 52
+          },
+          "geometricCenter": {
+            "x": 389.0,
+            "y": 1353.0
+          },
+          "registration": {
+            "anchorX": 133.0,
+            "anchorY": 151,
+            "method": "horizontal-center-lower-lid"
+          },
+          "inkPixels": 4854,
+          "components": 1
+        },
+        {
+          "index": 6,
+          "pose": "opening",
+          "x": 547,
+          "y": 1298,
+          "w": 179,
+          "h": 70,
+          "cx": 636.5,
+          "cy": 1365,
+          "cell": {
+            "x": 512,
+            "y": 1228,
+            "w": 256,
+            "h": 308
+          },
+          "cropBounds": {
+            "x": 547,
+            "y": 1298,
+            "w": 179,
+            "h": 70
+          },
+          "inkBounds": {
+            "x": 550,
+            "y": 1301,
+            "w": 173,
+            "h": 64
+          },
+          "geometricCenter": {
+            "x": 636.5,
+            "y": 1333.0
+          },
+          "registration": {
+            "anchorX": 124.5,
+            "anchorY": 137,
+            "method": "horizontal-center-lower-lid"
+          },
+          "inkPixels": 5291,
+          "components": 1
+        },
+        {
+          "index": 7,
+          "pose": "settled",
+          "x": 792,
+          "y": 1275,
+          "w": 179,
+          "h": 77,
+          "cx": 881.5,
+          "cy": 1349,
+          "cell": {
+            "x": 768,
+            "y": 1228,
+            "w": 256,
+            "h": 308
+          },
+          "cropBounds": {
+            "x": 792,
+            "y": 1275,
+            "w": 179,
+            "h": 77
+          },
+          "inkBounds": {
+            "x": 795,
+            "y": 1278,
+            "w": 173,
+            "h": 71
+          },
+          "geometricCenter": {
+            "x": 881.5,
+            "y": 1313.5
+          },
+          "registration": {
+            "anchorX": 113.5,
+            "anchorY": 121,
+            "method": "horizontal-center-lower-lid"
+          },
+          "inkPixels": 5527,
+          "components": 1
+        }
+      ],
+      "sha256": "853f9cf5a7b9e79fcb5f9773c4c74990c1d72deddc8a73618ef1ca04086379ba",
+      "hasTransparentPixels": false,
+      "registration": "constant scale, horizontal center, lower eye baseline / upper mouth baseline",
+      "provenance": "ImageGen raster source copied without modification"
+    },
+    "loop": {
+      "id": "loop",
+      "file": "sheets/v2/eyes_round_loop_arc_v2.png",
+      "kind": "eye",
+      "imageWidth": 1024,
+      "imageHeight": 1536,
+      "columns": 4,
+      "rows": 6,
+      "frameOffset": 8,
+      "masterWidth": 160,
+      "masterHeight": 151,
+      "maxWidth": 168,
+      "maxHeight": 159,
+      "anchor": "bottom",
+      "frames": [
+        {
+          "index": 0,
+          "pose": "rest",
+          "x": 57,
+          "y": 601,
+          "w": 166,
+          "h": 157,
+          "cx": 140.0,
+          "cy": 755,
+          "cell": {
+            "x": 0,
+            "y": 552,
+            "w": 256,
+            "h": 240
+          },
+          "cropBounds": {
+            "x": 57,
+            "y": 601,
+            "w": 166,
+            "h": 157
+          },
+          "inkBounds": {
+            "x": 60,
+            "y": 604,
+            "w": 160,
+            "h": 151
+          },
+          "geometricCenter": {
+            "x": 140.0,
+            "y": 679.5
+          },
+          "registration": {
+            "anchorX": 140.0,
+            "anchorY": 203,
+            "method": "horizontal-center-lower-lid"
+          },
+          "inkPixels": 12999,
+          "components": 1
+        },
+        {
+          "index": 1,
+          "pose": "anticipation",
+          "x": 307,
+          "y": 609,
+          "w": 164,
+          "h": 147,
+          "cx": 389.0,
+          "cy": 753,
+          "cell": {
+            "x": 256,
+            "y": 552,
+            "w": 256,
+            "h": 240
+          },
+          "cropBounds": {
+            "x": 307,
+            "y": 609,
+            "w": 164,
+            "h": 147
+          },
+          "inkBounds": {
+            "x": 310,
+            "y": 612,
+            "w": 158,
+            "h": 141
+          },
+          "geometricCenter": {
+            "x": 389.0,
+            "y": 682.5
+          },
+          "registration": {
+            "anchorX": 133.0,
+            "anchorY": 201,
+            "method": "horizontal-center-lower-lid"
+          },
+          "inkPixels": 12751,
+          "components": 1
+        },
+        {
+          "index": 2,
+          "pose": "closing",
+          "x": 556,
+          "y": 620,
+          "w": 163,
+          "h": 131,
+          "cx": 637.5,
+          "cy": 748,
+          "cell": {
+            "x": 512,
+            "y": 552,
+            "w": 256,
+            "h": 240
+          },
+          "cropBounds": {
+            "x": 556,
+            "y": 620,
+            "w": 163,
+            "h": 131
+          },
+          "inkBounds": {
+            "x": 559,
+            "y": 623,
+            "w": 157,
+            "h": 125
+          },
+          "geometricCenter": {
+            "x": 637.5,
+            "y": 685.5
+          },
+          "registration": {
+            "anchorX": 125.5,
+            "anchorY": 196,
+            "method": "horizontal-center-lower-lid"
+          },
+          "inkPixels": 12030,
+          "components": 1
+        },
+        {
+          "index": 3,
+          "pose": "near_closed",
+          "x": 806,
+          "y": 636,
+          "w": 161,
+          "h": 106,
+          "cx": 886.5,
+          "cy": 739,
+          "cell": {
+            "x": 768,
+            "y": 552,
+            "w": 256,
+            "h": 240
+          },
+          "cropBounds": {
+            "x": 806,
+            "y": 636,
+            "w": 161,
+            "h": 106
+          },
+          "inkBounds": {
+            "x": 809,
+            "y": 639,
+            "w": 155,
+            "h": 100
+          },
+          "geometricCenter": {
+            "x": 886.5,
+            "y": 689.0
+          },
+          "registration": {
+            "anchorX": 118.5,
+            "anchorY": 187,
+            "method": "horizontal-center-lower-lid"
+          },
+          "inkPixels": 11483,
+          "components": 1
+        },
+        {
+          "index": 4,
+          "pose": "closed",
+          "x": 55,
+          "y": 902,
+          "w": 174,
+          "h": 61,
+          "cx": 142.0,
+          "cy": 960,
+          "cell": {
+            "x": 0,
+            "y": 792,
+            "w": 256,
+            "h": 248
+          },
+          "cropBounds": {
+            "x": 55,
+            "y": 902,
+            "w": 174,
+            "h": 61
+          },
+          "inkBounds": {
+            "x": 58,
+            "y": 905,
+            "w": 168,
+            "h": 55
+          },
+          "geometricCenter": {
+            "x": 142.0,
+            "y": 932.5
+          },
+          "registration": {
+            "anchorX": 142.0,
+            "anchorY": 168,
+            "method": "horizontal-center-lower-lid"
+          },
+          "inkPixels": 4939,
+          "components": 1
+        },
+        {
+          "index": 5,
+          "pose": "opening_low",
+          "x": 312,
+          "y": 862,
+          "w": 159,
+          "h": 106,
+          "cx": 391.5,
+          "cy": 965,
+          "cell": {
+            "x": 256,
+            "y": 792,
+            "w": 256,
+            "h": 248
+          },
+          "cropBounds": {
+            "x": 312,
+            "y": 862,
+            "w": 159,
+            "h": 106
+          },
+          "inkBounds": {
+            "x": 315,
+            "y": 865,
+            "w": 153,
+            "h": 100
+          },
+          "geometricCenter": {
+            "x": 391.5,
+            "y": 915.0
+          },
+          "registration": {
+            "anchorX": 135.5,
+            "anchorY": 173,
+            "method": "horizontal-center-lower-lid"
+          },
+          "inkPixels": 8588,
+          "components": 1
+        },
+        {
+          "index": 6,
+          "pose": "opening",
+          "x": 554,
+          "y": 840,
+          "w": 165,
+          "h": 144,
+          "cx": 636.5,
+          "cy": 981,
+          "cell": {
+            "x": 512,
+            "y": 792,
+            "w": 256,
+            "h": 248
+          },
+          "cropBounds": {
+            "x": 554,
+            "y": 840,
+            "w": 165,
+            "h": 144
+          },
+          "inkBounds": {
+            "x": 557,
+            "y": 843,
+            "w": 159,
+            "h": 138
+          },
+          "geometricCenter": {
+            "x": 636.5,
+            "y": 912.0
+          },
+          "registration": {
+            "anchorX": 124.5,
+            "anchorY": 189,
+            "method": "horizontal-center-lower-lid"
+          },
+          "inkPixels": 12460,
+          "components": 1
+        },
+        {
+          "index": 7,
+          "pose": "settled",
+          "x": 799,
+          "y": 826,
+          "w": 169,
+          "h": 165,
+          "cx": 883.5,
+          "cy": 988,
+          "cell": {
+            "x": 768,
+            "y": 792,
+            "w": 256,
+            "h": 248
+          },
+          "cropBounds": {
+            "x": 799,
+            "y": 826,
+            "w": 169,
+            "h": 165
+          },
+          "inkBounds": {
+            "x": 802,
+            "y": 829,
+            "w": 163,
+            "h": 159
+          },
+          "geometricCenter": {
+            "x": 883.5,
+            "y": 908.5
+          },
+          "registration": {
+            "anchorX": 115.5,
+            "anchorY": 196,
+            "method": "horizontal-center-lower-lid"
+          },
+          "inkPixels": 13703,
+          "components": 1
+        }
+      ],
+      "sha256": "853f9cf5a7b9e79fcb5f9773c4c74990c1d72deddc8a73618ef1ca04086379ba",
+      "hasTransparentPixels": false,
+      "registration": "constant scale, horizontal center, lower eye baseline / upper mouth baseline",
+      "provenance": "ImageGen raster source copied without modification"
+    },
+    "slot": {
+      "id": "slot",
+      "file": "sheets/slot.png",
+      "kind": "eye",
+      "imageWidth": 1568,
+      "imageHeight": 1003,
+      "columns": 3,
+      "rows": 2,
+      "frameOffset": 0,
+      "masterWidth": 287,
+      "masterHeight": 136,
+      "maxWidth": 288,
+      "maxHeight": 149,
+      "anchor": "bottom",
+      "frames": [
+        {
+          "index": 0,
+          "pose": "rest",
+          "x": 149,
+          "y": 233,
+          "w": 293,
+          "h": 142,
+          "cx": 295.5,
+          "cy": 372,
+          "cell": {
+            "x": 0,
+            "y": 0,
+            "w": 523,
+            "h": 502
+          },
+          "cropBounds": {
+            "x": 149,
+            "y": 233,
+            "w": 293,
+            "h": 142
+          },
+          "inkBounds": {
+            "x": 152,
+            "y": 236,
+            "w": 287,
+            "h": 136
+          },
+          "geometricCenter": {
+            "x": 295.5,
+            "y": 304.0
+          },
+          "registration": {
+            "anchorX": 295.5,
+            "anchorY": 372,
+            "method": "horizontal-center-lower-lid"
+          },
+          "inkPixels": 27180,
+          "components": 1
+        },
+        {
+          "index": 1,
+          "pose": "anticipation",
+          "x": 638,
+          "y": 219,
+          "w": 294,
+          "h": 155,
+          "cx": 785.0,
+          "cy": 371,
+          "cell": {
+            "x": 523,
+            "y": 0,
+            "w": 522,
+            "h": 502
+          },
+          "cropBounds": {
+            "x": 638,
+            "y": 219,
+            "w": 294,
+            "h": 155
+          },
+          "inkBounds": {
+            "x": 641,
+            "y": 222,
+            "w": 288,
+            "h": 149
+          },
+          "geometricCenter": {
+            "x": 785.0,
+            "y": 296.5
+          },
+          "registration": {
+            "anchorX": 262.0,
+            "anchorY": 371,
+            "method": "horizontal-center-lower-lid"
+          },
+          "inkPixels": 27130,
+          "components": 1
+        },
+        {
+          "index": 2,
+          "pose": "closing",
+          "x": 1129,
+          "y": 270,
+          "w": 289,
+          "h": 116,
+          "cx": 1273.5,
+          "cy": 383,
+          "cell": {
+            "x": 1045,
+            "y": 0,
+            "w": 523,
+            "h": 502
+          },
+          "cropBounds": {
+            "x": 1129,
+            "y": 270,
+            "w": 289,
+            "h": 116
+          },
+          "inkBounds": {
+            "x": 1132,
+            "y": 273,
+            "w": 283,
+            "h": 110
+          },
+          "geometricCenter": {
+            "x": 1273.5,
+            "y": 328.0
+          },
+          "registration": {
+            "anchorX": 228.5,
+            "anchorY": 383,
+            "method": "horizontal-center-lower-lid"
+          },
+          "inkPixels": 25188,
+          "components": 1
+        },
+        {
+          "index": 3,
+          "pose": "closed",
+          "x": 155,
+          "y": 669,
+          "w": 268,
+          "h": 78,
+          "cx": 289.0,
+          "cy": 744,
+          "cell": {
+            "x": 0,
+            "y": 502,
+            "w": 523,
+            "h": 501
+          },
+          "cropBounds": {
+            "x": 155,
+            "y": 669,
+            "w": 268,
+            "h": 78
+          },
+          "inkBounds": {
+            "x": 158,
+            "y": 672,
+            "w": 262,
+            "h": 72
+          },
+          "geometricCenter": {
+            "x": 289.0,
+            "y": 708.0
+          },
+          "registration": {
+            "anchorX": 289.0,
+            "anchorY": 242,
+            "method": "horizontal-center-lower-lid"
+          },
+          "inkPixels": 12817,
+          "components": 1
+        },
+        {
+          "index": 4,
+          "pose": "opening",
+          "x": 648,
+          "y": 661,
+          "w": 281,
+          "h": 105,
+          "cx": 788.5,
+          "cy": 763,
+          "cell": {
+            "x": 523,
+            "y": 502,
+            "w": 522,
+            "h": 501
+          },
+          "cropBounds": {
+            "x": 648,
+            "y": 661,
+            "w": 281,
+            "h": 105
+          },
+          "inkBounds": {
+            "x": 651,
+            "y": 664,
+            "w": 275,
+            "h": 99
+          },
+          "geometricCenter": {
+            "x": 788.5,
+            "y": 713.5
+          },
+          "registration": {
+            "anchorX": 265.5,
+            "anchorY": 261,
+            "method": "horizontal-center-lower-lid"
+          },
+          "inkPixels": 23361,
+          "components": 1
+        },
+        {
+          "index": 5,
+          "pose": "settled",
+          "x": 1130,
+          "y": 633,
+          "w": 293,
+          "h": 142,
+          "cx": 1276.5,
+          "cy": 772,
+          "cell": {
+            "x": 1045,
+            "y": 502,
+            "w": 523,
+            "h": 501
+          },
+          "cropBounds": {
+            "x": 1130,
+            "y": 633,
+            "w": 293,
+            "h": 142
+          },
+          "inkBounds": {
+            "x": 1133,
+            "y": 636,
+            "w": 287,
+            "h": 136
+          },
+          "geometricCenter": {
+            "x": 1276.5,
+            "y": 704.0
+          },
+          "registration": {
+            "anchorX": 231.5,
+            "anchorY": 270,
+            "method": "horizontal-center-lower-lid"
+          },
+          "inkPixels": 27104,
+          "components": 1
+        }
+      ],
+      "sha256": "74e4376c72faf4c590abdacad64ff668c3df40378ba27f08ad325bbd7172d585",
+      "hasTransparentPixels": false,
+      "registration": "constant scale, horizontal center, lower eye baseline / upper mouth baseline",
+      "provenance": "ImageGen raster source copied without modification"
+    },
+    "chevron": {
+      "id": "chevron",
+      "file": "sheets/blink_detail_v2.png",
+      "kind": "eye",
+      "imageWidth": 1254,
+      "imageHeight": 1254,
+      "columns": 4,
+      "rows": 4,
+      "frameOffset": 8,
+      "masterWidth": 185,
+      "masterHeight": 167,
+      "maxWidth": 194,
+      "maxHeight": 170,
+      "anchor": "bottom",
+      "frames": [
+        {
+          "index": 0,
+          "pose": "rest",
+          "x": 78,
+          "y": 694,
+          "w": 191,
+          "h": 173,
+          "cx": 173.5,
+          "cy": 864,
+          "cell": {
+            "x": 0,
+            "y": 627,
+            "w": 314,
+            "h": 313
+          },
+          "cropBounds": {
+            "x": 78,
+            "y": 694,
+            "w": 191,
+            "h": 173
+          },
+          "inkBounds": {
+            "x": 81,
+            "y": 697,
+            "w": 185,
+            "h": 167
+          },
+          "geometricCenter": {
+            "x": 173.5,
+            "y": 780.5
+          },
+          "registration": {
+            "anchorX": 173.5,
+            "anchorY": 237,
+            "method": "horizontal-center-lower-lid"
+          },
+          "inkPixels": 13547,
+          "components": 1
+        },
+        {
+          "index": 1,
+          "pose": "anticipation",
+          "x": 380,
+          "y": 690,
+          "w": 199,
+          "h": 176,
+          "cx": 479.5,
+          "cy": 863,
+          "cell": {
+            "x": 314,
+            "y": 627,
+            "w": 313,
+            "h": 313
+          },
+          "cropBounds": {
+            "x": 380,
+            "y": 690,
+            "w": 199,
+            "h": 176
+          },
+          "inkBounds": {
+            "x": 383,
+            "y": 693,
+            "w": 193,
+            "h": 170
+          },
+          "geometricCenter": {
+            "x": 479.5,
+            "y": 778.0
+          },
+          "registration": {
+            "anchorX": 165.5,
+            "anchorY": 236,
+            "method": "horizontal-center-lower-lid"
+          },
+          "inkPixels": 14308,
+          "components": 1
+        },
+        {
+          "index": 2,
+          "pose": "closing",
+          "x": 686,
+          "y": 718,
+          "w": 195,
+          "h": 135,
+          "cx": 783.5,
+          "cy": 850,
+          "cell": {
+            "x": 627,
+            "y": 627,
+            "w": 313,
+            "h": 313
+          },
+          "cropBounds": {
+            "x": 686,
+            "y": 718,
+            "w": 195,
+            "h": 135
+          },
+          "inkBounds": {
+            "x": 689,
+            "y": 721,
+            "w": 189,
+            "h": 129
+          },
+          "geometricCenter": {
+            "x": 783.5,
+            "y": 785.5
+          },
+          "registration": {
+            "anchorX": 156.5,
+            "anchorY": 223,
+            "method": "horizontal-center-lower-lid"
+          },
+          "inkPixels": 12614,
+          "components": 1
+        },
+        {
+          "index": 3,
+          "pose": "near_closed",
+          "x": 985,
+          "y": 737,
+          "w": 191,
+          "h": 103,
+          "cx": 1080.5,
+          "cy": 837,
+          "cell": {
+            "x": 940,
+            "y": 627,
+            "w": 314,
+            "h": 313
+          },
+          "cropBounds": {
+            "x": 985,
+            "y": 737,
+            "w": 191,
+            "h": 103
+          },
+          "inkBounds": {
+            "x": 988,
+            "y": 740,
+            "w": 185,
+            "h": 97
+          },
+          "geometricCenter": {
+            "x": 1080.5,
+            "y": 788.5
+          },
+          "registration": {
+            "anchorX": 140.5,
+            "anchorY": 210,
+            "method": "horizontal-center-lower-lid"
+          },
+          "inkPixels": 11069,
+          "components": 1
+        },
+        {
+          "index": 4,
+          "pose": "closed",
+          "x": 72,
+          "y": 1033,
+          "w": 200,
+          "h": 58,
+          "cx": 172.0,
+          "cy": 1088,
+          "cell": {
+            "x": 0,
+            "y": 940,
+            "w": 314,
+            "h": 314
+          },
+          "cropBounds": {
+            "x": 72,
+            "y": 1033,
+            "w": 200,
+            "h": 58
+          },
+          "inkBounds": {
+            "x": 75,
+            "y": 1036,
+            "w": 194,
+            "h": 52
+          },
+          "geometricCenter": {
+            "x": 172.0,
+            "y": 1062.0
+          },
+          "registration": {
+            "anchorX": 172.0,
+            "anchorY": 148,
+            "method": "horizontal-center-lower-lid"
+          },
+          "inkPixels": 7502,
+          "components": 1
+        },
+        {
+          "index": 5,
+          "pose": "opening_low",
+          "x": 384,
+          "y": 1008,
+          "w": 188,
+          "h": 107,
+          "cx": 478.0,
+          "cy": 1112,
+          "cell": {
+            "x": 314,
+            "y": 940,
+            "w": 313,
+            "h": 314
+          },
+          "cropBounds": {
+            "x": 384,
+            "y": 1008,
+            "w": 188,
+            "h": 107
+          },
+          "inkBounds": {
+            "x": 387,
+            "y": 1011,
+            "w": 182,
+            "h": 101
+          },
+          "geometricCenter": {
+            "x": 478.0,
+            "y": 1061.5
+          },
+          "registration": {
+            "anchorX": 164.0,
+            "anchorY": 172,
+            "method": "horizontal-center-lower-lid"
+          },
+          "inkPixels": 10849,
+          "components": 1
+        },
+        {
+          "index": 6,
+          "pose": "opening",
+          "x": 688,
+          "y": 973,
+          "w": 187,
+          "h": 169,
+          "cx": 781.5,
+          "cy": 1139,
+          "cell": {
+            "x": 627,
+            "y": 940,
+            "w": 313,
+            "h": 314
+          },
+          "cropBounds": {
+            "x": 688,
+            "y": 973,
+            "w": 187,
+            "h": 169
+          },
+          "inkBounds": {
+            "x": 691,
+            "y": 976,
+            "w": 181,
+            "h": 163
+          },
+          "geometricCenter": {
+            "x": 781.5,
+            "y": 1057.5
+          },
+          "registration": {
+            "anchorX": 154.5,
+            "anchorY": 199,
+            "method": "horizontal-center-lower-lid"
+          },
+          "inkPixels": 13490,
+          "components": 1
+        },
+        {
+          "index": 7,
+          "pose": "settled",
+          "x": 986,
+          "y": 970,
+          "w": 192,
+          "h": 172,
+          "cx": 1082.0,
+          "cy": 1139,
+          "cell": {
+            "x": 940,
+            "y": 940,
+            "w": 314,
+            "h": 314
+          },
+          "cropBounds": {
+            "x": 986,
+            "y": 970,
+            "w": 192,
+            "h": 172
+          },
+          "inkBounds": {
+            "x": 989,
+            "y": 973,
+            "w": 186,
+            "h": 166
+          },
+          "geometricCenter": {
+            "x": 1082.0,
+            "y": 1056.0
+          },
+          "registration": {
+            "anchorX": 142.0,
+            "anchorY": 199,
+            "method": "horizontal-center-lower-lid"
+          },
+          "inkPixels": 13578,
+          "components": 1
+        }
+      ],
+      "sha256": "989d3bcc5600b44c9669670dd2e6f0f97c256069201bcaa6148575a96caee629",
+      "hasTransparentPixels": false,
+      "registration": "constant scale, horizontal center, lower eye baseline / upper mouth baseline",
+      "provenance": "ImageGen raster source copied without modification"
+    },
+    "bar": {
+      "id": "bar",
+      "file": "sheets/bar.png",
+      "kind": "eye",
+      "imageWidth": 1568,
+      "imageHeight": 1003,
+      "columns": 3,
+      "rows": 2,
+      "frameOffset": 0,
+      "masterWidth": 343,
+      "masterHeight": 50,
+      "maxWidth": 343,
+      "maxHeight": 76,
+      "anchor": "bottom",
+      "frames": [
+        {
+          "index": 0,
+          "pose": "rest",
+          "x": 109,
+          "y": 260,
+          "w": 349,
+          "h": 56,
+          "cx": 283.5,
+          "cy": 313,
+          "cell": {
+            "x": 0,
+            "y": 0,
+            "w": 523,
+            "h": 502
+          },
+          "cropBounds": {
+            "x": 109,
+            "y": 260,
+            "w": 349,
+            "h": 56
+          },
+          "inkBounds": {
+            "x": 112,
+            "y": 263,
+            "w": 343,
+            "h": 50
+          },
+          "geometricCenter": {
+            "x": 283.5,
+            "y": 288.0
+          },
+          "registration": {
+            "anchorX": 283.5,
+            "anchorY": 313,
+            "method": "horizontal-center-lower-lid"
+          },
+          "inkPixels": 16469,
+          "components": 1
+        },
+        {
+          "index": 1,
+          "pose": "anticipation",
+          "x": 618,
+          "y": 232,
+          "w": 335,
+          "h": 82,
+          "cx": 785.5,
+          "cy": 311,
+          "cell": {
+            "x": 523,
+            "y": 0,
+            "w": 522,
+            "h": 502
+          },
+          "cropBounds": {
+            "x": 618,
+            "y": 232,
+            "w": 335,
+            "h": 82
+          },
+          "inkBounds": {
+            "x": 621,
+            "y": 235,
+            "w": 329,
+            "h": 76
+          },
+          "geometricCenter": {
+            "x": 785.5,
+            "y": 273.0
+          },
+          "registration": {
+            "anchorX": 262.5,
+            "anchorY": 311,
+            "method": "horizontal-center-lower-lid"
+          },
+          "inkPixels": 16496,
+          "components": 1
+        },
+        {
+          "index": 2,
+          "pose": "closing",
+          "x": 1124,
+          "y": 258,
+          "w": 338,
+          "h": 82,
+          "cx": 1293.0,
+          "cy": 337,
+          "cell": {
+            "x": 1045,
+            "y": 0,
+            "w": 523,
+            "h": 502
+          },
+          "cropBounds": {
+            "x": 1124,
+            "y": 258,
+            "w": 338,
+            "h": 82
+          },
+          "inkBounds": {
+            "x": 1127,
+            "y": 261,
+            "w": 332,
+            "h": 76
+          },
+          "geometricCenter": {
+            "x": 1293.0,
+            "y": 299.0
+          },
+          "registration": {
+            "anchorX": 248.0,
+            "anchorY": 337,
+            "method": "horizontal-center-lower-lid"
+          },
+          "inkPixels": 16601,
+          "components": 1
+        },
+        {
+          "index": 3,
+          "pose": "closed",
+          "x": 176,
+          "y": 687,
+          "w": 214,
+          "h": 75,
+          "cx": 283.0,
+          "cy": 759,
+          "cell": {
+            "x": 0,
+            "y": 502,
+            "w": 523,
+            "h": 501
+          },
+          "cropBounds": {
+            "x": 176,
+            "y": 687,
+            "w": 214,
+            "h": 75
+          },
+          "inkBounds": {
+            "x": 179,
+            "y": 690,
+            "w": 208,
+            "h": 69
+          },
+          "geometricCenter": {
+            "x": 283.0,
+            "y": 724.5
+          },
+          "registration": {
+            "anchorX": 283.0,
+            "anchorY": 257,
+            "method": "horizontal-center-lower-lid"
+          },
+          "inkPixels": 9862,
+          "components": 1
+        },
+        {
+          "index": 4,
+          "pose": "opening",
+          "x": 631,
+          "y": 685,
+          "w": 310,
+          "h": 78,
+          "cx": 786.0,
+          "cy": 760,
+          "cell": {
+            "x": 523,
+            "y": 502,
+            "w": 522,
+            "h": 501
+          },
+          "cropBounds": {
+            "x": 631,
+            "y": 685,
+            "w": 310,
+            "h": 78
+          },
+          "inkBounds": {
+            "x": 634,
+            "y": 688,
+            "w": 304,
+            "h": 72
+          },
+          "geometricCenter": {
+            "x": 786.0,
+            "y": 724.0
+          },
+          "registration": {
+            "anchorX": 263.0,
+            "anchorY": 258,
+            "method": "horizontal-center-lower-lid"
+          },
+          "inkPixels": 14554,
+          "components": 1
+        },
+        {
+          "index": 5,
+          "pose": "settled",
+          "x": 1120,
+          "y": 689,
+          "w": 346,
+          "h": 56,
+          "cx": 1293.0,
+          "cy": 742,
+          "cell": {
+            "x": 1045,
+            "y": 502,
+            "w": 523,
+            "h": 501
+          },
+          "cropBounds": {
+            "x": 1120,
+            "y": 689,
+            "w": 346,
+            "h": 56
+          },
+          "inkBounds": {
+            "x": 1123,
+            "y": 692,
+            "w": 340,
+            "h": 50
+          },
+          "geometricCenter": {
+            "x": 1293.0,
+            "y": 717.0
+          },
+          "registration": {
+            "anchorX": 248.0,
+            "anchorY": 240,
+            "method": "horizontal-center-lower-lid"
+          },
+          "inkPixels": 16480,
+          "components": 1
+        }
+      ],
+      "sha256": "1173e1892a41bf96874e6ba127fc09d34c68a4587e8634bf63e1d010b87ddd73",
+      "hasTransparentPixels": false,
+      "registration": "constant scale, horizontal center, lower eye baseline / upper mouth baseline",
+      "provenance": "ImageGen raster source copied without modification"
+    },
+    "mouth_neutral": {
+      "id": "mouth_neutral",
+      "file": "sheets/mouth_combined_v2.png",
+      "kind": "mouth",
+      "imageWidth": 887,
+      "imageHeight": 1774,
+      "columns": 4,
+      "rows": 8,
+      "frameOffset": 0,
+      "masterWidth": 149,
+      "masterHeight": 42,
+      "maxWidth": 186,
+      "maxHeight": 93,
+      "anchor": "top",
+      "frames": [
+        {
+          "index": 0,
+          "pose": "rest",
+          "x": 47,
+          "y": 133,
+          "w": 155,
+          "h": 48,
+          "cx": 124.5,
+          "cy": 136,
+          "cell": {
+            "x": 0,
+            "y": 0,
+            "w": 222,
+            "h": 222
+          },
+          "cropBounds": {
+            "x": 47,
+            "y": 133,
+            "w": 155,
+            "h": 48
+          },
+          "inkBounds": {
+            "x": 50,
+            "y": 136,
+            "w": 149,
+            "h": 42
+          },
+          "geometricCenter": {
+            "x": 124.5,
+            "y": 157.0
+          },
+          "registration": {
+            "anchorX": 124.5,
+            "anchorY": 136,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 3520,
+          "components": 1
+        },
+        {
+          "index": 1,
+          "pose": "MBP",
+          "x": 264,
+          "y": 134,
+          "w": 152,
+          "h": 36,
+          "cx": 340.0,
+          "cy": 137,
+          "cell": {
+            "x": 222,
+            "y": 0,
+            "w": 222,
+            "h": 222
+          },
+          "cropBounds": {
+            "x": 264,
+            "y": 134,
+            "w": 152,
+            "h": 36
+          },
+          "inkBounds": {
+            "x": 267,
+            "y": 137,
+            "w": 146,
+            "h": 30
+          },
+          "geometricCenter": {
+            "x": 340.0,
+            "y": 152.0
+          },
+          "registration": {
+            "anchorX": 118.0,
+            "anchorY": 137,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 4192,
+          "components": 1
+        },
+        {
+          "index": 2,
+          "pose": "release",
+          "x": 488,
+          "y": 133,
+          "w": 131,
+          "h": 41,
+          "cx": 553.5,
+          "cy": 136,
+          "cell": {
+            "x": 444,
+            "y": 0,
+            "w": 221,
+            "h": 222
+          },
+          "cropBounds": {
+            "x": 488,
+            "y": 133,
+            "w": 131,
+            "h": 41
+          },
+          "inkBounds": {
+            "x": 491,
+            "y": 136,
+            "w": 125,
+            "h": 35
+          },
+          "geometricCenter": {
+            "x": 553.5,
+            "y": 153.5
+          },
+          "registration": {
+            "anchorX": 109.5,
+            "anchorY": 136,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 3446,
+          "components": 1
+        },
+        {
+          "index": 3,
+          "pose": "small_AA",
+          "x": 694,
+          "y": 128,
+          "w": 146,
+          "h": 58,
+          "cx": 767.0,
+          "cy": 131,
+          "cell": {
+            "x": 665,
+            "y": 0,
+            "w": 222,
+            "h": 222
+          },
+          "cropBounds": {
+            "x": 694,
+            "y": 128,
+            "w": 146,
+            "h": 58
+          },
+          "inkBounds": {
+            "x": 697,
+            "y": 131,
+            "w": 140,
+            "h": 52
+          },
+          "geometricCenter": {
+            "x": 767.0,
+            "y": 157.0
+          },
+          "registration": {
+            "anchorX": 102.0,
+            "anchorY": 131,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 5583,
+          "components": 1
+        },
+        {
+          "index": 4,
+          "pose": "AA",
+          "x": 47,
+          "y": 333,
+          "w": 153,
+          "h": 70,
+          "cx": 123.5,
+          "cy": 336,
+          "cell": {
+            "x": 0,
+            "y": 222,
+            "w": 222,
+            "h": 222
+          },
+          "cropBounds": {
+            "x": 47,
+            "y": 333,
+            "w": 153,
+            "h": 70
+          },
+          "inkBounds": {
+            "x": 50,
+            "y": 336,
+            "w": 147,
+            "h": 64
+          },
+          "geometricCenter": {
+            "x": 123.5,
+            "y": 368.0
+          },
+          "registration": {
+            "anchorX": 123.5,
+            "anchorY": 114,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 7410,
+          "components": 1
+        },
+        {
+          "index": 5,
+          "pose": "EH",
+          "x": 262,
+          "y": 331,
+          "w": 150,
+          "h": 67,
+          "cx": 337.0,
+          "cy": 334,
+          "cell": {
+            "x": 222,
+            "y": 222,
+            "w": 222,
+            "h": 222
+          },
+          "cropBounds": {
+            "x": 262,
+            "y": 331,
+            "w": 150,
+            "h": 67
+          },
+          "inkBounds": {
+            "x": 265,
+            "y": 334,
+            "w": 144,
+            "h": 61
+          },
+          "geometricCenter": {
+            "x": 337.0,
+            "y": 364.5
+          },
+          "registration": {
+            "anchorX": 115.0,
+            "anchorY": 112,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 7713,
+          "components": 1
+        },
+        {
+          "index": 6,
+          "pose": "EE",
+          "x": 459,
+          "y": 342,
+          "w": 192,
+          "h": 58,
+          "cx": 555.0,
+          "cy": 345,
+          "cell": {
+            "x": 444,
+            "y": 222,
+            "w": 221,
+            "h": 222
+          },
+          "cropBounds": {
+            "x": 459,
+            "y": 342,
+            "w": 192,
+            "h": 58
+          },
+          "inkBounds": {
+            "x": 462,
+            "y": 345,
+            "w": 186,
+            "h": 52
+          },
+          "geometricCenter": {
+            "x": 555.0,
+            "y": 371.0
+          },
+          "registration": {
+            "anchorX": 111.0,
+            "anchorY": 123,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 6435,
+          "components": 1
+        },
+        {
+          "index": 7,
+          "pose": "OH",
+          "x": 719,
+          "y": 313,
+          "w": 102,
+          "h": 99,
+          "cx": 770.0,
+          "cy": 316,
+          "cell": {
+            "x": 665,
+            "y": 222,
+            "w": 222,
+            "h": 222
+          },
+          "cropBounds": {
+            "x": 719,
+            "y": 313,
+            "w": 102,
+            "h": 99
+          },
+          "inkBounds": {
+            "x": 722,
+            "y": 316,
+            "w": 96,
+            "h": 93
+          },
+          "geometricCenter": {
+            "x": 770.0,
+            "y": 362.5
+          },
+          "registration": {
+            "anchorX": 105.0,
+            "anchorY": 94,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 6975,
+          "components": 1
+        },
+        {
+          "index": 8,
+          "pose": "OO",
+          "x": 77,
+          "y": 537,
+          "w": 90,
+          "h": 81,
+          "cx": 122.0,
+          "cy": 540,
+          "cell": {
+            "x": 0,
+            "y": 444,
+            "w": 222,
+            "h": 221
+          },
+          "cropBounds": {
+            "x": 77,
+            "y": 537,
+            "w": 90,
+            "h": 81
+          },
+          "inkBounds": {
+            "x": 80,
+            "y": 540,
+            "w": 84,
+            "h": 75
+          },
+          "geometricCenter": {
+            "x": 122.0,
+            "y": 577.5
+          },
+          "registration": {
+            "anchorX": 122.0,
+            "anchorY": 96,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 4862,
+          "components": 1
+        },
+        {
+          "index": 9,
+          "pose": "FV",
+          "x": 130,
+          "y": 262,
+          "w": 256,
+          "h": 65,
+          "cx": 258.0,
+          "cy": 265,
+          "cell": {
+            "x": 0,
+            "y": 0,
+            "w": 512,
+            "h": 512
+          },
+          "cropBounds": {
+            "x": 130,
+            "y": 262,
+            "w": 256,
+            "h": 65
+          },
+          "inkBounds": {
+            "x": 133,
+            "y": 265,
+            "w": 250,
+            "h": 59
+          },
+          "geometricCenter": {
+            "x": 258.0,
+            "y": 294.5
+          },
+          "registration": {
+            "anchorX": 258.0,
+            "anchorY": 265,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 13302,
+          "components": 1,
+          "file": "sheets/mouth_consonants_v3.png",
+          "sha256": "21b52937835c60be0e9a368c6057b8c7de257a2dfe079d1c631b867512257923",
+          "sourceScale": 0.43310546875
+        },
+        {
+          "index": 10,
+          "pose": "LNT",
+          "x": 630,
+          "y": 254,
+          "w": 282,
+          "h": 90,
+          "cx": 771.0,
+          "cy": 257,
+          "cell": {
+            "x": 512,
+            "y": 0,
+            "w": 512,
+            "h": 512
+          },
+          "cropBounds": {
+            "x": 630,
+            "y": 254,
+            "w": 282,
+            "h": 90
+          },
+          "inkBounds": {
+            "x": 633,
+            "y": 257,
+            "w": 276,
+            "h": 84
+          },
+          "geometricCenter": {
+            "x": 771.0,
+            "y": 299.0
+          },
+          "registration": {
+            "anchorX": 259.0,
+            "anchorY": 257,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 19294,
+          "components": 1,
+          "file": "sheets/mouth_consonants_v3.png",
+          "sha256": "21b52937835c60be0e9a368c6057b8c7de257a2dfe079d1c631b867512257923",
+          "sourceScale": 0.43310546875
+        },
+        {
+          "index": 11,
+          "pose": "S",
+          "x": 710,
+          "y": 553,
+          "w": 129,
+          "h": 41,
+          "cx": 774.5,
+          "cy": 556,
+          "cell": {
+            "x": 665,
+            "y": 444,
+            "w": 222,
+            "h": 221
+          },
+          "cropBounds": {
+            "x": 710,
+            "y": 553,
+            "w": 129,
+            "h": 41
+          },
+          "inkBounds": {
+            "x": 713,
+            "y": 556,
+            "w": 123,
+            "h": 35
+          },
+          "geometricCenter": {
+            "x": 774.5,
+            "y": 573.5
+          },
+          "registration": {
+            "anchorX": 109.5,
+            "anchorY": 112,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 3347,
+          "components": 1
+        },
+        {
+          "index": 12,
+          "pose": "TH",
+          "x": 1162,
+          "y": 254,
+          "w": 242,
+          "h": 80,
+          "cx": 1283.0,
+          "cy": 257,
+          "cell": {
+            "x": 1024,
+            "y": 0,
+            "w": 512,
+            "h": 512
+          },
+          "cropBounds": {
+            "x": 1162,
+            "y": 254,
+            "w": 242,
+            "h": 80
+          },
+          "inkBounds": {
+            "x": 1165,
+            "y": 257,
+            "w": 236,
+            "h": 74
+          },
+          "geometricCenter": {
+            "x": 1283.0,
+            "y": 294.0
+          },
+          "registration": {
+            "anchorX": 259.0,
+            "anchorY": 257,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 14172,
+          "components": 1,
+          "file": "sheets/mouth_consonants_v3.png",
+          "sha256": "21b52937835c60be0e9a368c6057b8c7de257a2dfe079d1c631b867512257923",
+          "sourceScale": 0.43310546875
+        },
+        {
+          "index": 13,
+          "pose": "wide_close",
+          "x": 260,
+          "y": 756,
+          "w": 157,
+          "h": 46,
+          "cx": 338.5,
+          "cy": 759,
+          "cell": {
+            "x": 222,
+            "y": 665,
+            "w": 222,
+            "h": 222
+          },
+          "cropBounds": {
+            "x": 260,
+            "y": 756,
+            "w": 157,
+            "h": 46
+          },
+          "inkBounds": {
+            "x": 263,
+            "y": 759,
+            "w": 151,
+            "h": 40
+          },
+          "geometricCenter": {
+            "x": 338.5,
+            "y": 779.0
+          },
+          "registration": {
+            "anchorX": 116.5,
+            "anchorY": 94,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 4731,
+          "components": 1
+        },
+        {
+          "index": 14,
+          "pose": "round_close",
+          "x": 508,
+          "y": 755,
+          "w": 97,
+          "h": 45,
+          "cx": 556.5,
+          "cy": 758,
+          "cell": {
+            "x": 444,
+            "y": 665,
+            "w": 221,
+            "h": 222
+          },
+          "cropBounds": {
+            "x": 508,
+            "y": 755,
+            "w": 97,
+            "h": 45
+          },
+          "inkBounds": {
+            "x": 511,
+            "y": 758,
+            "w": 91,
+            "h": 39
+          },
+          "geometricCenter": {
+            "x": 556.5,
+            "y": 777.5
+          },
+          "registration": {
+            "anchorX": 112.5,
+            "anchorY": 93,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 2817,
+          "components": 1
+        },
+        {
+          "index": 15,
+          "pose": "SMILE",
+          "x": 686,
+          "y": 751,
+          "w": 163,
+          "h": 60,
+          "cx": 767.5,
+          "cy": 754,
+          "cell": {
+            "x": 665,
+            "y": 665,
+            "w": 222,
+            "h": 222
+          },
+          "cropBounds": {
+            "x": 686,
+            "y": 751,
+            "w": 163,
+            "h": 60
+          },
+          "inkBounds": {
+            "x": 689,
+            "y": 754,
+            "w": 157,
+            "h": 54
+          },
+          "geometricCenter": {
+            "x": 767.5,
+            "y": 781.0
+          },
+          "registration": {
+            "anchorX": 102.5,
+            "anchorY": 89,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 4122,
+          "components": 1
+        }
+      ],
+      "sha256": "6887b56afdfae6cb8a614d5fb7b52dc2669e229fc01647d6c773c310d757488b",
+      "hasTransparentPixels": false,
+      "registration": "constant scale, horizontal center, lower eye baseline / upper mouth baseline",
+      "provenance": "ImageGen raster source copied without modification",
+      "extraSources": [
+        {
+          "file": "sheets/mouth_consonants_v3.png",
+          "sha256": "21b52937835c60be0e9a368c6057b8c7de257a2dfe079d1c631b867512257923",
+          "imageWidth": 1536,
+          "imageHeight": 1024
+        }
+      ]
+    },
+    "mouth_smile": {
+      "id": "mouth_smile",
+      "file": "sheets/mouth_combined_v2.png",
+      "kind": "mouth",
+      "imageWidth": 887,
+      "imageHeight": 1774,
+      "columns": 4,
+      "rows": 8,
+      "frameOffset": 16,
+      "masterWidth": 152,
+      "masterHeight": 46,
+      "maxWidth": 186,
+      "maxHeight": 93,
+      "anchor": "top",
+      "frames": [
+        {
+          "index": 0,
+          "pose": "rest",
+          "x": 45,
+          "y": 970,
+          "w": 158,
+          "h": 52,
+          "cx": 124.0,
+          "cy": 973,
+          "cell": {
+            "x": 0,
+            "y": 887,
+            "w": 222,
+            "h": 222
+          },
+          "cropBounds": {
+            "x": 45,
+            "y": 970,
+            "w": 158,
+            "h": 52
+          },
+          "inkBounds": {
+            "x": 48,
+            "y": 973,
+            "w": 152,
+            "h": 46
+          },
+          "geometricCenter": {
+            "x": 124.0,
+            "y": 996.0
+          },
+          "registration": {
+            "anchorX": 124.0,
+            "anchorY": 86,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 3752,
+          "components": 1
+        },
+        {
+          "index": 1,
+          "pose": "MBP",
+          "x": 264,
+          "y": 978,
+          "w": 153,
+          "h": 37,
+          "cx": 340.5,
+          "cy": 981,
+          "cell": {
+            "x": 222,
+            "y": 887,
+            "w": 222,
+            "h": 222
+          },
+          "cropBounds": {
+            "x": 264,
+            "y": 978,
+            "w": 153,
+            "h": 37
+          },
+          "inkBounds": {
+            "x": 267,
+            "y": 981,
+            "w": 147,
+            "h": 31
+          },
+          "geometricCenter": {
+            "x": 340.5,
+            "y": 996.5
+          },
+          "registration": {
+            "anchorX": 118.5,
+            "anchorY": 94,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 4285,
+          "components": 1
+        },
+        {
+          "index": 2,
+          "pose": "release",
+          "x": 491,
+          "y": 976,
+          "w": 124,
+          "h": 41,
+          "cx": 553.0,
+          "cy": 979,
+          "cell": {
+            "x": 444,
+            "y": 887,
+            "w": 221,
+            "h": 222
+          },
+          "cropBounds": {
+            "x": 491,
+            "y": 976,
+            "w": 124,
+            "h": 41
+          },
+          "inkBounds": {
+            "x": 494,
+            "y": 979,
+            "w": 118,
+            "h": 35
+          },
+          "geometricCenter": {
+            "x": 553.0,
+            "y": 996.5
+          },
+          "registration": {
+            "anchorX": 109.0,
+            "anchorY": 92,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 3295,
+          "components": 1
+        },
+        {
+          "index": 3,
+          "pose": "small_AA",
+          "x": 692,
+          "y": 971,
+          "w": 152,
+          "h": 58,
+          "cx": 768.0,
+          "cy": 974,
+          "cell": {
+            "x": 665,
+            "y": 887,
+            "w": 222,
+            "h": 222
+          },
+          "cropBounds": {
+            "x": 692,
+            "y": 971,
+            "w": 152,
+            "h": 58
+          },
+          "inkBounds": {
+            "x": 695,
+            "y": 974,
+            "w": 146,
+            "h": 52
+          },
+          "geometricCenter": {
+            "x": 768.0,
+            "y": 1000.0
+          },
+          "registration": {
+            "anchorX": 103.0,
+            "anchorY": 87,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 5449,
+          "components": 1
+        },
+        {
+          "index": 4,
+          "pose": "AA",
+          "x": 48,
+          "y": 1185,
+          "w": 153,
+          "h": 69,
+          "cx": 124.5,
+          "cy": 1188,
+          "cell": {
+            "x": 0,
+            "y": 1109,
+            "w": 222,
+            "h": 221
+          },
+          "cropBounds": {
+            "x": 48,
+            "y": 1185,
+            "w": 153,
+            "h": 69
+          },
+          "inkBounds": {
+            "x": 51,
+            "y": 1188,
+            "w": 147,
+            "h": 63
+          },
+          "geometricCenter": {
+            "x": 124.5,
+            "y": 1219.5
+          },
+          "registration": {
+            "anchorX": 124.5,
+            "anchorY": 79,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 7270,
+          "components": 1
+        },
+        {
+          "index": 5,
+          "pose": "EH",
+          "x": 262,
+          "y": 1181,
+          "w": 150,
+          "h": 67,
+          "cx": 337.0,
+          "cy": 1184,
+          "cell": {
+            "x": 222,
+            "y": 1109,
+            "w": 222,
+            "h": 221
+          },
+          "cropBounds": {
+            "x": 262,
+            "y": 1181,
+            "w": 150,
+            "h": 67
+          },
+          "inkBounds": {
+            "x": 265,
+            "y": 1184,
+            "w": 144,
+            "h": 61
+          },
+          "geometricCenter": {
+            "x": 337.0,
+            "y": 1214.5
+          },
+          "registration": {
+            "anchorX": 115.0,
+            "anchorY": 75,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 7706,
+          "components": 1
+        },
+        {
+          "index": 6,
+          "pose": "EE",
+          "x": 457,
+          "y": 1190,
+          "w": 192,
+          "h": 58,
+          "cx": 553.0,
+          "cy": 1193,
+          "cell": {
+            "x": 444,
+            "y": 1109,
+            "w": 221,
+            "h": 221
+          },
+          "cropBounds": {
+            "x": 457,
+            "y": 1190,
+            "w": 192,
+            "h": 58
+          },
+          "inkBounds": {
+            "x": 460,
+            "y": 1193,
+            "w": 186,
+            "h": 52
+          },
+          "geometricCenter": {
+            "x": 553.0,
+            "y": 1219.0
+          },
+          "registration": {
+            "anchorX": 109.0,
+            "anchorY": 84,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 6274,
+          "components": 1
+        },
+        {
+          "index": 7,
+          "pose": "OH",
+          "x": 719,
+          "y": 1163,
+          "w": 102,
+          "h": 99,
+          "cx": 770.0,
+          "cy": 1166,
+          "cell": {
+            "x": 665,
+            "y": 1109,
+            "w": 222,
+            "h": 221
+          },
+          "cropBounds": {
+            "x": 719,
+            "y": 1163,
+            "w": 102,
+            "h": 99
+          },
+          "inkBounds": {
+            "x": 722,
+            "y": 1166,
+            "w": 96,
+            "h": 93
+          },
+          "geometricCenter": {
+            "x": 770.0,
+            "y": 1212.5
+          },
+          "registration": {
+            "anchorX": 105.0,
+            "anchorY": 57,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 6961,
+          "components": 1
+        },
+        {
+          "index": 8,
+          "pose": "OO",
+          "x": 77,
+          "y": 1387,
+          "w": 89,
+          "h": 81,
+          "cx": 121.5,
+          "cy": 1390,
+          "cell": {
+            "x": 0,
+            "y": 1330,
+            "w": 222,
+            "h": 222
+          },
+          "cropBounds": {
+            "x": 77,
+            "y": 1387,
+            "w": 89,
+            "h": 81
+          },
+          "inkBounds": {
+            "x": 80,
+            "y": 1390,
+            "w": 83,
+            "h": 75
+          },
+          "geometricCenter": {
+            "x": 121.5,
+            "y": 1427.5
+          },
+          "registration": {
+            "anchorX": 121.5,
+            "anchorY": 60,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 4870,
+          "components": 1
+        },
+        {
+          "index": 9,
+          "pose": "FV",
+          "x": 121,
+          "y": 702,
+          "w": 274,
+          "h": 66,
+          "cx": 258.0,
+          "cy": 705,
+          "cell": {
+            "x": 0,
+            "y": 512,
+            "w": 512,
+            "h": 512
+          },
+          "cropBounds": {
+            "x": 121,
+            "y": 702,
+            "w": 274,
+            "h": 66
+          },
+          "inkBounds": {
+            "x": 124,
+            "y": 705,
+            "w": 268,
+            "h": 60
+          },
+          "geometricCenter": {
+            "x": 258.0,
+            "y": 735.0
+          },
+          "registration": {
+            "anchorX": 258.0,
+            "anchorY": 193,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 12392,
+          "components": 1,
+          "file": "sheets/mouth_consonants_v3.png",
+          "sha256": "21b52937835c60be0e9a368c6057b8c7de257a2dfe079d1c631b867512257923",
+          "sourceScale": 0.43310546875
+        },
+        {
+          "index": 10,
+          "pose": "LNT",
+          "x": 619,
+          "y": 690,
+          "w": 303,
+          "h": 95,
+          "cx": 770.5,
+          "cy": 693,
+          "cell": {
+            "x": 512,
+            "y": 512,
+            "w": 512,
+            "h": 512
+          },
+          "cropBounds": {
+            "x": 619,
+            "y": 690,
+            "w": 303,
+            "h": 95
+          },
+          "inkBounds": {
+            "x": 622,
+            "y": 693,
+            "w": 297,
+            "h": 89
+          },
+          "geometricCenter": {
+            "x": 770.5,
+            "y": 737.5
+          },
+          "registration": {
+            "anchorX": 258.5,
+            "anchorY": 181,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 15367,
+          "components": 1,
+          "file": "sheets/mouth_consonants_v3.png",
+          "sha256": "21b52937835c60be0e9a368c6057b8c7de257a2dfe079d1c631b867512257923",
+          "sourceScale": 0.43310546875
+        },
+        {
+          "index": 11,
+          "pose": "S",
+          "x": 709,
+          "y": 1403,
+          "w": 127,
+          "h": 41,
+          "cx": 772.5,
+          "cy": 1406,
+          "cell": {
+            "x": 665,
+            "y": 1330,
+            "w": 222,
+            "h": 222
+          },
+          "cropBounds": {
+            "x": 709,
+            "y": 1403,
+            "w": 127,
+            "h": 41
+          },
+          "inkBounds": {
+            "x": 712,
+            "y": 1406,
+            "w": 121,
+            "h": 35
+          },
+          "geometricCenter": {
+            "x": 772.5,
+            "y": 1423.5
+          },
+          "registration": {
+            "anchorX": 107.5,
+            "anchorY": 76,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 3350,
+          "components": 1
+        },
+        {
+          "index": 12,
+          "pose": "TH",
+          "x": 1153,
+          "y": 699,
+          "w": 260,
+          "h": 75,
+          "cx": 1283.0,
+          "cy": 702,
+          "cell": {
+            "x": 1024,
+            "y": 512,
+            "w": 512,
+            "h": 512
+          },
+          "cropBounds": {
+            "x": 1153,
+            "y": 699,
+            "w": 260,
+            "h": 75
+          },
+          "inkBounds": {
+            "x": 1156,
+            "y": 702,
+            "w": 254,
+            "h": 69
+          },
+          "geometricCenter": {
+            "x": 1283.0,
+            "y": 736.5
+          },
+          "registration": {
+            "anchorX": 259.0,
+            "anchorY": 190,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 12798,
+          "components": 1,
+          "file": "sheets/mouth_consonants_v3.png",
+          "sha256": "21b52937835c60be0e9a368c6057b8c7de257a2dfe079d1c631b867512257923",
+          "sourceScale": 0.43310546875
+        },
+        {
+          "index": 13,
+          "pose": "wide_close",
+          "x": 260,
+          "y": 1603,
+          "w": 156,
+          "h": 44,
+          "cx": 338.0,
+          "cy": 1606,
+          "cell": {
+            "x": 222,
+            "y": 1552,
+            "w": 222,
+            "h": 222
+          },
+          "cropBounds": {
+            "x": 260,
+            "y": 1603,
+            "w": 156,
+            "h": 44
+          },
+          "inkBounds": {
+            "x": 263,
+            "y": 1606,
+            "w": 150,
+            "h": 38
+          },
+          "geometricCenter": {
+            "x": 338.0,
+            "y": 1625.0
+          },
+          "registration": {
+            "anchorX": 116.0,
+            "anchorY": 54,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 4502,
+          "components": 1
+        },
+        {
+          "index": 14,
+          "pose": "round_close",
+          "x": 505,
+          "y": 1601,
+          "w": 97,
+          "h": 46,
+          "cx": 553.5,
+          "cy": 1604,
+          "cell": {
+            "x": 444,
+            "y": 1552,
+            "w": 221,
+            "h": 222
+          },
+          "cropBounds": {
+            "x": 505,
+            "y": 1601,
+            "w": 97,
+            "h": 46
+          },
+          "inkBounds": {
+            "x": 508,
+            "y": 1604,
+            "w": 91,
+            "h": 40
+          },
+          "geometricCenter": {
+            "x": 553.5,
+            "y": 1624.0
+          },
+          "registration": {
+            "anchorX": 109.5,
+            "anchorY": 52,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 2796,
+          "components": 1
+        },
+        {
+          "index": 15,
+          "pose": "SMILE",
+          "x": 688,
+          "y": 1596,
+          "w": 163,
+          "h": 59,
+          "cx": 769.5,
+          "cy": 1599,
+          "cell": {
+            "x": 665,
+            "y": 1552,
+            "w": 222,
+            "h": 222
+          },
+          "cropBounds": {
+            "x": 688,
+            "y": 1596,
+            "w": 163,
+            "h": 59
+          },
+          "inkBounds": {
+            "x": 691,
+            "y": 1599,
+            "w": 157,
+            "h": 53
+          },
+          "geometricCenter": {
+            "x": 769.5,
+            "y": 1625.5
+          },
+          "registration": {
+            "anchorX": 104.5,
+            "anchorY": 47,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 3975,
+          "components": 1
+        }
+      ],
+      "sha256": "6887b56afdfae6cb8a614d5fb7b52dc2669e229fc01647d6c773c310d757488b",
+      "hasTransparentPixels": false,
+      "registration": "constant scale, horizontal center, lower eye baseline / upper mouth baseline",
+      "provenance": "ImageGen raster source copied without modification",
+      "extraSources": [
+        {
+          "file": "sheets/mouth_consonants_v3.png",
+          "sha256": "21b52937835c60be0e9a368c6057b8c7de257a2dfe079d1c631b867512257923",
+          "imageWidth": 1536,
+          "imageHeight": 1024
+        }
+      ],
+      "label": "Happy / warm"
+    },
+    "mouth_angry": {
+      "id": "mouth_angry",
+      "file": "sheets/mouth_combined_v2.png",
+      "kind": "mouth",
+      "imageWidth": 887,
+      "imageHeight": 1774,
+      "columns": 4,
+      "rows": 8,
+      "frameOffset": 0,
+      "masterWidth": 149,
+      "masterHeight": 42,
+      "maxWidth": 156.0,
+      "maxHeight": 93,
+      "anchor": "top",
+      "frames": [
+        {
+          "index": 0,
+          "pose": "rest",
+          "x": 90,
+          "y": 225,
+          "w": 268,
+          "h": 52,
+          "cx": 224.0,
+          "cy": 228,
+          "cell": {
+            "x": 0,
+            "y": 0,
+            "w": 444,
+            "h": 444
+          },
+          "cropBounds": {
+            "x": 90,
+            "y": 225,
+            "w": 268,
+            "h": 52
+          },
+          "inkBounds": {
+            "x": 93,
+            "y": 228,
+            "w": 262,
+            "h": 46
+          },
+          "geometricCenter": {
+            "x": 224.0,
+            "y": 251.0
+          },
+          "registration": {
+            "anchorX": 224.0,
+            "anchorY": 228,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 9279,
+          "components": 1,
+          "file": "sheets/mouth_angry_v4.png",
+          "sha256": "5e8371b4a38ef4fe9179e92f2cf1a2a70f282d352da7a2416523c223436906aa",
+          "sourceScale": 0.5
+        },
+        {
+          "index": 1,
+          "pose": "MBP",
+          "x": 264,
+          "y": 134,
+          "w": 152,
+          "h": 36,
+          "cx": 340.0,
+          "cy": 137,
+          "cell": {
+            "x": 222,
+            "y": 0,
+            "w": 222,
+            "h": 222
+          },
+          "cropBounds": {
+            "x": 264,
+            "y": 134,
+            "w": 152,
+            "h": 36
+          },
+          "inkBounds": {
+            "x": 267,
+            "y": 137,
+            "w": 146,
+            "h": 30
+          },
+          "geometricCenter": {
+            "x": 340.0,
+            "y": 152.0
+          },
+          "registration": {
+            "anchorX": 118.0,
+            "anchorY": 137,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 4192,
+          "components": 1
+        },
+        {
+          "index": 2,
+          "pose": "release",
+          "x": 543,
+          "y": 224,
+          "w": 248,
+          "h": 65,
+          "cx": 667.0,
+          "cy": 227,
+          "cell": {
+            "x": 444,
+            "y": 0,
+            "w": 443,
+            "h": 444
+          },
+          "cropBounds": {
+            "x": 543,
+            "y": 224,
+            "w": 248,
+            "h": 65
+          },
+          "inkBounds": {
+            "x": 546,
+            "y": 227,
+            "w": 242,
+            "h": 59
+          },
+          "geometricCenter": {
+            "x": 667.0,
+            "y": 256.5
+          },
+          "registration": {
+            "anchorX": 223.0,
+            "anchorY": 227,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 12358,
+          "components": 1,
+          "file": "sheets/mouth_angry_v4.png",
+          "sha256": "5e8371b4a38ef4fe9179e92f2cf1a2a70f282d352da7a2416523c223436906aa",
+          "sourceScale": 0.5
+        },
+        {
+          "index": 3,
+          "pose": "small_AA",
+          "x": 985,
+          "y": 211,
+          "w": 252,
+          "h": 96,
+          "cx": 1111.0,
+          "cy": 214,
+          "cell": {
+            "x": 887,
+            "y": 0,
+            "w": 443,
+            "h": 444
+          },
+          "cropBounds": {
+            "x": 985,
+            "y": 211,
+            "w": 252,
+            "h": 96
+          },
+          "inkBounds": {
+            "x": 988,
+            "y": 214,
+            "w": 246,
+            "h": 90
+          },
+          "geometricCenter": {
+            "x": 1111.0,
+            "y": 259.0
+          },
+          "registration": {
+            "anchorX": 224.0,
+            "anchorY": 214,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 19878,
+          "components": 1,
+          "file": "sheets/mouth_angry_v4.png",
+          "sha256": "5e8371b4a38ef4fe9179e92f2cf1a2a70f282d352da7a2416523c223436906aa",
+          "sourceScale": 0.5
+        },
+        {
+          "index": 4,
+          "pose": "AA",
+          "x": 1423,
+          "y": 186,
+          "w": 261,
+          "h": 134,
+          "cx": 1553.5,
+          "cy": 189,
+          "cell": {
+            "x": 1330,
+            "y": 0,
+            "w": 444,
+            "h": 444
+          },
+          "cropBounds": {
+            "x": 1423,
+            "y": 186,
+            "w": 261,
+            "h": 134
+          },
+          "inkBounds": {
+            "x": 1426,
+            "y": 189,
+            "w": 255,
+            "h": 128
+          },
+          "geometricCenter": {
+            "x": 1553.5,
+            "y": 253.0
+          },
+          "registration": {
+            "anchorX": 223.5,
+            "anchorY": 189,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 29544,
+          "components": 1,
+          "file": "sheets/mouth_angry_v4.png",
+          "sha256": "5e8371b4a38ef4fe9179e92f2cf1a2a70f282d352da7a2416523c223436906aa",
+          "sourceScale": 0.5
+        },
+        {
+          "index": 5,
+          "pose": "EH",
+          "x": 90,
+          "y": 586,
+          "w": 268,
+          "h": 99,
+          "cx": 224.0,
+          "cy": 589,
+          "cell": {
+            "x": 0,
+            "y": 444,
+            "w": 444,
+            "h": 443
+          },
+          "cropBounds": {
+            "x": 90,
+            "y": 586,
+            "w": 268,
+            "h": 99
+          },
+          "inkBounds": {
+            "x": 93,
+            "y": 589,
+            "w": 262,
+            "h": 93
+          },
+          "geometricCenter": {
+            "x": 224.0,
+            "y": 635.5
+          },
+          "registration": {
+            "anchorX": 224.0,
+            "anchorY": 145,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 22019,
+          "components": 1,
+          "file": "sheets/mouth_angry_v4.png",
+          "sha256": "5e8371b4a38ef4fe9179e92f2cf1a2a70f282d352da7a2416523c223436906aa",
+          "sourceScale": 0.5
+        },
+        {
+          "index": 6,
+          "pose": "EE",
+          "x": 508,
+          "y": 597,
+          "w": 318,
+          "h": 65,
+          "cx": 667.0,
+          "cy": 600,
+          "cell": {
+            "x": 444,
+            "y": 444,
+            "w": 443,
+            "h": 443
+          },
+          "cropBounds": {
+            "x": 508,
+            "y": 597,
+            "w": 318,
+            "h": 65
+          },
+          "inkBounds": {
+            "x": 511,
+            "y": 600,
+            "w": 312,
+            "h": 59
+          },
+          "geometricCenter": {
+            "x": 667.0,
+            "y": 629.5
+          },
+          "registration": {
+            "anchorX": 223.0,
+            "anchorY": 156,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 16414,
+          "components": 1,
+          "file": "sheets/mouth_angry_v4.png",
+          "sha256": "5e8371b4a38ef4fe9179e92f2cf1a2a70f282d352da7a2416523c223436906aa",
+          "sourceScale": 0.5
+        },
+        {
+          "index": 7,
+          "pose": "OH",
+          "x": 719,
+          "y": 313,
+          "w": 102,
+          "h": 99,
+          "cx": 770.0,
+          "cy": 316,
+          "cell": {
+            "x": 665,
+            "y": 222,
+            "w": 222,
+            "h": 222
+          },
+          "cropBounds": {
+            "x": 719,
+            "y": 313,
+            "w": 102,
+            "h": 99
+          },
+          "inkBounds": {
+            "x": 722,
+            "y": 316,
+            "w": 96,
+            "h": 93
+          },
+          "geometricCenter": {
+            "x": 770.0,
+            "y": 362.5
+          },
+          "registration": {
+            "anchorX": 105.0,
+            "anchorY": 94,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 6975,
+          "components": 1
+        },
+        {
+          "index": 8,
+          "pose": "OO",
+          "x": 77,
+          "y": 537,
+          "w": 90,
+          "h": 81,
+          "cx": 122.0,
+          "cy": 540,
+          "cell": {
+            "x": 0,
+            "y": 444,
+            "w": 222,
+            "h": 221
+          },
+          "cropBounds": {
+            "x": 77,
+            "y": 537,
+            "w": 90,
+            "h": 81
+          },
+          "inkBounds": {
+            "x": 80,
+            "y": 540,
+            "w": 84,
+            "h": 75
+          },
+          "geometricCenter": {
+            "x": 122.0,
+            "y": 577.5
+          },
+          "registration": {
+            "anchorX": 122.0,
+            "anchorY": 96,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 4862,
+          "components": 1
+        },
+        {
+          "index": 9,
+          "pose": "FV",
+          "x": 130,
+          "y": 262,
+          "w": 256,
+          "h": 65,
+          "cx": 258.0,
+          "cy": 265,
+          "cell": {
+            "x": 0,
+            "y": 0,
+            "w": 512,
+            "h": 512
+          },
+          "cropBounds": {
+            "x": 130,
+            "y": 262,
+            "w": 256,
+            "h": 65
+          },
+          "inkBounds": {
+            "x": 133,
+            "y": 265,
+            "w": 250,
+            "h": 59
+          },
+          "geometricCenter": {
+            "x": 258.0,
+            "y": 294.5
+          },
+          "registration": {
+            "anchorX": 258.0,
+            "anchorY": 265,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 13302,
+          "components": 1,
+          "file": "sheets/mouth_consonants_v3.png",
+          "sha256": "21b52937835c60be0e9a368c6057b8c7de257a2dfe079d1c631b867512257923",
+          "sourceScale": 0.43310546875
+        },
+        {
+          "index": 10,
+          "pose": "LNT",
+          "x": 984,
+          "y": 595,
+          "w": 254,
+          "h": 81,
+          "cx": 1111.0,
+          "cy": 598,
+          "cell": {
+            "x": 887,
+            "y": 444,
+            "w": 443,
+            "h": 443
+          },
+          "cropBounds": {
+            "x": 984,
+            "y": 595,
+            "w": 254,
+            "h": 81
+          },
+          "inkBounds": {
+            "x": 987,
+            "y": 598,
+            "w": 248,
+            "h": 75
+          },
+          "geometricCenter": {
+            "x": 1111.0,
+            "y": 635.5
+          },
+          "registration": {
+            "anchorX": 224.0,
+            "anchorY": 154,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 16567,
+          "components": 1,
+          "file": "sheets/mouth_angry_v4.png",
+          "sha256": "5e8371b4a38ef4fe9179e92f2cf1a2a70f282d352da7a2416523c223436906aa",
+          "sourceScale": 0.5
+        },
+        {
+          "index": 11,
+          "pose": "S",
+          "x": 710,
+          "y": 553,
+          "w": 129,
+          "h": 41,
+          "cx": 774.5,
+          "cy": 556,
+          "cell": {
+            "x": 665,
+            "y": 444,
+            "w": 222,
+            "h": 221
+          },
+          "cropBounds": {
+            "x": 710,
+            "y": 553,
+            "w": 129,
+            "h": 41
+          },
+          "inkBounds": {
+            "x": 713,
+            "y": 556,
+            "w": 123,
+            "h": 35
+          },
+          "geometricCenter": {
+            "x": 774.5,
+            "y": 573.5
+          },
+          "registration": {
+            "anchorX": 109.5,
+            "anchorY": 112,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 3347,
+          "components": 1
+        },
+        {
+          "index": 12,
+          "pose": "TH",
+          "x": 1162,
+          "y": 254,
+          "w": 242,
+          "h": 80,
+          "cx": 1283.0,
+          "cy": 257,
+          "cell": {
+            "x": 1024,
+            "y": 0,
+            "w": 512,
+            "h": 512
+          },
+          "cropBounds": {
+            "x": 1162,
+            "y": 254,
+            "w": 242,
+            "h": 80
+          },
+          "inkBounds": {
+            "x": 1165,
+            "y": 257,
+            "w": 236,
+            "h": 74
+          },
+          "geometricCenter": {
+            "x": 1283.0,
+            "y": 294.0
+          },
+          "registration": {
+            "anchorX": 259.0,
+            "anchorY": 257,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 14172,
+          "components": 1,
+          "file": "sheets/mouth_consonants_v3.png",
+          "sha256": "21b52937835c60be0e9a368c6057b8c7de257a2dfe079d1c631b867512257923",
+          "sourceScale": 0.43310546875
+        },
+        {
+          "index": 13,
+          "pose": "wide_close",
+          "x": 1410,
+          "y": 604,
+          "w": 288,
+          "h": 52,
+          "cx": 1554.0,
+          "cy": 607,
+          "cell": {
+            "x": 1330,
+            "y": 444,
+            "w": 444,
+            "h": 443
+          },
+          "cropBounds": {
+            "x": 1410,
+            "y": 604,
+            "w": 288,
+            "h": 52
+          },
+          "inkBounds": {
+            "x": 1413,
+            "y": 607,
+            "w": 282,
+            "h": 46
+          },
+          "geometricCenter": {
+            "x": 1554.0,
+            "y": 630.0
+          },
+          "registration": {
+            "anchorX": 224.0,
+            "anchorY": 163,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 11011,
+          "components": 1,
+          "file": "sheets/mouth_angry_v4.png",
+          "sha256": "5e8371b4a38ef4fe9179e92f2cf1a2a70f282d352da7a2416523c223436906aa",
+          "sourceScale": 0.5
+        },
+        {
+          "index": 14,
+          "pose": "round_close",
+          "x": 508,
+          "y": 755,
+          "w": 97,
+          "h": 45,
+          "cx": 556.5,
+          "cy": 758,
+          "cell": {
+            "x": 444,
+            "y": 665,
+            "w": 221,
+            "h": 222
+          },
+          "cropBounds": {
+            "x": 508,
+            "y": 755,
+            "w": 97,
+            "h": 45
+          },
+          "inkBounds": {
+            "x": 511,
+            "y": 758,
+            "w": 91,
+            "h": 39
+          },
+          "geometricCenter": {
+            "x": 556.5,
+            "y": 777.5
+          },
+          "registration": {
+            "anchorX": 112.5,
+            "anchorY": 93,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 2817,
+          "components": 1
+        },
+        {
+          "index": 15,
+          "pose": "SMILE",
+          "x": 90,
+          "y": 225,
+          "w": 268,
+          "h": 52,
+          "cx": 224.0,
+          "cy": 228,
+          "cell": {
+            "x": 0,
+            "y": 0,
+            "w": 444,
+            "h": 444
+          },
+          "cropBounds": {
+            "x": 90,
+            "y": 225,
+            "w": 268,
+            "h": 52
+          },
+          "inkBounds": {
+            "x": 93,
+            "y": 228,
+            "w": 262,
+            "h": 46
+          },
+          "geometricCenter": {
+            "x": 224.0,
+            "y": 251.0
+          },
+          "registration": {
+            "anchorX": 224.0,
+            "anchorY": 228,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 9279,
+          "components": 1,
+          "file": "sheets/mouth_angry_v4.png",
+          "sha256": "5e8371b4a38ef4fe9179e92f2cf1a2a70f282d352da7a2416523c223436906aa",
+          "sourceScale": 0.5,
+          "aliasOf": "rest"
+        }
+      ],
+      "sha256": "6887b56afdfae6cb8a614d5fb7b52dc2669e229fc01647d6c773c310d757488b",
+      "hasTransparentPixels": false,
+      "registration": "constant scale, horizontal center, lower eye baseline / upper mouth baseline",
+      "provenance": "ImageGen raster source copied without modification",
+      "extraSources": [
+        {
+          "file": "sheets/mouth_consonants_v3.png",
+          "sha256": "21b52937835c60be0e9a368c6057b8c7de257a2dfe079d1c631b867512257923",
+          "imageWidth": 1536,
+          "imageHeight": 1024
+        },
+        {
+          "file": "sheets/mouth_angry_v4.png",
+          "sha256": "5e8371b4a38ef4fe9179e92f2cf1a2a70f282d352da7a2416523c223436906aa",
+          "imageWidth": 1774,
+          "imageHeight": 887
+        }
+      ],
+      "label": "Angry / tense",
+      "inherits": "mouth_neutral",
+      "allowSmileCue": false
+    },
+    "mouth_sad": {
+      "id": "mouth_sad",
+      "file": "sheets/mouth_combined_v2.png",
+      "kind": "mouth",
+      "imageWidth": 887,
+      "imageHeight": 1774,
+      "columns": 4,
+      "rows": 8,
+      "frameOffset": 0,
+      "masterWidth": 149,
+      "masterHeight": 42,
+      "maxWidth": 161.115234375,
+      "maxHeight": 93,
+      "anchor": "top",
+      "frames": [
+        {
+          "index": 0,
+          "pose": "rest",
+          "x": 83,
+          "y": 269,
+          "w": 261,
+          "h": 79,
+          "cx": 213.5,
+          "cy": 272,
+          "cell": {
+            "x": 0,
+            "y": 0,
+            "w": 384,
+            "h": 512
+          },
+          "cropBounds": {
+            "x": 83,
+            "y": 269,
+            "w": 261,
+            "h": 79
+          },
+          "inkBounds": {
+            "x": 86,
+            "y": 272,
+            "w": 255,
+            "h": 73
+          },
+          "geometricCenter": {
+            "x": 213.5,
+            "y": 308.5
+          },
+          "registration": {
+            "anchorX": 213.5,
+            "anchorY": 272,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 9649,
+          "components": 1,
+          "file": "sheets/mouth_sad_v4.png",
+          "sha256": "e644dde6e158c5adc59f09f936e552755240956ad45bfaada7accad8817e67bb",
+          "sourceScale": 0.5774739583333334
+        },
+        {
+          "index": 1,
+          "pose": "MBP",
+          "x": 264,
+          "y": 134,
+          "w": 152,
+          "h": 36,
+          "cx": 340.0,
+          "cy": 137,
+          "cell": {
+            "x": 222,
+            "y": 0,
+            "w": 222,
+            "h": 222
+          },
+          "cropBounds": {
+            "x": 264,
+            "y": 134,
+            "w": 152,
+            "h": 36
+          },
+          "inkBounds": {
+            "x": 267,
+            "y": 137,
+            "w": 146,
+            "h": 30
+          },
+          "geometricCenter": {
+            "x": 340.0,
+            "y": 152.0
+          },
+          "registration": {
+            "anchorX": 118.0,
+            "anchorY": 137,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 4192,
+          "components": 1
+        },
+        {
+          "index": 2,
+          "pose": "release",
+          "x": 458,
+          "y": 260,
+          "w": 245,
+          "h": 88,
+          "cx": 580.5,
+          "cy": 263,
+          "cell": {
+            "x": 384,
+            "y": 0,
+            "w": 384,
+            "h": 512
+          },
+          "cropBounds": {
+            "x": 458,
+            "y": 260,
+            "w": 245,
+            "h": 88
+          },
+          "inkBounds": {
+            "x": 461,
+            "y": 263,
+            "w": 239,
+            "h": 82
+          },
+          "geometricCenter": {
+            "x": 580.5,
+            "y": 304.0
+          },
+          "registration": {
+            "anchorX": 196.5,
+            "anchorY": 263,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 12295,
+          "components": 1,
+          "file": "sheets/mouth_sad_v4.png",
+          "sha256": "e644dde6e158c5adc59f09f936e552755240956ad45bfaada7accad8817e67bb",
+          "sourceScale": 0.5774739583333334
+        },
+        {
+          "index": 3,
+          "pose": "small_AA",
+          "x": 821,
+          "y": 240,
+          "w": 257,
+          "h": 115,
+          "cx": 949.5,
+          "cy": 243,
+          "cell": {
+            "x": 768,
+            "y": 0,
+            "w": 384,
+            "h": 512
+          },
+          "cropBounds": {
+            "x": 821,
+            "y": 240,
+            "w": 257,
+            "h": 115
+          },
+          "inkBounds": {
+            "x": 824,
+            "y": 243,
+            "w": 251,
+            "h": 109
+          },
+          "geometricCenter": {
+            "x": 949.5,
+            "y": 297.5
+          },
+          "registration": {
+            "anchorX": 181.5,
+            "anchorY": 243,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 17374,
+          "components": 1,
+          "file": "sheets/mouth_sad_v4.png",
+          "sha256": "e644dde6e158c5adc59f09f936e552755240956ad45bfaada7accad8817e67bb",
+          "sourceScale": 0.5774739583333334
+        },
+        {
+          "index": 4,
+          "pose": "AA",
+          "x": 1188,
+          "y": 217,
+          "w": 271,
+          "h": 147,
+          "cx": 1323.5,
+          "cy": 220,
+          "cell": {
+            "x": 1152,
+            "y": 0,
+            "w": 384,
+            "h": 512
+          },
+          "cropBounds": {
+            "x": 1188,
+            "y": 217,
+            "w": 271,
+            "h": 147
+          },
+          "inkBounds": {
+            "x": 1191,
+            "y": 220,
+            "w": 265,
+            "h": 141
+          },
+          "geometricCenter": {
+            "x": 1323.5,
+            "y": 290.5
+          },
+          "registration": {
+            "anchorX": 171.5,
+            "anchorY": 220,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 24464,
+          "components": 1,
+          "file": "sheets/mouth_sad_v4.png",
+          "sha256": "e644dde6e158c5adc59f09f936e552755240956ad45bfaada7accad8817e67bb",
+          "sourceScale": 0.5774739583333334
+        },
+        {
+          "index": 5,
+          "pose": "EH",
+          "x": 85,
+          "y": 655,
+          "w": 255,
+          "h": 109,
+          "cx": 212.5,
+          "cy": 658,
+          "cell": {
+            "x": 0,
+            "y": 512,
+            "w": 384,
+            "h": 512
+          },
+          "cropBounds": {
+            "x": 85,
+            "y": 655,
+            "w": 255,
+            "h": 109
+          },
+          "inkBounds": {
+            "x": 88,
+            "y": 658,
+            "w": 249,
+            "h": 103
+          },
+          "geometricCenter": {
+            "x": 212.5,
+            "y": 709.5
+          },
+          "registration": {
+            "anchorX": 212.5,
+            "anchorY": 146,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 16490,
+          "components": 1,
+          "file": "sheets/mouth_sad_v4.png",
+          "sha256": "e644dde6e158c5adc59f09f936e552755240956ad45bfaada7accad8817e67bb",
+          "sourceScale": 0.5774739583333334
+        },
+        {
+          "index": 6,
+          "pose": "EE",
+          "x": 442,
+          "y": 679,
+          "w": 281,
+          "h": 83,
+          "cx": 582.5,
+          "cy": 682,
+          "cell": {
+            "x": 384,
+            "y": 512,
+            "w": 384,
+            "h": 512
+          },
+          "cropBounds": {
+            "x": 442,
+            "y": 679,
+            "w": 281,
+            "h": 83
+          },
+          "inkBounds": {
+            "x": 445,
+            "y": 682,
+            "w": 275,
+            "h": 77
+          },
+          "geometricCenter": {
+            "x": 582.5,
+            "y": 720.5
+          },
+          "registration": {
+            "anchorX": 198.5,
+            "anchorY": 170,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 13179,
+          "components": 1,
+          "file": "sheets/mouth_sad_v4.png",
+          "sha256": "e644dde6e158c5adc59f09f936e552755240956ad45bfaada7accad8817e67bb",
+          "sourceScale": 0.5774739583333334
+        },
+        {
+          "index": 7,
+          "pose": "OH",
+          "x": 719,
+          "y": 313,
+          "w": 102,
+          "h": 99,
+          "cx": 770.0,
+          "cy": 316,
+          "cell": {
+            "x": 665,
+            "y": 222,
+            "w": 222,
+            "h": 222
+          },
+          "cropBounds": {
+            "x": 719,
+            "y": 313,
+            "w": 102,
+            "h": 99
+          },
+          "inkBounds": {
+            "x": 722,
+            "y": 316,
+            "w": 96,
+            "h": 93
+          },
+          "geometricCenter": {
+            "x": 770.0,
+            "y": 362.5
+          },
+          "registration": {
+            "anchorX": 105.0,
+            "anchorY": 94,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 6975,
+          "components": 1
+        },
+        {
+          "index": 8,
+          "pose": "OO",
+          "x": 77,
+          "y": 537,
+          "w": 90,
+          "h": 81,
+          "cx": 122.0,
+          "cy": 540,
+          "cell": {
+            "x": 0,
+            "y": 444,
+            "w": 222,
+            "h": 221
+          },
+          "cropBounds": {
+            "x": 77,
+            "y": 537,
+            "w": 90,
+            "h": 81
+          },
+          "inkBounds": {
+            "x": 80,
+            "y": 540,
+            "w": 84,
+            "h": 75
+          },
+          "geometricCenter": {
+            "x": 122.0,
+            "y": 577.5
+          },
+          "registration": {
+            "anchorX": 122.0,
+            "anchorY": 96,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 4862,
+          "components": 1
+        },
+        {
+          "index": 9,
+          "pose": "FV",
+          "x": 130,
+          "y": 262,
+          "w": 256,
+          "h": 65,
+          "cx": 258.0,
+          "cy": 265,
+          "cell": {
+            "x": 0,
+            "y": 0,
+            "w": 512,
+            "h": 512
+          },
+          "cropBounds": {
+            "x": 130,
+            "y": 262,
+            "w": 256,
+            "h": 65
+          },
+          "inkBounds": {
+            "x": 133,
+            "y": 265,
+            "w": 250,
+            "h": 59
+          },
+          "geometricCenter": {
+            "x": 258.0,
+            "y": 294.5
+          },
+          "registration": {
+            "anchorX": 258.0,
+            "anchorY": 265,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 13302,
+          "components": 1,
+          "file": "sheets/mouth_consonants_v3.png",
+          "sha256": "21b52937835c60be0e9a368c6057b8c7de257a2dfe079d1c631b867512257923",
+          "sourceScale": 0.43310546875
+        },
+        {
+          "index": 10,
+          "pose": "LNT",
+          "x": 847,
+          "y": 681,
+          "w": 208,
+          "h": 79,
+          "cx": 951.0,
+          "cy": 684,
+          "cell": {
+            "x": 768,
+            "y": 512,
+            "w": 384,
+            "h": 512
+          },
+          "cropBounds": {
+            "x": 847,
+            "y": 681,
+            "w": 208,
+            "h": 79
+          },
+          "inkBounds": {
+            "x": 850,
+            "y": 684,
+            "w": 202,
+            "h": 73
+          },
+          "geometricCenter": {
+            "x": 951.0,
+            "y": 720.5
+          },
+          "registration": {
+            "anchorX": 183.0,
+            "anchorY": 172,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 9288,
+          "components": 1,
+          "file": "sheets/mouth_sad_v4.png",
+          "sha256": "e644dde6e158c5adc59f09f936e552755240956ad45bfaada7accad8817e67bb",
+          "sourceScale": 0.5774739583333334
+        },
+        {
+          "index": 11,
+          "pose": "S",
+          "x": 710,
+          "y": 553,
+          "w": 129,
+          "h": 41,
+          "cx": 774.5,
+          "cy": 556,
+          "cell": {
+            "x": 665,
+            "y": 444,
+            "w": 222,
+            "h": 221
+          },
+          "cropBounds": {
+            "x": 710,
+            "y": 553,
+            "w": 129,
+            "h": 41
+          },
+          "inkBounds": {
+            "x": 713,
+            "y": 556,
+            "w": 123,
+            "h": 35
+          },
+          "geometricCenter": {
+            "x": 774.5,
+            "y": 573.5
+          },
+          "registration": {
+            "anchorX": 109.5,
+            "anchorY": 112,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 3347,
+          "components": 1
+        },
+        {
+          "index": 12,
+          "pose": "TH",
+          "x": 1162,
+          "y": 254,
+          "w": 242,
+          "h": 80,
+          "cx": 1283.0,
+          "cy": 257,
+          "cell": {
+            "x": 1024,
+            "y": 0,
+            "w": 512,
+            "h": 512
+          },
+          "cropBounds": {
+            "x": 1162,
+            "y": 254,
+            "w": 242,
+            "h": 80
+          },
+          "inkBounds": {
+            "x": 1165,
+            "y": 257,
+            "w": 236,
+            "h": 74
+          },
+          "geometricCenter": {
+            "x": 1283.0,
+            "y": 294.0
+          },
+          "registration": {
+            "anchorX": 259.0,
+            "anchorY": 257,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 14172,
+          "components": 1,
+          "file": "sheets/mouth_consonants_v3.png",
+          "sha256": "21b52937835c60be0e9a368c6057b8c7de257a2dfe079d1c631b867512257923",
+          "sourceScale": 0.43310546875
+        },
+        {
+          "index": 13,
+          "pose": "wide_close",
+          "x": 1183,
+          "y": 688,
+          "w": 285,
+          "h": 74,
+          "cx": 1325.5,
+          "cy": 691,
+          "cell": {
+            "x": 1152,
+            "y": 512,
+            "w": 384,
+            "h": 512
+          },
+          "cropBounds": {
+            "x": 1183,
+            "y": 688,
+            "w": 285,
+            "h": 74
+          },
+          "inkBounds": {
+            "x": 1186,
+            "y": 691,
+            "w": 279,
+            "h": 68
+          },
+          "geometricCenter": {
+            "x": 1325.5,
+            "y": 725.0
+          },
+          "registration": {
+            "anchorX": 173.5,
+            "anchorY": 179,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 11837,
+          "components": 1,
+          "file": "sheets/mouth_sad_v4.png",
+          "sha256": "e644dde6e158c5adc59f09f936e552755240956ad45bfaada7accad8817e67bb",
+          "sourceScale": 0.5774739583333334
+        },
+        {
+          "index": 14,
+          "pose": "round_close",
+          "x": 508,
+          "y": 755,
+          "w": 97,
+          "h": 45,
+          "cx": 556.5,
+          "cy": 758,
+          "cell": {
+            "x": 444,
+            "y": 665,
+            "w": 221,
+            "h": 222
+          },
+          "cropBounds": {
+            "x": 508,
+            "y": 755,
+            "w": 97,
+            "h": 45
+          },
+          "inkBounds": {
+            "x": 511,
+            "y": 758,
+            "w": 91,
+            "h": 39
+          },
+          "geometricCenter": {
+            "x": 556.5,
+            "y": 777.5
+          },
+          "registration": {
+            "anchorX": 112.5,
+            "anchorY": 93,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 2817,
+          "components": 1
+        },
+        {
+          "index": 15,
+          "pose": "SMILE",
+          "x": 83,
+          "y": 269,
+          "w": 261,
+          "h": 79,
+          "cx": 213.5,
+          "cy": 272,
+          "cell": {
+            "x": 0,
+            "y": 0,
+            "w": 384,
+            "h": 512
+          },
+          "cropBounds": {
+            "x": 83,
+            "y": 269,
+            "w": 261,
+            "h": 79
+          },
+          "inkBounds": {
+            "x": 86,
+            "y": 272,
+            "w": 255,
+            "h": 73
+          },
+          "geometricCenter": {
+            "x": 213.5,
+            "y": 308.5
+          },
+          "registration": {
+            "anchorX": 213.5,
+            "anchorY": 272,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 9649,
+          "components": 1,
+          "file": "sheets/mouth_sad_v4.png",
+          "sha256": "e644dde6e158c5adc59f09f936e552755240956ad45bfaada7accad8817e67bb",
+          "sourceScale": 0.5774739583333334,
+          "aliasOf": "rest"
+        }
+      ],
+      "sha256": "6887b56afdfae6cb8a614d5fb7b52dc2669e229fc01647d6c773c310d757488b",
+      "hasTransparentPixels": false,
+      "registration": "constant scale, horizontal center, lower eye baseline / upper mouth baseline",
+      "provenance": "ImageGen raster source copied without modification",
+      "extraSources": [
+        {
+          "file": "sheets/mouth_consonants_v3.png",
+          "sha256": "21b52937835c60be0e9a368c6057b8c7de257a2dfe079d1c631b867512257923",
+          "imageWidth": 1536,
+          "imageHeight": 1024
+        },
+        {
+          "file": "sheets/mouth_sad_v4.png",
+          "sha256": "e644dde6e158c5adc59f09f936e552755240956ad45bfaada7accad8817e67bb",
+          "imageWidth": 1536,
+          "imageHeight": 1024
+        }
+      ],
+      "label": "Sad / low energy",
+      "inherits": "mouth_neutral",
+      "allowSmileCue": false
+    },
+    "mouth_flat": {
+      "id": "mouth_flat",
+      "file": "sheets/mouth_combined_v2.png",
+      "kind": "mouth",
+      "imageWidth": 887,
+      "imageHeight": 1774,
+      "columns": 4,
+      "rows": 8,
+      "frameOffset": 0,
+      "masterWidth": 149,
+      "masterHeight": 42,
+      "maxWidth": 169.0,
+      "maxHeight": 93,
+      "anchor": "top",
+      "frames": [
+        {
+          "index": 0,
+          "pose": "rest",
+          "x": 93,
+          "y": 225,
+          "w": 260,
+          "h": 49,
+          "cx": 223.0,
+          "cy": 228,
+          "cell": {
+            "x": 0,
+            "y": 0,
+            "w": 444,
+            "h": 444
+          },
+          "cropBounds": {
+            "x": 93,
+            "y": 225,
+            "w": 260,
+            "h": 49
+          },
+          "inkBounds": {
+            "x": 96,
+            "y": 228,
+            "w": 254,
+            "h": 43
+          },
+          "geometricCenter": {
+            "x": 223.0,
+            "y": 249.5
+          },
+          "registration": {
+            "anchorX": 223.0,
+            "anchorY": 228,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 10297,
+          "components": 1,
+          "file": "sheets/mouth_flat_v4.png",
+          "sha256": "9447deec989f00d4d89dc937ad0a662a5c908d2fa90f21653edb11d8604fa9e4",
+          "sourceScale": 0.5
+        },
+        {
+          "index": 1,
+          "pose": "MBP",
+          "x": 264,
+          "y": 134,
+          "w": 152,
+          "h": 36,
+          "cx": 340.0,
+          "cy": 137,
+          "cell": {
+            "x": 222,
+            "y": 0,
+            "w": 222,
+            "h": 222
+          },
+          "cropBounds": {
+            "x": 264,
+            "y": 134,
+            "w": 152,
+            "h": 36
+          },
+          "inkBounds": {
+            "x": 267,
+            "y": 137,
+            "w": 146,
+            "h": 30
+          },
+          "geometricCenter": {
+            "x": 340.0,
+            "y": 152.0
+          },
+          "registration": {
+            "anchorX": 118.0,
+            "anchorY": 137,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 4192,
+          "components": 1
+        },
+        {
+          "index": 2,
+          "pose": "release",
+          "x": 553,
+          "y": 210,
+          "w": 227,
+          "h": 80,
+          "cx": 666.5,
+          "cy": 213,
+          "cell": {
+            "x": 444,
+            "y": 0,
+            "w": 443,
+            "h": 444
+          },
+          "cropBounds": {
+            "x": 553,
+            "y": 210,
+            "w": 227,
+            "h": 80
+          },
+          "inkBounds": {
+            "x": 556,
+            "y": 213,
+            "w": 221,
+            "h": 74
+          },
+          "geometricCenter": {
+            "x": 666.5,
+            "y": 250.0
+          },
+          "registration": {
+            "anchorX": 222.5,
+            "anchorY": 213,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 15351,
+          "components": 1,
+          "file": "sheets/mouth_flat_v4.png",
+          "sha256": "9447deec989f00d4d89dc937ad0a662a5c908d2fa90f21653edb11d8604fa9e4",
+          "sourceScale": 0.5
+        },
+        {
+          "index": 3,
+          "pose": "small_AA",
+          "x": 982,
+          "y": 192,
+          "w": 254,
+          "h": 117,
+          "cx": 1109.0,
+          "cy": 195,
+          "cell": {
+            "x": 887,
+            "y": 0,
+            "w": 443,
+            "h": 444
+          },
+          "cropBounds": {
+            "x": 982,
+            "y": 192,
+            "w": 254,
+            "h": 117
+          },
+          "inkBounds": {
+            "x": 985,
+            "y": 195,
+            "w": 248,
+            "h": 111
+          },
+          "geometricCenter": {
+            "x": 1109.0,
+            "y": 250.5
+          },
+          "registration": {
+            "anchorX": 222.0,
+            "anchorY": 195,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 24811,
+          "components": 1,
+          "file": "sheets/mouth_flat_v4.png",
+          "sha256": "9447deec989f00d4d89dc937ad0a662a5c908d2fa90f21653edb11d8604fa9e4",
+          "sourceScale": 0.5
+        },
+        {
+          "index": 4,
+          "pose": "AA",
+          "x": 1448,
+          "y": 158,
+          "w": 208,
+          "h": 174,
+          "cx": 1552.0,
+          "cy": 161,
+          "cell": {
+            "x": 1330,
+            "y": 0,
+            "w": 444,
+            "h": 444
+          },
+          "cropBounds": {
+            "x": 1448,
+            "y": 158,
+            "w": 208,
+            "h": 174
+          },
+          "inkBounds": {
+            "x": 1451,
+            "y": 161,
+            "w": 202,
+            "h": 168
+          },
+          "geometricCenter": {
+            "x": 1552.0,
+            "y": 245.0
+          },
+          "registration": {
+            "anchorX": 222.0,
+            "anchorY": 161,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 29461,
+          "components": 1,
+          "file": "sheets/mouth_flat_v4.png",
+          "sha256": "9447deec989f00d4d89dc937ad0a662a5c908d2fa90f21653edb11d8604fa9e4",
+          "sourceScale": 0.5
+        },
+        {
+          "index": 5,
+          "pose": "EH",
+          "x": 91,
+          "y": 595,
+          "w": 264,
+          "h": 103,
+          "cx": 223.0,
+          "cy": 598,
+          "cell": {
+            "x": 0,
+            "y": 444,
+            "w": 444,
+            "h": 443
+          },
+          "cropBounds": {
+            "x": 91,
+            "y": 595,
+            "w": 264,
+            "h": 103
+          },
+          "inkBounds": {
+            "x": 94,
+            "y": 598,
+            "w": 258,
+            "h": 97
+          },
+          "geometricCenter": {
+            "x": 223.0,
+            "y": 646.5
+          },
+          "registration": {
+            "anchorX": 223.0,
+            "anchorY": 154,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 23319,
+          "components": 1,
+          "file": "sheets/mouth_flat_v4.png",
+          "sha256": "9447deec989f00d4d89dc937ad0a662a5c908d2fa90f21653edb11d8604fa9e4",
+          "sourceScale": 0.5
+        },
+        {
+          "index": 6,
+          "pose": "EE",
+          "x": 501,
+          "y": 618,
+          "w": 332,
+          "h": 58,
+          "cx": 667.0,
+          "cy": 621,
+          "cell": {
+            "x": 444,
+            "y": 444,
+            "w": 443,
+            "h": 443
+          },
+          "cropBounds": {
+            "x": 501,
+            "y": 618,
+            "w": 332,
+            "h": 58
+          },
+          "inkBounds": {
+            "x": 504,
+            "y": 621,
+            "w": 326,
+            "h": 52
+          },
+          "geometricCenter": {
+            "x": 667.0,
+            "y": 647.0
+          },
+          "registration": {
+            "anchorX": 223.0,
+            "anchorY": 177,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 15828,
+          "components": 1,
+          "file": "sheets/mouth_flat_v4.png",
+          "sha256": "9447deec989f00d4d89dc937ad0a662a5c908d2fa90f21653edb11d8604fa9e4",
+          "sourceScale": 0.5
+        },
+        {
+          "index": 7,
+          "pose": "OH",
+          "x": 719,
+          "y": 313,
+          "w": 102,
+          "h": 99,
+          "cx": 770.0,
+          "cy": 316,
+          "cell": {
+            "x": 665,
+            "y": 222,
+            "w": 222,
+            "h": 222
+          },
+          "cropBounds": {
+            "x": 719,
+            "y": 313,
+            "w": 102,
+            "h": 99
+          },
+          "inkBounds": {
+            "x": 722,
+            "y": 316,
+            "w": 96,
+            "h": 93
+          },
+          "geometricCenter": {
+            "x": 770.0,
+            "y": 362.5
+          },
+          "registration": {
+            "anchorX": 105.0,
+            "anchorY": 94,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 6975,
+          "components": 1
+        },
+        {
+          "index": 8,
+          "pose": "OO",
+          "x": 77,
+          "y": 537,
+          "w": 90,
+          "h": 81,
+          "cx": 122.0,
+          "cy": 540,
+          "cell": {
+            "x": 0,
+            "y": 444,
+            "w": 222,
+            "h": 221
+          },
+          "cropBounds": {
+            "x": 77,
+            "y": 537,
+            "w": 90,
+            "h": 81
+          },
+          "inkBounds": {
+            "x": 80,
+            "y": 540,
+            "w": 84,
+            "h": 75
+          },
+          "geometricCenter": {
+            "x": 122.0,
+            "y": 577.5
+          },
+          "registration": {
+            "anchorX": 122.0,
+            "anchorY": 96,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 4862,
+          "components": 1
+        },
+        {
+          "index": 9,
+          "pose": "FV",
+          "x": 130,
+          "y": 262,
+          "w": 256,
+          "h": 65,
+          "cx": 258.0,
+          "cy": 265,
+          "cell": {
+            "x": 0,
+            "y": 0,
+            "w": 512,
+            "h": 512
+          },
+          "cropBounds": {
+            "x": 130,
+            "y": 262,
+            "w": 256,
+            "h": 65
+          },
+          "inkBounds": {
+            "x": 133,
+            "y": 265,
+            "w": 250,
+            "h": 59
+          },
+          "geometricCenter": {
+            "x": 258.0,
+            "y": 294.5
+          },
+          "registration": {
+            "anchorX": 258.0,
+            "anchorY": 265,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 13302,
+          "components": 1,
+          "file": "sheets/mouth_consonants_v3.png",
+          "sha256": "21b52937835c60be0e9a368c6057b8c7de257a2dfe079d1c631b867512257923",
+          "sourceScale": 0.43310546875
+        },
+        {
+          "index": 10,
+          "pose": "LNT",
+          "x": 1011,
+          "y": 619,
+          "w": 197,
+          "h": 56,
+          "cx": 1109.5,
+          "cy": 622,
+          "cell": {
+            "x": 887,
+            "y": 444,
+            "w": 443,
+            "h": 443
+          },
+          "cropBounds": {
+            "x": 1011,
+            "y": 619,
+            "w": 197,
+            "h": 56
+          },
+          "inkBounds": {
+            "x": 1014,
+            "y": 622,
+            "w": 191,
+            "h": 50
+          },
+          "geometricCenter": {
+            "x": 1109.5,
+            "y": 647.0
+          },
+          "registration": {
+            "anchorX": 222.5,
+            "anchorY": 178,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 8979,
+          "components": 1,
+          "file": "sheets/mouth_flat_v4.png",
+          "sha256": "9447deec989f00d4d89dc937ad0a662a5c908d2fa90f21653edb11d8604fa9e4",
+          "sourceScale": 0.5
+        },
+        {
+          "index": 11,
+          "pose": "S",
+          "x": 710,
+          "y": 553,
+          "w": 129,
+          "h": 41,
+          "cx": 774.5,
+          "cy": 556,
+          "cell": {
+            "x": 665,
+            "y": 444,
+            "w": 222,
+            "h": 221
+          },
+          "cropBounds": {
+            "x": 710,
+            "y": 553,
+            "w": 129,
+            "h": 41
+          },
+          "inkBounds": {
+            "x": 713,
+            "y": 556,
+            "w": 123,
+            "h": 35
+          },
+          "geometricCenter": {
+            "x": 774.5,
+            "y": 573.5
+          },
+          "registration": {
+            "anchorX": 109.5,
+            "anchorY": 112,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 3347,
+          "components": 1
+        },
+        {
+          "index": 12,
+          "pose": "TH",
+          "x": 1162,
+          "y": 254,
+          "w": 242,
+          "h": 80,
+          "cx": 1283.0,
+          "cy": 257,
+          "cell": {
+            "x": 1024,
+            "y": 0,
+            "w": 512,
+            "h": 512
+          },
+          "cropBounds": {
+            "x": 1162,
+            "y": 254,
+            "w": 242,
+            "h": 80
+          },
+          "inkBounds": {
+            "x": 1165,
+            "y": 257,
+            "w": 236,
+            "h": 74
+          },
+          "geometricCenter": {
+            "x": 1283.0,
+            "y": 294.0
+          },
+          "registration": {
+            "anchorX": 259.0,
+            "anchorY": 257,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 14172,
+          "components": 1,
+          "file": "sheets/mouth_consonants_v3.png",
+          "sha256": "21b52937835c60be0e9a368c6057b8c7de257a2dfe079d1c631b867512257923",
+          "sourceScale": 0.43310546875
+        },
+        {
+          "index": 13,
+          "pose": "wide_close",
+          "x": 1380,
+          "y": 615,
+          "w": 344,
+          "h": 61,
+          "cx": 1552.0,
+          "cy": 618,
+          "cell": {
+            "x": 1330,
+            "y": 444,
+            "w": 444,
+            "h": 443
+          },
+          "cropBounds": {
+            "x": 1380,
+            "y": 615,
+            "w": 344,
+            "h": 61
+          },
+          "inkBounds": {
+            "x": 1383,
+            "y": 618,
+            "w": 338,
+            "h": 55
+          },
+          "geometricCenter": {
+            "x": 1552.0,
+            "y": 645.5
+          },
+          "registration": {
+            "anchorX": 222.0,
+            "anchorY": 174,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 17452,
+          "components": 1,
+          "file": "sheets/mouth_flat_v4.png",
+          "sha256": "9447deec989f00d4d89dc937ad0a662a5c908d2fa90f21653edb11d8604fa9e4",
+          "sourceScale": 0.5
+        },
+        {
+          "index": 14,
+          "pose": "round_close",
+          "x": 508,
+          "y": 755,
+          "w": 97,
+          "h": 45,
+          "cx": 556.5,
+          "cy": 758,
+          "cell": {
+            "x": 444,
+            "y": 665,
+            "w": 221,
+            "h": 222
+          },
+          "cropBounds": {
+            "x": 508,
+            "y": 755,
+            "w": 97,
+            "h": 45
+          },
+          "inkBounds": {
+            "x": 511,
+            "y": 758,
+            "w": 91,
+            "h": 39
+          },
+          "geometricCenter": {
+            "x": 556.5,
+            "y": 777.5
+          },
+          "registration": {
+            "anchorX": 112.5,
+            "anchorY": 93,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 2817,
+          "components": 1
+        },
+        {
+          "index": 15,
+          "pose": "SMILE",
+          "x": 93,
+          "y": 225,
+          "w": 260,
+          "h": 49,
+          "cx": 223.0,
+          "cy": 228,
+          "cell": {
+            "x": 0,
+            "y": 0,
+            "w": 444,
+            "h": 444
+          },
+          "cropBounds": {
+            "x": 93,
+            "y": 225,
+            "w": 260,
+            "h": 49
+          },
+          "inkBounds": {
+            "x": 96,
+            "y": 228,
+            "w": 254,
+            "h": 43
+          },
+          "geometricCenter": {
+            "x": 223.0,
+            "y": 249.5
+          },
+          "registration": {
+            "anchorX": 223.0,
+            "anchorY": 228,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 10297,
+          "components": 1,
+          "file": "sheets/mouth_flat_v4.png",
+          "sha256": "9447deec989f00d4d89dc937ad0a662a5c908d2fa90f21653edb11d8604fa9e4",
+          "sourceScale": 0.5,
+          "aliasOf": "rest"
+        }
+      ],
+      "sha256": "6887b56afdfae6cb8a614d5fb7b52dc2669e229fc01647d6c773c310d757488b",
+      "hasTransparentPixels": false,
+      "registration": "constant scale, horizontal center, lower eye baseline / upper mouth baseline",
+      "provenance": "ImageGen raster source copied without modification",
+      "extraSources": [
+        {
+          "file": "sheets/mouth_consonants_v3.png",
+          "sha256": "21b52937835c60be0e9a368c6057b8c7de257a2dfe079d1c631b867512257923",
+          "imageWidth": 1536,
+          "imageHeight": 1024
+        },
+        {
+          "file": "sheets/mouth_flat_v4.png",
+          "sha256": "9447deec989f00d4d89dc937ad0a662a5c908d2fa90f21653edb11d8604fa9e4",
+          "imageWidth": 1774,
+          "imageHeight": 887
+        }
+      ],
+      "label": "Neutral / indifferent",
+      "inherits": "mouth_neutral",
+      "allowSmileCue": false
+    },
+    "mouth_worried": {
+      "id": "mouth_worried",
+      "file": "sheets/mouth_combined_v2.png",
+      "kind": "mouth",
+      "imageWidth": 887,
+      "imageHeight": 1774,
+      "columns": 4,
+      "rows": 8,
+      "frameOffset": 0,
+      "masterWidth": 149,
+      "masterHeight": 42,
+      "maxWidth": 146,
+      "maxHeight": 112.02994791666667,
+      "anchor": "top",
+      "frames": [
+        {
+          "index": 0,
+          "pose": "rest",
+          "x": 102,
+          "y": 287,
+          "w": 232,
+          "h": 59,
+          "cx": 218.0,
+          "cy": 290,
+          "cell": {
+            "x": 0,
+            "y": 0,
+            "w": 384,
+            "h": 512
+          },
+          "cropBounds": {
+            "x": 102,
+            "y": 287,
+            "w": 232,
+            "h": 59
+          },
+          "inkBounds": {
+            "x": 105,
+            "y": 290,
+            "w": 226,
+            "h": 53
+          },
+          "geometricCenter": {
+            "x": 218.0,
+            "y": 316.5
+          },
+          "registration": {
+            "anchorX": 218.0,
+            "anchorY": 290,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 7921,
+          "components": 1,
+          "file": "sheets/mouth_worried_v4.png",
+          "sha256": "23b9d8c3e5a5d917e6cb1bc58eca2b68dda0d4f2e4d7200fac719bfd2a564539",
+          "sourceScale": 0.5774739583333334
+        },
+        {
+          "index": 1,
+          "pose": "MBP",
+          "x": 264,
+          "y": 134,
+          "w": 152,
+          "h": 36,
+          "cx": 340.0,
+          "cy": 137,
+          "cell": {
+            "x": 222,
+            "y": 0,
+            "w": 222,
+            "h": 222
+          },
+          "cropBounds": {
+            "x": 264,
+            "y": 134,
+            "w": 152,
+            "h": 36
+          },
+          "inkBounds": {
+            "x": 267,
+            "y": 137,
+            "w": 146,
+            "h": 30
+          },
+          "geometricCenter": {
+            "x": 340.0,
+            "y": 152.0
+          },
+          "registration": {
+            "anchorX": 118.0,
+            "anchorY": 137,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 4192,
+          "components": 1
+        },
+        {
+          "index": 2,
+          "pose": "release",
+          "x": 538,
+          "y": 247,
+          "w": 94,
+          "h": 130,
+          "cx": 585.0,
+          "cy": 250,
+          "cell": {
+            "x": 384,
+            "y": 0,
+            "w": 384,
+            "h": 512
+          },
+          "cropBounds": {
+            "x": 538,
+            "y": 247,
+            "w": 94,
+            "h": 130
+          },
+          "inkBounds": {
+            "x": 541,
+            "y": 250,
+            "w": 88,
+            "h": 124
+          },
+          "geometricCenter": {
+            "x": 585.0,
+            "y": 312.0
+          },
+          "registration": {
+            "anchorX": 201.0,
+            "anchorY": 250,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 8709,
+          "components": 1,
+          "file": "sheets/mouth_worried_v4.png",
+          "sha256": "23b9d8c3e5a5d917e6cb1bc58eca2b68dda0d4f2e4d7200fac719bfd2a564539",
+          "sourceScale": 0.5774739583333334
+        },
+        {
+          "index": 3,
+          "pose": "small_AA",
+          "x": 903,
+          "y": 228,
+          "w": 110,
+          "h": 168,
+          "cx": 958.0,
+          "cy": 231,
+          "cell": {
+            "x": 768,
+            "y": 0,
+            "w": 384,
+            "h": 512
+          },
+          "cropBounds": {
+            "x": 903,
+            "y": 228,
+            "w": 110,
+            "h": 168
+          },
+          "inkBounds": {
+            "x": 906,
+            "y": 231,
+            "w": 104,
+            "h": 162
+          },
+          "geometricCenter": {
+            "x": 958.0,
+            "y": 312.0
+          },
+          "registration": {
+            "anchorX": 190.0,
+            "anchorY": 231,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 13448,
+          "components": 1,
+          "file": "sheets/mouth_worried_v4.png",
+          "sha256": "23b9d8c3e5a5d917e6cb1bc58eca2b68dda0d4f2e4d7200fac719bfd2a564539",
+          "sourceScale": 0.5774739583333334
+        },
+        {
+          "index": 4,
+          "pose": "AA",
+          "x": 1267,
+          "y": 210,
+          "w": 132,
+          "h": 200,
+          "cx": 1333.0,
+          "cy": 213,
+          "cell": {
+            "x": 1152,
+            "y": 0,
+            "w": 384,
+            "h": 512
+          },
+          "cropBounds": {
+            "x": 1267,
+            "y": 210,
+            "w": 132,
+            "h": 200
+          },
+          "inkBounds": {
+            "x": 1270,
+            "y": 213,
+            "w": 126,
+            "h": 194
+          },
+          "geometricCenter": {
+            "x": 1333.0,
+            "y": 310.0
+          },
+          "registration": {
+            "anchorX": 181.0,
+            "anchorY": 213,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 20724,
+          "components": 1,
+          "file": "sheets/mouth_worried_v4.png",
+          "sha256": "23b9d8c3e5a5d917e6cb1bc58eca2b68dda0d4f2e4d7200fac719bfd2a564539",
+          "sourceScale": 0.5774739583333334
+        },
+        {
+          "index": 5,
+          "pose": "EH",
+          "x": 114,
+          "y": 672,
+          "w": 208,
+          "h": 92,
+          "cx": 218.0,
+          "cy": 675,
+          "cell": {
+            "x": 0,
+            "y": 512,
+            "w": 384,
+            "h": 512
+          },
+          "cropBounds": {
+            "x": 114,
+            "y": 672,
+            "w": 208,
+            "h": 92
+          },
+          "inkBounds": {
+            "x": 117,
+            "y": 675,
+            "w": 202,
+            "h": 86
+          },
+          "geometricCenter": {
+            "x": 218.0,
+            "y": 718.0
+          },
+          "registration": {
+            "anchorX": 218.0,
+            "anchorY": 163,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 14880,
+          "components": 1,
+          "file": "sheets/mouth_worried_v4.png",
+          "sha256": "23b9d8c3e5a5d917e6cb1bc58eca2b68dda0d4f2e4d7200fac719bfd2a564539",
+          "sourceScale": 0.5774739583333334
+        },
+        {
+          "index": 6,
+          "pose": "EE",
+          "x": 472,
+          "y": 682,
+          "w": 237,
+          "h": 71,
+          "cx": 590.5,
+          "cy": 685,
+          "cell": {
+            "x": 384,
+            "y": 512,
+            "w": 384,
+            "h": 512
+          },
+          "cropBounds": {
+            "x": 472,
+            "y": 682,
+            "w": 237,
+            "h": 71
+          },
+          "inkBounds": {
+            "x": 475,
+            "y": 685,
+            "w": 231,
+            "h": 65
+          },
+          "geometricCenter": {
+            "x": 590.5,
+            "y": 717.5
+          },
+          "registration": {
+            "anchorX": 206.5,
+            "anchorY": 173,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 12694,
+          "components": 1,
+          "file": "sheets/mouth_worried_v4.png",
+          "sha256": "23b9d8c3e5a5d917e6cb1bc58eca2b68dda0d4f2e4d7200fac719bfd2a564539",
+          "sourceScale": 0.5774739583333334
+        },
+        {
+          "index": 7,
+          "pose": "OH",
+          "x": 719,
+          "y": 313,
+          "w": 102,
+          "h": 99,
+          "cx": 770.0,
+          "cy": 316,
+          "cell": {
+            "x": 665,
+            "y": 222,
+            "w": 222,
+            "h": 222
+          },
+          "cropBounds": {
+            "x": 719,
+            "y": 313,
+            "w": 102,
+            "h": 99
+          },
+          "inkBounds": {
+            "x": 722,
+            "y": 316,
+            "w": 96,
+            "h": 93
+          },
+          "geometricCenter": {
+            "x": 770.0,
+            "y": 362.5
+          },
+          "registration": {
+            "anchorX": 105.0,
+            "anchorY": 94,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 6975,
+          "components": 1
+        },
+        {
+          "index": 8,
+          "pose": "OO",
+          "x": 77,
+          "y": 537,
+          "w": 90,
+          "h": 81,
+          "cx": 122.0,
+          "cy": 540,
+          "cell": {
+            "x": 0,
+            "y": 444,
+            "w": 222,
+            "h": 221
+          },
+          "cropBounds": {
+            "x": 77,
+            "y": 537,
+            "w": 90,
+            "h": 81
+          },
+          "inkBounds": {
+            "x": 80,
+            "y": 540,
+            "w": 84,
+            "h": 75
+          },
+          "geometricCenter": {
+            "x": 122.0,
+            "y": 577.5
+          },
+          "registration": {
+            "anchorX": 122.0,
+            "anchorY": 96,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 4862,
+          "components": 1
+        },
+        {
+          "index": 9,
+          "pose": "FV",
+          "x": 130,
+          "y": 262,
+          "w": 256,
+          "h": 65,
+          "cx": 258.0,
+          "cy": 265,
+          "cell": {
+            "x": 0,
+            "y": 0,
+            "w": 512,
+            "h": 512
+          },
+          "cropBounds": {
+            "x": 130,
+            "y": 262,
+            "w": 256,
+            "h": 65
+          },
+          "inkBounds": {
+            "x": 133,
+            "y": 265,
+            "w": 250,
+            "h": 59
+          },
+          "geometricCenter": {
+            "x": 258.0,
+            "y": 294.5
+          },
+          "registration": {
+            "anchorX": 258.0,
+            "anchorY": 265,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 13302,
+          "components": 1,
+          "file": "sheets/mouth_consonants_v3.png",
+          "sha256": "21b52937835c60be0e9a368c6057b8c7de257a2dfe079d1c631b867512257923",
+          "sourceScale": 0.43310546875
+        },
+        {
+          "index": 10,
+          "pose": "LNT",
+          "x": 872,
+          "y": 689,
+          "w": 173,
+          "h": 57,
+          "cx": 958.5,
+          "cy": 692,
+          "cell": {
+            "x": 768,
+            "y": 512,
+            "w": 384,
+            "h": 512
+          },
+          "cropBounds": {
+            "x": 872,
+            "y": 689,
+            "w": 173,
+            "h": 57
+          },
+          "inkBounds": {
+            "x": 875,
+            "y": 692,
+            "w": 167,
+            "h": 51
+          },
+          "geometricCenter": {
+            "x": 958.5,
+            "y": 717.5
+          },
+          "registration": {
+            "anchorX": 190.5,
+            "anchorY": 180,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 7133,
+          "components": 1,
+          "file": "sheets/mouth_worried_v4.png",
+          "sha256": "23b9d8c3e5a5d917e6cb1bc58eca2b68dda0d4f2e4d7200fac719bfd2a564539",
+          "sourceScale": 0.5774739583333334
+        },
+        {
+          "index": 11,
+          "pose": "S",
+          "x": 710,
+          "y": 553,
+          "w": 129,
+          "h": 41,
+          "cx": 774.5,
+          "cy": 556,
+          "cell": {
+            "x": 665,
+            "y": 444,
+            "w": 222,
+            "h": 221
+          },
+          "cropBounds": {
+            "x": 710,
+            "y": 553,
+            "w": 129,
+            "h": 41
+          },
+          "inkBounds": {
+            "x": 713,
+            "y": 556,
+            "w": 123,
+            "h": 35
+          },
+          "geometricCenter": {
+            "x": 774.5,
+            "y": 573.5
+          },
+          "registration": {
+            "anchorX": 109.5,
+            "anchorY": 112,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 3347,
+          "components": 1
+        },
+        {
+          "index": 12,
+          "pose": "TH",
+          "x": 1162,
+          "y": 254,
+          "w": 242,
+          "h": 80,
+          "cx": 1283.0,
+          "cy": 257,
+          "cell": {
+            "x": 1024,
+            "y": 0,
+            "w": 512,
+            "h": 512
+          },
+          "cropBounds": {
+            "x": 1162,
+            "y": 254,
+            "w": 242,
+            "h": 80
+          },
+          "inkBounds": {
+            "x": 1165,
+            "y": 257,
+            "w": 236,
+            "h": 74
+          },
+          "geometricCenter": {
+            "x": 1283.0,
+            "y": 294.0
+          },
+          "registration": {
+            "anchorX": 259.0,
+            "anchorY": 257,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 14172,
+          "components": 1,
+          "file": "sheets/mouth_consonants_v3.png",
+          "sha256": "21b52937835c60be0e9a368c6057b8c7de257a2dfe079d1c631b867512257923",
+          "sourceScale": 0.43310546875
+        },
+        {
+          "index": 13,
+          "pose": "wide_close",
+          "x": 1208,
+          "y": 685,
+          "w": 254,
+          "h": 59,
+          "cx": 1335.0,
+          "cy": 688,
+          "cell": {
+            "x": 1152,
+            "y": 512,
+            "w": 384,
+            "h": 512
+          },
+          "cropBounds": {
+            "x": 1208,
+            "y": 685,
+            "w": 254,
+            "h": 59
+          },
+          "inkBounds": {
+            "x": 1211,
+            "y": 688,
+            "w": 248,
+            "h": 53
+          },
+          "geometricCenter": {
+            "x": 1335.0,
+            "y": 714.5
+          },
+          "registration": {
+            "anchorX": 183.0,
+            "anchorY": 176,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 10898,
+          "components": 1,
+          "file": "sheets/mouth_worried_v4.png",
+          "sha256": "23b9d8c3e5a5d917e6cb1bc58eca2b68dda0d4f2e4d7200fac719bfd2a564539",
+          "sourceScale": 0.5774739583333334
+        },
+        {
+          "index": 14,
+          "pose": "round_close",
+          "x": 508,
+          "y": 755,
+          "w": 97,
+          "h": 45,
+          "cx": 556.5,
+          "cy": 758,
+          "cell": {
+            "x": 444,
+            "y": 665,
+            "w": 221,
+            "h": 222
+          },
+          "cropBounds": {
+            "x": 508,
+            "y": 755,
+            "w": 97,
+            "h": 45
+          },
+          "inkBounds": {
+            "x": 511,
+            "y": 758,
+            "w": 91,
+            "h": 39
+          },
+          "geometricCenter": {
+            "x": 556.5,
+            "y": 777.5
+          },
+          "registration": {
+            "anchorX": 112.5,
+            "anchorY": 93,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 2817,
+          "components": 1
+        },
+        {
+          "index": 15,
+          "pose": "SMILE",
+          "x": 102,
+          "y": 287,
+          "w": 232,
+          "h": 59,
+          "cx": 218.0,
+          "cy": 290,
+          "cell": {
+            "x": 0,
+            "y": 0,
+            "w": 384,
+            "h": 512
+          },
+          "cropBounds": {
+            "x": 102,
+            "y": 287,
+            "w": 232,
+            "h": 59
+          },
+          "inkBounds": {
+            "x": 105,
+            "y": 290,
+            "w": 226,
+            "h": 53
+          },
+          "geometricCenter": {
+            "x": 218.0,
+            "y": 316.5
+          },
+          "registration": {
+            "anchorX": 218.0,
+            "anchorY": 290,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 7921,
+          "components": 1,
+          "file": "sheets/mouth_worried_v4.png",
+          "sha256": "23b9d8c3e5a5d917e6cb1bc58eca2b68dda0d4f2e4d7200fac719bfd2a564539",
+          "sourceScale": 0.5774739583333334,
+          "aliasOf": "rest"
+        }
+      ],
+      "sha256": "6887b56afdfae6cb8a614d5fb7b52dc2669e229fc01647d6c773c310d757488b",
+      "hasTransparentPixels": false,
+      "registration": "constant scale, horizontal center, lower eye baseline / upper mouth baseline",
+      "provenance": "ImageGen raster source copied without modification",
+      "extraSources": [
+        {
+          "file": "sheets/mouth_consonants_v3.png",
+          "sha256": "21b52937835c60be0e9a368c6057b8c7de257a2dfe079d1c631b867512257923",
+          "imageWidth": 1536,
+          "imageHeight": 1024
+        },
+        {
+          "file": "sheets/mouth_worried_v4.png",
+          "sha256": "23b9d8c3e5a5d917e6cb1bc58eca2b68dda0d4f2e4d7200fac719bfd2a564539",
+          "imageWidth": 1536,
+          "imageHeight": 1024
+        }
+      ],
+      "label": "Worried / distressed",
+      "inherits": "mouth_neutral",
+      "allowSmileCue": false
+    },
+    "mouth_skeptical": {
+      "id": "mouth_skeptical",
+      "file": "sheets/mouth_combined_v2.png",
+      "kind": "mouth",
+      "imageWidth": 887,
+      "imageHeight": 1774,
+      "columns": 4,
+      "rows": 8,
+      "frameOffset": 0,
+      "masterWidth": 149,
+      "masterHeight": 42,
+      "maxWidth": 152.0,
+      "maxHeight": 93,
+      "anchor": "top",
+      "frames": [
+        {
+          "index": 0,
+          "pose": "rest",
+          "x": 82,
+          "y": 213,
+          "w": 298,
+          "h": 61,
+          "cx": 231.0,
+          "cy": 216,
+          "cell": {
+            "x": 0,
+            "y": 0,
+            "w": 444,
+            "h": 444
+          },
+          "cropBounds": {
+            "x": 82,
+            "y": 213,
+            "w": 298,
+            "h": 61
+          },
+          "inkBounds": {
+            "x": 85,
+            "y": 216,
+            "w": 292,
+            "h": 55
+          },
+          "geometricCenter": {
+            "x": 231.0,
+            "y": 243.5
+          },
+          "registration": {
+            "anchorX": 231.0,
+            "anchorY": 216,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 9182,
+          "components": 1,
+          "file": "sheets/mouth_skeptical_v4.png",
+          "sha256": "d7b658cf46d3b4c6322dff907a7025e95e2de29fece40cc9c5ca16faf7ef9507",
+          "sourceScale": 0.5
+        },
+        {
+          "index": 1,
+          "pose": "MBP",
+          "x": 264,
+          "y": 134,
+          "w": 152,
+          "h": 36,
+          "cx": 340.0,
+          "cy": 137,
+          "cell": {
+            "x": 222,
+            "y": 0,
+            "w": 222,
+            "h": 222
+          },
+          "cropBounds": {
+            "x": 264,
+            "y": 134,
+            "w": 152,
+            "h": 36
+          },
+          "inkBounds": {
+            "x": 267,
+            "y": 137,
+            "w": 146,
+            "h": 30
+          },
+          "geometricCenter": {
+            "x": 340.0,
+            "y": 152.0
+          },
+          "registration": {
+            "anchorX": 118.0,
+            "anchorY": 137,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 4192,
+          "components": 1
+        },
+        {
+          "index": 2,
+          "pose": "release",
+          "x": 539,
+          "y": 198,
+          "w": 261,
+          "h": 76,
+          "cx": 669.5,
+          "cy": 201,
+          "cell": {
+            "x": 444,
+            "y": 0,
+            "w": 443,
+            "h": 444
+          },
+          "cropBounds": {
+            "x": 539,
+            "y": 198,
+            "w": 261,
+            "h": 76
+          },
+          "inkBounds": {
+            "x": 542,
+            "y": 201,
+            "w": 255,
+            "h": 70
+          },
+          "geometricCenter": {
+            "x": 669.5,
+            "y": 236.0
+          },
+          "registration": {
+            "anchorX": 225.5,
+            "anchorY": 201,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 11906,
+          "components": 1,
+          "file": "sheets/mouth_skeptical_v4.png",
+          "sha256": "d7b658cf46d3b4c6322dff907a7025e95e2de29fece40cc9c5ca16faf7ef9507",
+          "sourceScale": 0.5
+        },
+        {
+          "index": 3,
+          "pose": "small_AA",
+          "x": 967,
+          "y": 194,
+          "w": 290,
+          "h": 88,
+          "cx": 1112.0,
+          "cy": 197,
+          "cell": {
+            "x": 887,
+            "y": 0,
+            "w": 443,
+            "h": 444
+          },
+          "cropBounds": {
+            "x": 967,
+            "y": 194,
+            "w": 290,
+            "h": 88
+          },
+          "inkBounds": {
+            "x": 970,
+            "y": 197,
+            "w": 284,
+            "h": 82
+          },
+          "geometricCenter": {
+            "x": 1112.0,
+            "y": 238.0
+          },
+          "registration": {
+            "anchorX": 225.0,
+            "anchorY": 197,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 16241,
+          "components": 1,
+          "file": "sheets/mouth_skeptical_v4.png",
+          "sha256": "d7b658cf46d3b4c6322dff907a7025e95e2de29fece40cc9c5ca16faf7ef9507",
+          "sourceScale": 0.5
+        },
+        {
+          "index": 4,
+          "pose": "AA",
+          "x": 1404,
+          "y": 176,
+          "w": 294,
+          "h": 116,
+          "cx": 1551.0,
+          "cy": 179,
+          "cell": {
+            "x": 1330,
+            "y": 0,
+            "w": 444,
+            "h": 444
+          },
+          "cropBounds": {
+            "x": 1404,
+            "y": 176,
+            "w": 294,
+            "h": 116
+          },
+          "inkBounds": {
+            "x": 1407,
+            "y": 179,
+            "w": 288,
+            "h": 110
+          },
+          "geometricCenter": {
+            "x": 1551.0,
+            "y": 234.0
+          },
+          "registration": {
+            "anchorX": 221.0,
+            "anchorY": 179,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 22046,
+          "components": 1,
+          "file": "sheets/mouth_skeptical_v4.png",
+          "sha256": "d7b658cf46d3b4c6322dff907a7025e95e2de29fece40cc9c5ca16faf7ef9507",
+          "sourceScale": 0.5
+        },
+        {
+          "index": 5,
+          "pose": "EH",
+          "x": 78,
+          "y": 587,
+          "w": 300,
+          "h": 102,
+          "cx": 228.0,
+          "cy": 590,
+          "cell": {
+            "x": 0,
+            "y": 444,
+            "w": 444,
+            "h": 443
+          },
+          "cropBounds": {
+            "x": 78,
+            "y": 587,
+            "w": 300,
+            "h": 102
+          },
+          "inkBounds": {
+            "x": 81,
+            "y": 590,
+            "w": 294,
+            "h": 96
+          },
+          "geometricCenter": {
+            "x": 228.0,
+            "y": 638.0
+          },
+          "registration": {
+            "anchorX": 228.0,
+            "anchorY": 146,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 20915,
+          "components": 1,
+          "file": "sheets/mouth_skeptical_v4.png",
+          "sha256": "d7b658cf46d3b4c6322dff907a7025e95e2de29fece40cc9c5ca16faf7ef9507",
+          "sourceScale": 0.5
+        },
+        {
+          "index": 6,
+          "pose": "EE",
+          "x": 523,
+          "y": 604,
+          "w": 310,
+          "h": 75,
+          "cx": 678.0,
+          "cy": 607,
+          "cell": {
+            "x": 444,
+            "y": 444,
+            "w": 443,
+            "h": 443
+          },
+          "cropBounds": {
+            "x": 523,
+            "y": 604,
+            "w": 310,
+            "h": 75
+          },
+          "inkBounds": {
+            "x": 526,
+            "y": 607,
+            "w": 304,
+            "h": 69
+          },
+          "geometricCenter": {
+            "x": 678.0,
+            "y": 641.5
+          },
+          "registration": {
+            "anchorX": 234.0,
+            "anchorY": 163,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 14674,
+          "components": 1,
+          "file": "sheets/mouth_skeptical_v4.png",
+          "sha256": "d7b658cf46d3b4c6322dff907a7025e95e2de29fece40cc9c5ca16faf7ef9507",
+          "sourceScale": 0.5
+        },
+        {
+          "index": 7,
+          "pose": "OH",
+          "x": 719,
+          "y": 313,
+          "w": 102,
+          "h": 99,
+          "cx": 770.0,
+          "cy": 316,
+          "cell": {
+            "x": 665,
+            "y": 222,
+            "w": 222,
+            "h": 222
+          },
+          "cropBounds": {
+            "x": 719,
+            "y": 313,
+            "w": 102,
+            "h": 99
+          },
+          "inkBounds": {
+            "x": 722,
+            "y": 316,
+            "w": 96,
+            "h": 93
+          },
+          "geometricCenter": {
+            "x": 770.0,
+            "y": 362.5
+          },
+          "registration": {
+            "anchorX": 105.0,
+            "anchorY": 94,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 6975,
+          "components": 1
+        },
+        {
+          "index": 8,
+          "pose": "OO",
+          "x": 77,
+          "y": 537,
+          "w": 90,
+          "h": 81,
+          "cx": 122.0,
+          "cy": 540,
+          "cell": {
+            "x": 0,
+            "y": 444,
+            "w": 222,
+            "h": 221
+          },
+          "cropBounds": {
+            "x": 77,
+            "y": 537,
+            "w": 90,
+            "h": 81
+          },
+          "inkBounds": {
+            "x": 80,
+            "y": 540,
+            "w": 84,
+            "h": 75
+          },
+          "geometricCenter": {
+            "x": 122.0,
+            "y": 577.5
+          },
+          "registration": {
+            "anchorX": 122.0,
+            "anchorY": 96,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 4862,
+          "components": 1
+        },
+        {
+          "index": 9,
+          "pose": "FV",
+          "x": 130,
+          "y": 262,
+          "w": 256,
+          "h": 65,
+          "cx": 258.0,
+          "cy": 265,
+          "cell": {
+            "x": 0,
+            "y": 0,
+            "w": 512,
+            "h": 512
+          },
+          "cropBounds": {
+            "x": 130,
+            "y": 262,
+            "w": 256,
+            "h": 65
+          },
+          "inkBounds": {
+            "x": 133,
+            "y": 265,
+            "w": 250,
+            "h": 59
+          },
+          "geometricCenter": {
+            "x": 258.0,
+            "y": 294.5
+          },
+          "registration": {
+            "anchorX": 258.0,
+            "anchorY": 265,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 13302,
+          "components": 1,
+          "file": "sheets/mouth_consonants_v3.png",
+          "sha256": "21b52937835c60be0e9a368c6057b8c7de257a2dfe079d1c631b867512257923",
+          "sourceScale": 0.43310546875
+        },
+        {
+          "index": 10,
+          "pose": "LNT",
+          "x": 995,
+          "y": 610,
+          "w": 225,
+          "h": 64,
+          "cx": 1107.5,
+          "cy": 613,
+          "cell": {
+            "x": 887,
+            "y": 444,
+            "w": 443,
+            "h": 443
+          },
+          "cropBounds": {
+            "x": 995,
+            "y": 610,
+            "w": 225,
+            "h": 64
+          },
+          "inkBounds": {
+            "x": 998,
+            "y": 613,
+            "w": 219,
+            "h": 58
+          },
+          "geometricCenter": {
+            "x": 1107.5,
+            "y": 642.0
+          },
+          "registration": {
+            "anchorX": 220.5,
+            "anchorY": 169,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 7926,
+          "components": 1,
+          "file": "sheets/mouth_skeptical_v4.png",
+          "sha256": "d7b658cf46d3b4c6322dff907a7025e95e2de29fece40cc9c5ca16faf7ef9507",
+          "sourceScale": 0.5
+        },
+        {
+          "index": 11,
+          "pose": "S",
+          "x": 710,
+          "y": 553,
+          "w": 129,
+          "h": 41,
+          "cx": 774.5,
+          "cy": 556,
+          "cell": {
+            "x": 665,
+            "y": 444,
+            "w": 222,
+            "h": 221
+          },
+          "cropBounds": {
+            "x": 710,
+            "y": 553,
+            "w": 129,
+            "h": 41
+          },
+          "inkBounds": {
+            "x": 713,
+            "y": 556,
+            "w": 123,
+            "h": 35
+          },
+          "geometricCenter": {
+            "x": 774.5,
+            "y": 573.5
+          },
+          "registration": {
+            "anchorX": 109.5,
+            "anchorY": 112,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 3347,
+          "components": 1
+        },
+        {
+          "index": 12,
+          "pose": "TH",
+          "x": 1162,
+          "y": 254,
+          "w": 242,
+          "h": 80,
+          "cx": 1283.0,
+          "cy": 257,
+          "cell": {
+            "x": 1024,
+            "y": 0,
+            "w": 512,
+            "h": 512
+          },
+          "cropBounds": {
+            "x": 1162,
+            "y": 254,
+            "w": 242,
+            "h": 80
+          },
+          "inkBounds": {
+            "x": 1165,
+            "y": 257,
+            "w": 236,
+            "h": 74
+          },
+          "geometricCenter": {
+            "x": 1283.0,
+            "y": 294.0
+          },
+          "registration": {
+            "anchorX": 259.0,
+            "anchorY": 257,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 14172,
+          "components": 1,
+          "file": "sheets/mouth_consonants_v3.png",
+          "sha256": "21b52937835c60be0e9a368c6057b8c7de257a2dfe079d1c631b867512257923",
+          "sourceScale": 0.43310546875
+        },
+        {
+          "index": 13,
+          "pose": "wide_close",
+          "x": 1404,
+          "y": 603,
+          "w": 298,
+          "h": 67,
+          "cx": 1553.0,
+          "cy": 606,
+          "cell": {
+            "x": 1330,
+            "y": 444,
+            "w": 444,
+            "h": 443
+          },
+          "cropBounds": {
+            "x": 1404,
+            "y": 603,
+            "w": 298,
+            "h": 67
+          },
+          "inkBounds": {
+            "x": 1407,
+            "y": 606,
+            "w": 292,
+            "h": 61
+          },
+          "geometricCenter": {
+            "x": 1553.0,
+            "y": 636.5
+          },
+          "registration": {
+            "anchorX": 223.0,
+            "anchorY": 162,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 10645,
+          "components": 1,
+          "file": "sheets/mouth_skeptical_v4.png",
+          "sha256": "d7b658cf46d3b4c6322dff907a7025e95e2de29fece40cc9c5ca16faf7ef9507",
+          "sourceScale": 0.5
+        },
+        {
+          "index": 14,
+          "pose": "round_close",
+          "x": 508,
+          "y": 755,
+          "w": 97,
+          "h": 45,
+          "cx": 556.5,
+          "cy": 758,
+          "cell": {
+            "x": 444,
+            "y": 665,
+            "w": 221,
+            "h": 222
+          },
+          "cropBounds": {
+            "x": 508,
+            "y": 755,
+            "w": 97,
+            "h": 45
+          },
+          "inkBounds": {
+            "x": 511,
+            "y": 758,
+            "w": 91,
+            "h": 39
+          },
+          "geometricCenter": {
+            "x": 556.5,
+            "y": 777.5
+          },
+          "registration": {
+            "anchorX": 112.5,
+            "anchorY": 93,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 2817,
+          "components": 1
+        },
+        {
+          "index": 15,
+          "pose": "SMILE",
+          "x": 82,
+          "y": 213,
+          "w": 298,
+          "h": 61,
+          "cx": 231.0,
+          "cy": 216,
+          "cell": {
+            "x": 0,
+            "y": 0,
+            "w": 444,
+            "h": 444
+          },
+          "cropBounds": {
+            "x": 82,
+            "y": 213,
+            "w": 298,
+            "h": 61
+          },
+          "inkBounds": {
+            "x": 85,
+            "y": 216,
+            "w": 292,
+            "h": 55
+          },
+          "geometricCenter": {
+            "x": 231.0,
+            "y": 243.5
+          },
+          "registration": {
+            "anchorX": 231.0,
+            "anchorY": 216,
+            "method": "horizontal-center-upper-mouth"
+          },
+          "inkPixels": 9182,
+          "components": 1,
+          "file": "sheets/mouth_skeptical_v4.png",
+          "sha256": "d7b658cf46d3b4c6322dff907a7025e95e2de29fece40cc9c5ca16faf7ef9507",
+          "sourceScale": 0.5,
+          "aliasOf": "rest"
+        }
+      ],
+      "sha256": "6887b56afdfae6cb8a614d5fb7b52dc2669e229fc01647d6c773c310d757488b",
+      "hasTransparentPixels": false,
+      "registration": "constant scale, horizontal center, lower eye baseline / upper mouth baseline",
+      "provenance": "ImageGen raster source copied without modification",
+      "extraSources": [
+        {
+          "file": "sheets/mouth_consonants_v3.png",
+          "sha256": "21b52937835c60be0e9a368c6057b8c7de257a2dfe079d1c631b867512257923",
+          "imageWidth": 1536,
+          "imageHeight": 1024
+        },
+        {
+          "file": "sheets/mouth_skeptical_v4.png",
+          "sha256": "d7b658cf46d3b4c6322dff907a7025e95e2de29fece40cc9c5ca16faf7ef9507",
+          "imageWidth": 1774,
+          "imageHeight": 887
+        }
+      ],
+      "label": "Skeptical / restrained",
+      "inherits": "mouth_neutral",
+      "allowSmileCue": false
+    }
+  },
+  "expectedAssets": [
+    "round",
+    "hook",
+    "arc",
+    "loop",
+    "slot",
+    "chevron",
+    "bar",
+    "mouth_neutral",
+    "mouth_smile",
+    "mouth_angry",
+    "mouth_sad",
+    "mouth_flat",
+    "mouth_worried",
+    "mouth_skeptical"
+  ],
+  "missingAssets": [],
+  "sourceType": "ImageGen raster sheets",
+  "notes": [
+    "Source images are copied byte for byte. Bounds and pivots are metadata.",
+    "Each sequence has a fixed scale. No sprite is stretched to fit its individual bounds.",
+    "A frame.file overrides the source sheet; sourceScale maps that replacement family into the original sheet coordinates.",
+    "The preview removes the white background at display time; downloaded sheets remain original.",
+    "Generated open and settled poses can differ. The preview may reuse the rest pose to close a loop."
+  ],
+  "mouthFamilies": {
+    "01_angry_01_manual": "mouth_angry",
+    "02_angry_02_manual": "mouth_angry",
+    "03_angry_07_manual": "mouth_angry",
+    "04_angry_08_manual": "mouth_angry",
+    "05_annoyed_01_manual": "mouth_skeptical",
+    "06_annoyed_02_manual": "mouth_skeptical",
+    "07_annoyed_03_manual": "mouth_flat",
+    "08_annoyed_04_manual": "mouth_skeptical",
+    "09_happy_03_manual": "mouth_smile",
+    "10_happy_04_manual": "mouth_smile",
+    "11_happy_05_manual": "mouth_smile",
+    "12_happy_09_manual": "mouth_smile",
+    "13_happy_14_manual": "mouth_smile",
+    "14_happy_16_manual": "mouth_smile",
+    "15_misc_15_manual": "mouth_flat",
+    "16_misc_16_manual": "mouth_flat",
+    "17_misc_2_01_manual": "mouth_flat",
+    "18_misc_2_02_manual": "mouth_worried",
+    "19_misc_2_03_manual": "mouth_flat",
+    "20_neutral_06_manual": "mouth_flat",
+    "21_neutral_11_manual": "mouth_flat",
+    "22_neutral_12_manual": "mouth_flat",
+    "23_neutral_13_manual": "mouth_flat",
+    "24_neutral_2_01_manual": "mouth_flat",
+    "25_neutral_2_03_manual": "mouth_flat",
+    "26_sad_01_manual": "mouth_flat",
+    "27_sad_02_manual": "mouth_sad",
+    "28_sad_03_manual": "mouth_worried",
+    "29_sad_04_manual": "mouth_skeptical",
+    "30_sad_05_manual": "mouth_worried",
+    "31_sad_06_manual": "mouth_sad",
+    "32_sad_07_manual": "mouth_sad",
+    "33_sad_08_manual": "mouth_worried",
+    "34_sad_09_manual": "mouth_worried",
+    "35_sad_10_manual": "mouth_flat",
+    "36_misc_03_manual": "mouth_skeptical",
+    "37_misc_06_manual": "mouth_smile",
+    "38_misc_2_06_manual": "mouth_flat",
+    "39_neutral_02_manual": "mouth_flat",
+    "40_neutral_03_manual": "mouth_flat"
+  },
+  "mouthFamilyLabels": {
+    "mouth_smile": "Happy / warm",
+    "mouth_angry": "Angry / tense",
+    "mouth_sad": "Sad / low energy",
+    "mouth_flat": "Neutral / indifferent",
+    "mouth_worried": "Worried / distressed",
+    "mouth_skeptical": "Skeptical / restrained"
+  }
+}

@@ -1,0 +1,858 @@
+{
+  "version": 2,
+  "expressions": {
+    "neutral": {
+      "primary": "39_neutral_02_manual",
+      "alts": [
+        "40_neutral_03_manual",
+        "21_neutral_11_manual"
+      ],
+      "use": "Calm, ordinary conversation or a direct correction.",
+      "duration_ms": 2800
+    },
+    "happy": {
+      "primary": "09_happy_03_manual",
+      "alts": [
+        "12_happy_09_manual",
+        "13_happy_14_manual"
+      ],
+      "use": "A warm response to good news or an actual success.",
+      "duration_ms": 2800
+    },
+    "sad": {
+      "primary": "32_sad_07_manual",
+      "alts": [
+        "27_sad_02_manual",
+        "31_sad_06_manual"
+      ],
+      "use": "A requested sad face. The tear variants are theatrical; avoid them for a routine apology.",
+      "duration_ms": 2200
+    },
+    "alert": {
+      "primary": "24_neutral_2_01_manual",
+      "alts": [
+        "07_annoyed_03_manual"
+      ],
+      "use": "A brief attention cue or a stop acknowledgement.",
+      "duration_ms": 1400
+    },
+    "bored": {
+      "primary": "22_neutral_12_manual",
+      "alts": [
+        "23_neutral_13_manual",
+        "26_sad_01_manual"
+      ],
+      "use": "A requested bored face or an invited dry joke.",
+      "duration_ms": 2200
+    },
+    "dead_inside": {
+      "primary": "35_sad_10_manual",
+      "alts": [
+        "15_misc_15_manual",
+        "17_misc_2_01_manual"
+      ],
+      "use": "A deliberately flat reaction, only when requested or clearly invited.",
+      "duration_ms": 1600
+    },
+    "error": {
+      "primary": "36_misc_03_manual",
+      "alts": [
+        "06_annoyed_02_manual"
+      ],
+      "use": "A recoverable problem. Explain the actual problem calmly.",
+      "duration_ms": 1800
+    },
+    "smug": {
+      "primary": "37_misc_06_manual",
+      "alts": [
+        "29_sad_04_manual"
+      ],
+      "use": "A playful, self-satisfied reaction when that tone is welcome.",
+      "duration_ms": 1800
+    },
+    "curious": {
+      "primary": "20_neutral_06_manual",
+      "alts": [
+        "25_neutral_2_03_manual"
+      ],
+      "use": "Interest in a question or a new detail.",
+      "duration_ms": 2600
+    },
+    "sleepy": {
+      "primary": "16_misc_16_manual",
+      "alts": [
+        "21_neutral_11_manual"
+      ],
+      "use": "A requested sleepy expression or a rest cue.",
+      "duration_ms": 3000
+    },
+    "angry": {
+      "primary": "04_angry_08_manual",
+      "alts": [
+        "01_angry_01_manual",
+        "02_angry_02_manual",
+        "03_angry_07_manual"
+      ],
+      "use": "A requested angry expression or roleplay. Do not use toward someone correcting you.",
+      "duration_ms": 1400
+    },
+    "love": {
+      "primary": "14_happy_16_manual",
+      "alts": [
+        "13_happy_14_manual"
+      ],
+      "use": "Affection when invited by the person.",
+      "duration_ms": 2200
+    },
+    "suspicious": {
+      "primary": "08_annoyed_04_manual",
+      "alts": [
+        "05_annoyed_01_manual"
+      ],
+      "use": "Playful doubt, not a claim about the person.",
+      "duration_ms": 1800
+    },
+    "surprised": {
+      "primary": "38_misc_2_06_manual",
+      "alts": [
+        "28_sad_03_manual"
+      ],
+      "use": "A short reaction to something unexpected.",
+      "duration_ms": 1500
+    },
+    "panic": {
+      "primary": "33_sad_08_manual",
+      "alts": [
+        "30_sad_05_manual",
+        "34_sad_09_manual"
+      ],
+      "use": "A requested exaggerated reaction. Do not use for ordinary delays or tool errors.",
+      "duration_ms": 1200
+    },
+    "listening": {
+      "primary": "25_neutral_2_03_manual",
+      "alts": [
+        "07_annoyed_03_manual"
+      ],
+      "use": "Compatibility preset. The interface normally owns the listening state.",
+      "duration_ms": 2200
+    },
+    "thinking": {
+      "primary": "39_neutral_02_manual",
+      "alts": [],
+      "use": "Compatibility preset. The interface normally owns thinking and gaze.",
+      "duration_ms": 2200
+    },
+    "mischief": {
+      "primary": "10_happy_04_manual",
+      "alts": [
+        "06_annoyed_02_manual"
+      ],
+      "use": "An invited mischievous joke.",
+      "duration_ms": 1700
+    },
+    "proud": {
+      "primary": "11_happy_05_manual",
+      "alts": [
+        "13_happy_14_manual"
+      ],
+      "use": "Quiet satisfaction after a real achievement.",
+      "duration_ms": 2400
+    },
+    "embarrassed": {
+      "primary": "19_misc_2_03_manual",
+      "alts": [
+        "29_sad_04_manual"
+      ],
+      "use": "A brief, light awkward reaction when it fits.",
+      "duration_ms": 1800
+    },
+    "uncertain": {
+      "primary": "18_misc_2_02_manual",
+      "alts": [],
+      "use": "A mild uncertain reaction. Say what is uncertain.",
+      "duration_ms": 1800
+    }
+  },
+  "faces": {
+    "01_angry_01_manual": {
+      "name": "angry_01",
+      "group": "angry",
+      "talk_safe": true,
+      "calls": [
+        {
+          "expression": "angry",
+          "variant": 1
+        }
+      ],
+      "parts": {
+        "eye_R": "open_C_42",
+        "eye_L": "open_C_47",
+        "mouth": "mouth_line_31"
+      }
+    },
+    "02_angry_02_manual": {
+      "name": "angry_02",
+      "group": "angry",
+      "talk_safe": true,
+      "calls": [
+        {
+          "expression": "angry",
+          "variant": 2
+        }
+      ],
+      "parts": {
+        "eye_R": "angry_hook_00",
+        "eye_L": "angry_hook_00",
+        "mouth": "mouth_oval_tall_filled_34"
+      }
+    },
+    "03_angry_07_manual": {
+      "name": "angry_07",
+      "group": "angry",
+      "talk_safe": true,
+      "calls": [
+        {
+          "expression": "angry",
+          "variant": 3
+        }
+      ],
+      "parts": {
+        "eye_R": "open_C_48",
+        "eye_L": "open_C_48",
+        "mouth": "mouth_frown_arc_28"
+      }
+    },
+    "04_angry_08_manual": {
+      "name": "angry_08",
+      "group": "angry",
+      "talk_safe": true,
+      "calls": [
+        {
+          "expression": "angry",
+          "variant": 0
+        }
+      ],
+      "parts": {
+        "eye_L": "angry_hook_00",
+        "eye_R": "angry_hook_00",
+        "mouth": "mouth_frown_arc_29"
+      }
+    },
+    "05_annoyed_01_manual": {
+      "name": "annoyed_01",
+      "group": "annoyed",
+      "talk_safe": true,
+      "calls": [
+        {
+          "expression": "suspicious",
+          "variant": 1
+        }
+      ],
+      "parts": {
+        "eye_L": "droop_hook_08",
+        "eye_R": "droop_hook_10",
+        "mouth": "mouth_chevron_up_20"
+      }
+    },
+    "06_annoyed_02_manual": {
+      "name": "annoyed_02",
+      "group": "annoyed",
+      "talk_safe": false,
+      "calls": [
+        {
+          "expression": "error",
+          "variant": 1
+        },
+        {
+          "expression": "mischief",
+          "variant": 1
+        }
+      ],
+      "parts": {
+        "eye_R": "happy_arc_17",
+        "eye_L": "happy_arc_17",
+        "mouth": "mouth_frown_arc_28"
+      }
+    },
+    "07_annoyed_03_manual": {
+      "name": "annoyed_03",
+      "group": "annoyed",
+      "talk_safe": true,
+      "calls": [
+        {
+          "expression": "alert",
+          "variant": 1
+        },
+        {
+          "expression": "listening",
+          "variant": 1
+        }
+      ],
+      "parts": {
+        "eye_R": "open_C_43",
+        "eye_L": "circle_gap_04",
+        "mouth": "mouth_dome_filled_23"
+      }
+    },
+    "08_annoyed_04_manual": {
+      "name": "annoyed_04",
+      "group": "annoyed",
+      "talk_safe": true,
+      "calls": [
+        {
+          "expression": "suspicious",
+          "variant": 0
+        }
+      ],
+      "parts": {
+        "eye_L": "chevron_01",
+        "eye_R": "chevron_01",
+        "mouth": "mouth_rounded_rect_filled_36"
+      }
+    },
+    "09_happy_03_manual": {
+      "name": "happy_03",
+      "group": "happy",
+      "talk_safe": true,
+      "calls": [
+        {
+          "expression": "happy",
+          "variant": 0
+        }
+      ],
+      "parts": {
+        "eye_L": "circle_gap_02",
+        "eye_R": "circle_gap_02",
+        "mouth": "mouth_open_smile_filled_33"
+      }
+    },
+    "10_happy_04_manual": {
+      "name": "happy_04",
+      "group": "happy",
+      "talk_safe": true,
+      "calls": [
+        {
+          "expression": "mischief",
+          "variant": 0
+        }
+      ],
+      "parts": {
+        "eye_L": "happy_arc_16",
+        "eye_R": "happy_arc_16",
+        "mouth": "mouth_w_squiggle_39"
+      }
+    },
+    "11_happy_05_manual": {
+      "name": "happy_05",
+      "group": "happy",
+      "talk_safe": true,
+      "calls": [
+        {
+          "expression": "proud",
+          "variant": 0
+        }
+      ],
+      "parts": {
+        "eye_R": "circle_gap_03",
+        "eye_L": "circle_gap_02",
+        "mouth": "mouth_smile_arc_37"
+      }
+    },
+    "12_happy_09_manual": {
+      "name": "happy_09",
+      "group": "happy",
+      "talk_safe": true,
+      "calls": [
+        {
+          "expression": "happy",
+          "variant": 1
+        }
+      ],
+      "parts": {
+        "eye_R": "chevron_01",
+        "eye_L": "chevron_01"
+      }
+    },
+    "13_happy_14_manual": {
+      "name": "happy_14",
+      "group": "happy",
+      "talk_safe": false,
+      "calls": [
+        {
+          "expression": "happy",
+          "variant": 2
+        },
+        {
+          "expression": "love",
+          "variant": 1
+        },
+        {
+          "expression": "proud",
+          "variant": 1
+        }
+      ],
+      "parts": {
+        "eye_R": "happy_arc_19",
+        "eye_L": "happy_arc_19",
+        "mouth": "mouth_smile_arc_37"
+      }
+    },
+    "14_happy_16_manual": {
+      "name": "happy_16",
+      "group": "happy",
+      "talk_safe": true,
+      "calls": [
+        {
+          "expression": "love",
+          "variant": 0
+        }
+      ],
+      "parts": {
+        "eye_L": "happy_arc_16",
+        "eye_R": "happy_arc_16",
+        "mouth": "mouth_line_30"
+      }
+    },
+    "15_misc_15_manual": {
+      "name": "misc_15",
+      "group": "misc",
+      "talk_safe": true,
+      "calls": [
+        {
+          "expression": "dead_inside",
+          "variant": 1
+        }
+      ],
+      "parts": {
+        "eye_R": "flat_bar_14",
+        "eye_L": "flat_bar_14",
+        "mouth": "mouth_rounded_rect_filled_36"
+      }
+    },
+    "16_misc_16_manual": {
+      "name": "misc_16",
+      "group": "misc",
+      "talk_safe": true,
+      "calls": [
+        {
+          "expression": "sleepy",
+          "variant": 0
+        }
+      ],
+      "parts": {
+        "eye_L": "closed_lid_arc_05",
+        "eye_R": "closed_lid_arc_05",
+        "mouth": "mouth_oval_tall_filled_34"
+      }
+    },
+    "17_misc_2_01_manual": {
+      "name": "misc_2_01",
+      "group": "misc",
+      "talk_safe": true,
+      "calls": [
+        {
+          "expression": "dead_inside",
+          "variant": 2
+        }
+      ],
+      "parts": {
+        "eye_R": "flat_bar_14",
+        "eye_L": "flat_bar_14",
+        "mouth": "mouth_wide_bar_filled_41"
+      }
+    },
+    "18_misc_2_02_manual": {
+      "name": "misc_2_02",
+      "group": "misc",
+      "talk_safe": true,
+      "calls": [
+        {
+          "expression": "uncertain",
+          "variant": 0
+        }
+      ],
+      "parts": {
+        "eye_R": "e_shape_11",
+        "eye_L": "e_shape_12",
+        "mouth": "mouth_rounded_rect_filled_36"
+      }
+    },
+    "19_misc_2_03_manual": {
+      "name": "misc_2_03",
+      "group": "misc",
+      "talk_safe": true,
+      "calls": [
+        {
+          "expression": "embarrassed",
+          "variant": 0
+        }
+      ],
+      "parts": {
+        "eye_R": "chevron_01",
+        "eye_L": "chevron_01",
+        "mouth": "mouth_line_32"
+      }
+    },
+    "20_neutral_06_manual": {
+      "name": "neutral_06",
+      "group": "neutral",
+      "talk_safe": true,
+      "calls": [
+        {
+          "expression": "curious",
+          "variant": 0
+        }
+      ],
+      "parts": {
+        "eye_R": "circle_gap_02",
+        "eye_L": "circle_gap_02",
+        "mouth": "mouth_dot_25"
+      }
+    },
+    "21_neutral_11_manual": {
+      "name": "neutral_11",
+      "group": "neutral",
+      "talk_safe": false,
+      "calls": [
+        {
+          "expression": "neutral",
+          "variant": 2
+        },
+        {
+          "expression": "sleepy",
+          "variant": 1
+        }
+      ],
+      "parts": {
+        "eye_L": "closed_lid_arc_06",
+        "eye_R": "closed_lid_arc_05",
+        "mouth": "mouth_dome_filled_24"
+      }
+    },
+    "22_neutral_12_manual": {
+      "name": "neutral_12",
+      "group": "neutral",
+      "talk_safe": true,
+      "calls": [
+        {
+          "expression": "bored",
+          "variant": 0
+        }
+      ],
+      "parts": {
+        "eye_R": "closed_lid_arc_05",
+        "eye_L": "closed_lid_arc_05",
+        "mouth": "mouth_line_30"
+      }
+    },
+    "23_neutral_13_manual": {
+      "name": "neutral_13",
+      "group": "neutral",
+      "talk_safe": true,
+      "calls": [
+        {
+          "expression": "bored",
+          "variant": 1
+        }
+      ],
+      "parts": {
+        "eye_R": "closed_lid_arc_05",
+        "eye_L": "closed_lid_arc_06",
+        "mouth": "mouth_oval_tall_filled_35"
+      }
+    },
+    "24_neutral_2_01_manual": {
+      "name": "neutral_2_01",
+      "group": "neutral",
+      "talk_safe": true,
+      "calls": [
+        {
+          "expression": "alert",
+          "variant": 0
+        }
+      ],
+      "parts": {
+        "eye_L": "open_C_51",
+        "eye_R": "open_C_45",
+        "mouth": "mouth_line_31"
+      }
+    },
+    "25_neutral_2_03_manual": {
+      "name": "neutral_2_03",
+      "group": "neutral",
+      "talk_safe": true,
+      "calls": [
+        {
+          "expression": "curious",
+          "variant": 1
+        },
+        {
+          "expression": "listening",
+          "variant": 0
+        }
+      ],
+      "parts": {
+        "eye_R": "circle_gap_03",
+        "eye_L": "circle_gap_03",
+        "mouth": "mouth_dot_26"
+      }
+    },
+    "26_sad_01_manual": {
+      "name": "sad_01",
+      "group": "sad",
+      "talk_safe": true,
+      "calls": [
+        {
+          "expression": "bored",
+          "variant": 2
+        }
+      ],
+      "parts": {
+        "eye_L": "closed_lid_arc_07",
+        "eye_R": "closed_lid_arc_07",
+        "mouth": "mouth_line_30"
+      }
+    },
+    "27_sad_02_manual": {
+      "name": "sad_02",
+      "group": "sad",
+      "talk_safe": true,
+      "calls": [
+        {
+          "expression": "sad",
+          "variant": 1
+        }
+      ],
+      "parts": {
+        "eye_L": "e_shape_13",
+        "eye_R": "e_shape_12",
+        "mouth": "mouth_rounded_rect_filled_36"
+      }
+    },
+    "28_sad_03_manual": {
+      "name": "sad_03",
+      "group": "sad",
+      "talk_safe": true,
+      "calls": [
+        {
+          "expression": "surprised",
+          "variant": 1
+        }
+      ],
+      "parts": {
+        "eye_L": "e_shape_11",
+        "eye_R": "e_shape_12",
+        "mouth": "mouth_w_squiggle_40"
+      }
+    },
+    "29_sad_04_manual": {
+      "name": "sad_04",
+      "group": "sad",
+      "talk_safe": false,
+      "calls": [
+        {
+          "expression": "smug",
+          "variant": 1
+        },
+        {
+          "expression": "embarrassed",
+          "variant": 1
+        }
+      ],
+      "parts": {
+        "eye_L": "happy_arc_15",
+        "eye_R": "happy_arc_15",
+        "mouth": "mouth_w_squiggle_40"
+      }
+    },
+    "30_sad_05_manual": {
+      "name": "sad_05",
+      "group": "sad",
+      "talk_safe": true,
+      "calls": [
+        {
+          "expression": "panic",
+          "variant": 1
+        }
+      ],
+      "parts": {
+        "eye_R": "chevron_01",
+        "eye_L": "chevron_01",
+        "mouth": "mouth_chevron_up_21"
+      }
+    },
+    "31_sad_06_manual": {
+      "name": "sad_06",
+      "group": "sad",
+      "talk_safe": true,
+      "calls": [
+        {
+          "expression": "sad",
+          "variant": 2
+        }
+      ],
+      "parts": {
+        "eye_L": "droop_hook_09",
+        "eye_R": "droop_hook_09",
+        "mouth": "mouth_oval_tall_filled_34"
+      }
+    },
+    "32_sad_07_manual": {
+      "name": "sad_07",
+      "group": "sad",
+      "talk_safe": true,
+      "calls": [
+        {
+          "expression": "sad",
+          "variant": 0
+        }
+      ],
+      "parts": {
+        "eye_L": "circle_gap_03",
+        "eye_R": "circle_gap_02",
+        "mouth": "mouth_frown_arc_29"
+      }
+    },
+    "33_sad_08_manual": {
+      "name": "sad_08",
+      "group": "sad",
+      "talk_safe": true,
+      "calls": [
+        {
+          "expression": "panic",
+          "variant": 0
+        }
+      ],
+      "parts": {
+        "eye_R": "open_C_50",
+        "eye_L": "open_C_46",
+        "mouth": "mouth_w_squiggle_40"
+      }
+    },
+    "34_sad_09_manual": {
+      "name": "sad_09",
+      "group": "sad",
+      "talk_safe": true,
+      "calls": [
+        {
+          "expression": "panic",
+          "variant": 2
+        }
+      ],
+      "parts": {
+        "eye_R": "e_shape_12",
+        "eye_L": "e_shape_12",
+        "mouth": "mouth_frown_arc_29"
+      }
+    },
+    "35_sad_10_manual": {
+      "name": "sad_10",
+      "group": "sad",
+      "talk_safe": true,
+      "calls": [
+        {
+          "expression": "dead_inside",
+          "variant": 0
+        }
+      ],
+      "parts": {
+        "eye_L": "happy_arc_18",
+        "eye_R": "happy_arc_18"
+      }
+    },
+    "36_misc_03_manual": {
+      "name": "misc_03",
+      "group": "misc",
+      "talk_safe": true,
+      "calls": [
+        {
+          "expression": "error",
+          "variant": 0
+        }
+      ],
+      "parts": {
+        "eye_R": "open_C_43",
+        "eye_L": "open_C_49",
+        "mouth": "mouth_diagonal_22"
+      }
+    },
+    "37_misc_06_manual": {
+      "name": "misc_06",
+      "group": "misc",
+      "talk_safe": true,
+      "calls": [
+        {
+          "expression": "smug",
+          "variant": 0
+        }
+      ],
+      "parts": {
+        "eye_L": "open_C_44",
+        "eye_R": "open_C_44",
+        "mouth": "mouth_smile_arc_38"
+      }
+    },
+    "38_misc_2_06_manual": {
+      "name": "misc_2_06",
+      "group": "misc",
+      "talk_safe": true,
+      "calls": [
+        {
+          "expression": "surprised",
+          "variant": 0
+        }
+      ],
+      "parts": {
+        "eye_L": "e_shape_12",
+        "eye_R": "e_shape_11",
+        "mouth": "mouth_oval_tall_filled_34"
+      }
+    },
+    "39_neutral_02_manual": {
+      "name": "neutral_02",
+      "group": "neutral",
+      "talk_safe": true,
+      "calls": [
+        {
+          "expression": "neutral",
+          "variant": 0
+        },
+        {
+          "expression": "thinking",
+          "variant": 0
+        }
+      ],
+      "parts": {
+        "eye_L": "circle_gap_03",
+        "eye_R": "circle_gap_03",
+        "mouth": "mouth_line_30"
+      }
+    },
+    "40_neutral_03_manual": {
+      "name": "neutral_03",
+      "group": "neutral",
+      "talk_safe": true,
+      "calls": [
+        {
+          "expression": "neutral",
+          "variant": 1
+        }
+      ],
+      "parts": {
+        "eye_L": "open_C_44",
+        "eye_R": "open_C_44",
+        "mouth": "mouth_dot_27"
+      }
+    }
+  },
+  "control": {
+    "min_duration_ms": 400,
+    "max_duration_ms": 6000,
+    "cooldown_ms": 450,
+    "max_queued_age_ms": 1200,
+    "speech_driver": "audible_audio_only",
+    "state_rule": "Listening, thinking and speaking preserve a current expression. Barge-in clears it.",
+    "variant_rule": "Variant 0 is the primary face. Omit variant for ordinary conversation."
+  }
+}
