@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "status": "online",
-  "api_origin": "https://pest-quebec-logistics-featured.trycloudflare.com",
-  "updated_at": "2026-09-30T13:01:41Z",
-  "last_seen_at": "2026-09-30T13:01:41Z"
+  "status": "offline",
+  "api_origin": null,
+  "updated_at": "2026-09-30T15:38:36Z",
+  "last_seen_at": "2026-09-30T15:37:18Z"
 }
