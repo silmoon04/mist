@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "status": "online",
-  "api_origin": "https://ministries-grew-admission-costumes.trycloudflare.com",
-  "updated_at": "2026-09-30T12:33:22Z",
-  "last_seen_at": "2026-09-30T12:33:22Z"
+  "status": "offline",
+  "api_origin": null,
+  "updated_at": "2026-09-30T13:00:19Z",
+  "last_seen_at": "2026-09-30T12:58:46Z"
 }
