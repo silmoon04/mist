@@ -1,0 +1,8 @@
+Use case: identity-preserve
+Asset type: MIST animation key pose, recognition__2 / Recognise; one single square face image.
+Primary request: Edit the first input image into a restrained "got it" recognition beat. Change only both upper eyelid arcs and the closed mouth. Lift both upper lids a little within the existing eye footprints so the dark apertures are subtly more open and alert. Keep the lower C arcs and outward-facing gaps recognisable. Replace the receiving mouth with one small warm closed smile: shallow curve, rounded ends, no more than the anchor's mouth width, same exact mouth centre. This is a small moment of understanding, not excitement.
+Input images: Image 1, recognition__1 / Receive, is the selected edit target; use its exact face layout and texture. Image 2 is the shared MIST identity anchor; preserve its turquoise open-C eyes, scale, palette and softly hand-shaped strokes.
+Composition: Exactly one face. Keep the eye centres, spacing, full eye size and angle fixed. Do not raise the whole eyes, scale the face, move the mouth centre or change framing. Square native dimensions.
+Style and palette: Preserve the selected image's filled turquoise strokes and existing faint tonal texture on the same dark blue-black background.
+Constraints: Only a slight upper-lid opening and the small closed smile change. Two eyes and one mouth only. No detached eyebrow strokes, no new highlights, no props.
+Avoid: Huge grin, long smile, open mouth, teeth, tongue, cheeks, skin, extra cyan marks, ghost or duplicated features, text, labels, body, bezel, scene, extra colours, gradients, glow, shading, 3D.

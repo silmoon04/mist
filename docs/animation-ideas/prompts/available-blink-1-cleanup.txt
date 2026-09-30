@@ -1,0 +1,6 @@
+Use case: precise-object-edit
+Asset type: MIST shared open-eye identity key pose for a static concept review.
+Input image: Image 1 is the EDIT TARGET and identity source. Keep its one-face composition, same open C eyes, face scale and gentle attitude.
+Primary request: Clean up only the background and mouth size. Make the entire opaque background perfectly uniform solid #101a1d from edge to edge. Remove every subtle background mottling, grain, texture and gradient. Use a perfectly flat solid #56e6df for both eye strokes and smile, without colour variation, shading or glow. Reduce the smile's width by about one third, to be a compact resting smile about 150 pixels wide on a 1024-pixel square equivalent, centred exactly under the eyes; preserve its closed rounded stroke shape. No other change.
+Keep the two outward-opening C eyes in the same centres, with the same orientation, shape, stroke thickness and scale as the input. No pupil, no rotation and no gaze change. Their dark interiors match the exact uniform background.
+Output: One square image. Only two turquoise C eyes and one small turquoise curved closed smile on a uniform dark background. Smooth clean edges and rounded ends. No other mark, outline, props, text, frame, glow, lighting, 3D, shadows, cheeks, teeth or tongue. This is flat graphic art.

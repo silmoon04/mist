@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="light"><title>MIST animation ideas</title>
+  <link rel="stylesheet" href="style.css"><script src="review-state.js" defer></script><script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#board">Skip to ideas</a>
+  <header><div class="identity"><span class="wordmark">MIST</span><h1>Animation ideas</h1><span id="total" class="quiet"></span></div>
+    <nav aria-label="Review tools"><button id="export-open">Export feedback</button><a href="concepts-pack.zip" download>Download images</a><a href="https://silmoon04.github.io/mist/game-face-studies/">Faces</a></nav>
+  </header>
+  <main>
+    <div class="filters"><label class="search"><span class="sr-only">Find an idea</span><input id="search" type="search" placeholder="Find an idea…"></label>
+      <label><span class="sr-only">Replacement stage</span><select id="wave"><option value="">All stages</option><option value="1">First: everyday presence</option><option value="2">Then: speech</option><option value="3">Later: tasks and reactions</option></select></label>
+      <label><span class="sr-only">Your choice</span><select id="choice-filter"><option value="">All choices</option><option value="develop">Develop</option><option value="revise">Revise</option><option value="skip">Skip</option></select></label><button id="clear-filters">Clear</button></div>
+    <p class="intro">Three key poses per idea. Choose a direction or leave a note on a specific pose. These are still previews; the current pack stays active.</p>
+    <details class="plan"><summary>How we replace the pack</summary><ol><li>Choose the key poses and lock the eye shapes, spacing, colour and mouth style.</li><li>Draw eyes and mouths separately, with in-between frames and deliberate holds at 15 fps.</li><li>Check transitions, loop seams, interruptions and mouth timing against audible speech.</li><li>Enable one verified family at a time, keeping the old assets as a fallback.</li></ol><p>Start with idle, listening, thinking and transitions. Speech follows, then task loops and reactions. Complete loops will use 12 or more drawn cels; a blink only needs enough closing poses to feel natural. Timings below are proposals, not measured playback.</p></details>
+    <p id="storage-warning" class="warning" hidden role="status">Browser storage is unavailable. Export feedback before closing.</p>
+    <p id="count" class="quiet" aria-live="polite">Loading ideas…</p><section id="board" aria-label="Animation ideas" tabindex="-1"></section>
+    <p id="empty" hidden>No matches. Clear the filters to see all ideas.</p><p id="load-error" hidden role="alert">The ideas could not load. Reload this page to try again.</p>
+  </main>
+  <dialog id="inspect" aria-labelledby="inspect-title"><div class="dialog-top"><div><button id="previous" aria-label="Previous pose">Previous</button><span id="position" class="quiet"></span><button id="next" aria-label="Next pose">Next</button></div><button id="inspect-close">Close</button></div>
+    <div class="inspect-layout"><img id="inspect-image" alt=""><section class="inspect-info"><h2 id="inspect-title"></h2><p id="inspect-summary"></p><label for="pose-note">This pose</label><textarea id="pose-note" rows="4" maxlength="20000" placeholder="What works, or what should change?"></textarea><p id="note-status" class="quiet" role="status">Saved in this browser.</p><div class="links"><a id="image-download" download>Download image</a><a id="prompt-link" target="_blank" rel="noopener">Prompt</a></div><p id="inspect-limits" class="quiet"></p></section></div>
+  </dialog>
+  <dialog id="export-dialog" aria-labelledby="export-title"><div class="dialog-top"><h2 id="export-title">Your feedback</h2><button id="export-close">Close</button></div><div class="export-body"><p id="export-summary"></p><button id="export-json">Download JSON</button><label class="file-button">Import JSON<input id="import-json" type="file" accept=".json,application/json"></label><p class="quiet">Choices and notes stay in this browser. Export to share them.</p><p id="import-status" role="status"></p></div></dialog>
+  <noscript><p>JavaScript is needed for feedback. <a href="concepts-pack.zip">Download all images</a>.</p></noscript>
+</body></html>

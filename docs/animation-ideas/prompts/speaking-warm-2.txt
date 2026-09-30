@@ -1,0 +1,10 @@
+Use case: precise-object-edit
+Asset type: MIST speaking-warm soft-vowel key-pose image, one square image only.
+Primary request: Edit ONLY the mouth in image 1 to create a modest open soft vowel. Preserve every other pixel region and all eye geometry from the selected rest pose. The mouth must have a compact lightly rounded open silhouette with slightly lifted corners, a turquoise rim and a dark blue-black interior. No teeth or tongue.
+Input images: Image 1 (speaking-warm-1.png) is the selected rest pose and edit target. Image 2 (available-blink-1.png) is the exact MIST identity anchor. Both must retain exactly the same eyes and face scale.
+Scene/backdrop: Preserve the existing dark blue-black square backdrop and faint tonal texture.
+Subject: Exactly one MIST face. Change the closed smile into a small open soft-vowel mouth: a restrained rounded horizontal opening, modest width close to the original smile width, slightly lifted rounded corners, enclosed by the same flat turquoise. Dark empty interior, the same colour as the backdrop. The mouth is a simple single compact aperture, not a grin and not a long wavy lip.
+Composition/framing: LOCK both eyes and gaze. Same eye centres, eye sizes, same open C shapes, opening directions, eye angles, and spacing. Keep the mouth's exact centre from image 1, around the same horizontal midpoint and vertical centre. Do not move the whole face. Keep native square dimensions.
+Style/medium: Flat softly hand-shaped turquoise shapes with rounded edges and only the existing faint tonal texture. Preserve all features outside the small mouth region.
+Constraints: Change only the compact mouth silhouette. It must be visibly open and distinguishable from the closed rest mouth. Single-image shape reference for later audio-driven speech, not a full viseme set or repeating animation loop.
+Avoid: Teeth, tongue, lips, skin, detached brows, cheeks, weird protrusions, open exaggerated grin, giant mouth, body, bezel, background scene, props, text, labels, watermark, extra colours, glow, gradients, 3D, stray cyan marks, duplicate eyes, ghost mouths, additional faces, panels, grids, collage.

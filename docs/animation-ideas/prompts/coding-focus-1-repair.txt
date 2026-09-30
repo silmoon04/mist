@@ -1,0 +1,6 @@
+Use case: identity-preserve
+Asset type: one square MIST Coding / Read code key pose. Exactly one image.
+Input images: Image 1 is the edit target. Image 2 is the original exact identity anchor.
+Targeted correction: remove the doubled lower eye arcs in Image 1. Each eye must have only ONE simple softly hand-shaped turquoise C curve with a mildly lowered upper lid, like the same single C from Image 2. The current extra inner lower U loops and black slash-like notches near the outer ends must be removed. Retain one clean dark aperture per eye, one continuous lower arc per eye, and clean rounded outward-facing open ends. No doubled eyes or split tails. Preserve the anchor's eye footprint and centre; mildly lowered upper lids do not create extra strokes.
+Preserve everything else in Image 1: whole-face position and scale; compact flat closed mouth at same centre; turquoise palette; dark blue-black faintly textured background; exact small lower-right rectangular terminal frame with two chevrons and cursor on the top row. Terminal remains secondary and separated from eyes and mouth. Do not move or resize the terminal or alter any glyph.
+No new marks, text, pupils, detached eyebrows, body, scene, glow, gradients, 3D or colours. Native square dimensions, no crop or rescale.

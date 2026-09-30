@@ -1,0 +1,644 @@
+{
+  "version": 1,
+  "count": 12,
+  "imageCount": 36,
+  "reviewType": "three-static-key-poses-per-animation",
+  "tool": "built-in image_gen",
+  "concepts": [
+    {
+      "id": "available-blink",
+      "title": "Available / blink",
+      "wave": 1,
+      "summary": "A relaxed smile, then a soft lid closure. The eye closes in its own shape without rotating.",
+      "poses": [
+        {
+          "id": "available-blink__1",
+          "label": "Open",
+          "filename": "available-blink-1.png",
+          "direction": "Warm open C eyes, tiny relaxed closed smile. This is the identity anchor.",
+          "image": "images/available-blink-1.png",
+          "prompt": "prompts/available-blink-1-cleanup.txt",
+          "width": 1254,
+          "height": 1254,
+          "limitations": [
+            "Native output is 1254×1254 despite requested 1024×1024; retained without code resizing.",
+            "Nominal hex palette and requested pixel geometry are approximate; faint generated texture persists despite a targeted flat-colour cleanup."
+          ]
+        },
+        {
+          "id": "available-blink__2",
+          "label": "Lower lids",
+          "filename": "available-blink-2.png",
+          "direction": "Both eyelids lower naturally, same eye centres and eye angle. Reduce aperture, do not squash the entire eye.",
+          "image": "images/available-blink-2.png",
+          "prompt": "prompts/available-blink-2.txt",
+          "width": 1254,
+          "height": 1254,
+          "limitations": [
+            "Generated concept edit visually preserves the mouth, eye spacing and lower eye arcs; exact pixel equality is not asserted.",
+            "Palette/background inherit the anchor's slight generated texture."
+          ]
+        },
+        {
+          "id": "available-blink__3",
+          "label": "Closed",
+          "filename": "available-blink-3.png",
+          "direction": "Two short gently curved closed lids, same eye centres. Same small resting smile.",
+          "image": "images/available-blink-3.png",
+          "prompt": "prompts/available-blink-3.txt",
+          "width": 1254,
+          "height": 1254,
+          "limitations": [
+            "Two gently curved closed lid strokes preserve the original centres and mouth visually; exact pixel equality is not asserted.",
+            "Palette/background inherit the anchor's slight generated texture."
+          ]
+        }
+      ],
+      "cycle": "Open → lower lids → closed → lower lids → open; hold the open pose between occasional blinks.",
+      "timing": "2.8–6 s idle hold; 180–260 ms blink",
+      "replaceTargets": [
+        "idle",
+        "available"
+      ],
+      "targetFps": 15,
+      "minimumDrawnFrames": 4,
+      "status": "key-pose-concept",
+      "framePolicy": "Use four or more authored closing/reopening cels within the longer idle cycle; preserve a brief natural blink instead of stretching it to 12 moving cels.",
+      "limitations": [
+        "Three separately generated static key poses, not a completed animation; no timing, in-between frames or runtime integration is claimed.",
+        "No image was resized, redrawn or edited with code. Project assets are exact copied ImageGen artifacts.",
+        "Independent generated edits may retain subtle texture and small drawing variations; production animation continuity remains future work."
+      ]
+    },
+    {
+      "id": "listening-focus",
+      "title": "Listening",
+      "wave": 1,
+      "summary": "Attention arrives through the eyes. Keep the mouth closed so listening cannot read as talking.",
+      "poses": [
+        {
+          "id": "listening-focus__1",
+          "label": "Notice",
+          "filename": "listening-focus-1.png",
+          "direction": "Open C eyes, closed almost-flat friendly mouth. Neutral direct attention.",
+          "image": "images/listening-focus-1.png",
+          "prompt": "prompts/listening-focus-1.txt",
+          "width": 1254,
+          "height": 1254,
+          "limitations": "No material visual defect observed; upper-lid acting remains restrained."
+        },
+        {
+          "id": "listening-focus__2",
+          "label": "Focus",
+          "filename": "listening-focus-2.png",
+          "direction": "One upper eyelid lifts slightly, both dark apertures direct attention slightly to the viewer’s left. Mouth stays small and closed.",
+          "image": "images/listening-focus-2.png",
+          "prompt": "prompts/listening-focus-2.txt",
+          "width": 1254,
+          "height": 1254,
+          "limitations": "The focus is communicated by modest upper-lid asymmetry. A directional gaze shift is subtle in the pupil-free C-eye design."
+        },
+        {
+          "id": "listening-focus__3",
+          "label": "Hold",
+          "filename": "listening-focus-3.png",
+          "direction": "Balanced open eyes settle with a slightly intent gaze. Mouth remains a closed short dash, no sound-wave mouth.",
+          "image": "images/listening-focus-3.png",
+          "prompt": "prompts/listening-focus-3.txt",
+          "width": 1254,
+          "height": 1254,
+          "limitations": "No material visual defect observed; upper-lid acting remains restrained."
+        }
+      ],
+      "cycle": "Notice → focus → settled hold; a tiny gaze adjustment during long listening, then return to neutral.",
+      "timing": "250–400 ms entry; irregular slow holds",
+      "replaceTargets": [
+        "listening"
+      ],
+      "targetFps": 15,
+      "minimumDrawnFrames": 12,
+      "status": "key-pose-concept",
+      "limitations": "Static key poses only. Notice, asymmetrical focus, and balanced attentive hold are visibly distinct through upper-lid height. The pupil-free design gives only a subtle impression of leftward attention. All three preserve the shared anchor style, placement and closed dash mouth."
+    },
+    {
+      "id": "thinking-glance",
+      "title": "Thinking",
+      "wave": 1,
+      "summary": "One relaxed half-lid, then the other: a small gesture of weighing an idea. Keep the mouth closed.",
+      "poses": [
+        {
+          "id": "thinking-glance__1",
+          "label": "Take in",
+          "filename": "thinking-glance-1.png",
+          "direction": "Balanced open C eyes, closed neutral short mouth.",
+          "image": "images/thinking-glance-1.png",
+          "prompt": "prompts/thinking-glance-1.txt",
+          "width": 1254,
+          "height": 1254,
+          "limitations": "No visual defect found; neutral baseline pose."
+        },
+        {
+          "id": "thinking-glance__2",
+          "label": "Consider",
+          "filename": "thinking-glance-2.png",
+          "direction": "LEFT eye upper lid clearly lowered to halve the dark aperture height; RIGHT eye remains open C. Same centres and outer widths. Closed mouth angles a little. No whole-eye rotation or detached eyebrow.",
+          "image": "images/thinking-glance-2.png",
+          "prompt": "prompts/thinking-glance-2-half-lid.txt",
+          "width": 1254,
+          "height": 1254,
+          "limitations": "No blocking visual defect found. The dark aperture is approximately half height; exact lid height remains hand-shaped."
+        },
+        {
+          "id": "thinking-glance__3",
+          "label": "Reconsider",
+          "filename": "thinking-glance-3.png",
+          "direction": "RIGHT eye upper lid clearly lowered to halve the dark aperture height; LEFT eye returns to open C. Same centres and outer widths. Closed short mouth returns level. No whole-eye rotation or detached eyebrow.",
+          "image": "images/thinking-glance-3.png",
+          "prompt": "prompts/thinking-glance-3-half-lid-repair-1.txt",
+          "width": 1254,
+          "height": 1254,
+          "limitations": "No blocking visual defect found. The dark aperture is slightly taller than pose 2's; both read clearly as half-lidded eyes."
+        }
+      ],
+      "cycle": "Take in → consider with left lid lowered → reconsider with right lid lowered; irregular holds and occasional quiet blink.",
+      "timing": "500–900 ms motion; 1.5–3 s holds",
+      "replaceTargets": [
+        "thinking",
+        "thinking/quiet",
+        "thinking/planning"
+      ],
+      "targetFps": 15,
+      "minimumDrawnFrames": 12,
+      "status": "key-pose-concept",
+      "limitations": "Three static key poses only. Thinking is shown by visibly alternating half-lidded C eyes and a short angled middle mouth; these poses make no directional pupil-gaze claim. Native lid shapes vary slightly in aperture height. No runtime animation was produced."
+    },
+    {
+      "id": "warm-to-thoughtful",
+      "title": "Warm → thoughtful",
+      "wave": 1,
+      "summary": "A transition that keeps eye centres fixed and relaxes the smile before the thinking gaze.",
+      "poses": [
+        {
+          "id": "warm-to-thoughtful__1",
+          "label": "Warm",
+          "filename": "warm-to-thoughtful-1.png",
+          "direction": "Warm balanced open C eyes, small closed smile.",
+          "image": "images/warm-to-thoughtful-1.png",
+          "prompt": "prompts/warm-to-thoughtful-1.txt",
+          "width": 1254,
+          "height": 1254,
+          "limitations": "Native generated contours have small hand-shaped differences from the shared anchor."
+        },
+        {
+          "id": "warm-to-thoughtful__2",
+          "label": "Between",
+          "filename": "warm-to-thoughtful-2.png",
+          "direction": "One lid lowers a little, other eye stays open. Mouth has relaxed into an almost-flat closed stroke. No double eyes or double mouth; no crossfade ghosts.",
+          "image": "images/warm-to-thoughtful-2.png",
+          "prompt": "prompts/warm-to-thoughtful-2.txt",
+          "width": 1254,
+          "height": 1254,
+          "limitations": "The relaxed almost-flat mouth has minor native contour and vertical registration variation; it remains visually centred with the anchor face."
+        },
+        {
+          "id": "warm-to-thoughtful__3",
+          "label": "Thoughtful",
+          "filename": "warm-to-thoughtful-3.png",
+          "direction": "One lid lowered, opposite eye mildly raised, both dark apertures turn subtly up-left. Short angled neutral closed mouth; no happy smile.",
+          "image": "images/warm-to-thoughtful-3.png",
+          "prompt": "prompts/warm-to-thoughtful-3-r2.txt",
+          "width": 1254,
+          "height": 1254,
+          "limitations": "Up-left attention is deliberately subtle in the pupil-free C-eye design. Native hand-shaped contours and mouth registration vary slightly; final animation will need deliberate drawn registration."
+        }
+      ],
+      "cycle": "Warm → between → thoughtful, with drawn in-betweens. Interruptible into listening without double silhouettes.",
+      "timing": "200–350 ms transition",
+      "replaceTargets": [
+        "transition/happy-to-thinking"
+      ],
+      "targetFps": 15,
+      "minimumDrawnFrames": 12,
+      "status": "key-pose-concept",
+      "limitations": "Three static concept key poses, not a full animation. Native ImageGen preserves the face layout visually, with small contour and mouth registration differences. The pupil-free up-left gaze is restrained. Full drawn in-betweens and precise animation registration remain outside this pass."
+    },
+    {
+      "id": "speaking-warm",
+      "title": "Speaking / warm",
+      "wave": 2,
+      "summary": "Warm eyelids and restrained mouth articulation. Mouth timing will follow actual playback.",
+      "poses": [
+        {
+          "id": "speaking-warm__1",
+          "label": "Rest",
+          "filename": "speaking-warm-1.png",
+          "direction": "Warm open C eyes, small closed relaxed smile.",
+          "image": "images/speaking-warm-1.png",
+          "prompt": "prompts/speaking-warm-1.txt",
+          "width": 1254,
+          "height": 1254,
+          "limitations": "Compared with the shared anchor, mouth bounding-box centre is 3.5 px higher and smile width is 17 px greater; eye centres differ by at most 0.5 px. This is a shape reference, not a completed viseme set or animation."
+        },
+        {
+          "id": "speaking-warm__2",
+          "label": "Soft vowel",
+          "filename": "speaking-warm-2.png",
+          "direction": "Exact same eyes and gaze. A compact lightly rounded open vowel mouth, with slightly lifted corners and a dark interior. No teeth or tongue; modest width.",
+          "image": "images/speaking-warm-2.png",
+          "prompt": "prompts/speaking-warm-2.txt",
+          "width": 1254,
+          "height": 1254,
+          "limitations": "Mouth bounding-box centre is 2 px higher than pose 1. Both eye bounds match pose 1 at the measured bright-cyan threshold. This compact aperture is a shape reference."
+        },
+        {
+          "id": "speaking-warm__3",
+          "label": "Rounded vowel",
+          "filename": "speaking-warm-3.png",
+          "direction": "Exact same eyes and gaze. A compact rounded O-like open mouth, slightly narrower than soft vowel, in the same mouth centre. Keep friendly attitude in the eyes.",
+          "image": "images/speaking-warm-3.png",
+          "prompt": "prompts/speaking-warm-3.txt",
+          "width": 1254,
+          "height": 1254,
+          "limitations": "Mouth bounding-box centre is 5.5 px higher than pose 1; horizontal centre varies by 0.5 px. Right-eye bounding box contracts by 1 px at its right edge, causing a measured 0.5 px centre variation. No visible whole-face drift."
+        }
+      ],
+      "cycle": "Rest, soft vowel and rounded vowel are shape references; final speech selects emotion-specific visemes using the playback clock.",
+      "timing": "Audio-driven; no repeating speech loop",
+      "replaceTargets": [
+        "speaking/happy",
+        "speaking/warm"
+      ],
+      "targetFps": 15,
+      "minimumDrawnFrames": 12,
+      "status": "key-pose-concept",
+      "limitations": "Three key-pose shape references for audio-driven warm speech only. They are not a repeating speech loop, complete viseme set, or twelve-frame animation. Exact pixel invariance is not claimed: generated eye contours vary by 1 px across the trio and mouth bounding-box vertical centres vary by up to 5.5 px. The native 1254×1254 image dimensions and faint anchor texture are preserved."
+    },
+    {
+      "id": "speaking-serious",
+      "title": "Speaking / calm",
+      "wave": 2,
+      "summary": "The same speech range with a neutral mouth attitude. No smile leaking into serious speech.",
+      "poses": [
+        {
+          "id": "speaking-serious__1",
+          "label": "Rest",
+          "filename": "speaking-serious-1.png",
+          "direction": "Attentive slightly lowered C lids, closed short flat mouth. Calm neutral concern, not angry or sad.",
+          "image": "images/speaking-serious-1.png",
+          "prompt": "prompts/speaking-serious-1-repair-1.txt",
+          "width": 1254,
+          "height": 1254,
+          "limitations": "A single upper-lid repair made the calm lowered-lid attitude more explicit. This is a static resting shape reference; temporal interpolation has not been assessed."
+        },
+        {
+          "id": "speaking-serious__2",
+          "label": "Soft vowel",
+          "filename": "speaking-serious-2.png",
+          "direction": "Exact same eyes and gaze. Compact open neutral vowel mouth with flat upper edge and neutral corners, dark interior. No smiling corners, no tongue or teeth.",
+          "image": "images/speaking-serious-2.png",
+          "prompt": "prompts/speaking-serious-2.txt",
+          "width": 1254,
+          "height": 1254,
+          "limitations": "The soft-vowel outline has a gently curved lower edge and restrained level corners. It is a shape reference rather than a phoneme-specific viseme."
+        },
+        {
+          "id": "speaking-serious__3",
+          "label": "Rounded vowel",
+          "filename": "speaking-serious-3.png",
+          "direction": "Exact same eyes and gaze. Small rounded O-like mouth at same centre. Eye attitude stays calm and attentive, no happy change.",
+          "image": "images/speaking-serious-3.png",
+          "prompt": "prompts/speaking-serious-3.txt",
+          "width": 1254,
+          "height": 1254,
+          "limitations": "The rounded mouth is near circular and narrower than the soft vowel. It is a static articulation reference; audio timing has not been assessed."
+        }
+      ],
+      "cycle": "These are neutral speech shape references; final visemes preserve the selected emotional mouth family.",
+      "timing": "Audio-driven; no repeating speech loop",
+      "replaceTargets": [
+        "speaking/neutral",
+        "speaking/concerned"
+      ],
+      "targetFps": 15,
+      "minimumDrawnFrames": 12,
+      "status": "key-pose-concept",
+      "limitations": "Three independently generated native static key-pose concepts for future audio-driven serious speech. The triple preserves calm eye attitude and neutral mouth attitude, but it is not a full viseme family, animation, repeating loop, or playback-synchronised runtime asset. The triple is slightly brighter and more saturated in cyan than the anchor. Minor generative contour and faint texture variations remain possible."
+    },
+    {
+      "id": "coding-focus",
+      "title": "Coding",
+      "wave": 3,
+      "summary": "Focused eyelids and a small terminal cursor, kept well away from the eyes.",
+      "poses": [
+        {
+          "id": "coding-focus__1",
+          "label": "Read code",
+          "filename": "coding-focus-1.png",
+          "direction": "Two mildly lowered upper lids with C-eye lower arcs, short flat closed mouth. Small thin cyan terminal outline at lower-right containing two tiny chevrons and a short cursor.",
+          "image": "images/coding-focus-1.png",
+          "prompt": "prompts/coding-focus-1-repair.txt",
+          "width": 1254,
+          "height": 1254,
+          "limitations": "Upper lids are visibly focused rather than fully open; the initial doubled lower arcs were corrected in one targeted edit."
+        },
+        {
+          "id": "coding-focus__2",
+          "label": "Work",
+          "filename": "coding-focus-2.png",
+          "direction": "Same eyes glance briefly down-right toward terminal. Terminal remains rigid and exactly positioned; cursor shifts down one small row. No new lines appear randomly.",
+          "image": "images/coding-focus-2.png",
+          "prompt": "prompts/coding-focus-2.txt",
+          "width": 1254,
+          "height": 1254,
+          "limitations": "The down-right gaze change is very subtle; the cursor moving down one row is the strongest working cue."
+        },
+        {
+          "id": "coding-focus__3",
+          "label": "Resolve",
+          "filename": "coding-focus-3.png",
+          "direction": "Eyes lift slightly but stay focused, mouth is a tiny restrained smile. Terminal stays identical; cursor at the end of its row.",
+          "image": "images/coding-focus-3.png",
+          "prompt": "prompts/coding-focus-3.txt",
+          "width": 1254,
+          "height": 1254,
+          "limitations": "The upper lid lift is small; the closed smile and cursor at the lower-row end provide the resolution beat."
+        }
+      ],
+      "cycle": "Read → work → resolve; loop the cursor and gaze while work is running, settle when done.",
+      "timing": "0.9–1.3 s working loop",
+      "replaceTargets": [
+        "thinking/coding"
+      ],
+      "targetFps": 15,
+      "minimumDrawnFrames": 12,
+      "status": "key-pose-concept",
+      "limitations": "Three static concept poses only. Gaze shifts are subtle. The terminal frame and two chevrons are visually rigid across the sequence; image generation does not guarantee identical antialiasing or texture pixels. No runtime or live animation pack was changed."
+    },
+    {
+      "id": "reading-scan",
+      "title": "Reading",
+      "wave": 3,
+      "summary": "A stable open book, eyes scan across it. No page flip or blank page appearing.",
+      "poses": [
+        {
+          "id": "reading-scan__1",
+          "label": "Start line",
+          "filename": "reading-scan-1.png",
+          "direction": "Open C eyes glance down-left. Short calm closed mouth. A small open cyan outline book below and right of the face, with exactly three stable short cyan text strokes on each page.",
+          "image": "images/reading-scan-1.png",
+          "prompt": "prompts/reading-scan-1-repair-gaze.txt",
+          "width": 1254,
+          "height": 1254,
+          "limitations": "Down-left gaze is subtle. The stable book is slightly broader than the prompt's requested bounds, but remains fully below and clear of the face."
+        },
+        {
+          "id": "reading-scan__2",
+          "label": "Across line",
+          "filename": "reading-scan-2.png",
+          "direction": "Same geometry, eyes glance down-right. The exact same rigid book remains in the same position, all three text strokes stay on both pages.",
+          "image": "images/reading-scan-2.png",
+          "prompt": "prompts/reading-scan-2-repair-gap.txt",
+          "width": 1254,
+          "height": 1254,
+          "limitations": "Down-right aperture shift is subtle. A generated second eye gap was repaired before selection; selected eye is a single connected C."
+        },
+        {
+          "id": "reading-scan__3",
+          "label": "Next line",
+          "filename": "reading-scan-3.png",
+          "direction": "Eyes glance slightly down-left, a little lower than first. Same closed mouth, same book, same six visible text strokes; nothing flips, disappears or changes sides.",
+          "image": "images/reading-scan-3.png",
+          "prompt": "prompts/reading-scan-3.txt",
+          "width": 1254,
+          "height": 1254,
+          "limitations": "Next-line down-left change is subtle; the lower next-line move is not clearly legible from the still. The viewer-right inner eye contour has a small hand-shaped cusp, with no extra gap or detached mark."
+        }
+      ],
+      "cycle": "Start line → across line → next line → across line; stable book throughout.",
+      "timing": "1.3–1.8 s scan loop",
+      "replaceTargets": [
+        "thinking/reading",
+        "thinking/reading_files"
+      ],
+      "targetFps": 15,
+      "minimumDrawnFrames": 12,
+      "status": "key-pose-concept",
+      "limitations": "All three selected native images retain the fully open lower-right book and exactly three visible cyan strokes on each page. There is no blank page, page flip or side swap. Eye-aperture changes are restrained and may need clearer drawn in-betweens for a future animation; these are static key-pose concepts only. Book and facial layout are visually stable, not claimed pixel-identical after generative edits."
+    },
+    {
+      "id": "drafting-stroke",
+      "title": "Writing / drafting",
+      "wave": 3,
+      "summary": "A pen follows one short stroke. The ink remains visible through the action.",
+      "poses": [
+        {
+          "id": "drafting-stroke__1",
+          "label": "Prepare",
+          "filename": "drafting-stroke-1.png",
+          "direction": "Focused half-lidded C eyes, short closed mouth. Small simple cyan pen and tiny outlined note at lower-right, one tiny initial ink stroke.",
+          "image": "images/drafting-stroke-1.png",
+          "prompt": "prompts/drafting-stroke-1-contact.txt",
+          "width": 1254,
+          "height": 1254,
+          "limitations": "The initial ink is a short curve rather than a point. The prop remains secondary in the lower-right."
+        },
+        {
+          "id": "drafting-stroke__2",
+          "label": "Draw",
+          "filename": "drafting-stroke-2.png",
+          "direction": "Exact same face and rigid note. Pen tip advances along a short gently curving ink line; keep all initial ink and extend it. No letters or words.",
+          "image": "images/drafting-stroke-2.png",
+          "prompt": "prompts/drafting-stroke-2.txt",
+          "width": 1254,
+          "height": 1254,
+          "limitations": "The pen advance is small, suited to a middle key pose."
+        },
+        {
+          "id": "drafting-stroke__3",
+          "label": "Finish",
+          "filename": "drafting-stroke-3.png",
+          "direction": "Eyes relax slightly, short restrained closed smile. Same note, pen rests at the end of the completed curved line; ink stays visible.",
+          "image": "images/drafting-stroke-3.png",
+          "prompt": "prompts/drafting-stroke-3.txt",
+          "width": 1254,
+          "height": 1254,
+          "limitations": "The finish raises the curved upper lids and gives a shallow closed smile; minor generated contour variation remains."
+        }
+      ],
+      "cycle": "Prepare → draw → finish; hold finished ink, then exit before a new sheet appears.",
+      "timing": "0.8–1.2 s stroke plus 0.5 s hold",
+      "replaceTargets": [
+        "thinking/writing",
+        "thinking/drafting"
+      ],
+      "targetFps": 15,
+      "minimumDrawnFrames": 12,
+      "status": "key-pose-concept",
+      "limitations": "Three static key poses only. The same note stays fixed and the abstract ink grows from left to right across all three; drawn in-betweens are still needed for a finished animation."
+    },
+    {
+      "id": "searching-sweep",
+      "title": "Searching",
+      "wave": 3,
+      "summary": "Eyes follow a small magnifier in the lower corner. Keep its circle away from both eyes.",
+      "poses": [
+        {
+          "id": "searching-sweep__1",
+          "label": "Look left",
+          "filename": "searching-sweep-1.png",
+          "direction": "C eyes glance gently left, closed flat mouth. Small thin cyan magnifying glass at lower-right with generous empty space between its circle and the right eye.",
+          "image": "images/searching-sweep-1.png",
+          "prompt": "prompts/searching-sweep-1-repair2.txt",
+          "width": 1254,
+          "height": 1254,
+          "limitations": "The left gaze is conveyed by both C openings facing left. Small native eye-contour differences remain relative to the shared anchor."
+        },
+        {
+          "id": "searching-sweep__2",
+          "label": "Sweep",
+          "filename": "searching-sweep-2.png",
+          "direction": "Eyes glance gently right. Magnifying glass moves only a small distance right within the lower-right corner, never near the eyes. Keep same scale and handle angle.",
+          "image": "images/searching-sweep-2.png",
+          "prompt": "prompts/searching-sweep-2.txt",
+          "width": 1254,
+          "height": 1254,
+          "limitations": "The right gaze is conveyed by both C openings facing right. The magnifier ring is slightly larger and thicker than pose 1; its handle angle and low-right placement stay consistent."
+        },
+        {
+          "id": "searching-sweep__3",
+          "label": "Find",
+          "filename": "searching-sweep-3.png",
+          "direction": "Eyes become evenly attentive, mouth is a tiny closed smile. Magnifying glass settles at the midpoint of its short track, below eye height and clear of mouth.",
+          "image": "images/searching-sweep-3.png",
+          "prompt": "prompts/searching-sweep-3-repair.txt",
+          "width": 1254,
+          "height": 1254,
+          "limitations": "The magnifier ring is slightly larger and thicker than pose 1 and settles a few pixels beyond the visual midpoint of the short track. The closed smile sits slightly higher than the flat mouth in poses 1 and 2."
+        }
+      ],
+      "cycle": "Look left → sweep → find; use a short search sweep, then settle or continue with irregular holds.",
+      "timing": "1.0–1.5 s sweep",
+      "replaceTargets": [
+        "thinking/searching"
+      ],
+      "targetFps": 15,
+      "minimumDrawnFrames": 12,
+      "status": "key-pose-concept",
+      "limitations": "These are three static key poses, not a finished animation. Small native contour, icon stroke/size, midpoint and mouth-centre drift remains; the magnifier stays well below both eyes and clear of the mouth in every selected pose."
+    },
+    {
+      "id": "recognition",
+      "title": "Got it",
+      "wave": 3,
+      "summary": "A small recognition beat, then settle. No permanent grin or bouncing after every reply.",
+      "poses": [
+        {
+          "id": "recognition__1",
+          "label": "Receive",
+          "filename": "recognition-1.png",
+          "direction": "Open C eyes, short calm closed mouth.",
+          "image": "images/recognition-1.png",
+          "prompt": "prompts/recognition-1.txt",
+          "width": 1254,
+          "height": 1254,
+          "limitations": "Generated contours and tonal texture differ slightly from the anchor; visual inspection confirms stable layout rather than pixel-identical registration."
+        },
+        {
+          "id": "recognition__2",
+          "label": "Recognise",
+          "filename": "recognition-2.png",
+          "direction": "Both upper lids lift a little, apertures brighten through wider openings. Small warm closed smile, no open mouth.",
+          "image": "images/recognition-2.png",
+          "prompt": "prompts/recognition-2.txt",
+          "width": 1254,
+          "height": 1254,
+          "limitations": "The upper-lid opening is deliberately subtle; the shallow closed smile carries most of the recognition beat."
+        },
+        {
+          "id": "recognition__3",
+          "label": "Settle",
+          "filename": "recognition-3.png",
+          "direction": "Eyes soften slightly, relaxed closed smile. Same centres and scale, no face jumping.",
+          "image": "images/recognition-3.png",
+          "prompt": "prompts/recognition-3.txt",
+          "width": 1254,
+          "height": 1254,
+          "limitations": "The settled mouth is shallow and nearly flat, with softly lowered upper inner eye contours; native contour differences remain slight."
+        }
+      ],
+      "cycle": "Receive → recognise → settle; play once only when acknowledgement is useful.",
+      "timing": "350–600 ms one-shot",
+      "replaceTargets": [
+        "acknowledgement",
+        "success"
+      ],
+      "targetFps": 15,
+      "minimumDrawnFrames": 12,
+      "status": "key-pose-concept",
+      "limitations": "Three static native key poses only. Receive to recognise to settle is designed as one small acknowledgement beat; drawn in-betweens and playback timing are outside this pass. Eye and mouth centres remain visually stable, with minor generated contour variation rather than pixel-identical registration."
+    },
+    {
+      "id": "empathy",
+      "title": "Concern / empathy",
+      "wave": 3,
+      "summary": "A quiet change in the lids and mouth, followed by an attentive listening hold.",
+      "poses": [
+        {
+          "id": "empathy__1",
+          "label": "Notice",
+          "filename": "empathy-1.png",
+          "direction": "Open C eyes, small neutral horizontal closed mouth.",
+          "image": "images/empathy-1.png",
+          "prompt": "prompts/empathy-1.txt",
+          "width": 1254,
+          "height": 1254,
+          "limitations": "No visible blocking defects. Generated edge and texture detail is not pixel-identical between poses."
+        },
+        {
+          "id": "empathy__2",
+          "label": "Concern",
+          "filename": "empathy-2.png",
+          "direction": "Upper lids angle subtly inward to create gentle concern, not angry sharp brows. Small shallow downturned closed mouth. Keep C apertures readable and original eye centres.",
+          "image": "images/empathy-2.png",
+          "prompt": "prompts/empathy-2.txt",
+          "width": 1254,
+          "height": 1254,
+          "limitations": "No visible blocking defects. Generated edge and texture detail is not pixel-identical between poses."
+        },
+        {
+          "id": "empathy__3",
+          "label": "Stay with you",
+          "filename": "empathy-3.png",
+          "direction": "Lids relax a little but keep concerned attitude, one eye slightly more open. Small almost-flat closed mouth, no grin. Attentive quiet gaze.",
+          "image": "images/empathy-3.png",
+          "prompt": "prompts/empathy-3.txt",
+          "width": 1254,
+          "height": 1254,
+          "limitations": "No visible blocking defects. Generated edge and texture detail is not pixel-identical between poses."
+        }
+      ],
+      "cycle": "Notice → concern → attentive hold; do not loop a sad reaction during the conversation.",
+      "timing": "400–700 ms change, then hold",
+      "replaceTargets": [
+        "concerned",
+        "sad",
+        "empathy"
+      ],
+      "targetFps": 15,
+      "minimumDrawnFrames": 12,
+      "status": "key-pose-concept",
+      "limitations": "Three static key poses. Concern is deliberately mild and carried by upper contours and mouth shape. In-between motion and timing have not been drawn or validated."
+    }
+  ],
+  "migration": {
+    "stage": "feedback",
+    "currentPackChanged": false,
+    "targetFps": 15,
+    "steps": [
+      "Choose key poses",
+      "Draw separated eyes, mouths and in-betweens",
+      "Test loops, transitions, speech and interruptions",
+      "Enable one verified family with fallback"
+    ]
+  }
+}

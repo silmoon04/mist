@@ -1,0 +1,6 @@
+MIST animation ideas: 12 concepts, three native ImageGen key poses each.
+These are static previews, not complete animation sequences or separated production layers.
+The current face pack stays active. Proposed timing needs testing in the live renderer.
+Review locally: run python -m http.server 9052 in this folder, then open http://127.0.0.1:9052/ .
+Save idea choices and pose notes; export JSON to share feedback.
+Published review: https://silmoon04.github.io/mist/animation-ideas/

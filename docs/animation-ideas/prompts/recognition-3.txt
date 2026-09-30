@@ -1,0 +1,8 @@
+Use case: identity-preserve
+Asset type: MIST animation key pose, recognition__3 / Settle; one single square face image.
+Primary request: Edit the first input image into the settled end of a small recognition beat. Change only the upper eyelid contours and compact closed mouth. Soften both eyes slightly: lower the inner edge of each upper lid only a little, with gentle relaxed curves, while preserving the lower C arcs and outward-facing gaps. The eyes remain clearly open and attentive. Add one relaxed shallow closed smile, smaller and flatter than the recognition peak in Image 3, with rounded ends and the same exact mouth centre. This reads as quiet understanding that has settled.
+Input images: Image 1, recognition__1 / Receive, is the selected edit target and exact layout/texture reference. Image 2 is the shared MIST identity anchor. Image 3, recognition__2 / Recognise, is an expression comparison only: the settled expression is softer and the smile shallower than this peak.
+Composition: Exactly one face. Keep eye centres, spacing, full eye size, angle, mouth centre, overall scale and framing fixed. Do not move or squash the full eyes. Square native dimensions.
+Style and palette: Same softly hand-shaped filled turquoise strokes on dark blue-black; preserve existing faint tonal texture.
+Constraints: Exactly two outward-open C eyes and one compact closed mouth. Mouth stays narrower than the anchor's original smile, around the receiving mouth's width. No permanent grin, no cheek lifts, no excitement or bounce.
+Avoid: Detached eyebrows, huge grin, open mouth, teeth, tongue, cheeks, skin, props, icons, duplicate/ghost features, stray cyan marks, text, labels, body, bezel, scene, extra colours, gradients, glow, shading, 3D.

@@ -1,0 +1,10 @@
+Use case: precise-object-edit
+Asset type: MIST speaking-warm rest key-pose image, one square image only.
+Primary request: Create the REST pose using image 1 as exact identity, scale, face layout, palette, and faint tonal texture reference. This first pose is the visual identity that the two vowel poses will preserve.
+Input images: Image 1 (available-blink-1.png) is the primary exact MIST anchor and edit target. Images 2 and 3 are supporting expression sheets that inform shape restraint only; do not copy their multiple-face layout or change the anchor style.
+Scene/backdrop: Preserve the anchor's dark blue-black square backdrop and its faint tonal texture.
+Subject: Exactly one simple MIST face with the same two turquoise softly hand-shaped filled open-C eyes as the anchor and a small relaxed CLOSED smile centred below them.
+Composition/framing: Preserve the entire anchor's square composition, same face size, same eye centres, eye shapes, eye opening directions, gaze, angles, spacing, and same mouth centre. Do not move, enlarge, rotate, or crop the face. Keep the small mouth's restrained warm closed smile.
+Style/medium: Flat softly hand-shaped turquoise strokes with rounded edges. Preserve the existing faint texture; no stronger texture, glow, gradients, or 3D.
+Constraints: This is a single-image key-pose reference for later audio-driven speech, not an animation sheet. Change no eye or face geometry. Native square image dimensions preserved. The mouth is only one closed turquoise smile stroke with NO dark hole.
+Avoid: Teeth, tongue, skin, detached brows, cheeks, lips, weird protrusions, body, bezel, background scene, props, text, labels, watermark, extra colours, stray cyan marks, duplicates, ghost eyes, ghost mouths, additional faces, panels, grids, collage.

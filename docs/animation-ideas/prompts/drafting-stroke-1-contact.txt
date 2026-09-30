@@ -1,0 +1,6 @@
+Use case: precise-object-edit
+Asset type: one square MIST robot-face key pose, drafting-stroke__1 "Prepare", contact correction. Output one single image.
+Input images: Image 1 is the edit target. Image 2 is the shared identity anchor.
+Primary request: Make only one tiny correction to Image 1: translate the existing pen a few pixels down-left so its exact pointed tip touches the right end of the cyan ink stroke. The pen is writing that stroke, so the nib and stroke endpoint must meet visibly with no dark gap. Do not rotate, scale or redraw the pen.
+Invariants: Keep both half-lidded C eyes, the short closed mouth, their scale, centres, stroke contours, the note outline, all existing ink, backdrop, colour and faint texture unchanged. The exact same rectangular note remains in the lower-right position. Preserve the full square layout and face identity from Image 2.
+Avoid: extra ink, letters, words, hand, body, duplicate face, stray cyan marks, glow, new colours, gradients, 3D, bezel or labels.

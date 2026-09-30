@@ -1,0 +1,8 @@
+Use case: identity-preserve
+Asset type: one square MIST robot-face animation key pose, empathy__1 Notice.
+Primary request: Edit the shared anchor into a quiet, attentive neutral face. Change only its mouth from a smile to a compact, horizontal closed turquoise dash with softly rounded ends. Keep that mouth centered exactly where the anchor mouth is; a little shorter than the anchor smile. No smile curvature.
+Input images: Image 1 is the exact shared anchor and edit target. It alone controls identity, eye geometry, face scale, layout, turquoise colour, dark blue-black background, and faint tonal texture. Other references already viewed inform acting restraint only; do not use their multi-face sheet layout.
+Composition: exactly one face, same square framing, same fixed eye centres and eye dimensions as the anchor. Preserve the left mirrored C opening left and right C opening right, their rounded endpoints and broad softly hand-shaped filled strokes. Both eyes remain open with a neutral direct attentive gaze.
+Style: minimal filled turquoise graphic face on uniform dark blue-black, preserving the existing extremely faint texture without adding visible shading, glow or gradient.
+Constraints: preserve the anchor's eye centres, eye size, face size, mouth centre, canvas layout, palette, stroke weight and background. Deliver one single full square image, not a sheet or triptych. Closed neutral mouth with level corners.
+Avoid: body, bezel, skin, detached eyebrows, cheeks, teeth, tongue, tears, icons, text, labels, watermarks, extra colours, stray turquoise marks, doubled eyes, ghost faces, extra mouths, gradients, glow, 3D, exaggerated emotion, or any grin.

@@ -1,0 +1,9 @@
+Use case: identity-preserve
+Asset type: one independent square MIST animation key pose, Coding / Work. Produce exactly one image.
+Input images: Image 1 is the selected Read code pose and edit target. Image 2 is the original MIST identity reference, used only to retain character identity and native square composition.
+Primary request: Make only two small changes to Image 1: the dark apertures of both focused eyes glance down-right toward the terminal; move the terminal's short cursor down onto its second row. Keep everything else fixed.
+Eyes: retain Image 1's clean single open-C eye curves, mildly lowered upper lids and the same exact eye centres, footprints, scale and stroke weight. The gaze change is very small, conveyed through the inner aperture/lid shape toward the lower-right; do not translate, rotate or scale either entire eye. Maintain one dark aperture, one continuous lower arc and rounded open ends per eye. No pupils, no detached eyebrows, no additional rings, duplicate lower arcs or split tails.
+Mouth: unchanged short flat horizontal closed turquoise stroke at the same centre, calm concentration.
+Terminal: preserve the EXACT frame, glyph shapes, two-chevron row layout, bounding box, thickness and position from Image 1. No resizing, warping or shifting. Move only the cursor vertically from the top row to the second row, keeping its x position and length. Both existing chevrons remain visible, no new lines or glyphs. Terminal stays well below the eyes, separated from the mouth by dark negative space.
+Style/palette: preserve all anchor texture, softly hand-shaped turquoise strokes and dark blue-black background. Native square dimensions and unchanged framing.
+Avoid: other marks, letters, words, title bar, glow, gradients, 3D, colours, scene, body, bezel, skin, teeth, tongue, cheeks, ghosts, moving the full face, or altering the terminal frame.

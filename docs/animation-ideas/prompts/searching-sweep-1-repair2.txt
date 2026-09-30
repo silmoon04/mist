@@ -1,0 +1,5 @@
+Use case: precise-object-edit
+Asset type: Single MIST searching key pose 1, one square image.
+Input image 1: edit target. Input image 2: exact identity anchor for the required eye spacing.
+Required edit: MOVE THE ENTIRE RIGHT EYE 4.5 PERCENT OF CANVAS WIDTH TO THE RIGHT. Keep the left eye fixed. Increase the eye-centre separation to match image 2. The right eye in image 1 is too far left; rigidly translate it right until its centre is at 71 percent across, while its vertical centre stays at 44 percent down. Do not resize, redraw, rotate, change aperture, or alter the right eye's stroke: only translate its whole C shape right. Restore the dark background in its old position without leaving a ghost. The rightmost outer edge of this translated eye should be around 80 percent across, matching the anchor's rightmost extent.
+Preserve everything else exactly: same left eye, short flat closed mouth, palette, stroke texture and square image dimensions. Preserve the small thin cyan magnifier at its current far lower-right position; its circle and 45-degree down-right handle must stay identical. No extra face elements or marks. One face only.

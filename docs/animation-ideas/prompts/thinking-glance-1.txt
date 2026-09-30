@@ -1,0 +1,8 @@
+Use case: identity-preserve
+Asset type: single static key pose for MIST face animation, thinking-glance__1 “Take in”.
+Primary request: Edit the supplied shared identity anchor into the neutral take-in pose. Produce ONE square image containing exactly ONE MIST face.
+Input image: Image 1 is the exact identity, composition, scale, palette and texture anchor. Preserve both balanced open-C eyes exactly in their existing eye centres, dimensions, rounded filled-stroke shape, opposite outward openings and direct resting gaze. Change only the mouth.
+Mouth change: replace the curved smile with ONE short horizontal closed neutral turquoise stroke at the SAME mouth centre. The mouth is compact, roughly 60% of the anchor smile width, with rounded caps and the same stroke weight. No dark interior, no open O, no smile corners.
+Style/medium: softly hand-shaped turquoise graphic strokes, uniform dark blue-black background with the same faint tonal texture as the anchor. Keep the gentle existing texture; do not amplify it.
+Composition: retain the anchor’s precise square canvas, face placement, eye centres, eye size, spacing and mouth centre. Do not enlarge, move, rotate or scale the entire face.
+Constraints: two eyes and one small closed mouth only. No detached brows, cheeks, teeth, tongue, body, bezel, props, progress spinner, text, labels, skin, gradients, glow, 3D, extra colours, duplicate or ghost eyes/mouths, stray turquoise marks. Native square dimensions.

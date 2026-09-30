@@ -1,0 +1,8 @@
+Use case: identity-preserve
+Asset type: one square static MIST animation key pose, warm-to-thoughtful pose 1, Warm.
+Primary request: Generate exactly one face in the same square composition as Image 1, preserving its identity, layout, scale, palette and faint tonal texture. The face is warm: balanced open C eyes and a small relaxed closed smile.
+Input images: Image 1 is the shared identity anchor and primary image reference. Image 2 and Image 3 are supporting expression sheets only; do not copy their layouts, multiple faces, or their colour/style.
+Style: softly hand-shaped filled turquoise strokes on a uniform dark blue-black background, exactly as the anchor. Preserve the two opposing open-C eye silhouettes, their dark apertures, and the compact mouth centre.
+Composition: two eye centres remain at the anchor positions, approximately (0.29W, 0.442H) and (0.71W, 0.442H); mouth centre remains approximately (0.5W, 0.616H). Same eye size and overall face size. Preserve generous empty margins. Native square dimensions.
+Acting: both eyes equally open, same direct relaxed gaze as anchor. One small closed shallow smile at its existing mouth centre.
+Constraints: one single image, one face only. No body, bezel or scene. No detached brows, cheeks, teeth, tongue, skin, props, labels or text. No glow, gradients or 3D. No stray cyan marks or extra colours. No duplicate eyes, duplicate mouths or crossfade ghosts. Do not move, rotate, enlarge or shrink the complete eyes or face. Keep the anchor texture restrained.

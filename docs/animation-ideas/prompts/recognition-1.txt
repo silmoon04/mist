@@ -1,0 +1,9 @@
+Use case: identity-preserve
+Asset type: MIST animation key pose, recognition__1 / Receive; one single square face image.
+Primary request: Edit the supplied shared MIST anchor into a calm receiving pose. Preserve the exact composition and identity. Change only the mouth from the anchor's smile to a short, calm, nearly horizontal closed turquoise stroke, softly rounded at both ends, centred at exactly the same mouth centre. Keep the mouth compact, slightly narrower than the anchor, with at most the faintest friendly curve.
+Input images: Image 1 is the edit target and exact identity, layout, scale, palette and texture reference. Image 2 (Odile expression sheet) and Image 3 (Cuphead process sheet) are supporting references for restrained acting shapes only; do not copy their multi-face layouts or invent a new style.
+Subject: One MIST face only: two turquoise open-C eyes with dark apertures, gaps facing outwards, and one compact closed mouth.
+Composition: Preserve the same eye centres, spacing, eye size, shape and angle from Image 1; preserve the same mouth centre, overall face size and generous negative space. Native square dimensions.
+Style and palette: The anchor's softly hand-shaped filled turquoise strokes on the same dark blue-black background; preserve its existing faint tonal texture without adding texture, glow, shading or gradients.
+Constraints: Exactly two eyes and one mouth; no facial movement or scale change. No opening of the mouth.
+Avoid: Giant grin, open vowel, teeth, tongue, detached eyebrows, cheeks, skin, props, icons, body, bezel, scene, text, labels, extra colours, extra cyan marks, duplicate or ghost eyes/mouths, lighting effects, 3D.

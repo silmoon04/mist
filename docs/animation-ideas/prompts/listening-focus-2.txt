@@ -1,0 +1,6 @@
+Use case: precise-object-edit
+Asset type: single static MIST listening key pose, Focus.
+Input image 1 is the selected Notice pose and edit target. Input image 2 is the shared identity anchor. Preserve image 1's square composition, exact face scale, both eye centres and outer widths, small closed flat mouth and mouth centre, softly hand-shaped filled turquoise strokes and faint tonal texture.
+Change only the upper eyelids for a restrained but readable focus beat. On the viewer-left eye, lift the upper arc a little to open the dark aperture. On the viewer-right eye, lower the upper arc modestly to form a mild attentive half-lid while keeping its C-eye lower arc and width. The slight asymmetry should read as listening with interest. The eyes stay in place without rotating or scaling the entire eyes. Suggest attention slightly toward the viewer's left through the aperture shapes only; do not add pupils.
+Keep the mouth exactly as the small closed dash in image 1. One face only, dark blue-black background. No other changes.
+Avoid open mouth, brows detached from eyes, cheeks, teeth, tongue, body, bezel, props, cyan specks, glow, gradients, 3D, duplicate or ghost features, text or labels.
