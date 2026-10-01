@@ -1,4 +1,4 @@
-import {Playback} from './playback.js?v=20261001-caption-recovery1';
+import {Playback} from './playback.js?v=20261002-caption-recovery2';
 import {replyExpression} from './delivery.js?v=20260922-expression-policy';
 import {ExpressionPolicy} from './expression_policy.js?v=20260929-listening-rest1';
 import {ActivityState} from './activity_state.js?v=20260924-sync1';
@@ -6,7 +6,7 @@ import {UserTranscriptState} from './user_transcript_state.mjs?v=20260928-listen
 import {newListenerCue} from './listener_cue.js?v=20260928-listener3';
 import {MicrophoneSignal} from './microphone_signal.mjs?v=20260929-listening-signal1';
 import {AnimationPreview,VisiblePreviewScheduler,installAnimationPicker} from './animation_picker.mjs?v=20260929-activity-lifecycle2';
-import {SpeechFaceCues} from './speech_face_cues.mjs?v=20261001-sync1';
+import {SpeechFaceCues} from './speech_face_cues.mjs?v=20261002-sync2';
 const $=id=>document.getElementById(id);let ws=null,context=null,player=null,stream=null,capture=null,ready=false,fixtureMode=false,seq=0,lastSensor=0,wake=null;
 const trialArchitecture=new URLSearchParams(location.search).get('architecture');
 const trialMemoryMode=new URLSearchParams(location.search).get('memory_mode')==='speech_feedback'?'speech_feedback':'discussion';

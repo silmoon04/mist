@@ -1,5 +1,5 @@
 import {latestSourcedNotes,availableAudio} from './trial_memory.mjs?v=20260929-host-sessions1';
-import {createReviewUI} from './trial_review.mjs?v=20261001-review1';
+import {createReviewUI} from './trial_review.mjs?v=20261002-review2';
 const $=id=>document.getElementById(id);
 const reviewUI=createReviewUI();
 const PAGE_SIZE=100, FETCH_SIZE=400;

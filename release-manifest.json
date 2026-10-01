@@ -948,7 +948,7 @@
     {
       "path": "brain/duplex/static/app.js",
       "bytes": 31266,
-      "sha256": "18ab29da6a4fdd7d0ce0b7033828b977d695a1610bcbeb403df86c5a158d5a52"
+      "sha256": "d26855381a93ac51b717c1f75bc1f9a15084dff202b1b69f04c75007386b6231"
     },
     {
       "path": "brain/duplex/static/capture-worklet.js",
@@ -988,7 +988,7 @@
     {
       "path": "brain/duplex/static/index.html",
       "bytes": 5723,
-      "sha256": "a8a7f05bf9c3550785e6305597c532997fd9c3b3041a3328e25f9a7c4190a775"
+      "sha256": "4bf76d851c49873029fbcae8eeccdade72fb6f0f94c58855d296e52b01a65af6"
     },
     {
       "path": "brain/duplex/static/inspect.css",
@@ -1058,12 +1058,12 @@
     {
       "path": "brain/duplex/static/trials.html",
       "bytes": 8805,
-      "sha256": "b6866522c50003291ebad52f17f338e161c3c61d0d6010617bd9205fa91d6836"
+      "sha256": "bf741d0eb9412a0b59997c08b738c0d14c6b6edc53bca97765f86ae8b2db6e42"
     },
     {
       "path": "brain/duplex/static/trials.js",
       "bytes": 29241,
-      "sha256": "e92c326424d46ff0436aacadd7f5756601bcb4173b8f9efe7f0dbfe54729990b"
+      "sha256": "5923adfeb68c51806a812c2e0668e2597c2d524563d2b2443d0ee26bf4f8b853"
     },
     {
       "path": "brain/duplex/static/user_transcript_state.mjs",
