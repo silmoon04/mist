@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "status": "offline",
-  "api_origin": null,
-  "updated_at": "2026-10-01T23:13:05Z",
-  "last_seen_at": "2026-10-01T23:11:55Z"
+  "status": "online",
+  "api_origin": "https://valid-remind-washer-cruise.trycloudflare.com",
+  "updated_at": "2026-10-01T23:14:20Z",
+  "last_seen_at": "2026-10-01T23:14:20Z"
 }
