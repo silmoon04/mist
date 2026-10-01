@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "status": "online",
-  "api_origin": "https://yea-simplified-concrete-apr.trycloudflare.com",
-  "updated_at": "2026-10-01T14:42:16Z",
-  "last_seen_at": "2026-10-01T14:42:16Z"
+  "status": "offline",
+  "api_origin": null,
+  "updated_at": "2026-10-01T22:32:26Z",
+  "last_seen_at": "2026-10-01T16:04:07Z"
 }
