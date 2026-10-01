@@ -34,6 +34,13 @@ from duplex.remote_access import RemoteAccess
 from benchmarks.naturalness.cascade_voice import CascadeVoice
 from benchmarks.naturalness.streaming_voice_20260930 import StreamingComparisonVoice
 
+VOICES = (
+    {'id':'mist', 'label':'MIST (refined)', 'voice_id':server.VOICE},
+    {'id':'jessica', 'label':'Jessica', 'voice_id':'cgSgspJ2msm6clMCkdW9'},
+    {'id':'laura', 'label':'Laura', 'voice_id':'FGY2WhTYpPnrIDTdsKH5'},
+    {'id':'callum', 'label':'Callum', 'voice_id':'N2lVS1w4EtoT3dr4eOWO'},
+)
+
 ARCHITECTURES = [
     dict(id='qwen-memory',label='Qwen · memory + Flux',provider='cerebras',
          model='qwen-3.8-27b',reasoning_effort='low',endpoint_ms=None,floor='selective',
@@ -99,6 +106,7 @@ ARCHITECTURES.insert(2, {**ARCHITECTURES[0], 'id':'qwen-memory-pause',
     'label':'Qwen · more time to continue', 'complete_hold_ms':800,
     'description':'Adds an 800 ms continuation window after a complete Flux endpoint. Gives you more time to add a clause, but delays replies after genuine endings.'})
 for architecture in ARCHITECTURES:
+    architecture.setdefault('tts_model', 'eleven_flash_v2_5')
     architecture.update(backing_model='gpt-6-luna',
                         speech_backend='streaming-tts', voice_id=server.VOICE,
                         hardware_connected=False)
@@ -266,6 +274,8 @@ class TrialConversation(server.Conversation):
                              'recording':True,'status':'recording','audio':['mic','assistant'], 'location':'host'})
             self.storage_task = asyncio.create_task(self.monitor_storage())
         tts_options = {'model_id':self.architecture['tts_model']} if self.architecture.get('tts_model') else {}
+        if self.architecture.get('voice_id') != server.VOICE:
+            tts_options['voice_id'] = self.architecture['voice_id']
         self.mask = StreamingTTS(self.app['env']['ELEVENLABS_API_KEY'], self.emit, **tts_options)
         await self.mask.start()
         kwargs = dict(speech_backend='streaming-tts', background=self.brain,
@@ -289,6 +299,8 @@ class TrialConversation(server.Conversation):
         factory = self.app.get('trial_voice_factory', cls)
         self.voice = factory(self.runtime, self.app['run_dir'] / 'voice', self.emit,
                              self.mask.feed, self.realtime_event, **kwargs)
+        if getattr(self.voice, 'listener_voice', None):
+            self.voice.listener_voice.voice_id = a['voice_id']
         self.journal.record({'type':'configuration', 'architecture':a,
                              'tools':runtime_specs() + background_specs(),
                              'persona':(BRAIN / 'duplex/persona.txt').read_text(encoding='utf-8'),
@@ -575,6 +587,7 @@ def create_studio(args):
     async def architectures(r):
         authorize(r)
         return web.json_response({'architectures':catalog(),
+                                  'voices':[{'id':v['id'], 'label':v['label']} for v in VOICES],
                                   'default':'qwen-memory'})
 
     async def sessions(r):
@@ -622,6 +635,32 @@ def create_studio(args):
         if not path.is_file():raise web.HTTPNotFound(text='No recorded audio for this session.')
         return web.FileResponse(path,headers={'Cache-Control':'no-store','Content-Type':'audio/wav'})
 
+    voice_lab_dir = Path(app['run_dir']) / 'voice-lab'
+
+    async def voice_lab(r):
+        authorize(r)
+        path = voice_lab_dir / 'listen.html'
+        if not path.is_file():
+            raise web.HTTPNotFound(text='Voice comparison clips have not been rendered on this host.')
+        return web.FileResponse(path, headers={'Cache-Control':'no-store'})
+
+    async def voice_lab_audio(r):
+        authorize(r)
+        # The generated report is the allowlist; never accept a caller's path.
+        name = r.match_info['filename']
+        try:
+            report = json.loads((voice_lab_dir / 'results.json').read_text(encoding='utf-8'))
+            samples = report.get('samples', [])
+        except (OSError, ValueError):
+            raise web.HTTPNotFound()
+        allowed = {sample.get('wav_file') for sample in samples if isinstance(sample, dict)}
+        if name not in allowed or Path(name).name != name or not name.endswith('.wav'):
+            raise web.HTTPNotFound()
+        path = voice_lab_dir / 'audio' / name
+        if not path.is_file():
+            raise web.HTTPNotFound()
+        return web.FileResponse(path, headers={'Cache-Control':'no-store', 'Content-Type':'audio/wav'})
+
     async def disconnect(r):
         authorize(r, mutation=True)
         owner = app['trial_owner']
@@ -647,7 +686,11 @@ def create_studio(args):
             raise web.HTTPServiceUnavailable(text='A required provider key is missing.')
         mode=r.query.get('memory_mode','discussion')
         if mode not in ('discussion','speech_feedback'):raise web.HTTPBadRequest(text='Unknown memory mode.')
-        architecture={**architecture,'memory_mode':mode}
+        voice = next((v for v in VOICES if v['id'] == r.query.get('voice','mist')), None)
+        if voice is None:
+            raise web.HTTPBadRequest(text='Choose a listed voice.')
+        architecture={**architecture,'memory_mode':mode, 'voice_id':voice['voice_id'],
+                      'voice_name':voice['label'], 'voice_choice':voice['id']}
         if app['trial_health']['quarantined']:
             raise web.HTTPServiceUnavailable(text='A previous provider has not retired safely. Restart the local voice trial server.')
         if app['trial_owner'] is not None or app['sessions']['owner'] is not None:
@@ -764,6 +807,8 @@ def create_studio(args):
     app.router.add_get('/trial/export', export)
     app.router.add_get('/trial/memory', saved_memory)
     app.router.add_get('/trial/audio', saved_audio)
+    app.router.add_get('/voice-lab/', voice_lab)
+    app.router.add_get('/voice-lab/audio/{filename}', voice_lab_audio)
     app.router.add_post('/trial/disconnect', disconnect)
     app.router.add_get('/trial/voice', websocket)
 

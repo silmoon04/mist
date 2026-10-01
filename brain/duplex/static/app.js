@@ -9,6 +9,7 @@ import {AnimationPreview,VisiblePreviewScheduler,installAnimationPicker} from '.
 const $=id=>document.getElementById(id);let ws=null,context=null,player=null,stream=null,capture=null,ready=false,fixtureMode=false,seq=0,lastSensor=0,wake=null;
 const trialArchitecture=new URLSearchParams(location.search).get('architecture');
 const trialMemoryMode=new URLSearchParams(location.search).get('memory_mode')==='speech_feedback'?'speech_feedback':'discussion';
+const trialVoice=new URLSearchParams(location.search).get('voice');
 let starting=false,connectionGeneration=0;
 let listenerCue=null;
 if(trialArchitecture){document.body.classList.add('trial-frame');$('text-box').hidden=trialArchitecture==='native';}
@@ -151,7 +152,7 @@ async function start(test=false){
   catch(e){starting=false;error('Microphone was not enabled. You can reconnect when ready.');return;}
  }
  if(generation!==connectionGeneration){stream?.getTracks().forEach(t=>t.stop());stream=null;return;}
- const voicePath=trialArchitecture?`/trial/voice?architecture=${encodeURIComponent(trialArchitecture)}&memory_mode=${trialMemoryMode}`:'/voice';
+ const voicePath=trialArchitecture?`/trial/voice?architecture=${encodeURIComponent(trialArchitecture)}&memory_mode=${trialMemoryMode}${trialVoice?`&voice=${encodeURIComponent(trialVoice)}`:''}`:'/voice';
  ws=new WebSocket(`${location.protocol==='https:'?'wss':'ws'}://${location.host}${voicePath}`);starting=false;$('status').textContent='Connecting voice';$('talk').textContent='End conversation';
  connectionActivity=face.setActivity?.('connecting',{owner:'transport'}).token;
  const socket=ws;socket.onmessage=event=>{if(ws===socket)receive(JSON.parse(event.data));};socket.onerror=()=>{if(ws===socket){face.clearActivity?.(connectionActivity,{immediate:true});error('Voice connection failed. Check pairing and local server.');}};

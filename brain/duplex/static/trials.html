@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>MIST · Voice trials</title><link rel="icon" href="data:,"><link rel="stylesheet" href="/duplex/trials.css?v=20260929-host-sessions1">
+<title>MIST · Voice trials</title><link rel="icon" href="data:,"><link rel="stylesheet" href="/duplex/trials.css?v=20261001-voice-selector1">
 </head>
 <body>
-<header class="topbar"><a class="brand" href="/try">MIST <span>Voice trials</span></a><span id="connection" role="status">Connecting to server</span><a href="https://silmoon04.github.io/mist/" rel="noreferrer">Find server</a><button id="logout" hidden>Unpair</button><button id="retry" hidden>Retry connection</button></header>
+<header class="topbar"><a class="brand" href="/try">MIST <span>Voice trials</span></a><span id="connection" role="status">Connecting to server</span><a href="/voice-lab/">Voice clips</a><a href="https://silmoon04.github.io/mist/" rel="noreferrer">Find server</a><button id="logout" hidden>Unpair</button><button id="retry" hidden>Retry connection</button></header>
 <div id="error" class="error" role="alert" hidden></div>
 <section id="pairing" class="pairing" aria-labelledby="pairing-title" hidden>
   <h1 id="pairing-title">Pair with MIST</h1>
@@ -15,7 +15,7 @@
 </section>
 <main id="studio">
 <section class="conversation" aria-label="Conversation">
-  <div class="architecture-bar"><label for="architecture">Architecture</label><select id="architecture" disabled><option>Loading options...</option></select><button id="disconnect" disabled>Disconnect</button></div>
+  <div class="architecture-bar"><label for="architecture">Architecture</label><select id="architecture" disabled><option>Loading options...</option></select><label for="voice-select">Voice</label><select id="voice-select" disabled><option>Loading voices...</option></select><button id="disconnect" disabled>Disconnect</button></div>
   <label class="memory-mode" for="memory-mode">Session notes <select id="memory-mode"><option value="discussion">Discussion</option><option value="speech_feedback">Speech feedback</option></select></label>
   <p id="architecture-description" class="description"></p>
   <div id="frame-shell" class="frame-shell"><div id="frame-empty" class="empty">Connecting to the local voice service...</div><iframe id="voice" title="MIST conversation and animated face" allow="microphone; autoplay; fullscreen" hidden></iframe></div>
@@ -36,5 +36,5 @@
   <p class="retention">Up to 100 events are rendered per page. Loaded events remain available here; export retrieves the session's public trace.</p>
 </aside>
 </main>
-<script type="module" src="/duplex/trials.js?v=20260929-host-sessions1"></script>
+<script type="module" src="/duplex/trials.js?v=20261001-voice-selector1"></script>
 </body></html>

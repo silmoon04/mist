@@ -17,20 +17,25 @@ LOG = logging.getLogger('mist.voice')
 
 # Flash settings change delivery variation, not a guaranteed named emotion.
 # Select once per reply so streamed phrases share a stable synthesis context.
-DELIVERY_STABILITY = {'neutral': .5, 'warm': .4, 'gentle': .65, 'bright': .3, 'serious': .75}
+DELIVERY_STABILITY = {'neutral': .5, 'warm': .4, 'gentle': .65, 'bright': .3, 'serious': .75,
+                      'curious': .45, 'amused': .4, 'reassuring': .6, 'urgent': .65}
 DELIVERY_TAGS = {'neutral': None, 'warm': '[warmly]', 'gentle': '[gently]',
-                 'bright': '[excited]', 'serious': '[seriously]'}
-DELIVERY_TAG_PATTERN = re.compile(r'\[(?:warmly|gently|excited|seriously)\]\s*', re.IGNORECASE)
+                 'bright': '[excited]', 'serious': '[seriously]', 'curious': '[curiously]',
+                 'amused': '[amused]', 'reassuring': '[reassuringly]', 'urgent': '[calmly]'}
+DELIVERY_TAG_PATTERN = re.compile(r'\[(?:warmly|gently|excited|seriously|curiously|amused|reassuringly|calmly)\]\s*', re.IGNORECASE)
 FLASH_MODEL = 'eleven_flash_v2_5'
 EXPRESSIVE_MODEL = 'eleven_v4_turbo'
 
 
 class StreamingTTS:
-    def __init__(self, key, emit, model_id=FLASH_MODEL):
+    def __init__(self, key, emit, model_id=FLASH_MODEL, voice_id=VOICE):
         if model_id not in (FLASH_MODEL, EXPRESSIVE_MODEL):
             raise ValueError('Unsupported ElevenLabs streaming model')
+        if not isinstance(voice_id, str) or not re.fullmatch(r'[A-Za-z0-9]{20}', voice_id):
+            raise ValueError('Invalid ElevenLabs voice ID')
         self.key, self.emit = key, emit
         self.model_id = model_id
+        self.voice_id = voice_id
         self.epoch = self.sequence = 0
         self.muted = self.closed = False
         self.client = self.socket = self.reader = self.watchdog = None
@@ -59,7 +64,7 @@ class StreamingTTS:
                 url = ('wss://api.elevenlabs.io/v1/text-to-dialogue/multi-stream-input'
                        f'?model_id={self.model_id}&output_format=pcm_24000&sync_alignment=true')
             else:
-                url = (f'wss://api.elevenlabs.io/v1/text-to-speech/{VOICE}/multi-stream-input'
+                url = (f'wss://api.elevenlabs.io/v1/text-to-speech/{self.voice_id}/multi-stream-input'
                        f'?model_id={self.model_id}&output_format=pcm_24000&inactivity_timeout=180&sync_alignment=true')
             try:
                 for attempt in range(3):
@@ -103,7 +108,7 @@ class StreamingTTS:
                 'done': False, 'audible': audible, 'text': '', 'buffer': '', 'first_text': None, 'first_audio': None,
                 'bytes': 0, 'last_send': time.monotonic(), 'finished': False, 'phrase_count': 0,
                 'caption_text':'','caption_alignment_complete':True,'delivery':delivery,'turn_id':turn_id,
-                'provider_started':False,'provider_initialized':False}
+                'provider_started':False,'provider_initialized':False,'alignment_tag_state':{}}
             self.sequence += 1
         except (aiohttp.ClientError, asyncio.TimeoutError, ConnectionError, RuntimeError) as error:
             await self.fail(type(error).__name__)
@@ -132,20 +137,21 @@ class StreamingTTS:
         entry['provider_started'] = True
         delivery = entry['delivery']
         if self.model_id == EXPRESSIVE_MODEL:
-            await self.socket.send_json({'context_id': context, 'voices': [VOICE]})
+            await self.socket.send_json({'context_id': context, 'voices': [self.voice_id]})
             if not self._current(context, entry):
                 return None
             tag = DELIVERY_TAGS[delivery]
             normalized_text = first_text if first_text.endswith(' ') else first_text + ' '
             tagged_text = f'{tag} {normalized_text}' if tag else normalized_text
             await self.socket.send_json({'context_id': context,
-                'inputs': [{'text': tagged_text, 'voice_id': VOICE}], 'flush': True})
+                'inputs': [{'text': tagged_text, 'voice_id': self.voice_id}], 'flush': True})
             if not self._current(context, entry):
                 return None
             entry['provider_initialized'] = True
             await self.emit({'type':'speech_style','phase':'committed','turn_id':entry['turn_id'],
                 'context_id':context,'epoch':entry['epoch'],'delivery':delivery,'tagged':tag is not None,
-                'model':self.model_id,'named_emotion_guaranteed':False})
+                'model':self.model_id,'voice_id':self.voice_id,'tag_name':tag[1:-1] if tag else None,
+                'named_emotion_guaranteed':False})
             return None
         await self.socket.send_json({'context_id': context, 'text': ' ',
             'voice_settings': {'stability': DELIVERY_STABILITY[delivery], 'similarity_boost': .8, 'use_speaker_boost': False},
@@ -155,7 +161,7 @@ class StreamingTTS:
         entry['provider_initialized'] = True
         await self.emit({'type':'speech_style','phase':'committed','turn_id':entry['turn_id'],
             'context_id':context,'epoch':entry['epoch'],'delivery':delivery,'stability':DELIVERY_STABILITY[delivery],
-            'model':self.model_id,'named_emotion_guaranteed':False})
+            'model':self.model_id,'voice_id':self.voice_id,'named_emotion_guaranteed':False})
         return first_text
 
     async def _send_phrase(self, context, entry, text):
@@ -170,7 +176,7 @@ class StreamingTTS:
             if not self._current(context, entry):
                 return
             await self.socket.send_json({'context_id':context,
-                'inputs':[{'text':text if text.endswith(' ') else text+' ','voice_id':VOICE}],
+                'inputs':[{'text':text if text.endswith(' ') else text+' ','voice_id':self.voice_id}],
                 'flush':True})
         else:
             if not entry['provider_started']:
@@ -278,11 +284,12 @@ class StreamingTTS:
                 raise ValueError('Incomplete TTS PCM sample')
             if entry['first_audio'] is None:
                 entry['first_audio'] = time.monotonic()
+            entry['last_send'] = time.monotonic()
             audio_offset=entry['bytes']/48000
             entry['bytes'] += len(raw)
             if entry['bytes'] > 48000*90:
                 raise ValueError('TTS reply exceeded duration bound')
-            aligned_message = self._without_delivery_tag_alignment(message)
+            aligned_message = self._without_delivery_tag_alignment(message, entry)
             if self.model_id == EXPRESSIVE_MODEL:
                 aligned_message = self._shift_chunk_alignment(aligned_message, audio_offset)
             cues, alignment_source = mouth_cues(raw, aligned_message,audio_offset=audio_offset)
@@ -292,6 +299,10 @@ class StreamingTTS:
             entry['chunks'].append((raw,cues,alignment_source,captions,caption_source))
         if message.get('isFinal') or message.get('is_final'):
             entry['done'] = True
+            if entry['text'].strip() and not entry['bytes']:
+                code, message = await self.empty_reply_error()
+                await self.fail(code, message)
+                return
             first = entry['first_audio']
             metric = {'backend': 'streaming_tts', 'sequence': entry['seq'], 'epoch': entry['epoch'],
                 'first_byte_s': None if first is None or entry['first_text'] is None else first-entry['first_text'],
@@ -300,14 +311,10 @@ class StreamingTTS:
             self.metrics = self.metrics[-200:]
             self.diagnostic('tts_complete', **metric)
             await self.emit({'type': 'latency', 'tts': metric})
-            if entry['text'].strip() and not entry['bytes']:
-                code, message = await self.empty_reply_error()
-                await self.fail(code, message)
-                return
         await self.drain()
 
     @staticmethod
-    def _without_delivery_tag_alignment(message):
+    def _without_delivery_tag_alignment(message, entry=None):
         """Hide any provider-returned control-tag characters from captions/cues."""
         result = dict(message)
         for key in ('normalizedAlignment', 'normalized_alignment', 'alignment'):
@@ -325,6 +332,23 @@ class StreamingTTS:
                 continue
             joined = ''.join(char if isinstance(char, str) else '\0' for char in chars)
             remove = set()
+            # The first control tag can straddle provider packets. Track its
+            # prefix independently for each alignment representation.
+            expected = DELIVERY_TAGS.get(entry['delivery']) if entry else None
+            if expected:
+                states = entry.setdefault('alignment_tag_state', {})
+                state = states.setdefault(key, {'index': 0, 'done': False})
+                for index, char in enumerate(joined):
+                    if state['done']:
+                        break
+                    offset = state['index']
+                    if offset < len(expected) and char.lower() == expected[offset].lower():
+                        remove.add(index)
+                        state['index'] += 1
+                    elif offset == len(expected) and char.isspace():
+                        remove.add(index)
+                    else:
+                        state['done'] = True
             for match in DELIVERY_TAG_PATTERN.finditer(joined):
                 remove.update(range(match.start(), match.end()))
             if remove:
