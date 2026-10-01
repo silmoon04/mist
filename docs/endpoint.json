@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "status": "online",
-  "api_origin": "https://frequent-warner-est-seventh.trycloudflare.com",
-  "updated_at": "2026-10-01T23:51:00Z",
-  "last_seen_at": "2026-10-01T23:51:00Z"
+  "status": "offline",
+  "api_origin": null,
+  "updated_at": "2026-10-01T23:54:06Z",
+  "last_seen_at": "2026-10-01T23:54:06Z"
 }
