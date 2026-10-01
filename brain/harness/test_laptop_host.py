@@ -15,6 +15,110 @@ import laptop_host as host
 
 
 class LaptopHostTests(unittest.TestCase):
+    def test_public_failures_keep_same_children_until_operator_stop(self):
+        app = unittest.mock.Mock()
+        tunnel = unittest.mock.Mock()
+        app.poll.return_value = tunnel.poll.return_value = None
+        records = []
+        probes = []
+        def probe(url, **kwargs):
+            probes.append((url, kwargs))
+            return url.startswith("http://127.0.0.1")
+        reason = host.monitor_cycle(
+            "https://test.trycloudflare.com", app, tunnel,
+            lambda: len(records) == 6, lambda *values: records.append(values),
+            probe=probe, sleep=lambda _: None)
+        self.assertEqual(reason, "operator_stop")
+        self.assertEqual(records[-1], (True, False, 0, 6))
+        self.assertEqual(probes[0], ("http://127.0.0.1:9067/trial/session",
+                                    {"host": "test.trycloudflare.com"}))
+        app.terminate.assert_not_called()
+        tunnel.terminate.assert_not_called()
+
+    def test_local_failures_recover_even_when_public_probe_succeeds(self):
+        child = unittest.mock.Mock()
+        child.poll.return_value = None
+        records = []
+        reason = host.monitor_cycle(
+            "https://test.trycloudflare.com", child, child, lambda: False,
+            lambda *values: records.append(values),
+            probe=lambda url, **_: url.startswith("https:"), sleep=lambda _: None)
+        self.assertEqual(reason, "local_health_failed")
+        self.assertEqual(records[-1], (False, True, 3, 0))
+
+    def test_local_recovery_resets_failure_count_and_public_status(self):
+        child = unittest.mock.Mock()
+        child.poll.return_value = None
+        records = []
+        def probe(url, **kwargs):
+            return len(records) == 2
+        reason = host.monitor_cycle(
+            "https://test.trycloudflare.com", child, child,
+            lambda: len(records) == 3, lambda *values: records.append(values),
+            probe=probe, sleep=lambda _: None)
+        self.assertEqual(reason, "operator_stop")
+        self.assertEqual(records[-1], (True, True, 0, 0))
+
+    def test_child_exit_after_sleep_is_reported_before_probing(self):
+        app = unittest.mock.Mock()
+        tunnel = unittest.mock.Mock()
+        app.poll.side_effect = [None, 7]
+        tunnel.poll.return_value = None
+        probe = unittest.mock.Mock()
+        self.assertEqual(host.monitor_cycle(
+            "https://test.trycloudflare.com", app, tunnel, lambda: False,
+            unittest.mock.Mock(), probe=probe, sleep=lambda _: None), "app_exit:7")
+        probe.assert_not_called()
+
+    def test_previous_logs_are_bounded_and_replaced(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "cloudflared.log"
+            path.write_bytes(b"old-prefix-last")
+            host.preserve_cycle_logs((path,), limit=4)
+            previous = Path(tmp) / "cloudflared.previous.log"
+            self.assertEqual(previous.read_bytes(), b"last")
+            path.write_bytes(b"next")
+            host.preserve_cycle_logs((path,), limit=4)
+            self.assertEqual(previous.read_bytes(), b"next")
+
+    def test_local_probe_sends_public_host_header(self):
+        reply = unittest.mock.MagicMock()
+        reply.__enter__.return_value.status = 200
+        reply.__enter__.return_value.read.return_value = b'{"remote_mode":true,"authenticated":false}'
+        with patch.object(host, "urlopen", return_value=reply) as opening:
+            self.assertTrue(host.healthy("http://127.0.0.1:9067/trial/session",
+                                         host="test.trycloudflare.com"))
+        self.assertEqual(opening.call_args.args[0].get_header("Host"),
+                         "test.trycloudflare.com")
+        reply.__enter__.return_value.read.assert_called_once_with(4096)
+
+    def test_session_probe_requires_valid_remote_session_body(self):
+        bodies = [b'<html>Cloudflare error</html>', b'{', b'[]',
+                  b'{"remote_mode":false,"authenticated":false}',
+                  b'{"remote_mode":true,"authenticated":"false"}',
+                  b'{"remote_mode":true}', b'\xff']
+        for body in bodies:
+            with self.subTest(body=body):
+                reply = unittest.mock.MagicMock()
+                reply.__enter__.return_value.status = 200
+                reply.__enter__.return_value.read.return_value = body
+                with patch.object(host, "urlopen", return_value=reply):
+                    self.assertFalse(host.healthy("https://test.trycloudflare.com/trial/session"))
+        for authenticated in (True, False):
+            reply.__enter__.return_value.read.return_value = json.dumps({
+                "remote_mode": True, "authenticated": authenticated}).encode()
+            with patch.object(host, "urlopen", return_value=reply):
+                self.assertTrue(host.healthy("https://test.trycloudflare.com/trial/session"))
+
+    def test_session_body_timeout_is_unhealthy_and_try_readiness_stays_compatible(self):
+        reply = unittest.mock.MagicMock()
+        reply.__enter__.return_value.status = 200
+        reply.__enter__.return_value.read.side_effect = TimeoutError("body stalled")
+        with patch.object(host, "urlopen", return_value=reply):
+            self.assertFalse(host.healthy("https://test.trycloudflare.com/trial/session"))
+            self.assertTrue(host.healthy("https://test.trycloudflare.com/try"))
+        self.assertEqual(reply.__enter__.return_value.read.call_count, 1)
+
     def test_tunnel_command_uses_selected_protocol(self):
         command = host.tunnel_command(Path("cloudflared.exe"), Path("empty.yaml"), "quic")
         self.assertEqual(command[-2:], ["--protocol", "quic"])
