@@ -33,6 +33,16 @@ class Bridge:
 
 
 class CerebrasTests(unittest.TestCase):
+    def test_ten_sequential_face_calls_leave_a_final_speech_round(self):
+        calls = [stream([{'tool_calls':[{'index':0,'id':f'face-{i}',
+                  'function':{'name':'set_expression','arguments':'{"expression":"curious"}'}}]}],
+                  'tool_calls') for i in range(10)]
+        client = self.client(calls + [stream([{'content':'Here is the last face.'}])])
+        result = client.ask('Show ten faces and say something for each')
+        self.assertEqual(result.errors, [])
+        self.assertEqual(len(client._bridge.calls), 10)
+        self.assertEqual(result.text, 'Here is the last face.')
+
     def batch(self):
         return [
             {'index':0,'id':'face','function':{'name':'set_expression','arguments':'{"expression":"curious"}'}},

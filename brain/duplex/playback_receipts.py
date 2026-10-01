@@ -13,6 +13,7 @@ class PlaybackReceipts:
         self.epoch = 0
         self._sent = OrderedDict()
         self._accepted = {}
+        self._final_pending = OrderedDict()
         self.latest = None
 
     def observe_audio(self, event):
@@ -26,6 +27,8 @@ class PlaybackReceipts:
             return
         key = (epoch, sequence)
         allowed = self._sent.setdefault(key, set())
+        if key in self._final_pending:
+            allowed.add(self._final_pending.pop(key))
         source = event.get('caption_source')
         if not isinstance(source, str) or source == 'unavailable':
             return
@@ -39,11 +42,31 @@ class PlaybackReceipts:
             old, _ = self._sent.popitem(last=False)
             self._accepted.pop(old, None)
 
+    def observe_caption_final(self, event):
+        """Allow only a server-authored final caption for a sent audio sequence."""
+        if not isinstance(event, dict) or event.get('type') != 'caption_final':
+            return
+        epoch, sequence = event.get('epoch'), event.get('seq')
+        text, source = event.get('text'), event.get('source')
+        if (type(epoch) is not int or type(sequence) is not int or
+                epoch != self.epoch or
+                not isinstance(text, str) or not 0 < len(text) <= 8000 or
+                source != 'reply_text_audio_end_fallback'):
+            return
+        key = (epoch, sequence)
+        if key in self._sent:
+            self._sent[key].add((text, source))
+        else:
+            self._final_pending[key] = (text, source)
+            while len(self._final_pending) > 8:
+                self._final_pending.popitem(last=False)
+
     def reset(self, epoch):
         if type(epoch) is int and epoch > self.epoch:
             self.epoch = epoch
             self._sent.clear()
             self._accepted.clear()
+            self._final_pending.clear()
 
     def accept(self, event):
         """Return an accepted, bounded receipt, or None for invalid/duplicate input."""
@@ -62,7 +85,10 @@ class PlaybackReceipts:
         if (text, source) not in self._sent.get(key, ()):
             return None
         previous = self._accepted.get(key, '')
-        if len(text) <= len(previous) or not text.startswith(previous):
+        final_text = source == 'reply_text_audio_end_fallback'
+        if not final_text and (len(text) <= len(previous) or not text.startswith(previous)):
+            return None
+        if final_text and text == previous:
             return None
         self._accepted[key] = text
         receipt = {'type': 'playback_receipt', 'basis': 'client_reported_caption_display',

@@ -157,8 +157,17 @@ class DatabaseTraceStore:
 
     def list_sessions(self):
         with self._guard:
-            db_items = [self.get(item["id"]).metadata
-                        for item in self.database.list_sessions()]
+            db_items = []
+            for saved in self.database.list_sessions():
+                metadata = copy.deepcopy(saved.get("metadata", saved))
+                metadata["trace_id"] = saved.get("id", metadata.get("trace_id"))
+                metadata["status"] = saved.get("status") or metadata.get("status", "active")
+                # SessionStore supplies these from a SQLite aggregate, without
+                # decoding event payloads. Listing is a metadata-only hot path.
+                head = int(saved.get("event_head", metadata.get("head", 0)) or 0)
+                metadata["head"] = head
+                metadata["event_count"] = head
+                db_items.append(self._cleaner.clean(metadata))
             legacy_items = self._legacy.list_sessions()
             return sorted(db_items + legacy_items,
                           key=lambda item: (item.get("started_at", ""), item["trace_id"]),

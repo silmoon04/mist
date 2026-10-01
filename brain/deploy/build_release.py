@@ -28,7 +28,7 @@ RELEASE_FILES = [
         "expression_requests", "memory_requests", "motion_requests", "trial_traces",
         "debugging", "sensors", "conversation_policy", "listener_feedback",
         "listener_backchannels", "listener_voice", "lipsync", "phrasing",
-        "remote_access", "session_store", "session_memory", "database_traces", "turn_policy", "playback_receipts",
+        "remote_access", "session_store", "session_memory", "database_traces", "turn_policy", "playback_receipts", "review_data",
     )],
     "brain/duplex/face_map.json", "brain/duplex/persona.txt",
     *[f"brain/duplex/static/{name}" for name in (
@@ -36,7 +36,7 @@ RELEASE_FILES = [
         "expression_policy.js", "activity_state.js", "listener_cue.js",
         "user_transcript_state.mjs", "capture-worklet.js", "debug.html",
         "debug.js", "expressions.html", "expressions.js", "inspect.css",
-        "trials.html", "trials.css", "trials.js", "sample.wav", "trial_memory.mjs", "microphone_signal.mjs",
+        "trials.html", "trials.css", "trials.js", "trial_review.mjs", "speech_face_cues.mjs", "speech_face_cues.test.mjs", "sample.wav", "trial_memory.mjs", "microphone_signal.mjs",
         "animation_picker.mjs", "animation_picker.test.mjs", "ANIMATION-PREVIEW.md",
     )],
     "brain/ui/static/face_runtime.js", "brain/ui/static/drawn_face_renderer.js",
@@ -61,6 +61,7 @@ RELEASE_FILES = [
     "brain/harness/test_session_store.py", "brain/harness/test_session_memory.py",
     "brain/harness/test_database_traces.py", "brain/harness/test_memory_requests.py",
     "brain/harness/test_playback_receipts.py",
+    "brain/harness/test_session_review.py", "brain/harness/test_expression_requests.py",
     "brain/duplex/static/trial_memory.test.mjs", "brain/duplex/static/microphone_signal.test.mjs",
     "brain/benchmarks/naturalness/test_cerebras_client.py",
     *[f"brain/harness/{name}" for name in (

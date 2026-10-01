@@ -127,6 +127,18 @@ for architecture in ARCHITECTURES:
 
 ACTIVE_TRACE = contextvars.ContextVar('mist_trial_trace', default=None)
 
+# A requested display can guide delivery of the next authored phrase. These are
+# speaking directions, not guarantees that a voice provider will sound emotional.
+FACE_DELIVERY = {
+    'happy':'bright', 'love':'warm', 'proud':'bright', 'surprised':'bright',
+    'sad':'gentle', 'sleepy':'gentle', 'embarrassed':'gentle',
+    'angry':'serious', 'panic':'urgent', 'alert':'urgent', 'error':'serious',
+    'curious':'curious', 'uncertain':'curious', 'suspicious':'curious',
+    'smug':'amused', 'mischief':'amused', 'bored':'neutral',
+    'dead_inside':'neutral', 'neutral':'neutral', 'listening':'neutral',
+    'thinking':'neutral',
+}
+
 
 class TraceLogHandler(logging.Handler):
     def emit(self, record):
@@ -176,6 +188,12 @@ class TrialConversation(server.Conversation):
         self.started = False
         self.current_face = {'expression':'neutral','variant':0}
         self.face_serial = 0
+        self.spoken_characters = 0
+        self.spoken_text = ''
+        self.face_cue_index = 0
+        self.face_cue_turn = None
+        self._model_face_turn_id = None
+        self.pending_face_cues = {}
         self.temporary_face = None
         self.affect_speech_locked = False
         self.affect = None
@@ -217,6 +235,27 @@ class TrialConversation(server.Conversation):
         return 'applied_before_speech'
 
     async def emit(self, event):
+        if event.get('type') == 'tool' and event.get('name') == 'set_expression' and event.get('turn_id'):
+            self._model_face_turn_id = event['turn_id']
+            if self.face_cue_turn != event['turn_id']:
+                self.face_cue_turn = event['turn_id']
+                self.spoken_characters = 0
+                self.spoken_text = ''
+                self.face_cue_index = 0
+        if event.get('type') == 'face' and event.get('source') == 'model':
+            delivery = FACE_DELIVERY.get(event.get('expression'), 'neutral')
+            self.delivery = delivery
+            set_delivery = getattr(self.mask, 'set_delivery', None)
+            scheduled = callable(set_delivery) and set_delivery(delivery)
+            if not scheduled:
+                set_next = getattr(self.mask, 'set_next_phrase_delivery', None)
+                scheduled = callable(set_next) and set_next(delivery)
+            # Tool receipts can arrive in a burst while the browser is still
+            # playing earlier speech. Keep the authored position for playback.
+            event = {**event, 'type':'face_cue', 'turn_id':self._model_face_turn_id,
+                     'character_offset':self.spoken_characters, 'cue_index':self.face_cue_index,
+                     'requested_delivery':delivery, 'delivery_scheduled':bool(scheduled)}
+            self.face_cue_index += 1
         if event.get('type') == 'speech_style' and event.get('phase') == 'committed' and \
                 event.get('epoch') == getattr(self.mask, 'epoch', None) and \
                 event.get('turn_id') == self.assistant_turn:
@@ -226,6 +265,8 @@ class TrialConversation(server.Conversation):
             event = remote.scrub(event)
         if event.get('type') == 'audio':
             self.playback_receipts.observe_audio(event)
+        elif event.get('type') == 'caption_final':
+            self.playback_receipts.observe_caption_final(event)
         elif event.get('type') == 'audio_reset':
             self.playback_receipts.reset(event.get('epoch'))
         if self.database and event.get('type') in ('audio','listener_cue') and event.get('pcm'):
@@ -234,7 +275,7 @@ class TrialConversation(server.Conversation):
                 if not self.database.enqueue_audio(self.journal.trace_id, 'assistant_generated', raw,
                         sample_rate=event.get('sample_rate', 24000),
                         timestamp_ms=round((time.monotonic()-self.storage_started)*1000),
-                        metadata={key:event[key] for key in ('type','epoch','turn_id','cue_id','chunk_id','text') if key in event}):
+                        metadata={key:event[key] for key in ('type','epoch','seq','turn_id','cue_id','chunk_id','text') if key in event}):
                     self.storage_failed = True
             except (ValueError, OSError, RuntimeError):
                 self.storage_failed = True
@@ -246,13 +287,21 @@ class TrialConversation(server.Conversation):
             else:self.database.append_turn(self.journal.trace_id,'user',text)
         if event.get('type') == 'audio_reset':
             await super().emit(event)
+            if type(event.get('epoch')) is int:
+                self.pending_face_cues = {key:value for key,value in self.pending_face_cues.items()
+                                          if type(key[0]) is int and key[0] >= event['epoch']}
             temporary=self.temporary_face
             if temporary is not None and type(event.get('epoch')) is int and \
                     type(temporary.get('epoch')) is int and event['epoch'] > temporary['epoch']:
                 self.temporary_face=None
                 self.face_serial+=1
             return
-        if event.get('type') == 'face':
+        if event.get('type') == 'face_cue':
+            self.face_serial += 1
+            event = {**event,'face_serial':self.face_serial}
+            key = (event.get('epoch'),event.get('turn_id'),event.get('cue_index'))
+            self.pending_face_cues[key] = event
+        elif event.get('type') == 'face':
             self.face_serial+=1
             if event.get('persistent',True):
                 self.current_face={key:event.get(key,0) for key in ('expression','variant')}
@@ -313,6 +362,15 @@ class TrialConversation(server.Conversation):
     async def realtime_event(self, event):
         self.journal.record(event, 'model_protocol')
         turn=event.get('turn',{})
+        if event.get('type') == 'turn.created' and turn.get('role') == 'assistant':
+            if self.face_cue_turn != turn.get('id'):
+                self.spoken_characters = 0
+                self.spoken_text = ''
+                self.face_cue_index = 0
+                self.face_cue_turn = turn.get('id')
+        if event.get('type') == 'turn.delta' and event.get('turn_id') == self.assistant_turn:
+            self.spoken_text += event.get('delta','')
+            self.spoken_characters = len(' '.join(self.spoken_text.split()))
         if self.database and event.get('type') == 'turn.done' and turn.get('transcript','').strip():
             role=turn.get('role')
             identity=f"{role}:{turn.get('id')}"
@@ -326,6 +384,22 @@ class TrialConversation(server.Conversation):
                 self.affect_speech_locked=False
                 if self.affect:self.delivery='neutral'
         await super().realtime_event(event)
+        if event.get('type') == 'turn.done' and turn.get('role') == 'assistant' and \
+                not self.blocked and not turn.get('transcript','').strip() and \
+                not self.spoken_text.strip():
+            # A completed tool-only answer can still fulfil a visual request.
+            # It has no authored words to align with, so label the fallback as
+            # visual only and let the browser hold each requested face in order.
+            cues = sorted((cue for cue in self.pending_face_cues.values()
+                           if cue.get('turn_id') == turn.get('id') and
+                           cue.get('expression_revision') == self.expression_revision and
+                           cue.get('epoch') == getattr(self.mask,'epoch',None)),
+                          key=lambda cue:cue['cue_index'])
+            if cues:
+                await self.emit({'type':'face_visual_sequence','turn_id':turn.get('id'),
+                                 'epoch':cues[0]['epoch'],
+                                 'expression_revision':self.expression_revision,
+                                 'visual_only':True,'cues':cues})
         if self.affect and event.get('type')=='turn.done' and turn.get('role')=='user' and turn.get('transcript','').strip():
             records=[]
             for index,record in enumerate(getattr(self.voice,'history',[])[-12:]):
@@ -349,6 +423,21 @@ class TrialConversation(server.Conversation):
         self.temporary_face=None
         self.face_serial+=1
 
+    def acknowledge_face_cue(self, event):
+        if event.get('type') != 'face_cue_result' or event.get('status') != 'played':
+            return
+        key = (event.get('epoch'),event.get('turn_id'),event.get('cue_index'))
+        cue = self.pending_face_cues.pop(key, None)
+        if cue is None or cue['expression_revision'] != self.expression_revision:
+            return
+        if cue['persistent']:
+            self.current_face = {'expression':cue['expression'],'variant':cue['variant']}
+            self.temporary_face = None
+        elif self.temporary_face is not None or \
+                {'expression':cue['expression'],'variant':cue['variant']} != self.current_face:
+            self.temporary_face = {'serial':cue['face_serial'],'epoch':cue['epoch'],
+                                   'expression_revision':cue['expression_revision']}
+
     async def handle(self, packet):
         kind = packet.get('type')
         if kind != 'mic':
@@ -358,6 +447,10 @@ class TrialConversation(server.Conversation):
             receipt = self.playback_receipts.accept(packet['event'])
             if receipt:
                 self.journal.record(receipt, 'browser_receipt')
+            if packet['event'].get('type') in ('face_cue_result', 'face_assets_state'):
+                self.acknowledge_face_cue(packet['event'])
+                self.journal.record(packet['event'], 'browser')
+                return
         if kind == 'debug_client' and packet.get('event', {}).get('type') in ('expression_transition', 'client_error'):
             self.journal.record(packet['event'], 'browser')
         elif kind == 'text':
@@ -486,7 +579,7 @@ def create_studio(args):
                      'duplex/static/animation_picker.mjs',
                      'duplex/expression_policy.py', 'duplex/expression_requests.py',
                      'duplex/persona.txt', 'duplex/conversation_policy.py', 'duplex/tts.py', 'duplex/static/app.js',
-                     'duplex/static/playback.js', 'duplex/lipsync.py',
+                     'duplex/static/playback.js', 'duplex/static/speech_face_cues.mjs', 'duplex/static/trial_review.mjs', 'duplex/review_data.py', 'duplex/lipsync.py',
                      'duplex/listener_feedback.py', 'duplex/listener_backchannels.py', 'duplex/listener_voice.py',
                      'duplex/static/listener_cue.js', 'duplex/static/user_transcript_state.mjs',
                      'duplex/static/index.html', 'duplex/static/style.css', 'duplex/static/trials.js',
@@ -617,6 +710,23 @@ def create_studio(args):
         data = await asyncio.to_thread(trace.export)
         return web.json_response(data, headers={'Cache-Control':'no-store',
             'Content-Disposition':f'attachment; filename="mist-{trace.trace_id}.json"'})
+
+    async def session_review(r):
+        trace = selected_trace(r)
+        from duplex.review_data import build_session_review
+        sid = trace.trace_id
+        export_data = await asyncio.to_thread(trace.export)
+        turns = await asyncio.to_thread(store.database.list_turns, sid)
+        audio_chunks = await asyncio.to_thread(store.database.audio_timeline, sid)
+        def saved_annotations():
+            path = store.database.db_path.parent / 'reviews' / (sid + '.json')
+            try:
+                return json.loads(path.read_text(encoding='utf-8')) if path.is_file() else {}
+            except (OSError, ValueError):
+                return {}
+        annotations = await asyncio.to_thread(saved_annotations)
+        review = await asyncio.to_thread(build_session_review, export_data, turns, audio_chunks, annotations)
+        return web.json_response(review, headers={'Cache-Control':'no-store'})
 
     async def saved_memory(r):
         trace=selected_trace(r)
@@ -807,6 +917,7 @@ def create_studio(args):
     app.router.add_get('/trial/export', export)
     app.router.add_get('/trial/memory', saved_memory)
     app.router.add_get('/trial/audio', saved_audio)
+    app.router.add_get('/trial/review', session_review)
     app.router.add_get('/voice-lab/', voice_lab)
     app.router.add_get('/voice-lab/audio/{filename}', voice_lab_audio)
     app.router.add_post('/trial/disconnect', disconnect)

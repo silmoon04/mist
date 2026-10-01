@@ -203,7 +203,7 @@ class Tests(unittest.IsolatedAsyncioTestCase):
     async def test_actual_face_request_and_browser_playback_are_saved(self):
         ws, trace = await self.connect()
         await ws.send_json({'type':'text','text':'Please look sad.'})
-        while (await ws.receive_json(timeout=3))['type'] != 'face':
+        while (await ws.receive_json(timeout=3))['type'] != 'face_cue':
             pass
         await ws.send_json({'type':'debug_client','event':{'type':'playback_started','client_ms':123.5}})
         await ws.send_json({'type':'ping'})
@@ -212,7 +212,7 @@ class Tests(unittest.IsolatedAsyncioTestCase):
         await self.end(ws)
         saved = await (await self.client.get('/trial/export?session='+trace)).json()
         events = saved['events']
-        self.assertTrue(any(r['event'].get('type') == 'face' for r in events))
+        self.assertTrue(any(r['event'].get('type') == 'face_cue' for r in events))
         self.assertTrue(any(r['source'] == 'browser' and r['event'].get('client_ms') == 123.5 for r in events))
 
     async def test_caption_receipt_is_durable_partial_and_visible_in_memory(self):

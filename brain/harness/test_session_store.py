@@ -58,6 +58,11 @@ class SessionStoreTests(unittest.TestCase):
             rows = store.list_audio_chunks("room-1", "mic")
             self.assertEqual([(r["offset_bytes"], r["byte_count"]) for r in rows], [(0, len(a)), (len(a), len(b))])
             self.assertEqual(rows[0]["metadata"]["token"], "[redacted]")
+            timeline = store.audio_timeline("room-1")
+            self.assertEqual([(r["stream"], r["timestamp_ms"], r["offset_bytes"])
+                              for r in timeline], [("mic", 100, 0), ("mic", 101, len(a))])
+            self.assertEqual(timeline[0]["metadata"]["token"], "[redacted]")
+            self.assertNotIn("path", timeline[0])
             summary = store.audio_summary("room-1")
             self.assertEqual(len(summary["streams"]), 1)
             self.assertEqual(summary["streams"][0]["chunk_count"], 2)
@@ -93,6 +98,25 @@ class SessionStoreTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 store.enqueue_audio("s", "mic", b"RIFF\0\0\0\0", sample_rate=16000)
             self.assertFalse((Path(self.temp.name).parent / "escape").exists())
+
+    def test_session_listing_counts_live_events(self):
+        with SessionStore(self.db) as store:
+            store.start_session("live")
+            store.append_events("live", [
+                {"id": 4, "event": {"type": "one"}},
+                {"id": 8, "event": {"type": "two"}},
+            ])
+            row = store.list_sessions()[0]
+            self.assertEqual((row["event_count"], row["event_head"]), (2, 8))
+
+    def test_pcm_sample_resembling_mp3_sync_is_recorded(self):
+        # A PCM sample can begin with the same two bytes as an MP3 frame.
+        with SessionStore(self.db) as store:
+            for prefix in (b"\xff\xfb", b"\xff\xf3"):
+                self.assertTrue(store.enqueue_audio("s", "mic", prefix + b"\0\0" * 100,
+                                                    sample_rate=16000))
+            store.flush_audio()
+            self.assertEqual(len(store.list_audio_chunks("s", "mic")), 2)
 
     def test_slow_audio_disk_does_not_hold_ledger_lock(self):
         entered = threading.Event()
