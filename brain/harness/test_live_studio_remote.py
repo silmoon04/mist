@@ -41,6 +41,7 @@ class RemoteTests(unittest.IsolatedAsyncioTestCase):
         for method,path in [('POST','/trial/bootstrap'),('GET','/trial/catalog'),
                             ('GET','/trial/sessions'),('GET','/trial/events?session=x'),
                             ('GET','/trial/export?session=x'),
+                            ('GET','/trial/review?session=x'),
                             ('GET','/trial/memory?session=x'),
                             ('GET','/trial/audio?session=x&stream=mic'),
                             ('GET','/trial/audio?session=x&stream=assistant_generated'),
@@ -56,6 +57,9 @@ class RemoteTests(unittest.IsolatedAsyncioTestCase):
         helper = await self.request('GET','/duplex/trial_memory.mjs')
         self.assertEqual(helper.status,200)
         self.assertIn('javascript',helper.content_type)
+        review_helper = await self.request('GET','/duplex/trial_review.mjs')
+        self.assertEqual(review_helper.status,200)
+        self.assertIn('javascript',review_helper.content_type)
         with self.assertRaises(WSServerHandshakeError) as caught:
             await self.client.ws_connect('/trial/voice?architecture=native', headers=self.headers)
         self.assertEqual(caught.exception.status,401)

@@ -892,8 +892,8 @@
     },
     {
       "path": "brain/duplex/remote_access.py",
-      "bytes": 4285,
-      "sha256": "2d121b4d6b53b7172d5f56881ef47144e643c29d1f33c31e7b7687d55191dd37"
+      "bytes": 4341,
+      "sha256": "22723cdc02975d43b68c0cbffcccb4e663de48079c94b81a61acd842143ad75c"
     },
     {
       "path": "brain/duplex/review_data.py",
@@ -1187,8 +1187,8 @@
     },
     {
       "path": "brain/harness/test_live_studio_remote.py",
-      "bytes": 9194,
-      "sha256": "74113bca2462a9c476f07d7237aa140c829ff02328837c35f11c5b6d082e9a7c"
+      "bytes": 9448,
+      "sha256": "946d8f47a8b3f9dcfe2e990eccd35b9b4125e78a52ecc2593ae65d2cfd189d5a"
     },
     {
       "path": "brain/harness/test_memory_requests.py",
@@ -1302,7 +1302,7 @@
     }
   ],
   "file_count": 260,
-  "total_bytes": 13506885,
+  "total_bytes": 13507195,
   "mutable_files": [
     "docs/endpoint.json"
   ],
