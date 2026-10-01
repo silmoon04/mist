@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "status": "online",
-  "api_origin": "https://provide-occupations-activity-third.trycloudflare.com",
-  "updated_at": "2026-10-01T22:36:51Z",
-  "last_seen_at": "2026-10-01T22:36:51Z"
+  "status": "offline",
+  "api_origin": null,
+  "updated_at": "2026-10-01T23:00:36Z",
+  "last_seen_at": "2026-10-01T23:00:36Z"
 }
