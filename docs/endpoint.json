@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "status": "online",
-  "api_origin": "https://rio-utc-appreciation-remedy.trycloudflare.com",
-  "updated_at": "2026-10-01T23:07:05Z",
-  "last_seen_at": "2026-10-01T23:07:05Z"
+  "status": "offline",
+  "api_origin": null,
+  "updated_at": "2026-10-01T23:09:20Z",
+  "last_seen_at": "2026-10-01T23:08:10Z"
 }
