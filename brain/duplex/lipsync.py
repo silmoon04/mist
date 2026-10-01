@@ -1,5 +1,7 @@
 """Audio-relative mouth cues. Character labels approximate speech shapes, not phonemes."""
 import math
+from difflib import SequenceMatcher
+import re
 import struct
 
 
@@ -74,6 +76,50 @@ def caption_cues(message,duration,audio_offset=0,prefix=''):
             else:events.append(cue)
     source='elevenlabs_normalized_alignment' if message.get('normalizedAlignment') or message.get('normalized_alignment') else 'elevenlabs_alignment'
     return events,text,source
+
+
+def canonical_caption_progress(aligned_text, reply_text):
+    """Map provider word fragments onto the actual reply, preserving its wording.
+
+    A provider may omit interior alignment words. The next matched word bounds
+    that gap, so missing words appear only after the audio has reached it.
+    """
+    script = reply_text.strip()
+    if not aligned_text or not script:
+        return aligned_text, False
+    expected = list(re.finditer(r'\S+', script))
+    observed = list(re.finditer(r'\S+', aligned_text))
+    def word(value):
+        return re.sub(r'[^\w\']+', '', value).casefold()
+    cursor = 0
+    end = 0
+    gap = False
+    for number, token in enumerate(observed):
+        sound = word(token.group())
+        if not sound:
+            continue
+        complete = number < len(observed)-1 or aligned_text[-1].isspace() or token.group()[-1] in '.!?'
+        match = next((i for i in range(cursor, len(expected)) if
+                      (word(expected[i].group()) == sound if complete else word(expected[i].group()).startswith(sound))), None)
+        if match is None:
+            break
+        gap |= match > cursor
+        canonical = expected[match]
+        end = canonical.end() if complete else canonical.start() + min(len(token.group()), len(canonical.group()))
+        cursor = match + 1
+    if aligned_text[-1].isspace() and end < len(script) and script[end].isspace():
+        end += 1
+    # Word alignment can itself splice two fragments into one apparent word.
+    # Use long matching character runs near the current alignment tail to
+    # recover the latest unambiguous position in the reply.
+    if len(aligned_text.strip()) >= 8:
+        matches = SequenceMatcher(None, aligned_text.casefold(), script.casefold(), autojunk=False).get_matching_blocks()
+        tail = max((block.b + block.size for block in matches
+                    if block.size >= 8 and block.a + block.size >= len(aligned_text.rstrip()) - 3), default=0)
+        end = max(end, tail)
+    if not end:
+        return aligned_text, True
+    return script[:end], gap or script[:end].strip() != aligned_text.strip()
 
 
 def mouth_cues(raw, message, rate=24000, audio_offset=0):

@@ -125,7 +125,7 @@ class CerebrasClient:
                              'connect_retries_configured': connect_retries,
                              'tool_execution': 'local production allowlist, sequential',
                              'parallel_tool_calls': parallel_tool_calls,
-                             'tool_limits': {'per_turn': 16, 'model_rounds': 9},
+                             'tool_limits': {'per_turn': 16, 'model_rounds': 17},
                              'history': 'explicit messages including tool receipts, no hidden reasoning replay',
                              'startup_s': 0, 'service_tier': 'provider_default',
                              'deadline_policy': 'Cooperative turn deadline; HTTP reads bounded to at most 10 seconds. An in-flight local tool is not forcibly cancelled.',
@@ -156,7 +156,9 @@ class CerebrasClient:
         tools = [{'type': 'function', 'function': {'name': s['name'], 'description': s['description'],
                   'parameters': s['inputSchema'], 'strict': False}} for s in self._specs]
         try:
-            for round_index in range(9):
+            # A turn can use all 16 allowed tools in separate rounds and still
+            # needs one final model round to produce the spoken answer.
+            for round_index in range(17):
                 remaining = deadline-time.perf_counter()
                 if remaining <= 0:
                     raise TimeoutError('Turn deadline exceeded')

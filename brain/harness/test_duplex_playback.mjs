@@ -93,6 +93,29 @@ try {
   assert.equal(captions.player.sample().caption,'Maybe');
   captions.player.reset(1);
   assert.equal(captions.player.sample().caption,'','interruption must immediately clear the spoken caption');
+  const finalCaption=fixture(),finalUpdates=[];finalCaption.player.onCaption=value=>finalUpdates.push(value);
+  finalCaption.player.append({...packet,turn_id:'reply',caption_cues:[{time:0,text:'It is'}],caption_source:'elevenlabs_normalized_alignment_partial'});
+  finalCaption.player.completeCaption({epoch:0,seq:0,text:'It is all right.',source:'reply_text_audio_end_fallback'});
+  finalCaption.context.currentTime=.25;
+  assert.equal(finalCaption.player.sample().caption,'It is','the full text waits for audible playback end');
+  assert.equal(finalCaption.player.sample().turn_id,'reply');
+  assert.equal(finalUpdates.at(-1).turn_id,'reply');
+  finalCaption.context.currentTime=.301;tick(finalCaption.player);
+  assert.equal(finalCaption.player.sample().caption,'It is all right.');
+  assert.equal(finalCaption.player.sample().captionSource,'reply_text_audio_end_fallback');
+  assert.equal(finalUpdates.at(-1).turn_id,'reply');
+  finalCaption.player.reset(1);
+  finalCaption.player.completeCaption({epoch:0,seq:0,text:'Stale'});
+  assert.equal(finalCaption.player.sample().caption,'','old final markers cannot restore cancelled captions');
+  const leap=fixture(),prefix='The happy face is up. ';
+  const leapPackets=[`${prefix}T`,`${prefix}The sad one didn't take for some reason, so I'll just say the `,`${prefix}The sa`];
+  leapPackets.forEach(text=>leap.player.append({...packet,turn_id:'live-reply',
+    caption_cues:[{time:0,text}],caption_source:'elevenlabs_normalized_alignment_text_fallback_partial'}));
+  leap.context.currentTime=.25;assert.equal(leap.player.sample().caption,leapPackets[0]);
+  leap.context.currentTime=.35;assert.equal(leap.player.sample().caption,leapPackets[0],
+    'partial alignment cannot reveal a distant phrase in one packet');
+  leap.context.currentTime=.45;assert.equal(leap.player.sample().caption,leapPackets[2],
+    'a later packet may resume gradual caption progress');
   const captionClock=fixture(),captionChanges=[];
   captionClock.player.onCaption=value=>captionChanges.push(value);
   captionClock.context.baseLatency=.08;

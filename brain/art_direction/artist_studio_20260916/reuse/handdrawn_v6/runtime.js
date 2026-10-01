@@ -4,6 +4,7 @@
   const FPS=15, TICK=1000/FPS;
   const IDS=['coding','reading','writing','email','searching','planning','calculating','connecting','checking'];
   const sharedLoads=new Map();
+  const BACKGROUND_LOAD_CONCURRENCY=4;
   const clamp=(n,a,b)=>Math.max(a,Math.min(b,n));
   const ease=n=>{n=clamp(n,0,1);return n*n*(3-2*n);};
   const mix=(a,b,t)=>a+(b-a)*t;
@@ -62,12 +63,54 @@
     let manifest=options.manifest||null,images=options.handdrawnImages||{},ready=false,dead=false,error=null,raf=null;
     let revision=0,lastTargets=null,eyeTransition=null,held={},expression=options.expression||data.faces[0].id;
     const clock=createActivityClock(now),previewClock=createActivityClock(now),faces=new Map(data.faces.map(f=>[f.id,f]));
-    let previewActivity=false;
+    let previewActivity=false;const loadedActivities=new Set(),activityLoads=new Map();
     const activeActivity=time=>previewActivity?previewClock.sample(time):clock.sample(time);
     const origin=now(),sampleTime=time=>origin+Math.floor((time-origin)/TICK+1e-7)*TICK;
     const activityConfig=id=>manifest?.activities.find(a=>a.id===id);
+    const progress=(state,details={})=>{try{options.onProgress?.({stage:'handdrawn',state,...details});}catch(_){}};
+    const activityFiles=id=>manifest.assets[id].frames.map(frame=>frame.file);
+    function loadFile(file,manifestUrl){
+      if(images[file])return Promise.resolve(images[file]);
+      const url=new URL(file,new URL(manifestUrl,root.location.href)).href;
+      if(!sharedLoads.has(url))sharedLoads.set(url,(async()=>{
+        const img=new root.Image();img.src=url;await img.decode();
+        if(img.naturalWidth!==256||img.naturalHeight!==256)throw new Error('Unregistered hand-drawn frame: '+file);
+        return img;
+      })().catch(problem=>{sharedLoads.delete(url);throw problem;}));
+      return sharedLoads.get(url).then(img=>{if(!dead)images[file]=img;return img;});
+    }
+    function ensureActivity(id){
+      if(!manifest||!IDS.includes(id))return Promise.resolve(false);
+      if(loadedActivities.has(id))return Promise.resolve(true);
+      if(activityLoads.has(id))return activityLoads.get(id);
+      const manifestUrl=options.manifestUrl||'/studio/handdrawn_v6/manifest.json';
+      const task=Promise.all(activityFiles(id).map(file=>loadFile(file,manifestUrl))).then(()=>{
+        if(dead)return false;
+        loadedActivities.add(id);activityLoads.delete(id);
+        if(clock.sample()?.id===id||previewClock.sample()?.id===id){transitionToNext();revision++;api.update(now());}
+        progress('activity-ready',{activity:id});return true;
+      }).catch(problem=>{
+        activityLoads.delete(id);if(dead)return false;
+        error=problem;progress('activity-error',{activity:id,message:problem?.message||String(problem)});
+        options.onError?.(problem);return false;
+      });
+      activityLoads.set(id,task);return task;
+    }
+    function preloadActivities(files,manifestUrl){
+      let cursor=0,finished=0;
+      const worker=async()=>{while(!dead){const index=cursor++;if(index>=files.length)return;const file=files[index];
+        try{await loadFile(file,manifestUrl);}catch(problem){if(!dead){error=problem;progress('frame-error',{file,message:problem?.message||String(problem)});}}
+        finished++;if(!dead)progress('background-loading',{loaded:finished,total:files.length,file});
+      }};
+      progress('background-loading',{loaded:0,total:files.length});
+      return Promise.all(Array.from({length:Math.min(BACKGROUND_LOAD_CONCURRENCY,files.length)},worker)).then(()=>{
+        for(const id of IDS)if(activityFiles(id).every(file=>images[file]))loadedActivities.add(id);
+        const active=activeActivity();if(active&&loadedActivities.has(active.id)){transitionToNext();revision++;api.update(now());}
+        if(!dead)progress('background-ready',{loaded:finished,total:files.length});
+      });
+    }
     function targets(id=expression,activity=activeActivity()){
-      const config=activity&&!activity.exiting?activityConfig(activity.id):null;
+      const config=activity&&!activity.exiting&&loadedActivities.has(activity.id)?activityConfig(activity.id):null;
       const side=config?.placement==='side',above=config?.placement==='above';
       return {
         id,activity:config?.id||null,
@@ -89,7 +132,8 @@
     }
     function shot(time=now()){
       const at=sampleTime(time),activity=activeActivity(at),model=layout(at);
-      const symbol=activity?{...activity,frame:Number.isInteger(held.activityFrame)?clamp(held.activityFrame,0,11):reduced?7:activity.frame}:null;
+      const symbol=activity?{...activity,frame:Number.isInteger(held.activityFrame)?clamp(held.activityFrame,0,11):reduced?7:activity.frame,
+        imageReady:loadedActivities.has(activity.id)}:null;
       if(symbol)symbol.file=manifest?.assets[symbol.id]?.frames[symbol.frame]?.file||null;
       const face=faces.get(expression)||data.faces[0];
       return {ready,error:error?.message||null,fps:FPS,time:at,expression,eyeSource:'original-mist',
@@ -110,7 +154,7 @@
       faceTransform(state){return shot(state.drawnAnimation.time).faceTransform;},
       paint(context,state,gaze){
         const s=shot(state.drawnAnimation.time),layers=s.layers;
-        const a=s.activity;if(a&&(layers==='all'||layers==='activity')){
+        const a=s.activity;if(a?.imageReady&&(layers==='all'||layers==='activity')){
           const above=activityConfig(a.id).placement==='above';
           drawFrame(context,a.id,a.frame,above?50:84,above?14:31,above?42:29,1,a.alpha);
         }
@@ -121,7 +165,7 @@
     const owners=new Map();let stateToken=null,stateActivity=null;
     function setActivity(id,settings={}){
       if(dead)return {accepted:false,reason:'destroyed'};
-      const result=clock.set(id,settings);if(result.accepted){transitionToNext();revision++;}return result;
+      const result=clock.set(id,settings);if(result.accepted){transitionToNext();revision++;ensureActivity(id);}return result;
     }
     function clearActivity(token,settings={}){
       const result=clock.clear(token,settings);if(result){transitionToNext();revision++;}return result;
@@ -167,7 +211,7 @@
       setActivity,clearActivity,handleEvent,
       previewActivity(id){
         const result=previewClock.set(id,{owner:'preview'});
-        if(result.accepted){previewActivity=true;transitionToNext();revision++;}
+        if(result.accepted){previewActivity=true;transitionToNext();revision++;ensureActivity(id);}
         return result;
       },
       clearPreviewActivity(){
@@ -191,22 +235,19 @@
     api.ready=(async()=>{
       try{
         const manifestUrl=options.manifestUrl||'/studio/handdrawn_v6/manifest.json';
+        progress('manifest-loading');
         if(!manifest){const response=await root.fetch(manifestUrl,{cache:'no-cache'});if(!response.ok)throw new Error('Hand-drawn manifest HTTP '+response.status);manifest=await response.json();}
         validateManifest(manifest);
         const files=[...new Set(IDS.flatMap(id=>manifest.assets[id].frames.map(f=>f.file)))];
-        if(!options.handdrawnImages)await Promise.all(files.map(async file=>{
-          const url=new URL(file,new URL(manifestUrl,root.location.href)).href;
-          if(!sharedLoads.has(url))sharedLoads.set(url,(async()=>{
-            const img=new root.Image();img.src=url;await img.decode();
-            if(img.naturalWidth!==256||img.naturalHeight!==256)throw new Error('Unregistered hand-drawn frame: '+file);
-            return img;
-          })().catch(problem=>{sharedLoads.delete(url);throw problem;}));
-          const img=await sharedLoads.get(url);if(!dead)images[file]=img;
-        }));
-        if(files.some(file=>!images[file]))throw new Error('Hand-drawn frames are incomplete');
         if(dead)return false;
-        ready=true;transitionToNext();revision++;
-        await base.ready;if(dead)return false;api.update(now());return base.loaded;
+        const baseReady=await base.ready;if(dead)return false;
+        if(!baseReady)throw base.error||new Error('Drawn face renderer did not load');
+        if(options.handdrawnImages)for(const id of IDS)if(activityFiles(id).every(file=>images[file]))loadedActivities.add(id);
+        ready=true;transitionToNext();revision++;api.update(now());
+        progress('ready',{loaded:files.filter(file=>images[file]).length,total:files.length});
+        const active=activeActivity();if(active)ensureActivity(active.id);
+        if(!options.handdrawnImages)preloadActivities(files,manifestUrl);
+        return base.loaded;
       }catch(problem){if(dead)return false;error=problem;ready=false;options.onError?.(problem);return false;}
     })();
     if(options.autoStart!==false&&root.requestAnimationFrame){const tick=time=>{if(dead)return;api.update(time);raf=root.requestAnimationFrame(tick);};raf=root.requestAnimationFrame(tick);}

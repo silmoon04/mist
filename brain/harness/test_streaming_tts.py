@@ -1,10 +1,11 @@
 """Streaming text, cancellation, ordering and native event regressions."""
 import asyncio, base64, sys, unittest
 import tempfile
+import json
 import aiohttp
 from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
-from duplex.tts import StreamingTTS
+from duplex.tts import StreamingTTS, EXPRESSIVE_MODEL
 from duplex.native import NativeVoice
 from duplex.server import Conversation
 from duplex.runtime import RobotRuntime
@@ -16,6 +17,106 @@ class Socket:
     async def close(self):self.closed=True
 
 class Tests(unittest.IsolatedAsyncioTestCase):
+    async def test_saved_partial_alignment_uses_reply_words(self):
+        trace = Path(__file__).resolve().parents[1] / 'results' / 'v4-expressive-20261001' / 'live-smoke' / 'browser-gentle.json'
+        events = json.loads(trace.read_text(encoding='utf-8'))['events']
+        script = next(row['event']['text'].strip() for row in events
+                      if row['event'].get('type') == 'transcript_done' and row['event'].get('role') == 'assistant')
+        aligned = next(row['event']['text'] for row in reversed(events)
+                       if row['event'].get('type') == 'caption_progress' and row['event']['text'])
+        from duplex.lipsync import canonical_caption_progress
+        caption, partial = canonical_caption_progress(aligned, script)
+        self.assertEqual(caption, script)
+        self.assertTrue(partial)
+
+    async def test_short_repeated_alignment_word_does_not_jump_to_late_phrase(self):
+        from duplex.lipsync import canonical_caption_progress
+        script = "The happy face is up. The sad one didn't take for some reason, so I'll just say the gentle part out loud."
+        caption, partial = canonical_caption_progress('The happy face is up. T the', script)
+        self.assertTrue(partial)
+        self.assertTrue(caption.startswith('The happy face is up.'))
+        self.assertLessEqual(len(caption), len('The happy face is up. The'))
+
+    async def test_partial_provider_alignment_reaches_browser_with_reply_words(self):
+        t = StreamingTTS('fake', self.tts.emit, model_id=EXPRESSIVE_MODEL)
+        t.socket = Socket()
+        await t.begin('reply', delivery='gentle')
+        context = t.active
+        script = "It's okay. Tomorrow is a fresh page. Goodnight."
+        await t.text(script)
+        await t.finish(script)
+        fragment = "It's is a page. Goodnight."
+        raw = b'\0\x20' * 24000
+        await t.output({'contextId': context, 'audio': base64.b64encode(raw).decode(),
+                        'normalizedAlignment': {
+                            'chars': list(fragment),
+                            'charStartTimesMs': [i * 25 for i in range(len(fragment))],
+                            'charDurationsMs': [25] * len(fragment)}, 'isFinal': True})
+        packets = [event for event in self.events if event['type'] == 'audio']
+        captions = [cue['text'] for packet in packets for cue in packet['caption_cues']]
+        self.assertIn(script, captions)
+        self.assertEqual(packets[0]['turn_id'], 'reply')
+        self.assertTrue(any('text_fallback' in event['caption_source'] for event in packets))
+
+    async def test_long_provider_idle_has_grace_then_reports_stall(self):
+        t = self.tts
+        await t.begin('reply')
+        context = t.active
+        await t.text('Hello.')
+        entry = t.pending[context]
+        self.assertTrue(entry['provider_started'])
+        began = entry['last_send']
+        self.assertEqual(t.stalled_contexts(began + 20), [])
+        self.assertEqual(t.stalled_contexts(began + 46), [context])
+        await t.interrupt()
+        self.assertEqual(t.stalled_contexts(began + 46), [])
+
+    async def test_open_expressive_context_sends_keepalive_without_hiding_stall(self):
+        t = StreamingTTS('fake', self.tts.emit, model_id=EXPRESSIVE_MODEL)
+        t.socket = Socket()
+        await t.begin('reply')
+        context = t.active
+        await t.text('First sentence. ')
+        entry = t.pending[context]
+        idle_at = entry['last_send'] + 16
+        await t.maintain_contexts(idle_at)
+        self.assertEqual(t.socket.sent[-1], {'context_id': context, 'keep_alive': True})
+        self.assertEqual(t.stalled_contexts(entry['last_send'] + 46), [context])
+        await t.maintain_contexts(idle_at + 1)
+        self.assertEqual(sum('keep_alive' in event for event in t.socket.sent), 1)
+
+    async def test_next_phrase_delivery_uses_same_expressive_context(self):
+        t = StreamingTTS('fake', self.tts.emit, model_id=EXPRESSIVE_MODEL)
+        t.socket = Socket()
+        await t.begin('reply', delivery='neutral')
+        context = t.active
+        await t.text('First sentence. ')
+        self.assertTrue(t.set_next_phrase_delivery('gentle'))
+        await t.text('Second sentence. ')
+        await t.finish()
+        spoken = [event for event in t.socket.sent if event.get('inputs')]
+        self.assertEqual(len(spoken), 2)
+        self.assertEqual([event['context_id'] for event in spoken], [context, context])
+        self.assertEqual(spoken[0]['inputs'][0]['text'].strip(), 'First sentence.')
+        self.assertEqual(spoken[1]['inputs'][0]['text'].strip(), '[gently] Second sentence.')
+        self.assertFalse(t.set_next_phrase_delivery('bright'))
+
+    async def test_next_phrase_tag_split_across_provider_packets_stays_hidden(self):
+        t = StreamingTTS('fake', self.tts.emit, model_id=EXPRESSIVE_MODEL)
+        t.socket = Socket()
+        await t.begin('reply', delivery='neutral')
+        await t.text('First sentence. ')
+        self.assertTrue(t.set_next_phrase_delivery('gentle'))
+        await t.text('Second sentence. ')
+        entry = t.pending[t.active]
+        def alignment(chars):
+            return {'normalizedAlignment': {'chars': list(chars),
+                    'charStartTimesMs': list(range(len(chars))),
+                    'charDurationsMs': [1] * len(chars)}}
+        first = t._without_delivery_tag_alignment(alignment('[gen'), entry)
+        second = t._without_delivery_tag_alignment(alignment('tly] S'), entry)
+        self.assertEqual(first['normalizedAlignment']['chars'], [])
+        self.assertEqual(second['normalizedAlignment']['chars'], ['S'])
     async def test_delivery_profile_is_fixed_for_one_context_and_does_not_enter_text(self):
         t=self.tts
         await t.begin('gentle',delivery='gentle')

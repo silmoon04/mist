@@ -79,6 +79,40 @@ def _unconditional_unchanged(text):
     return False
 
 
+def _multi_named_sequence(masked, negatives):
+    """Allow each explicit command in a sequence, but not a corrected command."""
+    commands = []
+    for match in _COMMAND.finditer(masked):
+        name = match['name'].lower()
+        if name in _GENERIC or any(n.start() <= match.start() < n.end() for n in negatives):
+            continue
+        before = masked[max(0,match.start()-16):match.start()]
+        if re.search(r"(?:do not|don['’]t|never)\s*$",before,re.I):
+            continue
+        commands.append((match,name))
+    if len(commands) < 2 or len({name for _,name in commands}) < 2:
+        return None
+    between = masked[commands[0][0].end():commands[-1][0].start()]
+    if re.search(r'\b(?:actually|instead|cancel that|scratch that|rather than)\b',between,re.I):
+        return None
+    if any(name not in _PRESETS for _,name in commands):
+        return None
+    allowed = []
+    for index,(match,name) in enumerate(commands):
+        end = commands[index+1][0].start() if index+1 < len(commands) else len(masked)
+        tail = masked[match.end():end]
+        variants = list(_VARIANT.finditer(tail))
+        entry = {'expression':name}
+        if variants:
+            variant = _number(tail[variants[0].end():])
+            count = 1 + len(_PRESETS[name].get('alts',[]))
+            if variant is None or not float(variant).is_integer() or not 0 <= variant < count:
+                return {'forbid':True,'reason':'An exact requested variant is unavailable.'}
+            entry['variant'] = int(variant)
+        allowed.append(entry)
+    return {'allowed_expressions':allowed}
+
+
 def expression_request_constraint(user_text):
     """Return a narrow constraint, or None for unconstrained ordinary language."""
     if not isinstance(user_text, str) or not user_text.strip():
@@ -98,6 +132,9 @@ def expression_request_constraint(user_text):
 
     candidates = []
     negatives=list(_NEGATED.finditer(text))
+    sequence = _multi_named_sequence(masked, negatives)
+    if sequence is not None:
+        return sequence
     for pattern in (_COMMAND, _LABEL, _INDEXED):
         for match in pattern.finditer(masked):
             name = match['name'].lower()
@@ -150,6 +187,12 @@ def validate_expression_request(user_text, args):
         if args.get('expression') in constraint['forbid_names']:
             raise ValueError('The requested face was explicitly negated.' + suffix)
         return
+    if 'allowed_expressions' in constraint:
+        for entry in constraint['allowed_expressions']:
+            if args.get('expression') == entry['expression'] and \
+                    ('variant' not in entry or args.get('variant',0) == entry['variant']):
+                return
+        raise ValueError('The call differs from the explicitly requested face sequence.' + suffix)
     if args.get('expression') != constraint['expression']:
         raise ValueError('The call differs from the exact requested preset.' + suffix)
     if 'variant' in constraint and args.get('variant',0) != constraint['variant']:

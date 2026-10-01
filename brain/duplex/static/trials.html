@@ -2,39 +2,53 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>MIST · Voice trials</title><link rel="icon" href="data:,"><link rel="stylesheet" href="/duplex/trials.css?v=20261001-voice-selector1">
+<title>MIST · Voice trials</title><link rel="icon" href="data:,"><link rel="stylesheet" href="/duplex/trials.css?v=20261001-review1">
 </head>
 <body>
-<header class="topbar"><a class="brand" href="/try">MIST <span>Voice trials</span></a><span id="connection" role="status">Connecting to server</span><a href="/voice-lab/">Voice clips</a><a href="https://silmoon04.github.io/mist/" rel="noreferrer">Find server</a><button id="logout" hidden>Unpair</button><button id="retry" hidden>Retry connection</button></header>
+<div class="app-shell">
+<header class="topbar"><a class="brand" href="/try" aria-label="MIST voice trials">MIST <span>Voice trials</span></a><nav aria-label="Tools"><a href="/voice-lab/">Voice clips</a><a href="https://silmoon04.github.io/mist/" rel="noreferrer">Find server</a></nav><span id="connection" role="status">Connecting to server</span><button id="logout" hidden>Unpair</button><button id="retry" hidden>Retry</button></header>
 <div id="error" class="error" role="alert" hidden></div>
 <section id="pairing" class="pairing" aria-labelledby="pairing-title" hidden>
-  <h1 id="pairing-title">Pair with MIST</h1>
-  <p>Enter the code shown on the laptop running the voice service.</p>
+  <h1 id="pairing-title">Pair with MIST</h1><p>Enter the code shown on the laptop running the voice service.</p>
   <form id="pair-form"><label for="pair-code">Pairing code</label><div><input id="pair-code" type="password" autocomplete="one-time-code" required><button id="pair-submit" type="submit">Pair</button></div></form>
   <p id="pair-error" class="pair-error" role="alert" hidden></p>
 </section>
 <main id="studio">
-<section class="conversation" aria-label="Conversation">
-  <div class="architecture-bar"><label for="architecture">Architecture</label><select id="architecture" disabled><option>Loading options...</option></select><label for="voice-select">Voice</label><select id="voice-select" disabled><option>Loading voices...</option></select><button id="disconnect" disabled>Disconnect</button></div>
-  <label class="memory-mode" for="memory-mode">Session notes <select id="memory-mode"><option value="discussion">Discussion</option><option value="speech_feedback">Speech feedback</option></select></label>
-  <p id="architecture-description" class="description"></p>
-  <div id="frame-shell" class="frame-shell"><div id="frame-empty" class="empty">Connecting to the local voice service...</div><iframe id="voice" title="MIST conversation and animated face" allow="microphone; autoplay; fullscreen" hidden></iframe></div>
-  <div class="conversation-notes"><span>Start the microphone in the face view. Listening stays active during speech; turn-taking depends on the selected architecture.</span><span>Robot tools are previews. Switching starts a fresh conversation; saved traces stay available.</span></div>
-</section>
-<aside class="debug" aria-label="Conversation trace">
-  <div class="debug-head"><h1>Trace</h1><div><button id="pause" disabled>Pause updates</button><a id="export" aria-disabled="true">Export session</a></div></div>
-  <label class="trace-label" for="session">View session</label><select id="session" disabled><option value="__live">Follow current conversation</option></select>
-  <section class="session-memory" aria-labelledby="session-memory-title"><div class="session-memory-head"><h2 id="session-memory-title">Saved on this host</h2><button id="refresh-memory" disabled>Refresh</button></div><p id="memory-status" role="status">Choose a session to see saved notes and audio.</p><div id="memory-notes"></div><div id="memory-audio"></div></section>
-  <div class="trace-info"><span id="trace-state">No conversation yet</span><code id="trace-id"></code></div>
-  <div id="metrics" class="metrics"><p class="empty">Stage timings appear when events arrive.</p></div>
-  <p class="clock-note">Event times use the server receipt clock. Provider durations and browser playback estimates are labeled separately; none measure physical mouth-to-ear delay.</p>
-  <details class="configs"><summary>Compare configurations</summary><label for="compare">Compare viewed session with</label><select id="compare"><option value="">No comparison</option></select><div class="config-scroll"><table><thead><tr><th>Setting</th><th id="config-primary-title">Viewed session</th><th id="config-other-title">Comparison</th></tr></thead><tbody id="config-body"></tbody></table></div></details>
-  <div class="filters"><label class="sr-only" for="category">Event category</label><select id="category"><option value="all">All events</option><option value="transcript">Transcript</option><option value="tools">Tools</option><option value="expressions">Expressions</option><option value="audio">Audio and playback</option><option value="errors">Errors and warnings</option><option value="background">Background work</option><option value="model">Model and connection</option></select><label class="sr-only" for="search">Search event data</label><input id="search" type="search" placeholder="Search events" autocomplete="off"></div>
-  <div class="event-status"><span id="event-count">No events loaded</span><label><input id="newest" type="checkbox" checked> Newest first</label></div>
-  <div id="events" class="events" aria-label="Public event data"><p class="empty">Start a conversation or select an earlier session.</p></div>
-  <div class="pages"><button id="previous-page" disabled>Previous page</button><span id="page-label">0 / 0</span><button id="next-page" disabled>Next page</button></div>
-  <p class="retention">Up to 100 events are rendered per page. Loaded events remain available here; export retrieves the session's public trace.</p>
-</aside>
+  <section class="session-head" aria-label="Session selection">
+    <div class="session-title"><div><h1 id="view-title">Live conversation</h1></div><span id="view-badge" class="view-badge">Live</span></div>
+    <div class="session-controls"><label for="session">Session</label><select id="session" disabled><option value="__live">Follow current conversation</option></select><div class="trace-info"><span id="trace-state">No conversation yet</span><code id="trace-id"></code></div></div>
+  </section>
+  <section class="recording" aria-labelledby="recording-title"><div class="recording-head"><h2 id="recording-title">Conversation</h2><div><button id="pause" disabled>Pause updates</button><a id="export" aria-disabled="true">Export session</a></div></div>
+    <div class="workspace">
+      <div class="conversation" aria-label="Conversation player">
+        <div id="live-view" class="live-view">
+          <div class="architecture-bar"><label for="architecture">Architecture</label><select id="architecture" disabled><option>Loading options...</option></select><label for="voice-select">Voice</label><select id="voice-select" disabled><option>Loading voices...</option></select><button id="disconnect" disabled>Disconnect</button></div>
+          <label class="memory-mode" for="memory-mode">Session notes <select id="memory-mode"><option value="discussion">Discussion</option><option value="speech_feedback">Speech feedback</option></select></label>
+          <p id="architecture-description" class="description"></p>
+          <div id="frame-shell" class="frame-shell"><div id="frame-empty" class="empty">Connecting to the local voice service...</div><iframe id="voice" title="MIST conversation and animated face" allow="microphone; autoplay; fullscreen" hidden></iframe></div>
+          <p class="conversation-notes">Start the microphone in the face view. Switching architecture or voice starts a fresh conversation.</p>
+        </div>
+        <div id="review-view" class="review-view" hidden>
+          <div class="review-stage"><iframe id="review-face" title="Reconstructed MIST face for saved session" src="/?review=1" loading="lazy"></iframe><span class="review-stage-label">Reconstructed face · not recorded video</span></div>
+          <div class="playback"><div class="playback-source"><label for="review-source">Recording</label><select id="review-source"><option value="mic">Your microphone</option><option value="assistant_generated">MIST generated audio</option></select></div><div class="transport"><button id="review-play" type="button" aria-label="Play recording">Play</button><button id="review-back" type="button" aria-label="Back 5 seconds">−5 s</button><button id="review-forward" type="button" aria-label="Forward 5 seconds">+5 s</button><span id="review-time" aria-live="off">0:00 / 0:00</span><label for="review-speed" class="sr-only">Playback speed</label><select id="review-speed" aria-label="Playback speed"><option value="0.75">0.75×</option><option value="1" selected>1×</option><option value="1.25">1.25×</option><option value="1.5">1.5×</option><option value="2">2×</option></select></div><input id="review-seek" type="range" min="0" max="1000" value="0" aria-label="Session position"><p id="review-audio-note" class="audio-note" role="status">Choose a saved session to inspect its recording.</p><audio id="review-audio" preload="metadata"></audio></div>
+          <div id="review-tracks" class="review-tracks" aria-label="Session timeline"></div>
+        </div>
+      </div>
+      <aside class="debug" aria-label="Session details">
+        <div class="tabs" role="tablist" aria-label="Session details"><button class="tab" role="tab" id="tab-transcript" aria-controls="panel-transcript" aria-selected="true" tabindex="0">Transcript</button><button class="tab" role="tab" id="tab-failures" aria-controls="panel-failures" aria-selected="false" tabindex="-1">Failures <span id="failure-count"></span></button><button class="tab" role="tab" id="tab-timing" aria-controls="panel-timing" aria-selected="false" tabindex="-1">Timing</button><button class="tab" role="tab" id="tab-events" aria-controls="panel-events" aria-selected="false" tabindex="-1">Events & settings</button></div>
+        <section id="panel-transcript" class="tab-panel" role="tabpanel" aria-labelledby="tab-transcript"><label class="sr-only" for="transcript-search">Search transcript</label><input id="transcript-search" type="search" placeholder="Search transcript" autocomplete="off"><div id="transcript-list" class="transcript-list"><p class="empty">Start a conversation or select a saved session.</p></div></section>
+        <section id="panel-failures" class="tab-panel" role="tabpanel" aria-labelledby="tab-failures" hidden><div id="failure-list" class="failure-list"><p class="empty">No failures recorded.</p></div></section>
+        <section id="panel-timing" class="tab-panel" role="tabpanel" aria-labelledby="tab-timing" hidden><div id="metrics" class="metrics"><p class="empty">Stage timings appear when events arrive.</p></div><p class="clock-note">Event times use server receipt timestamps. Provider durations and browser estimates are labeled separately. These do not measure physical mouth-to-ear delay.</p></section>
+        <section id="panel-events" class="tab-panel" role="tabpanel" aria-labelledby="tab-events" hidden>
+          <section class="session-memory" aria-labelledby="session-memory-title"><div class="session-memory-head"><h3 id="session-memory-title">Saved on this host</h3><button id="refresh-memory" disabled>Refresh</button></div><p id="memory-status" role="status">Choose a session to see saved notes and audio.</p><div id="memory-notes"></div><div id="memory-audio"></div></section>
+          <details class="configs"><summary>Compare configurations</summary><label for="compare">Compare viewed session with</label><select id="compare"><option value="">No comparison</option></select><div class="config-scroll"><table><thead><tr><th>Setting</th><th id="config-primary-title">Viewed session</th><th id="config-other-title">Comparison</th></tr></thead><tbody id="config-body"></tbody></table></div></details>
+          <div class="filters"><label class="sr-only" for="category">Event category</label><select id="category"><option value="all">All events</option><option value="transcript">Transcript</option><option value="tools">Tools</option><option value="expressions">Expressions</option><option value="audio">Audio and playback</option><option value="errors">Errors and warnings</option><option value="background">Background work</option><option value="model">Model and connection</option></select><label class="sr-only" for="search">Search event data</label><input id="search" type="search" placeholder="Search events" autocomplete="off"></div>
+          <div class="event-status"><span id="event-count">No events loaded</span><label><input id="newest" type="checkbox" checked> Newest first</label></div><div id="events" class="events" aria-label="Public event data"><p class="empty">Start a conversation or select an earlier session.</p></div><div class="pages"><button id="previous-page" disabled>Previous page</button><span id="page-label">0 / 0</span><button id="next-page" disabled>Next page</button></div><p class="retention">Up to 100 events per page. Export retrieves the full public trace.</p>
+        </section>
+      </aside>
+    </div>
+  </section>
 </main>
-<script type="module" src="/duplex/trials.js?v=20261001-voice-selector1"></script>
+</div>
+<script type="module" src="/duplex/trials.js?v=20261001-review1"></script>
 </body></html>

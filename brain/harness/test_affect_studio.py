@@ -9,6 +9,12 @@ sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
 from duplex.live_studio import TrialConversation,ARCHITECTURES
 
 class Tests(unittest.IsolatedAsyncioTestCase):
+    async def play_last_face_cue(self):
+        cue = next(event for event in reversed(self.events) if event['type']=='face_cue')
+        await self.c.handle({'type':'debug_client','event':{'type':'face_cue_result',
+            'status':'played','epoch':cue['epoch'],'turn_id':cue['turn_id'],
+            'cue_index':cue['cue_index'],'character_offset':cue['character_offset']}})
+
     async def asyncSetUp(self):
         self.tmp=tempfile.TemporaryDirectory();self.addCleanup(self.tmp.cleanup)
         self.events=[]
@@ -74,9 +80,11 @@ class Tests(unittest.IsolatedAsyncioTestCase):
         await self.c.emit({'type':'face','expression':'sad','variant':0,'duration_ms':2200,
                            'persistent':True,'source':'model','epoch':0,
                            'expression_revision':self.c.expression_revision})
+        await self.play_last_face_cue()
         await self.c.emit({'type':'face','expression':'happy','variant':0,'duration_ms':400,
                            'persistent':False,'source':'model','epoch':0,
                            'expression_revision':self.c.expression_revision})
+        await self.play_last_face_cue()
         self.assertEqual(self.c.current_face,{'expression':'sad','variant':0})
         captured=[]
         class Affect:
@@ -109,6 +117,7 @@ class Tests(unittest.IsolatedAsyncioTestCase):
         await self.c.emit({'type':'face','expression':'happy','variant':0,'duration_ms':400,
                            'persistent':False,'source':'model','epoch':0,
                            'expression_revision':self.c.expression_revision})
+        await self.play_last_face_cue()
         token=self.c.affect_token()
         self.assertIsNotNone(self.c.temporary_face)
         await self.c.emit({'type':'audio_reset','epoch':1})
@@ -120,9 +129,11 @@ class Tests(unittest.IsolatedAsyncioTestCase):
         await self.c.emit({'type':'face','expression':'sad','variant':0,'duration_ms':2200,
                            'persistent':True,'source':'model','epoch':0,
                            'expression_revision':self.c.expression_revision})
+        await self.play_last_face_cue()
         await self.c.emit({'type':'face','expression':'sad','variant':0,'duration_ms':400,
                            'persistent':False,'source':'model','epoch':0,
                            'expression_revision':self.c.expression_revision})
+        await self.play_last_face_cue()
         self.assertIsNone(self.c.temporary_face)
         self.assertEqual(self.c.current_face,{'expression':'sad','variant':0})
 
@@ -148,5 +159,70 @@ class Tests(unittest.IsolatedAsyncioTestCase):
         self.c.assistant_turn='new'
         await self.c.emit({'type':'speech_style','phase':'committed','turn_id':'old','delivery':'neutral','epoch':1})
         self.assertFalse(self.c.affect_speech_locked)
+
+    async def test_tool_faces_carry_authored_speech_offsets_instead_of_immediate_display(self):
+        turn = 'assistant-demo'
+        self.c.assistant_turn = turn
+        self.c.mask = SimpleNamespace(epoch=4, set_delivery=lambda value:True)
+        def tool(expression):
+            return {'type':'tool','name':'set_expression','turn_id':turn,
+                    'expression_revision':self.c.expression_revision,
+                    'result':{'status':'display_requested','expression':expression,
+                              'variant':0,'duration_ms':1800,'persistent':True}}
+        await self.c.emit(tool('happy'))
+        self.assertEqual(self.c.current_face['expression'],'neutral')
+        await self.c.realtime_event({'type':'turn.delta','turn_id':turn,'delta':'Hello there.'})
+        await self.c.emit(tool('sad'))
+        cues = [event for event in self.events if event['type']=='face_cue']
+        self.assertEqual([(c['expression'],c['character_offset']) for c in cues],
+                         [('happy',0),('sad',12)])
+        self.assertEqual([c['cue_index'] for c in cues],[0,1])
+        self.assertTrue(all(c['turn_id']==turn and c['epoch']==4 for c in cues))
+        self.assertFalse(any(event['type']=='face' for event in self.events))
+        await self.c.handle({'type':'debug_client','event':{'type':'face_cue_result',
+            'status':'played','epoch':4,'turn_id':turn,'cue_index':0,'character_offset':0}})
+        self.assertEqual(self.c.current_face['expression'],'happy')
+
+    async def test_interrupted_face_cue_cannot_change_the_selected_face_later(self):
+        self.c.assistant_turn = 'old-turn'
+        await self.c.emit({'type':'tool','name':'set_expression','turn_id':'old-turn',
+            'expression_revision':self.c.expression_revision,
+            'result':{'status':'display_requested','expression':'sad','variant':0,
+                      'duration_ms':2200,'persistent':True}})
+        cue = next(event for event in reversed(self.events) if event['type']=='face_cue')
+        await self.c.emit({'type':'audio_reset','epoch':1})
+        await self.c.handle({'type':'debug_client','event':{'type':'face_cue_result',
+            'status':'played','epoch':cue['epoch'],'turn_id':'old-turn',
+            'cue_index':cue['cue_index'],'character_offset':0}})
+        self.assertEqual(self.c.current_face['expression'],'neutral')
+
+    async def test_completed_tool_only_reply_offers_visual_sequence_without_speech(self):
+        turn = 'visual-only'
+        self.c.assistant_turn = turn
+        async def finish(*args):
+            return None
+        self.c.mask = SimpleNamespace(epoch=2, finish=finish)
+        for expression in ('happy','curious'):
+            await self.c.emit({'type':'tool','name':'set_expression','turn_id':turn,
+                'expression_revision':self.c.expression_revision,
+                'result':{'status':'display_requested','expression':expression,'variant':0,
+                          'duration_ms':1800,'persistent':True}})
+        await self.c.realtime_event({'type':'turn.done','turn':{'id':turn,'role':'assistant','transcript':''}})
+        sequence = next(event for event in reversed(self.events) if event['type']=='face_visual_sequence')
+        self.assertTrue(sequence['visual_only'])
+        self.assertEqual([cue['expression'] for cue in sequence['cues']],['happy','curious'])
+        self.assertEqual(self.c.current_face['expression'],'neutral')
+
+    async def test_failed_tool_only_reply_drops_visual_fallback(self):
+        turn = 'failed'
+        self.c.assistant_turn = turn
+        self.c.blocked = True
+        self.c.mask = SimpleNamespace(epoch=2)
+        await self.c.emit({'type':'tool','name':'set_expression','turn_id':turn,
+            'expression_revision':self.c.expression_revision,
+            'result':{'status':'display_requested','expression':'sad','variant':0,
+                      'duration_ms':1800,'persistent':True}})
+        await self.c.realtime_event({'type':'turn.done','turn':{'id':turn,'role':'assistant','transcript':''}})
+        self.assertFalse(any(event['type']=='face_visual_sequence' for event in self.events))
 
 if __name__=='__main__':unittest.main()

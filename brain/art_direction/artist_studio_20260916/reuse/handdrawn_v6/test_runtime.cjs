@@ -130,10 +130,32 @@ function canvas(){
   eq(await doomed.ready,false);eq(lateError,false,'destroy suppresses late error callback');global.fetch=originalFetch;
   let reported=false;const invalid=runtime.create(null,{...options,manifest:{...manifest,version:5},onError:()=>reported=true});
   eq(await invalid.ready,false);ok(reported);eq(invalid.snapshot().renderer,'drawn','fallback remains when manifest fails');invalid.destroy();
+  const decodes=[],progressEvents=[];
+  global.location={href:'http://localhost/'};
+  global.Image=class{constructor(){this.naturalWidth=256;this.naturalHeight=256;}set src(value){this.url=value;}decode(){return new Promise(resolve=>decodes.push(resolve));}};
+  const lazy=runtime.create(null,{...options,handdrawnImages:undefined,onProgress:event=>progressEvents.push(event)});
+  eq(await lazy.ready,true,'face becomes ready without waiting for activity frame decoding');
+  eq(lazy.loaded,true,'hand-drawn face stays active during background loading');
+  ok(progressEvents.some(event=>event.state==='background-loading'),'background loading is reported');
+  lazy.previewActivity('coding');
+  eq(lazy.snapshot().handdrawn.activity.id,'coding','requested activity state remains observable while loading');
+  eq(lazy.snapshot().handdrawn.activity.imageReady,false,'activity and its layout wait together for its frames');
+  for(let attempt=0;attempt<80&&!progressEvents.some(event=>event.state==='activity-ready'&&event.activity==='coding');attempt++){
+    for(const resolve of decodes.splice(0))resolve();
+    await new Promise(resolve=>setImmediate(resolve));
+  }
+  const codingReadyIndex=progressEvents.findIndex(event=>event.state==='activity-ready'&&event.activity==='coding');
+  ok(codingReadyIndex>=0,'requested activity reaches readiness');
+  ok(progressEvents.slice(0,codingReadyIndex).some(event=>event.state==='background-loading'&&event.loaded<event.total),
+    'requested activity loads before the remaining background frames');
+  eq(lazy.snapshot().handdrawn.activity.id,'coding','requested animation appears when all its frames are ready');
+  eq(lazy.snapshot().handdrawn.activity.imageReady,true,'activity reports its visual readiness');
+  lazy.destroy();for(const resolve of decodes.splice(0))resolve();
+  delete global.Image;
   const hash=file=>crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex');
   const report={passed:true,checks,activitySamples:samples,renderedActivityFrames:rendered,expressionChecks,preservedOriginalSnapshots:preservedSnapshots,
     runtimeSha256:hash(path.join(dir,'runtime.js')),rendererSha256:hash(path.join(root,'brain/ui/static/drawn_face_renderer.js')),
-    coverage:['all activity entrance/loop/exit sequences','real renderer canvas hook','activity-only PNG emission','40 exact original eye identities','760 exact original eye/transition/blink geometry comparisons','40 emotion mouth families','uniform whole-face layout','unquantized audio sample timing','stale completion and overlapping tools','background resumption','inspector layers','late async failure after destroy','missing assets fallback'],
+    coverage:['all activity entrance/loop/exit sequences','real renderer canvas hook','activity-only PNG emission','first-face readiness before activity frame decoding','requested activity readiness without blank layout switch','background asset progress','40 exact original eye identities','760 exact original eye/transition/blink geometry comparisons','40 emotion mouth families','uniform whole-face layout','unquantized audio sample timing','stale completion and overlapping tools','background resumption','inspector layers','late async failure after destroy','missing assets fallback'],
     limits:['Canvas calls use image placeholders; visual PNG quality is checked separately.','No paid model or voice provider calls.']};
   fs.writeFileSync(path.join(dir,'runtime_checks.json'),JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify(report,null,2));
 })().catch(error=>{console.error(error);process.exitCode=1;});

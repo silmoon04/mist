@@ -3,6 +3,7 @@ from pathlib import Path
 import sys
 import tempfile
 import unittest
+from unittest.mock import patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from duplex.database_traces import DatabaseTraceStore
@@ -100,6 +101,27 @@ class DatabaseTraceTests(unittest.TestCase):
         self.assertEqual(self.store.get(old.trace_id).export()["events"][0]["event"]["text"], "historical")
         self.assertEqual({item["trace_id"] for item in self.store.list_sessions()},
                          {old.trace_id, new.trace_id})
+
+    def test_listing_sessions_does_not_load_event_payloads_or_journals(self):
+        journals = [self.store.start({"name": str(index)}) for index in range(3)]
+        for journal in journals:
+            for event in range(4):
+                journal.record({"type": "debug", "payload": "large" * 100,
+                                "index": event})
+        journals[0].finish()
+        # A server restart leaves completed sessions uncached. Listing is a
+        # frequent metadata poll and must not hydrate every event payload.
+        self.store._sessions.clear()
+        with (patch.object(self.store.database, "list_events",
+                           side_effect=AssertionError("session listing read events")),
+              patch("duplex.database_traces.DatabaseJournal",
+                    side_effect=AssertionError("session listing created a journal"))):
+            sessions = self.store.list_sessions()
+        by_id = {row["trace_id"]: row for row in sessions}
+        for journal in journals:
+            self.assertEqual(by_id[journal.trace_id]["head"], 4)
+            self.assertEqual(by_id[journal.trace_id]["event_count"], 4)
+        self.assertEqual(by_id[journals[1].trace_id]["status"], "active")
 
 
 if __name__ == "__main__":

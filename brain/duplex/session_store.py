@@ -23,7 +23,7 @@ from typing import Any, Mapping
 _SAFE_ID = re.compile(r"^[A-Za-z0-9][A-Za-z0-9_.-]{0,127}$")
 _SECRET_KEY = re.compile(r"(^|[_-])(auth|authorization|api[_-]?key|secret|password|cookie|token)([_-]|$)", re.I)
 _STREAMS = {"mic", "assistant_generated", "assistant_played"}
-_ENCODED_AUDIO_HEADERS = (b"RIFF", b"OggS", b"ID3", b"fLaC", b"FORM", b"\xff\xfb", b"\xff\xf3")
+_ENCODED_AUDIO_HEADERS = (b"RIFF", b"OggS", b"ID3", b"fLaC", b"FORM")
 
 
 def _id(value: str) -> str:
@@ -169,7 +169,13 @@ class SessionStore:
         return result
 
     def list_sessions(self, *, limit: int | None = None) -> list[dict]:
-        sql = "SELECT * FROM sessions ORDER BY created_ms DESC,id DESC"
+        sql = """SELECT sessions.*,COALESCE(event_totals.event_count,0) AS event_count,
+            event_totals.event_head FROM sessions LEFT JOIN
+            (SELECT session_id,COUNT(*) AS event_count,
+             MAX(CAST(source_event_id AS INTEGER)) AS event_head
+             FROM events GROUP BY session_id) AS event_totals
+            ON event_totals.session_id=sessions.id
+            ORDER BY sessions.created_ms DESC,sessions.id DESC"""
         if limit is not None:
             if limit < 0: raise ValueError("limit must be nonnegative")
             sql += f" LIMIT {int(limit)}"
@@ -504,6 +510,18 @@ class SessionStore:
         with self._lock:
             return [{**dict(row), "metadata": json.loads(row["metadata_json"])}
                     for row in self._connection.execute(sql, args).fetchall()]
+
+    def audio_timeline(self, session_id: str) -> list[dict]:
+        """Return ordered timing and offsets without exposing audio paths or samples."""
+        _id(session_id)
+        with self._lock:
+            rows = self._connection.execute("""SELECT stream,timestamp_ms,offset_bytes,
+                byte_count,sample_rate,channels,metadata_json FROM audio_chunks
+                WHERE session_id=? ORDER BY id""", (session_id,)).fetchall()
+        return [{"stream": row["stream"], "timestamp_ms": row["timestamp_ms"],
+                 "offset_bytes": row["offset_bytes"], "byte_count": row["byte_count"],
+                 "sample_rate": row["sample_rate"], "channels": row["channels"],
+                 "metadata": json.loads(row["metadata_json"])} for row in rows]
 
     def audio_summary(self, session_id: str) -> dict:
         """Small per-stream aggregate for UI/status; does not materialize chunk rows."""

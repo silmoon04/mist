@@ -1,6 +1,7 @@
 const REST = Object.freeze({viseme:'rest',amount:0,active:false,source:'silence'});
 const VISEMES = new Set(['rest','AA','EH','EE','OH','OO','MBP','FV','LNT','TH','S']);
 const MAX_QUEUED_SECONDS=120;
+const MAX_FALLBACK_CAPTION_STEP=24;
 
 export class Playback {
   #startBufferMs=200;
@@ -8,7 +9,8 @@ export class Playback {
     this.context=context;this.face=face;this.onLag=onLag;this.onIdle=onIdle;this.onStart=onStart;
     this.epoch=0;this.end=0;this.sources=new Set();this.segments=[];this.timer=null;
     this.startedKey=null;this.origin=0;this.speechAttached=false;this.clockSource='context';
-    this.onCaption=onCaption;this.caption='';this.captionSource='unavailable';this.captionKey=null;this.captionSequence=null;
+    this.onCaption=onCaption;this.caption='';this.captionSource='unavailable';this.captionKey=null;this.captionSequence=null;this.captionTurnId=null;
+    this.finalCaptions=new Map();
   }
   get startBufferMs(){return this.#startBufferMs;}
   setStartBufferMs(value){
@@ -38,21 +40,32 @@ export class Playback {
     let cue=REST;
     for(const e of segment.events){if(e.time>t)break;cue=e;}
     return {...cue,time:Math.max(0,at-this.origin),active:true,source:segment.alignment_source,
-      epoch:this.epoch,sequence:segment.event.seq,audioTime:at,caption:this.caption,captionSource:this.captionSource,playback_buffer_ms:this.startBufferMs};
+      epoch:this.epoch,sequence:segment.event.seq,turn_id:segment.event.turn_id,
+      audioTime:at,caption:this.caption,captionSource:this.captionSource,playback_buffer_ms:this.startBufferMs};
   }
   advanceCaption(at){
     const previous=`${this.captionKey}|${this.captionSource}|${this.caption}`;
     for(const segment of this.segments){
       if(at<segment.start)break;
       const key=`${this.epoch}:${segment.event.seq}`;
-      if(key!==this.captionKey){this.captionKey=key;this.captionSequence=segment.event.seq;this.caption='';this.captionSource='unavailable';}
+      if(key!==this.captionKey){this.captionKey=key;this.captionSequence=segment.event.seq;this.captionTurnId=segment.event.turn_id??null;this.caption='';this.captionSource='unavailable';}
       for(const cue of segment.captions){
         if(cue.time>at-segment.start)break;
-        this.caption=cue.text.replace(/\s+/g,' ').trimStart();this.captionSource=segment.caption_source;
+        const candidate=cue.text.replace(/\s+/g,' ').trimStart();
+        if(segment.caption_source.includes('text_fallback')&&this.caption&&
+          (!candidate.startsWith(this.caption)||candidate.length-this.caption.length>MAX_FALLBACK_CAPTION_STEP))continue;
+        this.caption=candidate;this.captionSource=segment.caption_source;
+      }
+    }
+    for(const [sequence,final] of this.finalCaptions){
+      const last=[...this.segments].reverse().find(s=>s.event.seq===sequence);
+      if(last && at>=last.end && this.captionSequence===sequence){
+        this.captionKey=`${this.epoch}:${sequence}`;this.captionSequence=sequence;this.captionTurnId=final.turn_id??this.captionTurnId;
+        this.caption=final.text;this.captionSource=final.source;this.finalCaptions.delete(sequence);
       }
     }
     if(previous!==`${this.captionKey}|${this.captionSource}|${this.caption}`){
-      this.onCaption({text:this.caption,source:this.captionSource,epoch:this.epoch,sequence:this.captionSequence});
+      this.onCaption({text:this.caption,source:this.captionSource,epoch:this.epoch,sequence:this.captionSequence,turn_id:this.captionTurnId});
     }
   }
   reset(epoch=this.epoch+1){
@@ -61,9 +74,20 @@ export class Playback {
     this.sources.clear();this.segments=[];
     if(this.timer!==null)clearTimeout(this.timer);
     this.timer=null;this.end=this.context.currentTime;this.startedKey=null;this.speechAttached=false;
-    this.caption='';this.captionSource='unavailable';this.captionKey=null;this.captionSequence=null;
-    this.onCaption({text:'',source:'reset',epoch:this.epoch,sequence:null});
+    this.caption='';this.captionSource='unavailable';this.captionKey=null;this.captionSequence=null;this.captionTurnId=null;
+    this.finalCaptions.clear();
+    this.onCaption({text:'',source:'reset',epoch:this.epoch,sequence:null,turn_id:null});
     this.face.stopSpeech();
+  }
+  completeCaption(event){
+    if(event.epoch!==this.epoch||!Number.isInteger(event.seq)||typeof event.text!=='string')return;
+    this.finalCaptions.set(event.seq,{text:event.text,source:event.source||'reply_text_audio_end_fallback',turn_id:event.turn_id??null});
+    if(!this.segments.some(s=>s.event.seq===event.seq)&&this.captionSequence===event.seq){
+      this.caption=event.text;this.captionSource=event.source||'reply_text_audio_end_fallback';
+      this.captionTurnId=event.turn_id??this.captionTurnId;
+      this.finalCaptions.delete(event.seq);
+      this.onCaption({text:this.caption,source:this.captionSource,epoch:this.epoch,sequence:event.seq,turn_id:this.captionTurnId});
+    }
   }
   tick(){
     this.timer=null;

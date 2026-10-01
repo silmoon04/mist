@@ -11,7 +11,7 @@ import uuid
 import aiohttp
 from duplex.conversion import VOICE
 from duplex.phrasing import next_phrase
-from duplex.lipsync import mouth_cues, slice_cues, caption_cues
+from duplex.lipsync import mouth_cues, slice_cues, caption_cues, canonical_caption_progress
 
 LOG = logging.getLogger('mist.voice')
 
@@ -106,9 +106,11 @@ class StreamingTTS:
             self.active = context
             self.pending[context] = {'epoch': self.epoch, 'seq': self.sequence, 'chunks': deque(),
                 'done': False, 'audible': audible, 'text': '', 'buffer': '', 'first_text': None, 'first_audio': None,
-                'bytes': 0, 'last_send': time.monotonic(), 'finished': False, 'phrase_count': 0,
+                'bytes': 0, 'last_send': time.monotonic(), 'last_keepalive': time.monotonic(),
+                'finished': False, 'phrase_count': 0,
                 'caption_text':'','caption_alignment_complete':True,'delivery':delivery,'turn_id':turn_id,
-                'provider_started':False,'provider_initialized':False,'alignment_tag_state':{}}
+                'provider_started':False,'provider_initialized':False,'alignment_tag_state':{},
+                'alignment_expected_tag':None,'next_phrase_delivery':None}
             self.sequence += 1
         except (aiohttp.ClientError, asyncio.TimeoutError, ConnectionError, RuntimeError) as error:
             await self.fail(type(error).__name__)
@@ -121,6 +123,18 @@ class StreamingTTS:
         if entry is None or entry['provider_started'] or entry['provider_initialized']:
             return False
         entry['delivery'] = delivery
+        return True
+
+    def set_next_phrase_delivery(self, delivery):
+        """Apply an expressive tag to the next unsent phrase in this context."""
+        if delivery not in DELIVERY_STABILITY or self.model_id != EXPRESSIVE_MODEL:
+            return False
+        entry = self.pending.get(self.active)
+        if entry is None or entry['finished'] or self.closed or self.muted:
+            return False
+        if not entry['provider_started']:
+            return self.set_delivery(delivery)
+        entry['next_phrase_delivery'] = delivery
         return True
 
     def _current(self, context, entry):
@@ -141,6 +155,7 @@ class StreamingTTS:
             if not self._current(context, entry):
                 return None
             tag = DELIVERY_TAGS[delivery]
+            entry['alignment_expected_tag'] = tag
             normalized_text = first_text if first_text.endswith(' ') else first_text + ' '
             tagged_text = f'{tag} {normalized_text}' if tag else normalized_text
             await self.socket.send_json({'context_id': context,
@@ -175,6 +190,14 @@ class StreamingTTS:
                 text = remainder
             if not self._current(context, entry):
                 return
+            next_delivery = entry['next_phrase_delivery']
+            if next_delivery is not None:
+                entry['next_phrase_delivery'] = None
+                tag = DELIVERY_TAGS[next_delivery]
+                if tag:
+                    text = f'{tag} {text}'
+                    entry['alignment_tag_state'] = {}
+                    entry['alignment_expected_tag'] = tag
             await self.socket.send_json({'context_id':context,
                 'inputs':[{'text':text if text.endswith(' ') else text+' ','voice_id':self.voice_id}],
                 'flush':True})
@@ -294,6 +317,14 @@ class StreamingTTS:
                 aligned_message = self._shift_chunk_alignment(aligned_message, audio_offset)
             cues, alignment_source = mouth_cues(raw, aligned_message,audio_offset=audio_offset)
             captions,entry['caption_text'],caption_source=caption_cues(aligned_message,len(raw)/48000,audio_offset,entry['caption_text'])
+            if captions and entry['text'].strip():
+                repaired = []
+                for cue in captions:
+                    corrected, inferred = canonical_caption_progress(cue['text'], entry['text'])
+                    repaired.append({**cue, 'text': corrected})
+                    if inferred:
+                        caption_source += '_text_fallback' if not caption_source.endswith('_text_fallback') else ''
+                captions = repaired
             if caption_source=='unavailable':entry['caption_alignment_complete']=False
             elif not entry['caption_alignment_complete']:caption_source+='_partial'
             entry['chunks'].append((raw,cues,alignment_source,captions,caption_source))
@@ -312,6 +343,11 @@ class StreamingTTS:
             self.diagnostic('tts_complete', **metric)
             await self.emit({'type': 'latency', 'tts': metric})
         await self.drain()
+        if message.get('isFinal') or message.get('is_final'):
+            await self.emit({'type': 'caption_final', 'epoch': entry['epoch'],
+                             'seq': entry['seq'], 'turn_id': entry['turn_id'],
+                             'text': entry['text'].strip(),
+                             'source': 'reply_text_audio_end_fallback'})
 
     @staticmethod
     def _without_delivery_tag_alignment(message, entry=None):
@@ -334,7 +370,7 @@ class StreamingTTS:
             remove = set()
             # The first control tag can straddle provider packets. Track its
             # prefix independently for each alignment representation.
-            expected = DELIVERY_TAGS.get(entry['delivery']) if entry else None
+            expected = entry.get('alignment_expected_tag') if entry else None
             if expected:
                 states = entry.setdefault('alignment_tag_state', {})
                 state = states.setdefault(key, {'index': 0, 'done': False})
@@ -419,6 +455,7 @@ class StreamingTTS:
                         if epoch != self.epoch:
                             return
                         await self.emit({'type': 'audio', 'epoch': epoch, 'seq': entry['seq'],
+                            'turn_id': entry['turn_id'],
                             'sample_rate': 24000, 'pcm': base64.b64encode(raw[i:i+4800]).decode(),
                             'mouth_cues': slice_cues(cues, i/48000, min(len(raw), i+4800)/48000),
                             'caption_cues':slice_cues(captions,i/48000,min(len(raw),i+4800)/48000),
@@ -456,10 +493,36 @@ class StreamingTTS:
         await self.emit({'type': 'voice_warning', 'code': code,
             'message': message or 'That reply lost its speech connection. I am still listening; ask me to repeat it.'})
 
+    def stalled_contexts(self, now=None):
+        now = time.monotonic() if now is None else now
+        return [context for context, entry in self.pending.items()
+                if entry['provider_started'] and now-entry['last_send'] > 45]
+
+    async def maintain_contexts(self, now=None):
+        """Keep an open text-to-dialogue context alive while text is still arriving."""
+        if self.model_id != EXPRESSIVE_MODEL or self.socket is None or self.socket.closed:
+            return
+        now = time.monotonic() if now is None else now
+        for context, entry in list(self.pending.items()):
+            if (not self._current(context, entry) or not entry['provider_initialized']
+                    or entry['finished'] or now-max(entry['last_send'], entry['last_keepalive']) < 15):
+                continue
+            try:
+                await self.socket.send_json({'context_id': context, 'keep_alive': True})
+                entry['last_keepalive'] = now
+            except (aiohttp.ClientError, ConnectionError, RuntimeError):
+                if self._current(context, entry):
+                    await self.fail('tts_connection_lost')
+                return
+
     async def watch(self):
         while not self.closed:
             await asyncio.sleep(1)
-            if any(time.monotonic()-e['last_send'] > 10 for e in self.pending.values()):
+            await self.maintain_contexts()
+            # A context awaiting generated audio can sit idle well beyond ten
+            # seconds, especially after a flush. Only a started provider context
+            # with no incoming audio/text for this grace period is stalled.
+            if self.stalled_contexts():
                 await self.fail('tts_timeout')
 
     async def close(self):
