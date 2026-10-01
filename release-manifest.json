@@ -641,6 +641,11 @@
       "sha256": "e745f4007458f8e105079caf7540703e2c92c2e4dde536ebc4aa9cc35392dfc4"
     },
     {
+      "path": "brain/benchmarks/naturalness/affect_delivery_20261001.py",
+      "bytes": 34291,
+      "sha256": "f36f7beb5f0d7671b87c038159ea335108b5419808e9809a739cc6416ef0bdaa"
+    },
+    {
       "path": "brain/benchmarks/naturalness/cascade_voice.py",
       "bytes": 44679,
       "sha256": "dea94f7e4444cb672a6567e8ed0e9d6744501b032bf69e6e0d87cc2c12c7c7c4"
@@ -711,14 +716,29 @@
       "sha256": "47022bb1cf728a01c36ff95bb2c658ccb5d7087f79f384e081aed6f5daa84042"
     },
     {
+      "path": "brain/benchmarks/naturalness/test_voice_expressive_benchmark_20261001.py",
+      "bytes": 4666,
+      "sha256": "8c98333d118c570ecbe0844c8dba751ab976891488d72494ae7d300b64afb729"
+    },
+    {
       "path": "brain/benchmarks/naturalness/turn_gap_benchmark_20260929.py",
       "bytes": 4579,
       "sha256": "dd5427dd14c2103012390d03986ad05f6ec534b1ec6431b6e9cd05cfb594dec9"
     },
     {
+      "path": "brain/benchmarks/naturalness/voice_expressive_20261001.py",
+      "bytes": 16158,
+      "sha256": "521a8ead0ab3531c74747d93bf1a2711fe348939d8bb10885792a8477b95d3ad"
+    },
+    {
       "path": "brain/benchmarks/naturalness/voice_quality_20260929.py",
       "bytes": 12384,
       "sha256": "71788ef402b7e5149128afcfe51ab394c6a43cf5d72dcf33134afbdf3b8fd847"
+    },
+    {
+      "path": "brain/benchmarks/naturalness/voice_transcript_20261001.py",
+      "bytes": 15651,
+      "sha256": "1f1b9e6d43b909ab4525bcabd39cc0deae4d3b59746b5e40957c1c1eaee886fd"
     },
     {
       "path": "brain/deploy/LAPTOP_HOST.md",
@@ -727,8 +747,8 @@
     },
     {
       "path": "brain/deploy/build_release.py",
-      "bytes": 13357,
-      "sha256": "8b468ebca93cbb19569992eb2264ec5ec9666be1f72815142f6de11d7db72372"
+      "bytes": 13594,
+      "sha256": "8fd86bfa83681f3540ed5453eda8303b04a51c4148dbcf3874e3dd0bacd3d65c"
     },
     {
       "path": "brain/deploy/fixtures/audio/audio_phrase_seam-1.wav",
@@ -772,8 +792,8 @@
     },
     {
       "path": "brain/duplex/affect_director.py",
-      "bytes": 13316,
-      "sha256": "913c9f9bcb17803bcdc50bcbed6da5d3c04824b70f50bf41565fb732fdada81e"
+      "bytes": 15800,
+      "sha256": "15f82c07f57b57877c92aa0696405adf1bca07a6842b46f48ac908ae2358f0a4"
     },
     {
       "path": "brain/duplex/background.py",
@@ -837,8 +857,8 @@
     },
     {
       "path": "brain/duplex/live_studio.py",
-      "bytes": 45521,
-      "sha256": "70fe03d7285194c8dd5aac55ef9be860752ead45bef0ccf166fe8db267e2305b"
+      "bytes": 47850,
+      "sha256": "16b8d0322a55e4bc2a12e43373c7716cee2fe9d05b714915a1be552c38b1abad"
     },
     {
       "path": "brain/duplex/memory_requests.py",
@@ -922,8 +942,8 @@
     },
     {
       "path": "brain/duplex/static/app.js",
-      "bytes": 28591,
-      "sha256": "b7244f939d121e6f8e681bebc9a00d539cd8e1484eb3b0c6f9eb80e52b5bada9"
+      "bytes": 28718,
+      "sha256": "0e44289d2ee5344550cb648ce007442c08ae644defd720bbf2c0609ccd90755a"
     },
     {
       "path": "brain/duplex/static/capture-worklet.js",
@@ -962,8 +982,8 @@
     },
     {
       "path": "brain/duplex/static/index.html",
-      "bytes": 5703,
-      "sha256": "5d157332b0995e7e2cd45687c6a4fb5777da201a7d9c984b682f119ab60d0912"
+      "bytes": 5699,
+      "sha256": "78a8de35e37ba2514b91af37cd0e397b3ead962e0e385083d838d63aae720c85"
     },
     {
       "path": "brain/duplex/static/inspect.css",
@@ -1012,18 +1032,18 @@
     },
     {
       "path": "brain/duplex/static/trials.css",
-      "bytes": 7588,
-      "sha256": "fd2a5af14b3d20f63b4e9322c9f85fcbe32b413b362da1d7461a442d9d5a16ef"
+      "bytes": 7609,
+      "sha256": "dbbe494823942dbceb6e5c06bfc7fe3e74434e868d7f7a457b43a7607074ca43"
     },
     {
       "path": "brain/duplex/static/trials.html",
-      "bytes": 5209,
-      "sha256": "c0d98ef98efdb757fb1cf3cbc827f03adf6b93d4af07b0039518ae4226f81bba"
+      "bytes": 5365,
+      "sha256": "6b458d982d28c1d7d88c28a6e52e53a084a9b907305beff61453acfda6da0a12"
     },
     {
       "path": "brain/duplex/static/trials.js",
-      "bytes": 27270,
-      "sha256": "7a107ae3ab9f7098f9ae01f6dac72785f28f6020d01d32bad5f91dcf2cb0f2a5"
+      "bytes": 28580,
+      "sha256": "6ad4682b5edf45f52a2a5251e93c77519949ab4be80ee0abb4c29141772983e9"
     },
     {
       "path": "brain/duplex/static/user_transcript_state.mjs",
@@ -1037,8 +1057,8 @@
     },
     {
       "path": "brain/duplex/tts.py",
-      "bytes": 22519,
-      "sha256": "7748de49cb321b85e35e2f0a28eeedfa93f3beeb3503559bab1060dd45f88e84"
+      "bytes": 24114,
+      "sha256": "eb148a3105a8042ab2359a9d512d6debeb0403055767000b023e2b69e3c266b1"
     },
     {
       "path": "brain/duplex/turn_policy.py",
@@ -1089,6 +1109,11 @@
       "path": "brain/harness/test_affect_controller.py",
       "bytes": 2409,
       "sha256": "e08c63893abccb0c6bc56d9acf80d8a013684da9d0b32da361fed8aa79268968"
+    },
+    {
+      "path": "brain/harness/test_affect_delivery_20261001.py",
+      "bytes": 8436,
+      "sha256": "5a18aa8817e8c6feb97746bd2c837f8de0b012a27934ea44a8c228ddfd40f2a1"
     },
     {
       "path": "brain/harness/test_affect_studio.py",
@@ -1191,6 +1216,11 @@
       "sha256": "2e68fcc21b67c483c39ae15549d8d19d4843669b7a7588c3590934e1b9be9259"
     },
     {
+      "path": "brain/harness/test_voice_delivery_20261001.py",
+      "bytes": 5977,
+      "sha256": "c4232819f197ba2680f94afba7e4d072e8e2d7492ca991498eebe46c72ff772b"
+    },
+    {
       "path": "brain/ui/static/drawn_face_renderer.js",
       "bytes": 47900,
       "sha256": "afd91c48a1da7c37a64f8a40c4b0ee8a6da5f76167976543ef03979c2f7a7e68"
@@ -1241,8 +1271,8 @@
       "sha256": "64fa68318ab3f91abe89919c90007c36625148e92d7d133a8ecb3d25d3385d1c"
     }
   ],
-  "file_count": 248,
-  "total_bytes": 13309861,
+  "file_count": 254,
+  "total_bytes": 13403295,
   "mutable_files": [
     "docs/endpoint.json"
   ],

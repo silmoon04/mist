@@ -67,10 +67,13 @@ RELEASE_FILES = [
         "test_affect_studio.py", "test_affect_controller.py", "test_background.py",
         "test_codex_client.py", "test_streaming_tts.py", "test_lipsync.py", "test_phrasing.py",
         "test_tts_expressive_protocol_20260929.py", "test_duplex_playback.mjs",
+        "test_affect_delivery_20261001.py", "test_voice_delivery_20261001.py",
     )],
     *[f"brain/benchmarks/naturalness/{name}" for name in (
         "quality_gate_20260929.py", "turn_gap_benchmark_20260929.py",
         "voice_quality_20260929.py", "test_streaming_voice_20260930.py",
+        "voice_expressive_20261001.py", "affect_delivery_20261001.py", "voice_transcript_20261001.py",
+        "test_voice_expressive_benchmark_20261001.py",
         "jev_turn_policy_20260930.py", "jev_comparison_20260929.py",
         "robust_conversation_20260929/cases.json", "robust_conversation_20260929/README.md",
         "robust_conversation_20260929/runner.py", "robust_conversation_20260929/test_runner.py",
