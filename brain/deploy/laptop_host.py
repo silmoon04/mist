@@ -20,6 +20,7 @@ import sys
 import time
 from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
+from urllib.parse import urlsplit
 import uuid
 
 
@@ -139,12 +140,61 @@ def publish_endpoint(payload: dict, *, gh: str = "gh", sleep=time.sleep) -> None
             sleep(2)
 
 
-def healthy(url: str, timeout: int = 8) -> bool:
+def healthy(url: str, timeout: int = 8, *, host: str | None = None) -> bool:
     try:
-        with urlopen(Request(url, headers={"User-Agent": "MIST-laptop-host/1"}), timeout=timeout) as reply:
-            return reply.status == 200
-    except (HTTPError, URLError, TimeoutError, OSError):
+        headers = {"User-Agent": "MIST-laptop-host/1"}
+        if host:
+            headers["Host"] = host
+        with urlopen(Request(url, headers=headers), timeout=timeout) as reply:
+            if reply.status != 200:
+                return False
+            if urlsplit(url).path == "/trial/session":
+                body = reply.read(4096)
+                payload = json.loads(body)
+                return (isinstance(payload, dict)
+                        and payload.get("remote_mode") is True
+                        and isinstance(payload.get("authenticated"), bool))
+            return True
+    except (HTTPError, URLError, TimeoutError, OSError, ValueError):
         return False
+
+
+def monitor_cycle(origin, app, tunnel, stopped, record, *, probe=healthy,
+                  sleep=time.sleep) -> str:
+    """Keep the current session alive while cloudflared retries public faults."""
+    local_misses = public_misses = 0
+    while True:
+        if stopped():
+            return "operator_stop"
+        for name, child in (("app", app), ("tunnel", tunnel)):
+            code = child.poll()
+            if code is not None:
+                return f"{name}_exit:{code}"
+        sleep(CHECK_SECONDS)
+        if stopped():
+            return "operator_stop"
+        for name, child in (("app", app), ("tunnel", tunnel)):
+            code = child.poll()
+            if code is not None:
+                return f"{name}_exit:{code}"
+        local_ok = probe(f"http://127.0.0.1:{PORT}/trial/session",
+                         host=urlsplit(origin).netloc)
+        public_ok = probe(origin + "/trial/session")
+        local_misses = 0 if local_ok else local_misses + 1
+        public_misses = 0 if public_ok else public_misses + 1
+        record(local_ok, public_ok, local_misses, public_misses)
+        if local_misses >= 3:
+            return "local_health_failed"
+
+
+def preserve_cycle_logs(paths, limit=256 * 1024):
+    """Retain one bounded previous cycle per log, only after children close it."""
+    for path in paths:
+        if path.exists():
+            with path.open("rb") as stream:
+                stream.seek(0, os.SEEK_END)
+                stream.seek(max(0, stream.tell() - limit))
+                path.with_name(path.stem + ".previous.log").write_bytes(stream.read(limit))
 
 
 def reserve_port(port: int = PORT) -> socket.socket:
@@ -290,6 +340,8 @@ class Host:
         self.stop_path = self.dir / "stop.json"
         self.last_seen = None
         self.published = None
+        self.probe_status = None
+        self.cycle_reason = None
 
     def log(self, message: str) -> None:
         with (self.dir / "host.log").open("a", encoding="utf-8") as stream:
@@ -300,6 +352,7 @@ class Host:
             "instance": self.identity, "pid": os.getpid(), "status": status,
             "api_origin": origin, "last_seen_at": self.last_seen,
             "updated_at": now(), "publish_error": error,
+            "probe": self.probe_status, "cycle_reason": self.cycle_reason,
         })
 
     def stop_requested(self) -> bool:
@@ -344,6 +397,8 @@ class Host:
                     tunnel_log = self.dir / "cloudflared.log"
                     app_log = self.dir / "remote-app.log"
                     origin = None
+                    self.cycle_reason = None
+                    self.probe_status = None
                     try:
                         reservation = reserve_port()
                         with tunnel_log.open("w", encoding="utf-8") as log:
@@ -377,21 +432,27 @@ class Host:
                         backoff = 2
                         if self.stop_requested():
                             continue
-                        misses = 0
-                        while not self.stop_requested() and app.poll() is None and tunnel.poll() is None:
-                            time.sleep(CHECK_SECONDS)
-                            if healthy(origin + "/try"):
+                        def record(local_ok, public_ok, local_misses, public_misses):
+                            self.probe_status = {
+                                "local_ok": local_ok, "public_ok": public_ok,
+                                "local_misses": local_misses, "public_misses": public_misses,
+                                "checked_at": now(),
+                            }
+                            if public_ok and local_ok:
                                 self.last_seen = now()
-                                misses = 0
                                 if self.published != ("online", origin):
                                     self.publish("online", origin)
                                 else:
                                     self.state("online", origin)
                             else:
-                                misses += 1
-                                if misses >= 3:
-                                    break
+                                self.state("degraded", origin)
+                        self.cycle_reason = monitor_cycle(
+                            origin, app, tunnel, self.stop_requested, record)
                     except (OSError, RuntimeError) as exc:
+                        self.cycle_reason = "operator_stop" if self.stop_requested() else f"startup_failed:{exc}"
+                        for name, child in (("app", app), ("tunnel", tunnel)):
+                            if child is not None and child.poll() is not None:
+                                self.cycle_reason += f";{name}_exit:{child.returncode}"
                         self.log(f"Host cycle failed: {exc}")
                         print(f"Host cycle failed: {exc}", file=sys.stderr, flush=True)
                     finally:
@@ -399,6 +460,11 @@ class Host:
                             reservation.close()
                         terminate(app)
                         terminate(tunnel)
+                        self.log(f"Host cycle ended: {self.cycle_reason or 'operator_stop'}")
+                        try:
+                            preserve_cycle_logs((app_log, tunnel_log))
+                        except OSError as exc:
+                            self.log(f"Could not preserve cycle logs: {exc}")
                     self.state("offline")
                     self.publish("offline", None)
                     if not self.stop_requested():

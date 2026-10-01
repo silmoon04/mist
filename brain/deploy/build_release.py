@@ -62,6 +62,7 @@ RELEASE_FILES = [
     "brain/harness/test_database_traces.py", "brain/harness/test_memory_requests.py",
     "brain/harness/test_playback_receipts.py",
     "brain/harness/test_session_review.py", "brain/harness/test_expression_requests.py",
+    "brain/harness/test_trial_review.mjs",
     "brain/duplex/static/trial_memory.test.mjs", "brain/duplex/static/microphone_signal.test.mjs",
     "brain/benchmarks/naturalness/test_cerebras_client.py",
     *[f"brain/harness/{name}" for name in (
