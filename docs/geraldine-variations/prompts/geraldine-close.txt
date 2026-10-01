@@ -1,0 +1,16 @@
+Use case: stylized-concept.
+Asset type: one complete native raster expression sheet for MIST, the original cyan robot-screen face.
+Primary reference: the supplied image is the user's selected Sweet Geraldine MIST sheet. It is the primary reference for identity, graphic eye construction, cyan color, dark field, scale and layout. Create a new close continuation with distinct held reactions; do not simply duplicate its five faces.
+
+Scene/backdrop: an opaque, uniform, relaxed matte almost-black field.
+Subject and style: exactly five original MIST faces, each with two expressive cyan eyes and one compact contrasting cyan mouth. Use crisp organic flat contours, large open C apertures, and curved filled cyan eye mass around the dark apertures. Preserve deliberate asymmetry, unequal lid heights and unequal eye sizes where the emotion calls for them. The filled eye masses may widen or taper, as they do in the reference. Avoid a set of five symmetrical, uniform ring-eyed faces.
+
+Composition: landscape, ideally native 1536 x 1024. Follow the reference's invisible 3-column by 2-row grid. Place exactly five complete faces, one centered in each of these cells: attentive at top-left, considering at top-middle, skeptical at top-right, amused at bottom-left, concerned at bottom-middle. Keep the bottom-right cell entirely empty. Leave generous dark margins around each face for later CSS clipping; every eye and mouth must fit comfortably inside its own cell. Keep comparable overall face scale while allowing the poses to differ.
+
+Attentive, top-left: receptive and welcoming. Large open C eyes with one slightly taller and more open than the other; calm, attentive gaze. A small shallow closed smile.
+Considering, top-middle: a restrained uncertain reaction. One taller open C eye, the other lower and slimmer, with different lid heights and an upward or sideways glance. A tiny offset kink or bent dash mouth, slightly unsure.
+Skeptical, top-right: dry and doubtful. One long half-lid built into the upper edge of its curved eye mass; the other eye an angular open C. A small closed diagonal dash with a slight downturn. The mouth must read as skepticism.
+Amused, bottom-left: pleased recognition. An unequal pair of lively C eyes that lean together naturally. A small broad open bowl mouth, modest and warm.
+Concerned, bottom-middle: gentle empathy. Inward raised lid slopes with one eye a little smaller. Keep the slopes soft and the apertures readable so the face looks worried and kind. A very small closed downturned curve.
+
+Rendering constraints: flat cyan/turquoise marks with smooth intentional edges and clean dark negative spaces inside the eyes. No glow, lighting effects, gradients, blur, grain, mottling, texture, shadows or random wobbles. No visible screen body or bezel, human or alligator anatomy, nose, separate eyebrows, cheeks, teeth, tongue, clothing, props, extra fragments or dividers. No letters, labels, numbers, signatures, logos or watermark. Each of the five eye-and-mouth gestures must be visibly different and communicate its listed mood.

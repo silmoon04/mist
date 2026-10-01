@@ -1,0 +1,20 @@
+{
+  "files": {
+    "app.js": "cee289ec9afa8d5005f99e52690437c1197b84e5d68267ff69c1a0f645cc054b",
+    "catalog.json": "c8568580a7aecca0cb5311bf3c40162a9bd890b56f8574fefd669adb8257babb",
+    "index.html": "23976481ccef25e65d95c88e26e0b036eefa6fa8caaf6b842172997455e2b28c",
+    "pack-info.json": "e61617f06d25b4bbbbb06305ca26be8fa566c97795ae35266a423d4531579cf7",
+    "prompts/geraldine-close.txt": "2b8a1c24f7b49231353c2940e7945ba3d399e0c83c4a5c00d2b295176c36cd85",
+    "prompts/geraldine-dry.txt": "8b16b44b0951f014dc12649eb60b63917e0b92dc3fd48b4149cc1fe637cb492a",
+    "prompts/geraldine-warm.txt": "2d67b136ea528a1d0b7ba1102b81e1bb1e35faa6de2e4a888f34ab3fdc430a26",
+    "prompts/later-alligator-sweet-geraldine.txt": "f183f0023e638258cbc1bba07fe114158ca67742367a7d32de54bc8fae94fda8",
+    "review-state.js": "7b6f1510ba709fc969cf85aeb359fa45bebb46149591993ecc14772800ed249a",
+    "sheets/geraldine-close.png": "ba627775b38a6852b3caa9f44cedce13d70cf104ae8487c46d6ca385c30c473b",
+    "sheets/geraldine-dry.png": "55656bc739eaf9c4b0401d2daf81be725ff426f0d29b4c600de3dfe298808d3c",
+    "sheets/geraldine-warm.png": "90f9496186c1c55ff9161fd6760490a4bd9700b484fab584de133a8a224f25a1",
+    "sheets/later-alligator-sweet-geraldine.png": "20b3d385e8d9f53bde6f456889beedc4526724b1f96df1a1ea97fb1e8e687cbf",
+    "style.css": "d37e6ea9b9a570de1e7532718d42706c9a6865756ff9c4bc7616f7a841fa75b1"
+  },
+  "newFaces": 15,
+  "referenceFaces": 5
+}

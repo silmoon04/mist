@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="Compare your selected MIST Sweet Geraldine study with three new five-expression variations.">
+  <title>MIST / Sweet Geraldine variations</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="review-state.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#board">Skip to faces</a>
+  <header class="topbar">
+    <div class="identity"><span class="wordmark">MIST</span><h1>Sweet Geraldine variations</h1><span id="total-count" class="quiet"></span></div>
+    <nav aria-label="Board tools"><button id="export-toggle" type="button">Export notes</button><a href="faces-pack.zip" download>Download all</a><a href="../game-face-studies/#later-alligator-sweet-geraldine">Previous studies</a></nav>
+  </header>
+  <main>
+    <form id="filters" class="filters" role="search">
+      <label class="search-field"><span class="sr-only">Find a study, approach or pose</span><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><input id="search" type="search" placeholder="Study, approach or pose…" autocomplete="off"></label>
+      <label><span class="sr-only">Category</span><select id="category"><option value="">All categories</option></select></label>
+      <label class="toggle-filter"><input id="saved-filter" type="checkbox"><span>Saved <span id="saved-count">0</span></span></label>
+      <button id="reset-filters" class="subtle" type="button" hidden>Clear filters</button>
+    </form>
+    <div class="board-meta"><p id="result-count" aria-live="polite">Loading studies…</p><p id="filter-context" hidden>Matching faces are outlined. Rows keep all five poses.</p></div>
+    <p class="study-disclosure">Your selected study, followed by three new takes on the same five expressions. Save a face or leave a note. These are still images.</p>
+    <p id="storage-warning" class="storage-warning" role="status" hidden>Browser storage is unavailable. Export your notes before closing this page.</p>
+    <section id="board" class="study-board" aria-label="MIST expression studies" tabindex="-1"></section>
+    <div id="empty-state" class="empty-state" hidden><p id="empty-message">No matches.</p><button id="empty-reset" type="button">Clear filters</button></div>
+    <div id="load-error" class="empty-state" hidden><p id="load-error-message">The study catalog could not load.</p><button id="retry-load" type="button">Try again</button></div>
+  </main>
+  <dialog id="detail-dialog" class="detail-dialog" aria-labelledby="detail-title">
+    <div class="dialog-top"><div class="dialog-paging"><button id="previous-face" type="button" aria-label="Previous face"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14 5-7 7 7 7"/></svg></button><span id="detail-position"></span><button id="next-face" type="button" aria-label="Next face"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m10 5 7 7-7 7"/></svg></button></div><button id="close-detail" type="button">Close</button></div>
+    <div class="detail-layout">
+      <section class="detail-art" aria-label="Selected face"><div id="detail-face"></div><div id="pose-picker" class="pose-picker" aria-label="Poses in this study"></div><p class="art-caption">A clipped view of the original sheet. Static expression study.</p><a id="original-sheet" target="_blank" rel="noopener noreferrer">Open original sheet</a></section>
+      <section class="detail-info"><p id="detail-category" class="quiet"></p><div class="detail-heading"><h2 id="detail-title"></h2><button id="detail-save" type="button" aria-pressed="false">Save face</button></div><p id="detail-pose" class="detail-pose"></p><p id="detail-approach"></p><div id="detail-links" class="detail-links"></div><section class="personal-notes"><label for="why-note">Why this face?</label><textarea id="why-note" rows="5" maxlength="20000" placeholder="A gaze, eyelid attitude, mouth shape or acting choice…"></textarea><p id="note-status" class="quiet" aria-live="polite">Saved in this browser.</p></section><p class="detail-disclosure">Generated with ImageGen as an original MIST study inspired by the linked reference. The reference’s artists did not create these faces.</p></section>
+    </div>
+  </dialog>
+  <dialog id="export-dialog" class="export-dialog" aria-labelledby="export-title"><div class="export-heading"><h2 id="export-title">Your face notes</h2><button id="close-export" type="button">Close</button></div><p id="export-summary"></p><div class="export-actions"><button id="export-json" type="button">Download JSON</button><button id="export-markdown" type="button">Download shortlist</button><label class="file-button">Import notes<input id="import-notes" type="file" accept="application/json,.json"></label></div><p class="quiet">Notes stay in this browser. JSON keeps saves and notes for importing later.</p><p id="import-status" role="status"></p></dialog>
+  <noscript><p class="empty-state">JavaScript is needed to review individual faces. <a href="faces-pack.zip" download>Download the original sheets and prompts</a>.</p></noscript>
+</body>
+</html>

@@ -1,0 +1,220 @@
+{
+  "version": 1,
+  "totalFaces": 20,
+  "newFaces": 15,
+  "studies": [
+    {
+      "id": "geraldine-selected",
+      "displayTitle": "Your selected study",
+      "category": "Selected reference",
+      "approach": "The five faces you saved. Kept here unchanged for comparison.",
+      "sheet": "sheets/later-alligator-sweet-geraldine.png",
+      "prompt": "prompts/later-alligator-sweet-geraldine.txt",
+      "width": 1536,
+      "height": 1024,
+      "poses": [
+        {
+          "id": "geraldine-selected__attentive",
+          "label": "Attentive",
+          "column": 0,
+          "row": 0
+        },
+        {
+          "id": "geraldine-selected__considering",
+          "label": "Considering",
+          "column": 1,
+          "row": 0
+        },
+        {
+          "id": "geraldine-selected__skeptical",
+          "label": "Skeptical",
+          "column": 2,
+          "row": 0
+        },
+        {
+          "id": "geraldine-selected__amused",
+          "label": "Amused",
+          "column": 0,
+          "row": 1
+        },
+        {
+          "id": "geraldine-selected__concerned",
+          "label": "Concerned",
+          "column": 1,
+          "row": 1
+        }
+      ],
+      "sourceStudyUrl": "https://silmoon04.github.io/mist/game-face-references/#later-alligator-sweet-geraldine",
+      "referenceUrl": "https://community.wacom.com/en-gb/later-alligator-a-qa-with-the-small-buteras/",
+      "people": [
+        {
+          "name": "Lindsay Small-Butera",
+          "role": "Director; writing, concepting, storyboarding, animation and design (self-described in interview)",
+          "sourceUrl": "https://community.wacom.com/en-gb/later-alligator-a-qa-with-the-small-buteras/"
+        },
+        {
+          "name": "Alex Small-Butera",
+          "role": "Keyframer; animation and design (described by Lindsay in joint interview)",
+          "sourceUrl": "https://community.wacom.com/en-gb/later-alligator-a-qa-with-the-small-buteras/"
+        }
+      ],
+      "limitations": "Original static MIST adaptation of researched directional acting. The catalog source was inspected as a still, so no animation timing is claimed. Slight tonal softness remains in the almost-black raster background.",
+      "tool": "built-in image_gen",
+      "kind": "static expression study"
+    },
+    {
+      "id": "geraldine-close",
+      "displayTitle": "Close to your selection",
+      "category": "New variation",
+      "approach": "Unequal eye shapes and small, crooked mouths; the closest continuation of the selected study.",
+      "sheet": "sheets/geraldine-close.png",
+      "prompt": "prompts/geraldine-close.txt",
+      "width": 1536,
+      "height": 1024,
+      "poses": [
+        {
+          "id": "geraldine-close__attentive",
+          "label": "Attentive",
+          "column": 0,
+          "row": 0
+        },
+        {
+          "id": "geraldine-close__considering",
+          "label": "Considering",
+          "column": 1,
+          "row": 0
+        },
+        {
+          "id": "geraldine-close__skeptical",
+          "label": "Skeptical",
+          "column": 2,
+          "row": 0
+        },
+        {
+          "id": "geraldine-close__amused",
+          "label": "Amused",
+          "column": 0,
+          "row": 1
+        },
+        {
+          "id": "geraldine-close__concerned",
+          "label": "Concerned",
+          "column": 1,
+          "row": 1
+        }
+      ],
+      "sourceStudyUrl": "https://silmoon04.github.io/mist/game-face-studies/#later-alligator-sweet-geraldine",
+      "referenceUrl": "https://community.wacom.com/en-gb/later-alligator-a-qa-with-the-small-buteras/",
+      "tool": "built-in image_gen",
+      "kind": "static expression study",
+      "limitations": [
+        "The continuation is deliberately close to the reference; most changes are eye proportions and aperture cuts.",
+        "The considering mouth is a short bent-looking dash rather than a pronounced kink.",
+        "The native raster has faint tonal variation in the cyan and near-black field. No crop, warp, resize or image postprocessing was applied."
+      ]
+    },
+    {
+      "id": "geraldine-dry",
+      "displayTitle": "Drier reactions",
+      "category": "New variation",
+      "approach": "Lower lids, narrower openings and quieter mouths. The expressions should still read without a smile.",
+      "sheet": "sheets/geraldine-dry.png",
+      "prompt": "prompts/geraldine-dry.txt",
+      "width": 1536,
+      "height": 1024,
+      "poses": [
+        {
+          "id": "geraldine-dry__attentive",
+          "label": "Attentive",
+          "column": 0,
+          "row": 0
+        },
+        {
+          "id": "geraldine-dry__considering",
+          "label": "Considering",
+          "column": 1,
+          "row": 0
+        },
+        {
+          "id": "geraldine-dry__skeptical",
+          "label": "Skeptical",
+          "column": 2,
+          "row": 0
+        },
+        {
+          "id": "geraldine-dry__amused",
+          "label": "Amused",
+          "column": 0,
+          "row": 1
+        },
+        {
+          "id": "geraldine-dry__concerned",
+          "label": "Concerned",
+          "column": 1,
+          "row": 1
+        }
+      ],
+      "sourceStudyUrl": "https://silmoon04.github.io/mist/game-face-studies/#later-alligator-sweet-geraldine",
+      "referenceUrl": "https://community.wacom.com/en-gb/later-alligator-a-qa-with-the-small-buteras/",
+      "tool": "built-in image_gen",
+      "kind": "static expression study",
+      "limitations": [
+        "This is a static concept sheet; animation, intermediate frames, and physical display rendering have not been tested.",
+        "Skeptical and concerned intentionally remain close to the original favorite.",
+        "The amused left eye is a closed crescent laugh-squint rather than an open-C aperture."
+      ]
+    },
+    {
+      "id": "geraldine-warm",
+      "displayTitle": "Warmer / more exaggerated",
+      "category": "New variation",
+      "approach": "An experiment with taller and flatter eye pairs and rounder contour mass. This goes further from the selected silhouettes; concern and skepticism keep small, unsmiling mouths.",
+      "sheet": "sheets/geraldine-warm.png",
+      "prompt": "prompts/geraldine-warm.txt",
+      "width": 1536,
+      "height": 1024,
+      "poses": [
+        {
+          "id": "geraldine-warm__attentive",
+          "label": "Attentive",
+          "column": 0,
+          "row": 0
+        },
+        {
+          "id": "geraldine-warm__considering",
+          "label": "Considering",
+          "column": 1,
+          "row": 0
+        },
+        {
+          "id": "geraldine-warm__skeptical",
+          "label": "Skeptical",
+          "column": 2,
+          "row": 0
+        },
+        {
+          "id": "geraldine-warm__amused",
+          "label": "Amused",
+          "column": 0,
+          "row": 1
+        },
+        {
+          "id": "geraldine-warm__concerned",
+          "label": "Concerned",
+          "column": 1,
+          "row": 1
+        }
+      ],
+      "sourceStudyUrl": "https://silmoon04.github.io/mist/game-face-studies/#later-alligator-sweet-geraldine",
+      "referenceUrl": "https://community.wacom.com/en-gb/later-alligator-a-qa-with-the-small-buteras/",
+      "tool": "built-in image_gen",
+      "kind": "static expression study",
+      "limitations": [
+        "The concerned face's right eye has a closed dark aperture rather than a clearly exterior-opening C.",
+        "The amused eye pair reads playful but does not fully achieve the requested narrow laughing aperture.",
+        "The concerned left inner lid has a pointed corner that makes the pose tenser than the intended gentle comfort.",
+        "Native image generation produces small color variations; the cyan and dark background are visually close to the reference rather than a mathematically exact flat palette."
+      ]
+    }
+  ]
+}
