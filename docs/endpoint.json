@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "status": "offline",
-  "api_origin": null,
-  "updated_at": "2026-10-01T23:09:20Z",
-  "last_seen_at": "2026-10-01T23:08:10Z"
+  "status": "online",
+  "api_origin": "https://expo-eyes-ask-something.trycloudflare.com",
+  "updated_at": "2026-10-01T23:09:34Z",
+  "last_seen_at": "2026-10-01T23:09:34Z"
 }
