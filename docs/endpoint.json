@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "status": "online",
-  "api_origin": "https://luggage-thunder-replica-glad.trycloudflare.com",
-  "updated_at": "2026-10-02T12:29:26Z",
-  "last_seen_at": "2026-10-02T12:29:26Z"
+  "status": "offline",
+  "api_origin": null,
+  "updated_at": "2026-10-02T12:44:34Z",
+  "last_seen_at": "2026-10-02T12:44:18Z"
 }
