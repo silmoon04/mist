@@ -62,7 +62,23 @@ class Tests(unittest.IsolatedAsyncioTestCase):
         self.c.delivery='gentle'
         self.c.mask.diagnostic=lambda *args,**kwargs:None
         await self.c.realtime_event({'type':'turn.created','turn':{'id':'user-2','role':'user','start_ms':1}})
-        self.assertEqual(self.c.delivery,'neutral')
+        self.assertEqual(self.c.delivery,'warm')
+
+    async def test_fast_speaker_gets_current_turn_delivery_without_waiting_for_reader(self):
+        captured=[]
+        class Affect:
+            async def submit(self,snapshot,token):pass
+        async def begin(turn_id,**options):captured.append(options['delivery'])
+        self.c.affect=Affect()
+        self.c.mask=SimpleNamespace(epoch=0,muted=False,diagnostic=lambda *a,**k:None,begin=begin)
+        self.c.voice=SimpleNamespace(history=[])
+        await self.c.realtime_event({'type':'turn.created','turn':{'id':'u1','role':'user'}})
+        await self.c.realtime_event({'type':'turn.done','turn':{'id':'u1','role':'user','transcript':'Please speak gently.'}})
+        await self.c.realtime_event({'type':'turn.created','turn':{'id':'a1','role':'assistant'}})
+        self.assertEqual(captured,['gentle'])
+        self.c.affect_speech_locked=True
+        self.assertEqual(await self.c.apply_affect(self.decision,self.c.affect_token()),'speech_already_started')
+        self.assertEqual(captured,['gentle'],'late readers cannot rewrite committed speech')
 
     async def test_unverified_generated_reply_is_not_public_affect_history(self):
         captured=[]

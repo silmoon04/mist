@@ -2,6 +2,8 @@ const REST = Object.freeze({viseme:'rest',amount:0,active:false,source:'silence'
 const VISEMES = new Set(['rest','AA','EH','EE','OH','OO','MBP','FV','LNT','TH','S']);
 const MAX_QUEUED_SECONDS=120;
 const MAX_FALLBACK_CAPTION_STEP=24;
+const MAX_PACKET_RESUME_GAP_SECONDS=.25;
+const PACKET_RESUME_LEAD_SECONDS=.01;
 
 export class Playback {
   #startBufferMs=200;
@@ -11,6 +13,7 @@ export class Playback {
     this.startedKey=null;this.origin=0;this.speechAttached=false;this.clockSource='context';
     this.onCaption=onCaption;this.caption='';this.captionSource='unavailable';this.captionKey=null;this.captionSequence=null;this.captionTurnId=null;
     this.finalCaptions=new Map();
+    this.lastPacketKey=null;
   }
   get startBufferMs(){return this.#startBufferMs;}
   setStartBufferMs(value){
@@ -74,6 +77,7 @@ export class Playback {
     this.sources.clear();this.segments=[];
     if(this.timer!==null)clearTimeout(this.timer);
     this.timer=null;this.end=this.context.currentTime;this.startedKey=null;this.speechAttached=false;
+    this.lastPacketKey=null;
     this.caption='';this.captionSource='unavailable';this.captionKey=null;this.captionSequence=null;this.captionTurnId=null;
     this.finalCaptions.clear();
     this.onCaption({text:'',source:'reset',epoch:this.epoch,sequence:null,turn_id:null});
@@ -114,7 +118,11 @@ export class Playback {
     const binary=atob(event.pcm);if(binary.length%2)throw Error('Invalid PCM');
     if(!binary.length)return;
     const now=this.context.currentTime;
-    const start=this.end>now?this.end:now+this.startBufferMs/1000;
+    const packetKey=`${event.epoch}:${event.seq}`;
+    // A brief packet underrun has already spent the initial buffering reserve.
+    // Reapplying it inserts a new audible pause on every late packet.
+    const resuming=packetKey===this.lastPacketKey&&now-this.end<=MAX_PACKET_RESUME_GAP_SECONDS;
+    const start=this.end>now?this.end:now+(resuming?PACKET_RESUME_LEAD_SECONDS:this.startBufferMs/1000);
     const duration=binary.length/(2*event.sample_rate),projected=start-now+duration;
     if(projected>MAX_QUEUED_SECONDS+1e-7){
       const detail={reason:'playback_buffer_limit',limit_ms:MAX_QUEUED_SECONDS*1000,
@@ -127,6 +135,7 @@ export class Playback {
     for(let i=0;i<samples.length;i++)samples[i]=view.getInt16(i*2,true)/32768;
     const source=this.context.createBufferSource();source.buffer=audio;source.connect(this.context.destination);
     this.end=start+audio.duration;
+    this.lastPacketKey=packetKey;
     const events=Array.isArray(event.mouth_cues)?event.mouth_cues.filter(e=>
       Number.isFinite(e.time)&&e.time>=0&&e.time<audio.duration&&VISEMES.has(e.viseme)).map(e=>({
         time:e.time,viseme:e.viseme,amount:Math.max(0,Math.min(1,Number(e.amount)||0))

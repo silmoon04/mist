@@ -2,6 +2,7 @@
 export class MicrophoneSignal {
   constructor(count = 8) {
     this.levels = Array(count).fill(0);
+    this.samples = Array(48).fill(0);
   }
 
   observe(pcm) {
@@ -20,11 +21,19 @@ export class MicrophoneSignal {
       const target = Math.min(1, Math.max(0, (rms - 0.008) * 7));
       this.levels[band] += (target - this.levels[band]) * (target > this.levels[band] ? 0.68 : 0.4);
     }
+    // Display shape and loudness separately: normalization reveals the signal
+    // without allowing a single loud sample to make a huge spike.
+    let peak=0;for(const sample of samples)peak=Math.max(peak,Math.abs(sample));
+    for(let i=0;i<this.samples.length;i++){
+      const index=Math.min(samples.length-1,Math.floor(i*samples.length/this.samples.length));
+      this.samples[i]=peak>260?samples[index]/peak:0;
+    }
     return this.levels;
   }
 
   clear() {
     this.levels.fill(0);
+    this.samples.fill(0);
     return this.levels;
   }
 }

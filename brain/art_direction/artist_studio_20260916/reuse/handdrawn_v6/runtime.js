@@ -8,6 +8,14 @@
   const clamp=(n,a,b)=>Math.max(a,Math.min(b,n));
   const ease=n=>{n=clamp(n,0,1);return n*n*(3-2*n);};
   const mix=(a,b,t)=>a+(b-a)*t;
+  // One face-wide trace, with clearance measured from the current eye contours.
+  function listeningGeometry(eyes,transform={x:0,y:0,scale:1},gaze={x:0,y:0}){
+    const scale=transform.scale,boxes=eyes.map(b=>({left:transform.x+(b.left+gaze.x)*scale-1.8*scale,right:transform.x+(b.right+gaze.x)*scale+1.8*scale,center:transform.y+((b.top+b.bottom)/2+gaze.y)*scale})).sort((a,b)=>a.left-b.left);
+    const segments=[];let start=transform.x+4*scale;
+    for(const box of boxes){if(box.left>start)segments.push([start,box.left]);start=Math.max(start,box.right);}
+    const end=transform.x+96*scale;if(start<end)segments.push([start,end]);
+    return {segments,y:boxes.length?boxes.reduce((sum,b)=>sum+b.center,0)/boxes.length:transform.y+32*scale,left:transform.x+4*scale,right:end};
+  }
   const LOOP_HOLDS={coding:[3,2,4,3],reading:[4,3,4,3],writing:[3,3,4,2],email:[4,4,4,4],searching:[4,4,4,4],planning:[3,3,4,50],calculating:[3,3,3,5],connecting:[4,4,4,4],checking:[3,3,4,50]};
 
   function createActivityClock(now=()=>root.performance.now()){
@@ -62,6 +70,7 @@
     const reduced=options.reducedMotion??!!root.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
     let manifest=options.manifest||null,images=options.handdrawnImages||{},ready=false,dead=false,error=null,raf=null;
     let revision=0,lastTargets=null,eyeTransition=null,held={},expression=options.expression||data.faces[0].id;
+    let listening={active:false,level:0,samples:Array(48).fill(0)};
     const clock=createActivityClock(now),previewClock=createActivityClock(now),faces=new Map(data.faces.map(f=>[f.id,f]));
     let previewActivity=false;const loadedActivities=new Set(),activityLoads=new Map();
     const activeActivity=time=>previewActivity?previewClock.sample(time):clock.sample(time);
@@ -154,6 +163,21 @@
       faceTransform(state){return shot(state.drawnAnimation.time).faceTransform;},
       paint(context,state,gaze){
         const s=shot(state.drawnAnimation.time),layers=s.layers;
+        if(listening.active&&layers==='all'){
+          const geometry=listeningGeometry(state.drawnEyeBounds||[],s.faceTransform,gaze);
+          const amplitude=reduced?0:2.2*s.faceTransform.scale*listening.level;
+          context.save();context.strokeStyle='#72cbb9';context.lineWidth=.55*s.faceTransform.scale;context.lineCap='round';context.lineJoin='round';context.globalAlpha=.72;
+          for(const [left,right] of geometry.segments){
+            const count=Math.max(3,Math.ceil((right-left)*2));
+            const points=Array.from({length:count},(_,i)=>{
+              const x=mix(left,right,i/(count-1)),position=(x-geometry.left)/(geometry.right-geometry.left)*(listening.samples.length-1),index=Math.floor(position);
+              const value=mix(listening.samples[index]||0,listening.samples[Math.min(index+1,listening.samples.length-1)]||0,position-index);
+              return [x,geometry.y+value*amplitude];
+            });
+            const path=new root.Path2D(root.MistFaceRuntime.pathData(points,false));context.stroke(path);
+          }
+          context.restore();
+        }
         const a=s.activity;if(a?.imageReady&&(layers==='all'||layers==='activity')){
           const above=activityConfig(a.id).placement==='above';
           drawFrame(context,a.id,a.frame,above?50:84,above?14:31,above?42:29,1,a.alpha);
@@ -204,6 +228,29 @@
       return false;
     }
     const api={
+      setListeningSignal({active=false,level=0,samples=[]}={}){
+        if(!active){
+          if(!listening.active)return false;
+          listening={active:false,level:0,samples:Array(48).fill(0)};
+          // Clearing is immediate; live microphone updates use the existing frame clock.
+          revision++;api.update(now());return true;
+        }
+        if(reduced){
+          if(listening.active)return false;
+          listening={active:true,level:0,samples:Array(48).fill(0)};return true;
+        }
+        const values=Array.from(samples,value=>clamp(Number(value)||0,-1,1));
+        const smooth=Array.from({length:48},(_,i)=>{
+          const center=i/47*Math.max(0,values.length-1),index=Math.round(center);let sum=0,weight=0;
+          for(let offset=-3;offset<=3;offset++){const w=4-Math.abs(offset);sum+=(values[clamp(index+offset,0,values.length-1)]||0)*w;weight+=w;}
+          return sum/weight;
+        });
+        const target=clamp(Number(level)||0,0,1);
+        const clean=value=>Math.abs(value)<.0001?0:value;
+        const next={active:true,level:clean(mix(listening.level,target,target>listening.level ? .55 : .35)),samples:smooth.map((value,i)=>clean(mix(listening.samples[i],value,.45)))};
+        if(listening.active&&next.level===listening.level&&next.samples.every((value,i)=>value===listening.samples[i]))return false;
+        listening=next;return true;
+      },
       setExpression(id,settings={}){const ok=base.setExpression(id,settings);if(ok&&expression!==id){expression=id;transitionToNext();}return ok;},
       startSpeech(settings){return base.startSpeech(settings);},stopSpeech(){return base.stopSpeech();},
       setGaze(x,y){base.setGaze(x,y);},clearGaze(){base.clearGaze();},
@@ -253,6 +300,6 @@
     if(options.autoStart!==false&&root.requestAnimationFrame){const tick=time=>{if(dead)return;api.update(time);raf=root.requestAnimationFrame(tick);};raf=root.requestAnimationFrame(tick);}
     return api;
   }
-  root.MistHanddrawnRuntime={create,version:'6.1.0',fps:FPS,activities:IDS,helpers:{createActivityClock,validateManifest}};
+  root.MistHanddrawnRuntime={create,version:'6.1.0',fps:FPS,activities:IDS,helpers:{createActivityClock,validateManifest,listeningGeometry}};
   if(typeof module!=='undefined'&&module.exports)module.exports=root.MistHanddrawnRuntime;
 })(typeof window!=='undefined'?window:globalThis);

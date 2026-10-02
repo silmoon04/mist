@@ -234,6 +234,9 @@ class VoiceMask:
                     break
                 self.pending.pop(seq, None)
                 self.next = seq + 1
+                if epoch == self.epoch:
+                    await self.emit({'type':'audio_complete','epoch':epoch,'seq':seq,
+                                     'source':'voice_conversion'})
 
     async def close(self):
         self.closed = True

@@ -2,6 +2,7 @@
 import asyncio, base64, sys, unittest
 import tempfile
 import json
+from unittest.mock import patch
 import aiohttp
 from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
@@ -202,17 +203,100 @@ class Tests(unittest.IsolatedAsyncioTestCase):
         self.assertFalse(any(e['type']=='audio' for e in self.events))
         await t.output({'contextId':a,'audio':base64.b64encode(b'\1\0').decode(),'isFinal':True})
         self.assertEqual([base64.b64decode(e['pcm']) for e in self.events if e['type']=='audio'],[b'\1\0',b'\2\0'])
+    async def test_queued_context_final_caption_follows_its_pcm(self):
+        t=self.tts
+        await t.begin('first');first=t.active;await t.text('One.');await t.finish()
+        await t.begin('second');second=t.active;await t.text('Two.');await t.finish()
+        await t.output({'contextId':second,'audio':base64.b64encode(b'\2\0'*24000).decode(),'isFinal':True})
+        self.assertFalse(any(e['type']=='caption_final' for e in self.events))
+        await t.output({'contextId':first,'audio':base64.b64encode(b'\1\0').decode(),'isFinal':True})
+        stream=[(e['type'],e['seq']) for e in self.events if e['type'] in ('audio','caption_final')]
+        self.assertEqual(stream,[('audio',0),('caption_final',0),('audio',1),('audio',1),('caption_final',1)])
+    async def test_release_gate_holds_final_caption_until_audio(self):
+        t=self.tts;await t.begin('gated',audible=False);context=t.active
+        await t.text('Hello.')
+        await t.output({'contextId':context,'audio':base64.b64encode(b'\1\0').decode(),'isFinal':True})
+        self.assertFalse(any(e['type'] in ('audio','caption_final') for e in self.events))
+        await t.release()
+        self.assertEqual([e['type'] for e in self.events if e['type'] in ('audio','caption_final')],['audio','caption_final'])
+        self.assertEqual(next(e['text'] for e in self.events if e['type']=='caption_final'),'Hello.')
+    async def test_interrupt_discards_blocked_final_caption(self):
+        t=self.tts;await t.begin('gated',audible=False);context=t.active
+        await t.output({'contextId':context,'audio':base64.b64encode(b'\1\0').decode(),'isFinal':True})
+        await t.interrupt();await t.release()
+        await t.output({'contextId':context,'isFinal':True})
+        self.assertFalse(any(e['type']=='caption_final' for e in self.events))
     async def test_alignment_survives_browser_packet_boundaries(self):
         t=self.tts;await t.begin('a');context=t.active
-        raw=b'\0\x20'*7200
+        raw=b'\0\x20'*36000
         await t.output({'contextId':context,'audio':base64.b64encode(raw).decode(),
-            'normalizedAlignment':{'chars':['m','a','f'],'charStartTimesMs':[0,60,160],'charDurationsMs':[60,100,140]}})
+            'normalizedAlignment':{'chars':['m','a','f'],'charStartTimesMs':[0,300,800],'charDurationsMs':[300,500,700]}})
         audio=[e for e in self.events if e['type']=='audio']
         self.assertEqual(len(audio),3)
         self.assertEqual(b''.join(base64.b64decode(e['pcm']) for e in audio),raw)
         self.assertTrue(all(e['alignment_source']=='elevenlabs_characters_audio_gated' for e in audio))
         self.assertEqual([e['mouth_cues'][0]['viseme'] for e in audio],['MBP','AA','FV'])
         self.assertTrue(all(e['mouth_cues'][0]['time']==0 for e in audio))
+    async def test_provider_burst_does_not_starve_serial_browser_delivery(self):
+        # Model the observed downstream bottleneck: each browser event costs
+        # 200ms to deliver, while the provider has already supplied 2.618s PCM.
+        delivery_clock = 0
+        buffered_until = 0
+        underruns = 0
+        async def emit(event):
+            nonlocal delivery_clock, buffered_until, underruns
+            self.events.append(event)
+            if event['type'] != 'audio':
+                return
+            delivery_clock += .2
+            if buffered_until and delivery_clock > buffered_until:
+                underruns += 1
+            buffered_until = max(buffered_until, delivery_clock) + len(base64.b64decode(event['pcm'])) / 48000
+        t = StreamingTTS('fake', emit);t.socket = Socket()
+        await t.begin('burst');context = t.active
+        raw = b'\1\0' * 62832
+        await t.output({'contextId': context, 'audio': base64.b64encode(raw).decode()})
+        audio = [e for e in self.events if e['type'] == 'audio']
+        self.assertEqual(underruns, 0, 'available PCM must outrun per-event delivery overhead')
+        self.assertEqual(len(audio), 6)
+        self.assertEqual(b''.join(base64.b64decode(e['pcm']) for e in audio), raw)
+        self.assertTrue(all(len(base64.b64decode(e['pcm'])) <= 24000 for e in audio))
+    async def test_small_provider_chunk_is_emitted_before_next_chunk(self):
+        t=self.tts;await t.begin('small');context=t.active
+        raw=b'\1\0'*1200
+        await t.output({'contextId':context,'audio':base64.b64encode(raw).decode()})
+        audio=[e for e in self.events if e['type']=='audio']
+        self.assertEqual([base64.b64decode(e['pcm']) for e in audio],[raw])
+    async def test_transport_separates_provider_gap_from_emit_cost(self):
+        t=self.tts;await t.begin('timing');context=t.active
+        clock=[10.0];diagnostics=[]
+        t.diagnostic=lambda event, **values:diagnostics.append({'event':event,**values})
+        async def emit(event):
+            self.events.append(event)
+            if event['type']=='audio':clock[0]+=.2
+        t.emit=emit
+        raw=base64.b64encode(b'\1\0'*24000).decode()
+        with patch('duplex.tts.time.monotonic',side_effect=lambda:clock[0]):
+            await t.output({'contextId':context,'audio':raw})
+            clock[0]+=7.845
+            await t.output({'contextId':context,'audio':raw})
+        audio=[e for e in self.events if e['type']=='audio']
+        self.assertEqual(audio[0]['transport']['receive_to_emit_ms'],0)
+        self.assertEqual(audio[1]['transport']['receive_to_emit_ms'],200)
+        self.assertEqual(audio[2]['transport']['provider_gap_ms'],8245)
+        emitted=[e for e in diagnostics if e['event']=='tts_audio_emit']
+        self.assertEqual(emitted[0]['emit_elapsed_ms'],200)
+        self.assertEqual(emitted[2]['emit_gap_ms'],7845)
+    async def test_interrupt_stops_remaining_slices_of_provider_chunk(self):
+        t=self.tts
+        async def emit(event):
+            self.events.append(event)
+            if event['type']=='audio':await t.interrupt()
+        t.emit=emit
+        await t.begin('interrupt');context=t.active
+        await t.output({'contextId':context,'audio':base64.b64encode(b'\1\0'*36000).decode()})
+        self.assertEqual(len([e for e in self.events if e['type']=='audio']),1)
+        self.assertEqual(self.events[-1]['type'],'audio_reset')
     async def test_no_pcm_conversion_path(self):
         await self.tts.feed(b'\1\0'*16000)
         self.assertEqual(self.tts.socket.sent,[])

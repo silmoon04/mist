@@ -20,6 +20,27 @@ function fixture(){
 }
 function tick(player){if(player.timer!==null)timers.delete(player.timer);player.tick();}
 try {
+  const underrun=fixture(),phrase={...packet,pcm:Buffer.alloc(48000).toString('base64')};
+  underrun.player.append(phrase);
+  underrun.context.currentTime=.21;tick(underrun.player);
+  underrun.context.currentTime=1.21;tick(underrun.player);
+  underrun.player.append(phrase);
+  assert(underrun.made.at(-1).startAt-underrun.context.currentTime<=.011,
+    'a 10 ms same-phrase delivery underrun must not add another full startup buffer');
+  underrun.context.currentTime=1.23;tick(underrun.player);
+  assert.equal(underrun.player.sample().active,true,'speech resumes promptly after packet jitter');
+  underrun.player.reset(1);
+  underrun.player.append({...phrase,epoch:1});
+  assert.equal(underrun.made.at(-1).startAt,1.43,'true interruption restores the initial reserve');
+  underrun.player.reset();
+  for(const [delay,seq] of [[.02,1],[.30,0]]){
+    const pause=fixture();pause.player.append(phrase);
+    pause.context.currentTime=1.2+delay;tick(pause.player);
+    pause.player.append({...phrase,seq});
+    assert(Math.abs(pause.made.at(-1).startAt-pause.context.currentTime-.2)<1e-8,
+      'new phrases and longer delivery stalls retain the initial reserve');
+    pause.player.reset();
+  }
   for(const seconds of [45,60]){
     const long=fixture(),chunks=seconds*10;
     for(let i=0;i<chunks;i++)long.player.append({...packet,caption_cues:[{time:0,text:`chunk ${i}`}],caption_source:'elevenlabs_alignment'});
@@ -167,7 +188,7 @@ try {
   suspended.context.state='running';tick(suspended.player);assert.equal(suspended.player.sample().viseme,'AA');assert.equal(suspended.counts.starts,1);
   suspended.context.currentTime=.32;tick(suspended.player);assert.equal(suspended.counts.idle,1);
   suspended.player.append(packet);assert.equal(suspended.player.sample().active,false,'underrun reserve must close the mouth');
-  suspended.context.currentTime=.54;tick(suspended.player);assert.equal(suspended.counts.starts,2,'same reply resumes after underrun');suspended.player.reset();
+  suspended.context.currentTime=.35;tick(suspended.player);assert.equal(suspended.counts.starts,2,'same reply resumes after underrun');suspended.player.reset();
 
   const stamped=fixture();stamped.context.currentTime=.4;stamped.player.append(packet);
   stamped.context.currentTime=.75;stamped.context.getOutputTimestamp=()=>({contextTime:.619,performanceTime:performance.now()});
@@ -193,5 +214,5 @@ try {
   publishedDental.append({...packet,mouth_cues:[{time:0,viseme:'TH',amount:.7}]});
   dental.context.currentTime=.46;
   assert.equal(publishedDental.sample().viseme,'TH','published preview player must also preserve TH');publishedDental.reset();
-  console.log('PASS: complete 45/60-second bursts, single mouth timeline and captions, pre-allocation 120-second bound, long-answer interruption, session buffers, jitter, output latency/tail, suspension and stale packets.');
+  console.log('PASS: short same-phrase underrun resumes within 10 ms, new phrase/stall/reset reserves, complete 45/60-second bursts, mouth timeline and captions, pre-allocation 120-second bound, immediate interruption, session buffers, jitter, output latency/tail, suspension and stale packets.');
 } finally {globalThis.setTimeout=realSetTimeout;globalThis.clearTimeout=realClearTimeout;}

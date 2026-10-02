@@ -77,7 +77,11 @@ test('end clears microphone, socket, playback, caption and face activity', async
     lastSpeechKey: 'old',
     stream: {getTracks: () => [{stop: () => calls.push('microphone stop')}]},
     capture: {disconnect: () => calls.push('capture disconnect')},
-    player: {reset: () => calls.push('playback reset')},
+    player: {epoch:3,reset(){this.epoch++;calls.push('playback reset');}},
+    speechStatus: {reset: epoch => calls.push(['speech status reset',epoch])},
+    speechFaces: {reset: epoch => calls.push(['speech faces reset',epoch])},
+    priorSpeechBusy: true,
+    reportedPlaybackBusy: true,
     ws: {close: () => calls.push('socket close')},
     wake: {release: async () => calls.push('wake release')},
     $,
@@ -101,12 +105,15 @@ test('end clears microphone, socket, playback, caption and face activity', async
   await context.end();
   assert.deepEqual(calls, [
     'cue reset', 'microphone stop', 'capture disconnect', 'playback reset',
+    ['speech status reset',4], ['speech faces reset',4],
     'socket close', 'user transcript reset', 'preview release', 'picker selection cleared',
     'preview status rendered', 'face activity reset',
     'expression reset', ['state', 'available'], 'wake release',
   ]);
   assert.equal(context.ws, null);
   assert.equal(context.ready, false);
+  assert.equal(context.priorSpeechBusy,false);
+  assert.equal(context.reportedPlaybackBusy,false);
   assert.equal(context.pendingCaption, '');
   assert.equal(context.connectionActivity, null);
   assert.equal($('caption').textContent, '');
@@ -134,7 +141,11 @@ test('transport disconnect releases manual animation', () => {
   const context = {
     socket, ws: socket, listenerCue: null, ready: true,
     stopMicSignal() {}, finishStorageStatus() {}, stream: null, capture: null,
-    player: null, renderUserTranscript() {}, userTranscript: {reset: () => ({})},
+    player: {epoch:7,reset(){this.epoch++;calls.push('playback reset');}},
+    speechStatus: {reset: epoch => calls.push(['speech status reset',epoch])},
+    speechFaces: {reset: epoch => calls.push(['speech faces reset',epoch])},
+    priorSpeechBusy: true,reportedPlaybackBusy: true,
+    renderUserTranscript() {}, userTranscript: {reset: () => ({})},
     transcript: {user: ''}, releasePreview: () => calls.push('preview release'),
     face: {resetActivities: () => calls.push('face activity reset')},
     expressionPolicy: {reset() {}}, state: () => {}, wake: null,
@@ -142,5 +153,8 @@ test('transport disconnect releases manual animation', () => {
   };
   vm.runInNewContext(disconnectSource, context);
   socket.onclose();
-  assert.deepEqual(calls, ['preview release', 'face activity reset']);
+  assert.deepEqual(calls, ['playback reset',['speech status reset',8],['speech faces reset',8],'preview release', 'face activity reset']);
+  assert.equal(context.ready,false);
+  assert.equal(context.priorSpeechBusy,false);
+  assert.equal(context.reportedPlaybackBusy,false);
 });

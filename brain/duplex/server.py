@@ -308,6 +308,10 @@ def create_app(args):
         if r.query.get('trace') and r.query['trace']!=app['journal'].trace_id:cursor=0
         return web.json_response(app['journal'].since(cursor),headers={'Cache-Control':'no-store'})
     app.router.add_get('/debug',debug_page);app.router.add_get('/expressions',expressions_page);app.router.add_get('/debug/events',debug_events)
+    async def outfit_font(r):
+        return web.FileResponse(BRAIN/'duplex/static/fonts/Outfit.woff2',
+                                headers={'Content-Type':'font/woff2'})
+    app.router.add_get('/duplex/fonts/Outfit.woff2',outfit_font)
     app.router.add_static('/duplex/',BRAIN/'duplex/static',show_index=False)
     async def face_runtime(r):return web.FileResponse(BRAIN/'ui/static/face_runtime.js')
     async def drawn_runtime(r):return web.FileResponse(BRAIN/'ui/static/drawn_face_renderer.js')

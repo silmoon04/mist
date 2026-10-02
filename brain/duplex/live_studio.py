@@ -22,7 +22,7 @@ from duplex.native import NativeVoice
 from duplex.runtime import RobotRuntime, specs as runtime_specs
 from duplex.tts import StreamingTTS
 from duplex.conversation_policy import POLICIES
-from duplex.affect_director import AffectDirector
+from duplex.affect_director import AffectDirector, fast_delivery_fallback
 from duplex.affect_controller import AffectController
 from duplex.expression_requests import expression_request_constraint
 from duplex.expression_policy import normalize_expression
@@ -382,7 +382,11 @@ class TrialConversation(server.Conversation):
         if event.get('type')=='turn.created':
             if turn.get('role')=='user':
                 self.affect_speech_locked=False
-                if self.affect:self.delivery='neutral'
+                if self.affect:self.delivery=fast_delivery_fallback(turn.get('transcript',''))
+        if event.get('type')=='turn.done' and turn.get('role')=='user' and self.affect:
+            # The fast speaker may commit before the asynchronous reader returns.
+            # Establish a current-turn delivery direction before its first send.
+            self.delivery=fast_delivery_fallback(turn.get('transcript',''))
         await super().realtime_event(event)
         if event.get('type') == 'turn.done' and turn.get('role') == 'assistant' and \
                 not self.blocked and not turn.get('transcript','').strip() and \
@@ -576,7 +580,7 @@ def create_studio(args):
                      'duplex/background.py', 'duplex/affect_director.py', 'duplex/affect_controller.py',
                      'duplex/session_store.py', 'duplex/session_memory.py', 'duplex/database_traces.py', 'duplex/playback_receipts.py',
                      'duplex/turn_policy.py', 'duplex/static/microphone_signal.mjs', 'duplex/static/trial_memory.mjs',
-                     'duplex/static/animation_picker.mjs',
+                     'duplex/static/animation_picker.mjs', 'duplex/static/speech_status.mjs',
                      'duplex/expression_policy.py', 'duplex/expression_requests.py',
                      'duplex/persona.txt', 'duplex/conversation_policy.py', 'duplex/tts.py', 'duplex/static/app.js',
                      'duplex/static/playback.js', 'duplex/static/speech_face_cues.mjs', 'duplex/static/trial_review.mjs', 'duplex/review_data.py', 'duplex/lipsync.py',
