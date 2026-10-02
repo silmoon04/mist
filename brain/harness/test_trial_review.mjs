@@ -2,10 +2,11 @@ import assert from 'node:assert/strict';
 import test from 'node:test';
 
 class Element {
-  constructor() { Object.assign(this, {children:[], hidden:false, value:'', textContent:'', dataset:{}, listeners:{}, style:{}, attrs:{}, paused:true}); }
+  constructor() { Object.assign(this, {children:[], hidden:false, value:'', textContent:'', dataset:{}, listeners:{}, style:{}, attrs:{}, paused:true, currentTime:0, contentWindow:{messages:[],postMessage(message){this.messages.push(message);}}}); }
   append(...items) { this.children.push(...items); }
   replaceChildren(...items) { this.children = items; }
   addEventListener(name, callback) { this.listeners[name] = callback; }
+  dispatch(name) { this.listeners[name]?.(); }
   setAttribute(key, value) { this.attrs[key] = value; }
   removeAttribute(key) { delete this.attrs[key]; }
   querySelectorAll() { return []; }
@@ -25,7 +26,7 @@ function setup(fetchImpl) {
   globalThis.setTimeout = callback => {const id=++timerId;timers.set(id,callback);return id;};
   globalThis.clearTimeout = id => timers.delete(id);
   globalThis.cancelAnimationFrame = ()=>{};
-  globalThis.requestAnimationFrame = ()=>1;
+  globalThis.requestAnimationFrame = callback=>{globalThis.testAnimationFrame=callback;return 1;};
   return {nodes,timers};
 }
 const settle = async () => { for(let i=0;i<8;i++) await new Promise(setImmediate); };
@@ -83,4 +84,30 @@ test('leaving history mode aborts pending review and suppresses cancellation UI'
   ui.showMode('live'); await loading;
   assert.equal(request.options.signal.aborted,true);
   assert.equal(text(nodes.get('transcript-list')).includes('Retry review'),false);
+});
+
+test('paused seeks into gaps retain the selected wall time until playback resumes', async () => {
+  const data = {session:{trace_id:'gap'},duration_ms:20000,turns:[],issues:[],timings:[],events:[],tracks:{face:[{start_ms:0,end_ms:20000,expression:'curious',face_id:'face-a'}]},audio:[{stream:'mic',url:'/trial/audio?session=gap&stream=mic',segments:[
+    {start_ms:1000,end_ms:2000,audio_start_ms:0,audio_end_ms:1000},
+    {start_ms:12000,end_ms:13000,audio_start_ms:1000,audio_end_ms:2000},
+  ]}]};
+  const {nodes} = setup(async()=>({ok:true,json:async()=>data}));
+  const ui = await createUI();
+  await ui.load('gap');
+  const audio = nodes.get('review-audio');
+  nodes.get('review-seek').value = '550';
+  nodes.get('review-seek').dispatch('input');
+  const requestedWallTime = 11000;
+  const requestedAudioTime = audio.currentTime;
+  audio.dispatch('timeupdate');
+  assert.equal(nodes.get('review-time').textContent,'0:11 / 0:20');
+  assert.equal(nodes.get('review-face').contentWindow.messages.at(-1).time_ms,requestedWallTime);
+  assert.equal(requestedAudioTime,1);
+  audio.paused = false;
+  audio.dispatch('play');
+  audio.currentTime = 1.1;
+  audio.dispatch('timeupdate');
+  globalThis.testAnimationFrame(100);
+  assert.equal(nodes.get('review-time').textContent,'0:12 / 0:20');
+  assert.equal(nodes.get('review-face').contentWindow.messages.at(-1).time_ms,12100);
 });
