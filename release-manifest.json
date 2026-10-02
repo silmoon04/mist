@@ -752,8 +752,8 @@
     },
     {
       "path": "brain/deploy/build_release.py",
-      "bytes": 14484,
-      "sha256": "d57f1feb6e016b52d7226bacf23cfb4c8e6418e09ac931828a4f6b815b1d75a7"
+      "bytes": 14518,
+      "sha256": "ef516f225e08133519d4a6e6ecbc55a764b12410bb5c011ef407c75a78352bbb"
     },
     {
       "path": "brain/deploy/fixtures/audio/audio_phrase_seam-1.wav",
@@ -1312,8 +1312,8 @@
     },
     {
       "path": "brain/harness/test_streaming_tts.py",
-      "bytes": 21747,
-      "sha256": "07bcb86009daa864ab9001d7e21a5c31af8b5c09b4a00bc8696833e830daaabd"
+      "bytes": 21553,
+      "sha256": "65d9d558d50398f1761fa64ea2c89261daacfa86676b216bb5a1cb842ab9e783"
     },
     {
       "path": "brain/harness/test_trial_review.mjs",
@@ -1334,6 +1334,11 @@
       "path": "brain/harness/test_voice_delivery_20261001.py",
       "bytes": 5977,
       "sha256": "c4232819f197ba2680f94afba7e4d072e8e2d7492ca991498eebe46c72ff772b"
+    },
+    {
+      "path": "brain/harness/test_voice_recovery.py",
+      "bytes": 5052,
+      "sha256": "710ed6506534025d72ec7eb4e83ad636e00ee7c0372054f6aab2fd0b60dc2c31"
     },
     {
       "path": "brain/harness/test_waveform_raster_clearance.cjs",
@@ -1406,8 +1411,8 @@
       "sha256": "64fa68318ab3f91abe89919c90007c36625148e92d7d133a8ecb3d25d3385d1c"
     }
   ],
-  "file_count": 281,
-  "total_bytes": 13749930,
+  "file_count": 282,
+  "total_bytes": 13754822,
   "mutable_files": [
     "docs/endpoint.json"
   ],

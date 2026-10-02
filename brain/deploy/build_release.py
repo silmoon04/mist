@@ -77,6 +77,7 @@ RELEASE_FILES = [
         "test_astra_continuity_review.mjs", "test_waveform_raster_clearance.cjs",
         "test_tts_interrupt_close_20261002.py",
         "test_astra_tts_close_review.py",
+        "test_voice_recovery.py",
     )],
     *[f"brain/benchmarks/naturalness/{name}" for name in (
         "quality_gate_20260929.py", "turn_gap_benchmark_20260929.py",
