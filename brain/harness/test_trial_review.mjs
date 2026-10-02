@@ -5,11 +5,13 @@ class Element {
   constructor() { Object.assign(this, {children:[], hidden:false, value:'', textContent:'', dataset:{}, listeners:{}, style:{}, attrs:{}, paused:true, currentTime:0, contentWindow:{messages:[],postMessage(message){this.messages.push(message);}}}); }
   append(...items) { this.children.push(...items); }
   replaceChildren(...items) { this.children = items; }
-  addEventListener(name, callback) { this.listeners[name] = callback; }
-  dispatch(name) { this.listeners[name]?.(); }
+  addEventListener(name, callback, capture=false) { (this.listeners[name] ||= []).push({callback,capture}); }
+  dispatch(name, event={}) { for(const listener of this.listeners[name]||[]) listener.callback(event); }
   setAttribute(key, value) { this.attrs[key] = value; }
+  getAttribute(key) { return this.attrs[key]; }
   removeAttribute(key) { delete this.attrs[key]; }
-  querySelectorAll() { return []; }
+  querySelectorAll(selector) { return selector==='.track-segment'?this.children.filter(child=>child.className==='track-segment'):[]; }
+  getBoundingClientRect() { return this.rect||{left:0,right:0,top:0,bottom:0}; }
   pause() { this.paused = true; }
   load() {}
 }
@@ -110,4 +112,27 @@ test('paused seeks into gaps retain the selected wall time until playback resume
   globalThis.testAnimationFrame(100);
   assert.equal(nodes.get('review-time').textContent,'0:12 / 0:20');
   assert.equal(nodes.get('review-face').contentWindow.messages.at(-1).time_ms,12100);
+});
+
+test('overlapping pointer markers choose the nearest rectangle centre while keyboard clicks stay direct', async () => {
+  const data = {session:{trace_id:'overlap'},duration_ms:20000,turns:[],issues:[],timings:[],events:[],audio:[],tracks:{
+    face:[{start_ms:11000,end_ms:12000,expression:'curious'},{start_ms:12000,end_ms:20000,expression:'neutral'}],
+  }};
+  const {nodes} = setup(async()=>({ok:true,json:async()=>data}));
+  const ui = await createUI(); await ui.load('overlap');
+  const rail = nodes.get('review-tracks').children.flatMap(row=>row.children).find(element=>element.className==='track-rail'&&element.children.some(child=>child.className==='track-segment'));
+  const [curious,neutral] = rail.querySelectorAll('.track-segment');
+  curious.rect={left:151,right:155,top:8,bottom:16};
+  neutral.rect={left:153,right:158,top:8,bottom:16};
+  const event={detail:1,clientX:153.896,clientY:12,preventDefault(){this.defaultPrevented=true;},stopPropagation(){this.stopped=true;}};
+  rail.dispatch('click',event);
+  if(!event.stopped)neutral.dispatch('click',{detail:1});
+  assert.equal(event.defaultPrevented,true);
+  assert.equal(nodes.get('review-time').textContent,'0:11 / 0:20');
+  assert.equal(nodes.get('review-face').contentWindow.messages.at(-1).expression,'curious');
+  assert.equal(nodes.get('review-face').contentWindow.messages.at(-1).time_ms,11000);
+  neutral.dispatch('click',{detail:0});
+  assert.equal(nodes.get('review-time').textContent,'0:12 / 0:20');
+  assert.equal(nodes.get('review-face').contentWindow.messages.at(-1).expression,'neutral');
+  assert.equal(nodes.get('review-face').contentWindow.messages.at(-1).time_ms,12000);
 });
