@@ -43,7 +43,7 @@ export function createReviewUI(){
  $('review-forward').addEventListener('click',()=>seekWall(state.position+5000,true));
  $('review-speed').addEventListener('change',()=>{audio.playbackRate=Number($('review-speed').value)||1;});
  $('review-seek').addEventListener('input',()=>seekWall(Number($('review-seek').value)/1000*duration(),true));
- audio.addEventListener('timeupdate',()=>{if(!state.segments.length)return;state.position=clamp(wallFromAudio(audio.currentTime*1000),0,duration());renderPosition();});
+ audio.addEventListener('timeupdate',()=>{if(audio.paused||!state.segments.length)return;state.position=clamp(wallFromAudio(audio.currentTime*1000),0,duration());renderPosition();});
  audio.addEventListener('play',()=>{$('review-play').textContent='Pause';$('review-play').setAttribute('aria-label','Pause recording');if(!state.frame)state.frame=requestAnimationFrame(animationFrame);});
  audio.addEventListener('pause',()=>{$('review-play').textContent='Play';$('review-play').setAttribute('aria-label','Play recording');faceMessage(0);});
  audio.addEventListener('ended',()=>{$('review-play').textContent='Play';});

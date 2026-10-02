@@ -1047,8 +1047,8 @@
     },
     {
       "path": "brain/duplex/static/trial_review.mjs",
-      "bytes": 17063,
-      "sha256": "ec6b4427dbba4ce08a7042782969b3b7024796d0cfa91c7523b9bcfff584cee5"
+      "bytes": 17077,
+      "sha256": "0a74c3b9248940fdd49be8d24ca70949502046992e9eef1cde3d6043743cc9de"
     },
     {
       "path": "brain/duplex/static/trials.css",
@@ -1058,12 +1058,12 @@
     {
       "path": "brain/duplex/static/trials.html",
       "bytes": 8805,
-      "sha256": "549c64d433c522779d5b3121c5227943211c8e8410b77956933350b5dde375a3"
+      "sha256": "9f7666bfbc7ca430f472552467809490029a86b6ebbacf9fff71fb126ab94fd2"
     },
     {
       "path": "brain/duplex/static/trials.js",
       "bytes": 29241,
-      "sha256": "71d90428e46a68e0278232ce29af45702de727fe0ec8e1c55341953a21f70bfb"
+      "sha256": "41fcc9770a9d033293a1b7a15d029582f364afb6c07490010bdf84fc0c43bdbc"
     },
     {
       "path": "brain/duplex/static/user_transcript_state.mjs",
@@ -1242,8 +1242,8 @@
     },
     {
       "path": "brain/harness/test_trial_review.mjs",
-      "bytes": 4833,
-      "sha256": "9ae445d05bc44bb58ea317cc1526f8de114a081ef408ec69bc4c97cfa2a18c90"
+      "bytes": 6407,
+      "sha256": "671349aadee3be30e430fa39c247f84c8bb37cbae9375db476a5a214dd1e0221"
     },
     {
       "path": "brain/harness/test_tts_expressive_protocol_20260929.py",
@@ -1307,7 +1307,7 @@
     }
   ],
   "file_count": 261,
-  "total_bytes": 13521764,
+  "total_bytes": 13523352,
   "mutable_files": [
     "docs/endpoint.json"
   ],
