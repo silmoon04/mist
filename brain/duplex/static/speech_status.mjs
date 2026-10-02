@@ -7,9 +7,10 @@ export class SpeechStatus {
     this.epoch=epoch;this.streams=new Map();this.started=false;this.lastAudible=-Infinity;
   }
   audio(event) {
-    if(!Number.isInteger(event.epoch)||event.epoch<this.epoch||!Number.isInteger(event.seq))return;
+    if(!Number.isInteger(event.epoch)||event.epoch<this.epoch||!Number.isInteger(event.seq)||event.seq<0)return false;
     if(event.epoch>this.epoch)this.reset(event.epoch);
-    if(!this.streams.has(event.seq))this.streams.set(event.seq,{complete:false});
+    if(this.streams.has(event.seq))return false;
+    this.streams.set(event.seq,{complete:false});return true;
   }
   complete(event) {
     if(event.epoch!==this.epoch)return;

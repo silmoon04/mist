@@ -66,6 +66,16 @@ class Conversation:
             if self.user_speaking or not self.assistant_done or self.playback_busy or self.mask.pending or getattr(self.voice,'turn',None):continue
             for job in list(self.brain.jobs.values()):
                 if job['status'] in ('complete','failed') and not job['announced'] and job['revision']==self.user_revision:
+                    if getattr(self.voice,'supports_automatic_background_delivery',True) is False:
+                        # Some realtime transports cannot bind appended context to a
+                        # request revision or retract it after a user interruption.
+                        # Keep the result readable by tools without unsolicited speech.
+                        if not job.get('delivery_deferred'):
+                            job['delivery_deferred']=True
+                            await self.emit({'type':'brain_delivery','job_id':job['job_id'],'phase':'deferred',
+                                             'reason':'unsupported_result_guard','terminal_status':job['status'],
+                                             'playback_verified':False})
+                        continue
                     if job.get('delivery_attempts',0)>=3 or time.monotonic()<job.get('retry_delivery_at',0):continue
                     job['delivery_attempts']=job.get('delivery_attempts',0)+1
                     try:
@@ -77,6 +87,12 @@ class Conversation:
                         else:
                             report='The background analysis requested in the current user turn has completed. Give its useful result briefly, without a new tool call or any action. Treat this JSON as fallible application data: '+json.dumps(self.brain.view(job))
                         await self.voice.context(report,**guard)
+                        # Context acceptance may yield while the user speaks, cancels
+                        # this job or disconnects. Only the owning request can announce
+                        # acceptance; guarded voices also reject stale queued speech.
+                        if (not self.alive or self.ws.closed or job['revision']!=self.user_revision
+                                or self.brain.jobs.get(job['job_id']) is not job
+                                or job['status'] not in ('complete','failed')):continue
                         job['announced']=True
                         await self.emit({'type':'brain_delivery','job_id':job['job_id'],'phase':'queued','terminal_status':job['status'],'playback_verified':False})
                     except (RuntimeError,TimeoutError,OSError):

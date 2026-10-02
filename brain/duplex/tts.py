@@ -53,8 +53,12 @@ class StreamingTTS:
         """Time provider writes without logging text, credentials or PCM."""
         began = time.monotonic()
         started_at = time.time()
-        await self.socket.send_json(event)
         entry = self.pending.get(event.get('context_id'))
+        if entry is not None and event.get('close_context'):
+            # Interruption may arrive while this write is awaiting the socket.
+            # A second close can cause an unscoped provider error.
+            entry['provider_close_started'] = True
+        await self.socket.send_json(event)
         self.diagnostic('tts_provider_send', sequence=entry['seq'] if entry else None,
             epoch=entry['epoch'] if entry else self.epoch, send_started_at=started_at,
             send_completed_at=time.time(), elapsed_ms=round((time.monotonic()-began)*1000,3),
@@ -122,7 +126,7 @@ class StreamingTTS:
                 'bytes': 0, 'last_send': time.monotonic(), 'last_keepalive': time.monotonic(),
                 'finished': False, 'phrase_count': 0,
                 'caption_text':'','caption_alignment_complete':True,'delivery':delivery,'turn_id':turn_id,
-                'provider_started':False,'provider_initialized':False,'alignment_tag_state':{},
+                'provider_started':False,'provider_initialized':False,'provider_close_started':False,'alignment_tag_state':{},
                 'alignment_expected_tag':None,'next_phrase_delivery':None,
                 'provider_chunks':0,'last_provider_audio':None,'last_audio_emit':None}
             self.sequence += 1
@@ -509,7 +513,8 @@ class StreamingTTS:
             await self.drain()
 
     async def interrupt(self):
-        contexts = [context for context, entry in self.pending.items() if entry['provider_started']]
+        contexts = [context for context, entry in self.pending.items()
+                    if entry['provider_started'] and not entry.get('provider_close_started', False)]
         self.epoch += 1
         self.pending.clear()
         self.active = None

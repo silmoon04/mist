@@ -72,6 +72,11 @@ RELEASE_FILES = [
         "test_codex_client.py", "test_streaming_tts.py", "test_lipsync.py", "test_phrasing.py",
         "test_tts_expressive_protocol_20260929.py", "test_duplex_playback.mjs",
         "test_affect_delivery_20261001.py", "test_voice_delivery_20261001.py",
+        "test_speech_stream_stress.mjs", "test_face_runtime_soak.cjs",
+        "test_affect_edge_cases.py", "test_duplex_background_continuity.py",
+        "test_astra_continuity_review.mjs", "test_waveform_raster_clearance.cjs",
+        "test_tts_interrupt_close_20261002.py",
+        "test_astra_tts_close_review.py",
     )],
     *[f"brain/benchmarks/naturalness/{name}" for name in (
         "quality_gate_20260929.py", "turn_gap_benchmark_20260929.py",

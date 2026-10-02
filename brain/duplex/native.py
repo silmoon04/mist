@@ -49,6 +49,9 @@ class MicrophoneTrack(AudioStreamTrack):
 
 class NativeVoice:
     supports_text_input=False
+    # appendText has no revision/job guard and its RPC acknowledgement cannot
+    # retract accepted text. Background results remain available through tools.
+    supports_automatic_background_delivery=False
     def __init__(self,runtime,run_dir,emit,audio,dc_event,include_startup_context=False,speech_backend='voice-changer',background=None,expression_revision=None,request_text=None,*,model=None):
         self.runtime=runtime;self.run_dir=Path(run_dir);self.emit=emit;self.audio=audio;self.dc_event=dc_event
         self.model=os.environ.get('MIST_BRAIN_MODEL','gpt-6-luna') if model is None else model
