@@ -1,0 +1,5074 @@
+{
+  "version": 1,
+  "clips": [
+    {
+      "id": "mist-hinge",
+      "title": "A hinge",
+      "text": "A hinge is a joint that connects two rigid parts and lets them pivot around a line,  like the strip that holds a door to its frame.",
+      "audio": "audio/mist-hinge-native.wav",
+      "cues": [
+        {
+          "time": 0.0,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 0.02,
+          "viseme": "AA",
+          "amount": 0.95
+        },
+        {
+          "time": 0.023,
+          "viseme": "AA",
+          "amount": 0.95
+        },
+        {
+          "time": 0.04,
+          "viseme": "AA",
+          "amount": 0.95
+        },
+        {
+          "time": 0.06,
+          "viseme": "AA",
+          "amount": 0.95
+        },
+        {
+          "time": 0.07,
+          "viseme": "AA",
+          "amount": 0.95
+        },
+        {
+          "time": 0.08,
+          "viseme": "AA",
+          "amount": 0.9256
+        },
+        {
+          "time": 0.1,
+          "viseme": "AA",
+          "amount": 0.7809
+        },
+        {
+          "time": 0.12,
+          "viseme": "AA",
+          "amount": 0.7387
+        },
+        {
+          "time": 0.14,
+          "viseme": "AA",
+          "amount": 0.6097
+        },
+        {
+          "time": 0.16,
+          "viseme": "AA",
+          "amount": 0.7714
+        },
+        {
+          "time": 0.162979,
+          "viseme": "EH",
+          "amount": 0.7714
+        },
+        {
+          "time": 0.18,
+          "viseme": "EH",
+          "amount": 0.9209
+        },
+        {
+          "time": 0.196979,
+          "viseme": "EH",
+          "amount": 0.9209
+        },
+        {
+          "time": 0.2,
+          "viseme": "EH",
+          "amount": 0.95
+        },
+        {
+          "time": 0.213409,
+          "viseme": "EE",
+          "amount": 0.95
+        },
+        {
+          "time": 0.22,
+          "viseme": "EE",
+          "amount": 0.905
+        },
+        {
+          "time": 0.24,
+          "viseme": "EE",
+          "amount": 0.9373
+        },
+        {
+          "time": 0.26,
+          "viseme": "EE",
+          "amount": 0.9241
+        },
+        {
+          "time": 0.278958,
+          "viseme": "EE",
+          "amount": 0.9241
+        },
+        {
+          "time": 0.28,
+          "viseme": "EE",
+          "amount": 0.95
+        },
+        {
+          "time": 0.3,
+          "viseme": "EE",
+          "amount": 0.95
+        },
+        {
+          "time": 0.305099,
+          "viseme": "LNT",
+          "amount": 0.95
+        },
+        {
+          "time": 0.312958,
+          "viseme": "LNT",
+          "amount": 0.95
+        },
+        {
+          "time": 0.32,
+          "viseme": "LNT",
+          "amount": 0.95
+        },
+        {
+          "time": 0.34,
+          "viseme": "LNT",
+          "amount": 0.95
+        },
+        {
+          "time": 0.355529,
+          "viseme": "S",
+          "amount": 0.95
+        },
+        {
+          "time": 0.36,
+          "viseme": "S",
+          "amount": 0.95
+        },
+        {
+          "time": 0.371958,
+          "viseme": "S",
+          "amount": 0.95
+        },
+        {
+          "time": 0.38,
+          "viseme": "S",
+          "amount": 0.7846
+        },
+        {
+          "time": 0.4,
+          "viseme": "S",
+          "amount": 0.8783
+        },
+        {
+          "time": 0.405958,
+          "viseme": "S",
+          "amount": 0.8783
+        },
+        {
+          "time": 0.42,
+          "viseme": "S",
+          "amount": 0.8802
+        },
+        {
+          "time": 0.429958,
+          "viseme": "EE",
+          "amount": 0.8802
+        },
+        {
+          "time": 0.44,
+          "viseme": "EE",
+          "amount": 0.6218
+        },
+        {
+          "time": 0.46,
+          "viseme": "EE",
+          "amount": 0.5206
+        },
+        {
+          "time": 0.475958,
+          "viseme": "EE",
+          "amount": 0.5206
+        },
+        {
+          "time": 0.48,
+          "viseme": "EE",
+          "amount": 0.5201
+        },
+        {
+          "time": 0.482216,
+          "viseme": "S",
+          "amount": 0.5201
+        },
+        {
+          "time": 0.5,
+          "viseme": "S",
+          "amount": 0.8502
+        },
+        {
+          "time": 0.510958,
+          "viseme": "S",
+          "amount": 0.8502
+        },
+        {
+          "time": 0.52,
+          "viseme": "S",
+          "amount": 0.95
+        },
+        {
+          "time": 0.54,
+          "viseme": "S",
+          "amount": 0.95
+        },
+        {
+          "time": 0.556958,
+          "viseme": "AA",
+          "amount": 0.95
+        },
+        {
+          "time": 0.56,
+          "viseme": "AA",
+          "amount": 0.7342
+        },
+        {
+          "time": 0.579958,
+          "viseme": "AA",
+          "amount": 0.7342
+        },
+        {
+          "time": 0.58,
+          "viseme": "AA",
+          "amount": 0.7342
+        },
+        {
+          "time": 0.6,
+          "viseme": "AA",
+          "amount": 0.681
+        },
+        {
+          "time": 0.62,
+          "viseme": "AA",
+          "amount": 0.3273
+        },
+        {
+          "time": 0.64,
+          "viseme": "AA",
+          "amount": 0.6861
+        },
+        {
+          "time": 0.649958,
+          "viseme": "S",
+          "amount": 0.6861
+        },
+        {
+          "time": 0.66,
+          "viseme": "S",
+          "amount": 0.625
+        },
+        {
+          "time": 0.68,
+          "viseme": "S",
+          "amount": 0.95
+        },
+        {
+          "time": 0.696958,
+          "viseme": "S",
+          "amount": 0.95
+        },
+        {
+          "time": 0.698109,
+          "viseme": "OH",
+          "amount": 0.95
+        },
+        {
+          "time": 0.7,
+          "viseme": "OH",
+          "amount": 0.95
+        },
+        {
+          "time": 0.72,
+          "viseme": "OH",
+          "amount": 0.95
+        },
+        {
+          "time": 0.74,
+          "viseme": "OH",
+          "amount": 0.95
+        },
+        {
+          "time": 0.755015,
+          "viseme": "EE",
+          "amount": 0.95
+        },
+        {
+          "time": 0.76,
+          "viseme": "EE",
+          "amount": 0.95
+        },
+        {
+          "time": 0.765958,
+          "viseme": "EE",
+          "amount": 0.95
+        },
+        {
+          "time": 0.78,
+          "viseme": "EE",
+          "amount": 0.8069
+        },
+        {
+          "time": 0.785656,
+          "viseme": "LNT",
+          "amount": 0.8069
+        },
+        {
+          "time": 0.8,
+          "viseme": "LNT",
+          "amount": 0.7345
+        },
+        {
+          "time": 0.812958,
+          "viseme": "LNT",
+          "amount": 0.7345
+        },
+        {
+          "time": 0.82,
+          "viseme": "LNT",
+          "amount": 0.5971
+        },
+        {
+          "time": 0.833807,
+          "viseme": "LNT",
+          "amount": 0.5971
+        },
+        {
+          "time": 0.84,
+          "viseme": "LNT",
+          "amount": 0.442
+        },
+        {
+          "time": 0.847958,
+          "viseme": "LNT",
+          "amount": 0.442
+        },
+        {
+          "time": 0.86,
+          "viseme": "LNT",
+          "amount": 0.3778
+        },
+        {
+          "time": 0.88,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 0.881958,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 0.9,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 0.905958,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 0.92,
+          "viseme": "TH",
+          "amount": 0.5344
+        },
+        {
+          "time": 0.928958,
+          "viseme": "TH",
+          "amount": 0.5344
+        },
+        {
+          "time": 0.939231,
+          "viseme": "AA",
+          "amount": 0.5344
+        },
+        {
+          "time": 0.94,
+          "viseme": "AA",
+          "amount": 0.95
+        },
+        {
+          "time": 0.96,
+          "viseme": "AA",
+          "amount": 0.95
+        },
+        {
+          "time": 0.98,
+          "viseme": "AA",
+          "amount": 0.6779
+        },
+        {
+          "time": 0.997333,
+          "viseme": "AA",
+          "amount": 0.6779
+        },
+        {
+          "time": 0.999727,
+          "viseme": "LNT",
+          "amount": 0.6779
+        },
+        {
+          "time": 1.0,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 1.01,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 1.02,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 1.033,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 1.04,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 1.06,
+          "viseme": "LNT",
+          "amount": 0.504
+        },
+        {
+          "time": 1.068,
+          "viseme": "EH",
+          "amount": 0.504
+        },
+        {
+          "time": 1.08,
+          "viseme": "EH",
+          "amount": 0.329
+        },
+        {
+          "time": 1.091,
+          "viseme": "EH",
+          "amount": 0.329
+        },
+        {
+          "time": 1.1,
+          "viseme": "EH",
+          "amount": 0.6617
+        },
+        {
+          "time": 1.104242,
+          "viseme": "AA",
+          "amount": 0.6617
+        },
+        {
+          "time": 1.12,
+          "viseme": "AA",
+          "amount": 0.95
+        },
+        {
+          "time": 1.126,
+          "viseme": "AA",
+          "amount": 0.95
+        },
+        {
+          "time": 1.14,
+          "viseme": "AA",
+          "amount": 0.95
+        },
+        {
+          "time": 1.16,
+          "viseme": "AA",
+          "amount": 0.95
+        },
+        {
+          "time": 1.170137,
+          "viseme": "LNT",
+          "amount": 0.95
+        },
+        {
+          "time": 1.172,
+          "viseme": "LNT",
+          "amount": 0.95
+        },
+        {
+          "time": 1.18,
+          "viseme": "LNT",
+          "amount": 0.8902
+        },
+        {
+          "time": 1.2,
+          "viseme": "LNT",
+          "amount": 0.95
+        },
+        {
+          "time": 1.206379,
+          "viseme": "EH",
+          "amount": 0.95
+        },
+        {
+          "time": 1.207,
+          "viseme": "EH",
+          "amount": 0.95
+        },
+        {
+          "time": 1.22,
+          "viseme": "EH",
+          "amount": 0.95
+        },
+        {
+          "time": 1.24,
+          "viseme": "EH",
+          "amount": 0.4846
+        },
+        {
+          "time": 1.254,
+          "viseme": "EH",
+          "amount": 0.4846
+        },
+        {
+          "time": 1.26,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 1.272274,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 1.28,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 1.3,
+          "viseme": "EH",
+          "amount": 0.4839
+        },
+        {
+          "time": 1.308516,
+          "viseme": "LNT",
+          "amount": 0.4839
+        },
+        {
+          "time": 1.32,
+          "viseme": "LNT",
+          "amount": 0.4245
+        },
+        {
+          "time": 1.34,
+          "viseme": "LNT",
+          "amount": 0.3729
+        },
+        {
+          "time": 1.344758,
+          "viseme": "S",
+          "amount": 0.3729
+        },
+        {
+          "time": 1.347,
+          "viseme": "S",
+          "amount": 0.3729
+        },
+        {
+          "time": 1.36,
+          "viseme": "S",
+          "amount": 0.3765
+        },
+        {
+          "time": 1.38,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 1.381,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 1.4,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 1.42,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 1.428,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 1.44,
+          "viseme": "LNT",
+          "amount": 0.7175
+        },
+        {
+          "time": 1.46,
+          "viseme": "LNT",
+          "amount": 0.7041
+        },
+        {
+          "time": 1.48,
+          "viseme": "LNT",
+          "amount": 0.4938
+        },
+        {
+          "time": 1.486,
+          "viseme": "LNT",
+          "amount": 0.4938
+        },
+        {
+          "time": 1.494,
+          "viseme": "OO",
+          "amount": 0.4938
+        },
+        {
+          "time": 1.5,
+          "viseme": "OO",
+          "amount": 0.3396
+        },
+        {
+          "time": 1.52,
+          "viseme": "OO",
+          "amount": 0.7989
+        },
+        {
+          "time": 1.54,
+          "viseme": "OO",
+          "amount": 0.95
+        },
+        {
+          "time": 1.555,
+          "viseme": "OO",
+          "amount": 0.95
+        },
+        {
+          "time": 1.56,
+          "viseme": "OO",
+          "amount": 0.95
+        },
+        {
+          "time": 1.58,
+          "viseme": "OO",
+          "amount": 0.95
+        },
+        {
+          "time": 1.6,
+          "viseme": "OO",
+          "amount": 0.95
+        },
+        {
+          "time": 1.614,
+          "viseme": "OO",
+          "amount": 0.95
+        },
+        {
+          "time": 1.62,
+          "viseme": "OO",
+          "amount": 0.8895
+        },
+        {
+          "time": 1.64,
+          "viseme": "OO",
+          "amount": 0.728
+        },
+        {
+          "time": 1.66,
+          "viseme": "OO",
+          "amount": 0.6871
+        },
+        {
+          "time": 1.68,
+          "viseme": "OO",
+          "amount": 0.95
+        },
+        {
+          "time": 1.683,
+          "viseme": "OO",
+          "amount": 0.95
+        },
+        {
+          "time": 1.7,
+          "viseme": "OO",
+          "amount": 0.95
+        },
+        {
+          "time": 1.72,
+          "viseme": "OO",
+          "amount": 0.95
+        },
+        {
+          "time": 1.721576,
+          "viseme": "EE",
+          "amount": 0.95
+        },
+        {
+          "time": 1.73,
+          "viseme": "EE",
+          "amount": 0.95
+        },
+        {
+          "time": 1.74,
+          "viseme": "EE",
+          "amount": 0.95
+        },
+        {
+          "time": 1.76,
+          "viseme": "EE",
+          "amount": 0.6081
+        },
+        {
+          "time": 1.776,
+          "viseme": "EE",
+          "amount": 0.6081
+        },
+        {
+          "time": 1.78,
+          "viseme": "EE",
+          "amount": 0.3156
+        },
+        {
+          "time": 1.791713,
+          "viseme": "S",
+          "amount": 0.3156
+        },
+        {
+          "time": 1.8,
+          "viseme": "S",
+          "amount": 0.4168
+        },
+        {
+          "time": 1.82,
+          "viseme": "S",
+          "amount": 0.5062
+        },
+        {
+          "time": 1.830288,
+          "viseme": "AA",
+          "amount": 0.5062
+        },
+        {
+          "time": 1.834,
+          "viseme": "AA",
+          "amount": 0.5062
+        },
+        {
+          "time": 1.84,
+          "viseme": "AA",
+          "amount": 0.8723
+        },
+        {
+          "time": 1.86,
+          "viseme": "AA",
+          "amount": 0.6873
+        },
+        {
+          "time": 1.88,
+          "viseme": "AA",
+          "amount": 0.417
+        },
+        {
+          "time": 1.892,
+          "viseme": "AA",
+          "amount": 0.417
+        },
+        {
+          "time": 1.9,
+          "viseme": "AA",
+          "amount": 0.3232
+        },
+        {
+          "time": 1.900425,
+          "viseme": "LNT",
+          "amount": 0.3232
+        },
+        {
+          "time": 1.92,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 1.939,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 1.94,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 1.96,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 1.98,
+          "viseme": "LNT",
+          "amount": 0.2776
+        },
+        {
+          "time": 1.985,
+          "viseme": "MBP",
+          "amount": 0.2776
+        },
+        {
+          "time": 2.0,
+          "viseme": "MBP",
+          "amount": 0.4037
+        },
+        {
+          "time": 2.02,
+          "viseme": "MBP",
+          "amount": 0.634
+        },
+        {
+          "time": 2.032,
+          "viseme": "MBP",
+          "amount": 0.634
+        },
+        {
+          "time": 2.034844,
+          "viseme": "AA",
+          "amount": 0.634
+        },
+        {
+          "time": 2.04,
+          "viseme": "AA",
+          "amount": 0.95
+        },
+        {
+          "time": 2.06,
+          "viseme": "AA",
+          "amount": 0.95
+        },
+        {
+          "time": 2.08,
+          "viseme": "AA",
+          "amount": 0.919
+        },
+        {
+          "time": 2.1,
+          "viseme": "AA",
+          "amount": 0.8296
+        },
+        {
+          "time": 2.101,
+          "viseme": "AA",
+          "amount": 0.8296
+        },
+        {
+          "time": 2.12,
+          "viseme": "AA",
+          "amount": 0.6911
+        },
+        {
+          "time": 2.125469,
+          "viseme": "OO",
+          "amount": 0.6911
+        },
+        {
+          "time": 2.14,
+          "viseme": "OO",
+          "amount": 0.5301
+        },
+        {
+          "time": 2.159,
+          "viseme": "OO",
+          "amount": 0.5301
+        },
+        {
+          "time": 2.16,
+          "viseme": "OO",
+          "amount": 0.4113
+        },
+        {
+          "time": 2.175313,
+          "viseme": "LNT",
+          "amount": 0.4113
+        },
+        {
+          "time": 2.18,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 2.2,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 2.22,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 2.225157,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 2.229,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 2.24,
+          "viseme": "S",
+          "amount": 0.2657
+        },
+        {
+          "time": 2.26,
+          "viseme": "S",
+          "amount": 0.2657
+        },
+        {
+          "time": 2.275,
+          "viseme": "S",
+          "amount": 0.2846
+        },
+        {
+          "time": 2.28,
+          "viseme": "S",
+          "amount": 0.2846
+        },
+        {
+          "time": 2.3,
+          "viseme": "S",
+          "amount": 0.2689
+        },
+        {
+          "time": 2.31,
+          "viseme": "AA",
+          "amount": 0.4015
+        },
+        {
+          "time": 2.32,
+          "viseme": "AA",
+          "amount": 0.4015
+        },
+        {
+          "time": 2.333,
+          "viseme": "AA",
+          "amount": 0.5025
+        },
+        {
+          "time": 2.34,
+          "viseme": "AA",
+          "amount": 0.7069
+        },
+        {
+          "time": 2.343334,
+          "viseme": "LNT",
+          "amount": 0.7069
+        },
+        {
+          "time": 2.357,
+          "viseme": "LNT",
+          "amount": 0.7069
+        },
+        {
+          "time": 2.36,
+          "viseme": "LNT",
+          "amount": 0.8604
+        },
+        {
+          "time": 2.361667,
+          "viseme": "LNT",
+          "amount": 0.8604
+        },
+        {
+          "time": 2.38,
+          "viseme": "LNT",
+          "amount": 0.8862
+        },
+        {
+          "time": 2.4,
+          "viseme": "LNT",
+          "amount": 0.8962
+        },
+        {
+          "time": 2.42,
+          "viseme": "LNT",
+          "amount": 0.832
+        },
+        {
+          "time": 2.426,
+          "viseme": "LNT",
+          "amount": 0.832
+        },
+        {
+          "time": 2.44,
+          "viseme": "LNT",
+          "amount": 0.8575
+        },
+        {
+          "time": 2.46,
+          "viseme": "LNT",
+          "amount": 0.9175
+        },
+        {
+          "time": 2.461,
+          "viseme": "LNT",
+          "amount": 0.9175
+        },
+        {
+          "time": 2.464604,
+          "viseme": "EH",
+          "amount": 0.9175
+        },
+        {
+          "time": 2.48,
+          "viseme": "EH",
+          "amount": 0.8252
+        },
+        {
+          "time": 2.5,
+          "viseme": "EH",
+          "amount": 0.4935
+        },
+        {
+          "time": 2.519,
+          "viseme": "EH",
+          "amount": 0.4935
+        },
+        {
+          "time": 2.52,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 2.534793,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 2.54,
+          "viseme": "LNT",
+          "amount": 0.2642
+        },
+        {
+          "time": 2.56,
+          "viseme": "LNT",
+          "amount": 0.3381
+        },
+        {
+          "time": 2.566,
+          "viseme": "LNT",
+          "amount": 0.3381
+        },
+        {
+          "time": 2.573397,
+          "viseme": "S",
+          "amount": 0.3381
+        },
+        {
+          "time": 2.58,
+          "viseme": "S",
+          "amount": 0.3662
+        },
+        {
+          "time": 2.6,
+          "viseme": "S",
+          "amount": 0.2627
+        },
+        {
+          "time": 2.612,
+          "viseme": "S",
+          "amount": 0.2627
+        },
+        {
+          "time": 2.62,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 2.635,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 2.64,
+          "viseme": "TH",
+          "amount": 0.3389
+        },
+        {
+          "time": 2.658,
+          "viseme": "TH",
+          "amount": 0.3389
+        },
+        {
+          "time": 2.66,
+          "viseme": "TH",
+          "amount": 0.7704
+        },
+        {
+          "time": 2.668524,
+          "viseme": "EH",
+          "amount": 0.7704
+        },
+        {
+          "time": 2.68,
+          "viseme": "EH",
+          "amount": 0.7311
+        },
+        {
+          "time": 2.682,
+          "viseme": "EH",
+          "amount": 0.7311
+        },
+        {
+          "time": 2.7,
+          "viseme": "EH",
+          "amount": 0.9299
+        },
+        {
+          "time": 2.72,
+          "viseme": "EH",
+          "amount": 0.95
+        },
+        {
+          "time": 2.728,
+          "viseme": "EH",
+          "amount": 0.95
+        },
+        {
+          "time": 2.729477,
+          "viseme": "MBP",
+          "amount": 0.95
+        },
+        {
+          "time": 2.74,
+          "viseme": "MBP",
+          "amount": 0.95
+        },
+        {
+          "time": 2.76,
+          "viseme": "MBP",
+          "amount": 0.6052
+        },
+        {
+          "time": 2.763,
+          "viseme": "MBP",
+          "amount": 0.6052
+        },
+        {
+          "time": 2.78,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 2.8,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 2.82,
+          "viseme": "MBP",
+          "amount": 0.284
+        },
+        {
+          "time": 2.821,
+          "viseme": "MBP",
+          "amount": 0.284
+        },
+        {
+          "time": 2.84,
+          "viseme": "MBP",
+          "amount": 0.324
+        },
+        {
+          "time": 2.859425,
+          "viseme": "EE",
+          "amount": 0.324
+        },
+        {
+          "time": 2.86,
+          "viseme": "EE",
+          "amount": 0.5539
+        },
+        {
+          "time": 2.867,
+          "viseme": "EE",
+          "amount": 0.5539
+        },
+        {
+          "time": 2.88,
+          "viseme": "EE",
+          "amount": 0.8238
+        },
+        {
+          "time": 2.9,
+          "viseme": "EE",
+          "amount": 0.95
+        },
+        {
+          "time": 2.92,
+          "viseme": "EE",
+          "amount": 0.6726
+        },
+        {
+          "time": 2.929288,
+          "viseme": "FV",
+          "amount": 0.6726
+        },
+        {
+          "time": 2.94,
+          "viseme": "FV",
+          "amount": 0.402
+        },
+        {
+          "time": 2.949,
+          "viseme": "FV",
+          "amount": 0.402
+        },
+        {
+          "time": 2.96,
+          "viseme": "FV",
+          "amount": 0.3978
+        },
+        {
+          "time": 2.967713,
+          "viseme": "AA",
+          "amount": 0.3978
+        },
+        {
+          "time": 2.98,
+          "viseme": "AA",
+          "amount": 0.7642
+        },
+        {
+          "time": 2.995,
+          "viseme": "AA",
+          "amount": 0.7642
+        },
+        {
+          "time": 3.0,
+          "viseme": "AA",
+          "amount": 0.95
+        },
+        {
+          "time": 3.02,
+          "viseme": "AA",
+          "amount": 0.54
+        },
+        {
+          "time": 3.037576,
+          "viseme": "LNT",
+          "amount": 0.54
+        },
+        {
+          "time": 3.04,
+          "viseme": "LNT",
+          "amount": 0.542
+        },
+        {
+          "time": 3.042,
+          "viseme": "LNT",
+          "amount": 0.542
+        },
+        {
+          "time": 3.06,
+          "viseme": "LNT",
+          "amount": 0.8252
+        },
+        {
+          "time": 3.076,
+          "viseme": "LNT",
+          "amount": 0.8252
+        },
+        {
+          "time": 3.08,
+          "viseme": "LNT",
+          "amount": 0.8091
+        },
+        {
+          "time": 3.1,
+          "viseme": "LNT",
+          "amount": 0.778
+        },
+        {
+          "time": 3.111,
+          "viseme": "OO",
+          "amount": 0.778
+        },
+        {
+          "time": 3.12,
+          "viseme": "OO",
+          "amount": 0.7579
+        },
+        {
+          "time": 3.14,
+          "viseme": "OO",
+          "amount": 0.798
+        },
+        {
+          "time": 3.146,
+          "viseme": "OO",
+          "amount": 0.798
+        },
+        {
+          "time": 3.16,
+          "viseme": "OO",
+          "amount": 0.787
+        },
+        {
+          "time": 3.18,
+          "viseme": "OO",
+          "amount": 0.8359
+        },
+        {
+          "time": 3.182291,
+          "viseme": "AA",
+          "amount": 0.8359
+        },
+        {
+          "time": 3.193,
+          "viseme": "AA",
+          "amount": 0.8359
+        },
+        {
+          "time": 3.2,
+          "viseme": "AA",
+          "amount": 0.7961
+        },
+        {
+          "time": 3.22,
+          "viseme": "AA",
+          "amount": 0.7589
+        },
+        {
+          "time": 3.227,
+          "viseme": "AA",
+          "amount": 0.7589
+        },
+        {
+          "time": 3.228629,
+          "viseme": "OO",
+          "amount": 0.7589
+        },
+        {
+          "time": 3.24,
+          "viseme": "OO",
+          "amount": 0.7417
+        },
+        {
+          "time": 3.253581,
+          "viseme": "LNT",
+          "amount": 0.7417
+        },
+        {
+          "time": 3.26,
+          "viseme": "LNT",
+          "amount": 0.5769
+        },
+        {
+          "time": 3.262,
+          "viseme": "LNT",
+          "amount": 0.5769
+        },
+        {
+          "time": 3.28,
+          "viseme": "LNT",
+          "amount": 0.6351
+        },
+        {
+          "time": 3.292791,
+          "viseme": "LNT",
+          "amount": 0.6351
+        },
+        {
+          "time": 3.3,
+          "viseme": "LNT",
+          "amount": 0.5178
+        },
+        {
+          "time": 3.309,
+          "viseme": "LNT",
+          "amount": 0.5178
+        },
+        {
+          "time": 3.32,
+          "viseme": "LNT",
+          "amount": 0.4165
+        },
+        {
+          "time": 3.332,
+          "viseme": "LNT",
+          "amount": 0.4165
+        },
+        {
+          "time": 3.34,
+          "viseme": "LNT",
+          "amount": 0.5859
+        },
+        {
+          "time": 3.36,
+          "viseme": "LNT",
+          "amount": 0.5994
+        },
+        {
+          "time": 3.378,
+          "viseme": "AA",
+          "amount": 0.5994
+        },
+        {
+          "time": 3.38,
+          "viseme": "AA",
+          "amount": 0.5457
+        },
+        {
+          "time": 3.4,
+          "viseme": "AA",
+          "amount": 0.5971
+        },
+        {
+          "time": 3.401,
+          "viseme": "AA",
+          "amount": 0.5971
+        },
+        {
+          "time": 3.42,
+          "viseme": "AA",
+          "amount": 0.7035
+        },
+        {
+          "time": 3.44,
+          "viseme": "AA",
+          "amount": 0.7684
+        },
+        {
+          "time": 3.46,
+          "viseme": "LNT",
+          "amount": 0.95
+        },
+        {
+          "time": 3.48,
+          "viseme": "LNT",
+          "amount": 0.95
+        },
+        {
+          "time": 3.5,
+          "viseme": "LNT",
+          "amount": 0.95
+        },
+        {
+          "time": 3.518,
+          "viseme": "LNT",
+          "amount": 0.95
+        },
+        {
+          "time": 3.52,
+          "viseme": "LNT",
+          "amount": 0.9328
+        },
+        {
+          "time": 3.54,
+          "viseme": "LNT",
+          "amount": 0.9084
+        },
+        {
+          "time": 3.554024,
+          "viseme": "AA",
+          "amount": 0.9084
+        },
+        {
+          "time": 3.56,
+          "viseme": "AA",
+          "amount": 0.8184
+        },
+        {
+          "time": 3.58,
+          "viseme": "AA",
+          "amount": 0.6462
+        },
+        {
+          "time": 3.6,
+          "viseme": "AA",
+          "amount": 0.4501
+        },
+        {
+          "time": 3.62,
+          "viseme": "AA",
+          "amount": 0.3716
+        },
+        {
+          "time": 3.634,
+          "viseme": "AA",
+          "amount": 0.3716
+        },
+        {
+          "time": 3.64,
+          "viseme": "AA",
+          "amount": 0.2855
+        },
+        {
+          "time": 3.66,
+          "viseme": "AA",
+          "amount": 0.2798
+        },
+        {
+          "time": 3.665143,
+          "viseme": "EE",
+          "amount": 0.2798
+        },
+        {
+          "time": 3.68,
+          "viseme": "EE",
+          "amount": 0.2634
+        },
+        {
+          "time": 3.692,
+          "viseme": "EE",
+          "amount": 0.2634
+        },
+        {
+          "time": 3.7,
+          "viseme": "EE",
+          "amount": 0.2944
+        },
+        {
+          "time": 3.72,
+          "viseme": "EE",
+          "amount": 0.287
+        },
+        {
+          "time": 3.724977,
+          "viseme": "LNT",
+          "amount": 0.287
+        },
+        {
+          "time": 3.74,
+          "viseme": "LNT",
+          "amount": 0.3211
+        },
+        {
+          "time": 3.76,
+          "viseme": "LNT",
+          "amount": 0.3276
+        },
+        {
+          "time": 3.78,
+          "viseme": "LNT",
+          "amount": 0.3654
+        },
+        {
+          "time": 3.8,
+          "viseme": "LNT",
+          "amount": 0.4134
+        },
+        {
+          "time": 3.819,
+          "viseme": "LNT",
+          "amount": 0.4134
+        },
+        {
+          "time": 3.82,
+          "viseme": "LNT",
+          "amount": 0.3305
+        },
+        {
+          "time": 3.84,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 3.854,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 3.86,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 3.88,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 3.9,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 3.92,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 3.94,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 3.96,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 3.98,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 3.994041,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 4.0,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 4.017041,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 4.02,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 4.04,
+          "viseme": "LNT",
+          "amount": 0.5832
+        },
+        {
+          "time": 4.059732,
+          "viseme": "AA",
+          "amount": 0.5832
+        },
+        {
+          "time": 4.06,
+          "viseme": "AA",
+          "amount": 0.5832
+        },
+        {
+          "time": 4.064041,
+          "viseme": "AA",
+          "amount": 0.8423
+        },
+        {
+          "time": 4.08,
+          "viseme": "AA",
+          "amount": 0.8253
+        },
+        {
+          "time": 4.1,
+          "viseme": "AA",
+          "amount": 0.8253
+        },
+        {
+          "time": 4.110041,
+          "viseme": "AA",
+          "amount": 0.76
+        },
+        {
+          "time": 4.110184,
+          "viseme": "EE",
+          "amount": 0.76
+        },
+        {
+          "time": 4.12,
+          "viseme": "EE",
+          "amount": 0.4554
+        },
+        {
+          "time": 4.137351,
+          "viseme": "EH",
+          "amount": 0.4554
+        },
+        {
+          "time": 4.14,
+          "viseme": "EH",
+          "amount": 0.4554
+        },
+        {
+          "time": 4.145041,
+          "viseme": "EH",
+          "amount": 0.276
+        },
+        {
+          "time": 4.16,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 4.18,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 4.180041,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 4.2,
+          "viseme": "EH",
+          "amount": 0.3137
+        },
+        {
+          "time": 4.215041,
+          "viseme": "TH",
+          "amount": 0.3137
+        },
+        {
+          "time": 4.22,
+          "viseme": "TH",
+          "amount": 0.7676
+        },
+        {
+          "time": 4.238041,
+          "viseme": "TH",
+          "amount": 0.7676
+        },
+        {
+          "time": 4.239525,
+          "viseme": "AA",
+          "amount": 0.7676
+        },
+        {
+          "time": 4.24,
+          "viseme": "AA",
+          "amount": 0.7164
+        },
+        {
+          "time": 4.26,
+          "viseme": "AA",
+          "amount": 0.4595
+        },
+        {
+          "time": 4.261041,
+          "viseme": "AA",
+          "amount": 0.4595
+        },
+        {
+          "time": 4.28,
+          "viseme": "AA",
+          "amount": 0.3535
+        },
+        {
+          "time": 4.284041,
+          "viseme": "AA",
+          "amount": 0.3535
+        },
+        {
+          "time": 4.3,
+          "viseme": "AA",
+          "amount": 0.3356
+        },
+        {
+          "time": 4.319041,
+          "viseme": "S",
+          "amount": 0.3356
+        },
+        {
+          "time": 4.32,
+          "viseme": "S",
+          "amount": 0.365
+        },
+        {
+          "time": 4.34,
+          "viseme": "S",
+          "amount": 0.2864
+        },
+        {
+          "time": 4.354041,
+          "viseme": "S",
+          "amount": 0.2864
+        },
+        {
+          "time": 4.354963,
+          "viseme": "LNT",
+          "amount": 0.2864
+        },
+        {
+          "time": 4.36,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 4.38,
+          "viseme": "LNT",
+          "amount": 0.3735
+        },
+        {
+          "time": 4.389041,
+          "viseme": "LNT",
+          "amount": 0.3735
+        },
+        {
+          "time": 4.390885,
+          "viseme": "OO",
+          "amount": 0.3735
+        },
+        {
+          "time": 4.4,
+          "viseme": "OO",
+          "amount": 0.5373
+        },
+        {
+          "time": 4.42,
+          "viseme": "OO",
+          "amount": 0.9113
+        },
+        {
+          "time": 4.426807,
+          "viseme": "EE",
+          "amount": 0.9113
+        },
+        {
+          "time": 4.435041,
+          "viseme": "EE",
+          "amount": 0.9113
+        },
+        {
+          "time": 4.44,
+          "viseme": "EE",
+          "amount": 0.9249
+        },
+        {
+          "time": 4.46,
+          "viseme": "EE",
+          "amount": 0.746
+        },
+        {
+          "time": 4.48,
+          "viseme": "EE",
+          "amount": 0.2847
+        },
+        {
+          "time": 4.482041,
+          "viseme": "EE",
+          "amount": 0.2847
+        },
+        {
+          "time": 4.492119,
+          "viseme": "MBP",
+          "amount": 0.2847
+        },
+        {
+          "time": 4.5,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 4.52,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 4.528041,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 4.54,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 4.56,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 4.58,
+          "viseme": "MBP",
+          "amount": 0.3552
+        },
+        {
+          "time": 4.586041,
+          "viseme": "TH",
+          "amount": 0.3552
+        },
+        {
+          "time": 4.6,
+          "viseme": "TH",
+          "amount": 0.3552
+        },
+        {
+          "time": 4.609041,
+          "viseme": "TH",
+          "amount": 0.8271
+        },
+        {
+          "time": 4.616422,
+          "viseme": "AA",
+          "amount": 0.8271
+        },
+        {
+          "time": 4.62,
+          "viseme": "AA",
+          "amount": 0.8434
+        },
+        {
+          "time": 4.633041,
+          "viseme": "AA",
+          "amount": 0.8434
+        },
+        {
+          "time": 4.64,
+          "viseme": "AA",
+          "amount": 0.8434
+        },
+        {
+          "time": 4.66,
+          "viseme": "AA",
+          "amount": 0.2781
+        },
+        {
+          "time": 4.667041,
+          "viseme": "AA",
+          "amount": 0.2781
+        },
+        {
+          "time": 4.67166,
+          "viseme": "LNT",
+          "amount": 0.2781
+        },
+        {
+          "time": 4.68,
+          "viseme": "LNT",
+          "amount": 0.3538
+        },
+        {
+          "time": 4.7,
+          "viseme": "LNT",
+          "amount": 0.4306
+        },
+        {
+          "time": 4.702041,
+          "viseme": "LNT",
+          "amount": 0.4306
+        },
+        {
+          "time": 4.72,
+          "viseme": "LNT",
+          "amount": 0.39
+        },
+        {
+          "time": 4.74,
+          "viseme": "LNT",
+          "amount": 0.3419
+        },
+        {
+          "time": 4.749041,
+          "viseme": "EH",
+          "amount": 0.3419
+        },
+        {
+          "time": 4.76,
+          "viseme": "EH",
+          "amount": 0.48
+        },
+        {
+          "time": 4.78,
+          "viseme": "EH",
+          "amount": 0.7533
+        },
+        {
+          "time": 4.783041,
+          "viseme": "EH",
+          "amount": 0.7533
+        },
+        {
+          "time": 4.784963,
+          "viseme": "OH",
+          "amount": 0.7533
+        },
+        {
+          "time": 4.8,
+          "viseme": "OH",
+          "amount": 0.8522
+        },
+        {
+          "time": 4.82,
+          "viseme": "OH",
+          "amount": 0.9274
+        },
+        {
+          "time": 4.827416,
+          "viseme": "OO",
+          "amount": 0.9274
+        },
+        {
+          "time": 4.830041,
+          "viseme": "OO",
+          "amount": 0.9274
+        },
+        {
+          "time": 4.84,
+          "viseme": "OO",
+          "amount": 0.95
+        },
+        {
+          "time": 4.850276,
+          "viseme": "LNT",
+          "amount": 0.95
+        },
+        {
+          "time": 4.86,
+          "viseme": "LNT",
+          "amount": 0.8355
+        },
+        {
+          "time": 4.876041,
+          "viseme": "LNT",
+          "amount": 0.8355
+        },
+        {
+          "time": 4.88,
+          "viseme": "LNT",
+          "amount": 0.5923
+        },
+        {
+          "time": 4.886198,
+          "viseme": "LNT",
+          "amount": 0.5923
+        },
+        {
+          "time": 4.9,
+          "viseme": "LNT",
+          "amount": 0.4559
+        },
+        {
+          "time": 4.92,
+          "viseme": "LNT",
+          "amount": 0.2804
+        },
+        {
+          "time": 4.922119,
+          "viseme": "S",
+          "amount": 0.2804
+        },
+        {
+          "time": 4.923041,
+          "viseme": "S",
+          "amount": 0.2804
+        },
+        {
+          "time": 4.94,
+          "viseme": "S",
+          "amount": 0.4245
+        },
+        {
+          "time": 4.958041,
+          "viseme": "S",
+          "amount": 0.4245
+        },
+        {
+          "time": 4.96,
+          "viseme": "S",
+          "amount": 0.8271
+        },
+        {
+          "time": 4.98,
+          "viseme": "S",
+          "amount": 0.95
+        },
+        {
+          "time": 4.992041,
+          "viseme": "AA",
+          "amount": 0.95
+        },
+        {
+          "time": 5.0,
+          "viseme": "AA",
+          "amount": 0.5606
+        },
+        {
+          "time": 5.02,
+          "viseme": "AA",
+          "amount": 0.5606
+        },
+        {
+          "time": 5.027041,
+          "viseme": "AA",
+          "amount": 0.6019
+        },
+        {
+          "time": 5.04,
+          "viseme": "AA",
+          "amount": 0.392
+        },
+        {
+          "time": 5.06,
+          "viseme": "AA",
+          "amount": 0.392
+        },
+        {
+          "time": 5.074041,
+          "viseme": "LNT",
+          "amount": 0.2785
+        },
+        {
+          "time": 5.08,
+          "viseme": "LNT",
+          "amount": 0.6696
+        },
+        {
+          "time": 5.1,
+          "viseme": "LNT",
+          "amount": 0.6696
+        },
+        {
+          "time": 5.12,
+          "viseme": "LNT",
+          "amount": 0.95
+        },
+        {
+          "time": 5.120041,
+          "viseme": "LNT",
+          "amount": 0.95
+        },
+        {
+          "time": 5.13166,
+          "viseme": "OH",
+          "amount": 0.95
+        },
+        {
+          "time": 5.14,
+          "viseme": "OH",
+          "amount": 0.95
+        },
+        {
+          "time": 5.16,
+          "viseme": "OH",
+          "amount": 0.95
+        },
+        {
+          "time": 5.178041,
+          "viseme": "OH",
+          "amount": 0.95
+        },
+        {
+          "time": 5.18,
+          "viseme": "OH",
+          "amount": 0.95
+        },
+        {
+          "time": 5.2,
+          "viseme": "OH",
+          "amount": 0.8784
+        },
+        {
+          "time": 5.22,
+          "viseme": "OH",
+          "amount": 0.788
+        },
+        {
+          "time": 5.236041,
+          "viseme": "OH",
+          "amount": 0.788
+        },
+        {
+          "time": 5.236422,
+          "viseme": "OO",
+          "amount": 0.788
+        },
+        {
+          "time": 5.24,
+          "viseme": "OO",
+          "amount": 0.7183
+        },
+        {
+          "time": 5.26,
+          "viseme": "OO",
+          "amount": 0.6706
+        },
+        {
+          "time": 5.28,
+          "viseme": "OO",
+          "amount": 0.6505
+        },
+        {
+          "time": 5.294041,
+          "viseme": "OO",
+          "amount": 0.6505
+        },
+        {
+          "time": 5.3,
+          "viseme": "OO",
+          "amount": 0.4359
+        },
+        {
+          "time": 5.32,
+          "viseme": "OO",
+          "amount": 0.263
+        },
+        {
+          "time": 5.34,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 5.36,
+          "viseme": "OO",
+          "amount": 0.4436
+        },
+        {
+          "time": 5.364041,
+          "viseme": "LNT",
+          "amount": 0.4436
+        },
+        {
+          "time": 5.38,
+          "viseme": "LNT",
+          "amount": 0.2818
+        },
+        {
+          "time": 5.38888,
+          "viseme": "OO",
+          "amount": 0.2818
+        },
+        {
+          "time": 5.399041,
+          "viseme": "OO",
+          "amount": 0.2818
+        },
+        {
+          "time": 5.4,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 5.42,
+          "viseme": "OO",
+          "amount": 0.4522
+        },
+        {
+          "time": 5.434041,
+          "viseme": "OO",
+          "amount": 0.4522
+        },
+        {
+          "time": 5.44,
+          "viseme": "OO",
+          "amount": 0.6064
+        },
+        {
+          "time": 5.46,
+          "viseme": "OO",
+          "amount": 0.6396
+        },
+        {
+          "time": 5.48,
+          "viseme": "OO",
+          "amount": 0.5802
+        },
+        {
+          "time": 5.5,
+          "viseme": "OO",
+          "amount": 0.3531
+        },
+        {
+          "time": 5.503041,
+          "viseme": "EE",
+          "amount": 0.3531
+        },
+        {
+          "time": 5.52,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 5.538041,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 5.54,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 5.558279,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 5.56,
+          "viseme": "LNT",
+          "amount": 0.3105
+        },
+        {
+          "time": 5.58,
+          "viseme": "LNT",
+          "amount": 0.3501
+        },
+        {
+          "time": 5.585041,
+          "viseme": "LNT",
+          "amount": 0.3501
+        },
+        {
+          "time": 5.58866,
+          "viseme": "S",
+          "amount": 0.3501
+        },
+        {
+          "time": 5.6,
+          "viseme": "S",
+          "amount": 0.2804
+        },
+        {
+          "time": 5.619041,
+          "viseme": "S",
+          "amount": 0.2804
+        },
+        {
+          "time": 5.62,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 5.64,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 5.66,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 5.666041,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 5.68,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 5.7,
+          "viseme": "FV",
+          "amount": 0.2764
+        },
+        {
+          "time": 5.712041,
+          "viseme": "FV",
+          "amount": 0.2764
+        },
+        {
+          "time": 5.72,
+          "viseme": "FV",
+          "amount": 0.5617
+        },
+        {
+          "time": 5.74,
+          "viseme": "FV",
+          "amount": 0.6004
+        },
+        {
+          "time": 5.748018,
+          "viseme": "OO",
+          "amount": 0.6004
+        },
+        {
+          "time": 5.76,
+          "viseme": "OO",
+          "amount": 0.5616
+        },
+        {
+          "time": 5.78,
+          "viseme": "OO",
+          "amount": 0.5623
+        },
+        {
+          "time": 5.8,
+          "viseme": "OO",
+          "amount": 0.574
+        },
+        {
+          "time": 5.805041,
+          "viseme": "OO",
+          "amount": 0.574
+        },
+        {
+          "time": 5.82,
+          "viseme": "OO",
+          "amount": 0.5501
+        },
+        {
+          "time": 5.829995,
+          "viseme": "EH",
+          "amount": 0.5501
+        },
+        {
+          "time": 5.84,
+          "viseme": "EH",
+          "amount": 0.5403
+        },
+        {
+          "time": 5.86,
+          "viseme": "EH",
+          "amount": 0.5237
+        },
+        {
+          "time": 5.88,
+          "viseme": "EH",
+          "amount": 0.4923
+        },
+        {
+          "time": 5.886041,
+          "viseme": "EH",
+          "amount": 0.4923
+        },
+        {
+          "time": 5.9,
+          "viseme": "EH",
+          "amount": 0.4824
+        },
+        {
+          "time": 5.92,
+          "viseme": "EH",
+          "amount": 0.4565
+        },
+        {
+          "time": 5.926877,
+          "viseme": "EE",
+          "amount": 0.4565
+        },
+        {
+          "time": 5.94,
+          "viseme": "EE",
+          "amount": 0.5028
+        },
+        {
+          "time": 5.944041,
+          "viseme": "EE",
+          "amount": 0.5028
+        },
+        {
+          "time": 5.96,
+          "viseme": "EE",
+          "amount": 0.5372
+        },
+        {
+          "time": 5.979044,
+          "viseme": "MBP",
+          "amount": 0.5372
+        },
+        {
+          "time": 5.98,
+          "viseme": "MBP",
+          "amount": 0.5763
+        },
+        {
+          "time": 6.0,
+          "viseme": "MBP",
+          "amount": 0.6184
+        },
+        {
+          "time": 6.02,
+          "viseme": "MBP",
+          "amount": 0.5801
+        },
+        {
+          "time": 6.04,
+          "viseme": "MBP",
+          "amount": 0.4333
+        },
+        {
+          "time": 6.06,
+          "viseme": "MBP",
+          "amount": 0.362
+        },
+        {
+          "time": 6.06102,
+          "viseme": "MBP",
+          "amount": 0.362
+        },
+        {
+          "time": 6.08,
+          "viseme": "MBP",
+          "amount": 0.2822
+        },
+        {
+          "time": 6.1,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 6.10702,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 6.12,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 6.14,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 6.16,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 6.18,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 6.2,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 6.22,
+          "viseme": "rest",
+          "amount": 0
+        }
+      ],
+      "duration": 6.233333333333333,
+      "alignmentSource": "recovered_provider_caption_word_bounds_estimated_phonemes_audio_gated",
+      "cueImplementationSource": "elevenlabs_word_spans_estimated_phonemes_audio_gated_mixed_character_fallback",
+      "limitations": [
+        "Provider caption growth supplies word bounds; original character durations were not retained.",
+        "Positions inside words are pronunciation-based animation estimates, not measured phoneme timestamps.",
+        "Redacted base64 padding leaves bounded packet-offset uncertainty; interval bounds are recorded in speech/recovered-caption-onsets.json.",
+        "Clipped word boundaries and unknown dictionary words keep the character fallback. Audio energy closes the mouth in silence.",
+        "No human hearing or perceptual lip-sync rating is inferred."
+      ],
+      "timeUncertaintySeconds": 8.383333333333333e-05,
+      "voice": {
+        "name": "MIST (refined)",
+        "provider": "ElevenLabs",
+        "voiceId": "24AMj4dc02cYAwoUnqzN",
+        "model": "eleven_flash_v2_5",
+        "synthetic": true
+      },
+      "sourceWav": "brain/results/dual-model-harness-20260924/live-smoke/probe-20260924T164458Z-9061ff/turn-1.wav",
+      "sourceTrace": "brain/results/dual-model-harness-20260924/live-smoke/probe-20260924T164458Z-9061ff/public-trace.json",
+      "sourceTraceSha256": "5e23967b8ba813a7b115a55830545ca6fae48ccdf3a885de95359c74cc9707fc",
+      "nativeSha256": "68ce5afaf170e57dc12be9a8ef497741375578c98ebd4fc8d65effdca56cfb1a",
+      "pcmSha256": "2ffa4c30cf31eeea9f5090b1f69369d4fe7a230d391684d8dcce7a01b622cf96"
+    },
+    {
+      "id": "mist-second-attempt",
+      "title": "A second attempt",
+      "text": "A second attempt with the stand reinforced probably won't hurt as much as the first one did.",
+      "audio": "audio/mist-second-attempt-native.wav",
+      "cues": [
+        {
+          "time": 0.0,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 0.02,
+          "viseme": "AA",
+          "amount": 0.95
+        },
+        {
+          "time": 0.023,
+          "viseme": "AA",
+          "amount": 0.95
+        },
+        {
+          "time": 0.04,
+          "viseme": "AA",
+          "amount": 0.95
+        },
+        {
+          "time": 0.06,
+          "viseme": "AA",
+          "amount": 0.95
+        },
+        {
+          "time": 0.07,
+          "viseme": "AA",
+          "amount": 0.95
+        },
+        {
+          "time": 0.08,
+          "viseme": "AA",
+          "amount": 0.7641
+        },
+        {
+          "time": 0.1,
+          "viseme": "AA",
+          "amount": 0.4759
+        },
+        {
+          "time": 0.12,
+          "viseme": "AA",
+          "amount": 0.3978
+        },
+        {
+          "time": 0.14,
+          "viseme": "AA",
+          "amount": 0.3548
+        },
+        {
+          "time": 0.16,
+          "viseme": "AA",
+          "amount": 0.3425
+        },
+        {
+          "time": 0.18,
+          "viseme": "AA",
+          "amount": 0.3813
+        },
+        {
+          "time": 0.185979,
+          "viseme": "S",
+          "amount": 0.3813
+        },
+        {
+          "time": 0.2,
+          "viseme": "S",
+          "amount": 0.385
+        },
+        {
+          "time": 0.22,
+          "viseme": "S",
+          "amount": 0.3628
+        },
+        {
+          "time": 0.226967,
+          "viseme": "EH",
+          "amount": 0.3628
+        },
+        {
+          "time": 0.24,
+          "viseme": "EH",
+          "amount": 0.799
+        },
+        {
+          "time": 0.243979,
+          "viseme": "EH",
+          "amount": 0.799
+        },
+        {
+          "time": 0.26,
+          "viseme": "EH",
+          "amount": 0.95
+        },
+        {
+          "time": 0.28,
+          "viseme": "EH",
+          "amount": 0.95
+        },
+        {
+          "time": 0.3,
+          "viseme": "EH",
+          "amount": 0.95
+        },
+        {
+          "time": 0.301491,
+          "viseme": "EH",
+          "amount": 0.95
+        },
+        {
+          "time": 0.32,
+          "viseme": "EH",
+          "amount": 0.424
+        },
+        {
+          "time": 0.324979,
+          "viseme": "EH",
+          "amount": 0.424
+        },
+        {
+          "time": 0.34,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 0.342479,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 0.36,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 0.38,
+          "viseme": "AA",
+          "amount": 0.4134
+        },
+        {
+          "time": 0.382979,
+          "viseme": "AA",
+          "amount": 0.4134
+        },
+        {
+          "time": 0.4,
+          "viseme": "AA",
+          "amount": 0.9423
+        },
+        {
+          "time": 0.417003,
+          "viseme": "LNT",
+          "amount": 0.9423
+        },
+        {
+          "time": 0.417979,
+          "viseme": "LNT",
+          "amount": 0.9423
+        },
+        {
+          "time": 0.42,
+          "viseme": "LNT",
+          "amount": 0.95
+        },
+        {
+          "time": 0.44,
+          "viseme": "LNT",
+          "amount": 0.95
+        },
+        {
+          "time": 0.457991,
+          "viseme": "LNT",
+          "amount": 0.95
+        },
+        {
+          "time": 0.46,
+          "viseme": "LNT",
+          "amount": 0.95
+        },
+        {
+          "time": 0.463979,
+          "viseme": "LNT",
+          "amount": 0.95
+        },
+        {
+          "time": 0.48,
+          "viseme": "LNT",
+          "amount": 0.6298
+        },
+        {
+          "time": 0.498979,
+          "viseme": "LNT",
+          "amount": 0.6298
+        },
+        {
+          "time": 0.5,
+          "viseme": "LNT",
+          "amount": 0.9247
+        },
+        {
+          "time": 0.52,
+          "viseme": "LNT",
+          "amount": 0.8311
+        },
+        {
+          "time": 0.54,
+          "viseme": "LNT",
+          "amount": 0.562
+        },
+        {
+          "time": 0.545979,
+          "viseme": "AA",
+          "amount": 0.562
+        },
+        {
+          "time": 0.56,
+          "viseme": "AA",
+          "amount": 0.2694
+        },
+        {
+          "time": 0.579979,
+          "viseme": "AA",
+          "amount": 0.2694
+        },
+        {
+          "time": 0.58,
+          "viseme": "AA",
+          "amount": 0.2694
+        },
+        {
+          "time": 0.6,
+          "viseme": "AA",
+          "amount": 0.4361
+        },
+        {
+          "time": 0.609551,
+          "viseme": "LNT",
+          "amount": 0.4361
+        },
+        {
+          "time": 0.614979,
+          "viseme": "LNT",
+          "amount": 0.4361
+        },
+        {
+          "time": 0.62,
+          "viseme": "LNT",
+          "amount": 0.3346
+        },
+        {
+          "time": 0.64,
+          "viseme": "LNT",
+          "amount": 0.6889
+        },
+        {
+          "time": 0.644515,
+          "viseme": "EH",
+          "amount": 0.6889
+        },
+        {
+          "time": 0.66,
+          "viseme": "EH",
+          "amount": 0.95
+        },
+        {
+          "time": 0.661979,
+          "viseme": "EH",
+          "amount": 0.95
+        },
+        {
+          "time": 0.68,
+          "viseme": "EH",
+          "amount": 0.95
+        },
+        {
+          "time": 0.696979,
+          "viseme": "EH",
+          "amount": 0.95
+        },
+        {
+          "time": 0.7,
+          "viseme": "EH",
+          "amount": 0.865
+        },
+        {
+          "time": 0.708086,
+          "viseme": "MBP",
+          "amount": 0.865
+        },
+        {
+          "time": 0.72,
+          "viseme": "MBP",
+          "amount": 0.7829
+        },
+        {
+          "time": 0.730979,
+          "viseme": "MBP",
+          "amount": 0.7829
+        },
+        {
+          "time": 0.74,
+          "viseme": "MBP",
+          "amount": 0.7828
+        },
+        {
+          "time": 0.743051,
+          "viseme": "MBP",
+          "amount": 0.7828
+        },
+        {
+          "time": 0.76,
+          "viseme": "MBP",
+          "amount": 0.5399
+        },
+        {
+          "time": 0.765979,
+          "viseme": "MBP",
+          "amount": 0.5399
+        },
+        {
+          "time": 0.778015,
+          "viseme": "LNT",
+          "amount": 0.5399
+        },
+        {
+          "time": 0.78,
+          "viseme": "LNT",
+          "amount": 0.5674
+        },
+        {
+          "time": 0.8,
+          "viseme": "LNT",
+          "amount": 0.2825
+        },
+        {
+          "time": 0.812979,
+          "viseme": "LNT",
+          "amount": 0.2825
+        },
+        {
+          "time": 0.82,
+          "viseme": "LNT",
+          "amount": 0.417
+        },
+        {
+          "time": 0.835979,
+          "viseme": "OO",
+          "amount": 0.417
+        },
+        {
+          "time": 0.84,
+          "viseme": "OO",
+          "amount": 0.5911
+        },
+        {
+          "time": 0.858979,
+          "viseme": "EE",
+          "amount": 0.5911
+        },
+        {
+          "time": 0.86,
+          "viseme": "EE",
+          "amount": 0.7377
+        },
+        {
+          "time": 0.88,
+          "viseme": "EE",
+          "amount": 0.5442
+        },
+        {
+          "time": 0.893979,
+          "viseme": "TH",
+          "amount": 0.5442
+        },
+        {
+          "time": 0.9,
+          "viseme": "TH",
+          "amount": 0.2596
+        },
+        {
+          "time": 0.916979,
+          "viseme": "TH",
+          "amount": 0.2596
+        },
+        {
+          "time": 0.92,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 0.94,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 0.96,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 0.98,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 0.997354,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 1.0,
+          "viseme": "TH",
+          "amount": 0.314
+        },
+        {
+          "time": 1.010021,
+          "viseme": "TH",
+          "amount": 0.314
+        },
+        {
+          "time": 1.02,
+          "viseme": "TH",
+          "amount": 0.4141
+        },
+        {
+          "time": 1.033021,
+          "viseme": "TH",
+          "amount": 0.4141
+        },
+        {
+          "time": 1.034505,
+          "viseme": "AA",
+          "amount": 0.4141
+        },
+        {
+          "time": 1.04,
+          "viseme": "AA",
+          "amount": 0.3486
+        },
+        {
+          "time": 1.056021,
+          "viseme": "AA",
+          "amount": 0.3486
+        },
+        {
+          "time": 1.06,
+          "viseme": "AA",
+          "amount": 0.3094
+        },
+        {
+          "time": 1.079021,
+          "viseme": "AA",
+          "amount": 0.3094
+        },
+        {
+          "time": 1.08,
+          "viseme": "AA",
+          "amount": 0.3008
+        },
+        {
+          "time": 1.1,
+          "viseme": "AA",
+          "amount": 0.3036
+        },
+        {
+          "time": 1.114021,
+          "viseme": "S",
+          "amount": 0.3036
+        },
+        {
+          "time": 1.12,
+          "viseme": "S",
+          "amount": 0.2871
+        },
+        {
+          "time": 1.14,
+          "viseme": "S",
+          "amount": 0.2871
+        },
+        {
+          "time": 1.16,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 1.161021,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 1.161974,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 1.18,
+          "viseme": "LNT",
+          "amount": 0.5814
+        },
+        {
+          "time": 1.2,
+          "viseme": "LNT",
+          "amount": 0.823
+        },
+        {
+          "time": 1.209927,
+          "viseme": "AA",
+          "amount": 0.823
+        },
+        {
+          "time": 1.219021,
+          "viseme": "AA",
+          "amount": 0.823
+        },
+        {
+          "time": 1.22,
+          "viseme": "AA",
+          "amount": 0.7568
+        },
+        {
+          "time": 1.24,
+          "viseme": "AA",
+          "amount": 0.7269
+        },
+        {
+          "time": 1.26,
+          "viseme": "AA",
+          "amount": 0.7657
+        },
+        {
+          "time": 1.28,
+          "viseme": "AA",
+          "amount": 0.8387
+        },
+        {
+          "time": 1.297115,
+          "viseme": "LNT",
+          "amount": 0.8387
+        },
+        {
+          "time": 1.3,
+          "viseme": "LNT",
+          "amount": 0.9161
+        },
+        {
+          "time": 1.312021,
+          "viseme": "LNT",
+          "amount": 0.9161
+        },
+        {
+          "time": 1.32,
+          "viseme": "LNT",
+          "amount": 0.8589
+        },
+        {
+          "time": 1.34,
+          "viseme": "LNT",
+          "amount": 0.7057
+        },
+        {
+          "time": 1.345068,
+          "viseme": "LNT",
+          "amount": 0.7057
+        },
+        {
+          "time": 1.358021,
+          "viseme": "LNT",
+          "amount": 0.7057
+        },
+        {
+          "time": 1.36,
+          "viseme": "LNT",
+          "amount": 0.8217
+        },
+        {
+          "time": 1.38,
+          "viseme": "LNT",
+          "amount": 0.7214
+        },
+        {
+          "time": 1.393021,
+          "viseme": "LNT",
+          "amount": 0.7214
+        },
+        {
+          "time": 1.4,
+          "viseme": "LNT",
+          "amount": 0.4878
+        },
+        {
+          "time": 1.42,
+          "viseme": "LNT",
+          "amount": 0.4091
+        },
+        {
+          "time": 1.44,
+          "viseme": "LNT",
+          "amount": 0.557
+        },
+        {
+          "time": 1.451021,
+          "viseme": "OO",
+          "amount": 0.557
+        },
+        {
+          "time": 1.46,
+          "viseme": "OO",
+          "amount": 0.7983
+        },
+        {
+          "time": 1.48,
+          "viseme": "OO",
+          "amount": 0.8696
+        },
+        {
+          "time": 1.496593,
+          "viseme": "EE",
+          "amount": 0.8696
+        },
+        {
+          "time": 1.497021,
+          "viseme": "EE",
+          "amount": 0.8696
+        },
+        {
+          "time": 1.5,
+          "viseme": "EE",
+          "amount": 0.8941
+        },
+        {
+          "time": 1.52,
+          "viseme": "EE",
+          "amount": 0.8127
+        },
+        {
+          "time": 1.54,
+          "viseme": "EE",
+          "amount": 0.7414
+        },
+        {
+          "time": 1.56,
+          "viseme": "EE",
+          "amount": 0.7275
+        },
+        {
+          "time": 1.567021,
+          "viseme": "EE",
+          "amount": 0.7275
+        },
+        {
+          "time": 1.57945,
+          "viseme": "EE",
+          "amount": 0.7275
+        },
+        {
+          "time": 1.58,
+          "viseme": "EE",
+          "amount": 0.7421
+        },
+        {
+          "time": 1.6,
+          "viseme": "EE",
+          "amount": 0.8125
+        },
+        {
+          "time": 1.614021,
+          "viseme": "EE",
+          "amount": 0.8125
+        },
+        {
+          "time": 1.62,
+          "viseme": "EE",
+          "amount": 0.6981
+        },
+        {
+          "time": 1.64,
+          "viseme": "EE",
+          "amount": 0.39
+        },
+        {
+          "time": 1.66,
+          "viseme": "EE",
+          "amount": 0.2875
+        },
+        {
+          "time": 1.662307,
+          "viseme": "LNT",
+          "amount": 0.2875
+        },
+        {
+          "time": 1.68,
+          "viseme": "LNT",
+          "amount": 0.2753
+        },
+        {
+          "time": 1.683021,
+          "viseme": "LNT",
+          "amount": 0.2753
+        },
+        {
+          "time": 1.7,
+          "viseme": "LNT",
+          "amount": 0.2974
+        },
+        {
+          "time": 1.707878,
+          "viseme": "FV",
+          "amount": 0.2974
+        },
+        {
+          "time": 1.72,
+          "viseme": "FV",
+          "amount": 0.3194
+        },
+        {
+          "time": 1.74,
+          "viseme": "FV",
+          "amount": 0.6901
+        },
+        {
+          "time": 1.753021,
+          "viseme": "FV",
+          "amount": 0.6901
+        },
+        {
+          "time": 1.75345,
+          "viseme": "OH",
+          "amount": 0.6901
+        },
+        {
+          "time": 1.76,
+          "viseme": "OH",
+          "amount": 0.9245
+        },
+        {
+          "time": 1.78,
+          "viseme": "OH",
+          "amount": 0.95
+        },
+        {
+          "time": 1.799021,
+          "viseme": "OH",
+          "amount": 0.95
+        },
+        {
+          "time": 1.8,
+          "viseme": "OH",
+          "amount": 0.8037
+        },
+        {
+          "time": 1.82,
+          "viseme": "OH",
+          "amount": 0.6844
+        },
+        {
+          "time": 1.836307,
+          "viseme": "OO",
+          "amount": 0.6844
+        },
+        {
+          "time": 1.84,
+          "viseme": "OO",
+          "amount": 0.4672
+        },
+        {
+          "time": 1.857021,
+          "viseme": "OO",
+          "amount": 0.4672
+        },
+        {
+          "time": 1.86,
+          "viseme": "OO",
+          "amount": 0.3322
+        },
+        {
+          "time": 1.88,
+          "viseme": "OO",
+          "amount": 0.4247
+        },
+        {
+          "time": 1.881878,
+          "viseme": "S",
+          "amount": 0.4247
+        },
+        {
+          "time": 1.9,
+          "viseme": "S",
+          "amount": 0.2724
+        },
+        {
+          "time": 1.904021,
+          "viseme": "S",
+          "amount": 0.2724
+        },
+        {
+          "time": 1.92,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 1.92745,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 1.94,
+          "viseme": "LNT",
+          "amount": 0.2803
+        },
+        {
+          "time": 1.950021,
+          "viseme": "LNT",
+          "amount": 0.2803
+        },
+        {
+          "time": 1.96,
+          "viseme": "LNT",
+          "amount": 0.2697
+        },
+        {
+          "time": 1.973021,
+          "viseme": "LNT",
+          "amount": 0.2697
+        },
+        {
+          "time": 1.98,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 2.0,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 2.02,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 2.032021,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 2.04,
+          "viseme": "MBP",
+          "amount": 0.266
+        },
+        {
+          "time": 2.06,
+          "viseme": "MBP",
+          "amount": 0.3548
+        },
+        {
+          "time": 2.069708,
+          "viseme": "OO",
+          "amount": 0.3548
+        },
+        {
+          "time": 2.08,
+          "viseme": "OO",
+          "amount": 0.3457
+        },
+        {
+          "time": 2.090021,
+          "viseme": "OO",
+          "amount": 0.3457
+        },
+        {
+          "time": 2.1,
+          "viseme": "OO",
+          "amount": 0.9315
+        },
+        {
+          "time": 2.107395,
+          "viseme": "AA",
+          "amount": 0.9315
+        },
+        {
+          "time": 2.12,
+          "viseme": "AA",
+          "amount": 0.95
+        },
+        {
+          "time": 2.136021,
+          "viseme": "AA",
+          "amount": 0.95
+        },
+        {
+          "time": 2.14,
+          "viseme": "AA",
+          "amount": 0.95
+        },
+        {
+          "time": 2.16,
+          "viseme": "AA",
+          "amount": 0.95
+        },
+        {
+          "time": 2.175917,
+          "viseme": "MBP",
+          "amount": 0.95
+        },
+        {
+          "time": 2.18,
+          "viseme": "MBP",
+          "amount": 0.95
+        },
+        {
+          "time": 2.194021,
+          "viseme": "MBP",
+          "amount": 0.95
+        },
+        {
+          "time": 2.2,
+          "viseme": "MBP",
+          "amount": 0.3484
+        },
+        {
+          "time": 2.213604,
+          "viseme": "AA",
+          "amount": 0.3484
+        },
+        {
+          "time": 2.22,
+          "viseme": "AA",
+          "amount": 0.4737
+        },
+        {
+          "time": 2.24,
+          "viseme": "AA",
+          "amount": 0.7361
+        },
+        {
+          "time": 2.252021,
+          "viseme": "AA",
+          "amount": 0.7361
+        },
+        {
+          "time": 2.26,
+          "viseme": "AA",
+          "amount": 0.7361
+        },
+        {
+          "time": 2.28,
+          "viseme": "AA",
+          "amount": 0.6697
+        },
+        {
+          "time": 2.282126,
+          "viseme": "MBP",
+          "amount": 0.354
+        },
+        {
+          "time": 2.299021,
+          "viseme": "MBP",
+          "amount": 0.354
+        },
+        {
+          "time": 2.3,
+          "viseme": "MBP",
+          "amount": 0.354
+        },
+        {
+          "time": 2.319812,
+          "viseme": "LNT",
+          "amount": 0.3274
+        },
+        {
+          "time": 2.32,
+          "viseme": "LNT",
+          "amount": 0.3274
+        },
+        {
+          "time": 2.34,
+          "viseme": "LNT",
+          "amount": 0.7248
+        },
+        {
+          "time": 2.345021,
+          "viseme": "LNT",
+          "amount": 0.7248
+        },
+        {
+          "time": 2.357499,
+          "viseme": "EE",
+          "amount": 0.7248
+        },
+        {
+          "time": 2.36,
+          "viseme": "EE",
+          "amount": 0.7103
+        },
+        {
+          "time": 2.38,
+          "viseme": "EE",
+          "amount": 0.6758
+        },
+        {
+          "time": 2.4,
+          "viseme": "EE",
+          "amount": 0.6347
+        },
+        {
+          "time": 2.403021,
+          "viseme": "EE",
+          "amount": 0.6347
+        },
+        {
+          "time": 2.42,
+          "viseme": "EE",
+          "amount": 0.5498
+        },
+        {
+          "time": 2.426021,
+          "viseme": "EE",
+          "amount": 0.5498
+        },
+        {
+          "time": 2.44,
+          "viseme": "EE",
+          "amount": 0.5426
+        },
+        {
+          "time": 2.46,
+          "viseme": "EE",
+          "amount": 0.8708
+        },
+        {
+          "time": 2.461021,
+          "viseme": "OO",
+          "amount": 0.8708
+        },
+        {
+          "time": 2.48,
+          "viseme": "OO",
+          "amount": 0.8834
+        },
+        {
+          "time": 2.496021,
+          "viseme": "OO",
+          "amount": 0.8834
+        },
+        {
+          "time": 2.499625,
+          "viseme": "OH",
+          "amount": 0.8834
+        },
+        {
+          "time": 2.5,
+          "viseme": "OH",
+          "amount": 0.8877
+        },
+        {
+          "time": 2.52,
+          "viseme": "OH",
+          "amount": 0.8516
+        },
+        {
+          "time": 2.54,
+          "viseme": "OH",
+          "amount": 0.7464
+        },
+        {
+          "time": 2.542021,
+          "viseme": "OH",
+          "amount": 0.7464
+        },
+        {
+          "time": 2.545248,
+          "viseme": "OO",
+          "amount": 0.7464
+        },
+        {
+          "time": 2.56,
+          "viseme": "OO",
+          "amount": 0.6137
+        },
+        {
+          "time": 2.569814,
+          "viseme": "LNT",
+          "amount": 0.6137
+        },
+        {
+          "time": 2.577021,
+          "viseme": "LNT",
+          "amount": 0.6137
+        },
+        {
+          "time": 2.58,
+          "viseme": "LNT",
+          "amount": 0.3321
+        },
+        {
+          "time": 2.6,
+          "viseme": "LNT",
+          "amount": 0.3326
+        },
+        {
+          "time": 2.608417,
+          "viseme": "LNT",
+          "amount": 0.3326
+        },
+        {
+          "time": 2.612021,
+          "viseme": "LNT",
+          "amount": 0.3326
+        },
+        {
+          "time": 2.62,
+          "viseme": "LNT",
+          "amount": 0.3757
+        },
+        {
+          "time": 2.64,
+          "viseme": "LNT",
+          "amount": 0.3494
+        },
+        {
+          "time": 2.647021,
+          "viseme": "LNT",
+          "amount": 0.3494
+        },
+        {
+          "time": 2.66,
+          "viseme": "LNT",
+          "amount": 0.3568
+        },
+        {
+          "time": 2.68,
+          "viseme": "LNT",
+          "amount": 0.3486
+        },
+        {
+          "time": 2.682021,
+          "viseme": "EH",
+          "amount": 0.3486
+        },
+        {
+          "time": 2.7,
+          "viseme": "EH",
+          "amount": 0.4983
+        },
+        {
+          "time": 2.716021,
+          "viseme": "EH",
+          "amount": 0.4983
+        },
+        {
+          "time": 2.72,
+          "viseme": "EH",
+          "amount": 0.7603
+        },
+        {
+          "time": 2.721569,
+          "viseme": "OO",
+          "amount": 0.7603
+        },
+        {
+          "time": 2.74,
+          "viseme": "OO",
+          "amount": 0.8057
+        },
+        {
+          "time": 2.751021,
+          "viseme": "OO",
+          "amount": 0.8057
+        },
+        {
+          "time": 2.76,
+          "viseme": "OO",
+          "amount": 0.7486
+        },
+        {
+          "time": 2.78,
+          "viseme": "OO",
+          "amount": 0.5461
+        },
+        {
+          "time": 2.793474,
+          "viseme": "LNT",
+          "amount": 0.5461
+        },
+        {
+          "time": 2.798021,
+          "viseme": "LNT",
+          "amount": 0.5461
+        },
+        {
+          "time": 2.8,
+          "viseme": "LNT",
+          "amount": 0.4051
+        },
+        {
+          "time": 2.82,
+          "viseme": "LNT",
+          "amount": 0.5627
+        },
+        {
+          "time": 2.833021,
+          "viseme": "LNT",
+          "amount": 0.5627
+        },
+        {
+          "time": 2.84,
+          "viseme": "LNT",
+          "amount": 0.5039
+        },
+        {
+          "time": 2.86,
+          "viseme": "LNT",
+          "amount": 0.383
+        },
+        {
+          "time": 2.867021,
+          "viseme": "AA",
+          "amount": 0.383
+        },
+        {
+          "time": 2.88,
+          "viseme": "AA",
+          "amount": 0.294
+        },
+        {
+          "time": 2.9,
+          "viseme": "AA",
+          "amount": 0.2677
+        },
+        {
+          "time": 2.902021,
+          "viseme": "AA",
+          "amount": 0.2677
+        },
+        {
+          "time": 2.904441,
+          "viseme": "S",
+          "amount": 0.2677
+        },
+        {
+          "time": 2.92,
+          "viseme": "S",
+          "amount": 0.2876
+        },
+        {
+          "time": 2.925021,
+          "viseme": "S",
+          "amount": 0.2876
+        },
+        {
+          "time": 2.94,
+          "viseme": "S",
+          "amount": 0.5671
+        },
+        {
+          "time": 2.96,
+          "viseme": "S",
+          "amount": 0.6665
+        },
+        {
+          "time": 2.98,
+          "viseme": "S",
+          "amount": 0.7064
+        },
+        {
+          "time": 2.984021,
+          "viseme": "MBP",
+          "amount": 0.7064
+        },
+        {
+          "time": 3.0,
+          "viseme": "MBP",
+          "amount": 0.7564
+        },
+        {
+          "time": 3.018021,
+          "viseme": "MBP",
+          "amount": 0.7564
+        },
+        {
+          "time": 3.02,
+          "viseme": "MBP",
+          "amount": 0.6447
+        },
+        {
+          "time": 3.023307,
+          "viseme": "AA",
+          "amount": 0.6447
+        },
+        {
+          "time": 3.04,
+          "viseme": "AA",
+          "amount": 0.4382
+        },
+        {
+          "time": 3.06,
+          "viseme": "AA",
+          "amount": 0.2559
+        },
+        {
+          "time": 3.065021,
+          "viseme": "AA",
+          "amount": 0.2559
+        },
+        {
+          "time": 3.08,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 3.094735,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 3.1,
+          "viseme": "S",
+          "amount": 0.3175
+        },
+        {
+          "time": 3.111021,
+          "viseme": "S",
+          "amount": 0.3175
+        },
+        {
+          "time": 3.12,
+          "viseme": "S",
+          "amount": 0.3134
+        },
+        {
+          "time": 3.134021,
+          "viseme": "S",
+          "amount": 0.3134
+        },
+        {
+          "time": 3.14,
+          "viseme": "S",
+          "amount": 0.3026
+        },
+        {
+          "time": 3.16,
+          "viseme": "S",
+          "amount": 0.3104
+        },
+        {
+          "time": 3.169021,
+          "viseme": "AA",
+          "amount": 0.3104
+        },
+        {
+          "time": 3.18,
+          "viseme": "AA",
+          "amount": 0.3068
+        },
+        {
+          "time": 3.2,
+          "viseme": "AA",
+          "amount": 0.264
+        },
+        {
+          "time": 3.204021,
+          "viseme": "AA",
+          "amount": 0.264
+        },
+        {
+          "time": 3.206441,
+          "viseme": "S",
+          "amount": 0.264
+        },
+        {
+          "time": 3.22,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 3.227021,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 3.24,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 3.26,
+          "viseme": "S",
+          "amount": 0.3449
+        },
+        {
+          "time": 3.274021,
+          "viseme": "TH",
+          "amount": 0.3449
+        },
+        {
+          "time": 3.28,
+          "viseme": "TH",
+          "amount": 0.3579
+        },
+        {
+          "time": 3.297021,
+          "viseme": "TH",
+          "amount": 0.3579
+        },
+        {
+          "time": 3.298505,
+          "viseme": "AA",
+          "amount": 0.3579
+        },
+        {
+          "time": 3.3,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 3.32,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 3.320021,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 3.34,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 3.343021,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 3.36,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 3.38,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 3.390021,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 3.4,
+          "viseme": "FV",
+          "amount": 0.4557
+        },
+        {
+          "time": 3.42,
+          "viseme": "FV",
+          "amount": 0.8982
+        },
+        {
+          "time": 3.436021,
+          "viseme": "FV",
+          "amount": 0.8982
+        },
+        {
+          "time": 3.438172,
+          "viseme": "OO",
+          "amount": 0.8982
+        },
+        {
+          "time": 3.44,
+          "viseme": "OO",
+          "amount": 0.95
+        },
+        {
+          "time": 3.46,
+          "viseme": "OO",
+          "amount": 0.95
+        },
+        {
+          "time": 3.48,
+          "viseme": "OO",
+          "amount": 0.7869
+        },
+        {
+          "time": 3.483021,
+          "viseme": "OO",
+          "amount": 0.7869
+        },
+        {
+          "time": 3.5,
+          "viseme": "OO",
+          "amount": 0.4916
+        },
+        {
+          "time": 3.52,
+          "viseme": "OO",
+          "amount": 0.3264
+        },
+        {
+          "time": 3.525719,
+          "viseme": "S",
+          "amount": 0.3264
+        },
+        {
+          "time": 3.54,
+          "viseme": "S",
+          "amount": 0.4226
+        },
+        {
+          "time": 3.541021,
+          "viseme": "S",
+          "amount": 0.4226
+        },
+        {
+          "time": 3.56,
+          "viseme": "S",
+          "amount": 0.3011
+        },
+        {
+          "time": 3.57387,
+          "viseme": "LNT",
+          "amount": 0.3011
+        },
+        {
+          "time": 3.58,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 3.587021,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 3.6,
+          "viseme": "LNT",
+          "amount": 0.2967
+        },
+        {
+          "time": 3.62,
+          "viseme": "LNT",
+          "amount": 0.2583
+        },
+        {
+          "time": 3.622021,
+          "viseme": "LNT",
+          "amount": 0.2583
+        },
+        {
+          "time": 3.64,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 3.66,
+          "viseme": "LNT",
+          "amount": 0.3991
+        },
+        {
+          "time": 3.68,
+          "viseme": "LNT",
+          "amount": 0.4824
+        },
+        {
+          "time": 3.680021,
+          "viseme": "OO",
+          "amount": 0.4824
+        },
+        {
+          "time": 3.7,
+          "viseme": "OO",
+          "amount": 0.4939
+        },
+        {
+          "time": 3.719569,
+          "viseme": "AA",
+          "amount": 0.4939
+        },
+        {
+          "time": 3.72,
+          "viseme": "AA",
+          "amount": 0.3761
+        },
+        {
+          "time": 3.727021,
+          "viseme": "AA",
+          "amount": 0.3761
+        },
+        {
+          "time": 3.74,
+          "viseme": "AA",
+          "amount": 0.3296
+        },
+        {
+          "time": 3.76,
+          "viseme": "AA",
+          "amount": 0.3397
+        },
+        {
+          "time": 3.78,
+          "viseme": "AA",
+          "amount": 0.3593
+        },
+        {
+          "time": 3.785021,
+          "viseme": "AA",
+          "amount": 0.3593
+        },
+        {
+          "time": 3.791474,
+          "viseme": "LNT",
+          "amount": 0.3593
+        },
+        {
+          "time": 3.8,
+          "viseme": "LNT",
+          "amount": 0.3678
+        },
+        {
+          "time": 3.82,
+          "viseme": "LNT",
+          "amount": 0.2944
+        },
+        {
+          "time": 3.831021,
+          "viseme": "LNT",
+          "amount": 0.2944
+        },
+        {
+          "time": 3.84,
+          "viseme": "LNT",
+          "amount": 0.302
+        },
+        {
+          "time": 3.86,
+          "viseme": "LNT",
+          "amount": 0.2947
+        },
+        {
+          "time": 3.866021,
+          "viseme": "LNT",
+          "amount": 0.2947
+        },
+        {
+          "time": 3.88,
+          "viseme": "LNT",
+          "amount": 0.3458
+        },
+        {
+          "time": 3.9,
+          "viseme": "LNT",
+          "amount": 0.3969
+        },
+        {
+          "time": 3.912021,
+          "viseme": "LNT",
+          "amount": 0.3969
+        },
+        {
+          "time": 3.92,
+          "viseme": "LNT",
+          "amount": 0.3474
+        },
+        {
+          "time": 3.926783,
+          "viseme": "EE",
+          "amount": 0.3474
+        },
+        {
+          "time": 3.94,
+          "viseme": "EE",
+          "amount": 0.405
+        },
+        {
+          "time": 3.96,
+          "viseme": "EE",
+          "amount": 0.3616
+        },
+        {
+          "time": 3.98,
+          "viseme": "EE",
+          "amount": 0.347
+        },
+        {
+          "time": 3.982021,
+          "viseme": "EE",
+          "amount": 0.347
+        },
+        {
+          "time": 4.0,
+          "viseme": "EE",
+          "amount": 0.3449
+        },
+        {
+          "time": 4.02,
+          "viseme": "EE",
+          "amount": 0.3449
+        },
+        {
+          "time": 4.037259,
+          "viseme": "LNT",
+          "amount": 0.2555
+        },
+        {
+          "time": 4.04,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 4.06,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 4.08,
+          "viseme": "LNT",
+          "amount": 0.2568
+        },
+        {
+          "time": 4.098021,
+          "viseme": "LNT",
+          "amount": 0.2568
+        },
+        {
+          "time": 4.1,
+          "viseme": "LNT",
+          "amount": 0.2568
+        },
+        {
+          "time": 4.12,
+          "viseme": "LNT",
+          "amount": 0.263
+        },
+        {
+          "time": 4.14,
+          "viseme": "LNT",
+          "amount": 0.263
+        },
+        {
+          "time": 4.16,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 4.179021,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 4.18,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 4.2,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 4.22,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 4.24,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 4.26,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 4.28,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 4.3,
+          "viseme": "rest",
+          "amount": 0
+        }
+      ],
+      "duration": 4.301,
+      "alignmentSource": "recovered_provider_caption_word_bounds_estimated_phonemes_audio_gated",
+      "cueImplementationSource": "elevenlabs_word_spans_estimated_phonemes_audio_gated_mixed_character_fallback",
+      "limitations": [
+        "Provider caption growth supplies word bounds; original character durations were not retained.",
+        "Positions inside words are pronunciation-based animation estimates, not measured phoneme timestamps.",
+        "Redacted base64 padding leaves bounded packet-offset uncertainty; interval bounds are recorded in speech/recovered-caption-onsets.json.",
+        "Clipped word boundaries and unknown dictionary words keep the character fallback. Audio energy closes the mouth in silence.",
+        "No human hearing or perceptual lip-sync rating is inferred."
+      ],
+      "timeUncertaintySeconds": 4.2166666666666664e-05,
+      "voice": {
+        "name": "MIST (refined)",
+        "provider": "ElevenLabs",
+        "voiceId": "24AMj4dc02cYAwoUnqzN",
+        "model": "eleven_flash_v2_5",
+        "synthetic": true
+      },
+      "sourceWav": "brain/results/dual-model-harness-20260924/live-smoke/probe-20260924T164458Z-9061ff/turn-3.wav",
+      "sourceTrace": "brain/results/dual-model-harness-20260924/live-smoke/probe-20260924T164458Z-9061ff/public-trace.json",
+      "sourceTraceSha256": "5e23967b8ba813a7b115a55830545ca6fae48ccdf3a885de95359c74cc9707fc",
+      "nativeSha256": "0c5d41b79210e1927eb3df7a10e3e304f4efb87c349fede9f0a5ed3ed477c139",
+      "pcmSha256": "d9e590d86c8a0b0ac9c36ea4ed24b4671f39d81dd3076281efb1448fe6fc9993"
+    },
+    {
+      "id": "mist-patience",
+      "title": "Thanks for waiting (energy fallback)",
+      "text": "Thanks for waiting with me. I appreciate your patience.",
+      "audio": "audio/mist-patience-native.wav",
+      "cues": [
+        {
+          "time": 0.0,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 0.02,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 0.04,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 0.06,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 0.08,
+          "viseme": "AA",
+          "amount": 0.4132
+        },
+        {
+          "time": 0.1,
+          "viseme": "AA",
+          "amount": 0.878
+        },
+        {
+          "time": 0.12,
+          "viseme": "AA",
+          "amount": 0.742
+        },
+        {
+          "time": 0.14,
+          "viseme": "AA",
+          "amount": 0.6352
+        },
+        {
+          "time": 0.16,
+          "viseme": "AA",
+          "amount": 0.3707
+        },
+        {
+          "time": 0.18,
+          "viseme": "AA",
+          "amount": 0.3051
+        },
+        {
+          "time": 0.2,
+          "viseme": "AA",
+          "amount": 0.2989
+        },
+        {
+          "time": 0.22,
+          "viseme": "AA",
+          "amount": 0.4193
+        },
+        {
+          "time": 0.24,
+          "viseme": "AA",
+          "amount": 0.3157
+        },
+        {
+          "time": 0.26,
+          "viseme": "AA",
+          "amount": 0.2783
+        },
+        {
+          "time": 0.28,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 0.3,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 0.32,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 0.34,
+          "viseme": "AA",
+          "amount": 0.6319
+        },
+        {
+          "time": 0.36,
+          "viseme": "AA",
+          "amount": 0.95
+        },
+        {
+          "time": 0.38,
+          "viseme": "AA",
+          "amount": 0.95
+        },
+        {
+          "time": 0.4,
+          "viseme": "AA",
+          "amount": 0.7306
+        },
+        {
+          "time": 0.42,
+          "viseme": "AA",
+          "amount": 0.428
+        },
+        {
+          "time": 0.44,
+          "viseme": "AA",
+          "amount": 0.95
+        },
+        {
+          "time": 0.46,
+          "viseme": "AA",
+          "amount": 0.95
+        },
+        {
+          "time": 0.48,
+          "viseme": "AA",
+          "amount": 0.95
+        },
+        {
+          "time": 0.5,
+          "viseme": "AA",
+          "amount": 0.95
+        },
+        {
+          "time": 0.52,
+          "viseme": "AA",
+          "amount": 0.8498
+        },
+        {
+          "time": 0.54,
+          "viseme": "AA",
+          "amount": 0.672
+        },
+        {
+          "time": 0.56,
+          "viseme": "AA",
+          "amount": 0.5417
+        },
+        {
+          "time": 0.58,
+          "viseme": "AA",
+          "amount": 0.5417
+        },
+        {
+          "time": 0.6,
+          "viseme": "AA",
+          "amount": 0.5591
+        },
+        {
+          "time": 0.62,
+          "viseme": "AA",
+          "amount": 0.5811
+        },
+        {
+          "time": 0.64,
+          "viseme": "AA",
+          "amount": 0.4036
+        },
+        {
+          "time": 0.66,
+          "viseme": "AA",
+          "amount": 0.3527
+        },
+        {
+          "time": 0.68,
+          "viseme": "AA",
+          "amount": 0.4026
+        },
+        {
+          "time": 0.7,
+          "viseme": "AA",
+          "amount": 0.4541
+        },
+        {
+          "time": 0.72,
+          "viseme": "AA",
+          "amount": 0.4807
+        },
+        {
+          "time": 0.74,
+          "viseme": "AA",
+          "amount": 0.4939
+        },
+        {
+          "time": 0.76,
+          "viseme": "AA",
+          "amount": 0.4017
+        },
+        {
+          "time": 0.78,
+          "viseme": "AA",
+          "amount": 0.3529
+        },
+        {
+          "time": 0.8,
+          "viseme": "AA",
+          "amount": 0.2577
+        },
+        {
+          "time": 0.82,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 0.84,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 0.86,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 0.88,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 0.9,
+          "viseme": "AA",
+          "amount": 0.3432
+        },
+        {
+          "time": 0.92,
+          "viseme": "AA",
+          "amount": 0.36
+        },
+        {
+          "time": 0.94,
+          "viseme": "AA",
+          "amount": 0.3477
+        },
+        {
+          "time": 0.96,
+          "viseme": "AA",
+          "amount": 0.3011
+        },
+        {
+          "time": 0.98,
+          "viseme": "AA",
+          "amount": 0.2979
+        },
+        {
+          "time": 1.0,
+          "viseme": "AA",
+          "amount": 0.2968
+        },
+        {
+          "time": 1.02,
+          "viseme": "AA",
+          "amount": 0.3061
+        },
+        {
+          "time": 1.04,
+          "viseme": "AA",
+          "amount": 0.2816
+        },
+        {
+          "time": 1.06,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 1.08,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 1.1,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 1.12,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 1.14,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 1.16,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 1.18,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 1.2,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 1.22,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 1.24,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 1.26,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 1.28,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 1.3,
+          "viseme": "AA",
+          "amount": 0.7511
+        },
+        {
+          "time": 1.32,
+          "viseme": "AA",
+          "amount": 0.9406
+        },
+        {
+          "time": 1.34,
+          "viseme": "AA",
+          "amount": 0.95
+        },
+        {
+          "time": 1.36,
+          "viseme": "AA",
+          "amount": 0.95
+        },
+        {
+          "time": 1.38,
+          "viseme": "AA",
+          "amount": 0.95
+        },
+        {
+          "time": 1.4,
+          "viseme": "AA",
+          "amount": 0.8862
+        },
+        {
+          "time": 1.42,
+          "viseme": "AA",
+          "amount": 0.8392
+        },
+        {
+          "time": 1.44,
+          "viseme": "AA",
+          "amount": 0.4426
+        },
+        {
+          "time": 1.46,
+          "viseme": "AA",
+          "amount": 0.2994
+        },
+        {
+          "time": 1.48,
+          "viseme": "AA",
+          "amount": 0.287
+        },
+        {
+          "time": 1.5,
+          "viseme": "AA",
+          "amount": 0.4408
+        },
+        {
+          "time": 1.52,
+          "viseme": "AA",
+          "amount": 0.8351
+        },
+        {
+          "time": 1.54,
+          "viseme": "AA",
+          "amount": 0.5467
+        },
+        {
+          "time": 1.56,
+          "viseme": "AA",
+          "amount": 0.7822
+        },
+        {
+          "time": 1.58,
+          "viseme": "AA",
+          "amount": 0.7833
+        },
+        {
+          "time": 1.6,
+          "viseme": "AA",
+          "amount": 0.7452
+        },
+        {
+          "time": 1.62,
+          "viseme": "AA",
+          "amount": 0.5817
+        },
+        {
+          "time": 1.64,
+          "viseme": "AA",
+          "amount": 0.4342
+        },
+        {
+          "time": 1.66,
+          "viseme": "AA",
+          "amount": 0.4083
+        },
+        {
+          "time": 1.68,
+          "viseme": "AA",
+          "amount": 0.4263
+        },
+        {
+          "time": 1.7,
+          "viseme": "AA",
+          "amount": 0.4152
+        },
+        {
+          "time": 1.72,
+          "viseme": "AA",
+          "amount": 0.5355
+        },
+        {
+          "time": 1.74,
+          "viseme": "AA",
+          "amount": 0.95
+        },
+        {
+          "time": 1.76,
+          "viseme": "AA",
+          "amount": 0.95
+        },
+        {
+          "time": 1.78,
+          "viseme": "AA",
+          "amount": 0.95
+        },
+        {
+          "time": 1.8,
+          "viseme": "AA",
+          "amount": 0.5677
+        },
+        {
+          "time": 1.82,
+          "viseme": "AA",
+          "amount": 0.3949
+        },
+        {
+          "time": 1.84,
+          "viseme": "AA",
+          "amount": 0.3136
+        },
+        {
+          "time": 1.86,
+          "viseme": "AA",
+          "amount": 0.4292
+        },
+        {
+          "time": 1.88,
+          "viseme": "AA",
+          "amount": 0.6944
+        },
+        {
+          "time": 1.9,
+          "viseme": "AA",
+          "amount": 0.7505
+        },
+        {
+          "time": 1.92,
+          "viseme": "AA",
+          "amount": 0.5136
+        },
+        {
+          "time": 1.94,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 1.96,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 1.98,
+          "viseme": "AA",
+          "amount": 0.2576
+        },
+        {
+          "time": 2.0,
+          "viseme": "AA",
+          "amount": 0.4455
+        },
+        {
+          "time": 2.02,
+          "viseme": "AA",
+          "amount": 0.6244
+        },
+        {
+          "time": 2.04,
+          "viseme": "AA",
+          "amount": 0.6674
+        },
+        {
+          "time": 2.06,
+          "viseme": "AA",
+          "amount": 0.6517
+        },
+        {
+          "time": 2.08,
+          "viseme": "AA",
+          "amount": 0.65
+        },
+        {
+          "time": 2.1,
+          "viseme": "AA",
+          "amount": 0.5226
+        },
+        {
+          "time": 2.12,
+          "viseme": "AA",
+          "amount": 0.3457
+        },
+        {
+          "time": 2.14,
+          "viseme": "AA",
+          "amount": 0.3516
+        },
+        {
+          "time": 2.16,
+          "viseme": "AA",
+          "amount": 0.4058
+        },
+        {
+          "time": 2.18,
+          "viseme": "AA",
+          "amount": 0.3975
+        },
+        {
+          "time": 2.2,
+          "viseme": "AA",
+          "amount": 0.2707
+        },
+        {
+          "time": 2.22,
+          "viseme": "AA",
+          "amount": 0.3248
+        },
+        {
+          "time": 2.24,
+          "viseme": "AA",
+          "amount": 0.3048
+        },
+        {
+          "time": 2.26,
+          "viseme": "AA",
+          "amount": 0.3048
+        },
+        {
+          "time": 2.28,
+          "viseme": "AA",
+          "amount": 0.3019
+        },
+        {
+          "time": 2.3,
+          "viseme": "AA",
+          "amount": 0.314
+        },
+        {
+          "time": 2.32,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 2.34,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 2.36,
+          "viseme": "AA",
+          "amount": 0.2547
+        },
+        {
+          "time": 2.38,
+          "viseme": "AA",
+          "amount": 0.2546
+        },
+        {
+          "time": 2.4,
+          "viseme": "AA",
+          "amount": 0.2794
+        },
+        {
+          "time": 2.42,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 2.44,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 2.46,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 2.48,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 2.5,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 2.52,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 2.54,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 2.56,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 2.58,
+          "viseme": "rest",
+          "amount": 0
+        },
+        {
+          "time": 2.6,
+          "viseme": "rest",
+          "amount": 0
+        }
+      ],
+      "duration": 2.618,
+      "alignmentSource": "audio_energy",
+      "limitations": [
+        "This benchmark saved alignment coverage counts but discarded exact character and caption timing.",
+        "Cues follow measured PCM energy only. AA is a generic open shape; no word or phoneme timing is inferred.",
+        "No human hearing or perceptual lip-sync rating is inferred."
+      ],
+      "voice": {
+        "name": "MIST (refined)",
+        "provider": "ElevenLabs",
+        "voiceId": "24AMj4dc02cYAwoUnqzN",
+        "model": "eleven_flash_v2_5",
+        "synthetic": true
+      },
+      "sourceWav": "brain/results/brain-quality-20260929/voice-after/audio/clip-05-6aa2d2.wav",
+      "sourceMetadata": "brain/results/brain-quality-20260929/voice-after/results.json",
+      "sourceMetadataSha256": "3a50bef511f4ad89b4dd0f36e60ffd034d2349a6c68bafb371910ccf0fff6429",
+      "nativeSha256": "5a008613c417e9d64bc880df00fbdba4b038a172271160fa5395cf50b775d400",
+      "pcmSha256": "fdcca96075cfae9d9bd06063c93ad564a49145a5efa12b415dd668e96fa0746b"
+    }
+  ]
+}

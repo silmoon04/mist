@@ -1,0 +1,27 @@
+Use case: precise-object-edit
+Asset type: production native transparent PNG eye-pair atlas.
+Input image 1 is the ORIGINAL Geraldine style reference. Use only its TOP-LEFT attentive eye pair; the mouth and dark background are irrelevant.
+Input image 2 is the edit target: the first generated attentive atlas.
+Primary request: Correct the edit target's registration and C-opening identity across its twelve poses, keeping the same 4-column by 3-row pose order. Author the corrected eye contours directly as a native transparent PNG. The current target shifts its artwork vertically between rows and flips eye orientation in the look poses; repair those errors. At the same time make the eyes flat single-colour art without a glowing halo.
+
+Output canvas ideally1536x1024 pixels, EXACT4 equal invisible columns and3 equal invisible rows. No grid or labels. EXACT12 pairs and24 eyes total. At this canvas size the horizontal centers within every cell are x120 for the left eye and x265 for the right eye. The vertical center within EVERY cell is y170. Thus column1 eye centersx120/265,column2x504/649,column3x888/1033,column4x1272/1417; row1y170,row2y511,row3y853. Keep the anchors fixed. Eye pair is about210-230 pixelswide; left eye approximately90pxwide x95pxtall at rest, right approximately82pxwide x87pxtall. Preserve the left eye being slightly larger. Generous empty margins. Do not move the pair to fill space or independently center each row's art.
+
+Identity: Match original top-left bright turquoise thick C contours. LEFT eye opens outward LEFT at every nonclosed pose. RIGHT eye opens outward RIGHT at every nonclosed pose. Neither eye ever flips direction. Rest contours have a slight soft hand-drawn asymmetry, round clean tips, flat solid fill, transparent inner aperture. No pupils or eyebrows. Copy the original attentive character rather than changing it into a new expression.
+Blink: Keep each eye's horizontal width and anchor while closing with freshly drawn integrated upper-lid contours. Never rotate an open C and never shrink its entire silhouette to imitate a blink. Fully closed is a clean soft curve drawn as a closed eyelid. No detached lid or additional shape.
+
+Pose order, reading left-to-right top-to-bottom, exact:
+0(row1col1)rest original attentive C pair.
+1(row1col2)gentle anticipation with upper lid slightly lowered.
+2(row1col3)half closed through integrated upper lid, distinct half-height transparent apertures.
+3(row1col4)near closed through integrated upper lid, very thin horizontal apertures.
+4(row2col1)fully closed TWOsoft eyelid arcs, same horizontal eye width, no apertures and no surroundingC.
+5(row2col2)opening low, narrow low transparent apertures, continuous contours.
+6(row2col3)opening threequarters toward attentiveC.
+7(row2col4)rest, match0.
+8(row3col1)subtle lookleft: ONLYreshape the inner apertures subtly, fixed outeranchors, preserve LEFTeyeLEFTopening and RIGHTeyeRIGHTopening. No translatingeyes, no pupils, no flippingCs.
+9(row3col2)subtle lookright: ONLYreshape the inner apertures subtly, fixed outeranchors, preserve LEFTeyeLEFTopening and RIGHTeyeRIGHTopening. No translatingeyes, no pupils, no flippingCs.
+10(row3col3)soft settle, tiny upperlidrelaxation nearing rest.
+11(row3col4)rest match0.
+
+Transparent surface: actual alpha0 throughout the entire background and every inner eye aperture. Make the eye contours flat opaque turquoise matching the original. Only the contour boundary gets antialiasing. Eliminate all visible glow, aura, gradient, texture and lighting from the target. No black background or checkerboard; actual transparent PNG.
+Keep constraints: every cell contains exactly one two-eye pair; no extra shape; no mouth/head/body/pupil/brow; no labels/numbers/watermark/grid/border; no detached fragments; no cross-cell overlap. Keep all12 poses present and a true closed blink in cell4. Fixed centers and consistent scale across the whole sheet are critical.

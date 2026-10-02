@@ -1,0 +1,21 @@
+Use case: stylized-concept
+Asset type: native transparent PNG sprite atlas for an animated robot face, eyes only.
+Primary request: Create ONE 1536 x 1024 pixel image containing EXACTLY twelve amused EYE PAIRS in an invisible 4-column x 3-row atlas. Every cell contains precisely two turquoise eye shapes and nothing else. Actual transparent RGBA background everywhere except the eyes.
+Input image 1: PRIMARY STYLE AND SHAPE REFERENCE, the original Geraldine face sheet. Use ONLY the amused eyes in its BOTTOM-LEFT face. Ignore the mouth and every other face. The bottom-left eyes are distinctive unequal chunky organic C shapes: viewer-left is larger and slightly higher, viewer-right is smaller and lower. BOTH C apertures open to the RIGHT. Keep this asymmetry; do not turn them into two matching hoops or mirrored C shapes.
+Style: Soft, hand-drawn filled turquoise strokes with rounded tips, slight unequal stroke mass, and smooth clean edges, matching that reference. Flat turquoise material, no neon effects. Each eye is one connected shape. There are no pupils or inner eyeballs: the C aperture is transparent space.
+Registration: 4 columns, 3 rows; approximate cell size 384 x 341 pixels. Invisible cell boundaries. Within EVERY cell, viewer-left eye center x=120 y=158; viewer-right eye center x=265 y=181. Rest eye heights about 95 and 78 pixels. Keep fixed centers and left-right order across all twelve cells. Use roomy transparent margins. All frame drawings lie completely within their cells.
+Read the twelve frames left-to-right across each row, then top-to-bottom:
+0 / row1 col1: Original amused rest. Larger left C opens right, smaller right C opens right, left slightly higher. Faithfully preserve the bottom-left reference's warm pleased attitude.
+1 / row1 col2: Blink anticipation. Soft upper lids begin dropping within each C, keep unequal eye proportions.
+2 / row1 col3: Blink half closed. Each C becomes an individually drawn rounded half-lid eye shape; lower curve and descending upper lid are artfully drawn, aperture reduced naturally.
+3 / row1 col4: Blink nearly closed. Narrow soft curved lids with tiny remaining openings, smooth organic contours, still the same unequal two eyes.
+4 / row2 col1: Blink fully closed. Two individually DRAWN soft rounded closed lid arcs, viewer-left arc longer and slightly higher than viewer-right. Preserve the amused rightward warmth. This is an actual drawn closed-eye pose, not a flattened C ring; no rotation.
+5 / row2 col2: Opening low. Redrawn low-aperture eyelid shapes starting to reopen, soft upper and lower curved edges.
+6 / row2 col3: Opening three-quarter. Redrawn rounded C shapes with larger apertures approaching original asymmetric rest.
+7 / row2 col4: Original amused rest after blink, same original left and right C proportions and fixed placement as frame0.
+8 / row3 col1: Subtle look-left. Aperture shape shifts subtly left while each turquoise eye stays at the fixed center. Retain C openings toward the right; no pupils.
+9 / row3 col2: Subtle look-right. Aperture shape shifts subtly right, fixed turquoise eye centers, preserve warm amused attitude and right-facing C openings.
+10 / row3 col3: Settle gently back toward the original amused rest, same centers.
+11 / row3 col4: Original amused rest end, matching frame0 and frame7.
+Critical: Every intermediate blink frame must be a well-drawn organic eyelid pose with coherent upper and lower contours. Do not simply scale or squash a ring. No rotated blink shapes. No detached pieces, pin dots or external fragments.
+Avoid: mouths, faces, heads, eyebrows, pupils, noses, labels, numbers, text, separators, visible grid, border, background color, checkerboard pixels, glow, light halos, gradients, noise, texture, shadows, watermark, duplicate sheets. ONLY the 24 connected turquoise eye shapes on genuine transparency.

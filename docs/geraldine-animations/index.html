@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="Review thirteen Geraldine MIST faces in motion, with recorded speech and your notes.">
+  <title>MIST / Geraldine in motion</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#faces">Skip to faces</a>
+  <header class="topbar">
+    <div class="identity"><span class="wordmark">MIST</span><h1>Geraldine in motion</h1><span class="quiet">13 faces</span></div>
+    <nav aria-label="Pack tools"><button id="export-notes" type="button">Export notes</button><a id="download-pack" href="animation-pack.zip" download>Download pack</a></nav>
+  </header>
+  <main>
+    <div class="transport" aria-label="Animation controls">
+      <label class="control-label">Mode <select id="mode" disabled><option value="idle">Idle</option><option value="reaction">Reaction</option><option value="speech">Speech</option></select></label>
+      <button id="play" type="button" disabled>Play</button>
+      <button id="stop" type="button" disabled>Stop</button>
+      <label class="phrase-label">Phrase <select id="phrase" disabled><option>Loading speech…</option></select></label>
+      <button id="speak" type="button" disabled>Speak</button>
+      <label class="check-label"><input id="loop-all" type="checkbox" disabled>Loop all</label>
+      <button id="tour" type="button" disabled>Transition tour</button>
+    </div>
+    <div class="status-row"><p id="status" role="status">Loading pack…</p><p id="motion-note" hidden>Reduced motion: quiet until you press Play.</p></div>
+    <div id="error" class="error" role="alert" hidden><p id="error-message"></p><button id="retry" type="button">Retry loading</button></div>
+    <section id="inspector" class="inspector" aria-labelledby="selected-title" hidden>
+      <div class="selected-art"><canvas id="selected-canvas" width="600" height="384" role="img" aria-label="Selected animated face"></canvas></div>
+      <div class="selected-info">
+        <div class="selected-heading"><h2 id="selected-title"></h2><div class="verdict" id="selected-verdict"><button data-verdict="keep" type="button" aria-pressed="false">Keep</button><button data-verdict="revise" type="button" aria-pressed="false">Revise</button></div></div>
+        <div class="scrub-row"><label for="frame">Frame</label><input id="frame" type="range" min="0" max="11" step="1" value="0"><output id="frame-value" for="frame">1 / 12</output><button id="release-scrub" type="button" hidden>Return to motion</button></div>
+        <label class="note-label" for="note">Review note</label><textarea id="note" rows="3" maxlength="20000" placeholder="Eyes, mouth or timing to keep or change…"></textarea>
+        <div class="detail-footer"><span id="note-status">Saved in this browser.</span><span id="frame-detail"></span></div>
+      </div>
+    </section>
+    <section id="faces" class="face-grid" aria-label="Thirteen animated faces" tabindex="-1"></section>
+    <details class="pack-details"><summary>About this pack</summary><p>Native transparent eye and mouth cels, played at 15 fps. Speech follows the recorded audio; pronunciation timings are estimates. TH uses a compact mouth shape.</p><p id="speech-limit"></p><div id="source-links"></div></details>
+  </main>
+  <dialog id="notes-export" aria-labelledby="notes-export-title">
+    <div class="export-heading"><h2 id="notes-export-title">Export notes</h2><form method="dialog"><button type="submit">Close</button></form></div>
+    <textarea id="notes-json" aria-label="Notes JSON" readonly rows="12" spellcheck="false"></textarea>
+    <div class="export-actions"><button id="download-notes" type="button">Download JSON</button><button id="copy-notes" type="button">Copy JSON</button><span id="export-status" role="status"></span></div>
+  </dialog>
+  <noscript><p class="error">Enable JavaScript to review the animation. <a href="animation-pack.zip" download>Download the pack</a>.</p></noscript>
+</body>
+</html>

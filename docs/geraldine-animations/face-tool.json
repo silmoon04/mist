@@ -1,0 +1,34 @@
+{
+  "type": "function",
+  "function": {
+    "name": "set_face",
+    "description": "Choose MIST's expression for the current conversational beat. The player handles blinking, transitions and speech timing. Hold it until the emotional intent changes.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "face_id": {
+          "type": "string",
+          "enum": [
+            "attentive",
+            "considering",
+            "skeptical",
+            "amused",
+            "concerned",
+            "quiet-listening",
+            "friendly-curiosity",
+            "wry-teasing",
+            "reassuring",
+            "quietly-pleased",
+            "laughing",
+            "doubtful",
+            "eager-delight"
+          ]
+        }
+      },
+      "required": [
+        "face_id"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

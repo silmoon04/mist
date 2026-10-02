@@ -1,0 +1,15 @@
+{
+  "date": "2026-10-02",
+  "presets": 13,
+  "eyeFamilies": 6,
+  "speechMouthFamilies": 3,
+  "nativeSheets": 11,
+  "nativeCels": 117,
+  "componentCels": 108,
+  "fps": 15,
+  "tool": "built-in image_gen",
+  "rasterHandling": "Native RGBA atlases preserved. Runtime selects cells and translates separate eyes/mouths using registration metadata; it does not stretch or rotate the shapes.",
+  "liveDefaultChanged": false,
+  "qualityStatus": "Animated review pack; user style feedback pending.",
+  "speechLimit": "Dictionary pronunciations fit to provider character-aligned word spans improve spelling-based targets. They remain estimated phone durations, not measured acoustic phoneme timestamps. Do not claim perfect alignment."
+}

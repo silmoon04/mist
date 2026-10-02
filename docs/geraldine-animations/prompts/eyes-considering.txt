@@ -1,0 +1,22 @@
+Use case: stylized-concept
+Asset type: production sprite atlas for a layered MIST Geraldine robot face
+Primary request: Create one native transparent PNG atlas of only the CONSIDERING EYE PAIR in 12 individually illustrated animation cels, exact 4 columns by 3 rows, landscape 1536 x 1024 pixels preferred. Treat the supplied image ONLY as a shape and color reference, not as the atlas layout.
+Reference image role: The original Geraldine face sheet. ONLY the TOP MIDDLE face's eyes are the source: a large taller higher VIEWER-LEFT C eye OPENING TO THE LEFT and a smaller shorter lower VIEWER-RIGHT C eye also OPENING TO THE LEFT. Ignore every mouth and every other face. Preserve the distinctive organic C contour and thick rounded solid turquoise shape mass. Both eyes always face/open left; do not flip either one to the right.
+Scene/backdrop: Genuine fully transparent alpha. No painted backdrop, no checkerboard, no glow.
+Composition: Exactly 12 eye pairs, exactly two eyes per cell, 24 eyes total. Each equal invisible cell is 384 x 341.33 pixels. Column centers and row centers must form an exact regular 4 by 3 sprite grid, with large clean transparent margins. No visible grid, borders, labels, numbers, captions, or dividers.
+Registration: In EVERY cell, large left eye anchor center approximately local x=120, y=150; small right eye anchor center approximately local x=265, y=185. Left rest eye height about 95 pixels, right rest eye height about 70 pixels. Preserve this unequal size, unequal height, and fixed pair spacing throughout. Keep each eye's own anchor center stable, including closure cels. Generous margins on all four sides. Do not rotate or translate an entire eye to create gaze or blinking.
+Row-major animation order, exactly this sequence:
+ROW 1 COLUMN 1, frame 0: original considering rest. Two left-opening organic C shapes, larger left eye high, smaller right eye low.
+ROW 1 COLUMN 2, frame 1: slight anticipation, lid lowers a little; preserve C direction and overall contour mass.
+ROW 1 COLUMN 3, frame 2: genuine halfway blink with smoothly hand-drawn lid reshaping and half-height interior aperture. No mechanical vertical scaling.
+ROW 1 COLUMN 4, frame 3: nearly closed, two narrow organic apertures, preserving unequal eye widths and anchor centers.
+ROW 2 COLUMN 1, frame 4: fully closed, TWO individually drawn soft rounded turquoise lid arcs, one wider at the larger left eye anchor and one narrower at the smaller lower right eye anchor. No interior holes. Both must look like the natural closed stage of these eyes, not rotated rings or squeezed Cs.
+ROW 2 COLUMN 2, frame 5: opening-low, small genuine apertures reopen naturally.
+ROW 2 COLUMN 3, frame 6: opening three quarters, mostly open original left-facing C eyes.
+ROW 2 COLUMN 4, frame 7: original considering rest again.
+ROW 3 COLUMN 1, frame 8: subtle look left from aperture reshaping inside stable outer contours; no whole-eye rotation or translation; both left-opening directions preserved.
+ROW 3 COLUMN 2, frame 9: subtle look right from aperture reshaping inside stable outer contours; do not flip the C direction and do not detach fragments.
+ROW 3 COLUMN 3, frame 10: settle almost at rest.
+ROW 3 COLUMN 4, frame 11: original considering rest again.
+Style/medium: clean flat raster graphic, soft organically hand-drawn rounded ends and graceful asymmetrical curves; retain the exact family identity of the reference top-middle eyes. Crisp alpha edges with normal subtle antialiasing only. No outline. Solid original bright turquoise palette throughout; no shading, highlights, gradients, texture, noise, lighting, or glow.
+Constraints: Eye layer ONLY. No mouths, smiles, noses, pupils, irises, eyebrows, cheeks, tears, facial outline, character, body, robot, text, labels, watermark, background, or checker. Stable anchors across the exact equal-cell grid. No mere vertical stretch/compression, no whole-eye rotation, no symmetry correction. Each blink stage is newly hand-drawn while retaining the original considering identity.

@@ -1,0 +1,12 @@
+Use case: precise-object-edit
+Asset type: native transparent MIST mouth sprite atlas.
+Edit the supplied mouth atlas to remove its visible cyan glow and make it a clean compact flat graphic sprite atlas. Preserve EXACTLY the same 12 mouth types and the row-major 4 by 3 ordering. This is one rendering cleanup: turn every mark into a single connected flat cyan silhouette with sharp antialiased edges and truly transparent surrounding pixels. Every pixel beyond the clean silhouette edge is alpha zero. Remove the entire halo, all diffuse illumination, all background shading, all texture, all inner tonal rings, and all outlines. Do not imitate a luminous LED. Do not add anything.
+
+Keep native 1536 x 1024 PNG. Twelve invisible equal cells: 4 columns, 3 rows. Center each mark at x=192,576,960,1344 and y=170,511,852. Large completely empty transparent padding around each mark. Use these SMALL native widths and heights, approximately:
+row 1: shallow upward closed curve 100x22; rounded closed flat stroke 90x10; thin open rounded slit 90x12; modest open bowl 95x32.
+row 2: open rounded bowl 105x64; softly rounded rectangle 90x38; low wide open bean 115x25; upright soft oval 60x72.
+row 3: small upright rounder oval 44x52; narrow horizontal closed slit 85x16 with only a subtle notch in its upper contour; narrow rounded opening 70x28; narrow flat open oval 95x18.
+
+Uniform smooth soft cyan flat fill. The friendly shallow curve and open bowls are original MIST graphic marks. No human lip anatomy. Every opening is a simple solid cyan filled silhouette, as in the small amused bowl from the original MIST reference. Single connected shape in every cell. Warm contours while speech targets remain distinct; do not turn all marks into smiles. No dark interior outlines or floating details.
+
+Absolutely no glow, halo, lighting, shadows, grain, gradients, texture, teeth, tongue, white pieces, protrusions, fragments, eyes, heads, brows, noses, faces, labels, text, grid, border, checkerboard or background. Produce actual transparency with alpha zero everywhere outside the twelve mouth silhouettes. Preserve native dimensions and the twelve target shapes; output the complete clean atlas.

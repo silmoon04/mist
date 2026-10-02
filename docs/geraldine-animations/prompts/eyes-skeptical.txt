@@ -1,0 +1,17 @@
+Use case: precise-object-edit
+Asset type: transparent PNG eye animation atlas.
+
+Image 1 is the edit target: the generated 4-column, 3-row atlas of 12 skeptical eye pairs. Image 2 is the original character reference; study ONLY the TOP RIGHT expression's EYES for shape identity, ignoring all mouths and the dark background.
+
+REPAIR THIS ATLAS. Return ONE native 1536 x 1024 RGBA PNG, genuinely transparent. The single most important repair is to REMOVE EVERY trace of glow, bloom, lighting haze, dark backdrop, translucent color mist and texture. Keep ONLY the 24 crisp solid pale-turquoise eye contours, with antialiased edges. ALL SPACE outside the actual eye shapes and ALL eye aperture space must be perfectly clear alpha zero. Flat solid pale turquoise, no luminous effects. An empty transparent canvas with 24 visible eye contours.
+
+Preserve EXACTLY 4 columns by 3 rows and 12 pairs. Every pair has the original top-right skeptical identity: viewer LEFT is a nearly horizontal integrated upper lid on a curved lower body OPEN AT LEFT; viewer RIGHT is a raised diagonal integrated upper lid on a C body OPEN AT RIGHT. One continuous shape per open eye. No detached eyebrows or separate lid fragments. No pupils, head, mouth, numbers, labels, grid, checkerboard, watermarks.
+
+Fix registration to the invisible grid: 384 x approximately 341-pixel cells. Every viewer left eye anchored around cell-local (120,170), every right eye around (265,170). Left fully open width approximately 95 height 60; right width approximately 90 height 80. Stable width, center, spacing, thickness and opening directions in all cels. Do not rotate or scale the C shapes to simulate blinking.
+
+Keep the row-major twelve-frame content, with a readable simultaneous blink progression:
+Row 1: frame 0 original open skeptical rest; frame 1 both lids slightly lowered, preserving flat left / diagonal right; frame 2 both visibly HALF CLOSED, with the apertures compressed vertically to approximately half height, still flat left / diagonal right; frame 3 both NEAR CLOSED narrow soft shapes.
+Row 2: frame 4 CLOSED, two gentle almost-horizontal soft arcs with rounded ends, not rotated C eyes; frame 5 reopening low aperture; frame 6 reopening 75 percent; frame 7 original open skeptical rest.
+Row 3: frame 8 subtle look left by adjusting apertures only; frame 9 subtle look right by adjusting apertures only; frame 10 settled almost original rest; frame 11 original open skeptical rest. Gaze never moves centers and never reverses the aperture openings.
+
+Preserve the deliberate coordinated asymmetry, simple smooth chunky contours and family identity. The open rest shapes in frames 0, 7 and 11 must match. No new objects. No background of any kind. No glow. No shadow. ONLY crisp flat-color eye shapes on alpha-zero transparent space.

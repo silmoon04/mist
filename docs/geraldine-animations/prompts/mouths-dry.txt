@@ -1,0 +1,16 @@
+Use case: precise-object-edit
+Asset type: native transparent PNG sprite atlas for MIST Geraldine dry-neutral mouths.
+
+Repair only the attached first mouth atlas. Keep its same 12 neutral mouth silhouettes, ordering, 4 by 3 layout and mouth centres. The second image is the original style reference only. Do not add any eyes, faces or other marks from it.
+
+Remove every glow, soft halo, gradient, dark backdrop and semitransparent haze. Every glyph must be a clean, fully opaque, solid matte pale-turquoise shape, approximately #63F1EF, with only normal thin edge antialiasing. Every pixel outside the twelve shapes must have alpha 0. Transparent background. No lighting effect at all. This is a small flat 2D sprite sheet.
+
+Keep the native canvas 1536 by 1024 pixels. Compact the mouth shapes to the following target widths and heights, without moving their centres away from columns x = 192, 576, 960, 1344 and rows y = 170, 512, 853. Large empty transparent margins inside every cell are intentional. These mouths must look tiny in the full sheet.
+
+Row 1: rest closed slightly crooked flat stroke 90 by 12; MBP closed flat stroke 80 by 14; release flat oval 70 by 13; small-AA neutral rounded rectangle 75 by 30.
+Row 2: AA neutral rounded rectangle 75 by 60; EH flat-topped rounded rectangle 90 by 35; EE flat oval 100 by 22; OH upright oval 52 by 65.
+Row 3: OO upright oval 40 by 45; FV short flat slit with the same tiny upper-edge notch, 75 by 14; LNT low rounded rectangle 65 by 24; S flat oval 85 by 15.
+
+Preserve the first atlas's dry, restrained neutral expression and absence of human mouth anatomy. Rounded clean edges, solid filled shapes with no interior holes. Flat or slightly downturned top edge. No U-shaped smile, lower-lip grin, teeth, tongue, protrusion, detached fragment, outline, text, grid or checkerboard.
+
+The required correction is a flat opaque miniature atlas with clean transparent alpha. Preserve native output; do not paint any background colour.
