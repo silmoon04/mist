@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "status": "offline",
-  "api_origin": null,
-  "updated_at": "2026-10-02T12:44:34Z",
-  "last_seen_at": "2026-10-02T12:44:18Z"
+  "status": "online",
+  "api_origin": "https://cloth-presence-suspension-olympic.trycloudflare.com",
+  "updated_at": "2026-10-02T12:46:21Z",
+  "last_seen_at": "2026-10-02T12:46:21Z"
 }
