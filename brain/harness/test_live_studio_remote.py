@@ -53,6 +53,12 @@ class RemoteTests(unittest.IsolatedAsyncioTestCase):
                 self.assertEqual(response.status, 401)
         self.assertEqual((await self.request('GET','/try')).status,200)
         self.assertEqual((await self.request('GET','/duplex/trials.css')).status,200)
+        for path,kind in (('/duplex/favicon.svg','image/svg+xml'),
+                          ('/duplex/fonts/Outfit.woff2','font/woff2'),
+                          ('/duplex/fonts/OFL.txt','text/plain')):
+            asset=await self.request('GET',path)
+            self.assertEqual(asset.status,200)
+            self.assertIn(kind,asset.content_type)
         # The pairing page imports this static helper before a user signs in.
         helper = await self.request('GET','/duplex/trial_memory.mjs')
         self.assertEqual(helper.status,200)

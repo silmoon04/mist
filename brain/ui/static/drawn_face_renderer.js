@@ -557,6 +557,11 @@
       const progress=rawProgress>=1-1e-8?1:clamp(rawProgress,0,1);
       return {...state,renderer:loaded?'drawn':'original',drawnReady:loaded,drawnError:error?.message||null,
         drawnPlacements:placements,drawnLayers:layers,drawnVisuals:visuals,drawnRig:current,drawnBlinkAge:age,drawnGaze:overrides.gaze||null,
+        drawnEyeBounds:visuals.filter(view=>view.role.startsWith('eye')&&view.opacity>.001).map(view=>{
+          if(view.kind==='eye_bridge')return {role:view.role,left:view.x-view.width/2-1.6,right:view.x+view.width/2+1.6,top:view.y-1.6,bottom:view.y+1.6};
+          const layer=rigs.get(view.rigId).layers.find(item=>item.role===view.role),box=bounds(layer.points,layer.mode==='stroke'?layer.width/2:0),center=layerCenter(layer);
+          return {role:view.role,left:box.x+view.x-center[0],right:box.x+box.w+view.x-center[0],top:box.y+view.y-center[1],bottom:box.y+box.h+view.y-center[1]};
+        }),
         drawnAnimation:{fps,frameMs,index:animationFrame(time),time:sampledTime},
         drawnMouthFamily:{assigned:mouthAssetForFace(current,atlas),active:family||mouthAssetForFace(current,atlas),pending:!!family&&family!==mouthAssetForFace(current,atlas),pendingMs:pendingSpeechFamily?Math.max(0,time-pendingSpeechFamily.since):0,switchReason:familySwitchReason,switchPolicy:'cue-boundary-or-400ms'},
         drawnTransition:{target:current,progress,active:progress<1,durationMs:transition?.duration??0,phase:progress>=1?'rest':progress<(transition?.closeUntil??.25)?'closing':progress<.65?'moving':'opening'},

@@ -38,6 +38,7 @@ RELEASE_FILES = [
         "debug.js", "expressions.html", "expressions.js", "inspect.css",
         "trials.html", "trials.css", "trials.js", "trial_review.mjs", "speech_face_cues.mjs", "speech_face_cues.test.mjs", "sample.wav", "trial_memory.mjs", "microphone_signal.mjs",
         "animation_picker.mjs", "animation_picker.test.mjs", "ANIMATION-PREVIEW.md",
+        "speech_status.mjs", "speech_status.test.mjs", "favicon.svg", "fonts/Outfit.woff2", "fonts/OFL.txt",
     )],
     "brain/ui/static/face_runtime.js", "brain/ui/static/drawn_face_renderer.js",
     "brain/face_assets/app/app_data.js",
@@ -61,6 +62,7 @@ RELEASE_FILES = [
     "brain/harness/test_session_store.py", "brain/harness/test_session_memory.py",
     "brain/harness/test_database_traces.py", "brain/harness/test_memory_requests.py",
     "brain/harness/test_playback_receipts.py",
+    "brain/harness/test_affect_director.py", "brain/harness/test_conversion_completion.py", "brain/harness/test_expression_app.mjs",
     "brain/harness/test_session_review.py", "brain/harness/test_expression_requests.py",
     "brain/harness/test_trial_review.mjs",
     "brain/duplex/static/trial_memory.test.mjs", "brain/duplex/static/microphone_signal.test.mjs",
@@ -84,6 +86,7 @@ RELEASE_FILES = [
     "brain/deploy/fixtures/audio/audio_phrase_seam-1.wav",
     f"brain/{DRAWN}/atlas.json", f"brain/{HANDDRAWN}/manifest.json",
     f"brain/{HANDDRAWN}/runtime.js", f"brain/{HANDDRAWN}/test_runtime.cjs",
+    f"brain/{HANDDRAWN}/test_listening_waveform.cjs",
     "design/hexapod_phone_quad_r5_20260912/cad/output/assembly_manifest.json",
 ]
 DEPLOY_FILES = (
@@ -93,7 +96,7 @@ DEPLOY_FILES = (
     "test_remote_e2e.py",
     "test_remote_e2e_helpers.py",
 )
-PAGE_FILES = ("index.html", "style.css", "app.js", ".nojekyll")
+PAGE_FILES = ("index.html", "style.css", "app.js", ".nojekyll", "favicon.svg", "fonts/Outfit.woff2", "fonts/OFL.txt")
 TEXT_SUFFIXES = {".py", ".js", ".ts", ".mjs", ".cjs", ".html", ".css", ".json", ".txt", ".md", ".ps1"}
 TEXT_NAMES = {".env.example", ".gitignore", ".gitattributes"}
 

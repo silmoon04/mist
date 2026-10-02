@@ -25,6 +25,7 @@ DELIVERY_TAGS = {'neutral': None, 'warm': '[warmly]', 'gentle': '[gently]',
 DELIVERY_TAG_PATTERN = re.compile(r'\[(?:warmly|gently|excited|seriously|curiously|amused|reassuringly|calmly)\]\s*', re.IGNORECASE)
 FLASH_MODEL = 'eleven_flash_v2_5'
 EXPRESSIVE_MODEL = 'eleven_v4_turbo'
+PCM_PACKET_BYTES = 24000  # At most 500ms of 24kHz signed 16-bit PCM.
 
 
 class StreamingTTS:
@@ -47,6 +48,18 @@ class StreamingTTS:
 
     def diagnostic(self, event, **values):
         LOG.info(json.dumps({'event': event, 'at': time.time(), **values}, allow_nan=False))
+
+    async def _provider_send(self, event):
+        """Time provider writes without logging text, credentials or PCM."""
+        began = time.monotonic()
+        started_at = time.time()
+        await self.socket.send_json(event)
+        entry = self.pending.get(event.get('context_id'))
+        self.diagnostic('tts_provider_send', sequence=entry['seq'] if entry else None,
+            epoch=entry['epoch'] if entry else self.epoch, send_started_at=started_at,
+            send_completed_at=time.time(), elapsed_ms=round((time.monotonic()-began)*1000,3),
+            flush=bool(event.get('flush')), close_context=bool(event.get('close_context')),
+            keep_alive=bool(event.get('keep_alive')), has_text=bool(event.get('text') or event.get('inputs')))
 
     async def start(self):
         self.client = aiohttp.ClientSession(timeout=aiohttp.ClientTimeout(total=5, connect=2))
@@ -110,7 +123,8 @@ class StreamingTTS:
                 'finished': False, 'phrase_count': 0,
                 'caption_text':'','caption_alignment_complete':True,'delivery':delivery,'turn_id':turn_id,
                 'provider_started':False,'provider_initialized':False,'alignment_tag_state':{},
-                'alignment_expected_tag':None,'next_phrase_delivery':None}
+                'alignment_expected_tag':None,'next_phrase_delivery':None,
+                'provider_chunks':0,'last_provider_audio':None,'last_audio_emit':None}
             self.sequence += 1
         except (aiohttp.ClientError, asyncio.TimeoutError, ConnectionError, RuntimeError) as error:
             await self.fail(type(error).__name__)
@@ -151,14 +165,14 @@ class StreamingTTS:
         entry['provider_started'] = True
         delivery = entry['delivery']
         if self.model_id == EXPRESSIVE_MODEL:
-            await self.socket.send_json({'context_id': context, 'voices': [self.voice_id]})
+            await self._provider_send({'context_id': context, 'voices': [self.voice_id]})
             if not self._current(context, entry):
                 return None
             tag = DELIVERY_TAGS[delivery]
             entry['alignment_expected_tag'] = tag
             normalized_text = first_text if first_text.endswith(' ') else first_text + ' '
             tagged_text = f'{tag} {normalized_text}' if tag else normalized_text
-            await self.socket.send_json({'context_id': context,
+            await self._provider_send({'context_id': context,
                 'inputs': [{'text': tagged_text, 'voice_id': self.voice_id}], 'flush': True})
             if not self._current(context, entry):
                 return None
@@ -168,7 +182,7 @@ class StreamingTTS:
                 'model':self.model_id,'voice_id':self.voice_id,'tag_name':tag[1:-1] if tag else None,
                 'named_emotion_guaranteed':False})
             return None
-        await self.socket.send_json({'context_id': context, 'text': ' ',
+        await self._provider_send({'context_id': context, 'text': ' ',
             'voice_settings': {'stability': DELIVERY_STABILITY[delivery], 'similarity_boost': .8, 'use_speaker_boost': False},
             'generation_config': {'chunk_length_schedule': [120, 160, 250, 290]}})
         if not self._current(context, entry):
@@ -198,7 +212,7 @@ class StreamingTTS:
                     text = f'{tag} {text}'
                     entry['alignment_tag_state'] = {}
                     entry['alignment_expected_tag'] = tag
-            await self.socket.send_json({'context_id':context,
+            await self._provider_send({'context_id':context,
                 'inputs':[{'text':text if text.endswith(' ') else text+' ','voice_id':self.voice_id}],
                 'flush':True})
         else:
@@ -206,7 +220,7 @@ class StreamingTTS:
                 await self._start_provider_context(context, entry, text)
             if not self._current(context, entry):
                 return
-            await self.socket.send_json({'context_id':context,'text':text if text.endswith(' ') else text+' ','flush':True})
+            await self._provider_send({'context_id':context,'text':text if text.endswith(' ') else text+' ','flush':True})
 
     async def text(self, delta):
         if self.muted or self.closed or not delta or self.active not in self.pending:
@@ -263,10 +277,10 @@ class StreamingTTS:
                 entry['buffer'] = ''
             if not self._current(context, entry):
                 return
-            await self.socket.send_json({'context_id': context, 'flush': True})
+            await self._provider_send({'context_id': context, 'flush': True})
             if not self._current(context, entry):
                 return
-            await self.socket.send_json({'context_id': context, 'close_context': True})
+            await self._provider_send({'context_id': context, 'close_context': True})
         except (aiohttp.ClientError, ConnectionError, RuntimeError) as error:
             if self._current(context, entry):
                 await self.fail(type(error).__name__)
@@ -302,12 +316,22 @@ class StreamingTTS:
             return
         encoded = message.get('audio')
         if encoded:
+            received = time.monotonic()
+            received_at = time.time()
             raw = base64.b64decode(encoded, validate=True)
             if len(raw) % 2:
                 raise ValueError('Incomplete TTS PCM sample')
             if entry['first_audio'] is None:
-                entry['first_audio'] = time.monotonic()
-            entry['last_send'] = time.monotonic()
+                entry['first_audio'] = received
+            previous_receive = entry['last_provider_audio']
+            provider_gap_ms = None if previous_receive is None else round((received-previous_receive)*1000, 3)
+            entry['last_provider_audio'] = received
+            entry['provider_chunks'] += 1
+            entry['last_send'] = received
+            transport = {'provider_chunk':entry['provider_chunks'], 'provider_received_at':received_at,
+                         'provider_gap_ms':provider_gap_ms}
+            self.diagnostic('tts_provider_audio', sequence=entry['seq'], epoch=entry['epoch'],
+                            turn_id=entry['turn_id'], bytes=len(raw), duration_ms=len(raw)/48, **transport)
             audio_offset=entry['bytes']/48000
             entry['bytes'] += len(raw)
             if entry['bytes'] > 48000*90:
@@ -327,7 +351,7 @@ class StreamingTTS:
                 captions = repaired
             if caption_source=='unavailable':entry['caption_alignment_complete']=False
             elif not entry['caption_alignment_complete']:caption_source+='_partial'
-            entry['chunks'].append((raw,cues,alignment_source,captions,caption_source))
+            entry['chunks'].append((raw,cues,alignment_source,captions,caption_source,received,transport))
         if message.get('isFinal') or message.get('is_final'):
             entry['done'] = True
             if entry['text'].strip() and not entry['bytes']:
@@ -343,11 +367,6 @@ class StreamingTTS:
             self.diagnostic('tts_complete', **metric)
             await self.emit({'type': 'latency', 'tts': metric})
         await self.drain()
-        if message.get('isFinal') or message.get('is_final'):
-            await self.emit({'type': 'caption_final', 'epoch': entry['epoch'],
-                             'seq': entry['seq'], 'turn_id': entry['turn_id'],
-                             'text': entry['text'].strip(),
-                             'source': 'reply_text_audio_end_fallback'})
 
     @staticmethod
     def _without_delivery_tag_alignment(message, entry=None):
@@ -449,21 +468,40 @@ class StreamingTTS:
                 if not entry['audible']:
                     break
                 while entry['chunks'] and epoch == self.epoch:
-                    raw,cues,alignment_source,captions,caption_source = entry['chunks'].popleft()
-                    # Bound browser messages while preserving every PCM sample.
-                    for i in range(0, len(raw), 4800):
+                    raw,cues,alignment_source,captions,caption_source,received,transport = entry['chunks'].popleft()
+                    # Batch only audio already received. Never wait for another
+                    # provider chunk, including for the first audio packet.
+                    for i in range(0, len(raw), PCM_PACKET_BYTES):
                         if epoch != self.epoch:
                             return
+                        began = time.monotonic()
+                        packet_transport = {**transport, 'provider_chunk_offset_ms':i/48,
+                            'emit_started_at':time.time(), 'receive_to_emit_ms':round((began-received)*1000,3)}
                         await self.emit({'type': 'audio', 'epoch': epoch, 'seq': entry['seq'],
                             'turn_id': entry['turn_id'],
-                            'sample_rate': 24000, 'pcm': base64.b64encode(raw[i:i+4800]).decode(),
-                            'mouth_cues': slice_cues(cues, i/48000, min(len(raw), i+4800)/48000),
-                            'caption_cues':slice_cues(captions,i/48000,min(len(raw),i+4800)/48000),
+                            'sample_rate': 24000, 'pcm': base64.b64encode(raw[i:i+PCM_PACKET_BYTES]).decode(),
+                            'mouth_cues': slice_cues(cues, i/48000, min(len(raw), i+PCM_PACKET_BYTES)/48000),
+                            'caption_cues':slice_cues(captions,i/48000,min(len(raw),i+PCM_PACKET_BYTES)/48000),
+                            'transport':packet_transport,
                             'caption_source':caption_source,
                             'alignment_source': alignment_source})
+                        completed = time.monotonic()
+                        previous_emit = entry['last_audio_emit']
+                        entry['last_audio_emit'] = completed
+                        self.diagnostic('tts_audio_emit', sequence=entry['seq'], epoch=epoch,
+                            turn_id=entry['turn_id'], **packet_transport,
+                            emit_completed_at=time.time(), emit_elapsed_ms=round((completed-began)*1000,3),
+                            emit_gap_ms=None if previous_emit is None else round((began-previous_emit)*1000,3))
                 if epoch != self.epoch or not entry['done']:
                     break
                 self.pending.pop(context, None)
+                # Completion belongs to the ordered playback stream. A final
+                # provider message can arrive while an earlier reply or release
+                # gate still prevents this context's PCM from being emitted.
+                await self.emit({'type': 'caption_final', 'epoch': entry['epoch'],
+                    'seq': entry['seq'], 'turn_id': entry['turn_id'],
+                    'text': entry['text'].strip(),
+                    'source': 'reply_text_audio_end_fallback'})
 
     async def release(self):
         if self.active in self.pending:
@@ -482,7 +520,7 @@ class StreamingTTS:
                 # Close contexts whose first provider send has started, including in-flight sends.
                 # The pending map is already cleared, so retain no audio or text.
                 try:
-                    await self.socket.send_json({'context_id': context, 'close_context': True})
+                    await self._provider_send({'context_id': context, 'close_context': True})
                 except (aiohttp.ClientError, ConnectionError, RuntimeError):
                     break
 
@@ -508,7 +546,7 @@ class StreamingTTS:
                     or entry['finished'] or now-max(entry['last_send'], entry['last_keepalive']) < 15):
                 continue
             try:
-                await self.socket.send_json({'context_id': context, 'keep_alive': True})
+                await self._provider_send({'context_id': context, 'keep_alive': True})
                 entry['last_keepalive'] = now
             except (aiohttp.ClientError, ConnectionError, RuntimeError):
                 if self._current(context, entry):
