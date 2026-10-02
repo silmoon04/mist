@@ -62,9 +62,12 @@ export class Playback {
     }
     for(const [sequence,final] of this.finalCaptions){
       const last=[...this.segments].reverse().find(s=>s.event.seq===sequence);
-      if(last && at>=last.end && this.captionSequence===sequence){
-        this.captionKey=`${this.epoch}:${sequence}`;this.captionSequence=sequence;this.captionTurnId=final.turn_id??this.captionTurnId;
-        this.caption=final.text;this.captionSource=final.source;this.finalCaptions.delete(sequence);
+      if(last && at>=last.end){
+        if(this.captionSequence===sequence){
+          this.captionKey=`${this.epoch}:${sequence}`;this.captionSequence=sequence;this.captionTurnId=final.turn_id??this.captionTurnId;
+          this.caption=final.text;this.captionSource=final.source;
+        }
+        this.finalCaptions.delete(sequence);
       }
     }
     if(previous!==`${this.captionKey}|${this.captionSource}|${this.caption}`){
@@ -84,7 +87,8 @@ export class Playback {
     this.face.stopSpeech();
   }
   completeCaption(event){
-    if(event.epoch!==this.epoch||!Number.isInteger(event.seq)||typeof event.text!=='string')return;
+    if(event.epoch!==this.epoch||!Number.isInteger(event.seq)||event.seq<0||typeof event.text!=='string')return;
+    if(event.seq!==this.captionSequence&&!this.segments.some(s=>s.event.seq===event.seq))return;
     this.finalCaptions.set(event.seq,{text:event.text,source:event.source||'reply_text_audio_end_fallback',turn_id:event.turn_id??null});
     if(!this.segments.some(s=>s.event.seq===event.seq)&&this.captionSequence===event.seq){
       this.caption=event.text;this.captionSource=event.source||'reply_text_audio_end_fallback';
@@ -112,7 +116,7 @@ export class Playback {
     if(this.segments.length)this.timer=setTimeout(()=>this.tick(),16);
   }
   append(event){
-    if(!Number.isInteger(event.epoch) || event.epoch<this.epoch)return;
+    if(!Number.isInteger(event.epoch) || event.epoch<this.epoch || !Number.isInteger(event.seq) || event.seq<0)return;
     if(event.epoch>this.epoch)this.reset(event.epoch);
     if(!Number.isFinite(event.sample_rate) || event.sample_rate<8000 || event.sample_rate>96000)throw Error('Invalid PCM sample rate');
     const binary=atob(event.pcm);if(binary.length%2)throw Error('Invalid PCM');

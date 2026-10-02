@@ -1,5 +1,5 @@
-import {Playback} from './playback.js?v=20261002-continuity3';
-import {SpeechStatus} from './speech_status.mjs?v=20261002-continuity3';
+import {Playback} from './playback.js?v=20261002-continuity4';
+import {SpeechStatus} from './speech_status.mjs?v=20261002-continuity4';
 import {replyExpression} from './delivery.js?v=20260922-expression-policy';
 import {ExpressionPolicy} from './expression_policy.js?v=20260929-listening-rest1';
 import {ActivityState} from './activity_state.js?v=20260924-sync1';
@@ -32,7 +32,7 @@ function renderBackgroundJobs(){
 let micSeq=0,micSignalTimer=null,lastMicDraw=0,storageState=null,latestSummary=null;
 const micSignal=new MicrophoneSignal();
 const signal=$('listening-signal');signal.hidden=true;
-const speechStatus=new SpeechStatus();let reportedPlaybackBusy=false,priorSpeechBusy=false;
+const speechStatus=new SpeechStatus();let reportedPlaybackBusy=false,priorSpeechBusy=false,stateRevision=0,speechStateRevision=0;
 function drawMicSignal(levels=micSignal.levels){
  const now=performance.now();if(now-lastMicDraw<1000/15)return;lastMicDraw=now;
  face.setListeningSignal?.({active:ready&&!fixtureMode,level:Math.max(...levels),samples:micSignal.samples});
@@ -73,7 +73,12 @@ if(config.speech_backend==='voice-changer'){$('backend-description').textContent
 function renderExpression(){
  const audible=player?.sample()?.active===true;
  let delivery=speechStatus.sample({audible,queued:player?.playing===true,paused:context?.state==='suspended'||context?.state==='interrupted',fallback:conversationState});
- if(priorSpeechBusy&&!delivery.busy){conversationState='listening';delivery=speechStatus.sample({fallback:conversationState});}
+ if(!priorSpeechBusy&&delivery.busy)speechStateRevision=stateRevision;
+ if(priorSpeechBusy&&!delivery.busy){
+   // A newer background activity still owns the idle face after prior speech ends.
+   if(stateRevision===speechStateRevision||conversationState==='speaking')conversationState='listening';
+   delivery=speechStatus.sample({fallback:conversationState});
+ }
  priorSpeechBusy=delivery.busy;
  if(ready){$('status').textContent=delivery.label;if(delivery.busy!==reportedPlaybackBusy){reportedPlaybackBusy=delivery.busy;send({type:'playback_state',playing:delivery.busy});}}
  // A held foreground status does not animate the mouth in silence.
@@ -126,7 +131,7 @@ function advanceSpeechFaces(){
  const sample=player?.sample();if(!sample?.active)return;
  speechFaces.progress({epoch:sample.epoch,turn_id:sample.turn_id,caption:sample.caption,active:true});
 }
-function state(value){conversationState=value;renderExpression();}
+function state(value){conversationState=value;stateRevision++;renderExpression();}
 renderExpression();setInterval(()=>{advanceSpeechFaces();renderExpression();},50);
 const scheduler=new VisiblePreviewScheduler();let picker=null,activityAssetsReady=false;
 function renderPreviewStatus(){
@@ -232,7 +237,7 @@ async function receive(event){
  else if(event.type==='listener_cue'){listenerCue?.play(event,{normalPlaying:player?.playing||false,enabled:ready&&$('listener-acks').checked&&!$('listener-acks').disabled});}
  else if(event.type==='audio'){
    const received=performance.now();listenerCue?.reset('assistant_speaking');player.append(event);
-   if(event.epoch===player.epoch&&player.segments.some(segment=>segment.event===event))speechStatus.audio(event);
+   if(event.epoch===player.epoch&&player.segments.some(segment=>segment.event===event)&&speechStatus.audio(event))speechStateRevision=stateRevision;
    renderExpression();
    trace({type:'audio_scheduled',phase:'received',epoch:event.epoch,sequence:event.seq,receive_client_ms:received,append_elapsed_ms:performance.now()-received,packet_ms:atob(event.pcm).length/(2*event.sample_rate)*1000,transport:event.transport||null});
  }
@@ -241,8 +246,11 @@ async function receive(event){
  else if(event.type==='audio_reset'){if(player&&event.epoch<player.epoch)return;player?.reset(event.epoch);speechStatus.reset(event.epoch);speechFaces.reset(event.epoch);expressionPolicy.interrupt();state('listening');send({type:'playback_state',playing:false});$('caption').textContent='';pendingCaption='';transcript.assistant='';}
  else if(event.type==='user_transcript'){renderUserTranscript(userTranscript.replace(event));}
  else if(event.type==='transcript_delta'){transcript[event.role]+=event.text;if(event.role==='user')renderUserTranscript(userTranscript.appendFallback(event.text));if(event.role==='assistant')pendingCaption=transcript.assistant;}
- else if(event.type==='transcript_done'){addTranscript(event.role,event.text);if(event.role==='user'&&userTranscript.snapshot().source!=='server')renderUserTranscript(userTranscript.finalizeFallback(event.text));transcript[event.role]='';if(event.role==='assistant'){
+ else if(event.type==='transcript_done'){
+   const silentReply=event.role==='assistant'&&!String(event.text||'').trim()&&!transcript.assistant.trim();
+   addTranscript(event.role,event.text);if(event.role==='user'&&userTranscript.snapshot().source!=='server')renderUserTranscript(userTranscript.finalizeFallback(event.text));transcript[event.role]='';if(event.role==='assistant'){
    pendingCaption=event.text;
+   if(silentReply&&conversationState==='thinking'&&!speechStatus.sample({audible:player?.sample()?.active===true,queued:player?.playing===true}).busy)state('listening');
  }}
  else if(event.type==='face_cue'){speechFaces.enqueue(event);advanceSpeechFaces();}
  else if(event.type==='face_visual_sequence'){speechFaces.startVisual(event);}

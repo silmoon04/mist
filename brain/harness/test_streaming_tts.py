@@ -18,17 +18,16 @@ class Socket:
     async def close(self):self.closed=True
 
 class Tests(unittest.IsolatedAsyncioTestCase):
-    async def test_saved_partial_alignment_uses_reply_words(self):
-        trace = Path(__file__).resolve().parents[1] / 'results' / 'v4-expressive-20261001' / 'live-smoke' / 'browser-gentle.json'
-        events = json.loads(trace.read_text(encoding='utf-8'))['events']
-        script = next(row['event']['text'].strip() for row in events
-                      if row['event'].get('type') == 'transcript_done' and row['event'].get('role') == 'assistant')
-        aligned = next(row['event']['text'] for row in reversed(events)
-                       if row['event'].get('type') == 'caption_progress' and row['event']['text'])
+    async def test_partial_alignment_uses_reply_words(self):
+        # Recover omitted interior words only once alignment reaches later audio.
+        script = 'Place the washer on the screw, then secure the bracket gently.'
+        aligned = 'Place washer screw, then secure bracket gently.'
         from duplex.lipsync import canonical_caption_progress
         caption, partial = canonical_caption_progress(aligned, script)
         self.assertEqual(caption, script)
         self.assertTrue(partial)
+        prefix = 'Place the washer on the screw, th'
+        self.assertEqual(canonical_caption_progress(prefix, script), (prefix, False))
 
     async def test_short_repeated_alignment_word_does_not_jump_to_late_phrase(self):
         from duplex.lipsync import canonical_caption_progress

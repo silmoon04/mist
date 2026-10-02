@@ -34,29 +34,66 @@ def fast_delivery_fallback(current_user: str, current_face: dict | None = None) 
     is accepted for API symmetry/manual-face awareness but never rewritten here.
     """
     text = current_user.casefold() if isinstance(current_user, str) else ''
-    # Negated delivery requests are constraints, not permission to perform them.
-    if re.search(r"\b(?:don't|do not|never|avoid)\b[^.!?;]{0,55}\b(?:cheerful(?:ly)?|bright|gentle|softly|warm(?:ly)?|serious(?:ly)?)\b",text):
-        return 'neutral'
-    if any(term in text for term in ('speak neutrally', 'neutral voice', 'flat voice', 'voice neutral')):
-        return 'neutral'
-    # Direct voice instructions take precedence over broad content cues.
-    if any(term in text for term in ('speak gently', 'be gentle', 'gentle voice', 'softly')):
-        return 'gentle'
-    if any(term in text for term in ('speak seriously', 'be serious', 'serious voice')):
-        return 'serious'
-    if any(term in text for term in ('speak warmly', 'be warm', 'warm voice')):
-        return 'warm'
-    if any(term in text for term in ('speak cheerfully', 'be cheerful', 'bright voice')):
-        return 'bright'
+    # Quoted examples are content, not instructions. Leave apostrophes alone so
+    # contractions such as "don't" remain available to the negation check.
+    text = re.sub(r'“[^”]*”|‘[^’]*’|"[^"\n]*"|«[^»]*»', ' ', text)
 
-    # Favor restrained empathy for clear distress or loss; never infer delight
-    # from ordinary positive words such as "good" or "thanks".
-    if any(term in text for term in ('i lost', 'we lost', 'passed away', 'died',
-                                     'i am grieving', "i'm grieving", 'i feel awful',
-                                     'i feel terrible', 'i am scared', "i'm scared",
-                                     'i am upset', "i'm upset", 'bad news')):
+    # Match voice directions only in request or imperative form. Keep the last
+    # affirmative direction so a clear correction in the same turn can replace
+    # an earlier one. Incidental mentions such as "the phrase speak gently" do
+    # not meet these forms.
+    tone_words = {
+        'neutral': r'neutral(?:ly)?|flat(?:ly)?',
+        'gentle': r'gentl(?:e|y)|soft(?:ly)?',
+        'serious': r'serious(?:ly)?',
+        'warm': r'warm(?:ly)?',
+        'bright': r'cheerful(?:ly)?|bright',
+    }
+    directives = []
+    for delivery, words in tone_words.items():
+        pattern = re.compile(
+            rf"(?:(?P<request>please|could you|can you|would you|will you|"
+            rf"i want you to|i'd like you to)\s+|(?P<imperative>^|[.!?;,]\s*|\b(?:then|but|instead)\s+)\s*)"
+            rf"(?:speak|talk|respond|answer|use|keep|be)\s+(?:in\s+)?(?:a\s+)?"
+            rf"(?:{words})(?:\s+(?:voice|tone))?\b"
+            rf"|(?:(?:please|could you|can you|would you|i want you to)\s+)?"
+            rf"(?:use|keep|have)\s+(?:a\s+)?(?:{words})\s+(?:voice|tone)\b"
+            rf"|\b(?:i prefer|i'd prefer|i would prefer)\s+(?:a\s+)?(?:{words})\s+(?:voice|tone)\b"
+            rf"|\b(?:keep|make|have)\s+your\s+(?:voice|tone)\s+(?:{words})\b")
+        for match in pattern.finditer(text):
+            prefix = text[max(0, match.start() - 32):match.start()]
+            if re.search(r"\b(?:don't|do not|never|avoid)\b(?:\s+\w+){0,5}\s*$", prefix):
+                continue
+            directives.append((match.start(), delivery))
+
+    if directives:
+        return max(directives)[1]
+    # A turn that only rejects expressive directions asks for restraint.
+    if re.search(r"\b(?:don't|do not|never|avoid)(?:\s+(?:want|need|ask)(?:\s+you)?\s+to)?\s+(?:speak(?:ing)?|talk(?:ing)?|use|be|sound)\b[^.!?;]{0,45}\b(?:cheerful(?:ly)?|bright|gentle|softly|warm(?:ly)?|serious(?:ly)?)\b", text):
+        return 'neutral'
+
+    # Require contextual evidence of personal loss; the words "I/we lost"
+    # also occur in ordinary descriptions of games and misplaced files.
+    grief = re.search(
+        r"\b(?:i am|i'm|we are|we're) grieving\b|"
+        r"\b(?:my|our)\s+(?:mother|mom|father|dad|parent|sister|brother|"
+        r"partner|spouse|wife|husband|child|son|daughter|friend|dog|cat)\s+"
+        r"(?:died|passed away)\b|\b(?:i|we)\s+lost\s+(?:my|our)\s+"
+        r"(?:mother|mom|father|dad|parent|sister|brother|partner|spouse|"
+        r"wife|husband|child|son|daughter|friend|dog|cat)\b|"
+        r"\b(?:someone|a loved one|a close friend)\s+"
+        r"(?:died|passed away)\b|\b(?:i feel|i'm|i am)\s+(?:awful|terrible|scared|upset)\b",
+        text)
+    if grief:
         return 'gentle'
-    if any(term in text for term in ('urgent', 'emergency', 'someone is hurt', 'danger')):
+
+    urgency = re.search(
+        r"\b(?:emergency|in danger|someone is hurt|someone got hurt|"
+        r"call emergency services|need help now)\b|"
+        r"\b(?:this|it|the situation|the issue|the matter)\s+(?:is|feels|seems)\s+urgent\b|"
+        r"\b(?:we|i) need (?:urgent help|help urgently)\b",
+        text)
+    if urgency:
         return 'serious'
     # Warmth is a subtle conversational baseline, not a claim of happiness.
     return 'warm'

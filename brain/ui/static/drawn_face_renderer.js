@@ -555,13 +555,32 @@
       }
       const rawProgress=transition?(sampledTime-transition.at)/transition.duration:1;
       const progress=rawProgress>=1-1e-8?1:clamp(rawProgress,0,1);
+      const eyeBounds=visuals.filter(view=>view.role.startsWith('eye')&&view.opacity>.001).map(view=>{
+        if(view.kind==='eye_bridge')return {role:view.role,left:view.x-view.width/2-1.6,right:view.x+view.width/2+1.6,top:view.y-1.6,bottom:view.y+1.6};
+        const layer=rigs.get(view.rigId).layers.find(item=>item.role===view.role),box=bounds(layer.points,layer.mode==='stroke'?layer.width/2:0),center=layerCenter(layer);
+        return {role:view.role,left:box.x+view.x-center[0],right:box.x+box.w+view.x-center[0],top:box.y+view.y-center[1],bottom:box.y+box.h+view.y-center[1]};
+      });
+      for(const placement of placements){
+        if(!placement.role.startsWith('eye')||placement.opacity<=.001||!placement.offset)continue;
+        const eye=eyeBounds.find(item=>item.role===placement.role);if(!eye)continue;
+        let box;
+        if(placement.layer)box=bounds(placement.layer.points,placement.layer.mode==='stroke'?placement.layer.width/2:0);
+        else{
+          const frame=atlas.assets[placement.id].frames[placement.frame],ink=frame.inkBounds||frame;
+          const cx=frame.cx??frame.x+frame.w/2,cy=frame.cy??frame.y+frame.h/2,c=Math.cos(placement.rotation),s=Math.sin(placement.rotation),points=[];
+          for(const x of [ink.x,ink.x+ink.w])for(const y of [ink.y,ink.y+ink.h]){
+            const u=((x-cx)*(frame.sourceScale??1)-placement.offset.x)*placement.scale*(placement.mirror??1);
+            const v=((y-cy)*(frame.sourceScale??1)-placement.offset.y)*placement.scale;
+            points.push([placement.x+c*u-s*v,placement.y+s*u+c*v]);
+          }
+          box=bounds(points);
+        }
+        // Blink cels can extend beyond the resting contour; retain the eye-line height while widening its gap.
+        eye.left=Math.min(eye.left,box.x);eye.right=Math.max(eye.right,box.x+box.w);
+      }
       return {...state,renderer:loaded?'drawn':'original',drawnReady:loaded,drawnError:error?.message||null,
         drawnPlacements:placements,drawnLayers:layers,drawnVisuals:visuals,drawnRig:current,drawnBlinkAge:age,drawnGaze:overrides.gaze||null,
-        drawnEyeBounds:visuals.filter(view=>view.role.startsWith('eye')&&view.opacity>.001).map(view=>{
-          if(view.kind==='eye_bridge')return {role:view.role,left:view.x-view.width/2-1.6,right:view.x+view.width/2+1.6,top:view.y-1.6,bottom:view.y+1.6};
-          const layer=rigs.get(view.rigId).layers.find(item=>item.role===view.role),box=bounds(layer.points,layer.mode==='stroke'?layer.width/2:0),center=layerCenter(layer);
-          return {role:view.role,left:box.x+view.x-center[0],right:box.x+box.w+view.x-center[0],top:box.y+view.y-center[1],bottom:box.y+box.h+view.y-center[1]};
-        }),
+        drawnEyeBounds:eyeBounds,
         drawnAnimation:{fps,frameMs,index:animationFrame(time),time:sampledTime},
         drawnMouthFamily:{assigned:mouthAssetForFace(current,atlas),active:family||mouthAssetForFace(current,atlas),pending:!!family&&family!==mouthAssetForFace(current,atlas),pendingMs:pendingSpeechFamily?Math.max(0,time-pendingSpeechFamily.since):0,switchReason:familySwitchReason,switchPolicy:'cue-boundary-or-400ms'},
         drawnTransition:{target:current,progress,active:progress<1,durationMs:transition?.duration??0,phase:progress>=1?'rest':progress<(transition?.closeUntil??.25)?'closing':progress<.65?'moving':'opening'},
@@ -644,8 +663,8 @@
       const mouth=state.speaking?(state.viseme||'rest'):'rest';
       const closeNow=(mouth==='rest'||mouth==='MBP')&&prior?.mouth!==mouth;
       const inspector=JSON.stringify([overrides.blinkFrame??null,overrides.mouthFrame??null,overrides.rasterEyes??false,options.eyeLayer?.revision??0]);
-      if(force||!prior||prior.index!==index||prior.revision!==renderRevision||prior.inspector!==inspector||closeNow) {
-        draw(state);paintHistory.set(canvas,{index,mouth,revision:renderRevision,inspector});return true;
+      if(force||!prior||prior.width!==canvas.width||prior.height!==canvas.height||prior.index!==index||prior.revision!==renderRevision||prior.inspector!==inspector||closeNow) {
+        draw(state);paintHistory.set(canvas,{index,mouth,revision:renderRevision,inspector,width:canvas.width,height:canvas.height});return true;
       }
       return false;
     }
