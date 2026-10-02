@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "status": "online",
-  "api_origin": "https://terrace-external-ambassador-terms.trycloudflare.com",
-  "updated_at": "2026-10-02T12:08:17Z",
-  "last_seen_at": "2026-10-02T12:08:17Z"
+  "status": "offline",
+  "api_origin": null,
+  "updated_at": "2026-10-02T12:26:14Z",
+  "last_seen_at": "2026-10-02T12:23:53Z"
 }
