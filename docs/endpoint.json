@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "status": "online",
-  "api_origin": "https://wal-personality-factor-gourmet.trycloudflare.com",
-  "updated_at": "2026-10-20T22:19:18Z",
-  "last_seen_at": "2026-10-20T22:19:18Z"
+  "status": "offline",
+  "api_origin": null,
+  "updated_at": "2026-10-21T09:00:33Z",
+  "last_seen_at": null
 }
