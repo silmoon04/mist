@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "status": "online",
-  "api_origin": "https://myth-theta-clara-representative.trycloudflare.com",
-  "updated_at": "2026-10-26T21:17:31Z",
-  "last_seen_at": "2026-10-26T21:17:31Z"
+  "status": "offline",
+  "api_origin": null,
+  "updated_at": "2026-10-28T00:20:25Z",
+  "last_seen_at": null
 }
