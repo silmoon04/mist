@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "status": "offline",
-  "api_origin": null,
-  "updated_at": "2026-10-29T10:10:49Z",
-  "last_seen_at": null
+  "status": "online",
+  "api_origin": "https://here-loves-daisy-dev.trycloudflare.com",
+  "updated_at": "2026-10-29T10:12:03Z",
+  "last_seen_at": "2026-10-29T10:12:03Z"
 }
