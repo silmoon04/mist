@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "status": "online",
-  "api_origin": "https://publisher-galleries-firewire-retailers.trycloudflare.com",
-  "updated_at": "2026-10-30T01:57:54Z",
-  "last_seen_at": "2026-10-30T01:57:54Z"
+  "status": "offline",
+  "api_origin": null,
+  "updated_at": "2026-10-30T02:05:46Z",
+  "last_seen_at": "2026-10-30T02:05:31Z"
 }
