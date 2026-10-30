@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "status": "online",
-  "api_origin": "https://compaq-continuously-therapy-losses.trycloudflare.com",
-  "updated_at": "2026-10-30T02:06:55Z",
-  "last_seen_at": "2026-10-30T02:06:55Z"
+  "status": "offline",
+  "api_origin": null,
+  "updated_at": "2026-10-30T02:08:27Z",
+  "last_seen_at": "2026-10-30T02:08:12Z"
 }
