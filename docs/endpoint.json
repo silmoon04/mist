@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "status": "online",
-  "api_origin": "https://belts-livestock-physics-them.trycloudflare.com",
-  "updated_at": "2026-10-31T06:01:21Z",
-  "last_seen_at": "2026-10-31T06:01:21Z"
+  "status": "offline",
+  "api_origin": null,
+  "updated_at": "2026-10-31T08:17:24Z",
+  "last_seen_at": "2026-10-31T08:17:09Z"
 }
