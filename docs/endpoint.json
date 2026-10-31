@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "status": "offline",
-  "api_origin": null,
-  "updated_at": "2026-10-31T08:39:55Z",
-  "last_seen_at": "2026-10-31T08:39:40Z"
+  "status": "online",
+  "api_origin": "https://refresh-layer-decisions-designers.trycloudflare.com",
+  "updated_at": "2026-10-31T08:40:11Z",
+  "last_seen_at": "2026-10-31T08:40:11Z"
 }
