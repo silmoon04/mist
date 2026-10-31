@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "status": "offline",
-  "api_origin": null,
-  "updated_at": "2026-10-31T08:17:24Z",
-  "last_seen_at": "2026-10-31T08:17:09Z"
+  "status": "online",
+  "api_origin": "https://orange-prices-riders-hybrid.trycloudflare.com",
+  "updated_at": "2026-10-31T08:18:35Z",
+  "last_seen_at": "2026-10-31T08:18:35Z"
 }
