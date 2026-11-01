@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "status": "offline",
-  "api_origin": null,
-  "updated_at": "2026-11-01T16:18:28Z",
-  "last_seen_at": "2026-11-01T16:18:13Z"
+  "status": "online",
+  "api_origin": "https://standards-lightning-innovative-cloth.trycloudflare.com",
+  "updated_at": "2026-11-01T16:19:42Z",
+  "last_seen_at": "2026-11-01T16:19:42Z"
 }
