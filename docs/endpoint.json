@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "status": "online",
-  "api_origin": "https://ignored-creatures-housing-advanced.trycloudflare.com",
-  "updated_at": "2026-11-01T13:09:01Z",
-  "last_seen_at": "2026-11-01T13:09:01Z"
+  "status": "offline",
+  "api_origin": null,
+  "updated_at": "2026-11-01T16:18:28Z",
+  "last_seen_at": "2026-11-01T16:18:13Z"
 }
