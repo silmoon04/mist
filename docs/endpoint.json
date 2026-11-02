@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "status": "offline",
-  "api_origin": null,
-  "updated_at": "2026-11-02T17:56:47Z",
-  "last_seen_at": "2026-11-02T17:56:32Z"
+  "status": "online",
+  "api_origin": "https://device-jack-rate-utilize.trycloudflare.com",
+  "updated_at": "2026-11-02T17:58:02Z",
+  "last_seen_at": "2026-11-02T17:58:02Z"
 }
