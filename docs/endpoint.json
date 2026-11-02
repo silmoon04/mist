@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "status": "online",
-  "api_origin": "https://labeled-dan-attract-plenty.trycloudflare.com",
-  "updated_at": "2026-11-01T17:08:31Z",
-  "last_seen_at": "2026-11-01T17:08:31Z"
+  "status": "offline",
+  "api_origin": null,
+  "updated_at": "2026-11-02T17:53:58Z",
+  "last_seen_at": "2026-11-02T17:53:43Z"
 }
