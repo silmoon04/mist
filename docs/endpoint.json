@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "status": "online",
-  "api_origin": "https://cas-russia-carol-flood.trycloudflare.com",
-  "updated_at": "2026-11-03T03:43:15Z",
-  "last_seen_at": "2026-11-03T03:43:15Z"
+  "status": "offline",
+  "api_origin": null,
+  "updated_at": "2026-11-03T04:03:06Z",
+  "last_seen_at": null
 }
