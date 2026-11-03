@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "status": "online",
-  "api_origin": "https://klein-world-chairman-amongst.trycloudflare.com",
-  "updated_at": "2026-11-02T18:01:53Z",
-  "last_seen_at": "2026-11-02T18:01:53Z"
+  "status": "offline",
+  "api_origin": null,
+  "updated_at": "2026-11-03T02:18:59Z",
+  "last_seen_at": null
 }
