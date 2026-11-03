@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "status": "online",
-  "api_origin": "https://domains-asks-respondent-rosa.trycloudflare.com",
-  "updated_at": "2026-11-03T03:07:24Z",
-  "last_seen_at": "2026-11-03T03:07:24Z"
+  "status": "offline",
+  "api_origin": null,
+  "updated_at": "2026-11-03T03:30:21Z",
+  "last_seen_at": null
 }
