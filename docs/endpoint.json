@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "status": "offline",
-  "api_origin": null,
-  "updated_at": "2026-11-03T02:18:59Z",
-  "last_seen_at": null
+  "status": "online",
+  "api_origin": "https://eastern-ones-specials-have.trycloudflare.com",
+  "updated_at": "2026-11-03T02:19:25Z",
+  "last_seen_at": "2026-11-03T02:19:25Z"
 }
