@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "status": "online",
-  "api_origin": "https://mistakes-pubmed-tales-agent.trycloudflare.com",
-  "updated_at": "2026-11-04T16:42:04Z",
-  "last_seen_at": "2026-11-04T16:42:04Z"
+  "status": "offline",
+  "api_origin": null,
+  "updated_at": "2026-11-06T11:07:09Z",
+  "last_seen_at": null
 }
