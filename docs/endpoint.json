@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "status": "online",
-  "api_origin": "https://grammar-klein-currencies-lens.trycloudflare.com",
-  "updated_at": "2026-11-07T12:56:56Z",
-  "last_seen_at": "2026-11-07T12:56:56Z"
+  "status": "offline",
+  "api_origin": null,
+  "updated_at": "2026-11-07T13:01:51Z",
+  "last_seen_at": null
 }
