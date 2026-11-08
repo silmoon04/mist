@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "status": "offline",
-  "api_origin": null,
-  "updated_at": "2026-11-08T00:58:22Z",
-  "last_seen_at": "2026-11-08T00:58:19Z"
+  "status": "online",
+  "api_origin": "https://apartments-exceptions-computational-shades.trycloudflare.com",
+  "updated_at": "2026-11-08T00:59:40Z",
+  "last_seen_at": "2026-11-08T00:59:40Z"
 }
