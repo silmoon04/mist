@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "status": "online",
-  "api_origin": "https://substantial-carey-shipment-experiment.trycloudflare.com",
-  "updated_at": "2026-11-11T17:37:34Z",
-  "last_seen_at": "2026-11-11T17:37:34Z"
+  "status": "offline",
+  "api_origin": null,
+  "updated_at": "2026-11-12T11:54:15Z",
+  "last_seen_at": null
 }
