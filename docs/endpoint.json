@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "status": "online",
-  "api_origin": "https://suzuki-gst-new-players.trycloudflare.com",
-  "updated_at": "2026-11-12T20:51:07Z",
-  "last_seen_at": "2026-11-12T20:51:07Z"
+  "status": "offline",
+  "api_origin": null,
+  "updated_at": "2026-11-13T10:56:54Z",
+  "last_seen_at": null
 }
