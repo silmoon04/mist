@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "status": "offline",
-  "api_origin": null,
-  "updated_at": "2026-11-14T23:27:49Z",
-  "last_seen_at": "2026-11-14T23:27:49Z"
+  "status": "online",
+  "api_origin": "https://alpha-goes-deposits-consequences.trycloudflare.com",
+  "updated_at": "2026-11-14T23:28:59Z",
+  "last_seen_at": "2026-11-14T23:28:59Z"
 }
