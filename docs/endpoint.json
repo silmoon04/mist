@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "status": "online",
-  "api_origin": "https://quoted-surgeon-outline-vancouver.trycloudflare.com",
-  "updated_at": "2026-11-18T00:55:40Z",
-  "last_seen_at": "2026-11-18T00:55:40Z"
+  "status": "offline",
+  "api_origin": null,
+  "updated_at": "2026-11-18T15:52:05Z",
+  "last_seen_at": null
 }
