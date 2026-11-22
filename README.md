@@ -1,99 +1,56 @@
-# MIST voice app
+<p align="center">
+  <img src="docs/readme/hero.gif" width="880" alt="MIST's animated face says hello, then turns happy, curious, surprised, smug, in love, suspicious, mischievous and sleepy, then shows thinking, reading and writing.">
+</p>
 
-Open the public entry page at **https://silmoon04.github.io/mist/**. Live voice
-requires the paired laptop to be online, awake, and running the private host;
-the page shows when that host is available. Keep its pairing code private and
-enter it only on the live MIST page.
+<h1 align="center">MIST</h1>
 
-This repository contains the MIST browser voice service and its face assets. It
-does not include CAD models, study results, saved conversations, credentials, or
-generated listener cue caches. The single robot assembly manifest is used for a
-preview-only geometry identifier; this app does not actuate hardware.
+<p align="center">A voice companion with a face.</p>
 
-Use Python 3.12. Install dependencies with `python -m pip install -r
-requirements.txt`. Set the private environment variables listed in
-`.env.example` on the service host. Start locally with `python
-brain/duplex/live_studio.py --port 9053`. For remote access, terminate HTTPS at
-a reverse proxy and pass `--remote-origin https://your-domain.example` plus a
-private `--run-dir` outside the repository. The app writes runtime
-state and conversation traces beneath `brain/results/` by default, which is
-ignored by Git. Supply a persistent private run directory when deploying.
+<p align="center">
+  <a href="https://silmoon04.github.io/mist/">Live page</a>
+  &nbsp;·&nbsp;
+  <a href="https://github.com/silmoon04/mist-robot">Robot body</a>
+</p>
 
-The Cerebras architectures need Cerebras, Deepgram, and ElevenLabs keys. The
-Codex choices additionally require a signed-in Codex CLI on the service host;
-they are optional and may be unavailable on ordinary cloud hosts. The service
-can launch without provider keys, but those architectures will be unavailable.
+## Faces
 
-The default **Qwen · memory + Flux** uses Flux for recognition, Qwen for replies,
-a separate Qwen expression reader, and the MIST voice. A second background Qwen
-client makes a short, sourced digest every four user turns. Replies also receive
-recent verbatim turns and local retrieval, so a slow or failed digest does not
-block a reply. Difficult tool work can run on a separate Codex Luna worker when
-the host has a signed-in Codex CLI. Earlier architectures remain available for
-comparison.
+<p align="center">
+  <img src="docs/readme/faces.gif" width="880" alt="Twelve of MIST's 40 faces, blinking and talking: happy, curious, surprised, love, smug, mischief, proud, suspicious, angry, sad, sleepy and embarrassed.">
+</p>
 
-The experimental **Qwen · expressive MIST** choice uses Eleven v4 Turbo with the
-same cloned voice. The expression reader can choose a delivery style before
-the first phrase is submitted. Late suggestions do not restart speech. Some
-v4 packets lack character timings; those packets use audio energy for mouth
-movement. The default retains Flash and its more complete character alignment.
-**Qwen · more time to continue** waits 800 ms after a complete endpoint instead
-of the default 350 ms. This reduces some premature replies and adds that wait
-to genuine turn endings.
+## How it works
 
-Background web research uses a separate Luna worker, with at most two jobs at
-once. The task list shows the question, progress, duration, and cancellation.
-Results from an earlier conversational context remain readable but do not
-automatically interrupt the current topic.
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="docs/readme/how-dark.png">
+    <source media="(prefers-color-scheme: light)" srcset="docs/readme/how-light.png">
+    <img src="docs/readme/how-light.png" width="880" alt="Sketch of one turn. You talk; Deepgram Flux hears; Qwen 3.8 on Cerebras thinks; ElevenLabs Flash speaks; the face shows it. You can interrupt at any time. Meanwhile, three helpers run beside the thinking step: a Qwen that picks the face, a Qwen that keeps notes, and Luna, through Codex, that researches.">
+  </picture>
+</p>
 
-The face view's **Animations** button opens a local preview of all 40 faces and
-nine activity motions. Choose either or both, then use **Return to live** to
-resume automatic choices. This works without starting voice after pairing on
-the hosted page. During a conversation, playback still drives the mouth.
-Preview choices send no tool command and do not change the conversation state.
+## Tools
 
-New sessions are saved on the service host, including sessions started from a
-remote phone. The private run directory contains `sessions.sqlite3` for turns,
-events, notes, preferences, and versioned summaries, plus `sessions/<id>/mic.wav`
-and `assistant_generated.wav` for audio. The microphone file contains the PCM
-received by the host; the generated voice file includes speech that may have
-been interrupted before playback. Chunk metadata preserves timing and sequence
-information. Neither file proves what a person heard. Recordings remain local
-to the host, while recognition and voice generation still use their configured
-providers. No automatic recording deletion is configured.
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="docs/readme/tools-dark.png">
+    <source media="(prefers-color-scheme: light)" srcset="docs/readme/tools-light.png">
+    <img src="docs/readme/tools-light.png" width="880" alt="Sketch of MIST's ten tools. Face: set_expression. Memory: remember, recall. Senses: get_sensor_snapshot. Body, previews only with no motors yet: preview_motion, pan_phone, stop_robot. Background work: start_background_task, background_task_status, cancel_background_task.">
+  </picture>
+</p>
 
-In the trial page, **Saved on this host** shows the selected session's notes and
-audio without an export step. **Speech feedback** keeps verbatim speech central
-to the digest rather than smoothing out wording. The original final transcript
-and recording are retained in both modes; ASR errors may still need checking
-against the audio. Explicitly saved preferences carry into new conversations;
-other past-session material can be searched with the recall tool.
+The face shows what MIST is busy with.
 
-The checked-in smoke fixture is one synthetic Deepgram Aura2 Thalia audio case,
-with its source and WAV hashes in `brain/deploy/fixtures/manifest.json`. It is
-not a human recording. The remote protocol smoke runner is opt-in: see
-`brain/deploy/LAPTOP_HOST.md`; its received audio and transcripts belong in a
-private output directory. It checks the remote app and audio protocol with
-synthetic input; it does not verify a real microphone, speaker, or robot.
+<p align="center">
+  <img src="docs/readme/activities.gif" width="880" alt="Eight small animations beside MIST's face: searching, reading files, writing code, writing, planning, calculating, connecting and checking results.">
+</p>
 
-Run the packaged offline checks with `python -B -m
-brain.harness.test_live_studio_remote`, `python -B
-brain/harness/test_live_studio.py`, `python -B
-brain/harness/test_laptop_host.py`, and `python -B
-brain/deploy/test_remote_e2e_helpers.py`.
+## Run it
 
-For the full offline regression gate, install Node 24 or later, run `npm install`,
-then `python -B brain/benchmarks/naturalness/quality_gate_20260929.py`.
-This runs control-flow, memory, streaming-protocol, turn-gap, and animation tests
-without provider requests. It does not grade audible quality or naturalness.
-The frozen conversation set and live voice runner are in
-`brain/benchmarks/naturalness/`; their provider runs are opt-in and keep results
-under the ignored local results directory.
+```sh
+python -m pip install -r requirements.txt    # Python 3.12
+python brain/duplex/live_studio.py --port 9053
+```
 
-Build a fresh release from the private workspace with `python
-brain/deploy/build_release.py`. The script copies an explicit source list and
-only PNG files referenced by the face manifests. Review `release-manifest.json`
-before publishing. It lists paths, sizes, and hashes without secret values. Static
-text is staged with LF line endings and `.gitattributes` keeps those bytes stable
-in fresh Git clones. The supervisor updates `docs/endpoint.json` as tunnel
-status changes; that dynamic file is intentionally excluded from static hashes.
+Open `http://127.0.0.1:9053`. The faces need no keys. To talk, set the keys named in [`.env.example`](.env.example).
+
+Hosting, saved data and tests are in the [guide](brain/deploy/GUIDE.md).

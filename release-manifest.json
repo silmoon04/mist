@@ -17,8 +17,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 6110,
-      "sha256": "176e437aad744b1d9b668a04dcccc8b2a121106a5d5a7541f81319dd2b4551cf"
+      "bytes": 2498,
+      "sha256": "34e9b1ad6016a7a508a1bbac197446e1591ca2acaaef3d6cdd6d67e3e35e821d"
     },
     {
       "path": "brain/art_direction/artist_studio_20260916/reuse/drawn/atlas.json",
@@ -746,6 +746,11 @@
       "sha256": "1f1b9e6d43b909ab4525bcabd39cc0deae4d3b59746b5e40957c1c1eaee886fd"
     },
     {
+      "path": "brain/deploy/GUIDE.md",
+      "bytes": 6335,
+      "sha256": "70afb3a874933f2957cb716d0fbd34c99ad10b7625ed62c9c9d45ef56f08459a"
+    },
+    {
       "path": "brain/deploy/LAPTOP_HOST.md",
       "bytes": 3638,
       "sha256": "7548628e63db07ee575e033d5fcf5128537d403a0436d67b4f3ce63b482ca525"
@@ -1391,6 +1396,41 @@
       "sha256": "4036467fc92c853b8a49c5a7de0ea398a87da211196b8d74152e742735ccd87a"
     },
     {
+      "path": "docs/readme/activities.gif",
+      "bytes": 124531,
+      "sha256": "5f5551e8f4961ab343f4c55af3a641848795bc388cda2667c44ec2d0972e46bb"
+    },
+    {
+      "path": "docs/readme/faces.gif",
+      "bytes": 191371,
+      "sha256": "0f560b624ed02cc71e5ee3e6111d04dd9df90344b86ac2a4967f1971f0c0a55f"
+    },
+    {
+      "path": "docs/readme/hero.gif",
+      "bytes": 414314,
+      "sha256": "fbb619af90f43b8182761b23d8af77c1346194ec96d0da3fed5acc614df8324d"
+    },
+    {
+      "path": "docs/readme/how-dark.png",
+      "bytes": 200870,
+      "sha256": "12e5b7ddd668dc0d4db4a902ad57943bfd5616cfb1e4bad1d683a770538ad382"
+    },
+    {
+      "path": "docs/readme/how-light.png",
+      "bytes": 203811,
+      "sha256": "b971a5c303ba9def584ecbcee83cddfdc3dd2c3e7e17277c0c1ae6a45c215d69"
+    },
+    {
+      "path": "docs/readme/tools-dark.png",
+      "bytes": 203876,
+      "sha256": "42fb1ce30655ae3d16e9e506882925e249ca5cd8bdb0760eb9db0f737460f3de"
+    },
+    {
+      "path": "docs/readme/tools-light.png",
+      "bytes": 206073,
+      "sha256": "33ca0bcf0130e9d4dd3916a73c99011c54408e81a613680eb08b8b0ab097b78e"
+    },
+    {
       "path": "docs/style.css",
       "bytes": 1579,
       "sha256": "4ec82a8b79620675a35f34aead0aa9aef91fb0ff42a053ab721ba10e1af13515"
@@ -1411,8 +1451,8 @@
       "sha256": "64fa68318ab3f91abe89919c90007c36625148e92d7d133a8ecb3d25d3385d1c"
     }
   ],
-  "file_count": 282,
-  "total_bytes": 13754822,
+  "file_count": 290,
+  "total_bytes": 15302391,
   "mutable_files": [
     "docs/endpoint.json"
   ],
