@@ -17,8 +17,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 2498,
-      "sha256": "34e9b1ad6016a7a508a1bbac197446e1591ca2acaaef3d6cdd6d67e3e35e821d"
+      "bytes": 3885,
+      "sha256": "a12017929070fcd3133aeeb286756a72d2f335c0950743080c5e393e7c1842db"
     },
     {
       "path": "brain/art_direction/artist_studio_20260916/reuse/drawn/atlas.json",
@@ -1452,7 +1452,7 @@
     }
   ],
   "file_count": 290,
-  "total_bytes": 15302391,
+  "total_bytes": 15303778,
   "mutable_files": [
     "docs/endpoint.json"
   ],
