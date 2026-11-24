@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "status": "online",
-  "api_origin": "https://accomplished-discussions-ran-placed.trycloudflare.com",
-  "updated_at": "2026-11-23T22:51:27Z",
-  "last_seen_at": "2026-11-23T22:51:27Z"
+  "status": "offline",
+  "api_origin": null,
+  "updated_at": "2026-11-24T00:13:12Z",
+  "last_seen_at": "2026-11-24T00:13:04Z"
 }
