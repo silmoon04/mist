@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "status": "online",
-  "api_origin": "https://desktop-facial-realtors-carroll.trycloudflare.com",
-  "updated_at": "2026-11-26T17:49:40Z",
-  "last_seen_at": "2026-11-26T17:49:40Z"
+  "status": "offline",
+  "api_origin": null,
+  "updated_at": "2026-11-26T18:32:09Z",
+  "last_seen_at": null
 }
